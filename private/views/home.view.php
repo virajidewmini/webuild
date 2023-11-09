@@ -1,5 +1,6 @@
 <?php $this->view('includes/header')?>
 
+
      <h1>Hello Home</h1>
      
 
