@@ -4,7 +4,7 @@
     class Coordinatordashboard extends Controller{
         
         public function index(){
-            echo $this->view('coordinatordashboard');
+            $this->view('coordinatordashboard');
         }
 
     }

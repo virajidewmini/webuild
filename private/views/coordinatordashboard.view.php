@@ -7,10 +7,10 @@
     <title>Home</title>
 </head>
 <body> -->
-<?php require ROOT.'../private/views/components/header.php'; ?> 
+<?php require '../private/views/components/header.view.php'; ?> 
 
     <p class="pclass"> coordinator</p>
 <!-- </body>
 </html> -->
 
-<?php require ROOT.'../private/views/components/footer.php'; ?> 
+<?php require '../private/views/components/footer.view.php'; ?> 
