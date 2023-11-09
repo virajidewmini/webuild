@@ -4,7 +4,11 @@
     class Home extends Controller{
 
         public function index(){
-            $this->view('home');
+            $db = new Database();
+            
+            $data = $db->query("select * from test");
+            echo $data;
+            $this->view('home',['rows'=> $data]);
         }
 
     }
