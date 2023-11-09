@@ -1,1 +1,10 @@
 /* Main style css file */
+/* home page */
+h1{
+    color: rgb(108, 9, 9);
+}
+
+/* coordinatordashboard */
+.pclass{
+    color: brown;
+}
