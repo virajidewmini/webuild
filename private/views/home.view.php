@@ -1,5 +1,7 @@
-<?php require '../private/views/components/header.php'; ?>
+<?php $this->view('includes/header')?>
 
-    <h1>This is home</h1>
+     <h1>Hello Home</h1>
+     
 
-<?php require '../private/views/components/footer.php'; ?>
+<?php $this->view('includes/footer'); ?>
+

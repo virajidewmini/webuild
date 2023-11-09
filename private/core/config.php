@@ -1,5 +1,5 @@
 <?php
-    define ('ROOT','localhost/WEBUILD/public');
+    define ('ROOT','localhost/webuild/public');
     define('SITENAME', 'webuild');
 
 ?>
