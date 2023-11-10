@@ -14,6 +14,10 @@
 
     <!--css file-->
     <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
+
+    <!-- signup css -->
+    <link rel="stylesheet" href="<?=ROOT?>/css/signup.css" />
+
   </head>
   <body>
     <section class="sidebar">
