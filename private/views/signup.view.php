@@ -1,56 +1,62 @@
-<?php $this->view('includes/header')?>
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>WEBUILD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?PHP echo ROOT;?>/css/signup.css">
+</head>
 
-     <div style="width:100% ; max-width:310px;">
+<body>
+  <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/back.jpg'); ">
+    <div class="inner">
+      <div class="image-holder">
+        <img src="<?PHP echo ROOT;?>/img/signup.png" alt="image" class="left-pic">
+      </div>
+      <form action="">
+        <h3>Create Account</h3>
 
-        <div class ="form-wrapper">
-            <div class="inner">
-                <div class="s_image-holder">
-                    <img src="<?=ROOT?>/img/signup.webp" alt="jjjjjjjjjj">
-                </div>
-                    <h2 class="text-center">WEBUILD</h2>
-                    <img src="<?=ROOT?>/img/webuildlogo.jpeg" alt="">
-                <form action="">
-                    <h3>Create Account</h3>
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="" placeholder="First Name" autofocus>
-                        <input class="form-control" type="text" name="" placeholder="Last Name">
-                    </div>
-                    
-                    <div class="form-wrapper">
-                        <input class="form-control" type="text" name="" placeholder="NIC">
-                    </div>
-                    
-                    <div class="form-wrapper">
-                        <input class="form-control" type="text" name="" placeholder="Contact Number">
-                    </div>
-
-                    <div class="form-wrapper">
-                        <input class="form-control" type="text" name="" placeholder="Username">
-                    </div>
-
-                    <div class="form-wrapper">
-                        <input class="form-control" type="email" name="" placeholder="Emali" autofocus>
-                    </div>
-
-                    <div class="form-wrapper">  
-                        <input class="form-control" type="text" name="" placeholder="Password">
-                    </div>
-
-                    <div class="form-wrapper">
-                        <input class="form-control" type="text" name="" placeholder="Confirm Password" autofocus>
-                    </div>
-                </form>
-                    <br>  
-                    
-                    <button class="">Register</button>
-                    <br>
-                    <p>Already have an account ? <a href="">Login </a> </p>
-            </div>
+        <div class="form-group">
+          <input type="text" placeholder="First Name" class="form-control">
+          <input type="text" placeholder="Last Name" class="form-control">
         </div>
-    
+
+        <div class="form-group">
+          <input class="form-control" type="text" name="" placeholder="NIC">
+          <input class="form-control" type="text" name="" placeholder="Contact Number">
+        </div>
+
+        <div class="form-wrapper">
+            <input type="text" placeholder="Address" class="form-control">
+          </div>
+
+        <div class="form-wrapper">
+          <input type="text" placeholder="Username" class="form-control">
+        </div>
+
+        <div class="form-wrapper">
+          <input type="text" placeholder="Email Address" class="form-control">
+        </div>
+
+        <div class="form-wrapper">
+          <input type="password" placeholder="Password" class="form-control">
+        </div>
+
+        <div class="form-wrapper">
+          <input type="password" placeholder="Confirm Password" class="form-control">
+        </div>
+
+        <button>Register</button>
+
+        <div class="link">
+            <p>Already have an account ? <a href="login">Login </a> </p>
+        </div>
+        
+
+      </form>
+      
     </div>
-     
+  </div>
+</body>
 
-<?php $this->view('includes/footer'); ?>
-
+</html>
