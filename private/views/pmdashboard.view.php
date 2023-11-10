@@ -8,10 +8,12 @@ body{
 }
 </style>
     <div class="project-details">
-        <p class="pro-title">Projects</p>
+        <div class="table_header">
+            <p>Projects</p>
+        </div>
         <div class="project">
             <div class="pro">
-                <div class="pro-body" style="background-image: url('<?=ROOT?>/img/on pro1.png');">
+                <div class="pro-body" style="background-image: url('<?=ROOT?>/img/on_pro.png');">
                     <p>Ongoing</p>
                 </div>
                 <div class="pro-bottom">
@@ -19,7 +21,7 @@ body{
                 </div>
             </div>
             <div class="pro">
-                <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cm pro1.png');">
+                <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cm_pro.png');">
                     <p>Completed</p>
                 </div>
                 <div class="pro-bottom">
@@ -27,7 +29,7 @@ body{
                 </div>
             </div>
             <div class="pro">
-                <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cn pro1.png');">
+                <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cn_pro.png');">
                     <p>Canceled</p>
                 </div>
                 <div class="pro-bottom">
@@ -97,6 +99,31 @@ body{
                         <td>
                             <button><i class="fa-solid fa-eye"></i></button>
                         </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table_header">
+            <p>On going sub task</p>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project ID</th>
+                        <th>Task ID</th>
+                        <th>Sub Task ID</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P003</td>
+                        <td>TSK001</td>
+                        <td>TSK001S023</td>
+                        <td>Foundation excavation</td>
                     </tr>
                 </tbody>
             </table>
