@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Brawler&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+  --main-color:#8e44ad;
+  --black:#222;
+  --white:#fff;
+  --light-black:#777;
+  --light-white:#fff9;
+  --dark-bg:rgba(0,0,0,.1);
+  --light-bg:#eee;
+  --border:.1rem solid var(--black);
+  --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+  --text-shadow:0 1.5rem 3rem rgba(0,0,0,.3);
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+html::-webkit-scrollbar{
+  width: 1rem;
+}
+html::-webkit-scrollbar-track{
+  background-color: var(--white);
+}
+html::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+}
+section{
+  padding: 5rem 10%;
+ 
+}
+.header{
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background-color: var(--white);
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  justify-content: space-between;
+  
+}
+.header .logo{
+  font-size: 1.5rem;
+  color: var(--black);
+}
+.header .navbar a{
+  font-size: 1rem;
+  margin-left: 2rem;
+  color: var(--black);
+}
+.header .navbar a:hover{
+  color: var(--main-color);
+}
+
+#menu-btn{
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--black);
+  display: none;
+}
+.services .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(1rem,1fr));
+  gap: 1rem;
+}
+.services .box-container .box1{
+  height: 0;
+  width: 15%; 
+}
+.services .box-container .box1:hover{
+  background: var(--main-color);
+}
+.services .box-container .box2{
+  height: 0;
+  width: 30%;
+}
+.services .box-container .box2:hover{
+  background: var(--main-color);
+}
+.services .box-container .box3{
+  height: 0;
+  width: 15%;
+}
+.services .box-container .box3:hover{
+  background: var(--main-color);
+}
+.services .box-container .box4{
+  height: 10rem;
+  width: 15%;
+}
+.services .box-container .box4:hover{
+  background: var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+  background: url(./Photos/darkblue.jpg)no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.footer .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+  gap: 3rem;
+}
+.footer .box-container .box h3{
+  color: var(--white);
+  font-size: 1rem;
+  padding-bottom: 2rem;
+}
+.footer .box-container .box a{
+  color: var(--light-white);
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  display: block;
+}
+
+.footer .box-container .box a i{
+  color: var(--main-color);
+  padding-right: .5rem;
+  transition: 0.2s linear;
+}
+.footer .box-container .box a:hover i{
+  padding-right: 2rem;
+}
+.footer .credit{
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: -3rem;
+  border-top: .1rem solid;
+  font-size: 1rem;
+  color: var(--white);
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:1200px){
+  section{
+    padding: 3rem 5%;
+  }
+}
+@media(max-width:991px){
+
+  html{
+    font-size: 55%;
+  }
+  section{
+    padding: 3rem 2rem;
+  }
+}
+@media(max-width:768px){
+
+  #menu-btn{
+    display: inline-block;
+    transition: .2s linear;
+  }
+
+  #menu-btn.fa-times{
+    transform: rotate(180deg);
+  }
+
+
+  .header .navbar{
+    position: absolute;
+    top: 99%; left: 0; right: 0;
+    background-color: var(--white);
+    border-top: var(--border);
+    padding: 2rem;
+    clip-path: polygon(50% 0%, 0 0, 100% 0);
+    transition: .2s linear;
+  }
+  .header .navbar .active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .header .navbar a{
+    display: block;
+    margin: 2rem;
+    text-align: center;
+  }
+}
+@media(max-width:450px){
+
+  html{
+    font-size: 50%;
+  }
+}
