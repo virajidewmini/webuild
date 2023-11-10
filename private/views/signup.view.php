@@ -5,8 +5,8 @@
 
         <div class ="form-wrapper">
             <div class="inner">
-                <div class="image-holder">
-                    <img src="<?=ROOT?>/img/signup.webp" alt="">
+                <div class="s_image-holder">
+                    <img src="<?=ROOT?>/img/signup.webp" alt="jjjjjjjjjj">
                 </div>
                     <h2 class="text-center">WEBUILD</h2>
                     <img src="<?=ROOT?>/img/webuildlogo.jpeg" alt="">
