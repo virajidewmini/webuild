@@ -159,5 +159,18 @@ opacity: 0.5;
         text-decoration: underline; /* Add underline on hover */
       }
       
-
+      @media (max-width:767px) {
+        .inner{
+            display: block;
+        }
+        .inner .image-holder{
+            width: 100%;
+        }
+        .inner form{
+            width: 100%;
+            padding: 40px 0 30px;
+        }
+        button{
+            margin-top: 60px;
+        }
       
