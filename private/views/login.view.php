@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-    
+  <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/login.jpeg'); ">
     <div class="center" >
       
       <h1>Login</h1>
@@ -29,6 +29,6 @@
         </div>
       </form>
     </div>
-
+</div>
   </body>
 </html>
