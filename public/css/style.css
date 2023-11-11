@@ -1,8 +1,6 @@
 /*-----box for display projects project-----*/
 
 .project-details{
-    background-color: #fff;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 20px 20px 0 0;
     width: 100%;
     height: auto;

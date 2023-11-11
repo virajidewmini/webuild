@@ -1,8 +1,5 @@
 <?php $this->view('includes/header')?>
 <style>
-main {
-  background-image:url("<?=ROOT?>/img/pm.jpg");
-}
 body{
     overflow: hidden;
 }
@@ -41,7 +38,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Supervisors</p>
+            <p>Wokers</p>
         </div>
         <div class="table_section">
             <table>
