@@ -102,39 +102,7 @@ section{
   background: var(--main-color);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*about,contact us*/
 
 .footer{
   background: url(./Photos/darkblue.jpg)no-repeat;
@@ -179,20 +147,7 @@ section{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*add body section parts*/
 @media(max-width:1200px){
   section{
     padding: 3rem 5%;
