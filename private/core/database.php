@@ -1,52 +1,58 @@
 <?php
 
-// Database connection
+/**
+ * Database connection
+ */
+class Database
+{
+	
+	private function connect()
+	{
+		// code..
+		$string = DBDRIVER . ":host=".DBHOST.";dbname=".DBNAME;
+		if(!$con = new PDO($string,DBUSER,DBPASS)){
+			die("could not connect to database");
+		}
 
-class Database {
+		return $con;
+	}
 
-    private function connect(){
+	public function query($query,$data = array(),$data_type = "object")
+	{
 
-        //code
-        $string = "mysql:host=localhost;dbname=webuild";
-        if(!$con=new PDO($string,'root','')){
+		$con = $this->connect();
+		$stm = $con->prepare($query);
 
-            die('could not connect to database');
+		$result = false;
+		if($stm){
+			$check = $stm->execute($data);
+			if($check){
+				if($data_type == "object"){
+					$result = $stm->fetchAll(PDO::FETCH_OBJ);
+				}else{
+					$result = $stm->fetchAll(PDO::FETCH_ASSOC);
+				}
+ 
+ 			}
+		}
 
-        }
+		//run functions after select
+		if(is_array($result)){
+			if(property_exists($this, 'afterSelect'))
+			{
+				foreach($this->afterSelect as $func)
+				{
+					$result = $this->$func($result);
+				}
+			}
+		}
 
-        return $con;
-    }
+		if(is_array($result) && count($result) >0){
+			return $result;
+		}
 
-    public function query($query,$data=array(),$data_type= "object"){
+		return false;
+	}
 
-        $con = $this->connect();
-        $stm = $com->prepare($query);
-
-        if($stm){
-            $check = $stm->execute($data);
-            if($check){
-                if($data_type=="object"){
-                    $data = $stm->fetchAll(PDO::FETCH_OBJ);
-                }
-                else{
-                    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-                }
-
-                if(is_array($data) && count($dara) > 0){
-                    return $data;
-                }
-                
-            }
-        }
-        return false;
-    }
-
-    // public function query(){
-        
-    // }
-
-
-
+	
 }
-
-?>
