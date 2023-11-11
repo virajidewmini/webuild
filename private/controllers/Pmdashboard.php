@@ -1,6 +1,6 @@
 <?php
 
-    //coordinator dashboard controller
+    //manager dashboard controller
     class Pmdashboard extends Controller{
         
         public function index(){
