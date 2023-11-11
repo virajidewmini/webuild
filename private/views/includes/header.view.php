@@ -19,6 +19,9 @@
     <!-- signup css -->
     <link rel="stylesheet" href="<?=ROOT?>/css/signup.css" />
 
+    <!-- main css file -->
+    <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
+
     
 
   </head>
