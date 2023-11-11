@@ -40,7 +40,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Daily Progress report</p>
+            <p>Daily Progress reports</p>
         </div>
         <div class="table_section">
             <table>
@@ -143,7 +143,7 @@ body{
                         <td>TSK001S023</td>
                         <td>Foundation excavation</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
