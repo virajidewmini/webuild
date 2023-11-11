@@ -1,8 +1,6 @@
 /*-----box for display projects project-----*/
 
 .project-details{
-    background-color: #fff;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 20px 20px 0 0;
     width: 100%;
     height: auto;
@@ -91,6 +89,14 @@ button{
     color: #fff;
 }
 
+button:hover{
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+button:active{
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
 td button:nth-child(1){
     background-color: #E5863D;
 }
@@ -103,7 +109,7 @@ td button:nth-child(3){
     background-color: #E5863D;
 }
 
-.add_new{
+.add___{
     padding: 10px 20px;
     color:#fff;
     background-color: #E5863D;
