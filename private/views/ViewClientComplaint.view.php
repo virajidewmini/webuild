@@ -1,16 +1,14 @@
 <?php $this->view('includes/header')?>
 
-<!-- <?php print_r($rows);?> -->
-
 
 <div class="table">
 <div class="table_header">
-            <p>Sent request</p>
+            <h1>Complaints</h1>
             <div>
-                <button class="add___">Add New</button>
+               <a href="clientcomplaint/add"><button class="add___">Add New</button></a>   
             </div>
         </div>
-        <div class="table_section">
+        <div class="table_section" style="height: 1000px;">
             <table>
                 <thead>
                     <tr>
@@ -32,8 +30,12 @@
                         <td><?=$row->status?></td>
                         
                         <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                            <button><i class="fas fa-trash-alt"></i></button>
+                            <button ><i class="fa-solid fa-eye"></i></button>
+                           
+                         <a href="<?=ROOT?>/clientcomplaint/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+                            
+
+                            
                         </td>
                         
                     </tr>
