@@ -33,9 +33,7 @@
                             <button ><i class="fa-solid fa-eye"></i></button>
                            
                          <a href="<?=ROOT?>/clientcomplaint/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
-                            
 
-                            
                         </td>
                         
                     </tr>
