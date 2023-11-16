@@ -4,9 +4,9 @@
     class Home extends Controller{
 
         public function index(){
-            $db = new Database();
+            // $db = new Database();
             
-            $data = $db->query("select * from test");
+            // $data = $db->query("select * from test");
             
             
             $this->view('home',['rows'=> $data]);
