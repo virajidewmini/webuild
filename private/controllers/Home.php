@@ -6,7 +6,7 @@
         public function index(){
             $db = new Database();
             
-            $data = $db->query("select * from test");
+            $data = $db->query("select * from complaint");
             
             
             $this->view('home',['rows'=> $data]);
