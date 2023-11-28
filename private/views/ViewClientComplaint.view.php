@@ -5,7 +5,7 @@
      <?php
           echo "<pre>";
           print_r($rows);
-          echo "Inside findall";
+          
      ?>
      
 

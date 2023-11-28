@@ -26,10 +26,16 @@
 
 		public function insert($data){
 
-			insert into table (,,) values (:,'','','')
+			$keys =array_keys($data);
+			$columns=implode(',',$keys);
+			$values=implode(',:',$keys);
+
+			$query= "insert into $this->table ($columns) values(:$values)";
+
+			return $this->query($query,$data);
 		}
 
-		public function update(id, $data){
+		public function update($id, $data){
 
 			$column = addslashes($column);
 			$query= "select * from $this->table where $column =:value";
@@ -38,7 +44,7 @@
 			]);
 		}
 
-		public function delete(id){
+		public function delete($id){
 
 			$column = addslashes($column);
 			$query= "select * from $this->table where $column =:value";
