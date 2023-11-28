@@ -23,6 +23,29 @@
 			return $this->query($query);
 			
 		}
+
+		public function insert($data){
+
+			insert into table (,,) values (:,'','','')
+		}
+
+		public function update(id, $data){
+
+			$column = addslashes($column);
+			$query= "select * from $this->table where $column =:value";
+			return $this->query($query,[
+				'value'=>$value
+			]);
+		}
+
+		public function delete(id){
+
+			$column = addslashes($column);
+			$query= "select * from $this->table where $column =:value";
+			return $this->query($query,[
+				'value'=>$value
+			]);
+		}
 	}
 
 ?>

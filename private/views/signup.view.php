@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="<?PHP echo ROOT;?>/css/signup.css">
 </head>
 
-<body>
-  <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/back.jpg'); ">
+<body style="background-image: url('<?PHP echo ROOT;?>/img/back.jpeg');">
+  <div class="wrapper"  ">
     <div class="inner">
       <div class="image-holder">
         <img src="<?PHP echo ROOT;?>/img/signup.jpeg" alt="image" class="left-pic">

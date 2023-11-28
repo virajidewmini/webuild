@@ -1,4 +1,4 @@
-@
+
   * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -9,7 +9,10 @@
     color: #333;
     font-size: 13px;
     margin: 0; 
-     
+    background-image: url("back.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
 }
 .left-pic {
   /* max-width: 100%;
@@ -25,7 +28,6 @@ height: 100%; /* Match the height of the parent container */
 display: flex;
 margin-top: 0px;
 margin-left:0px;
-opacity: 0.5; 
   }
 .wrapper {
   min-height: 100vh;
@@ -33,7 +35,7 @@ opacity: 0.5;
   background-repeat: no-repeat;
   display: flex;
   align-items: center; 
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('back.jpg');}
+  background: #ff6c0038;}
  
    
   input, textarea, select, button {
@@ -173,4 +175,4 @@ opacity: 0.5;
         button{
             margin-top: 60px;
         }
-      
+      }

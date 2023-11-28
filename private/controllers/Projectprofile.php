@@ -4,15 +4,15 @@
     class Projectprofile extends Controller{
 
         public function index(){
-            //$db = new Database(); -- VIraji
+           
             $profiles=new P_Profile();
-            //$complaints=$this->load_model('C_Complaint');-- Me
-           // $data = $db->query("select * from complaint"); Viraji
+            $data=$profiles->findAll();
 
-           $data=$profiles->findAll();
-           //$data=$complaints->query("select * from complaint");-- VIraji
-            
-            
+            // $profiles->insert($data);
+            // $profiles->update(id,$data);
+            // $profiles->delete(id);
+
+
             $this->view('projectprofile',['rows'=> $data]);
         }
 
