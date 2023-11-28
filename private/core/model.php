@@ -23,7 +23,6 @@
 			return $this->query($query);
 			
 		}
-		hh
 
 		public function insert($data){
 
