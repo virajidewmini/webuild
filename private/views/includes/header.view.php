@@ -12,9 +12,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!--css file-->
+    <!--css files-->
     <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
-    <link rel="stylesheet" href="<?=ROOT?>/css/style.css"/>
+    <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
   </head>
   <body>
     <section class="sidebar">

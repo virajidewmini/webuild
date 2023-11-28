@@ -55,6 +55,11 @@
 <!-- service section ends -->
 
 
+     <h1>Hello Home</h1>
+     <?php
+          print_r($rows);
+     ?>
+     
 
 
 

@@ -1,6 +1,6 @@
 </main> 
     </section>
 
-    <script src="<?=ROOT?>/js/app.js"></script>
+    <script src="<?=ROOT?>/js/header.js"></script>
   </body>
 </html>
