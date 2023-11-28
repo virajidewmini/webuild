@@ -11,7 +11,7 @@
   <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/back.jpg'); ">
     <div class="inner">
       <div class="image-holder">
-        <img src="<?PHP echo ROOT;?>/img/signup.png" alt="image" class="left-pic">
+        <img src="<?PHP echo ROOT;?>/img/signup.jpeg" alt="image" class="left-pic">
       </div>
       <form action="">
         <h3>Create Account</h3>

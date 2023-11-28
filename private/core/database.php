@@ -21,7 +21,7 @@ class Database
 	{
 
 		$con = $this->connect();
-		$stm = $con->prepare($query); // similar to SELECT 8 FROM User WHERE "name"=?
+		$stm = $con->prepare($query); // similar to SELECT 8 FROM User WHERE "name"=? ----------- this is called prepared statement
 
 		$result = false;
 		if($stm){
