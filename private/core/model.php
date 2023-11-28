@@ -37,13 +37,19 @@
 
 		public function update($id, $data){
 
-			$keys =array_keys($data);
-			$str=implode(',',$keys);
-			$values=implode(',:',$keys);
+			
+			$str="";
+			foreach($data as $key => $value){
+				//code
+				$str .= $key . "=:". $key . ",";
 
-			//trim trims from the beg and the end
+			}
 
-			$query= "update $this->table set columns = :value , columns = :value , columns= :value where id = :id";
+			$str=trim($str,",");//trim trims from the beg and the end
+
+			$data['id']=$id;
+			
+			$query= "update $this->table set $str where id = :id";
 
 			return $this->query($query,$data);
 		}
