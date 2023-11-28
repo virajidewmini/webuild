@@ -37,11 +37,15 @@
 
 		public function update($id, $data){
 
-			$column = addslashes($column);
-			$query= "select * from $this->table where $column =:value";
-			return $this->query($query,[
-				'value'=>$value
-			]);
+			$keys =array_keys($data);
+			$str=implode(',',$keys);
+			$values=implode(',:',$keys);
+
+			//trim trims from the beg and the end
+
+			$query= "update $this->table set columns = :value , columns = :value , columns= :value where id = :id";
+
+			return $this->query($query,$data);
 		}
 
 		public function delete($id){
