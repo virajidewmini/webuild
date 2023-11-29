@@ -48,7 +48,7 @@
 			$str=trim($str,",");//trim trims from the beg and the end
 
 			$data['id']=$id;
-			
+
 			$query= "update $this->table set $str where id = :id";
 
 			return $this->query($query,$data);
@@ -56,11 +56,11 @@
 
 		public function delete($id){
 
-			$column = addslashes($column);
-			$query= "select * from $this->table where $column =:value";
-			return $this->query($query,[
-				'value'=>$value
-			]);
+			
+			$query= "delete from $this->table where id =:id";
+			echo $query;
+			$data['id']=$id;
+			return $this->query($query,$data);
 		}
 	}
 

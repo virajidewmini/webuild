@@ -19,3 +19,21 @@ INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `s
  INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `status`) VALUES (NULL, '1', 
 'Construction project delay ', 'I\'m worried about the delays in our construction project. We\'re not getting enough updates on what\'s going on,
 and unexpected problems are making things slow. ', NULL, 'Pending');
+
+
+
+
+//USERS TABLE 
+
+CREATE TABLE user (
+  ID int PRIMARY KEY AUTO_INCREMENT,
+  First_Name VARCHAR(255),
+  Last_Name VARCHAR(255), 
+  NIC VARCHAR(255), 
+  Contact_Number VARCHAR(255), 
+  Address VARCHAR(255),
+  Username VARCHAR(255),
+  Email_Address VARCHAR(255),
+  Password VARCHAR(255),
+  Confirm_Password VARCHAR(255) 
+);
