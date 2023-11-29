@@ -8,44 +8,55 @@
 </head>
 
 <body style="background-image: url('<?PHP echo ROOT;?>/img/back.jpeg');">
+
+
+
+      <!-- validation -->
+
+      <?php
+        print_r($errors);
+      
+      
+      ?>
+
+
   <div class="wrapper"  ">
     <div class="inner">
       <div class="image-holder">
         <img src="<?PHP echo ROOT;?>/img/signup.jpeg" alt="image" class="left-pic">
       </div>
 
-
       <form method="post">
         <h3>Create Account</h3>
 
         <div class="form-group">
-          <input name="First Name" type="text" placeholder="First Name" class="form-control">
-          <input name="Last Name" type="text" placeholder="Last Name" class="form-control">
+          <input name="firstname" type="text" placeholder="First Name" class="form-control">
+          <input name="lastname" type="text" placeholder="Last Name" class="form-control">
         </div>
 
         <div class="form-group">
-          <input name="NIC" class="form-control" type="text" name="" placeholder="NIC">
-          <input name="Contact Number" class="form-control" type="text" name="" placeholder="Contact Number">
+          <input name="nic" class="form-control" type="text" name="" placeholder="NIC">
+          <input name="contactnumber" class="form-control" type="text" name="" placeholder="Contact Number">
         </div>
 
         <div class="form-wrapper">
-            <input name="Address" type="text" placeholder="Address" class="form-control">
+            <input name="address" type="text" placeholder="Address" class="form-control">
           </div>
 
         <div class="form-wrapper">
-          <input name="Username" type="text" placeholder="Username" class="form-control">
+          <input name="username" type="text" placeholder="Username" class="form-control">
         </div>
 
         <div class="form-wrapper">
-          <input name="Email Address" type="text" placeholder="Email Address" class="form-control">
+          <input name="email" type="text" placeholder="Email Address" class="form-control">
         </div>
 
         <div class="form-wrapper">
-          <input name="Password" type="password" placeholder="Password" class="form-control">
+          <input name="password" type="password" placeholder="Password" class="form-control">
         </div>
 
         <div class="form-wrapper">
-          <input name="Confirm Password" type="password" placeholder="Confirm Password" class="form-control">
+          <input name="confirmpassword" type="password" placeholder="Confirm Password" class="form-control">
         </div>
 
         <button type="submit">Register</button>
