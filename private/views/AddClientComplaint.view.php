@@ -2,11 +2,11 @@
 
 <div style="margin-left: 285px;" class="table_header" >
         <h1>  Complaints, Let's Us Know !</h1>
-    </div>
+</div>
     <div class="form_container">
         <form method="post"  class="v_form">
             <label class="v_label" id="complaintType">Complaint Type</label>
-            <!-- <input type="text" name="type" id="type"  class="v_form-control" required> -->
+           
             <select id="type" name="type" class="v_form-control" >
                 <option value="" disabled selected>Select Complaint Type</option>
                 <option value="Quality of the photograph">Quality of the photograph</option>
