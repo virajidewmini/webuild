@@ -6,6 +6,5 @@
         public function index(){
             $this->view('storekeeperMaintain');
         }
-
     }
 ?>
