@@ -7,7 +7,9 @@
 
             //code
 
-            echo "<pre>";
+            if (count($_POST)>0){
+                
+            }
             print_r($_POST);
             $this->view('signup');
         }

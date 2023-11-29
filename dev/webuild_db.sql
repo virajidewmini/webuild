@@ -26,14 +26,14 @@ and unexpected problems are making things slow. ', NULL, 'Pending');
 //USERS TABLE 
 
 CREATE TABLE user (
-  ID int PRIMARY KEY AUTO_INCREMENT,
-  First_Name VARCHAR(255),
-  Last_Name VARCHAR(255), 
-  NIC VARCHAR(255), 
-  Contact_Number VARCHAR(255), 
-  Address VARCHAR(255),
-  Username VARCHAR(255),
-  Email_Address VARCHAR(255),
-  Password VARCHAR(255),
-  Confirm_Password VARCHAR(255) 
+  id int PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255), 
+  nic VARCHAR(255), 
+  contact_number VARCHAR(255), 
+  address VARCHAR(255),
+  username VARCHAR(255),
+  email_address VARCHAR(255),
+  password VARCHAR(255),
+  confirm_password VARCHAR(255) 
 );
