@@ -12,13 +12,7 @@
 
 
       <!-- validation -->
-
-      <?php
-        print_r($errors);
       
-      
-      ?>
-
 
   <div class="wrapper"  ">
     <div class="inner">
@@ -28,6 +22,19 @@
 
       <form method="post">
         <h3>Create Account</h3>
+
+
+      <!-- error dispaly -->
+      <?php if(count($errors) >0):?>
+        <strong>Errors:</strong>
+      <?php foreach($errors as $error):?>
+        <br><?=$error?>
+      <?php endforeach; ?>
+      <?php endif;?>
+
+      
+
+
 
         <div class="form-group">
           <input name="firstname" value= "<?= get_var('firstname');?>" type="text" placeholder="First Name" class="form-control">
@@ -49,6 +56,7 @@
 
         <div class="form-wrapper">
           <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email Address" class="form-control">
+          <!-- <span class="form-invalid">     </span> -->
         </div>
 
         <div class="form-wrapper">

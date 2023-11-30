@@ -1,6 +1,21 @@
 <?php 
 class Users extends Model{
 
+    protected $allowedColumns =[
+        'firstname',
+        'lastname',
+        'nic',
+        'contactnumber',
+        'address',
+        'username',
+        'email',
+        'password'
+    ];
+
+    protected $beforeInsert =['hash_password'];
+
+
+
     public function validate($DATA){
 
         $this->errors = array();

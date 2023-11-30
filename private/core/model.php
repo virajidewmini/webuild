@@ -27,6 +27,23 @@
 
 		public function insert($data){
 
+			//remove unwanted columns
+			if(!property_exists($this, 'allowedColmns')){
+				foreach ($data as $key => $column) {
+					if(!in_array($key,$this->allowedColumns)){
+						unset($data[$key]);
+					}
+				}
+			}
+
+
+			//run functons before insert
+			if(!property_exists($this, 'beforeInsert')){
+				foreach ($this->beforeInsert as $func) {
+					$data =$this->$func($data);
+				}
+			}
+
 			$keys =array_keys($data);
 			$columns=implode(',',$keys);
 			$values=implode(',:',$keys);
