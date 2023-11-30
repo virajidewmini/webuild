@@ -103,6 +103,12 @@ class Users extends Model{
             $this->errors['password']="Password can't be empty ";
         }
 
+        //password length
+        if(strlen($DATA['password'])<8 || strlen($DATA['password'])>12){
+            $this->errors['password']="Password should have 8-12 characters.";
+        }
+
+
         //same as confirmpassword
         if($DATA['password'] != $DATA['confirmpassword']){
             $this->errors['password']="Passwords do not match";

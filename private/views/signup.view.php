@@ -30,33 +30,33 @@
         <h3>Create Account</h3>
 
         <div class="form-group">
-          <input name="firstname" type="text" placeholder="First Name" class="form-control">
-          <input name="lastname" type="text" placeholder="Last Name" class="form-control">
+          <input name="firstname" value= "<?= get_var('firstname');?>" type="text" placeholder="First Name" class="form-control">
+          <input name="lastname" value="<?= get_var('lastname');?>" type="text" placeholder="Last Name" class="form-control">
         </div>
 
         <div class="form-group">
-          <input name="nic" class="form-control" type="text" name="" placeholder="NIC">
-          <input name="contactnumber" class="form-control" type="text" name="" placeholder="Contact Number">
+          <input name="nic" value="<?= get_var('nic');?>" class="form-control" type="text" name="" placeholder="NIC">
+          <input name="contactnumber" value="<?=get_var('contactnumber');?>" class="form-control" type="text" name="" placeholder="Contact Number">
         </div>
 
         <div class="form-wrapper">
-            <input name="address" type="text" placeholder="Address" class="form-control">
+            <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="form-control">
           </div>
 
         <div class="form-wrapper">
-          <input name="username" type="text" placeholder="Username" class="form-control">
+          <input name="username" value="<?= get_var('username');?>" type="text" placeholder="Username" class="form-control">
         </div>
 
         <div class="form-wrapper">
-          <input name="email" type="text" placeholder="Email Address" class="form-control">
+          <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email Address" class="form-control">
         </div>
 
         <div class="form-wrapper">
-          <input name="password" type="password" placeholder="Password" class="form-control">
+          <input name="password" value="<?= get_var('password');?>" type="password" placeholder="Password" class="form-control">
         </div>
 
         <div class="form-wrapper">
-          <input name="confirmpassword" type="password" placeholder="Confirm Password" class="form-control">
+          <input name="confirmpassword" value="<?= get_var('confirmpassword');?>" type="password" placeholder="Confirm Password" class="form-control">
         </div>
 
         <button type="submit">Register</button>
