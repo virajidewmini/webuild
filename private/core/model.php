@@ -38,7 +38,7 @@
 
 
 			//run functons before insert
-			if(!property_exists($this, 'beforeInsert')){
+			if(property_exists($this, 'beforeInsert')){
 				foreach ($this->beforeInsert as $func) {
 					$data =$this->$func($data);
 				}

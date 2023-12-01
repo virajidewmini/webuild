@@ -137,6 +137,12 @@ class Users extends Model{
 
     }
     protected $table = "user";
+
+
+    public function hash_password($data){
+        $data['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
+        return $data;
+    }
     
 }
 ?>
