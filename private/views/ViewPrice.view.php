@@ -35,7 +35,7 @@
 
     <div class="card-wrapper">
         <div class="card-header">
-            <img src="<?=ROOT?>/img/Pricing2.jpeg" alt="Pricing 2">
+            <img src="<?=ROOT?>/img/Pricing2.png" alt="Pricing 2">
             <h2>Half & Half </h2>
         </div>
         <div class="card-detail">
@@ -53,7 +53,7 @@
 
     <div class="card-wrapper">
         <div class="card-header">
-            <img src="<?=ROOT?>/img/Pricing3.jpeg" alt="Pricing 3">
+            <img src="<?=ROOT?>/img/Pricing3.png" alt="Pricing 3">
             <h2>Half & Half </h2>
         </div>
         <div class="card-detail">
