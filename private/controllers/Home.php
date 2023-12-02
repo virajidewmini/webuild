@@ -4,6 +4,13 @@
     class Home extends Controller{
 
         public function index(){
+
+
+            if(!Auth::logged_in()){
+                $this->readdir('login');
+            }
+
+
         //     //$db = new Database(); -- VIraji
         //     $complaints=new C_Complaint();
         //     //$complaints=$this->load_model('C_Complaint');-- Me
@@ -14,6 +21,7 @@
             
             
         //     $this->view('home',['rows'=> $data]);
+
 
 
 
