@@ -12,13 +12,24 @@
       
       <h1>Login</h1>
       <form method="post">
+        
+      <!-- error dispaly -->
+      <?php if(count($errors) >0):?>
+        <strong>Errors:</strong>
+      <?php foreach($errors as $error):?>
+        <br><?=$error?>
+      <?php endforeach; ?>
+      <?php endif;?>
+
+
+      
         <div class="txt_field">
-          <input type="text" required>
-          <span></span>
+          <input type="text" name="username" value= "<?= get_var('username');?>" required>
+          <!-- <span></span> -->
           <label>Username</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" name="password" value= "<?= get_var('password');?>" required>
           <span></span>
           <label>Password</label>
         </div>
