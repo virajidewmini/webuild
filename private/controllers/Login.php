@@ -11,18 +11,17 @@
             if (count($_POST)>0){
 
                 $user=new Users();
-                if($row=$user->where('username',$_POST['email'])){
-
-                    Auth::authenticate($row);
-                    $this->reidrect('/home');
-                }else{
-                    $errors['username']="Wrong username or password";
-
-
-
-
+                if($row=$user->where('email',$_POST['email'])){
+                    $row = $row[0];
+                    if(password_verify($_POST['password'],$row->password)){
+                        Auth::authenticate($row);
+                        $this->redirect('/home');
+                    }
+                   
                 }
+                $errors['username']="Wrong email or password";                   
             }
+            
 
             $this->view('login',[
                 'errors'=>$errors,

@@ -66,7 +66,7 @@
         <li>
           <a href="#" class="logout">
             <i class="fas fa-right-from-bracket"></i>
-            <span class="text">Logout</span>
+            <a class="text" href="<?=ROOT?>/logout">Logout</span>
           </a>
         </li>
       </ul>
@@ -91,6 +91,8 @@
 
         <a href="#" class="profile">
           <img src="<?=ROOT?>/img/profile.png" alt="" />
+          <!-- USER -->
+          <?=Auth::user()?>
         </a>
       </nav>
 

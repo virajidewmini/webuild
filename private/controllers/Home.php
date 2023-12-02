@@ -7,7 +7,7 @@
 
 
             if(!Auth::logged_in()){
-                $this->readdir('login');
+                $this->redirect('/login');
             }
 
 
@@ -34,7 +34,7 @@
             //$arr=array ( "First_Name" => "Gavee" );
             //$users->insert($arr);
             //$users->update(2,$arr);
-            $users->delete(1);
+           // $users->delete(1);
 
             $data=$users->findAll();
 

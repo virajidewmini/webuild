@@ -84,14 +84,14 @@ class Users extends Model{
         }
 
 
-        /**
-        username
-        **/
+        // /**
+        // username
+        // **/
 
-        //empty
-        if(empty($DATA['username'])){
-            $this->errors['username']="Username can't be empty ";
-        }
+        // //empty
+        // if(empty($DATA['username'])){
+        //     $this->errors['username']="Username can't be empty ";
+        // }
 
         /**
         email
@@ -106,6 +106,11 @@ class Users extends Model{
         //valid email
         if(!empty($DATA['email']) && !filter_var($DATA['email'],FILTER_VALIDATE_EMAIL)){
             $this->errors['email']="Email is invalid ";
+        }
+
+        //check whether it already exists
+        if($this->where('email',$DATA['email'])){
+            $this->errors['email']="The email already exists ";
         }
 
 

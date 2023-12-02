@@ -10,8 +10,10 @@
   <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/login.jpeg'); ">
     <div class="center" >
       
-      <h1>Login</h1>
+      
       <form method="post">
+
+      <h1>Login</h1>
         
       <!-- error dispaly -->
       <?php if(count($errors) >0):?>
@@ -24,12 +26,12 @@
 
       
         <div class="txt_field">
-          <input type="text" name="username" value= "<?= get_var('username');?>" required>
-          <!-- <span></span> -->
-          <label>Username</label>
+          <input type="" name="email" value= "<?= get_var('email');?>" required >
+          <span></span>
+          <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" value= "<?= get_var('password');?>" required>
+          <input type="" name="password" value= "<?= get_var('password');?>" required>
           <span></span>
           <label>Password</label>
         </div>

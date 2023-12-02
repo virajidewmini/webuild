@@ -50,9 +50,9 @@
             <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="form-control">
           </div>
 
-        <div class="form-wrapper">
+        <!-- <div class="form-wrapper">
           <input name="username" value="<?= get_var('username');?>" type="text" placeholder="Username" class="form-control">
-        </div>
+        </div> -->
 
         <div class="form-wrapper">
           <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email Address" class="form-control">
