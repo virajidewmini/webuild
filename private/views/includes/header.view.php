@@ -76,7 +76,7 @@
         </li>
 
         <li>
-          <a href="#" class="nav-link">
+          <a href="<?=ROOT?>/staff" class="nav-link">
             <i class="fas fa-credit-card-alt"></i>
             <span class="text">Staff</span>
           </a>
