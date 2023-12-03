@@ -37,3 +37,8 @@ CREATE TABLE user (
   password VARCHAR(255),
   confirm_password VARCHAR(255) 
 );
+
+
+//staff Table
+
+INSERT INTO `staff`(`staffid`, `firstname`, `lastname`, `email`, `password`, `NIC`, `Address`, `City`, `role`) VALUES ('PM1','Gaveesha','Wickrama','gaveesha@gmail.com','gnswickrama','200139905649','14,Thotupala Rd,Wadduwa','Wadduwa','ProjectManager')
