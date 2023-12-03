@@ -6,7 +6,7 @@ body{
 </style>
     
     <form method="post">
-        <h3>Add New Employee</h3>
+        <h3>Edit Employee Details</h3>
 
         <?php if(count($errors) >0):?>
             <strong>Errors:</strong>
@@ -49,7 +49,7 @@ body{
         <br>
         <br>
         <a href="<?=ROOT?>/staff">
-            <input type="submit" value="Add"class="">  <t> <input type="button" value="Cancel"class="">
+            <input type="submit" value="Save"class="">  <t> <input type="button" value="Cancel"class="">
         </a>
 
     </form>
