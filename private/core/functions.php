@@ -6,17 +6,18 @@
         if(isset($_POST[$key])){
             return $_POST[$key];
         }
-
+        return "";
     }
 
 
-    // function get_select(){
-
-       /**
-       we do not need this because we don;t have a select option in the form 
-       **/
-        
-    // }
+    function get_select($key,$value){
+        if(isset($_POST[$key])){
+            if($_POST[$key] == $value){
+                return "selected";
+            }
+        } 
+        return "";
+    }
 
 
     //escape
@@ -25,6 +26,9 @@
         return htmlspecialchars($var);
     }
 
+    function get_date($date){
+        return date("jS F, Y",strtotime($date));
+    }
 
 
 

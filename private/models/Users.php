@@ -4,8 +4,10 @@ class Users extends Model{
     protected $allowedColumns =[
         'firstname',
         'lastname',
+        'nic',
         'contactnumber',
         'address',
+        'email',
         'password'
     ];
 

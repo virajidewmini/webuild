@@ -4,22 +4,113 @@
     class Staff extends Controller{
 
         public function index(){
+
             if(!Auth::logged_in()){
                 $this->redirect('/login');
             }
+
             $staff=new A_Staff();
-            
-            //$arr=array ( "First_Name" => "Gaveesha", "Last_Name" => "Wick","NIC" =>"2999999" ,"Contact_Number"=> "071-9907865" ,"Address" => "blah","Username" => "nm","Email_Address"=>"mn@","Password" =>"hg","Confirm_Password" => "hg" );
-            //$arr=array ( "First_Name" => "Gavee" );
-            //$users->insert($arr);
-            //$users->update(2,$arr);
-           // $users->delete(1);
 
             $data=$staff->findAll();
 
             $this->view('staff',['rows'=>$data]);
 
         }
+
+        public function add(){
+            
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+            $errors=array();
+
+            if (count($_POST)>0){
+
+                $staff=new A_Staff();
+
+                if($staff->validate($_POST)){
+
+                    $_POST['joineddate'] = date("Y-m-d H:i:s");
+                    $staff->insert($_POST);
+
+                    $this->redirect('staff');
+
+                }else{
+
+                    //errors
+                    $errors = $staff->errors;
+                }
+            }
+
+
+            $this->view('staff.add',[
+                'errors'=>$errors
+            ]);
+        }
+
+        public function edit($id=null){
+            
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+            $errors=array();
+
+            if (count($_POST)>0){
+
+                $staff=new A_Staff();
+
+                if($staff->validate($_POST)){
+
+                    $staff->update($id,$_POST);
+
+                    $this->redirect('staff');
+
+                }else{
+
+                    //errors
+                    $errors = $staff->errors;
+                }
+            }
+
+
+            $this->view('staff.edit',[
+                'errors'=>$errors
+            ]);
+        }
+
+        public function delete($id=null){
+            
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+            $errors=array();
+
+            if (count($_POST)>0){
+
+                $staff=new A_Staff();
+
+                if($staff->delete($_POST)){
+
+                    $staff->delete($id,$_POST);
+
+                    $this->redirect('staff');
+
+                }else{
+
+                    //errors
+                    $errors = $staff->errors;
+                }
+            }
+
+
+            $this->view('staff.delete',[
+                'errors'=>$errors
+            ]);
+        }
+
 
     }
 ?>

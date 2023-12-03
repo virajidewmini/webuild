@@ -2,11 +2,21 @@
 class A_Staff extends Model{
 
     protected $allowedColumns =[
-        'password'
+        'staffid',
+        'name',
+        'email',
+        'password',
+        'nic',
+        'contactnumber',
+        'address',
+        'city',
+        'role',
+        'joineddate'
+        
+    
     ];
 
     protected $beforeInsert =[
-        'make_staffid',
         'hash_password'
     ];
 
@@ -68,8 +78,8 @@ class A_Staff extends Model{
         **/
 
         //empty
-        if(empty($DATA['town'])){
-            $this->errors['town']="Town can't be empty ";
+        if(empty($DATA['city'])){
+            $this->errors['city']="City can't be empty ";
         }
 
         /**
@@ -112,6 +122,17 @@ class A_Staff extends Model{
         // if($DATA['password'] != $DATA['confirmpassword']){
         //     $this->errors['password']="Passwords do not match";
         // }
+
+        
+         /**
+        role validation
+        **/
+        
+        $roles=['projectcoordinator','projectmanager','storekeeper','storekeeper','supervisor'];
+        if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
+            $this->errors['role']="Role is invalid ";
+        }
+
 
         if(count($this->errors) == 0){
             return true;
