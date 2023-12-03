@@ -54,7 +54,38 @@
             <span class="text">Complaint</span>
           </a>
         </li>
+
+        <!-- projectcoordinator navbar -->
+        <li>
+          <a href="<?=ROOT?>/quotation" class="nav-link">
+            <i class="fas fa-credit-card-alt"></i>
+            <span class="text">Quotation</span>
+          </a>
+        </li>
+
+
+
+
+        <!-- admin navbar -->
+
+        <li>
+          <a href="<?=ROOT?>/user" class="nav-link">
+            <i class="fas fa-credit-card-alt"></i>
+            <span class="text">Users</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link">
+            <i class="fas fa-credit-card-alt"></i>
+            <span class="text">Staff</span>
+          </a>
+        </li>
       </ul>
+
+
+
+      <!-- admin navbar end -->
 
       <ul class="side-menu">
         <li>
@@ -64,9 +95,9 @@
           </a>
         </li>
         <li>
-          <a href="#" class="logout">
+          <a href="<?=ROOT?>/logout" class="logout">
             <i class="fas fa-right-from-bracket"></i>
-            <a class="text" href="<?=ROOT?>/logout">Logout</span>
+            <span class="text" >Logout</span>
           </a>
         </li>
       </ul>
