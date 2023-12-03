@@ -41,4 +41,4 @@ CREATE TABLE user (
 
 //staff Table
 
-INSERT INTO `staff`(`staffid`, `firstname`, `lastname`, `email`, `password`, `NIC`, `Address`, `City`, `role`) VALUES ('PM1','Gaveesha','Wickrama','gaveesha@gmail.com','gnswickrama','200139905649','14,Thotupala Rd,Wadduwa','Wadduwa','ProjectManager')
+INSERT INTO `staff`(`staffid`, `name`, `email`, `password`, `NIC`, `Address`, `City`, `role`) VALUES ('PM1','G.N.S Wickrama','gaveesha@gmail.com','gnswickrama','200139905649','14,Thotupala Rd,Wadduwa','Wadduwa','ProjectManager')
