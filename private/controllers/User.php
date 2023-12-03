@@ -19,13 +19,7 @@
 
             $data=$users->findAll();
 
-            $this->view('user',['rows'=> $data]);
-
-
-
-
-            
-            $this->view('user'.['rows'=>$data]);
+            $this->view('user',['rows'=>$data]);
 
         }
 

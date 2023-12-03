@@ -23,42 +23,21 @@ body{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>SV013</td>
-                        <td>M.P. Savani</td>
-                        <td>P003R025</td>
-                        <td>10/05/2023</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SV013</td>
-                        <td>M.P. Savani</td>
-                        <td>P003R025</td>
-                        <td>10/05/2023</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SV013</td>
-                        <td>M.P. Savani</td>
-                        <td>P003R025</td>
-                        <td>10/05/2023</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>SV013</td>
-                        <td>M.P. Savani</td>
-                        <td>P003R025</td>
-                        <td>10/05/2023</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
+                    <?php foreach ($rows as $row) :?>
+                        <tr>                       
+                            <td><?=$row->staffid?></td>
+                            <td><?=$row->name?> </td>
+                            <td><?=$row->email?></td>
+                            <td><?=$row->password?> </td>
+                            <td><?=$row->nic?></td>
+                            <td><?=$row->address?> </td>
+                            <td><?=$row->role?></td>                      
+                            <td>
+                                <button><i class="fa-solid fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    <?php endforeach;?>
+                    
                 </tbody>
             </table>
         </div>
