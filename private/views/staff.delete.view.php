@@ -8,14 +8,8 @@ body{
     <?php if($row):?>
     
     <form method="post">
-        <h3>Edit Employee Details</h3>
+        <h3>Are you sure tou want to delete?!</h3>
 
-        <?php if(count($errors) >0):?>
-            <strong>Errors:</strong>
-            <?php foreach($errors as $error):?>
-                <br><?=$error?>
-            <?php endforeach; ?>
-        <?php endif;?>
         <input name="name" value= "<?= get_var('name',$row[0]->name);?>" type="text" placeholder="Name" class="name">
         <br>
         <br>
@@ -46,8 +40,8 @@ body{
         </select>
         <br>
         <br>
-         
-        <input type="submit" value="Save"class=""> 
+        <input type="hidden" name="id">
+        <input type="submit" value="Delete"class=""> 
         <a href="<?=ROOT?>/staff">
             <input type="button" value="Cancel"class="">
         </a>

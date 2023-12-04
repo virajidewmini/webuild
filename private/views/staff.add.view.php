@@ -14,9 +14,6 @@ body{
                 <br><?=$error?>
             <?php endforeach; ?>
         <?php endif;?>
-        <input name="staffid" value= "<?= get_var('staffid');?>" type="text" placeholder="Staff ID" class="">
-        <br>
-        <br>
     
         <input name="name" value= "<?= get_var('name');?>" type="text" placeholder="Name" class="">
         <br>

@@ -69,7 +69,7 @@
 
                     $staff->update($staffid,$_POST);
 
-                    $this->redirect('staff');
+                    $this->redirect('/staff');
 
                 }else{
 
@@ -90,39 +90,31 @@
             ]);
         }
 
-        public function delete($id=null){
-            
+        public function delete($staffid=null){
+            print_r("hey1");
+            //code
             if(!Auth::logged_in()){
                 $this->redirect('/login');
+                print_r("hey2");
             }
+
+
+            $staff=new A_Staff();
 
             $errors=array();
-
+            print_r("hey3");
+            print_r($_POST);
             if (count($_POST)>0){
 
-                $staff=new A_Staff();
-
-                if($staff->delete($_POST)){
-
-                    $staff->delete($id,$_POST);
-
-                    $this->redirect('staff');
-
-                }else{
-
-                    //errors
-                    $errors = $staff->errors;
-                }
+                $staff->delete($staffid,$_POST);
+                $this->redirect('staff');
+               
             }
-
-
+            $row = $staff->where('staffid',$staffid);
+            
             $this->view('staff.delete',[
-                'errors'=>$errors
+                'row'=>$row,
+                'errors'=>$errors,
             ]);
         }
-
-
     }
-?>
-
-
