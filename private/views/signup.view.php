@@ -39,6 +39,7 @@
         <div class="form-group">
           <input name="firstname" value= "<?= get_var('firstname');?>" type="text" placeholder="First Name" class="form-control">
           <input name="lastname" value="<?= get_var('lastname');?>" type="text" placeholder="Last Name" class="form-control">
+
         </div>
 
         <div class="form-group">

@@ -42,7 +42,7 @@ body{
                                     <a href="<?=ROOT?>/staff/delete/<?=$row->staffid?>">
                                         <button><i class="fa-solid fa-trash"></i></button>
                                     </a>
-                                    <a href="<?=ROOT?>/staff/edit/<?=$row->staffid?>">
+                                    <a href="<?=ROOT?>/staff/edit?staffid=<?=$row->staffid?>">
                                         <button><i class="fa-solid fa-pen-to-square"></i></button>
                                     </a>
                                 </td>

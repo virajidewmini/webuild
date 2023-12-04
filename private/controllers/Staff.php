@@ -49,21 +49,25 @@
             ]);
         }
 
-        public function edit($id=null){
+        public function edit($staffid=null){
             
             if(!Auth::logged_in()){
                 $this->redirect('/login');
             }
 
+
+            $staff=new A_Staff();
+
             $errors=array();
+            $staffid=$_GET["staffid"];
 
-            if (count($_POST)>0){
 
-                $staff=new A_Staff();
+
+            if ($staffid==""){
 
                 if($staff->validate($_POST)){
 
-                    $staff->update($id,$_POST);
+                    $staff->update($staffid,$_POST);
 
                     $this->redirect('staff');
 
@@ -73,10 +77,16 @@
                     $errors = $staff->errors;
                 }
             }
-
+            $row = $staff->where('staffid',$staffid);
+        
+            if(!$row){
+                $row=(object)[];
+                $row->staffid='';
+            }
 
             $this->view('staff.edit',[
-                'errors'=>$errors
+                'row'=>$row,
+                'errors'=>$errors,
             ]);
         }
 
