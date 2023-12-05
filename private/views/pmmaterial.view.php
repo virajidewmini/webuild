@@ -139,6 +139,7 @@ body{
                         <td>11/05/2022</td>
                         <td>
                             <button><i class="fa-solid fa-eye"></i></button>
+                            <button><i class="fa-solid fa-pen-to-square"></i></button>
                         </td>
                     </tr>
                     <tr>

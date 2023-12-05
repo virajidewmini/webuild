@@ -1,0 +1,46 @@
+let addButton=document.querySelector("#add_item_button")
+let tbody=document.querySelector("#table_body")
+let form = document.querySelector("#add_mform")
+
+let recordNumber=0
+let formData=[]
+addButton.addEventListener("click",(e)=>{
+    e.preventDefault();
+    createNewRow()
+})
+function createNewRow(){
+    recordNumber++;
+    tbody.insertAdjacentHTML("beforeend",`
+    <tr record_number=${recordNumber}>
+        <td><input type="material_or_item_id" name="material_or_item_id" class="form_fill"></td>
+        <td><input  type="material_or_item_name" name="material_or_item_name" class="form_fill"></td>
+        <td><input type="mesure_unit" name="mesure_unit" class="form_fill"></td>
+        <td><input  type="quantity" name="quantity" class="form_fill" ></td>
+        <td> <button class="delete"> Delete </button> </td>
+    </tr>
+    `)
+    let tr=document.querySelector(`tr[record_number='${recordNumber}']`)
+    
+    let deleteButton=tr.querySelector(".delete")
+    deleteButton.addEventListener("click",(e)=>{
+        e.preventDefault()
+        tr.remove()
+    })
+
+}
+
+form.addEventListener("click", (e)=>{
+    e.preventDefault()
+    let trList=document.querySelectorAll(`tr[record_number]`)
+    trList.forEach(tr=>{
+        let record={}
+        document.querySelectorAll("input").forEach(tag=>{
+            record[tag.attributes.getNamedItem.value]=tag.value;
+        })
+        formData.push(record)
+        console.log(formData)
+    })
+
+})
+
+createNewRow()

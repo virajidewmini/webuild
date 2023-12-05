@@ -1,0 +1,94 @@
+<?php $this->view('includes/header')?>
+<style>
+    label{
+        padding: 5px;
+    }
+    input{
+        margin: 3px;
+    }
+    table{
+        min-width: 300px;
+    }
+    table th{
+        color: black;
+    }
+    .table_header{
+        background-color: white;
+    }
+    .form_fill{
+        color: black;
+        height: 30px;
+        width: 100px;
+        min-width: 50px;
+    }
+    .table_section{
+        height: auto;
+    }
+    .mreq_d{
+        color: black;
+    }
+</style>
+    <div style="background-color: white; padding: 20px; border-radius: 20px">
+    
+        <h2>Request form</h2>
+        <div style="margin:20px">
+            <label>Last Request ID :</label>
+        </div>
+        <div>
+        <form action="#" method="post" id="add_mform">
+            <div class="table">
+        
+                <div class="table_header">
+                        <p></p>
+                        <button class="add___" id="add_item_button">Add</button>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Material or Item ID</th>
+                                <th>Material or Item Name</th>
+                                <th>Mesure Unit</th>
+                                <th>Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_body">
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table_header">
+                        <button type="button" class="add___">Cancel</button>
+                        <button class="add___"
+                         style="background-color:white; color: #E5863D; border: 1px solid #E5863D; width: 75px;" >Send
+                        </button>
+            </div>
+        </form>
+        </div>
+    </form>
+    </div>
+     
+<script src="<?=ROOT?>/js/pmmaterial_rform.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".add_item_button").click(function(e){
+            e.preventDefault();
+            $("#table_body").prepend(`
+                <tr>
+                    <td><input  type="project_id" name="project_id" class="form_fill"></td>
+                    <td><input  type="request_id" name="request_id" class="form_fill"></td>
+                    <td><input type="material_or_item_id" name="material_or_item_id" class="form_fill"></td>
+                    <td><input  type="material_or_item_name" name="material_or_item_name" class="form_fill"></td>
+                    <td><input type="mesure_unit" name="mesure_unit" class="form_fill"></td>
+                    <td><input  type="quantity" name="quantity" class="form_fill" ></td>
+                    <td>
+                    <button class="add___" id="remove_item_btn"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                `);
+        });
+    });
+</script>
+<?php $this->view('includes/footer'); ?>

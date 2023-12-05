@@ -1,10 +1,12 @@
 <?php
     
-    require "app.php";
+    require "config.php";
+    require "functions.php";
     require "database.php";
     require "controller.php";
-    require "config.php";
     require "model.php";
+    require "app.php";
+    
 
     spl_autoload_register(function($class_name){
 
