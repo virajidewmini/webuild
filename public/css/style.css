@@ -1,3 +1,71 @@
+
+/* profile */
+
+.profile_area{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    margin-right: auto;
+    margin-left: auto;     
+}
+
+.profile_row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile_col-4{
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.profile_img{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E5863D;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 50%;
+}
+
+.profile_col-8{
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+  background-color: #f8f9fa;
+  padding: 0.5rem;
+}
+
+.profile_table{
+    margin-bottom: 1rem;
+    color: #212529;
+    border: 1px solid #dee2e6;
+    table-layout: auto;
+    min-width: 200px;
+}
+  
+.profile_table th:hover,
+.profile_table td:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+  
+.profile_table tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.profile_table th,
+.profile_table td {
+    border: 1px solid #ddd;
+    vertical-align: top;
+    padding: 5px;
+    word-break: break-all;
+    text-align: center;
+}
 /*-----box for display projects project-----*/
 
 .project-details{
@@ -182,3 +250,4 @@ td img{
 ::-webkit-scrollbar-thumb{
     box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
 }
+
