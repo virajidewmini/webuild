@@ -27,13 +27,13 @@ and unexpected problems are making things slow. ', NULL, 'Pending');
 
 CREATE TABLE user (
   id int PRIMARY KEY AUTO_INCREMENT,
-  first_name VARCHAR(255),
-  last_name VARCHAR(255), 
+  firstname VARCHAR(255),
+  lastname VARCHAR(255), 
   nic VARCHAR(255), 
-  contact_number VARCHAR(255), 
+  contactnumber VARCHAR(255), 
   address VARCHAR(255),
   username VARCHAR(255),
-  email_address VARCHAR(255),
+  emailaddress VARCHAR(255),
   password VARCHAR(255),
   confirm_password VARCHAR(255) 
 );
