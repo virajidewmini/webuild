@@ -38,7 +38,7 @@ CREATE TABLE user (
   confirm_password VARCHAR(255) 
 );
 
-
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `nic`, `contactnumber`, `address`, `username`, `email`, `password`) VALUES (NULL, 'kasun', 'kasun', '200290098767', '1', '1', NULL, 'k@gmail.com', 'kasunkasun')
 //staff Table
 
 INSERT INTO `staff`(`staffid`, `name`, `email`, `password`, `NIC`, `Address`, `City`, `role`) VALUES ('PM1','G.N.S Wickrama','gaveesha@gmail.com','gnswickrama','200139905649','14,Thotupala Rd,Wadduwa','Wadduwa','ProjectManager')

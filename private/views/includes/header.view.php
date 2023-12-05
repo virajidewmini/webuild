@@ -44,7 +44,7 @@
         </li>
         <li>
           <a href="#" class="nav-link">
-            <i class="fas fa-credit-card-alt"></i>
+            <i class="fa-brands fa-amazon-pay"></i>
             <span class="text">Payment</span>
           </a>
         </li>
@@ -70,22 +70,36 @@
 
         <li>
           <a href="<?=ROOT?>/user" class="nav-link">
-            <i class="fas fa-credit-card-alt"></i>
+            <i class="fa-solid fa-users-viewfinder"></i>
             <span class="text">Users</span>
           </a>
         </li>
 
         <li>
           <a href="<?=ROOT?>/staff" class="nav-link">
-            <i class="fas fa-credit-card-alt"></i>
+            <i class="fa-solid fa-users"></i>
             <span class="text">Staff</span>
           </a>
         </li>
-      </ul>
+      
 
 
 
       <!-- admin navbar end -->
+
+
+      <!-- common for all users -->
+        <li>
+          <a href="<?=ROOT?>/userprofile" class="nav-link">
+            <i class="fa-solid fa-user"></i>
+            <span class="text">View Profile</span>
+          </a>
+        </li>
+
+      </ul>
+
+
+      <!-- settings and logout -->
 
       <ul class="side-menu">
         <li>

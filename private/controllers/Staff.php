@@ -91,19 +91,18 @@
         }
 
         public function delete($staffid=null){
-            print_r("hey1");
+            
             //code
             if(!Auth::logged_in()){
                 $this->redirect('/login');
-                print_r("hey2");
+              
             }
 
 
             $staff=new A_Staff();
 
             $errors=array();
-            print_r("hey3");
-            print_r($_POST);
+           
             if (count($_POST)>0){
 
                 $staff->delete($staffid,$_POST);
