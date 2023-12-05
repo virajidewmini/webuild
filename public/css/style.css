@@ -119,9 +119,10 @@ input{
     padding: 10px 20px;
     margin: 0 10px;
     outline: none;
-    border: 1px solid #E5863D;
+    border: 1px solid black;
     border-radius: 8px;
-    color: #E5863D;
+    /* color: #E5863D; */
+    
 }
 
 .table_section{
@@ -166,6 +167,8 @@ td img{
     background-color: #ced0d2;
 }*/
 
+
+
 ::placeholder{
     color: #E5863D;
 }
@@ -181,4 +184,214 @@ td img{
 
 ::-webkit-scrollbar-thumb{
     box-shadow: inset 0 0 6px rgb(0,0,0,0.3);
+}
+
+/*-- Form styles--*/
+
+.form_container{
+    margin: auto;
+    margin-top: 20px;
+    padding: 8px 200px;
+    background-color: white;
+    font-family: arial;
+    max-width: 1000px;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+}
+
+.v_form-control{
+    border : 1px solid black;
+    color: black;
+    font-size: medium;
+    border-radius: 10px;
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 25px 0;
+}
+
+.v_submit_button{
+    border: none;
+    width: 25%;
+    height: 50px;
+    margin: auto;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    background: #E5863D;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 12px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40px;
+    font-size: medium;
+}
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40px;
+    font-size: medium;
+}
+
+.form-group::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    width: 48%;
+    float: left;
+    margin-right: 2%;
+}
+.FormFieldset{
+    border : 1px solid #ccc;
+}
+.Formlegend
+{
+  margin-bottom:0px;
+  margin-left:16px;
+  color: #E5863D;
+}
+
+.action-button{
+    width: 100%;
+    padding: 10px 20px;
+    background-color: white;
+    color: #E5863D;
+    border: 2px solid #E5863D;
+}
+
+/* --End of the form styles-- */
+
+
+/* -- pricing -- */
+
+.pricing{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 2rem;
+}
+.card-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: auto;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0 5px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    padding: 2rem;
+    margin: 1rem;
+    transform: all 0,2s ease-in;
+}
+.card-wrapper:hover{
+    transform: scale(1.1);
+}
+.card-header{
+    margin: 1rem;
+    text-align: center;
+}
+.card-wrapper:hover .card-header> h2{
+    transform: scale(1.1);
+    color: #5222d0;
+    letter-spacing: 2;
+}
+.card-header img{
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+.card-detail{
+    width: 100%;
+}
+.card-detail >p{
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #d5d5d5;
+}
+.check{
+    color: #5222d0;
+}
+.nocheck{
+    color: #ec615b;
+}
+.card-detail >p :hover{
+    background-color: #d5d5d5;
+}
+.card-price{
+    display: flex;
+    align-items: flex-start;
+    margin: 1rem;
+}
+.card-price >p{
+    font-size: 3rem;
+    font-weight: 800;
+}
+.card-price >p >sup,
+.card-price >p >sub{
+    font-size: 1rem;
+}
+.card-button{
+    padding: 0.6rem 3rem;
+    border: 2px solid #5222d0;
+    background-color: #5222d0;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 50ms ease-in;
+}
+.card-button:hover{
+    border: 2px solid #ec615b;
+    background-color: transparent;
+    color:#ec615b;
+    font-weight: 800;
+}
+/* -- Progress Bar -- */
+
+.progress-bar{
+    background-color: grey;
+    border-radius: 20px;
+    height: 40px;
+    width: 60%;
+    margin-top: 8px;
+}
+.progress-done{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: repeating-linear-gradient(to left,#eb904a,#FB9661,#FCB088);
+    box-shadow: 0px 5px -6px #eb904a, 0 3px 7px #FB9661;
+    border-radius: 20px;
+    color: #fff;
+    height: 100%;
+    width: 0;
+    transition: 1s ease 0.3s;
 }
