@@ -44,7 +44,7 @@
         </li>
         <li>
           <a href="#" class="nav-link">
-            <i class="fa-brands fa-amazon-pay"></i>
+            <i class="fa-brands fa-paypal"></i>
             <span class="text">Payment</span>
           </a>
         </li>
@@ -70,7 +70,7 @@
 
         <li>
           <a href="<?=ROOT?>/user" class="nav-link">
-            <i class="fa-solid fa-users-viewfinder"></i>
+            <i class="fa-solid fa-user"></i>
             <span class="text">Users</span>
           </a>
         </li>
