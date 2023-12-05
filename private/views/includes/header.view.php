@@ -44,7 +44,7 @@
         </li>
         <li>
           <a href="#" class="nav-link">
-            <i class="fas fa-credit-card-alt"></i>
+            <i class="fa-brands fa-paypal"></i>
             <span class="text">Payment</span>
           </a>
         </li>
@@ -54,7 +54,52 @@
             <span class="text">Complaint</span>
           </a>
         </li>
+
+        <!-- projectcoordinator navbar -->
+        <li>
+          <a href="<?=ROOT?>/quotation" class="nav-link">
+            <i class="fas fa-credit-card-alt"></i>
+            <span class="text">Quotation</span>
+          </a>
+        </li>
+
+
+
+
+        <!-- admin navbar -->
+
+        <li>
+          <a href="<?=ROOT?>/user" class="nav-link">
+            <i class="fa-solid fa-user"></i>
+            <span class="text">Users</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="<?=ROOT?>/staff" class="nav-link">
+            <i class="fa-solid fa-users"></i>
+            <span class="text">Staff</span>
+          </a>
+        </li>
+      
+
+
+
+      <!-- admin navbar end -->
+
+
+      <!-- common for all users -->
+        <li>
+          <a href="<?=ROOT?>/userprofile" class="nav-link">
+            <i class="fa-solid fa-user"></i>
+            <span class="text">View Profile</span>
+          </a>
+        </li>
+
       </ul>
+
+
+      <!-- settings and logout -->
 
       <ul class="side-menu">
         <li>
@@ -64,9 +109,9 @@
           </a>
         </li>
         <li>
-          <a href="#" class="logout">
+          <a href="<?=ROOT?>/logout" class="logout">
             <i class="fas fa-right-from-bracket"></i>
-            <span class="text">Logout</span>
+            <span class="text" >Logout</span>
           </a>
         </li>
       </ul>
@@ -91,6 +136,8 @@
 
         <a href="#" class="profile">
           <img src="<?=ROOT?>/img/profile.png" alt="" />
+          <!-- USER -->
+          <?=Auth::user()?>
         </a>
       </nav>
 

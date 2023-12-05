@@ -19,3 +19,65 @@ INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `s
  INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `status`) VALUES (NULL, '1', 
 'Construction project delay ', 'I\'m worried about the delays in our construction project. We\'re not getting enough updates on what\'s going on,
 and unexpected problems are making things slow. ', NULL, 'Pending');
+
+
+
+
+//USERS TABLE 
+
+CREATE TABLE user (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  firstname VARCHAR(255),
+  lastname VARCHAR(255), 
+  nic VARCHAR(255), 
+  contactnumber VARCHAR(255), 
+  address VARCHAR(255),
+  username VARCHAR(255),
+  emailaddress VARCHAR(255),
+  password VARCHAR(255),
+  confirm_password VARCHAR(255) 
+);
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `nic`, `contactnumber`, `address`, `username`, `email`, `password`) VALUES (NULL, 'kasun', 'kasun', '200290098767', '1', '1', NULL, 'k@gmail.com', 'kasunkasun')
+//staff Table
+
+INSERT INTO `staff`(`staffid`, `name`, `email`, `password`, `NIC`, `Address`, `City`, `role`) VALUES ('PM1','G.N.S Wickrama','gaveesha@gmail.com','gnswickrama','200139905649','14,Thotupala Rd,Wadduwa','Wadduwa','ProjectManager')
+
+
+
+//Quotation Table
+CREATE TABLE quotation (
+ 
+  projectid int PRIMARY KEY ,
+  modelnumber int,
+  clientname VARCHAR(255),
+  estimation int,
+  companyprofit int,
+  totalcost int
+);
+
+
+//Profile Table
+CREATE TABLE profile (
+ 
+  ID int,
+  ClientName VARCHAR(255),
+  ModelNumber int,
+  Modifiacations VARCHAR(255)
+);
+
+//Staff Table
+CREATE TABLE staff(
+ 
+  staffid int PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(500),
+  email VARCHAR(250),
+  password text,
+  nic text,
+  contactnumber int(10),
+  address text,
+  city text, 
+  role text, 
+  joineddate date
+  
+);
