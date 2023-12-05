@@ -42,3 +42,16 @@ INSERT INTO `user` (`id`, `firstname`, `lastname`, `nic`, `contactnumber`, `addr
 //staff Table
 
 INSERT INTO `staff`(`staffid`, `name`, `email`, `password`, `NIC`, `Address`, `City`, `role`) VALUES ('PM1','G.N.S Wickrama','gaveesha@gmail.com','gnswickrama','200139905649','14,Thotupala Rd,Wadduwa','Wadduwa','ProjectManager')
+
+
+
+//Quotation Table
+CREATE TABLE quotation (
+ 
+  projectid int PRIMARY KEY AUTO_INCREMENT,
+  modelnumber int,
+  clientname VARCHAR(255),
+  estimation int,
+  companyprofit int,
+  totalcost int
+);
