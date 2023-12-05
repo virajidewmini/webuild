@@ -10,6 +10,10 @@ body{
     <form method="post">
         <h3>Are you sure tou want to delete?!</h3>
 
+
+        <input name="id" value= "<?= get_var('id',$row[0]->id);?>" type="text" placeholder="Staff ID" class="staffid" hidden>
+        <br>
+        <br>
         <input name="name" value= "<?= get_var('name',$row[0]->name);?>" type="text" placeholder="Name" class="name">
         <br>
         <br>
@@ -40,7 +44,6 @@ body{
         </select>
         <br>
         <br>
-        <input type="hidden" name="id">
         <input type="submit" value="Delete"class=""> 
         <a href="<?=ROOT?>/staff">
             <input type="button" value="Cancel"class="">

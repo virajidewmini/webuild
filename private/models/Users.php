@@ -144,8 +144,8 @@ class Users extends Model{
 
 
     public function hash_password($data){
-        $data['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
-        return $data;
+        $DATA['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
+        return $DATA;
     }
     
 }

@@ -76,7 +76,6 @@
 
 			
 			$query= "delete from $this->table where id =:id";
-			echo $query;
 			$data['id']=$id;
 			return $this->query($query,$data);
 		}

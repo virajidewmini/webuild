@@ -30,19 +30,19 @@ body{
                     <tbody>
                         <?php foreach ($rows as $row) :?>
                             <tr>                       
-                                <td><?=$row->staffid?></td>
+                                <td><?=$row->id?></td>
                                 <!-- <td></td> -->
                                 <td><?=$row->name?></td>
                                 <td><?=$row->role?></td>  
                                 <td><?=get_date($row->joineddate)?></td>                    
                                 <td>
-                                    <a href="<?=ROOT?>/staff/seemore/<?=$row->staffid?>">
+                                    <a href="<?=ROOT?>/staff/seemore/<?=$row->id?>">
                                         <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
-                                    <a href="<?=ROOT?>/staff/delete/<?=$row->staffid?>">
+                                    <a href="<?=ROOT?>/staff/delete/<?=$row->id?>">
                                         <button><i class="fa-solid fa-trash"></i></button>
                                     </a>
-                                    <a href="<?=ROOT?>/staff/edit?staffid=<?=$row->staffid?>">
+                                    <a href="<?=ROOT?>/staff/edit?id=<?=$row->id?>">
                                         <button><i class="fa-solid fa-pen-to-square"></i></button>
                                     </a>
                                 </td>

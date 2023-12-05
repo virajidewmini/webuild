@@ -2,7 +2,7 @@
 class A_Staff extends Model{
 
     protected $allowedColumns =[
-        'staffid',
+        'id',
         'name',
         'email',
         'password',

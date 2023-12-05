@@ -59,15 +59,15 @@
             $staff=new A_Staff();
 
             $errors=array();
-            $staffid=$_GET["staffid"];
+            $id=$_GET["id"];
 
 
 
-            if ($staffid==""){
+            if ($id==""){
 
                 if($staff->validate($_POST)){
 
-                    $staff->update($staffid,$_POST);
+                    $staff->update($id,$_POST);
 
                     $this->redirect('/staff');
 
@@ -77,7 +77,7 @@
                     $errors = $staff->errors;
                 }
             }
-            $row = $staff->where('staffid',$staffid);
+            $row = $staff->where('id',$id);
         
             if(!$row){
                 $row=(object)[];
@@ -90,7 +90,7 @@
             ]);
         }
 
-        public function delete($staffid=null){
+        public function delete($id=null){
             
             //code
             if(!Auth::logged_in()){
@@ -101,15 +101,12 @@
 
             $staff=new A_Staff();
 
-            $errors=array();
-           
+            $errors=array();            
             if (count($_POST)>0){
-
-                $staff->delete($staffid,$_POST);
-                $this->redirect('staff');
-               
+                $staff->delete($id,$_POST);
+                $this->redirect('staff');   
             }
-            $row = $staff->where('staffid',$staffid);
+            $row = $staff->where('id',$id);
             
             $this->view('staff.delete',[
                 'row'=>$row,
