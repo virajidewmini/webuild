@@ -48,10 +48,20 @@ INSERT INTO `staff`(`staffid`, `name`, `email`, `password`, `NIC`, `Address`, `C
 //Quotation Table
 CREATE TABLE quotation (
  
-  projectid int PRIMARY KEY AUTO_INCREMENT,
+  projectid int PRIMARY KEY ,
   modelnumber int,
   clientname VARCHAR(255),
   estimation int,
   companyprofit int,
   totalcost int
+);
+
+
+//Profile Table
+CREATE TABLE profile (
+ 
+  ID int,
+  ClientName VARCHAR(255),
+  ModelNumber int,
+  Modifiacations VARCHAR(255)
 );
