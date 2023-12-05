@@ -65,3 +65,19 @@ CREATE TABLE profile (
   ModelNumber int,
   Modifiacations VARCHAR(255)
 );
+
+//Staff Table
+CREATE TABLE staff(
+ 
+  staffid int PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(500),
+  email VARCHAR(250),
+  password text,
+  nic text,
+  contactnumber int(10),
+  address text,
+  city text, 
+  role text, 
+  joineddate date
+  
+);
