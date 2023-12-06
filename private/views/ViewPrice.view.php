@@ -18,25 +18,25 @@
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing1.png" alt="Pricing 1">
-            <h2>Half & Half </h2>
+            <h2>TriEase Pay </h2>
         </div>
         <div class="card-detail">
             <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
             <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
             <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
+            <p><span class="fas fa-check nocheck"></span>Loremnjgj ispum dolor</p>
         </div>
 
         <div class="card-price">
             <p><sup>$</sup>10<sub>/month</sub></p>
         </div>
-        <button class="card-button">I WANT IT</button>
+        
     </div>
 
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing2.png" alt="Pricing 2">
-            <h2>Half & Half </h2>
+            <h2>QuadEase Pay</h2>
         </div>
         <div class="card-detail">
             <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
@@ -48,13 +48,14 @@
         <div class="card-price">
             <p><sup>$</sup>10<sub>/month</sub></p>
         </div>
-        <button class="card-button">I WANT IT</button>
+        
     </div>
 
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing3.png" alt="Pricing 3">
-            <h2>Half & Half </h2>
+            <br><br>
+            <h2>PentaEase Pay</h2>
         </div>
         <div class="card-detail">
             <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
@@ -65,8 +66,9 @@
 
         <div class="card-price">
             <p><sup>$</sup>10<sub>/month</sub></p>
+
         </div>
-        <button class="card-button">I WANT IT</button>
+        
     </div>
 </section>
 </body>

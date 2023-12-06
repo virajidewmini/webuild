@@ -19,7 +19,9 @@
             <label for="description">Description</label>
             <input type="text" name="description" id="description" class="v_form-control" style="height: 150px;" required>
 
-            <input type="hidden" name="status" value="pending">
+             <input type="hidden" name="status" value="pending">
+           <!-- <label for="fileUpload">Select files:</label>
+            <input type="file" name="fileUpload[]" id="fileUpload" multiple required> -->
 
             <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a>
            
