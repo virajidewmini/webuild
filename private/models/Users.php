@@ -129,14 +129,14 @@ class Users extends Model{
 
 
         //password strength
-        if(!empty($DATA['password'])<8){
+        if(!empty($DATA['password']) && !preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])/',$DATA['password'])){
             $this->errors['password']="Your Password does not meet the expected criteria; should contain an uppercase letter a number and a special character";
         }
 
 
 
         //same as confirmpassword
-        if($DATA['password'] != $DATA['confirmpassword']){
+        if(!empty($DATA['password']) && !empty($DATA['confirmpassword']) && ($DATA['password'] != $DATA['confirmpassword'])){
             $this->errors['password']="Passwords do not match";
         }
 
