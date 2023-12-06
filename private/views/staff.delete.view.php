@@ -11,7 +11,7 @@ body{
         <h3>Are you sure tou want to delete?!</h3>
 
 
-        <input name="id" value= "<?= get_var('id',$row[0]->id);?>" type="text" placeholder="Staff ID" class="staffid" hidden>
+        <input name="id" value= "<?= get_var('id',$row[0]->id);?>" type="text" placeholder="Staff ID" class=" id" hidden>
         <br>
         <br>
         <input name="name" value= "<?= get_var('name',$row[0]->name);?>" type="text" placeholder="Name" class="name">

@@ -26,24 +26,39 @@
 		}
 
 		public function insert($data){
-			$keys = array_keys($data);
-			$columns = implode(',', $keys);
-			$values = implode(',:', $keys);
-	
-			$query = "insert into $this->table ($columns) values (:$values)";
-	
+			//remove unwanted columns
+			if(!property_exists($this, 'allowedColmns')){
+				foreach ($data as $key => $column) {
+					if(!in_array($key,$this->allowedColumns)){
+						unset($data[$key]);
+					}
+				}
+			}
+
+
+			//run functons before insert
+			if(property_exists($this, 'beforeInsert')){
+				foreach ($this->beforeInsert as $func) {
+					$data =$this->$func($data);
+				}
+			}
+			$keys =array_keys($data);
+			$columns=implode(',',$keys);
+			$values=implode(',:',$keys);
+			$query= "insert into $this->table ($columns) values(:$values)";
 			return $this->query($query,$data);
-		 }
+		}
+
 
 		 public function update($id,$data){
 
 			$str = "";
 			foreach ($data as $key => $value) {
-			
+				//code
 				$str .= $key. "=:". $key.",";
 			}
 
-			$str = trim($str,",");
+			$str = trim($str,",");//trim trims from the beg and the end
  
 			$data['id'] = $id;
 			$query = "update $this->table set $str where id = :id";
@@ -54,6 +69,7 @@
 		public function delete($id){
 
 			$query = "delete from $this->table where id = :id";
+			echo $query;
 			$data['id'] = $id;
 			return $this->query($query,$data);
 		}

@@ -58,7 +58,7 @@ class Users extends Model{
         }
 
         //valid NIC
-        if(!empty($DATA['nic']) && !preg_match('/^([0-9]{9}[VX]|[0-9]{12})$/',$DATA['nic'])) {
+        if(!empty($DATA['nic']) && !preg_match('/^([0-9]{9}[Vv]||[0-9]{12})$/',$DATA['nic'])) {
             $this->errors['nic']="Invalid NIC Number";
         }
 
@@ -126,6 +126,13 @@ class Users extends Model{
         if(strlen($DATA['password'])<8 || strlen($DATA['password'])>12){
             $this->errors['password']="Password should have 8-12 characters.";
         }
+
+
+        //password strength
+        if(!empty($DATA['password'])<8){
+            $this->errors['password']="Your Password does not meet the expected criteria; should contain an uppercase letter a number and a special character";
+        }
+
 
 
         //same as confirmpassword

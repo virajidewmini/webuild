@@ -16,6 +16,9 @@ body{
                 <br><?=$error?>
             <?php endforeach; ?>
         <?php endif;?>
+        <input name="id" value= "<?= get_var('id',$row[0]->id);?>" type="text" placeholder="Staff ID" class="id">
+        <br>
+        <br>
         <input name="name" value= "<?= get_var('name',$row[0]->name);?>" type="text" placeholder="Name" class="name">
         <br>
         <br>
