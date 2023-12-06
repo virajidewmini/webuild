@@ -75,7 +75,6 @@
             }
             $row = $staff->where('id',$id);
         
-            print_r($row);
             
             $this->view('staff.edit',[
                 'row'=>$row,
