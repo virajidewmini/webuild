@@ -21,11 +21,11 @@ class Database
 	{
 
 		$con = $this->connect();
-		$stm = $con->prepare($query);
+		$stm = $con->prepare($query); // similar to SELECT 8 FROM User WHERE "name"=? ----------- this is called prepared statement
 
 		$result = false;
 		if($stm){
-			$check = $stm->execute($data);
+			$check = $stm->execute($data);//This is where any parameters in the SQL query are replaced with the actual values.
 			if($check){
 				if($data_type == "object"){
 					$result = $stm->fetchAll(PDO::FETCH_OBJ);
