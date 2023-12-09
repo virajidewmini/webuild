@@ -18,69 +18,118 @@
   </head>
   <body>
     <section class="sidebar">
-      <a href="#" class="logo">
-        <i class="fas fa-university"></i>
-        <span class="text">Webuild</span>
-      </a>
-
-      <ul class="side-menu top">
-        <li class="active">
-          <a href="#" class="nav-link">
-            <i class="fas fa-border-all"></i>
-            <span class="text">Dashboard</span>
+          <a href="#" class="logo">
+            <i class="fas fa-university"></i>
+            <span class="text">Webuild</span>
           </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link">
-            <i class="fas fa-file"></i>
-            <span class="text">Report</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link">
-            <i class="fas fa-chart-simple"></i>
-            <span class="text">Progress</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link">
-            <i class="fa-brands fa-paypal"></i>
-            <span class="text">Payment</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link">
-            <i class="fas fa-comments"></i>
-            <span class="text">Complaint</span>
-          </a>
-        </li>
+          <?php if(Auth::logged_in()): ?>
+            <?php if(Auth::getRole()== 'manager'): ?>
+              <ul class="side-menu top">
+                <li class="active">
+                  <a href="<?=ROOT?>/Pmdashboard" class="nav-link" class="nav-link">
+                    <i class="fas fa-border-all"></i>
+                    <span class="text">Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Members</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="text">Tasks</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                    <span class="text">Materials</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="text">Daily Reports</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-comments"></i>
+                    <span class="text">Complaints</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-images"></i>
+                    <span class="text">Images</span>
+                  </a>
+                </li>
+            <?php else: ?>
+              <ul class="side-menu top">
+                <li class="active">
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-border-all"></i>
+                    <span class="text">Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-file"></i>
+                    <span class="text">Report</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-chart-simple"></i>
+                    <span class="text">Progress</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-brands fa-paypal"></i>
+                    <span class="text">Payment</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-comments"></i>
+                    <span class="text">Complaint</span>
+                  </a>
+                </li>
+            
 
-        <!-- projectcoordinator navbar -->
-        <li>
-          <a href="<?=ROOT?>/quotation" class="nav-link">
-            <i class="fas fa-credit-card-alt"></i>
-            <span class="text">Quotation</span>
-          </a>
-        </li>
+                <!-- projectcoordinator navbar -->
+                <li>
+                  <a href="<?=ROOT?>/quotation" class="nav-link">
+                    <i class="fas fa-credit-card-alt"></i>
+                    <span class="text">Quotation</span>
+                  </a>
+                </li>
 
 
 
 
-        <!-- admin navbar -->
+                <!-- admin navbar -->
 
-        <li>
-          <a href="<?=ROOT?>/user" class="nav-link">
-            <i class="fa-solid fa-user"></i>
-            <span class="text">Users</span>
-          </a>
-        </li>
+                <li>
+                  <a href="<?=ROOT?>/user" class="nav-link">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="text">Users</span>
+                  </a>
+                </li>
 
-        <li>
-          <a href="<?=ROOT?>/staff" class="nav-link">
-            <i class="fa-solid fa-users"></i>
-            <span class="text">Staff</span>
-          </a>
-        </li>
+                <li>
+                  <a href="<?=ROOT?>/staff" class="nav-link">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Staff</span>
+                  </a>
+                </li>
+
+          <?php endif; ?>
+        <?php endif; ?>
       
 
 
@@ -134,13 +183,11 @@
           <span class="num">28</span>
         </a>
 
-        <a href="#" class="profile">
+        <a href="<?=ROOT?>/Userprofile" class="profile">
           <img src="<?=ROOT?>/img/profile.png" alt="" />
           <!-- USER -->
-          <?=Auth::user()?>
+          <?=Auth::getFirstname()?>
         </a>
       </nav>
 
-     <main>
-        
-      
+      <main>

@@ -31,6 +31,14 @@ class Auth{
 
     }
 
+    public static function id(){
+        //code
+        if(isset($_SESSION['USER'])){
+            return $_SESSION['USER']->id;
+        }
+
+    }
+
     public static function __callStatic($method,$params){
         
         $prop=strtoLower(str_replace("get","",$method));
