@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lands</title>
-
+  <title>Home</title>
+<!-- swiper cs link -->
+  <link
+  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+  
   <!-- font awesome cdn link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="./style.css">
@@ -26,6 +30,10 @@
   <a href="./completed.php">Completed Projects</a>
   <a href="./about.php">About Us</a>
   <a href="./contact.php">Contact Us</a>
+  <a href="#">Login</a>
+  <a href="#">Sign Up</a>
+
+
 </nav>
 
 
@@ -39,23 +47,23 @@
 
 <!-- home section starts -->
 <section class="home">
-  <div class="home-slide">
-    <div class="W">
-      <div class="slide" style="background: url(./Photos/741_house_1.jpg);">
+  <div class="swiper home-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-swiper-slider slide swiper-slider slide" style="background: url(./Photos/741_house_1.jpg);">
         <div class="content">
           <span>purchase your dream place</span>
           <h3>dream with webuild</h3>
           <a href="#" class="btn">See More</a>       
          </div>
       </div>
-      <div class="slide" style="background: url(./Photos/1630000306A.jpg);">
+      <div class="swiper-swiper-slider slide swiper-slider slide" style="background: url(./Photos/1630000306A.jpg);">
         <div class="content">
           <span>purchase your dream place</span>
           <h3>dream with webuild</h3>
           <a href="#" class="btn">See More</a>        
         </div>
       </div>
-      <div class="slide" style="background: url(./Photos/hq720.jpg)">
+      <div class="swiper-swiper-slider slide swiper-slider slide" style="background: url(./Photos/hq720.jpg)">
         <div class="content">
           <span>purchase your dream place</span>
           <h3>dream with webuild</h3>
@@ -63,65 +71,56 @@
         </div>
       </div>
     </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
   </div>
 </section>
-<!-- home section ends -->
-
-<!-- filter section starts-->
-<div class="slide" style="background: url(./Photos/hq720.jpg)">
-        <div class="content">
-        <section class="booking">
-  <h1 class="heading-title"> Contact Us
-  <form action="book_form.php" method="post" class="book-form">
-    <div class="flex">
-      <div class="inputBox">
-        <span>looking for:</span>
-        <input type="text" placeholder="Lands" name="name">
-      </div>
-      <div class="inputBox">
-        <span>District:</span>
-        <input type="text" placeholder="All District" name="email">
-      </div>
-      <div class="inputBox">
-        <span>popular ciites:</span>
-        <input type="text" placeholder="Cities" name="phone">
-      </div>
-      <div class="inputBox">
-        <span>search:</span>
-        <input type="text" placeholder="Type here" name="address">
-      </div>
-    </div>
-    <input type="submit" value="submit" class="btn" name="send">
-  </form>  
-  </h1>
-</section>
-        </div>
-      </div>
-
-
-<!-- filter section ends-->
-
+<!-- home section starts -->
 
 
 <!-- service section  starts -->
 <section class="services">
-  <h1 class="heading-title">Our Houses</h1>
+  <h1 class="heading-title">Our Services</h1>
   <div class="box-container">
-    <!-- <div class="box1">
-      <img src="images/icon-1.png" alt="">
+    <div class="box">
+    <img src="./Photos/images.jpeg" alt="">
+    <h3>Houses</h3>
     </div>
-    <div class="box2">
+    <div class="box">
       <img src="./Photos/images.jpeg" alt="">
+      <h3>Lands</h3>
     </div>
-    <div class="box3">
-      <img src="./Photos/741_house_1.jpg" alt="">
+    <div class="box">
+    <img src="./Photos/images.jpeg" alt="">
+    <h3>Advices</h3>
     </div>
-    <div class="box4">
-      <img src="./Photos/00.jpg" alt="">
-    </div> -->
+    <div class="box">
+    <img src="./Photos/images.jpeg" alt="">
+    <h3>hudud</h3>
+    </div>
   </div>
 </section>
 <!-- service section ends -->
+
+
+
+<!-- home about starts -->
+<section class="home-about">
+  <div class="image">
+    <img src="./Photos/images3.jpeg" alt="" >
+  </div>
+
+  <div class="content">
+    <h3>about us</h3>
+    <p>Everyone aspires to own a great piece of property. We, at WEBUILD, made it our aim to make this dream a reality. Assume you wish to buy land to build a house for you and your family. WEBUILD provide you with a selection of the most excellent land alternatives in the country, as well as a variety of support services, such as legal and financial assistance, to help you realize your property dreams. In Sri Lanka's highly competitive real estate market, WEBUILD acquired over 300,000 customers, sufficient proof of WEBUILD' capacity and leadership in the real estate industry. </p>
+    <h3>our vision</h3>
+    <p>COMMITTED TO CREATING A BETTER PLACE ON EARTH.</p>
+    <a href="./about.php" class="btn">read more</a>
+  </div>
+</section>
+<!-- home about ends -->
 
 
 
@@ -175,10 +174,11 @@
 <!-- home offer section ends -->
 
 <!-- reviews section starts -->
+<h1 class="heading-title">Client Reviews</h1>
 <section class="reviews">
-  <div class="reviews-slider">
-    <div class="w">
-      <div class="slide">
+  <div class=" swiper reviews-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slider slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -190,7 +190,7 @@
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
       </div>
-      <div class="slide">
+      <div class="swiper-slider slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -202,7 +202,7 @@
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
       </div>
-      <div class="slide">
+      <div class="swiper-slider slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -214,7 +214,31 @@
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
       </div>
-      <div class="slide">
+      <div class="swiper-slider slide">
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
+        <h3>N.M.Siriwardhane</h3>
+        <span>Doctor</span>
+      </div>
+      <div class="swiper-slider slide">
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
+        <h3>N.M.Siriwardhane</h3>
+        <span>Doctor</span>
+      </div>
+      <div class="swiper-slider slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -276,7 +300,10 @@
 <!-- footer section end -->
 
 
-  
+  <!-- swiper link js -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <!-- custon js file link -->
 <script src="./home.js"></script>
 

@@ -1,19 +1,19 @@
 <?php $this->view('includes/header')?>
 <div class="table">
-        <!-- <div class="table_header">
-            <p>Supervisors</p>
-            <div>
-                <button class="add___">Add members</button>
+        <div class="table_header">
+            
+        <div>
+               <a href="AddMaintain"><button class="add___">Add Request</button></a>   
             </div>
-        </div> -->
+        </div>
         <div class="table_section" style="height: 250px;">
             <table>
                 <thead>
                     <tr>
                         <th>Material Name</th>
                         <th>Material ID</th>
-                        <th>Profile</th>
-                        <th>Request</th>
+                        <th>Total</th>
+                        <th>Current</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,5 +57,6 @@
             </table>
         </div>
     </div>
+
      
 <?php $this->view('includes/footer'); ?>
