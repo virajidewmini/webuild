@@ -81,7 +81,7 @@
 			$values = implode(',:', $keys);
 	
 			$query = "insert into $this->table ($columns) values (:$values)";
-	
+			echo $query;
 			return $this->query($query,$data);
 		 }
 
@@ -119,6 +119,20 @@
 					  WHERE $this->table1.m_user_id = :value
 					  AND $this->table1.action = 'ongoing'
 					  AND $this->table3.dpr_action = 'done' ORDER BY project_dprs.date ASC";
+	
+			// Assuming you have a method named 'query' to execute the query
+			return $this->query($query, [
+				'value' => $value,
+			]);
+		}
+
+		public function alltask($value){
+	
+			$query = "SELECT $this->table4.*
+					  FROM $this->table1
+					  INNER JOIN $this->table4 ON $this->table1.project_id = $this->table4.project_id
+					  WHERE $this->table1.m_user_id = :value
+					  AND $this->table4.action = 'ongoing'ORDER BY $this->table4.start_date ASC";
 	
 			// Assuming you have a method named 'query' to execute the query
 			return $this->query($query, [

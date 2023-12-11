@@ -4,6 +4,8 @@ class Dtbase extends Model{
     protected $table2 = "user";
     protected $table3= "project_dprs";
 
+    protected $table4= "project_tasks";
+
     protected $afterSelect = [
         'get_user',
     ];

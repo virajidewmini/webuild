@@ -6,16 +6,18 @@
         public function index()
         {
             if(!Auth::logged_in()){
-                $this->redirect('login');
+                $this->redirect('/login');
             }
             $pmi = Auth::getid();
 
             $dtbase = new Dtbase();
             $data = $dtbase->alldpr($pmi);
+            $data1 = $dtbase->alltask($pmi);
 
         
             $this->view('pmdashboard',[
-                'rows'=>$data
+                'rows'=>$data,
+                'rows1'=>$data1
             ]);
         }
 

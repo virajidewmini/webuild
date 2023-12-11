@@ -51,6 +51,11 @@ body{
         <div class="table_section">
             <table>
                 <thead>
+                <?php
+                    echo "<pre>";
+                    print_r($rows1);
+                ?>
+     
                     <tr>
                         <th>Project ID</th>
                         <th>Report ID</th>

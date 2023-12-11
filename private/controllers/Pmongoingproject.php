@@ -9,7 +9,7 @@ class Pmongoingproject extends Controller
 	public function index()
 	{
 		if(!Auth::logged_in()){
-			$this->redirect('login');
+			$this->redirect('/login');
 		}
         $pmi = Auth::getid();
 
@@ -23,13 +23,14 @@ class Pmongoingproject extends Controller
 	{
 		// code...
 		if(!Auth::logged_in()){
-			$this->redirect('login');
+			$this->redirect('/login');
 		}
 
         $project_detail = new Project_detail();
 		$data = $project_detail->where('project_id',$id);
 
 		$this->view('pmprojectprofile',['rows'=>$data]);
+
 	}
 
 }
