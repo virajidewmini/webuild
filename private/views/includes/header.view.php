@@ -49,7 +49,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link">
+          <a href="<?=ROOT?>/clientcomplaint" class="nav-link">
             <i class="fas fa-comments"></i>
             <span class="text">Complaint</span>
           </a>

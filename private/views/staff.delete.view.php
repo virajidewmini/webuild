@@ -3,53 +3,36 @@
 body{
     overflow: hidden;
 }
+
 </style>
 
     <?php if($row):?>
-    
-    <form method="post">
-        <h3>Are you sure tou want to delete?!</h3>
+        
+    <div class="">
+        <div class="delete-box">
+        <form method="post">
+            
+            <div class="delete-message"> 
+                <h3 ">  Are you sure you want to delete this user?
 
+                </h3>
+            </div>
 
-        <input name="id" value= "<?= get_var('id',$row[0]->id);?>" type="text" placeholder="Staff ID" class=" id" hidden>
-        <br>
-        <br>
-        <input name="name" value= "<?= get_var('name',$row[0]->name);?>" type="text" placeholder="Name" class="name">
-        <br>
-        <br>
-        <input name="email" value="<?= get_var('email',$row[0]->email);?>" type="text" placeholder="Email" class="">
-        <br>
-        <br>
-        <input name="password" value= "<?= get_var('password',$row[0]->password);?>" type="text" placeholder="Password" class="">
-        <br>
-        <br>
-        <input name="nic" value= "<?= get_var('nic',$row[0]->nic);?>" type="text" placeholder="NIC" class="">
-        <br>
-        <br>
-        <input name="contactnumber" value= "<?= get_var('contactnumber',$row[0]->contactnumber);?>" type="text" placeholder="Contact Number" class="">
-        <br>
-        <br>
-        <input name="address" value="<?= get_var('address',$row[0]->address);?>" type="text" placeholder="Address" class="">
-        <br>
-        <br>
-        <input name="city" value= "<?= get_var('city',$row[0]->city);?>" type="text" placeholder="City" class="">
-        <br>
-        <br>
-        <select name="role" value="<?= get_var('role','');?>" type="text" placeholder="Role" class="">
-        <option <?= get_select('role','');?> value="">--Selcect a Role--</option>
-        <option <?= get_select('role','projectcoordinator');?>  value="projectcoordinator">Project Coordinator</option>
-        <option <?= get_select('role','projectmanager');?>  value="projectmanager">Project Manager</option>
-        <option <?= get_select('role','storekeeper');?>  value="storekeeper">Store Keeper</option>
-        <option <?= get_select('role','supervisor');?>  value="supervisor">Supervisor</option>   
-        </select>
-        <br>
-        <br>
-        <input type="submit" value="Delete"class=""> 
-        <a href="<?=ROOT?>/staff">
-            <input type="button" value="Cancel"class="">
-        </a>
+            <div name="delete-user-input">      
+            <input name="firstname" value= "<?= get_var('firstname',$row[0]->firstname);?>" type="text" class="firstname" readonly style=" display: inline-block;text-align: right;margin: 0; padding: 0px;border:none;">
+            <input name="lastname" value= "<?= get_var('lastname',$row[0]->lastname);?>" type="text" class="lastname" readonly style="margin: 0; padding: 0px;border:none;;                  ">
+            </div>
+            
+            <br>
+            
+            <input type="submit" value="Delete"  class="delete-button"> 
+            <a href="<?=ROOT?>/staff">
+                <input type="button" value="Cancel"class="cancel-button">
+            </a>
 
-    </form>
+        </form>
+        </div>
+    </div>
     
     <?php else:?>
         <h3>The Employee was not found.</h3>

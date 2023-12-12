@@ -50,32 +50,30 @@
         }
 
         public function edit($id=null){
-            
             if(!Auth::logged_in()){
                 $this->redirect('/login');
             }
+            $id=$_GET["id"];
 
 
             $staff=new A_Staff();
 
-            $errors=array();          
+            $errors=array();        
             if (count($_POST)>0){
+                if($staff->validatestaff($_POST)){
 
-                if($staff->validate($_POST)){
+                $staff->update($id,$_POST);
+                
 
-                    $staff->update($id,$_POST);
+                $this->redirect('staff');
 
-                    $this->redirect('staff');
-
-                }else{
+                 }else{
 
                     //errors
                     $errors = $staff->errors;
                 }
             }
             $row = $staff->where('id',$id);
-        
-            
             $this->view('staff.edit',[
                 'row'=>$row,
                 'errors'=>$errors,
@@ -99,6 +97,7 @@
                 $this->redirect('staff');   
             }
             $row = $staff->where('id',$id);
+           
             
             $this->view('staff.delete',[
                 'row'=>$row,

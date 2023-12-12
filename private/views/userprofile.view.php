@@ -8,8 +8,8 @@
             </div>
             <div class="profile_col-8">
                 <table class="profile_table">
-                    <tr><th>First Name:</th><td>Pramukha</td></tr>
-                    <tr><th>Second Name:</th><td>Thenuwara</td></tr>
+                    <tr><th>Name:</th><td>Pramukha</td></tr>
+                    <tr><th>Role:</th><td>Thenuwara</td></tr>
                     <tr><th>Gender:</th><td>Male</td></tr>
                     <tr><th>Date Created:</th><td>2019-02-05</td></tr>
                 </table>

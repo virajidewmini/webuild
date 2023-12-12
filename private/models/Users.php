@@ -136,7 +136,7 @@ class Users extends Model{
 
 
         //same as confirmpassword
-        if(!empty($DATA['password']) && !empty($DATA['confirmpassword']) && ($DATA['password'] != $DATA['confirmpassword'])){
+        if((!empty($DATA['password'])) && ($DATA['password'] != $DATA['confirmpassword'])){
             $this->errors['password']="Passwords do not match";
         }
 
