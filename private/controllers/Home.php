@@ -6,10 +6,10 @@
         public function index(){
             $db = new Database();
             
-            $data = $db->query("select * from complaint");
+            // $data = $db->query("select * from maintain");
             
             
-            $this->view('home',['rows'=> $data]);
+            // $this->view('home',['rows'=> $data]);
         }
 
     }
