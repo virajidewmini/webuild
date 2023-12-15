@@ -83,6 +83,13 @@
                 <option <?= get_select2('role','supervisor');?> value="supervisor">Supervisor</option>
             </select>
         </div>
+        <div class="form-group2">
+            <select name="gender" class="v_form-control" value="<?= get_select2('gender','');?>" type="text" placeholder="Gender">
+                <option <?= get_select2('gender','');?> value="">Select a gender</option>
+                <option <?= get_select2('gender','male');?> value="male">Male</option>
+                <option <?= get_select2('gender','female');?> value="female">Female</option>
+            </select>
+        </div>
     </div>
     <div style="display: flex; justify-content: center;" >            
     <a href="<?=ROOT?>/staff">
