@@ -92,8 +92,10 @@
 .pro{
     cursor: pointer;
     border-radius: 20px;
-    height: 146px;
-    width: 208px;
+    /* height: 146px;
+    width: 208px; */
+    height: 250px;
+    width: 350px;
     margin: 5px;
 }
 
@@ -110,8 +112,10 @@
     align-items: center;
     justify-content: center;
     border-radius: 20px 20px 0 0;
-    height: 116px;
-    width: 208px;
+    /* height: 116px;
+    width: 208px; */
+    height: 250px;
+    width: 350px;
     color: #fff;
     font-size: 25px;
   }
@@ -124,11 +128,19 @@
     border-radius: 0 0 20px 20px;
     background-color: #eee;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-    height: 30px;
-    width: 208px;
+    /* height: 30px;
+    width: 208px; */
+    height: 40px;
+    width: 350px;
   }
 
   /*-----Table-----*/
+
+a {
+    text-decoration: none;
+    text-transform: none;
+    color: black;
+}
 
 .table{
     width: 100%;
@@ -212,6 +224,7 @@ thead th{
     background-color: #f6f9fc;
     color: #8493a5;
     font-size: 15px;
+    
 }
 
 th,td{

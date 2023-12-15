@@ -1,6 +1,8 @@
 <?php 
 class Users extends Model{
 
+    protected $table = "user";
+
     protected $allowedColumns =[
         'firstname',
         'lastname',
@@ -140,7 +142,7 @@ class Users extends Model{
 
 
     }
-    protected $table = "user";
+    
 
 
     public function hash_password($data){

@@ -81,3 +81,392 @@ CREATE TABLE staff(
   joineddate date
   
 );
+
+-- pramukhas database
+
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3308
+-- Generation Time: Dec 11, 2023 at 11:03 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `webuild`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complaint`
+--
+
+CREATE TABLE `complaint` (
+  `id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `remark` longtext CHARACTER SET utf8 DEFAULT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `complaint`
+--
+
+INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `status`) VALUES
+(1, 1, 'Quality of photograph', 'I had high expectations for the photographs quality, and unfortunately, it does not meet those expectations. ', NULL, 'Pending'),
+(2, 1, 'Construction project delay ', 'I\'m worried about the delays in our construction project. We\'re not getting enough updates on what\'s going on,\r\nand unexpected problems are making things slow. ', NULL, 'Pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material_requests`
+--
+
+CREATE TABLE `material_requests` (
+  `p_id` varchar(10) NOT NULL,
+  `r_id` varchar(10) NOT NULL,
+  `material_or_item_id` varchar(10) NOT NULL,
+  `material_or_item_name` varchar(10) NOT NULL,
+  `mesure_unit` varchar(6) NOT NULL,
+  `quantity` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `material_requests`
+--
+
+INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `material_or_item_name`, `mesure_unit`, `quantity`) VALUES
+('11', '100', '3', 'vvf', 'vdsv', 2),
+('11', '100', '3', 'vvf', 'vdsv', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_details`
+--
+
+CREATE TABLE `project_details` (
+  `project_id` int(11) NOT NULL,
+  `model_id` int(11) NOT NULL,
+  `customer_name` varchar(30) NOT NULL,
+  `m_user_id` int(5) NOT NULL,
+  `s_user_id` int(5) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `action` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `project_details`
+--
+
+INSERT INTO `project_details` (`project_id`, `model_id`, `customer_name`, `m_user_id`, `s_user_id`, `location`, `action`) VALUES
+(1, 1, 'Thushanka Pramuditha', 1, 5, 'Unawatuna', 'ongoing'),
+(2, 1, 'Dinushanka Shyamal', 1, 6, 'Karandeniya', 'ongoing'),
+(3, 1, 'Ramidu Dulmin', 9, 5, 'Udugama', 'complete'),
+(4, 2, 'Kasun Udara', 10, 3, 'Galle', 'ongoing'),
+(5, 1, 'Naduni Jayasinghe', 1, 3, 'Bambalapitiya', 'complete');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_dprs`
+--
+
+CREATE TABLE `project_dprs` (
+  `dpr_id` int(5) NOT NULL,
+  `project_id` int(5) NOT NULL,
+  `s_user_id` int(5) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `dpr_action` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `project_dprs`
+--
+
+INSERT INTO `project_dprs` (`dpr_id`, `project_id`, `s_user_id`, `date`, `dpr_action`) VALUES
+(1, 1, 5, '2023-12-08 11:09:51', 'approved'),
+(2, 2, 6, '2023-12-08 11:09:51', 'done'),
+(3, 1, 5, '2023-12-08 11:09:51', 'done'),
+(4, 1, 5, '2023-12-08 11:09:51', 'done'),
+(5, 2, 6, '2023-12-08 11:09:51', 'rejected');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_tasks`
+--
+
+CREATE TABLE `project_tasks` (
+  `project_id` int(5) NOT NULL,
+  `task_id` int(5) NOT NULL,
+  `sub_task_id` int(5) NOT NULL,
+  `sub_task_name` varchar(100) NOT NULL,
+  `sub_task_details` varchar(1000) NOT NULL,
+  `start_date` date NOT NULL,
+  `action` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `project_tasks`
+--
+
+INSERT INTO `project_tasks` (`project_id`, `task_id`, `sub_task_id`, `sub_task_name`, `sub_task_details`, `start_date`, `action`) VALUES
+(0, 0, 0, '', '', '0000-00-00', ''),
+(0, 0, 0, '', '', '0000-00-00', ''),
+(0, 1, 1, '1', '1', '0000-00-00', ''),
+(0, 1, 1, '1', '1', '0000-00-00', ''),
+(0, 1, 1, '1', '1', '0000-00-00', ''),
+(0, 1, 1, '1', '1', '0000-00-00', ''),
+(0, 1, 1, '1', '1', '0000-00-00', ''),
+(0, 1, 1, 'Excavation', 'Dig the foundation trenches according to the approved building plans and structural requirements', '0000-00-00', ''),
+(0, 1, 1, 'Excavation', 'Dig the foundation trenches according to the approved building plans and structural requirements', '0000-00-00', ''),
+(0, 2, 9, 'Wall Framing', 'Erect the exterior walls first, typically using lumber or steel studs, ensuring proper alignment and squareness. Install headers, sills, and cripple studs where necessary, following structural and design specifications.', '0000-00-00', ''),
+(0, 2, 9, 'Wall Framing', 'Erect the exterior walls first, typically using lumber or steel studs, ensuring proper alignment and squareness. Install headers, sills, and cripple studs where necessary, following structural and design specifications.', '0000-00-00', ''),
+(0, 1, 3, 'Pouring Concrete', 'Prepare the concrete mix according to the recommended proportions and quality standards. Pour the concrete into the excavated trenches and footings, ensuring even distribution and proper consolidation.', '0000-00-00', ''),
+(0, 1, 1, 'Excavation', 'Dig the foundation trenches according to the approved building plans and structural requirements', '0000-00-00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `staffid` int(11) NOT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  `email` varchar(250) DEFAULT NULL,
+  `password` text DEFAULT NULL,
+  `nic` text DEFAULT NULL,
+  `contactnumber` int(10) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `city` text DEFAULT NULL,
+  `role` text DEFAULT NULL,
+  `joineddate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staffid`, `name`, `email`, `password`, `nic`, `contactnumber`, `address`, `city`, `role`, `joineddate`) VALUES
+(1, 'T.A.P.Prathibapoorna', 'pramukhapoo@gmail.com', 'pramukha123', '200027801803', 769117180, '14,Thotupala Rd,Wadduwa', 'Wadduwa', 'ProjectVoordinator', '2023-12-06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_tasks`
+--
+
+CREATE TABLE `sub_tasks` (
+  `task_id` int(5) NOT NULL,
+  `sub_task_id` int(5) NOT NULL,
+  `sub_task_name` varchar(30) NOT NULL,
+  `sub_task_details` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sub_tasks`
+--
+
+INSERT INTO `sub_tasks` (`task_id`, `sub_task_id`, `sub_task_name`, `sub_task_details`) VALUES
+(1, 1, 'Excavation', 'Dig the foundation trenches according to the approved building plans and structural requirements'),
+(1, 2, 'Footings Preparation', 'Constructing footings involves following the precise instructions provided by a structural engineer to ensure they\'re appropriately sized and positioned to support the load-bearing walls. Using formwork, shape the footings and reinforce them with steel bars (rebar) for added strength as per engineering requirements. This process creates a solid and stable foundation capable of supporting the weight of the structure.'),
+(1, 3, 'Pouring Concrete', 'Prepare the concrete mix according to the recommended proportions and quality standards. Pour the concrete into the excavated trenches and footings, ensuring even distribution and proper consolidation.'),
+(1, 4, 'Curing and Setting', 'Allow sufficient time for the concrete to cure and gain strength. Implement appropriate curing methods like moist curing or applying curing compounds.\r\nMonitor the curing process and protect the concrete from extreme weather conditions or premature drying.\r\n'),
+(1, 5, 'Backfilling and Compaction', 'Backfill the excavated area around the foundation with suitable soil, ensuring proper compaction to prevent settling.\r\nCompact the soil in layers to achieve the required density and stability.'),
+(1, 6, 'Foundation Drainage', 'Install drainage systems like weeping tiles or French drains around the foundation to manage groundwater and prevent water accumulation. Ensure proper slope and connections to direct water away from the foundation.'),
+(2, 8, 'Layout and Marking', 'Begin by marking the positions for walls, doorways, windows, and openings on the foundation, following the architectural plans. Ensure accurate measurements and alignment according to the floor plan.'),
+(2, 9, 'Wall Framing', 'Erect the exterior walls first, typically using lumber or steel studs, ensuring proper alignment and squareness. Install headers, sills, and cripple studs where necessary, following structural and design specifications.'),
+(2, 10, 'Floor Framing', 'Construct the floor structure by installing joists or trusses, creating a sturdy base for the flooring material. Attach rim joists, subflooring, and bracing as needed for stability and support.'),
+(2, 11, 'Roof Framing', 'Build the roof structure by installing rafters or trusses, ensuring proper pitch and alignment according to the architectural design. Add ridge beams, collar ties, and braces to provide support and stability to the roof.'),
+(2, 12, 'Window and Door Framing', 'Frame openings for windows and doors, ensuring proper headers, king studs, and cripple studs to support these openings.\r\nInstall window and door frames securely within the framed openings'),
+(2, 13, 'Bracing and Sheathing', 'Install diagonal bracing to reinforce the structure against lateral forces like wind or earthquakes.\r\nApply sheathing materials (such as plywood or oriented strand board) to the exterior walls and roof for added strength and stability.'),
+(2, 14, 'Inspections', 'Schedule inspections to ensure the framing work complies with building codes and safety regulations.\r\nAddress any identified issues or required corrections before proceeding to the next construction phase.'),
+(3, 15, 'Siding Installation', 'Choose and install the selected siding material (vinyl, wood, fiber cement, brick, etc.) onto the exterior walls according to the architectural design. Cut and fit siding pieces accurately, ensuring proper overlap and alignment.'),
+(3, 16, 'Stucco or Exterior Render', 'Apply stucco or exterior render to the walls for a durable and decorative finish.\r\nPrepare the surface, apply the base coats, and finish with the desired texture or color.'),
+(3, 17, 'Brickwork or Masonry', 'Lay bricks or other masonry materials as per the design plan, using mortar to create a solid and visually appealing exterior.\r\nEnsure proper alignment, spacing, and structural integrity of the masonry work.'),
+(3, 18, 'Trim and Molding Installation', 'Install exterior trim pieces, such as fascia boards, soffits, corner boards, and decorative moldings around windows and doors. Ensure proper cutting, fitting, and sealing to enhance the aesthetics and protect vulnerable areas from moisture.'),
+(3, 19, 'Painting or Exterior Finishes', 'Apply paint or protective coatings to the exterior surfaces for color, weather resistance, and durability. Ensure proper priming, painting, or staining as per manufacturer\'s guidelines and design preferences'),
+(3, 20, 'Weatherproofing and Sealing', 'Apply caulking or sealants around windows, doors, and other penetrations to prevent water infiltration and air leaks.\r\nCheck for gaps or openings and seal them appropriately to maintain the building envelope.'),
+(3, 21, 'Gutter and Downspout Installat', 'Install gutters and downspouts to efficiently direct rainwater away from the house, preventing water damage to the foundation and exterior walls.\r\nEnsure proper slope, alignment, and secure attachment of the gutter system.'),
+(3, 22, 'Exterior Lighting and Fixtures', 'Install exterior lighting fixtures, such as wall-mounted lights, floodlights, or decorative fixtures, to illuminate and enhance the house\'s exterior.'),
+(3, 23, 'Final Inspections and Touch-up', 'Conduct a thorough inspection of the exterior finishing work to ensure it meets building codes, regulations, and design specifications. Perform any necessary touch-ups or corrections identified during inspections.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `module_id` int(5) NOT NULL,
+  `task_id` int(5) NOT NULL,
+  `task_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`module_id`, `task_id`, `task_name`) VALUES
+(1, 1, 'Foundation'),
+(1, 2, 'Framing'),
+(1, 3, 'Exterior Finishing'),
+(1, 4, 'Windows and Doors Installation'),
+(1, 5, 'Interior Work'),
+(1, 6, 'Flooring Installation'),
+(1, 7, 'Interior Finishing'),
+(1, 8, 'Final Inspections and Touch-up'),
+(1, 9, 'Cleanup and Landscaping');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `nic` varchar(255) DEFAULT NULL,
+  `gender` varchar(10) NOT NULL,
+  `role` varchar(30) NOT NULL,
+  `contactnumber` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `confirm_password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `nic`, `gender`, `role`, `contactnumber`, `address`, `username`, `email`, `password`, `confirm_password`) VALUES
+(1, 'Pramukha', 'Thenuwara', '200027801803', 'male', 'manager', '0769117180', 'Seenigoda', 'thenuwara', 'pramukhapoo@gmail.com', '$2y$10$TGyHNK5bSx3UmLgFqT2YZuwj0gbnD3sPCK7c2m9CPWgeQXG3VvUKy', NULL),
+(2, 'Rajith', 'Rantharaka', '200056901904', 'male', 'manager', '0777353594', 'Wathugedara', 'rajith', 'rajith@gmail.com', 'kjbdvkldjbfv6545', NULL),
+(3, 'Kasun', 'Udara', '200056808042', 'male', 'supervisor', '0778959834', 'Ambalangoda', 'kasun', 'kasun@gmail.com', 'sfjbskjbksd64654', NULL),
+(4, 'Prathibha', 'Poorna', '200161904908', 'male', 'supervisor', '0775484861', 'Galle', 'poorna', 'poorna@gmail.com', 'srfbjksfsdkjdoa654132', NULL),
+(5, 'Thimesh', 'Madushanka', '20006570104', 'male', 'supervisor', '0717648232', 'Hikkaduwa', 'thimesh', 'thimesh@gmail.com', 'wefkjbskfljkndchdjfjkaf8465461', NULL),
+(6, 'Charith', 'Deshan', '200054601602', 'male', 'supervisor', '0777656591', 'Alpitiya', 'charith', 'charith@gmail.com', 'sfsdhvbjzdbvoiajlsjfoasf68465651', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `complaint`
+--
+ALTER TABLE `complaint`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_details`
+--
+ALTER TABLE `project_details`
+  ADD PRIMARY KEY (`project_id`);
+
+--
+-- Indexes for table `project_tasks`
+--
+ALTER TABLE `project_tasks`
+  ADD KEY `project_id` (`project_id`),
+  ADD KEY `task_id` (`task_id`),
+  ADD KEY `sub_task_id` (`sub_task_id`),
+  ADD KEY `start_date` (`start_date`),
+  ADD KEY `sub_task_details` (`sub_task_details`(768)),
+  ADD KEY `action` (`action`);
+
+--
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`staffid`);
+
+--
+-- Indexes for table `sub_tasks`
+--
+ALTER TABLE `sub_tasks`
+  ADD PRIMARY KEY (`sub_task_id`),
+  ADD KEY `task_id` (`task_id`),
+  ADD KEY `sub_task_id` (`sub_task_id`),
+  ADD KEY `sub_task_name` (`sub_task_name`),
+  ADD KEY `sub_task_details` (`sub_task_details`(768));
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`task_id`),
+  ADD KEY `module_id` (`module_id`),
+  ADD KEY `task_id` (`task_id`),
+  ADD KEY `task_name` (`task_name`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `complaint`
+--
+ALTER TABLE `complaint`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `project_details`
+--
+ALTER TABLE `project_details`
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `staffid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sub_tasks`
+--
+ALTER TABLE `sub_tasks`
+  MODIFY `sub_task_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `task_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
