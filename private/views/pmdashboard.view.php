@@ -11,37 +11,30 @@ body{
             <p>Projects</p>
         </div>
         <div class="project">
-            <a href="<?=ROOT?>/Pmongoingproject"
-            style="text-decoration:none">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/on_pro.png');">
-                    <h1>Ongoing</h1>
+                    <p>Ongoing</p>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            </a>
-            <a href="<?=ROOT?>/Pmongoingproject">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cm_pro.png');">
-                    <h1>Completed</h1>
+                    <p>Completed</p>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
-            </a>
-            <a href="<?=ROOT?>/Pmongoingproject">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cn_pro.png');">
-                    <h1>Canceled</h1>
+                    <p>Canceled</p>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right" style="padding-left: 4px;"></i>
                 </div>
             </div>
-            </a>
         </div>
     </div>
     <div class="table">
@@ -51,39 +44,61 @@ body{
         <div class="table_section">
             <table>
                 <thead>
-                <?php
-                    echo "<pre>";
-                    print_r($rows1);
-                ?>
-     
                     <tr>
+                        <th>Employee ID</th>
+                        <th>Profile</th>
+                        <th>Name</th>
                         <th>Project ID</th>
                         <th>Report ID</th>
-                        <th>User ID</th>
-                        <th>Supervisor Name</th>
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php if ($rows):?>
-                    <?php foreach ($rows as $row):?>
                     <tr>
-                        <td><?= $row->project_id?></td>
-                        <td><?= $row->dpr_id?></td>
-                        <td><?= $row->s_user_id?></td>
-                        <td><?= $row->user->firstname?> <?= $row->user->lastname?></td>
-                        <td><?=get_date($row->date)?></td>
+                        <td>SV013</td>
+                        <td><img src="<?=ROOT?>/img/profile.png"></td>
+                        <td>M.P. Savani</td>
+                        <td>P003</td>
+                        <td>P003R025</td>
+                        <td>10/05/2023</td>
                         <td>
-                            <a href="#">
                             <button><i class="fa-solid fa-eye"></i></button>
-                            </a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <h3>No Reports were found at this time</h3>
-                <?php endif; ?>
+                    <tr>
+                        <td>SV013</td>
+                        <td><img src="<?=ROOT?>/img/profile.png"></td>
+                        <td>M.P. Savani</td>
+                        <td>P003</td>
+                        <td>P003R025</td>
+                        <td>10/05/2023</td>
+                        <td>
+                            <button><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SV013</td>
+                        <td><img src="<?=ROOT?>/img/profile.png"></td>
+                        <td>M.P. Savani</td>
+                        <td>P003</td>
+                        <td>P003R025</td>
+                        <td>10/05/2023</td>
+                        <td>
+                            <button><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SV013</td>
+                        <td><img src="<?=ROOT?>/img/profile.png"></td>
+                        <td>M.P. Savani</td>
+                        <td>P003</td>
+                        <td>P003R025</td>
+                        <td>10/05/2023</td>
+                        <td>
+                            <button><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -134,3 +149,4 @@ body{
     </div>
 
 <?php $this->view('includes/footer'); ?>
+

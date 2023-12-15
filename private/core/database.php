@@ -24,8 +24,6 @@ class Database
 		$stm = $con->prepare($query); // similar to SELECT 8 FROM User WHERE "name"=? ----------- this is called prepared statement
 
 		$result = false;
-		
-
 		if($stm){
 			$check = $stm->execute($data);//This is where any parameters in the SQL query are replaced with the actual values.
 			if($check){
