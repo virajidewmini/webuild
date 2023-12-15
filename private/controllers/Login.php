@@ -15,11 +15,14 @@
                     $row = $row[0];
                     if(password_verify($_POST['password'],$row->password)){
                         Auth::authenticate($row);
+                        if (Auth::getRole() == 'manager'){
+                            $this->redirect('/pmdashboard');
+                        }
                         $this->redirect('/home');
                     }
                    
                 }
-                $errors['username']="Wrong email or password";                   
+                $errors['email']="Wrong email or password";                   
             }
             
 

@@ -15,7 +15,7 @@ class A_Staff extends Model{
         
     
     ];
-
+  
     protected $beforeInsert =[
         'hash_password'
     ];
