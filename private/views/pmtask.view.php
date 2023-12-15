@@ -37,7 +37,6 @@
                         <th>Task ID</th>
                         <th>Sub Task ID</th>
                         <th>Sub Name</th>
-                        <th>Detail</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -49,7 +48,6 @@
                             <td><?= $row->task_id?></td>
                             <td><?= $row->sub_task_id?></td>
                             <td><?= $row->sub_task_name?></td>
-                            <td><?= $row->sub_task_details?></td>
                             <td>
                                 <a href="<?=ROOT?>/Pmtask/add/<?=$row->sub_task_id?>">
                                 <button><i class="fa-solid fa-plus"></i></button>
