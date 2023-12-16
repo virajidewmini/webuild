@@ -61,31 +61,29 @@
 
 		public function insert($data){
 
-
-			if(property_exists($this, 'allowedColumns')){
-				foreach($data as $key => $column){
-					if(!in_array($key, $this->allowedColumns)){
+			//remove unwanted columns
+			if(!property_exists($this, 'allowedColmns')){
+				foreach ($data as $key => $column) {
+					if(!in_array($key,$this->allowedColumns)){
 						unset($data[$key]);
 					}
 				}
 			}
-	
+
+
+			//run functons before insert
 			if(property_exists($this, 'beforeInsert')){
-				foreach($this->beforeInsert as $func){
-					$data = $this->$func($data);
+				foreach ($this->beforeInsert as $func) {
+					$data =$this->$func($data);
 				}
 			}
-
-
-			$keys = array_keys($data);
-			$columns = implode(',', $keys);
-			$values = implode(',:', $keys);
-	
-			$query = "insert into $this->table ($columns) values (:$values)";
-			echo $query;
+			$keys =array_keys($data);
+			$columns=implode(',',$keys);
+			$values=implode(',:',$keys);
+			$query= "insert into $this->table ($columns) values(:$values)";
 			return $this->query($query,$data);
 		}
-
+		
 
 		 public function update($id,$data){
 

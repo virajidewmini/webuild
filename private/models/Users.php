@@ -74,6 +74,25 @@ class Users extends Model{
             $this->errors['contactnumber']="Contact Number can't be empty ";
         }
 
+        //valid contactnumber
+        if(!empty($DATA['contactnumber']) && !preg_match('/^0\d{9}$/',$DATA['contactnumber'])) {
+            $this->errors['contactnumber']="Invalid contactnumber Number; Enter only the 10 digits";
+        }
+
+
+
+
+        /**
+        gender
+        **/
+
+        //empty
+        if(empty($DATA['gender'])){
+            $this->errors['gender']="Gender can't be empty ";
+        }
+
+
+
 
         /**
         address
