@@ -121,13 +121,13 @@ margin-left:0px;
     align-items: center;
     justify-content: center;
     padding: 0;
-    background: #e2875a;
+    background: #131313;
     font-size: 15px;
-    color: #797575;
+    color: #f7f4f4;
   }
   button:hover{
     background: or;
-    color: rgb(31, 32, 32);
+    color: rgb(95, 94, 92);
   }
    
   @media (max-width: 767px) {
@@ -154,7 +154,7 @@ margin-left:0px;
   
       }
       .link a{
-        color:#e2875a;
+        color:#878482;
       }
       
       .link a:hover {

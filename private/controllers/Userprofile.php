@@ -12,6 +12,18 @@
 
             $this->view('userprofile');
         }
+        public function seemore($id=null){ 
+            
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+
+            $this->view('userprofile');
+        }
+
+
+
 
     }
 ?>

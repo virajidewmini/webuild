@@ -7,7 +7,9 @@ body{
     <?php if($rows):?>
         <div class="table">
             <div class="table_header">
-                <p>Webuild Staff</p>
+                <div style="display: flex;" >
+                    <h3>  Webuild Staff  </h3>
+                </div>
                 
             </div>
             <div class="table_section">
@@ -32,11 +34,11 @@ body{
                             <tr>                       
                                 <td><?=$row->id?></td>
                                 <!-- <td></td> -->
-                                <td><?=$row->name?></td>
+                                <td><?=$row->firstname?></td>
                                 <td><?=$row->role?></td>  
                                 <td><?=get_date($row->joineddate)?></td>                    
                                 <td>
-                                    <a href="<?=ROOT?>/staff/seemore/<?=$row->id?>">
+                                    <a href="<?=ROOT?>/userprofile/seemore/<?=$row->id?>">
                                         <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
                                     <a href="<?=ROOT?>/staff/delete/<?=$row->id?>">
@@ -55,7 +57,9 @@ body{
     <?php else:?>
         <h4>No staff is found</h4>
         <div>
-            <button class="add___">Add Staff</button>
+            <a href="<?=ROOT?>/staff/add">
+                <button class="add___">Add Staff</button>
+            </a>
         </div>
     <?php endif;?>        
 

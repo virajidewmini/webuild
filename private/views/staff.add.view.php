@@ -1,12 +1,34 @@
 <?php $this->view('includes/header')?>
 <style>
-body{
-    overflow: hidden;
-}
-</style>
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .form-group2 {
+        flex: 1;
+        margin-right: 10px;
+    }
+
     
-    <form method="post">
-        <h3>Add New Employee</h3>
+    /* Placeholder styling */
+    .v_form-control::placeholder {
+        /* font-weight: bold; */
+        color: black;
+    }
+
+
+    
+
+    </style>
+    <div style="display: flex; justify-content: center;" >
+        <h3>  Add New Employee </h3>
+    </div>
+    <div class="form_container">
+        <form method="post"  class="v_form">
+    
+        
 
         <?php if(count($errors) >0):?>
             <strong>Errors:</strong>
@@ -14,43 +36,69 @@ body{
                 <br><?=$error?>
             <?php endforeach; ?>
         <?php endif;?>
-    
-        <input name="name" value= "<?= get_var('name');?>" type="text" placeholder="Name" class="">
-        <br>
-        <br>
-        <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email" class="">
-        <br>
-        <br>
-        <input name="password" value= "<?= get_var('password');?>" type="text" placeholder="Password" class="">
-        <br>
-        <br>
-        <input name="nic" value= "<?= get_var('nic');?>" type="text" placeholder="NIC" class="">
-        <br>
-        <br>
-        <input name="contactnumber" value= "<?= get_var('contactnumber');?>" type="text" placeholder="Contact Number" class="">
-        <br>
-        <br>
-        <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="">
-        <br>
-        <br>
-        <input name="city" value= "<?= get_var('city');?>" type="text" placeholder="City" class="">
-        <br>
-        <br>
-        <select name="role" value="<?= get_var('role');?>" type="text" placeholder="Role" class="">
-        <option <?= get_select('role','');?> value="">--Selcect a Role--</option>
-        <option <?= get_select('role','projectcoordinator');?> value="projectcoordinator">Project Coordinator</option>
-        <option <?= get_select('role','projectmanager');?> value="projectmanager">Project Manager</option>
-        <option <?= get_select('role','storekeeper');?> value="storekeeper">Store Keeper</option>
-        <option <?= get_select('role','supervisor');?> value="supervisor">Supervisor</option>   
-        </select>
-        <br>
-        <br>
-        <a href="<?=ROOT?>/staff">
-            <input type="submit" value="Add"class="">  <t> <input type="button" value="Cancel"class="">
-        </a>
 
-    </form>
-        
+    <div class="form-row">
+        <div class="form-group2">
+            <input name="firstname" value="<?= get_var('firstname');?>" type="text" placeholder="First Name" class="v_form-control">
+        </div>
+        <div class="form-group2">
+            <input name="lastname" value="<?= get_var('lastname');?>" type="text" placeholder="Last Name" class="v_form-control">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group2">
+            <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email" class="v_form-control">
+        </div>
+        <div class="form-group2">
+            <input name="password" value="<?= get_var('password');?>" type="text" placeholder="Password" class="v_form-control">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group2">
+            <input name="nic" value="<?= get_var('nic');?>" type="text" placeholder="NIC" class="v_form-control">
+        </div>
+        <div class="form-group2">
+            <input name="contactnumber" value="<?= get_var('contactnumber');?>" type="text" placeholder="Contact Number" class="v_form-control">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group2">
+            <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="v_form-control">
+        </div>
+        <div class="form-group2">
+            <input name="city" value="<?= get_var('city');?>" type="text" placeholder="City" class="v_form-control">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group2">
+            <select name="role" class="v_form-control" value="<?= get_select2('role','');?>" type="text" placeholder="Role">
+                <option <?= get_select2('role','');?> value="">Select a Role</option>
+                <option <?= get_select2('role','projectcoordinator');?> value="projectcoordinator">Project Coordinator</option>
+                <option <?= get_select2('role','projectmanager');?> value="projectmanager">Project Manager</option>
+                <option <?= get_select2('role','storekeeper');?> value="storekeeper">Store Keeper</option>
+                <option <?= get_select2('role','supervisor');?> value="supervisor">Supervisor</option>
+            </select>
+        </div>
+        <div class="form-group2">
+            <select name="gender" class="v_form-control" value="<?= get_select2('gender','');?>" type="text" placeholder="Gender">
+                <option <?= get_select2('gender','');?> value="">Select a gender</option>
+                <option <?= get_select2('gender','male');?> value="male">Male</option>
+                <option <?= get_select2('gender','female');?> value="female">Female</option>
+            </select>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center;" >            
+    <a href="<?=ROOT?>/staff">
+        <input type="submit" value="  Add   "class="add-button">
+   
+        <input type="button" value="Cancel"class="cancel-button">
+    </a>
+    </div>
+</form>
+</div>
 
 <?php $this->view('includes/footer'); ?>
-

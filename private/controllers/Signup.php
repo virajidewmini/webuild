@@ -22,7 +22,6 @@
 
                     //errors
                     $errors = $user->errors;
-                    print_r($errors);
                 }
             }
 

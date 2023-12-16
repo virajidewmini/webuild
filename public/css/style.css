@@ -476,3 +476,87 @@ td img{
     width: 0;
     transition: 1s ease 0.3s;
 }
+
+
+/* delete view including buttons and msgs */
+
+/* Style for the overlay background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style for the delete confirmation box */
+  .delete-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    margin: 50px auto;
+  }
+  /* Style for the user name input field */
+  .delete-user-input {
+    width: calc(100% - 20px); /* Adjust width as needed */
+    padding: 10px;
+    margin: 10px 0 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+  }
+  /* Style for the delete confirmation message */
+  .delete-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Style for the buttons */
+  .delete-button, .cancel-button , .add-button,.save-button{
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    
+  }
+  
+  .delete-button {
+    background: #e74c3c; /* Red color for delete */
+    color: #fff;
+  }
+  
+  .cancel-button {
+    background: #3498db; /* Blue color for cancel */
+    color: #fff;
+  }
+  .add-button {
+    background-color: #2ecc71; /* Green color for Add button */
+    color: #fff;
+  }
+  .save-button {
+    color: #fff;
+    background-color: #2ecc71;
+  }
+  /* Hover effect for buttons */
+  .delete-button:hover, .cancel-button:hover , .add-button:hover ,.save-button:hover{
+    opacity: 0.8;
+  }
+  
+
+
+
+
+  
