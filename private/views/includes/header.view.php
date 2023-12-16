@@ -67,35 +67,6 @@
                     <span class="text">Images</span>
                   </a>
                 </li>
-            
-                <!-- projectcoordinator navbar -->
-              <?php elseif(Auth::getRole()== 'projectcoordinator'): ?>
-                <li>
-                  <a href="<?=ROOT?>/quotation" class="nav-link">
-                    <i class="fas fa-credit-card-alt"></i>
-                    <span class="text">Quotation</span>
-                  </a>
-                </li>
-
-
-
-
-                <!-- admin navbar -->
-            <?php elseif(Auth::getRole()== 'admin'): ?>
-                <li>
-                  <a href="<?=ROOT?>/user" class="nav-link">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="text">Users</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="<?=ROOT?>/staff" class="nav-link">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="text">Staff</span>
-                  </a>
-                </li>
-            
             <?php else: ?>
               <ul class="side-menu top">
                 <li class="active">
@@ -192,5 +163,6 @@
           <?=Auth::getFirstname()?>
         </a>
       </nav>
+    </section>
 
       <main>
