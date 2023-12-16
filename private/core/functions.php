@@ -10,7 +10,16 @@
     }
 
 
-    function get_select($key,$value){
+    function get_select($key,$value,$row){
+        $row = (array) $row;
+        if(isset($row[$key])){
+            if($row[$key] == $value){
+                return "selected";
+            }
+        } 
+        return "";
+    }
+    function get_select2($key,$value){
         if(isset($_POST[$key])){
             if($_POST[$key] == $value){
                 return "selected";
@@ -18,8 +27,7 @@
         } 
         return "";
     }
-
-
+    
     //escape
     function esc($var){
 

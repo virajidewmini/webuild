@@ -60,7 +60,7 @@ class Users extends Model{
         }
 
         //valid NIC
-        if(!empty($DATA['nic']) && !preg_match('/^([0-9]{9}[VX]|[0-9]{12})$/',$DATA['nic'])) {
+        if(!empty($DATA['nic']) && !preg_match('/^([0-9]{9}[Vv]||[0-9]{12})$/',$DATA['nic'])) {
             $this->errors['nic']="Invalid NIC Number";
         }
 
@@ -73,6 +73,25 @@ class Users extends Model{
         if(empty($DATA['contactnumber'])){
             $this->errors['contactnumber']="Contact Number can't be empty ";
         }
+
+        //valid contactnumber
+        if(!empty($DATA['contactnumber']) && !preg_match('/^0\d{9}$/',$DATA['contactnumber'])) {
+            $this->errors['contactnumber']="Invalid contactnumber Number; Enter only the 10 digits";
+        }
+
+
+
+
+        /**
+        gender
+        **/
+
+        //empty
+        if(empty($DATA['gender'])){
+            $this->errors['gender']="Gender can't be empty ";
+        }
+
+
 
 
         /**
@@ -130,8 +149,15 @@ class Users extends Model{
         }
 
 
+        //password strength
+        if(!empty($DATA['password']) && !preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])/',$DATA['password'])){
+            $this->errors['password']="Your Password does not meet the expected criteria; should contain an uppercase letter a number and a special character";
+        }
+
+
+
         //same as confirmpassword
-        if($DATA['password'] != $DATA['confirmpassword']){
+        if((!empty($DATA['password'])) && ($DATA['password'] != $DATA['confirmpassword'])){
             $this->errors['password']="Passwords do not match";
         }
 

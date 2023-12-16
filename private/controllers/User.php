@@ -16,7 +16,7 @@
             //$arr=array ( "First_Name" => "Gavee" );
             //$users->insert($arr);
             //$users->update(40,$arr);
-           $users->delete(40);
+           //$users->delete(40);
 
             $data=$users->findAll();
 
