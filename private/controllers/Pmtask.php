@@ -29,6 +29,8 @@
                if( $_SERVER['REQUEST_METHOD'] =='POST'){
                 if($project_task->validate($_POST)){
                     
+                    $_POST['start_date'] = date('Y-m-d H:i:s');
+                    $_POST['action'] = 'ongoing';
                     $project_task->insert($_POST);
                     $this->redirect('pmtask');
                 }

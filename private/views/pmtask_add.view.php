@@ -6,7 +6,7 @@
                display: flex;
                padding: 0 0 20px 0;
                border-radius: 20px;
-               width: 80%;
+               width: 90%;
                max-width: 700px;
                height: auto;
           }
@@ -49,6 +49,19 @@
                height: auto;
           }
 
+          .task_d::placeholder{
+            color: black;
+          }
+
+          .task_d{
+            border: 1px solid black;
+            border-radius: 7px;
+            padding: 10px 10px 10px 20px;
+            margin-left: 10px;
+            width:300px;
+            height:100px;
+          }
+
 .in_a_c:hover{
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
 }
@@ -81,7 +94,7 @@
                                 <p>Task ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('task_id',$row[0]->task_id)?>" type="text" name="task_id" placeholder="Task ID">
+                                <input readonly value="<?=get_var('task_id',$row[0]->task_id)?>" type="text" name="task_id">
                             </div>
                         </div>
                         <div class="unit-d">
@@ -89,7 +102,7 @@
                                 <p>Sub Task ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('task_id',$row[0]->sub_task_id)?>" type="text" name="sub_task_id" placeholder="Sub Task ID">
+                                <input readonly value="<?=get_var('task_id',$row[0]->sub_task_id)?>" type="text" name="sub_task_id">
                             </div>
                         </div>
                         <div class="unit-d">
@@ -97,7 +110,7 @@
                                 <p>Sub Task Name :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('task_id',$row[0]->sub_task_name)?>" type="text" name="sub_task_name" placeholder="Sub Task Name">
+                                <input readonly value="<?=get_var('task_id',$row[0]->sub_task_name)?>" type="text" name="sub_task_name">
                             </div>
                         </div>
                         <div class="unit-d">
@@ -105,7 +118,7 @@
                                 <p>Details :</p>
                             </div>
                             <div class="e-id-d">
-                                <input value="<?=get_var('task_id',$row[0]->sub_task_details)?>" type="text" name="sub_task_details" placeholder="Sub Task Details"></textarea>
+                                <textarea class="task_d" style="color:black" values="<?=get_var('task_id',$row[0]->sub_task_details)?>" type="text" name="sub_task_details" placeholder="Sub Task Details"><?=get_var('task_id',$row[0]->sub_task_details)?></textarea>
                             </div>
                         </div>
                         <div class="table_header" style="align-items: center; background-color:white">
