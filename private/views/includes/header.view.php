@@ -67,6 +67,7 @@
                     <span class="text">Images</span>
                   </a>
                 </li>
+<<<<<<< Updated upstream
             
                 <!-- projectcoordinator navbar -->
               <?php elseif(Auth::getRole()== 'projectcoordinator'): ?>
@@ -96,6 +97,55 @@
                   </a>
                 </li>
             
+=======
+
+
+                <?php elseif(Auth::getRole()== 'coordinator'): ?>
+              <ul class="side-menu top">
+                <li class="active">
+                  <a href="<?=ROOT?>/Coordinatordashboard" class="nav-link" class="nav-link">
+                    <i class="fas fa-border-all"></i>
+                    <span class="text">Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Members</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/Pmtask">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="text">Tasks</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                    <span class="text">Materials</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="text">Daily Reports</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-comments"></i>
+                    <span class="text">Complaints</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-images"></i>
+                    <span class="text">Images</span>
+                  </a>
+                </li>
+
+>>>>>>> Stashed changes
             <?php else: ?>
               <ul class="side-menu top">
                 <li class="active">
