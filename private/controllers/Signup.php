@@ -5,9 +5,6 @@
         
         public function index(){
 
-            //code
-            echo "<pre>";
-                    print_r($_POST);
             $errors = array();
             if (count($_POST)>0){
 
@@ -18,8 +15,6 @@
                 
                 if($user->validate($_POST)){
 
-                    // echo "<pre>";
-                    // print_r($_POST);
 
                     $user->insert($_POST);
 
