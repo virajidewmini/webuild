@@ -349,7 +349,20 @@
                 <li class="active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">admin Dashboard</span>
+                    <span class="text">Admin Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/user" class="nav-link">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Users</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="<?=ROOT?>/staff" class="nav-link">
+                    <i class="fa-solid fa-users-between-lines"></i>
+                    <span class="text">Staff</span>
                   </a>
                 </li>
                 <li>
@@ -376,6 +389,9 @@
                     <span class="text">Complaint</span>
                   </a>
                 </li>
+
+                
+
                 <!-- settings and logout -->
 
                 <ul class="side-menu">

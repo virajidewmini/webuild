@@ -69,7 +69,7 @@
             <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="v_form-control">
         </div>
         <div class="form-group2">
-            <input name="city" value="<?= get_var('city');?>" type="text" placeholder="City" class="v_form-control">
+            <input name="district" value="<?= get_var('district');?>" type="text" placeholder="District" class="v_form-control">
         </div>
     </div>
 
