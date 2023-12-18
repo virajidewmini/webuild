@@ -62,7 +62,7 @@
 		public function insert($data){
 
 			//remove unwanted columns
-			if(!property_exists($this, 'allowedColmns')){
+			if(property_exists($this, 'allowedColumns')){
 				foreach ($data as $key => $column) {
 					if(!in_array($key,$this->allowedColumns)){
 						unset($data[$key]);
@@ -104,7 +104,6 @@
 		public function delete($id){
 
 			$query = "delete from $this->table where id = :id";
-			echo $query;
 			$data['id'] = $id;
 			return $this->query($query,$data);
 		}

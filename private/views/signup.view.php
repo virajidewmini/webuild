@@ -12,9 +12,8 @@
 
 
       <!-- validation -->
-      
 
-  <div class="wrapper"  ">
+  <div class="wrapper" >
     <div class="inner">
       <div class="image-holder">
         <img src="<?PHP echo ROOT;?>/img/signup.jpeg" alt="image" class="left-pic">
@@ -52,7 +51,7 @@
             <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="form-control">
         </div>
         <div class="form-wrapper">
-          <select name="gender" class="form-control" value="<?= get_select2('gender','');?>" type="text" placeholder="Gender">
+          <select name="gender" class="form-control" type="text" placeholder="Gender">
             <option <?= get_select2('gender','');?> value="">Gender</option>
             <option <?= get_select2('gender','male');?> value="male">Male</option>
             <option <?= get_select2('gender','female');?> value="female">Female</option>
