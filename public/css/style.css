@@ -206,7 +206,8 @@ input{
 }
 
 .table_section{
-    height: 450px;
+    height: auto;
+    max-height: 450px;
     overflow: auto;
 }
 
@@ -216,6 +217,7 @@ table{
     min-width: 1000px;
     border-collapse: collapse;
     background-color: #fff;
+    margin-bottom: 30px;
 }
 
 thead th{

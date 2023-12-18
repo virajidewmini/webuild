@@ -18,7 +18,6 @@
                         if (Auth::getRole() == 'manager'){
                             $this->redirect('/pmdashboard');
                         }
-                        $this->redirect('/home');
                         if (Auth::getRole() == 'coordinator'){
                             $this->redirect('/coordinatordashboard');
                         }

@@ -67,6 +67,7 @@
                     <span class="text">Images</span>
                   </a>
                 </li>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             
                 <!-- projectcoordinator navbar -->
@@ -146,6 +147,8 @@
                 </li>
 
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
             <?php else: ?>
               <ul class="side-menu top">
                 <li class="active">
@@ -242,5 +245,6 @@
           <?=Auth::getFirstname()?>
         </a>
       </nav>
+    </section>
 
       <main>

@@ -8,7 +8,7 @@ body{
 </style>
     <div class="project-details">
         <div class="table_header">
-            <p>Projects</p>
+            <h3>Projects</h3>
         </div>
         <div class="project">
             <a href="<?=ROOT?>/Pmongoingproject"
@@ -46,16 +46,11 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Daily Progress reports</p>
+            <h3>Daily Progress reports</h3>
         </div>
         <div class="table_section">
             <table>
                 <thead>
-                <?php
-                    echo "<pre>";
-                    print_r($rows1);
-                ?>
-     
                     <tr>
                         <th>Project ID</th>
                         <th>Report ID</th>
@@ -90,7 +85,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>On going sub task</p>
+            <h3>On going sub task</h3>
         </div>
         <div class="table_section">
             <table>
@@ -99,34 +94,30 @@ body{
                         <th>Project ID</th>
                         <th>Task ID</th>
                         <th>Sub Task ID</th>
-                        <th>Detail</th>
+                        <th>Sub Task Name</th>
+                        <th>Start Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php if ($rows1):?>
+                    <?php foreach ($rows1 as $row):?>
                     <tr>
-                        <td>P003</td>
-                        <td>TSK001</td>
-                        <td>TSK001S023</td>
-                        <td>Foundation excavation</td>
+                        <td><?= $row->project_id?></td>
+                        <td><?= $row->task_id?></td>
+                        <td><?= $row->sub_task_id?></td>
+                        <td><?= $row->sub_task_name ?></td>
+                        <td><?=get_date($row->start_date)?></td>
+                        <td>
+                            <a href="#">
+                            <button><i class="fa-solid fa-eye"></i></button>
+                            </a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>P003</td>
-                        <td>TSK001</td>
-                        <td>TSK001S023</td>
-                        <td>Foundation excavation</td>
-                    </tr>
-                    <tr>
-                        <td>P003</td>
-                        <td>TSK001</td>
-                        <td>TSK001S023</td>
-                        <td>Foundation excavation</td>
-                    </tr>
-                    <tr>
-                        <td>P003</td>
-                        <td>TSK001</td>
-                        <td>TSK001S023</td>
-                        <td>Foundation excavation</td>
-                    </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h3>No Reports were found at this time</h3>
+                <?php endif; ?>
 
                 </tbody>
             </table>

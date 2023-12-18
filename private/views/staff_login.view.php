@@ -37,9 +37,15 @@
         </div>
         <div class="pass">Forgot Password?</div>
         <input type="submit" value="Login">
+<<<<<<< HEAD
         <!-- <div class="signup_link">
          Haven't registered yet ? <a href="signup">Signup</a>
         </div> -->
+=======
+        <div class="signup_link">
+         Haven't registered yet ? <a href="signup">Signup</a>
+        </div>
+>>>>>>> main
       </form>
     </div>
 </div>
