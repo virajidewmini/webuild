@@ -23,5 +23,20 @@
             ]);
         }
 
+        public function subtask($id = null)
+            {
+                // code...
+                if(!Auth::logged_in()){
+                    $this->redirect('login');
+                }
+                $project_task = new Project_tasks();
+                $row = $project_task->where('sub_task_id',$id);
+                
+                
+                $this->view('pmongoingsubtask_view',[
+                    'row'=>$row,
+                ]);
+            }
+
     }
 ?>

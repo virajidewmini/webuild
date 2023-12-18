@@ -5,13 +5,16 @@
         
         public function index(){
 
-            //code
             $errors = array();
             if (count($_POST)>0){
 
                 $user=new Users();
+
+                
+                
                 
                 if($user->validate($_POST)){
+
 
                     $user->insert($_POST);
 
