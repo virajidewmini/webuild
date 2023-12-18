@@ -7,6 +7,7 @@ class Users extends Model{
         'firstname',
         'lastname',
         'nic',
+        'gender',
         'contactnumber',
         'address',
         'email',
@@ -87,8 +88,12 @@ class Users extends Model{
         **/
 
         //empty
+        $genders = ['female','male','other'];
         if(empty($DATA['gender'])){
-            $this->errors['gender']="Gender can't be empty ";
+            $this->errors['gender']="Please choose gender and try again";
+        }
+        elseif(!in_array($DATA['gender'], $genders)){
+            $this->errors['gender']="Gender is not valid";
         }
 
 
@@ -172,8 +177,8 @@ class Users extends Model{
 
 
     public function hash_password($data){
-        $DATA['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
-        return $DATA;
+        $data['password']=password_hash($data['password'],PASSWORD_DEFAULT);
+        return $data;
     }
     
 }
