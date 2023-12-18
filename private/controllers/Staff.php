@@ -9,7 +9,7 @@
                 $this->redirect('/login');
             }
 
-            $staff=new A_Staff();
+            $staff=new Staffs();
 
             $data=$staff->findAll();
 
@@ -27,7 +27,7 @@
 
             if (count($_POST)>0){
 
-                $staff=new A_Staff();
+                $staff=new Staffs();
 
                 if($staff->validate($_POST)){
 
@@ -56,11 +56,11 @@
             $id=$_GET["id"];
 
 
-            $staff=new A_Staff();
+            $staff=new Staffs();
 
             $errors=array();        
             if (count($_POST)>0){
-                if($staff->validatestaff($_POST)){
+                if($staff->validate($_POST)){
 
                 $staff->update($id,$_POST);
                 
@@ -89,7 +89,7 @@
             }
 
 
-            $staff=new A_Staff();
+            $staff=new Staffs();
 
             $errors=array();            
             if (count($_POST)>0){

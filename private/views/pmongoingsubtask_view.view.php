@@ -121,15 +121,6 @@
                                 <textarea class="task_d" style="color:black" values="<?=get_var('task_id',$row[0]->sub_task_details)?>" type="text" name="sub_task_details" placeholder="Sub Task Details"><?=get_var('task_id',$row[0]->sub_task_details)?></textarea>
                             </div>
                         </div>
-                        <div class="table_header" style="align-items: center; background-color:white">
-
-                        <a href="<?=ROOT?>/pmtask">
-                        <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
-                        </a>
-
-                        <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
-
-                        </div>
                     </form>
                     </div> 
                 

@@ -23,7 +23,93 @@
             <span class="text">Webuild</span>
           </a>
           <?php if(Auth::logged_in()): ?>
-            <?php if(Auth::getRole()== 'manager'): ?>
+            <?php if(Auth::getRole()== 'coordinator'): ?>
+              <ul class="side-menu top">
+                <li class="active">
+                  <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
+                    <i class="fas fa-border-all"></i>
+                    <span class="text">Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Members</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/Pmtask">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="text">Tasks</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                    <span class="text">Materials</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="text">Daily Reports</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fas fa-comments"></i>
+                    <span class="text">Complaints</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="fa-solid fa-images"></i>
+                    <span class="text">Images</span>
+                  </a>
+                </li>
+                <!-- settings and logout -->
+
+                <ul class="side-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-cog"></i>
+                      <span class="text">Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?=ROOT?>/logout" class="logout">
+                      <i class="fas fa-right-from-bracket"></i>
+                      <span class="text" >Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="content">
+                <nav>
+                  <i class="fas fa-bars menu-btn"></i>
+                  <form action="#">
+                    <div class="form-input">
+                      <input type="search" placeholder="search..." />
+                      <button class="search-btn">
+                        <i class="fas fa-search search-icon"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                  <a href="#" class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="num">28</span>
+                  </a>
+
+                  <a href="<?=ROOT?>/Staffprofile" class="profile">
+                    <img src="<?=ROOT?>/img/profile.png" alt="" />
+                    <!-- USER -->
+                    <?=Auth::getFirstname()?>
+                  </a>
+                </nav>
+              <main>
+            <?php elseif(Auth::getRole()== 'manager'): ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="<?=ROOT?>/Pmdashboard" class="nav-link" class="nav-link">
@@ -67,94 +153,12 @@
                     <span class="text">Images</span>
                   </a>
                 </li>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            
-                <!-- projectcoordinator navbar -->
-              <?php elseif(Auth::getRole()== 'projectcoordinator'): ?>
-                <li>
-                  <a href="<?=ROOT?>/quotation" class="nav-link">
-                    <i class="fas fa-credit-card-alt"></i>
-                    <span class="text">Quotation</span>
-                  </a>
-                </li>
-
-
-
-
-                <!-- admin navbar -->
-            <?php elseif(Auth::getRole()== 'admin'): ?>
-                <li>
-                  <a href="<?=ROOT?>/user" class="nav-link">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="text">Users</span>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="<?=ROOT?>/staff" class="nav-link">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="text">Staff</span>
-                  </a>
-                </li>
-            
-=======
-
-
-                <?php elseif(Auth::getRole()== 'coordinator'): ?>
-              <ul class="side-menu top">
-                <li class="active">
-                  <a href="<?=ROOT?>/Coordinatordashboard" class="nav-link" class="nav-link">
-                    <i class="fas fa-border-all"></i>
-                    <span class="text">Dashboard</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="text">Members</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="<?=ROOT?>/Pmtask">
-                    <i class="fa-solid fa-list-check"></i>
-                    <span class="text">Tasks</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-solid fa-cubes-stacked"></i>
-                    <span class="text">Materials</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span class="text">Daily Reports</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-comments"></i>
-                    <span class="text">Complaints</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-solid fa-images"></i>
-                    <span class="text">Images</span>
-                  </a>
-                </li>
-
->>>>>>> Stashed changes
-=======
->>>>>>> main
             <?php else: ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">Dashboard</span>
+                    <span class="text">custermer Dashboard</span>
                   </a>
                 </li>
                 <li>
@@ -181,70 +185,47 @@
                     <span class="text">Complaint</span>
                   </a>
                 </li>
-            
+                <!-- settings and logout -->
 
+                <ul class="side-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-cog"></i>
+                      <span class="text">Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?=ROOT?>/logout" class="logout">
+                      <i class="fas fa-right-from-bracket"></i>
+                      <span class="text" >Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </section>
 
+              <section class="content">
+                <nav>
+                  <i class="fas fa-bars menu-btn"></i>
+                  <form action="#">
+                    <div class="form-input">
+                      <input type="search" placeholder="search..." />
+                      <button class="search-btn">
+                        <i class="fas fa-search search-icon"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                  <a href="#" class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="num">28</span>
+                  </a>
+
+                  <a href="<?=ROOT?>/Userprofile" class="profile">
+                    <img src="<?=ROOT?>/img/profile.png" alt="" />
+                    <!-- USER -->
+                    <?=Auth::getFirstname()?>
+                  </a>
+                </nav>
+              <main>
+            <?php endif; ?>
           <?php endif; ?>
-        <?php endif; ?>
-      
-
-
-
-      <!-- admin navbar end -->
-
-
-      <!-- common for all users -->
-        <li>
-          <a href="<?=ROOT?>/userprofile" class="nav-link">
-            <i class="fa-solid fa-user"></i>
-            <span class="text">View Profile</span>
-          </a>
-        </li>
-
-      </ul>
-
-
-      <!-- settings and logout -->
-
-      <ul class="side-menu">
-        <li>
-          <a href="#">
-            <i class="fas fa-cog"></i>
-            <span class="text">Settings</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?=ROOT?>/logout" class="logout">
-            <i class="fas fa-right-from-bracket"></i>
-            <span class="text" >Logout</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-   <section class="content">
-      <nav>
-        <i class="fas fa-bars menu-btn"></i>
-        <form action="#">
-          <div class="form-input">
-            <input type="search" placeholder="search..." />
-            <button class="search-btn">
-              <i class="fas fa-search search-icon"></i>
-            </button>
-          </div>
-        </form>
-
-        <a href="#" class="notification">
-          <i class="fas fa-bell"></i>
-          <span class="num">28</span>
-        </a>
-
-        <a href="<?=ROOT?>/Userprofile" class="profile">
-          <img src="<?=ROOT?>/img/profile.png" alt="" />
-          <!-- USER -->
-          <?=Auth::getFirstname()?>
-        </a>
-      </nav>
-    </section>
-
-      <main>
