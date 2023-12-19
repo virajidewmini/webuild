@@ -13,6 +13,7 @@ class Auth{
         //code
         if(isset($_SESSION['USER'])){
             unset($_SESSION['USER']);
+
         }
     }
     public static function logged_in(){

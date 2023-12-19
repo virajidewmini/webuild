@@ -77,10 +77,10 @@
         <div class="form-group2">
             <select name="role" class="v_form-control" value="<?= get_select2('role','');?>" type="text" placeholder="Role">
                 <option <?= get_select2('role','');?> value="">Select a Role</option>
-                <option <?= get_select2('role','projectcoordinator');?> value="projectcoordinator">Project Coordinator</option>
-                <option <?= get_select2('role','projectmanager');?> value="projectmanager">Project Manager</option>
-                <option <?= get_select2('role','storekeeper');?> value="storekeeper">Store Keeper</option>
-                <option <?= get_select2('role','supervisor');?> value="supervisor">Supervisor</option>
+                <option <?= get_select2('role','Project Coordinator');?> value="Project Coordinator">Project Coordinator</option>
+                <option <?= get_select2('role','Project Manager');?> value="Project Manager">Project Manager</option>
+                <option <?= get_select2('role','Storekeeper');?> value="Storekeeper">Store Keeper</option>
+                <option <?= get_select2('role','Supervisor');?> value="Supervisor">Supervisor</option>
             </select>
         </div>
         <div class="form-group2">

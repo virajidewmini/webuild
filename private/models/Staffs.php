@@ -12,9 +12,14 @@ class Staffs extends Model{
         'nic',
         'contactnumber',
         'address',
-        'city',
+        'district',
         'role',
-        'joineddate'
+        'joineddate',
+        'experience',
+        'qualification',
+        'image',
+        'birth_date',
+        'gender'
         
     
     ];
@@ -89,14 +94,36 @@ class Staffs extends Model{
             $this->errors['address']="Address can't be empty ";
         }
 
-
         /**
-        username
+        district
         **/
 
         //empty
-        if(empty($DATA['city'])){
-            $this->errors['city']="City can't be empty ";
+        if(empty($DATA['district'])){
+            $this->errors['district']="District can't be empty ";
+        }
+
+
+        /**
+        role
+        **/
+
+        //empty
+        if(empty($DATA['role'])){
+            $this->errors['role']="Role can't be empty ";
+        }
+
+        /**
+        email
+        **/
+
+        /**
+        gender
+        **/
+
+        //empty
+        if(empty($DATA['gender'])){
+            $this->errors['gender']="Gender can't be empty ";
         }
 
         /**
@@ -149,7 +176,116 @@ class Staffs extends Model{
         role validation
         **/
         
-        $roles=['coordinator','manager','storekeeper','supervisor'];
+        $roles=['Project Coordinator','Project Manager','Storekeeper','Supervisor'];
+        if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
+            $this->errors['role']="Role is invalid ";
+        }
+         /**
+        gender validation
+        **/
+        
+        $genders=['male','female','other'];
+        if(empty($DATA['gender']) || !in_array($DATA['gender'],$genders)){
+            $this->errors['gender']="Gender is invalid ";
+        }
+
+
+        if(count($this->errors) == 0){
+            return true;
+        }
+        return false;
+
+
+    }
+    public function validate2($DATA){
+
+        $this->errors = array();
+
+        /**
+        firstname validation
+        **/
+
+        //empty
+        if(empty($DATA['firstname'])) {
+            $this->errors['firstname']="Name can't be empty";
+        }
+
+        //only letters
+        if(!empty($DATA['firstname']) && !preg_match('/^[a-zA-Z\s]+$/',$DATA['firstname'])) {
+            $this->errors['firstfirstname']="Only letters allowed";
+        }
+
+         /**
+        lastname validation
+        **/
+
+        //empty
+        if(empty($DATA['lastname'])) {
+            $this->errors['lastname']="Name can't be empty";
+        }
+
+        //only letters
+        if(!empty($DATA['lastname']) && !preg_match('/^[a-zA-Z\s]+$/',$DATA['lastname'])) {
+            $this->errors['lastname']="Only letters allowed";
+        }
+
+        /**
+        NIC
+        **/
+
+        //empty
+        if(empty($DATA['nic'])){
+            $this->errors['nic']="NIC can't be empty ";
+        }
+
+        //valid NIC
+        if(!empty($DATA['nic']) && !preg_match('/^([0-9]{9}[VX]|[0-9]{12})$/',$DATA['nic'])) {
+            $this->errors['nic']="Invalid NIC Number";
+        }
+
+
+        /**
+        contact
+        **/
+
+        //empty
+        if(empty($DATA['contactnumber'])){
+            $this->errors['contactnumber']="Contact Number can't be empty ";
+        }
+
+
+        /**
+        address
+        **/
+
+        //empty
+        if(empty($DATA['address'])){
+            $this->errors['address']="Address can't be empty ";
+        }
+
+        /**
+        district
+        **/
+
+        //empty
+        if(empty($DATA['district'])){
+            $this->errors['district']="District can't be empty ";
+        }
+
+
+        /**
+        role
+        **/
+
+        //empty
+        if(empty($DATA['role'])){
+            $this->errors['role']="Role can't be empty ";
+        }
+         /**
+        role validation
+        **/
+        
+        $roles=['Project Coordinator','Project Manager','Storekeeper','Supervisor'];
         if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
             $this->errors['role']="Role is invalid ";
         }

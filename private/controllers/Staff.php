@@ -60,7 +60,7 @@
 
             $errors=array();        
             if (count($_POST)>0){
-                if($staff->validate($_POST)){
+                if($staff->validate2($_POST)){
 
                 $staff->update($id,$_POST);
                 
