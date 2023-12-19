@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-  <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/login.jpeg'); ">
+  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/stafflogin_wallpaper.jpg'); ">
     <div class="center" >
-      
       
       <form method="post">
 
@@ -36,7 +35,7 @@
           <label>Password</label>
         </div>
         <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" style="margin-bottom: 30px ">
         
       </form>
     </div>

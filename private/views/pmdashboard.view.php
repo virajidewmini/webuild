@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'manager'): ?>
 <?php $this->view('includes/header')?>
 <style>
 main {
@@ -125,3 +126,6 @@ body{
     </div>
 
 <?php $this->view('includes/footer'); ?>
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

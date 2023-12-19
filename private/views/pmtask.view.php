@@ -1,8 +1,10 @@
+<?php if(Auth::getRole()== 'manager'): ?>
 <?php $this->view('includes/header')?>
 
 <div class="table">
+        <h2 style="margin-bottom: 20px">TASKS</h2>
         <div class="table_header">
-            <p>On going sub task</p>
+            <h3>On going sub task</h3>
         </div>
         <div class="table_section">
             <table>
@@ -27,7 +29,7 @@
         </div>
 
         <div class="table_header">
-            <p>Sub tasks</p>
+            <h3>Sub tasks</h3>
         </div>
         <div class="table_section">
             <table>
@@ -65,5 +67,8 @@
 </div>
 
 <?php $this->view('includes/footer'); ?>
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
 
 
