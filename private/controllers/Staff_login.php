@@ -15,10 +15,10 @@
                     $row = $row[0];
                     if(password_verify($_POST['password'],$row->password)){
                         Auth::authenticate($row);
-                        if (Auth::getRole() == 'manager'){
+                        if (Auth::getRole() == 'Project Manager'){
                             $this->redirect('/pmdashboard');
                         }
-                        if (Auth::getRole() == 'coordinator'){
+                        if (Auth::getRole() == 'Project Coordinator'){
                             $this->redirect('/coordinatordashboard');
                         }
                         $this->redirect('/home');

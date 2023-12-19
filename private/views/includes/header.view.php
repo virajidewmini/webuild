@@ -28,7 +28,7 @@
                 <li class="active">
                   <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">Coordinator Dashboard</span>
+                    <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>
@@ -38,7 +38,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="<?=ROOT?>/Pmtask">
+                  <a href="<?=ROOT?>/co_allprojects">
                     <i class="fa-solid fa-list-check"></i>
                     <span class="text">Projects</span>
                   </a>
