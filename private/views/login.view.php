@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-  <div class="wrapper" style="background-image: url('<?PHP echo ROOT;?>/img/login.jpeg'); ">
+  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/userlogin_wallpaper.png'); ">
     <div class="center" >
       
       
