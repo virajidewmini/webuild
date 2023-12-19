@@ -44,10 +44,10 @@
             
                 <label class="v_label" id="complaintType">Role</label>
                 <select name="role" value="<?= get_var('role',$row[0]->role);?>" type="text" placeholder="" class="v_form-control">
-                    <option <?= get_select2('role','projectcoordinator',$row[0]);?>  value="projectcoordinator" selected>Project Coordinator</option>
-                    <option <?= get_select2('role','projectmanager',$row[0]);?>  value="projectmanager">Project Manager</option>
-                    <option <?= get_select2('role','storekeeper',$row[0]);?>  value="storekeeper">Store Keeper</option>
-                    <option <?= get_select2('role','supervisor',$row[0]);?>  value="supervisor">Supervisor</option>   
+                    <option <?= get_select('role','Project Coordinator',$row[0]);?>  value="Project Coordinator" selected>Project Coordinator</option>
+                    <option <?= get_select('role','Project Manager',$row[0]);?>  value="Project Manager">Project Manager</option>
+                    <option <?= get_select('role','Storekeeper',$row[0]);?>  value="Storekeeper">Storekeeper</option>
+                    <option <?= get_select('role','Supervisor',$row[0]);?>  value="Supervisor">Supervisor</option>   
                 </select>
                 <br><br>
            

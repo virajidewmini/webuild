@@ -23,50 +23,33 @@
             <span class="text">Webuild</span>
           </a>
           <?php if(Auth::logged_in()): ?>
-            <?php if(Auth::getRole()== 'coordinator'): ?>
+            <?php if(Auth::getRole()== 'Project Coordinator'): ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">Dashboard</span>
+                    <span class="text">Coordinator Dashboard</span>
                   </a>
                 </li>
                 <li>
                   <a href="#">
                     <i class="fa-solid fa-users"></i>
-                    <span class="text">Members</span>
+                    <span class="text">Requests</span>
                   </a>
                 </li>
                 <li>
                   <a href="<?=ROOT?>/Pmtask">
                     <i class="fa-solid fa-list-check"></i>
-                    <span class="text">Tasks</span>
+                    <span class="text">Projects</span>
                   </a>
                 </li>
                 <li>
                   <a href="#" class="nav-link">
                     <i class="fa-solid fa-cubes-stacked"></i>
-                    <span class="text">Materials</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span class="text">Daily Reports</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-comments"></i>
                     <span class="text">Complaints</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-solid fa-images"></i>
-                    <span class="text">Images</span>
-                  </a>
-                </li>
+                
                 <!-- settings and logout -->
 
                 <ul class="side-menu">
@@ -109,7 +92,7 @@
                   </a>
                 </nav>
               <main>
-            <?php elseif(Auth::getRole()== 'manager'): ?>
+            <?php elseif(Auth::getRole()== 'Project Manager'): ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="<?=ROOT?>/Pmdashboard" class="nav-link" class="nav-link">
@@ -195,12 +178,12 @@
                   </a>
                 </nav>
               <main>
-            <?php elseif(Auth::getRole()== 'supervisor'): ?>
+            <?php elseif(Auth::getRole()== 'Supervisor'): ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">super Dashboard</span>
+                    <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>
@@ -270,12 +253,12 @@
                 </nav>
               <main>
 
-            <?php elseif(Auth::getRole()== 'storekeeper'): ?>
+            <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">store Dashboard</span>
+                    <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>
@@ -344,12 +327,12 @@
                   </a>
                 </nav>
               <main>
-            <?php elseif(Auth::getRole()== 'admin'): ?>
+            <?php elseif(Auth::getRole()== 'Admin'): ?>
               <ul class="side-menu top">
                 <li class="active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">Admin Dashboard</span>
+                    <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>
@@ -365,30 +348,7 @@
                     <span class="text">Staff</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-file"></i>
-                    <span class="text">Report</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-chart-simple"></i>
-                    <span class="text">Progress</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-brands fa-paypal"></i>
-                    <span class="text">Payment</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-comments"></i>
-                    <span class="text">Complaint</span>
-                  </a>
-                </li>
+                
 
                 
 
@@ -439,7 +399,7 @@
                 <li class="active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">custermer Dashboard</span>
+                    <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>

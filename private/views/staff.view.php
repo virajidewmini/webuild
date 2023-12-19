@@ -34,7 +34,7 @@ body{
                             <tr>                       
                                 <td><?=$row->id?></td>
                                 <!-- <td></td> -->
-                                <td><?=$row->firstname?></td>
+                                <td><?=$row->firstname?> <?=$row->lastname?></td>
                                 <td><?=$row->role?></td>  
                                 <td><?=get_date($row->joineddate)?></td>                    
                                 <td>
