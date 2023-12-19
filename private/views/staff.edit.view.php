@@ -39,15 +39,15 @@
                 <label class="v_label" id="address">Address</label>
                 <input name="address" value="<?= get_var('address',$row[0]->address);?>" type="text" placeholder="" class="v_form-control">
                 
-                <label class="v_label" id="address">City</label>
-                <input name="city" value="<?= get_var('city',$row[0]->city);?>" type="text" placeholder="" class="v_form-control">
+                <label class="v_label" id="address">District</label>
+                <input name="district" value="<?= get_var('district',$row[0]->district);?>" type="text" placeholder="" class="v_form-control">
             
                 <label class="v_label" id="complaintType">Role</label>
                 <select name="role" value="<?= get_var('role',$row[0]->role);?>" type="text" placeholder="" class="v_form-control">
-                    <option <?= get_select('role','projectcoordinator',$row[0]);?>  value="projectcoordinator" selected>Project Coordinator</option>
-                    <option <?= get_select('role','projectmanager',$row[0]);?>  value="projectmanager">Project Manager</option>
-                    <option <?= get_select('role','storekeeper',$row[0]);?>  value="storekeeper">Store Keeper</option>
-                    <option <?= get_select('role','supervisor',$row[0]);?>  value="supervisor">Supervisor</option>   
+                    <option <?= get_select2('role','projectcoordinator',$row[0]);?>  value="projectcoordinator" selected>Project Coordinator</option>
+                    <option <?= get_select2('role','projectmanager',$row[0]);?>  value="projectmanager">Project Manager</option>
+                    <option <?= get_select2('role','storekeeper',$row[0]);?>  value="storekeeper">Store Keeper</option>
+                    <option <?= get_select2('role','supervisor',$row[0]);?>  value="supervisor">Supervisor</option>   
                 </select>
                 <br><br>
            
