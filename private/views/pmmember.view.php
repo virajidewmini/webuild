@@ -1,4 +1,4 @@
-<?php if(Auth::getRole()== 'manager'): ?>
+<?php if(Auth::getRole()== 'Project Manager'): ?>
 <?php $this->view('includes/header')?>
 <style>
 body{

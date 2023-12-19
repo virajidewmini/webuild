@@ -1,4 +1,4 @@
-<?php if(Auth::getRole()== 'manager'): ?>
+<?php if(Auth::getRole()== 'Project Manager'): ?>
 <?php $this->view('includes/header')?>
 <style>
 main {
@@ -110,7 +110,7 @@ body{
                         <td><?= $row->sub_task_name ?></td>
                         <td><?=get_date($row->start_date)?></td>
                         <td>
-                            <a href="<?=ROOT?>/pmdashboard/subtask/<?=$row->sub_task_id?>">
+                            <a href="<?=ROOT?>/Pmdashboard/subtask/<?=$row->sub_task_id?>">
                             <button><i class="fa-solid fa-eye"></i></button>
                             </a>
                         </td>
