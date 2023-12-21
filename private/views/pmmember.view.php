@@ -1,4 +1,4 @@
-<?php if(Auth::getRole()== 'manager'): ?>
+<?php if(Auth::getRole()== 'Project Manager'): ?>
 <?php $this->view('includes/header')?>
 <style>
 body{
@@ -10,8 +10,8 @@ body{
         <div class="table_header">
             <h3>Supervisor</h3>
             <div>
-                <button class="add___">Add member</button>
-            </div>
+                <a href="<?=ROOT?>/Pmmember_search"><button class="add___">Add member</button>
+            </div></a>
         </div>
         <div class="table_section" style="height: 250px;">
             <table>
