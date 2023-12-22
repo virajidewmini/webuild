@@ -78,7 +78,7 @@
                                 <p>ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->id)?>" type="text" name="id">
+                                <input readonly value="<?=get_var('id',$row[0]->id)?>" type="text" name="supervisor_id">
                             </div>
                         </div>
                         <div class="unit-d">
