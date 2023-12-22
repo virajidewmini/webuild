@@ -17,6 +17,9 @@
             $district = $_GET['district'];
             $data = $project_detail->ssup($district);
         }
+        elseif(isset($_GET['district'])==''){
+            $data = $project_detail->supAll();
+        }
     
 		$this->view('pmmember_search',['rows1'=>$data]);
 	}
