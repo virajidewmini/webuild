@@ -29,14 +29,14 @@
 
                 </div>
 
-                <!-- <div class="column">
+                <div class="column">
                     <label for="proof">Salary Proofing Document</label>
                     <p>Upload monthly salary sheet or any kind of your monthly income proof docuxment</p>
-                     -->
+                    
 
                     <!-- <input type="file" name="imageFile" id="imageFile" accept="image/*" required>
         <button type="submit">Upload Image</button> -->
-                    <!-- <button class="action-button">Upload</button> -->
+                    <button class="action-button">Upload</button>
                     <!-- <div class="img-container">
                         <input type="file" id="file" accept="image/*" hidden>
                        
@@ -45,7 +45,7 @@
                         </div>
                   
                     </div> -->
-                <!-- </div> -->
+                </div>
 
             </div>
             </fieldset>
@@ -87,7 +87,7 @@
                     <label for="area">Land Area(Perch)</label>
                     <input type="test" id="area" name="area">
                 </div>
-                <!-- <div class="column">
+                <div class="column">
                     <label for="plan">Land Photograph</label>
                     <button class="action-button">Upload Photograph</button>
                 </div>
@@ -95,7 +95,7 @@
                     <label for="plan">Block Plan of the Land</label>
                     <input type="file" name="pdfFile" id="pdfFile" class="real-file" accept=".pdf" hidden="hidden">
                     <button class="action-button">Upload Block Plan </button> 
-                </div> -->
+                </div>
             </div>
             </fieldset>
             <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button>
@@ -106,7 +106,7 @@
         <br><br>
 
        
-            <!-- <fieldset class="FormFieldset" >
+            <fieldset class="FormFieldset" >
             <legend class="Formlegend">Modification</legend>
             
             <button type="button" class="collapsible">Living Room</button>
@@ -127,13 +127,13 @@
                             </div>
                         </div>
                     <p style="margin-left: 20px;">Default</p>
-                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;"> -->
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
 
                     
 
-                <!-- <?php if(isset($rows)): ?> -->
+                <?php if(isset($rows)): ?>
 
-                <!-- <?php foreach ($rows as $row):?>
+                <?php foreach ($rows as $row):?>
                         <div class="input-container">
                             <input id="walk" type="radio" name="radio">
                             <div class="radio-tile" style="background-color: <?=$row->color?>">
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                 <?php endforeach;?>
-                <?php endif; ?> -->
+                <?php endif; ?>
 
                     <!-- <div class="input-container">
                             <input id="bike" type="radio" name="radio">
@@ -155,20 +155,20 @@
                         <div class="radio-tile" style="background-color: aquamarine;">
                             <label for="car">Drive</label>
                         </div>
-                    </div> -->
+                    </div> 
 
-                    <!-- <div class="input-container">
+                    <div class="input-container">
                         <input id="fly" type="radio" name="radio">
                         <div class="radio-tile">
                             <label for="fly">Fly</label>
                         </div>
                     </div> -->
 
-                <!-- </div>
                 </div>
-                    </div> -->
+                </div>
+                    </div>
                 
-            <!-- <button type="button" class="collapsible">Dining Room</button>
+            <button type="button" class="collapsible">Dining Room</button>
 <div class="collaps-content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
@@ -193,7 +193,7 @@
       
 
         <br><br>
--->
+
         <fieldset class="FormFieldset" >
             <legend class="Formlegend">Payment Plan</legend>
             <div class="form-group">
@@ -219,10 +219,10 @@
                 
             </div>
             </fieldset>  
-        <!-- </form> -->
+        <!-- </form>
 
         <br><br>
-        <!-- <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button> -->
+         <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button> -->
         <!-- <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a> -->
 
     </div>

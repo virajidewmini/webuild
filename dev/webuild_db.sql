@@ -25,7 +25,15 @@ CREATE TABLE `webuild`.`user_lands` ( `id` INT NOT NULL AUTO_INCREMENT , `street
  INSERT INTO `paint` (`id`, `name`, `price`, `color`) VALUES (NULL, 'Show Blush', '1450', '#F2E9DC'), (NULL, 'Air Breeze', '2340', '#F2EDE9');
  INSERT INTO `paint` (`id`, `name`, `price`, `color`) VALUES (NULL, 'Pink Mist', '5600', '#F3E3E1');
 
- 
+ CREATE TABLE `webuild`.`attachment` ( `id` INT NOT NULL AUTO_INCREMENT , `complaint_id` INT NOT NULL , `file_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `attachment` ADD `attachment_type` VARCHAR(20) NOT NULL AFTER `file_name`;
+
+ALTER TABLE `complaint` CHANGE `id` `id` VARCHAR(50) NOT NULL;
+
+ALTER TABLE `attachment` CHANGE `complaint_id` `complaint_id` VARCHAR(50) NOT NULL;
+
+ALTER TABLE `attachment` CHANGE `complaint_id` `reference_id` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 

@@ -14,12 +14,29 @@
             if(count($_POST) > 0){
 
                 $model = new UploadModel();
-                $model->uploadFiles($_FILES['files']);
+                
 
                 $clientComplaint=new C_Complaint();
+                $complaint_id = uniqid();
+                $_POST['id'] = $complaint_id;
 			    $clientComplaint->insert($_POST);
+               
+
+                $uploadedFiles = $model->uploadFiles($_FILES['files']);
+                foreach ($uploadedFiles as $file) {
+                    $attachment_data= [
+                        'reference_id' => $complaint_id,
+                        'file_name' => $file,
+                        'attachment_type'=> "COMPLAINT"
+                    ];
+                    $attachment_model = new Attachment();
+                    $attachment_model->insert($attachment_data);
+                }
+
                 $this->redirect('clientcomplaint');
             }
+
+           
 
             $this->view('AddClientComplaint');
         }
