@@ -8,14 +8,16 @@
                width: 90%;
                max-width: 700px;
                height: auto;
+               box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
           }
           .pro-id-details{
-               width: 70%;
+               width: 100%;
           }
           .title-id{
                display: flex;
                align-items: center;
                margin-bottom: 20px;
+               width: 100%;
           }
           .p-title{
                min-width: 200px;
@@ -63,12 +65,12 @@
 }
 </style>
 <?php if($row): ?>
-     <div>
-          <div class="pro-id">
+     <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
+          <div class="pro-id" style="padding: 0 0 40px 0; ">
                 
                     <div class="pro-id-details">
                     <form method="post">
-                        <div class="title-id">
+                        <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
                                 <h3><?= $row[0]->firstname?> <?= $row[0]->lastname?></h3>
                             </div>
@@ -153,4 +155,7 @@
         </div>
     </div>
  <?php endif; ?>
+ <script>console.log(window.location.href)
+console.log("")
+</script>
 <?php $this->view('includes/footer'); ?>
