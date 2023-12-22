@@ -9,11 +9,7 @@ class Dtbase extends Model{
 
 
     //gaveesha for requests
-    protected $table5="project_requests";
-    protected $table6="land";
-    protected $table7="user_land";
-    protected $table8="project_requests";
-    protected $table9="project_requests";
+    
 
     protected $afterSelect = [
         'get_user',

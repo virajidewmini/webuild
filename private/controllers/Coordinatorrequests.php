@@ -23,7 +23,7 @@
             }
 
             $project_requests = new Project_requests();
-            $data = $project_requests->where('id',$id);
+            $data = $project_requests->requests('id',$id);
 
             $this->view('coordinatorrequests.seemore',['rows'=>$data]);
 
