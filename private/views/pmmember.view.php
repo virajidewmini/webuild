@@ -25,15 +25,24 @@ body{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>SV013</td>
-                        <td><img src="<?=ROOT?>/img/profile.png"></td>
-                        <td>M.P. Savani</td>
-                        <td>10/05/2023</td>
-                        <td>
-                            <button><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>
+                <?php print_r($rows)?>  
+                <?php if ($rows):?>
+                    <?php foreach ($rows as $row):?>
+                        <tr>
+                            <td><?= $row->user->id ?></td>
+                            <td><?= $row->staff->id?> <?= $row->staff->id?></td>
+                            <td><?= $row->staffs->id?> <?= $row->staffs->id?></td>
+                            <td>
+                                <a href="#">
+                                <button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
+                                </a>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h3>No school were found at this time</h3>
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>

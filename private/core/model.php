@@ -154,6 +154,17 @@
 			]);
 		}
 
+		public function supAll(){
+	
+			$query =  "SELECT staff.* FROM staff
+			INNER JOIN members_projects ON staff.id = members_projects.staff_id
+			WHERE staff.role = 'Supervisor'
+			AND members_projects.count < 5";
+	
+
+			return $this->query($query);
+		}
+
 	}
 
 ?>
