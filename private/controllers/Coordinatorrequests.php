@@ -14,5 +14,20 @@
             $this->view('coordinatorrequests',['rows'=>$data]);
         }
 
+
+
+        public function seemore($id = null){
+		
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+            $project_requests = new Project_requests();
+            $data = $project_requests->where('id',$id);
+
+            $this->view('coordinatorrequests.seemore',['rows'=>$data]);
+
+	    }
+
     }
 ?>

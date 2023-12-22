@@ -51,7 +51,7 @@ body{
                                 <td><?=get_date($row->date)?></td> 
                                 <td><?=$row->action?></td>
                                 <td>
-                                    <a href="#">
+                                    <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>">
                                         <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
                                     <a href="#">
