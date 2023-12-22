@@ -140,6 +140,20 @@
 			]);
 		}
 
+		public function ssup($value){
+	
+			$query =  "SELECT staff.* FROM staff
+			INNER JOIN members_projects ON staff.id = members_projects.staff_id
+			WHERE staff.role = 'Supervisor'
+			AND members_projects.count < 5
+			AND staff.district = :value ";
+	
+			// Assuming you have a method named 'query' to execute the query
+			return $this->query($query, [
+				'value' => $value,
+			]);
+		}
+
 
 
 	

@@ -38,15 +38,18 @@ body{
 </style>
     <h2 style="margin-bottom: 20px">SEARCH SUPERVISORS</h2>
     <form action="" method="GET">
+    <?php if(isset($_GET['district'])){
+        $district=$_GET['district'];
+    } ?>
     <div class="top1">
-        <select name="district" class="form-control" type="text" placeholder="--SElect District--">
-            <option <?= get_select2('district','');?> value="">--Select District--</option>
-            <option <?= get_select2('district','ampara');?> value="ampara">Ampara</option>
-            <option <?= get_select2('district','anuradhapura');?> value="anuradhapura">Anuradhapura</option>
+        <select name="district" class="form-control" type="text" placeholder="--Select District--">
+            <option <?= get_select2('district','');?> value="">--Select District--</option >
+            <option <?= get_select2('district','ampara');?> value="ampara" <?php if($district == 'ampara') {echo "selected" ;} ?>>Ampara</option>
+            <option <?= get_select2('district','anuradhapura');?> value="anuradhapura" <?php if($district == 'anuradhapura') {echo "selected" ;} ?>>Anuradhapura</option>
             <option <?= get_select2('district','district');?>value="other">Badulla</option>
             <option <?= get_select2('district','district');?>value="other">Batticaloa</option>
             <option <?= get_select2('district','district');?>value="other">Colombo</option>
-            <option <?= get_select2('district','galle');?>value="galle">Galle</option>
+            <option <?= get_select2('district','galle');?>value="galle" <?php if($district == 'galle') {echo "selected" ;} ?>>Galle</option>
             <option <?= get_select2('district','district');?>value="other">Gampaha</option>
             <option <?= get_select2('district','district');?>value="other">Hambantota</option>
             <option <?= get_select2('district','district');?>value="other">Jaffna</option>
@@ -82,16 +85,16 @@ body{
                     </tr>
                 </thead>
                 <tbody>
-                <!-- <?php if ($rows1):?>
+                <?php if ($rows1):?>
                     <?php foreach ($rows1 as $row):?>
                     <tr>
-                        <td><?= $row->project_id?></td>
-                        <td><?= $row->task_id?></td>
-                        <td><?= $row->sub_task_id?></td>
-                        <td><?= $row->sub_task_name ?></td>
-                        <td><?=get_date($row->start_date)?></td>
+                        <td><?= $row->id?></td>
+                        <td><?= $row->firstname?></td>
+                        <td><?= $row->lastname?></td>
+                        <td><?= $row->district ?></td>
+                        <td><?= $row->experience?></td>
                         <td>
-                            <a href="<?=ROOT?>/Pmdashboard/subtask/<?=$row->sub_task_id?>">
+                            <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>">
                             <button><i class="fa-solid fa-eye"></i></button>
                             </a>
                         </td>
@@ -100,7 +103,7 @@ body{
                     
                 <?php else: ?>
                     <h3>No Members were found at this time</h3>
-                <?php endif; ?> -->
+                <?php endif; ?>
                 </tbody>
             </table>
     </div>
