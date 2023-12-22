@@ -1,4 +1,5 @@
- <?php $this->view('includes/header')?>
+<?php if(Auth::getRole()== 'Project Coordinator'): ?>
+<?php $this->view('includes/header')?>
 
  <div class="project-details">
         <div class="table_header">
@@ -41,4 +42,6 @@
     
 
 <?php $this->view('includes/footer'); ?>
-
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

@@ -165,9 +165,6 @@
 			return $this->query($query);
 		}
 
-
-
-	
 	}
 
 ?>
