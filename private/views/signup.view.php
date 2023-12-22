@@ -12,9 +12,8 @@
 
 
       <!-- validation -->
-      
 
-  <div class="wrapper"  ">
+  <div class="wrapper" >
     <div class="inner">
       <div class="image-holder">
         <img src="<?PHP echo ROOT;?>/img/signup.jpeg" alt="image" class="left-pic">
@@ -25,13 +24,14 @@
 
 
       <!-- error dispaly -->
+      <div style="color: #ff0000; /* Red color for error messages */font-size: 14px;">
       <?php if(count($errors) >0):?>
         <strong>Errors:</strong>
       <?php foreach($errors as $error):?>
         <br><?=$error?>
       <?php endforeach; ?>
       <?php endif;?>
-
+      </div>
       
 
 
@@ -50,7 +50,14 @@
         <div class="form-wrapper">
             <input name="address" value="<?= get_var('address');?>" type="text" placeholder="Address" class="form-control">
         </div>
-
+        <div class="form-wrapper">
+          <select name="gender" class="form-control" type="text" placeholder="Gender">
+            <option <?= get_select2('gender','');?> value="">Gender</option>
+            <option <?= get_select2('gender','male');?> value="male">Male</option>
+            <option <?= get_select2('gender','female');?> value="female">Female</option>
+            <option <?= get_select2('gender','other');?>value="other">Other</option>
+          </select>
+        </div>
         <div class="form-wrapper">
           <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email Address" class="form-control">
           <!-- <span class="form-invalid">     </span> -->
@@ -78,3 +85,4 @@
 </body>
 
 </html>
+

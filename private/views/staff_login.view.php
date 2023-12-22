@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/userlogin_wallpaper.png'); ">
+  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/stafflogin_wallpaper.jpg'); ">
     <div class="center" >
-      
       
       <form method="post">
 
@@ -26,20 +25,18 @@
 
       
         <div class="txt_field">
-          <input type="email" name="email" value= "<?= get_var('email');?>" required >
+          <input type="" name="email" value= "<?= get_var('email');?>" required >
           <span></span>
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" value= "<?= get_var('password');?>" required>
+          <input type="" name="password" value= "<?= get_var('password');?>" required>
           <span></span>
           <label>Password</label>
         </div>
         <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login">
-        <div class="signup_link">
-         Haven't registered yet ? <a href="signup">Signup</a>
-        </div>
+        <input type="submit" value="Login" style="margin-bottom: 30px ">
+        
       </form>
     </div>
 </div>

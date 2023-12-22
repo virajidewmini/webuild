@@ -9,7 +9,7 @@
                 $this->redirect('/login');
             }
 
-            $staff=new A_Staff();
+            $staff=new Staffs();
 
             $data=$staff->findAll();
 
@@ -27,7 +27,7 @@
 
             if (count($_POST)>0){
 
-                $staff=new A_Staff();
+                $staff=new Staffs();
 
                 if($staff->validate($_POST)){
 
@@ -49,41 +49,31 @@
             ]);
         }
 
-        public function edit($staffid=null){
-            
+        public function edit($id=null){
             if(!Auth::logged_in()){
                 $this->redirect('/login');
             }
-
-
-            $staff=new A_Staff();
-
-            $errors=array();
             $id=$_GET["id"];
 
 
+            $staff=new Staffs();
 
-            if ($id==""){
+            $errors=array();        
+            if (count($_POST)>0){
+                if($staff->validate2($_POST)){
 
-                if($staff->validate($_POST)){
+                $staff->update($id,$_POST);
+                
 
-                    $staff->update($id,$_POST);
+                $this->redirect('staff');
 
-                    $this->redirect('/staff');
-
-                }else{
+                 }else{
 
                     //errors
                     $errors = $staff->errors;
                 }
             }
             $row = $staff->where('id',$id);
-        
-            if(!$row){
-                $row=(object)[];
-                $row->staffid='';
-            }
-
             $this->view('staff.edit',[
                 'row'=>$row,
                 'errors'=>$errors,
@@ -99,7 +89,7 @@
             }
 
 
-            $staff=new A_Staff();
+            $staff=new Staffs();
 
             $errors=array();            
             if (count($_POST)>0){
@@ -107,6 +97,7 @@
                 $this->redirect('staff');   
             }
             $row = $staff->where('id',$id);
+           
             
             $this->view('staff.delete',[
                 'row'=>$row,

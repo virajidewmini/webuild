@@ -1,7 +1,7 @@
 <?php
 
     //coordinator dashboard controller
-    class Login extends Controller{
+    class Staff_login extends Controller{
         
         public function index(){
 
@@ -10,15 +10,15 @@
 
             if (count($_POST)>0){
 
-                $user=new Users();
-                if($row=$user->where('email',$_POST['email'])){
+                $staff = new Staffs();
+                if($row=$staff->where('email',$_POST['email'])){
                     $row = $row[0];
                     if(password_verify($_POST['password'],$row->password)){
                         Auth::authenticate($row);
-                        if (Auth::getRole() == 'Project Manager'){
+                        if (Auth::getRole() == 'project manager'){
                             $this->redirect('/pmdashboard');
                         }
-                        if (Auth::getRole() == 'Project Coordinator'){
+                        if (Auth::getRole() == 'project coordinator'){
                             $this->redirect('/coordinatordashboard');
                         }
                         $this->redirect('/home');
@@ -29,7 +29,7 @@
             }
             
 
-            $this->view('login',[
+            $this->view('staff_login',[
                 'errors'=>$errors,
             ]);
         }

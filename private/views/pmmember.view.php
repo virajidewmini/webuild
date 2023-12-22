@@ -1,15 +1,17 @@
+<?php if(Auth::getRole()== 'Project Manager'): ?>
 <?php $this->view('includes/header')?>
 <style>
 body{
     overflow: hidden;
 }
 </style>
+    <h2 style="margin-bottom: 20px">MEMBERS</h2>
     <div class="table">
         <div class="table_header">
-            <p>Supervisors</p>
+            <h3>Supervisor</h3>
             <div>
-                <button class="add___">Add members</button>
-            </div>
+                <a href="<?=ROOT?>/Pmmember_search"><button class="add___">Add member</button>
+            </div></a>
         </div>
         <div class="table_section" style="height: 250px;">
             <table>
@@ -38,7 +40,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Wokers</p>
+            <h3>Wokers</h3>
         </div>
         <div class="table_section">
             <table>
@@ -69,5 +71,8 @@ body{
             </table>
         </div>
     </div>
-
 <?php $this->view('includes/footer'); ?>
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
+

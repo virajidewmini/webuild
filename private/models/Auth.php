@@ -13,6 +13,7 @@ class Auth{
         //code
         if(isset($_SESSION['USER'])){
             unset($_SESSION['USER']);
+
         }
     }
     public static function logged_in(){
@@ -27,6 +28,14 @@ class Auth{
         //code
         if(isset($_SESSION['USER'])){
             return $_SESSION['USER']->firstname;
+        }
+
+    }
+
+    public static function id(){
+        //code
+        if(isset($_SESSION['USER'])){
+            return $_SESSION['USER']->id;
         }
 
     }
