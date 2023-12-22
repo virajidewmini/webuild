@@ -21,14 +21,14 @@
             <h2>TriEase Pay </h2>
         </div>
         <div class="card-detail">
-            <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
-            <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Loremnjgj ispum dolor</p>
+            <p><span class="fas fa-check check"></span> <b>30%</b> Initial payment </p>
+            <p><span class="fas fa-check check"></span> <b>35%</b> of 2 <sup>nd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>35%</b> of 3 <sup>rd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>5%</b> Interest</p>
         </div>
 
         <div class="card-price">
-            <p><sup>$</sup>10<sub>/month</sub></p>
+            <p>5<sub>% Interest</sub></p>
         </div>
         
     </div>
@@ -36,17 +36,17 @@
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing2.png" alt="Pricing 2">
-            <h2>QuadEase Pay</h2>
+            <h2>DuoEase Pay</h2>
         </div>
         <div class="card-detail">
-            <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
-            <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
+            <p><span class="fas fa-check check"></span> <b>40%</b> Initial payment </p>
+            <p><span class="fas fa-check check"></span> <b>60%</b> of 2 <sup>nd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>No</b> Interest</p>
+
         </div>
 
         <div class="card-price">
-            <p><sup>$</sup>10<sub>/month</sub></p>
+            <p>0<sub>% Interest</sub></p>
         </div>
         
     </div>
@@ -58,14 +58,16 @@
             <h2>PentaEase Pay</h2>
         </div>
         <div class="card-detail">
-            <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
-            <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
+        <p><span class="fas fa-check check"></span> <b>20%</b> Initial payment </p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 2 <sup>nd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 3 <sup>rd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 4 <sup>th</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 5 <sup>th</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>10%</b> Interest</p>
         </div>
 
         <div class="card-price">
-            <p><sup>$</sup>10<sub>/month</sub></p>
+            <p>10<sub>% Interest</sub></p>
 
         </div>
         

@@ -4,7 +4,7 @@
         <h1>  Complaints, Let's Us Know !</h1>
 </div>
     <div class="form_container">
-        <form method="post"  class="v_form">
+        <form method="post"  class="v_form" enctype="multipart/form-data">
             <label class="v_label" id="complaintType">Complaint Type</label>
            
             <select id="type" name="type" class="v_form-control" >
@@ -20,8 +20,8 @@
             <input type="text" name="description" id="description" class="v_form-control" style="height: 150px;" required>
 
              <input type="hidden" name="status" value="pending">
-           <!-- <label for="fileUpload">Select files:</label>
-            <input type="file" name="fileUpload[]" id="fileUpload" multiple required> -->
+           <label for="fileUpload">Select files:</label>
+           <input type="file" name="files[]" id="files" multiple accept="image/*">
 
             <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a>
            

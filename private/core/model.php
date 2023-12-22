@@ -29,10 +29,16 @@
 			$keys = array_keys($data);
 			$columns = implode(',', $keys);
 			$values = implode(',:', $keys);
+
+			print($columns);
 	
 			$query = "insert into $this->table ($columns) values (:$values)";
 	
-			return $this->query($query,$data);
+			//return $this->query($query,$data);
+			$affectedRows = $this->query($query, $data);
+
+    // Return true if at least one row is affected, false otherwise
+    return $affectedRows > 0;
 		 }
 
 		 public function update($id,$data){

@@ -501,9 +501,80 @@ td img{
     transition: background-color 0.3s, color 0.3s; 
   }
 
-  
   .button:hover {
     background-color: #E5863D; 
     color: #FFF; 
   }
-   
+
+  .lableForCollaps{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 12px;
+  }
+  
+  /* paint and tile selection */
+  .radio-tile-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+    .input-container {
+    position: relative;
+    height: 5rem;
+    width: 5rem;
+    margin: 0.5rem;
+  }
+  
+  .input-container input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    
+  }
+  
+  .input-container .radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: 2px solid #E5863D;
+    border-radius: 8px;
+    transition: all 300ms ease;
+    
+  }
+  
+  .radio-tile label{
+    text-align: center;
+  }
+  
+  .input-container label {
+    color: #E5863D;
+    font-size: 0.80rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+  }
+  
+  input:checked+.radio-tile {
+    background-color: #E5863D;
+    box-shadow: 0 0 12px #E5863D;
+    transform: scale(1.1);
+  }
+  
+  input:hover+.radio-tile {
+    box-shadow: 0 0 12px #E5863D;
+  }
+  
+  
+
+  /* paint and tile selection end */
+  .file_upload[type="file"]{
+        display: none;
+  }
