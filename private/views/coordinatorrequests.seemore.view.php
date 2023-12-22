@@ -45,7 +45,7 @@
                     <div class="pro-id-details">
                         <div class="title-id">
                             <div class="p-title">
-                                <h3>Requestt ID:</h3>
+                                <h3>Request ID:</h3>
                             </div>
                             <div class="p-title-detail">
                                 <h3><?= $rows[0]->id ?></h3>
