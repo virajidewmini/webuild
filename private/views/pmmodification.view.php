@@ -99,7 +99,7 @@
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             
                             <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
+                            <h3 style="text-align:center;">Bathroom</h3>
                             </div>
                         </div>
                         <div class="unit-d">
@@ -121,7 +121,7 @@
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             
                             <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
+                            <h3 style="text-align:center;">Dinien</h3>
                             </div>
                         </div>
                         <div class="unit-d">
@@ -143,7 +143,51 @@
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             
                             <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
+                            <h3 style="text-align:center;">Living Room</h3>
+                            </div>
+                        </div>
+                        <div class="unit-d">
+                            <div >
+                                <div class="unit">
+                                    <p>Tile :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <input readonly value="" type="text" name="supervisor_id">
+                                </div>
+                                <div class="unit">
+                                    <p>Color :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <input readonly value="" type="text" name="supervisor_id">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
+                            
+                            <div class="p-title">
+                            <h3 style="text-align:center;">Living Area</h3>
+                            </div>
+                        </div>
+                        <div class="unit-d">
+                            <div >
+                                <div class="unit">
+                                    <p>Tile :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <input readonly value="" type="text" name="supervisor_id">
+                                </div>
+                                <div class="unit">
+                                    <p>Color :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <input readonly value="" type="text" name="supervisor_id">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
+                            
+                            <div class="p-title">
+                            <h3 style="text-align:center;">Exterior</h3>
                             </div>
                         </div>
                         <div class="unit-d">
@@ -170,7 +214,6 @@
                         <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                         </div>
                     </form>
-                    <?php print_r($_POST);?>
                     </div> 
                 
         </div>
