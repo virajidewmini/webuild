@@ -32,7 +32,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="<?=ROOT?>/coordinatorrequests">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Requests</span>
                   </a>
@@ -45,7 +45,7 @@
                 </li>
                 <li>
                   <a href="#" class="nav-link">
-                    <i class="fa-solid fa-cubes-stacked"></i>
+                    <i class="fas fa-comments"></i>
                     <span class="text">Complaints</span>
                   </a>
                 </li>
