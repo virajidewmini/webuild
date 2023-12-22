@@ -33,11 +33,13 @@
                if( $_SERVER['REQUEST_METHOD'] =='POST'){
                 if($project->validate($_POST)){
                     
-                    $arr['project_id']='2';
-                    $arr['status']='Pending';
+                    $id1 = $_POST['id'];
+                    $arr['supervisor_id']=$_POST['supervisor_id'];
+                    $arr['date']=$_POST['date'];
+                    $arr['final_date']=$_POST['final_date'];
                     $arr['action'] = 'ongoing';
-                    $project->insert($_POST);
-                    $this->redirect('pmtask');
+                    $project->update($id1,$arr);
+                    $this->redirect('pmmember');
                 }
                 }
                 $staff=new Staffs();
