@@ -7,21 +7,16 @@ class UploadModel extends Model {
         $uploadedFiles = [];
 
         foreach ($files['tmp_name'] as $key => $tmp_name) {
-            $file_name = $files['name'][$key];
-            $file_tmp = $files['tmp_name'][$key];
-            $file_size = $files['size'][$key];
-            $file_type = $files['type'][$key];
-
-            $target_file = $uploadDir . basename($file_name);
-
-            // Check if file already exists
-            if (file_exists($target_file)) {
-                // Handle file exists scenario as per your requirement
-            }
+            $originalFileName = $files['name'][$key];
+            $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+            
+            // Generate a unique name for the file
+            $newFileName = uniqid() . '_' . time() . '.' . $fileExtension;
+            $targetFile = $uploadDir . $newFileName;
 
             // Move the file to the uploads directory
-            if (move_uploaded_file($file_tmp, $target_file)) {
-                $uploadedFiles[] = $target_file;
+            if (move_uploaded_file($tmp_name, $targetFile)) {
+                $uploadedFiles[] = $newFileName;
             }
         }
 
