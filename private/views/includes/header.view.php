@@ -467,7 +467,7 @@
                   </a>
 
                   <a href="<?=ROOT?>/Userprofile" class="profile">
-                    <img src="<?=ROOT?>/img/profile.png" alt="" />
+                    <img src="<?=ROOT?>/img/profile.jpg" alt="" />
                     <!-- USER -->
                     <?=Auth::getFirstname()?>
                   </a>

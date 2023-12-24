@@ -16,8 +16,11 @@ CREATE TABLE `webuild`.`user_lands` ( `id` INT NOT NULL AUTO_INCREMENT , `street
  `area` VARCHAR(10) NOT NULL , `user_id` INT NOT NULL , `image` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) 
  ENGINE = InnoDB;
 
- ALTER TABLE `user_test` CHANGE `salary` `salary` VARCHAR(100) NOT NULL;
- ALTER TABLE `user_test` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+ CREATE TABLE `webuild`.`user_data` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `occupation` VARCHAR(255) NOT NULL , `salary` INT(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ ALTER TABLE `user_data` CHANGE `salary` `salary` VARCHAR(10) NOT NULL;
+
+ ALTER TABLE `user_data` CHANGE `salary` `salary` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 
  CREATE TABLE `webuild`.`paint` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(20) NOT NULL , `price` DOUBLE NOT NULL , `color` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
