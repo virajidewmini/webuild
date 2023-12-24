@@ -6,7 +6,7 @@
         <h1 style="margin-left: 35%;">  Express Your Home Makeover Vision !</h1>
 </div>
     <div class="form_container">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             
             <fieldset class="FormFieldset" >
             <legend class="Formlegend"> Personal Details</legend>
@@ -33,18 +33,7 @@
                     <label for="proof">Salary Proofing Document</label>
                     <p>Upload monthly salary sheet or any kind of your monthly income proof docuxment</p>
                     
-
-                    <!-- <input type="file" name="imageFile" id="imageFile" accept="image/*" required>
-        <button type="submit">Upload Image</button> -->
-                    <button class="action-button">Upload</button>
-                    <!-- <div class="img-container">
-                        <input type="file" id="file" accept="image/*" hidden>
-                       
-                        <div style="">
-                            <button class="btn select-image" style="margin-left: 80px;">Select Image</button>
-                        </div>
-                  
-                    </div> -->
+                    <input type="file" name="files[]" id="file" multiple accept="application/pdf,image/*">
                 </div>
 
             </div>
@@ -74,15 +63,19 @@
                 </div> -->
 
                 <div class="column">
-                    <label for="town">Town</label>
-                    <input type="text" id="town" name="town">
-                </div>
-                <div class="column">
-                    <label for="town">District</label>
-                    <select id="selectDistrict" name="district">
+                    <label for="district">District</label>
+                    <select id="selectDistrict" name="district" onchange="updateTown()">
                         <option>Choose a District</option>
                     </select>
                 </div>
+
+                <div class="column">
+                    <label for="town">Town</label>
+                    <select id="selectTown" name="town">
+                        <option>Choose a Town</option>
+                    </select>
+                </div>
+                
                 <div class="column">
                     <label for="area">Land Area(Perch)</label>
                     <input type="test" id="area" name="area">
