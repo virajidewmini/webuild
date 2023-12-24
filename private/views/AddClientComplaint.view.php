@@ -21,7 +21,7 @@
 
              <input type="hidden" name="status" value="pending">
            <label for="fileUpload">Select files:</label>
-           <input type="file" name="files[]" id="files" multiple accept="image/*">
+           <input type="file" name="files[]" id="files" multiple accept="application/pdf,image/*">
 
             <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a>
            
