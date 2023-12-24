@@ -571,7 +571,6 @@ function updateTown() {
     townsByDistrict[select].forEach(function(town) {
       
         var option = document.createElement("option");
-        console.log(town)
         option.value = town;
         option.text = town;
         selectTown.add(option);

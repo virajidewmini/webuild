@@ -11,29 +11,33 @@
                     
                 ];
     
-                // $landData = [
-                //     'street' => $_POST['street'],
-                //     'town' => $_POST['town'],
-                //     'district' => $_POST['district'],
-                //     'area' => $_POST['area']
-                // ];
+                $landData = [
+                    'street' => $_POST['street'],
+                    'town' => $_POST['town'],
+                    'district' => $_POST['district'],
+                    'area' => $_POST['area']
+                ];
 
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
                 foreach ($uploadedFiles as $file) {
-                    $attachment_data= [
-                         'reference_id' => 1,
+                    $attachment_data_salary= [
                         'file_name' => $file,
                         'attachment_type'=> "SALARY"
                     ];
+                    $attachment_data_land= [
+                        'file_name' => $file,
+                        'attachment_type'=> "LAND"
+                    ];
                     $attachment_model = new Attachment();
-                    $attachment_model->insert($attachment_data);
+                    $attachment_model->insert($attachment_data_salary);
+                    $attachment_model->insert($attachment_data_land);
                 }
-    
+
                 $data = new UserData();
-                // $lands = new UserLand();
+                $lands = new UserLand();
     
                 $data->insert($userData);
-                // $lands->insert($landData);
+                $lands->insert($landData);
                 
             }
 

@@ -45,10 +45,7 @@
             <legend class="Formlegend"> Land Details</legend>
             <div class="form-group">
                 
-                <div class="column">
-                    <label for="Street">Street</label>
-                    <input type="text" id="street" name="street">
-                </div>
+                
                 <!-- <div class="column">
                     <label for="landCondition">Land Condition</label>
                         <select id="type" name="type" >
@@ -77,17 +74,22 @@
                 </div>
                 
                 <div class="column">
+                    <label for="Street">Street</label>
+                    <input type="text" id="street" name="street">
+                </div>
+
+                <div class="column">
                     <label for="area">Land Area(Perch)</label>
                     <input type="test" id="area" name="area">
                 </div>
+
                 <div class="column">
                     <label for="plan">Land Photograph</label>
-                    <button class="action-button">Upload Photograph</button>
+                     <input type="file" name="files[]" id="file" multiple accept="image/*">
                 </div>
                 <div class="column">
                     <label for="plan">Block Plan of the Land</label>
-                    <input type="file" name="pdfFile" id="pdfFile" class="real-file" accept=".pdf" hidden="hidden">
-                    <button class="action-button">Upload Block Plan </button> 
+                    <input type="file" name="files[]" id="file" multiple accept="application/pdf">
                 </div>
             </div>
             </fieldset>

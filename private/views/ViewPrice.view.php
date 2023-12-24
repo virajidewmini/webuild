@@ -13,7 +13,8 @@
     }
 </style>
 
-<body>
+<body style="overflow: hidden; max-height: 100px;">
+   
 <section class="pricing">
     <div class="card-wrapper">
         <div class="card-header">
@@ -27,9 +28,7 @@
             <p><span class="fas fa-check check"></span> <b>5%</b> Interest</p>
         </div>
 
-        <div class="card-price">
-            <p>5<sub>% Interest</sub></p>
-        </div>
+       
         
     </div>
 
@@ -45,9 +44,6 @@
 
         </div>
 
-        <div class="card-price">
-            <p>0<sub>% Interest</sub></p>
-        </div>
         
     </div>
 
@@ -66,11 +62,9 @@
             <p><span class="fas fa-check check"></span> <b>10%</b> Interest</p>
         </div>
 
-        <div class="card-price">
-            <p>10<sub>% Interest</sub></p>
-
-        </div>
+       
         
     </div>
 </section>
+
 </body>
