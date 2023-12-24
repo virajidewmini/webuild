@@ -2,56 +2,63 @@
 <div class="table">
         <div class="table_header">
             
-        <div>
+        <!-- <div>
                <a href="AddMaintain"><button class="add___">Add Request</button></a>   
-            </div>
+            </div> -->
         </div>
         <div class="table_section" style="height: 250px;">
             <table>
                 <thead>
                     <tr>
                         <th>Material Name</th>
-                        <th>Material ID</th>
-                        <th>Total</th>
-                        <th>Current</th>
+                        <th>Material Code</th>
+                        <th>Total Quantity</th>
+                        <th>Current Quntity</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Cement</td>
-                        <td>C001</td>
-                        <td><a href="#" class="btn">View</a></td>
-                        <td><a href="#" class="btn">Requests</a></td>
+                        <td>M001</td>
+                        <td>900</td>
+                        <td>80</td>
+                        <td><button type="submit">Normal</button></td>
                     </tr>
                     <tr>
                         <td>Cement</td>
-                        <td>C001</td>
-                        <td><a href="#" class="btn">View</a></td>
-                        <td><a href="#" class="btn">Requests</a></td>
+                        <td>M001</td>
+                        <td>900</td>
+                        <td>80</td>
+                        <td><button type="submit">Normal</button></td>
                     </tr>
                     <tr>
                         <td>Cement</td>
-                        <td>C001</td>
-                        <td><a href="#" class="btn">View</a></td>
-                        <td><a href="#" class="btn">Requests</a></td>
+                        <td>M001</td>
+                        <td>900</td>
+                        <td>80</td>
+                        <td><button type="submit">Normal</button></td>
                     </tr>
                     <tr>
                         <td>Cement</td>
-                        <td>C001</td>
-                        <td><a href="#" class="btn">View</a></td>
-                        <td><a href="#" class="btn">Requests</a></td>
+                        <td>M001</td>
+                        <td>900</td>
+                        <td>80</td>
+                        <td><button type="submit">Normal</button></td>
                     </tr>
                     <tr>
                         <td>Cement</td>
-                        <td>C001</td>
-                        <td><a href="#" class="btn">View</a></td>
-                        <td><a href="#" class="btn">Requests</a></td>
+                        <td>M001</td>
+                        <td>900</td>
+                        <td>80</td>
+                        <td><button type="submit">Normal</button></td>
                     </tr>
                     <tr>
                         <td>Cement</td>
-                        <td>C001</td>
-                        <td><a href="#" class="btn">View</a></td>
-                        <td><a href="#" class="btn">Requests</a></td>
+                        <td>M001</td>
+                        <td>900</td>
+                        <td>80</td>
+                        <td><button type="submit">Normal</button></td>
                     </tr>
                 </tbody>
             </table>
