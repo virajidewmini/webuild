@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
 
 
@@ -107,8 +108,8 @@
             <button type="button" class="collapsible">Living Room</button>
                 <div class="collaps-content">
                     <div class="checkbox-container">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onchange="changeWennako()" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
-                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your house.</label><br>
+                        <input type="checkbox" id="agreeCheck" name="agreeCheck" onchange="modify()" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
                     </div>
 
                     
@@ -116,16 +117,14 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="walk" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio">
                             <div class="radio-tile" style="background-color: white;">
-                                <label for="walk">White</label>
+                                <label for="default">White</label>
                             </div>
-                        </div>
+                    </div>
                     <p style="margin-left: 20px;">Default</p>
+
                     <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
-
-                    
-
                 <?php if(isset($rows)): ?>
 
                 <?php foreach ($rows as $row):?>
@@ -138,29 +137,31 @@
                 <?php endforeach;?>
                 <?php endif; ?>
 
-                    <!-- <div class="input-container">
-                            <input id="bike" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <label for="bike">Bike</label>
+                </div>
+
+                <label for="tile" class="lableForCollaps">Tile Styles</label>
+
+                <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                               
                             </div>
                     </div>
+                    <p style="margin-left: 20px;">Default</p>
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+
+                    <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                        <input id="car" type="radio" name="radio">
-                        <div class="radio-tile" style="background-color: aquamarine;">
-                            <label for="car">Drive</label>
-                        </div>
-                    </div> 
-
-                    <div class="input-container">
-                        <input id="fly" type="radio" name="radio">
-                        <div class="radio-tile">
-                            <label for="fly">Fly</label>
-                        </div>
-                    </div> -->
-
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            </div>
+                    </div>
+                    <?php endfor; ?>
+               
                 </div>
-                </div>
+                    
+                    </div>
                     </div>
                 
             <button type="button" class="collapsible">Dining Room</button>
@@ -171,15 +172,15 @@
 <div class="collaps-content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
-<button type="button" class="collapsible">Study Room</button>
-<div class="collaps-content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
-<button type="button" class="collapsible">Balcony</button>
+<button type="button" class="collapsible">Bathroom</button>
 <div class="collaps-content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
 <button type="button" class="collapsible">Bedroom</button>
+<div class="collaps-content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+<button type="button" class="collapsible">Exterior</button>
 <div class="collaps-content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
@@ -223,8 +224,8 @@
     </div>
 
     <script>
-    function changeWennako(){
-  var checkbox = document.getElementById('vehicle1');
+    function modify(){
+  var checkbox = document.getElementById('agreeCheck');
   var hiddenForm = document.getElementById('hiddenForm');
 
   console.log(checkbox.checked)

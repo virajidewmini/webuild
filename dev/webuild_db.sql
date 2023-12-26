@@ -37,6 +37,22 @@ ALTER TABLE `attachment` CHANGE `complaint_id` `complaint_id` VARCHAR(50) NOT NU
 
 ALTER TABLE `attachment` CHANGE `complaint_id` `reference_id` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 
+ALTER TABLE `paint` ADD `type` VARCHAR(20) NOT NULL AFTER `color`;
+
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 1
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 2
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 3
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 4
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 5
+
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Purple Dawn', '3450', '#A291FF', 'INTERIOR'), (NULL, 'Pastal Green', '1235', '#B6C48F', 'INTERIOR');
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Jasmine Yellow', '2376', '#EFEA5B', 'INTERIOR');
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Butterfly', '7890', '#EEE698', 'KIT&BATH'), (NULL, 'Crayon Green', '6783', '#EEF3DA', 'KIT&BATH'), (NULL, 'Sea Vista', '3457', '#9AC7CD', 'KIT&BATH'), (NULL, 'Soft Peach', '3120', '#E8D2BC', 'KIT&BATH');
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Dove White', '1300', '#DEDBD3', 'EXTERIOR'), (NULL, 'Golden Mist', '3500', '#D4B56C', 'EXTERIOR'), (NULL, 'Sandstone', '1800', '#C5B99B', 'EXTERIOR'), (NULL, 'Blissful', '3200', '#CE806F', 'EXTERIOR'), (NULL, 'French Rose', '8990', '#BC91BA', 'EXTERIOR');
+
+UPDATE `paint` SET `name` = 'Tickled Pink', `color` = '#DBC2DC' WHERE `paint`.`id` = 6;
+UPDATE `paint` SET `name` = 'Glod Gleam', `color` = '#F7EFCC' WHERE `paint`.`id` = 8;
+
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 

@@ -42,7 +42,9 @@
             }
 
             $paintView=new Paint();
-            $data=$paintView->findAll();
+            // $data=$paintView->findAll();
+            $data=$paintView->where("type","INTERIOR");
+
             $this->view('SubmitModel',['rows'=> $data]);
         }
 
