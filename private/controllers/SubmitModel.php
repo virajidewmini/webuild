@@ -18,7 +18,39 @@
                     'area' => $_POST['area']
                 ];
 
-                $kitchen_modification= [
+                $living_paint_modification= [
+                    'type'=>"LIVING_ROOM_PAINT",
+                    'selection'=>$_POST['livingRoomPaint']
+                ];
+
+                $dining_paint_modification= [
+                    'type'=>"DINING_ROOM_PAINT",
+                    'selection'=>$_POST['diningRoomPaint']
+                ];
+
+                $kitchen_paint_modification= [
+                    'type'=>"KITCHEN_PAINT",
+                    'selection'=>$_POST['kitchenPaint']
+                ];
+
+                $bathroom_paint_modification= [
+                    'type'=>"BATHROOM_PAINT",
+                    'selection'=>$_POST['bathroomPaint']
+                ];
+
+                $bedroom_paint_modification= [
+                    'type'=>"BEDROOM_PAINT",
+                    'selection'=>$_POST['bedroomPaint']
+                ];
+
+                $exterior_paint_modification= [
+                    'type'=>"EXTERIOR_PAINT",
+                    'selection'=>$_POST['exteriorPaint']
+                ];
+
+
+
+                $living_tile_modification= [
                     'type'=>"LIVING_ROOM_PAINT",
                     'selection'=>$_POST['livingRoomPaint']
                 ];
@@ -36,22 +68,31 @@
                     $attachment_model = new Attachment();
                     $attachment_model->insert($attachment_data_salary);
                     $attachment_model->insert($attachment_data_land);
+                    
                 }
 
                 $data = new UserData();
                 $lands = new UserLand();
-                $modify = new Modification();
+                $modify_paint = new Modification();
     
                 $data->insert($userData);
                 $lands->insert($landData);
-                $modify->insert($kitchen_modification);
+                $modify_paint->insert($living_paint_modification);
+                $modify_paint->insert($dining_paint_modification);
+                $modify_paint->insert($kitchen_paint_modification);
+                $modify_paint->insert($bathroom_paint_modification);
+                $modify_paint->insert($bedroom_paint_modification);
+                $modify_paint->insert($exterior_paint_modification);
             }
 
             $paintView=new Paint();
-            // $data=$paintView->findAll();
+        
             $data=$paintView->where("type","INTERIOR");
+            $data_kitchen=$paintView->where("type","KIT&BATH");
+            $data_exterior=$paintView->where("type","EXTERIOR");
 
-            $this->view('SubmitModel',['rows'=> $data]);
+            $this->view('SubmitModel',['rows'=> $data, 'rows_exterior'=>$data_exterior, 'rows_kitchen'=>$data_kitchen]);
+            
         }
 
     }

@@ -95,9 +95,9 @@
             </div>
             </fieldset>
             
-            <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button>
+            <!-- <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button>
             
-        </form>
+        </form> -->
 
 
         <br><br>
@@ -158,7 +158,7 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
@@ -175,11 +175,59 @@
             
             <div class="collaps-content">
                     <div class="checkbox-container">
-                        <input type="checkbox" id="agreeCheck_dining" name="agreeCheck" onchange="modify('agreeCheck_dining','hiddenForm_dining')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <input type="checkbox" id="agreeCheck_dining" name="agreeCheck" onchange="modify('agreeCheck_dining','DiningHiddenForm')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
                         <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
                     </div>
-                    <div id="hiddenForm_dining" style="display: none;">
-                    <p>Hiii</p>
+                    <div id="DiningHiddenForm" style="display: none;">
+                   <label for="paint" class="lableForCollaps">Paint Colour</label>
+
+                   <div class="input-container">
+                            <input id="defaultColor" type="radio" name="Paint">
+                            <div class="radio-tile" style="background-color: white;">
+                                <label for="default">White</label>
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+                <?php if(isset($rows)): ?>
+
+                <?php foreach ($rows as $row):?>
+                        <div class="input-container">
+                            <input id="walk" type="radio" name="diningRoomPaint" value="<?=$row->id?>">
+                            <div class="radio-tile" style="background-color: <?=$row->color?>">
+                                <label for="walk"><?=$row->name?></label>
+                            </div>
+                        </div>
+                <?php endforeach;?>
+                <?php endif; ?>
+
+                </div>
+
+                
+
+                <label for="tile" class="lableForCollaps">Tile Styles</label>
+
+                <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                               
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+
+                    <?php for ($i = 2; $i <= 4; $i++): ?>
+
+                    <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            </div>
+                    </div>
+                    <?php endfor; ?>
+               
+                </div>
+                    
                     </div>
             </div>
            
@@ -187,23 +235,246 @@
 
 
 <button type="button" class="collapsible">Kitchen</button>
-<div class="collaps-content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <div class="collaps-content">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="agreeCheck_kitchen" name="agreeCheck" onchange="modify('agreeCheck_kitchen','kitchenHiddenForm')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
+                    </div>
+                    <div id="kitchenHiddenForm" style="display: none;">
+                   <label for="paint" class="lableForCollaps">Paint Colour</label>
+
+                   <div class="input-container">
+                            <input id="defaultColor" type="radio" name="Paint">
+                            <div class="radio-tile" style="background-color: white;">
+                                <label for="default">White</label>
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+                <?php if(isset($rows_kitchen)): ?>
+
+                <?php foreach ($rows_kitchen as $row):?>
+                        <div class="input-container">
+                            <input id="walk" type="radio" name="kitchenPaint" value="<?=$row->id?>">
+                            <div class="radio-tile" style="background-color: <?=$row->color?>">
+                                <label for="walk"><?=$row->name?></label>
+                            </div>
+                        </div>
+                <?php endforeach;?>
+                <?php endif; ?>
+
+                </div>
+
+                
+
+                <label for="tile" class="lableForCollaps">Tile Styles</label>
+
+                <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                               
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+
+                    <?php for ($i = 2; $i <= 4; $i++): ?>
+
+                    <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            </div>
+                    </div>
+                    <?php endfor; ?>
+               
+                </div>
+                    
+                    </div>
 </div>
 <button type="button" class="collapsible">Bathroom</button>
 <div class="collaps-content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="agreeCheck_bathroom" name="agreeCheck" onchange="modify('agreeCheck_bathroom','bathroomHiddenForm')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
+                    </div>
+            <div id="bathroomHiddenForm" style="display: none;">
+                   <label for="paint" class="lableForCollaps">Paint Colour</label>
+
+                   <div class="input-container">
+                            <input id="defaultColor" type="radio" name="Paint">
+                            <div class="radio-tile" style="background-color: white;">
+                                <label for="default">White</label>
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+                <?php if(isset($rows_kitchen)): ?>
+
+                <?php foreach ($rows_kitchen as $row):?>
+                        <div class="input-container">
+                            <input id="walk" type="radio" name="bathroomPaint" value="<?=$row->id?>">
+                            <div class="radio-tile" style="background-color: <?=$row->color?>">
+                                <label for="walk"><?=$row->name?></label>
+                            </div>
+                        </div>
+                <?php endforeach;?>
+                <?php endif; ?>
+
+                </div>
+
+                
+
+                <label for="tile" class="lableForCollaps">Tile Styles</label>
+
+                <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                               
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+
+                    <?php for ($i = 2; $i <= 4; $i++): ?>
+
+                    <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            </div>
+                    </div>
+                    <?php endfor; ?>
+               
+                </div>
+                    
+                    </div>
 </div>
 <button type="button" class="collapsible">Bedroom</button>
 <div class="collaps-content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="agreeCheck_bedroom" name="agreeCheck" onchange="modify('agreeCheck_bedroom','bedroomHiddenForm')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
+                    </div>
+            <div id="bedroomHiddenForm" style="display: none;">
+                   <label for="paint" class="lableForCollaps">Paint Colour</label>
+
+                   <div class="input-container">
+                            <input id="defaultColor" type="radio" name="Paint">
+                            <div class="radio-tile" style="background-color: white;">
+                                <label for="default">White</label>
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+                <?php if(isset($rows)): ?>
+
+                <?php foreach ($rows as $row):?>
+                        <div class="input-container">
+                            <input id="walk" type="radio" name="bedroomPaint" value="<?=$row->id?>">
+                            <div class="radio-tile" style="background-color: <?=$row->color?>">
+                                <label for="walk"><?=$row->name?></label>
+                            </div>
+                        </div>
+                <?php endforeach;?>
+                <?php endif; ?>
+
+                </div>
+
+                
+
+                <label for="tile" class="lableForCollaps">Tile Styles</label>
+
+                <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                               
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+
+                    <?php for ($i = 2; $i <= 4; $i++): ?>
+
+                    <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            </div>
+                    </div>
+                    <?php endfor; ?>
+               
+                </div>
+                    
+                    </div>
 </div>
 <button type="button" class="collapsible">Exterior</button>
 <div class="collaps-content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="agreeCheck_exterior" name="agreeCheck" onchange="modify('agreeCheck_exterior','exteriorHiddenForm')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
+                    </div>
+<div id="exteriorHiddenForm" style="display: none;">
+                   <label for="paint" class="lableForCollaps">Paint Colour</label>
+
+                   <div class="input-container">
+                            <input id="defaultColor" type="radio" name="Paint">
+                            <div class="radio-tile" style="background-color: white;">
+                                <label for="default">White</label>
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+                <?php if(isset($rows_exterior)): ?>
+
+                <?php foreach ($rows_exterior as $row):?>
+                        <div class="input-container">
+                            <input id="walk" type="radio" name="exteriorPaint" value="<?=$row->id?>">
+                            <div class="radio-tile" style="background-color: <?=$row->color?>">
+                                <label for="walk"><?=$row->name?></label>
+                            </div>
+                        </div>
+                <?php endforeach;?>
+                <?php endif; ?>
+
+                </div>
+
+                
+
+                <label for="tile" class="lableForCollaps">Tile Styles</label>
+
+                <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                               
+                            </div>
+                    </div>
+                    <p style="margin-left: 20px;">Default</p>
+                    <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
+
+                    <?php for ($i = 2; $i <= 4; $i++): ?>
+
+                    <div class="input-container">
+                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            </div>
+                    </div>
+                    <?php endfor; ?>
+               
+                </div>
+                    
+                    </div>
 </div>
            
             </fieldset>
+
+            <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button>
+            
+            </form>
       
 
         <br><br>
