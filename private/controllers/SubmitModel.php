@@ -18,6 +18,11 @@
                     'area' => $_POST['area']
                 ];
 
+                $kitchen_modification= [
+                    'type'=>"LIVING_ROOM_PAINT",
+                    'selection'=>$_POST['livingRoomPaint']
+                ];
+
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
                 foreach ($uploadedFiles as $file) {
                     $attachment_data_salary= [
@@ -35,10 +40,11 @@
 
                 $data = new UserData();
                 $lands = new UserLand();
+                $modify = new Modification();
     
                 $data->insert($userData);
                 $lands->insert($landData);
-                
+                $modify->insert($kitchen_modification);
             }
 
             $paintView=new Paint();

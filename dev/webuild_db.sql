@@ -53,6 +53,9 @@ INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Dove
 UPDATE `paint` SET `name` = 'Tickled Pink', `color` = '#DBC2DC' WHERE `paint`.`id` = 6;
 UPDATE `paint` SET `name` = 'Glod Gleam', `color` = '#F7EFCC' WHERE `paint`.`id` = 8;
 
+CREATE TABLE `webuild`.`modification` ( `id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR(50) NOT NULL , `selection` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 

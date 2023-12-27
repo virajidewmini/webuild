@@ -94,6 +94,7 @@
                 </div>
             </div>
             </fieldset>
+            
             <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button>
             
         </form>
@@ -104,20 +105,22 @@
        
             <fieldset class="FormFieldset" >
             <legend class="Formlegend">Modification</legend>
+
+            <!-- Living Room Modification -->
             
             <button type="button" class="collapsible">Living Room</button>
                 <div class="collaps-content">
                     <div class="checkbox-container">
-                        <input type="checkbox" id="agreeCheck" name="agreeCheck" onchange="modify()" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <input type="checkbox" id="agreeCheck" name="agreeCheck" onchange="modify('agreeCheck','HiddenForm')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
                         <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
                     </div>
 
                     
-                   <div id="hiddenForm" style="display: none;">
+                   <div id="HiddenForm" style="display: none;">
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="Paint">
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -129,7 +132,7 @@
 
                 <?php foreach ($rows as $row):?>
                         <div class="input-container">
-                            <input id="walk" type="radio" name="radio">
+                            <input id="walk" type="radio" name="livingRoomPaint" value="<?=$row->id?>">
                             <div class="radio-tile" style="background-color: <?=$row->color?>">
                                 <label for="walk"><?=$row->name?></label>
                             </div>
@@ -138,6 +141,8 @@
                 <?php endif; ?>
 
                 </div>
+
+                
 
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
 
@@ -163,11 +168,24 @@
                     
                     </div>
                     </div>
+
+            <!-- Dining Room Modification -->
                 
             <button type="button" class="collapsible">Dining Room</button>
-<div class="collaps-content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
+            
+            <div class="collaps-content">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="agreeCheck_dining" name="agreeCheck" onchange="modify('agreeCheck_dining','hiddenForm_dining')" style="width: 20px; height: 20px; margin-top: 20px; margin-bottom: 20px; ">
+                        <label for="agree" id="agree"> By selecting this, you are confirming that you have agree to modify your Living Room.</label><br>
+                    </div>
+                    <div id="hiddenForm_dining" style="display: none;">
+                    <p>Hiii</p>
+                    </div>
+            </div>
+           
+
+
+
 <button type="button" class="collapsible">Kitchen</button>
 <div class="collaps-content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -224,9 +242,9 @@
     </div>
 
     <script>
-    function modify(){
-  var checkbox = document.getElementById('agreeCheck');
-  var hiddenForm = document.getElementById('hiddenForm');
+    function modify(elementId,hiddenFormId){
+  var checkbox = document.getElementById(elementId);
+  var hiddenForm = document.getElementById(hiddenFormId);
 
   console.log(checkbox.checked)
 
