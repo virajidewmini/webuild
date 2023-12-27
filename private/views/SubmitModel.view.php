@@ -148,7 +148,7 @@
 
                 <div class="input-container">
                             <input id="defaultColor" type="radio" name="radio">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);">
                                
                             </div>
                     </div>
@@ -158,8 +158,8 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            <input id="defaultColor" type="radio" name="livingRoomTile" value="Interior_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
                     <?php endfor; ?>
@@ -210,7 +210,7 @@
 
                 <div class="input-container">
                             <input id="defaultColor" type="radio" name="radio">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);">
                                
                             </div>
                     </div>
@@ -220,8 +220,8 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            <input id="defaultColor" type="radio" name="diningRoomTile" value="Interior_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
                     <?php endfor; ?>
@@ -283,7 +283,7 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
+                            <input id="defaultColor" type="radio" name="kitchenTile" value="Kitchen_tile_<?= $i ?>">
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
@@ -332,7 +332,7 @@
 
                 <div class="input-container">
                             <input id="defaultColor" type="radio" name="radio">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Bathroom_tile_1.jpeg);">
                                
                             </div>
                     </div>
@@ -342,8 +342,8 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            <input id="defaultColor" type="radio" name="bathroomTile" value="Bathroom_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Bathroom_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
                     <?php endfor; ?>
@@ -390,7 +390,7 @@
 
                 <div class="input-container">
                             <input id="defaultColor" type="radio" name="radio">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);">
                                
                             </div>
                     </div>
@@ -400,8 +400,8 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            <input id="defaultColor" type="radio" name="bedroomTile" value="Interior_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
                     <?php endfor; ?>
@@ -449,7 +449,7 @@
 
                 <div class="input-container">
                             <input id="defaultColor" type="radio" name="radio">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Exterior_tile_1.jpeg);">
                                
                             </div>
                     </div>
@@ -459,8 +459,8 @@
                     <?php for ($i = 2; $i <= 4; $i++): ?>
 
                     <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio" value="Kitchen_tile_<?= $i ?>">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_<?= $i ?>.jpeg);">  
+                            <input id="defaultColor" type="radio" name="exteriorTile" value="Exterior_tile_<?= $i ?>">
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Exterior_tile_<?= $i ?>.jpeg);">  
                             </div>
                     </div>
                     <?php endfor; ?>

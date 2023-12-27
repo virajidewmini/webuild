@@ -23,9 +23,19 @@
                     'selection'=>$_POST['livingRoomPaint']
                 ];
 
+                $living_tile_modification= [
+                    'type'=>"LIVING_ROOM_Tile",
+                    'selection'=>$_POST['livingRoomTile']
+                ];
+
                 $dining_paint_modification= [
                     'type'=>"DINING_ROOM_PAINT",
                     'selection'=>$_POST['diningRoomPaint']
+                ];
+
+                $dining_tile_modification= [
+                    'type'=>"DINING_ROOM_TILE",
+                    'selection'=>$_POST['diningRoomTile']
                 ];
 
                 $kitchen_paint_modification= [
@@ -33,9 +43,19 @@
                     'selection'=>$_POST['kitchenPaint']
                 ];
 
+                $kitchen_tile_modification= [
+                    'type'=>"KITCHEN_TILE",
+                    'selection'=>$_POST['kitchenTile']
+                ];
+
                 $bathroom_paint_modification= [
                     'type'=>"BATHROOM_PAINT",
                     'selection'=>$_POST['bathroomPaint']
+                ];
+
+                $bathroom_tile_modification= [
+                    'type'=>"BATHROOM_TILE",
+                    'selection'=>$_POST['bathroomTile']
                 ];
 
                 $bedroom_paint_modification= [
@@ -43,17 +63,22 @@
                     'selection'=>$_POST['bedroomPaint']
                 ];
 
+                $bedroom_tile_modification= [
+                    'type'=>"BEDROOM_TILE",
+                    'selection'=>$_POST['bedroomTile']
+                ];
+
                 $exterior_paint_modification= [
                     'type'=>"EXTERIOR_PAINT",
                     'selection'=>$_POST['exteriorPaint']
                 ];
 
-
-
-                $living_tile_modification= [
-                    'type'=>"LIVING_ROOM_PAINT",
-                    'selection'=>$_POST['livingRoomPaint']
+                $exterior_tile_modification= [
+                    'type'=>"EXTERIOR_TILE",
+                    'selection'=>$_POST['exteriorTile']
                 ];
+
+
 
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
                 foreach ($uploadedFiles as $file) {
@@ -83,6 +108,12 @@
                 $modify_paint->insert($bathroom_paint_modification);
                 $modify_paint->insert($bedroom_paint_modification);
                 $modify_paint->insert($exterior_paint_modification);
+                $modify_paint->insert($living_tile_modification);
+                $modify_paint->insert($dining_tile_modification);
+                $modify_paint->insert($kitchen_tile_modification);
+                $modify_paint->insert($bathroom_tile_modification);
+                $modify_paint->insert($bedroom_tile_modification);
+                $modify_paint->insert($exterior_tile_modification);
             }
 
             $paintView=new Paint();
