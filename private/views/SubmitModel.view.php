@@ -472,9 +472,7 @@
            
             </fieldset>
 
-            <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button>
             
-            </form>
       
 
         <br><br>
@@ -504,11 +502,11 @@
                 
             </div>
             </fieldset>  
-        <!-- </form>
 
-        <br><br>
-         <button class="add___" style="width: 50%; font-size: medium; height: 40px;">Submit</button> -->
-        <!-- <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a> -->
+            <button class="add___" style="width: 50%; font-size: medium; height: 40px; margin-top: 25px;">Submit</button>
+            
+            </form>
+        
 
     </div>
 
