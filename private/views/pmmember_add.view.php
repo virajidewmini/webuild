@@ -149,7 +149,7 @@
                         <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                         </div>
                     </form>
-                    <?php print_r($_POST);?>
+
                     </div> 
                 
         </div>
