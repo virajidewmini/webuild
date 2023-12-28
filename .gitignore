@@ -79,4 +79,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# User upload documents
+public/uploads
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,windows

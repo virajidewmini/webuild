@@ -1,27 +1,42 @@
 <?php 
     class ClientComplaint extends Controller{
+
         public function index(){
             
-                //$db = new Database();
-                //$clientComplaint=$this->load_model('C_Complaint');
+                
                 $clientComplaint=new C_Complaint();
-                //$data = $db->query("select * from complaint");
-                //$data= $clientComplaint->where('id',1);
-                //$arr['project_id']='2';
-                //$arr['status']='Pending';
-                //$clientComplaint->insert($arr);
-                //$clientComplaint->update(3,$arr);
-                //$clientComplaint->delete(4);
+                
                 $data=$clientComplaint->findAll();
                 $this->view('ViewClientComplaint',['rows'=> $data]);
         }
 
         public function add(){
             if(count($_POST) > 0){
+
+                $model = new UploadModel();
+                
+
                 $clientComplaint=new C_Complaint();
+                $complaint_id = uniqid();
+                $_POST['id'] = $complaint_id;
 			    $clientComplaint->insert($_POST);
+               
+
+                $uploadedFiles = $model->uploadFiles($_FILES['files']);
+                foreach ($uploadedFiles as $file) {
+                    $attachment_data= [
+                        'reference_id' => $complaint_id,
+                        'file_name' => $file,
+                        'attachment_type'=> "COMPLAINT"
+                    ];
+                    $attachment_model = new Attachment();
+                    $attachment_model->insert($attachment_data);
+                }
+
                 $this->redirect('clientcomplaint');
             }
+
+           
 
             $this->view('AddClientComplaint');
         }
@@ -32,7 +47,7 @@
             if(count($_POST) > 0){
                 $clientComplaint=new C_Complaint();
 			    $clientComplaint->delete($id);
-                $this->redirect('clientcomplaint');
+                // $this->redirect('clientcomplaint');
 
             }
             $this->view('DeleteComplaint');

@@ -10,7 +10,53 @@ CREATE TABLE `webuild`.`complaint`
 `remark` LONGTEXT NOT NULL , 
 `status` VARCHAR(10) NOT NULL , 
 PRIMARY KEY (`id`)) ENGINE = InnoDB;
+-- here
+CREATE TABLE `webuild`.`user_lands` ( `id` INT NOT NULL AUTO_INCREMENT , `street` VARCHAR(20) NOT NULL ,
+ `town` VARCHAR(20) NOT NULL , `district` VARCHAR(20) NOT NULL , `block_plan` VARCHAR(255) NOT NULL , 
+ `area` VARCHAR(10) NOT NULL , `user_id` INT NOT NULL , `image` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) 
+ ENGINE = InnoDB;
 
+ CREATE TABLE `webuild`.`user_data` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `occupation` VARCHAR(255) NOT NULL , `salary` INT(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ ALTER TABLE `user_data` CHANGE `salary` `salary` VARCHAR(10) NOT NULL;
+
+ ALTER TABLE `user_data` CHANGE `salary` `salary` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ CREATE TABLE `webuild`.`paint` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(20) NOT NULL , `price` DOUBLE NOT NULL , `color` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ INSERT INTO `paint` (`id`, `name`, `price`, `color`) VALUES (NULL, 'Bird Bath', '2500', '#D4E0E3'), (NULL, 'Cold Coffee', '2100', '#E3D7C1')
+ INSERT INTO `paint` (`id`, `name`, `price`, `color`) VALUES (NULL, 'Show Blush', '1450', '#F2E9DC'), (NULL, 'Air Breeze', '2340', '#F2EDE9');
+ INSERT INTO `paint` (`id`, `name`, `price`, `color`) VALUES (NULL, 'Pink Mist', '5600', '#F3E3E1');
+
+ CREATE TABLE `webuild`.`attachment` ( `id` INT NOT NULL AUTO_INCREMENT , `complaint_id` INT NOT NULL , `file_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `attachment` ADD `attachment_type` VARCHAR(20) NOT NULL AFTER `file_name`;
+
+ALTER TABLE `complaint` CHANGE `id` `id` VARCHAR(50) NOT NULL;
+
+ALTER TABLE `attachment` CHANGE `complaint_id` `complaint_id` VARCHAR(50) NOT NULL;
+
+ALTER TABLE `attachment` CHANGE `complaint_id` `reference_id` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE `paint` ADD `type` VARCHAR(20) NOT NULL AFTER `color`;
+
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 1
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 2
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 3
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 4
+UPDATE `paint` SET `type` = 'INTERIOR' WHERE `paint`.`id` = 5
+
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Purple Dawn', '3450', '#A291FF', 'INTERIOR'), (NULL, 'Pastal Green', '1235', '#B6C48F', 'INTERIOR');
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Jasmine Yellow', '2376', '#EFEA5B', 'INTERIOR');
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Butterfly', '7890', '#EEE698', 'KIT&BATH'), (NULL, 'Crayon Green', '6783', '#EEF3DA', 'KIT&BATH'), (NULL, 'Sea Vista', '3457', '#9AC7CD', 'KIT&BATH'), (NULL, 'Soft Peach', '3120', '#E8D2BC', 'KIT&BATH');
+INSERT INTO `paint` (`id`, `name`, `price`, `color`, `type`) VALUES (NULL, 'Dove White', '1300', '#DEDBD3', 'EXTERIOR'), (NULL, 'Golden Mist', '3500', '#D4B56C', 'EXTERIOR'), (NULL, 'Sandstone', '1800', '#C5B99B', 'EXTERIOR'), (NULL, 'Blissful', '3200', '#CE806F', 'EXTERIOR'), (NULL, 'French Rose', '8990', '#BC91BA', 'EXTERIOR');
+
+UPDATE `paint` SET `name` = 'Tickled Pink', `color` = '#DBC2DC' WHERE `paint`.`id` = 6;
+UPDATE `paint` SET `name` = 'Glod Gleam', `color` = '#F7EFCC' WHERE `paint`.`id` = 8;
+
+CREATE TABLE `webuild`.`modification` ( `id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR(50) NOT NULL , `selection` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+-- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 
 INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `status`) VALUES (NULL, `1`, 
