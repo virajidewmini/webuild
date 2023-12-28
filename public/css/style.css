@@ -442,21 +442,7 @@ td img{
 .card-price >p >sub{
     font-size: 1rem;
 }
-.card-button{
-    padding: 0.6rem 3rem;
-    border: 2px solid #5222d0;
-    background-color: #5222d0;
-    color: #fff;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 50ms ease-in;
-}
-.card-button:hover{
-    border: 2px solid #ec615b;
-    background-color: transparent;
-    color:#ec615b;
-    font-weight: 800;
-}
+
 /* -- Progress Bar -- */
 
 .progress-bar{

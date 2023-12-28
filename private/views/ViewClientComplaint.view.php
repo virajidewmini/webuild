@@ -5,7 +5,7 @@
 <div class="table_header">
             <h1>Complaints</h1>
             <div>
-               <a href="clientcomplaint/add"><button class="add___">Add New</button></a>   
+               <a href="<?=ROOT?>/clientcomplaint/add"><button class="add___">Add New</button></a>   
             </div>
         </div>
         <div class="table_section" style="height: 1000px;">
