@@ -10,6 +10,17 @@
                 $this->view('ViewClientComplaint',['rows'=> $data]);
         }
 
+        public function viewComplaint($id=null){
+            
+                $clientComplaint=new C_Complaint();
+			    $data= $clientComplaint->viewComplanitDetail($id);
+                $complaint_attachment= new Attachment();
+                $attachment= $complaint_attachment->where('reference_id',$id);
+                $this->view('ViewMoreComplaint',['rows'=> $data,'attachment'=>$attachment]);
+                //$this->redirect('clientcomplaint');
+            
+        }
+
         public function add(){
             if(count($_POST) > 0){
 
@@ -47,7 +58,7 @@
             if(count($_POST) > 0){
                 $clientComplaint=new C_Complaint();
 			    $clientComplaint->delete($id);
-                // $this->redirect('clientcomplaint');
+                $this->redirect('clientcomplaint');
 
             }
             $this->view('DeleteComplaint');
