@@ -8,14 +8,16 @@
                width: 90%;
                max-width: 700px;
                height: auto;
+               box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
           }
           .pro-id-details{
-               width: 70%;
+               width: 100%;
           }
           .title-id{
                display: flex;
                align-items: center;
                margin-bottom: 20px;
+               width: 100%;
           }
           .p-title{
                min-width: 200px;
@@ -63,12 +65,12 @@
 }
 </style>
 <?php if($row): ?>
-     <div>
-          <div class="pro-id">
+     <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
+          <div class="pro-id" style="padding: 0 0 40px 0; ">
                 
                     <div class="pro-id-details">
                     <form method="post">
-                        <div class="title-id">
+                        <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
                                 <h3>Add Sub Task</h3>
                             </div>
@@ -78,7 +80,7 @@
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                               <input>
+                               <input required name="project_id" value= "<?= get_var('project_id');?>" type="text" placeholder="Project ID" class="form-control">
                             </div>
                         </div>
                         <div class="unit-d">

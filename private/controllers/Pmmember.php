@@ -9,9 +9,10 @@
 		if(!Auth::logged_in()){
 			$this->redirect('/login');
 		}
+        $pmi = Auth::getid();
 
-        $project = new Projects();
-		$data = $project->findAll();
+        $s_mem = new Dtbase();
+		$data = $s_mem->allmember($pmi);
     
 		$this->view('pmmember',[
             'rows'=>$data
