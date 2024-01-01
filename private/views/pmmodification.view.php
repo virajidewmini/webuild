@@ -178,7 +178,7 @@
                         </div>
                         <div class="m-part">
                             <div class="m-part-top">
-                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                                <h3 style="margin-left:20px;margin-top:30px">Bathroom</h3>
                             </div>
                             <div class="unit-d">
                                 
@@ -267,7 +267,7 @@
                         </div>
                         <div class="m-part">
                             <div class="m-part-top">
-                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                                <h3 style="margin-left:20px;margin-top:30px">Dinien</h3>
                             </div>
                             <div class="unit-d">
                                 
@@ -356,7 +356,7 @@
                         </div>
                         <div class="m-part">
                             <div class="m-part-top">
-                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                                <h3 style="margin-left:20px;margin-top:30px">Living Room</h3>
                             </div>
                             <div class="unit-d">
                                 
@@ -445,7 +445,7 @@
                         </div>
                         <div class="m-part">
                             <div class="m-part-top">
-                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                                <h3 style="margin-left:20px;margin-top:30px">Living Area</h3>
                             </div>
                             <div class="unit-d">
                                 
@@ -534,7 +534,7 @@
                         </div>
                         <div class="m-part">
                             <div class="m-part-top">
-                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                                <h3 style="margin-left:20px;margin-top:30px">Exterior</h3>
                             </div>
                             <div class="unit-d">
                                 
