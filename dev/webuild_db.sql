@@ -55,6 +55,18 @@ UPDATE `paint` SET `name` = 'Glod Gleam', `color` = '#F7EFCC' WHERE `paint`.`id`
 
 CREATE TABLE `webuild`.`modification` ( `id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR(50) NOT NULL , `selection` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
+CREATE TABLE `webuild`.`tile` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(20) NOT NULL , `price` DOUBLE NOT NULL , `file_name` VARCHAR(255) NOT NULL , `type` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `tile` CHANGE `file_name` `file_name` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'Royal Marble', '1200', 'Bathroom_tile_1.jpeg', 'BATHROOM'), (NULL, 'Urban Slate', '2000', 'Bathroom_tile_2.jpeg', 'BATHROOM'), (NULL, 'Metro Fusion', '2400', 'Bathroom_tile_3.jpeg', 'BATHROOM'), (NULL, 'Concrete', '1490', 'Bathroom_tile_4.jpeg', 'BATHROOM')
+
+INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'Regal Ivory', '3400', 'Exterior_tile_1.jpeg', 'EXTERIOR'), (NULL, 'Opulent Onyx', '1100', 'Exterior_tile_2.jpeg', 'EXTERIOR'), (NULL, 'Classic Carrara', '990', 'Exterior_tile_3.jpeg', 'EXTERIOR'), (NULL, 'Woodland Oak', '1700', 'Exterior_tile_4.jpeg', 'EXTERIOR')
+
+INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'Vintage Charm', '2300', 'Interior_tile_1.jpeg', 'INTERIOR'), (NULL, 'Terracotta', '1300', 'Interior_tile_2.jpeg', 'INTERIOR'), (NULL, 'Stone Bliss', '4100', 'Interior_tile_3.jpeg', 'INTERIOR'), (NULL, 'Bamboo Breeze', '2100', 'Interior_tile_4.jpeg', 'INTERIOR')
+
+INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'Heritage Hues', '2340', 'Kitchen_tile_1.jpeg', 'KITCHEN'), (NULL, 'Antique', '1290', 'Kitchen_tile_2.jpeg', 'KITCHEN'), (NULL, 'Rustic Revival', '3000', 'Kitchen_tile_3.jpeg', 'KITCHEN'), (NULL, 'Crystal Cascade', '2700', 'Kitchen_tile_4.jpeg', 'KITCHEN')
+
 
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
