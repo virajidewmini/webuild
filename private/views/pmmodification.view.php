@@ -85,7 +85,7 @@
                     <form method="post">
                         
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                            <h2 style="margin-bottom: 20px">MODIFICATION</h2>
+                            <h2 style="margin-top: 20px;margin-bottom: 20px">MODIFICATION</h2>
                         </div>
                         <div class="m-part">
                             <div class="m-part-top">
@@ -621,7 +621,29 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
-                        
+                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
+                            <h2 style="margin-top: 20px">Price Details</h2>
+                        </div>
+                        <div class="m-part">
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <div class="unit">
+                                        <h4>Tile :</h4>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="margin-top:40px">
+                        </div>
                         
                         
                         <div class="table_header" style="align-items: center; background-color:white">
