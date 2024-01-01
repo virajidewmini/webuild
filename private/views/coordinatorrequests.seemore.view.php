@@ -41,7 +41,7 @@
           }
      </style>
      <div>
-     <?= $rows?>
+     <?php printr($rows)?>
      </div>
 
 
