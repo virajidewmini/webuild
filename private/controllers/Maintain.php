@@ -24,7 +24,7 @@
                 $this->redirect('storekeeperMaintain');
             }
 
-            $this->view('AddMaintain');
+            $this->view('storekeeperSendRequest');
         }
 
         

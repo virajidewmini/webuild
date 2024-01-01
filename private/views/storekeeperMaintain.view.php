@@ -2,9 +2,9 @@
 <div class="table">
         <div class="table_header">
             
-        <!-- <div>
-               <a href="AddMaintain"><button class="add___">Add Request</button></a>   
-            </div> -->
+            <div>
+               <a href="storekeeperSendRequests"><button class="add___">Add Request</button></a>   
+            </div>
         </div>
         <div class="table_section" style="height: 250px;">
             <table>
