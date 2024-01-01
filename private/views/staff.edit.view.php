@@ -43,13 +43,7 @@
                 <label class="v_label" id="address">District</label>
                 <input name="district" value="<?= get_var('district',$row[0]->district);?>" type="text" placeholder="" class="v_form-control">
             
-                <label class="v_label" id="complaintType">Role</label>
-                <select name="role" value="<?= get_var('role',$row[0]->role);?>" type="text" placeholder="" class="v_form-control">
-                    <option <?= get_select('role','Project Coordinator',$row[0]);?>  value="Project Coordinator" selected>Project Coordinator</option>
-                    <option <?= get_select('role','Project Manager',$row[0]);?>  value="Project Manager">Project Manager</option>
-                    <option <?= get_select('role','Storekeeper',$row[0]);?>  value="Storekeeper">Storekeeper</option>
-                    <option <?= get_select('role','Supervisor',$row[0]);?>  value="Supervisor">Supervisor</option>   
-                </select>
+                
                 <br><br>
            
         <div style="display: flex; justify-content: center;" >        
