@@ -277,18 +277,18 @@ class Staffs extends Model{
         role
         **/
 
-        //empty
-        if(empty($DATA['role'])){
-            $this->errors['role']="Role can't be empty ";
-        }
-         /**
-        role validation
-        **/
+        // //empty
+        // if(empty($DATA['role'])){
+        //     $this->errors['role']="Role can't be empty ";
+        // }
+        //  /**
+        // role validation
+        // **/
         
-        $roles=['Project Coordinator','Project Manager','Storekeeper','Supervisor'];
-        if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
-            $this->errors['role']="Role is invalid ";
-        }
+        // $roles=['Project Coordinator','Project Manager','Storekeeper','Supervisor'];
+        // if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
+        //     $this->errors['role']="Role is invalid ";
+        // }
 
 
         if(count($this->errors) == 0){
