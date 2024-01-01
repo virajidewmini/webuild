@@ -13,10 +13,12 @@ class Pmongoingproject extends Controller
 		}
         $pmi = Auth::getid();
 
-        $project_detail = new Project_detail();
-		$data = $project_detail->where2('m_user_id',$pmi,'action','ongoing');
+        $projects = new Projects();
+		$data = $projects->where('manager_id',$pmi);
     
-		$this->view('pmongoingproject',['rows'=>$data]);
+		$this->view('pmongoingproject',[
+			'rows'=>$data
+		]);
 	}
 
 	public function show($id = null)
@@ -26,8 +28,8 @@ class Pmongoingproject extends Controller
 			$this->redirect('/login');
 		}
 
-        $project_detail = new Project_detail();
-		$data = $project_detail->where('project_id',$id);
+        // $project_detail = new Project_detail();
+		// $data = $project_detail->where('project_id',$id);
 
 		$this->view('pmprojectprofile',['rows'=>$data]);
 

@@ -31,6 +31,7 @@
           .unit-d{
      
                display: flex;
+               justify-content: space-around;
                align-items: center;
                margin-left: 5%;
                margin-bottom: 10px;
@@ -57,6 +58,15 @@
             width:300px;
             height:100px;
           }
+          .square-f{
+            display: flex;
+               justify-content: center;
+               align-items: center;
+               margin-left: 5%;
+               margin-bottom: 10px;
+               margin-top: 30
+               px;
+          }
 
 .in_a_c:hover{
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
@@ -65,103 +75,554 @@
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
 }
 </style>
-<h2 style="margin-bottom: 20px">MODIFICATION</h2>
 <?php if(true): ?>
     
      <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
+     
           <div class="pro-id" style="padding: 0 0 40px 0; ">
-                
+          
                     <div class="pro-id-details">
                     <form method="post">
                         
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                            
-                            <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
-                            </div>
+                            <h2 style="margin-bottom: 20px">MODIFICATION</h2>
                         </div>
-                        <div class="unit-d">
-                            <div >
-                                <div class="unit">
-                                    <p>Tile :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
-                                </div>
-                                <div class="unit">
-                                    <p>Color :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
-                                </div>
+                        <div class="m-part">
+                            <div class="m-part-top">
+                                <h3 style="margin-left:20px;">Kitchen</h3>
                             </div>
-                        </div>
-                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                            
-                            <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div >
-                                <div class="unit">
-                                    <p>Tile :</p>
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
                                 </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
-                                </div>
-                                <div class="unit">
-                                    <p>Color :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
+                                <div >
+                                    <h4 style="text-align:center;">Modification</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                            
-                            <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div >
-                                <div class="unit">
-                                    <p>Tile :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
-                                </div>
-                                <div class="unit">
-                                    <p>Color :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
+                            <div class="square-f">
+                                <div style="margin-right:5%"><h4>No. Square foot for</h4></div>
+                                <div>
+                                    <div class="unit">
+                                        <p>Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                            
-                            <div class="p-title">
-                            <h3 style="text-align:center;">Kitchen</h3>
+                            <div class="unit-d" style="margin-top:30px; " >
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">New price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
                             </div>
+                            <hr style="margin-top:40px">
                         </div>
-                        <div class="unit-d">
-                            <div >
-                                <div class="unit">
-                                    <p>Tile :</p>
+                        <div class="m-part">
+                            <div class="m-part-top">
+                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                            </div>
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
                                 </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
-                                </div>
-                                <div class="unit">
-                                    <p>Color :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly value="" type="text" name="supervisor_id">
+                                <div >
+                                    <h4 style="text-align:center;">Modification</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="square-f">
+                                <div style="margin-right:5%"><h4>No. Square foot for</h4></div>
+                                <div>
+                                    <div class="unit">
+                                        <p>Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="unit-d" style="margin-top:30px; " >
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">New price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="margin-top:40px">
                         </div>
+                        <div class="m-part">
+                            <div class="m-part-top">
+                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                            </div>
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">Modification</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="square-f">
+                                <div style="margin-right:5%"><h4>No. Square foot for</h4></div>
+                                <div>
+                                    <div class="unit">
+                                        <p>Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="unit-d" style="margin-top:30px; " >
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">New price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="margin-top:40px">
+                        </div>
+                        <div class="m-part">
+                            <div class="m-part-top">
+                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                            </div>
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">Modification</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="square-f">
+                                <div style="margin-right:5%"><h4>No. Square foot for</h4></div>
+                                <div>
+                                    <div class="unit">
+                                        <p>Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="unit-d" style="margin-top:30px; " >
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">New price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="margin-top:40px">
+                        </div>
+                        <div class="m-part">
+                            <div class="m-part-top">
+                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                            </div>
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">Modification</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="square-f">
+                                <div style="margin-right:5%"><h4>No. Square foot for</h4></div>
+                                <div>
+                                    <div class="unit">
+                                        <p>Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="unit-d" style="margin-top:30px; " >
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">New price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="margin-top:40px">
+                        </div>
+                        <div class="m-part">
+                            <div class="m-part-top">
+                                <h3 style="margin-left:20px;margin-top:30px">Kitchen</h3>
+                            </div>
+                            <div class="unit-d">
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">Modification</h4>
+                                    <div class="unit">
+                                        <p>Tile :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Color :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="square-f">
+                                <div style="margin-right:5%"><h4>No. Square foot for</h4></div>
+                                <div>
+                                    <div class="unit">
+                                        <p>Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="unit-d" style="margin-top:30px; " >
+                                
+                                <div >
+                                    <h4 style="text-align:center;">Default price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                                <div >
+                                    <h4 style="text-align:center;">New price</h4>
+                                    <div class="unit">
+                                        <p>For Tiling :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                    <div class="unit">
+                                        <p>For Painting :</p>
+                                    </div>
+                                    <div class="e-id-d">
+                                        <input readonly value="" type="text" name="supervisor_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="margin-top:40px">
+                        </div>
+                        
+                        
                         
                         <div class="table_header" style="align-items: center; background-color:white">
                         <a href="<?=ROOT?>/pmmember_search">
@@ -170,7 +631,6 @@
                         <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                         </div>
                     </form>
-                    <?php print_r($_POST);?>
                     </div> 
                 
         </div>

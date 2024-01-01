@@ -10,8 +10,8 @@
             }
             $pmi = Auth::getid();
 
-            $dtbase = new Dtbase();
-            $data = $dtbase->alldpr($pmi);
+            $project_dpr = new Project_dprs();
+            $data = $project_dpr->where('manager_id',$pmi);
             // $data1 = $dtbase->alltask($pmi);
 
             $project_task = new Project_tasks() ;

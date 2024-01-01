@@ -130,9 +130,23 @@
 	
 			$query = "SELECT $this->table4.*
 					  FROM $this->table1
-					  INNER JOIN $this->table4 ON $this->table1.project_id = $this->table4.project_id
-					  WHERE $this->table1.m_user_id = :value
+					  INNER JOIN $this->table4 ON $this->table1.id = $this->table4.project_id
+					  WHERE $this->table1.manager_id = :value
 					  AND $this->table4.action = 'ongoing'ORDER BY $this->table4.start_date ASC";
+	
+			// Assuming you have a method named 'query' to execute the query
+			return $this->query($query, [
+				'value' => $value,
+			]);
+		}
+
+		public function allmember($value){
+	
+			$query = "SELECT *
+					  FROM $this->table1
+					  INNER JOIN $this->table5 ON $this->table1.supervisor_id = $this->table5.staff_id
+					  WHERE $this->table1.manager_id = :value
+					  AND $this->table1.action = 'ongoing'ORDER BY $this->table1.supervisor_id ASC";
 	
 			// Assuming you have a method named 'query' to execute the query
 			return $this->query($query, [

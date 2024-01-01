@@ -10,15 +10,15 @@
 			$this->redirect('/login');
 		}
 
-        $project_detail = new Project_detail();
+        $staff = new Staffs();
 		
 
         if(isset($_GET['district'])){
             $district = $_GET['district'];
-            $data = $project_detail->ssup($district);
+            $data = $staff->ssup($district);
         }
-        elseif(isset($_GET['district'])==''){
-            $data = $project_detail->supAll();
+        else{
+            $data = $staff->supAll();
         }
     
 		$this->view('pmmember_search',['rows1'=>$data]);

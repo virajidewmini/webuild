@@ -72,7 +72,7 @@
                     <form method="post">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
-                                <h3><?= $row[0]->firstname?> <?= $row[0]->lastname?></h3>
+                                <h3>Supervisor Details</h3>
                             </div>
                         </div>
                         <div class="unit-d">
@@ -81,6 +81,14 @@
                             </div>
                             <div class="e-id-d">
                                 <input readonly value="<?=get_var('id',$row[0]->id)?>" type="text" name="supervisor_id">
+                            </div>
+                        </div>
+                        <div class="unit-d">
+                            <div class="unit">
+                                <p>Name :</p>
+                            </div>
+                            <div class="e-id-d">
+                                <input readonly value="<?=get_var('id',$row[0]->firstname)?> <?=get_var('id',$row[0]->lastname)?>" type="text" name="supervisor_name">
                             </div>
                         </div>
                         <div class="unit-d">
@@ -123,7 +131,7 @@
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input value="<?=get_var('id')?>" type="text" name="id">
+                                <input required value="<?=get_var('id')?>" type="text" name="id">
                             </div>
                         </div>
                         <div class="unit-d">
@@ -149,7 +157,7 @@
                         <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                         </div>
                     </form>
-                    <?php print_r($_POST);?>
+
                     </div> 
                 
         </div>
