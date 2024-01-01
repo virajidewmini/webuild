@@ -1,27 +1,26 @@
 <?php $this->view('includes/header')?>
+
+<div style="margin-left: 285px;" class="table_header" >
+        <h1>  Send Requests</h1>
+</div>
     <div class="form_container">
-        <form method="post">
+        <form method="post"  class="v_form">
+            <label class="v_label" id="">Material Name</label>
+            <input type="text" name="Material_Name" id="Material_Name" class="v_form-control" style="height: 150px;" required>
 
-            <div class="input-box">
-              <label for="inputEmail">Material Name</label>
-              <input type="text" placeholder="Marerial Name" id="inputUserName">
-              <label for="inputEmail">Material Code</label>
-              <input type="text" placeholder="Marerial Code" id="inputUserName">
-              <label for="inputEmail">Remain Quntity</label>
-              <input type="text" placeholder="Remain Quntity" id="inputUserName">
-              <label for="inputEmail">Required Quntity</label>
-              <input type="text" placeholder="Required Quntity" id="inputUserName"> 
-            </div>
+            <label for="description">Material Code</label>
+            <input type="text" name="Material_Code" id="Material_Code" class="v_form-control" style="height: 150px;" required>
 
+            <label class="v_label" id="">Material Name</label>
+            <input type="text" name="Remain_Quantity" id="Remain_Quantity" class="v_form-control" style="height: 150px;" required>
 
-              <div class="input-box">
-                <input type="Submit" value="Send"> 
+            <label class="v_label" id="">Material Name</label>
+            <input type="text" name="Required_Quntity" id="Required_Quntity" class="v_form-control" style="height: 150px;" required>
 
-    
-              </div>
-              <!-- <div class="returnlogin">
-                <a rel="noopener noreferrer" href="#">Return to login</a>  
-              </div> -->
-          </form>
+            <a href="<?=ROOT?>/maintain"> <button class="v_submit_button" type="submit">Submit</button></a>
+           
+
+        </form>
     </div>
+
 <?php $this->view('includes/footer'); ?>
