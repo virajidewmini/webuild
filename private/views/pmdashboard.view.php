@@ -55,7 +55,6 @@ body{
                     <tr>
                         <th>Project ID</th>
                         <th>Report ID</th>
-                        <th>User ID</th>
                         <th>Supervisor Name</th>
                         <th>Date</th>
                         <th>Action</th>
@@ -66,9 +65,8 @@ body{
                     <?php foreach ($rows as $row):?>
                     <tr>
                         <td><?= $row->project_id?></td>
-                        <td><?= $row->dpr_id?></td>
-                        <td><?= $row->s_user_id?></td>
-                        <td><?= $row->user->firstname?> <?= $row->user->lastname?></td>
+                        <td><?= $row->id?></td>
+                        <td><?= $row->staff->firstname?> <?= $row->staff->lastname?></td>
                         <td><?=get_date($row->date)?></td>
                         <td>
                             <a href="#">
