@@ -5,7 +5,9 @@
 </div>
 
 <div class="total-card" style="margin-bottom: 30px;">
-        <div class="total-amount">$1,000.00<br></div> 
+    <?php if(isset($rows)): ?>
+        <div class="total-amount">RS. <?=$rows[0]->total_amount?><br></div> 
+    <?php endif; ?>
         <p class="card_label">Total Amount</p>
     </div>
 
@@ -22,22 +24,31 @@
                 </thead>
 
                 <tbody>
+                <?php if(isset($rows)): ?>
+                    <?php $quotationNumber = 1; ?>
+                    <?php foreach ($rows as $row):?>
 
                     <tr>
-                        <td>2024.01.01</td>
-                        <td>Quotation 1</td>
-                        <td><a href="<?=ROOT?>/uploads/658bf9d448f6c_1703672276.pdf"  target="_blank" style="color: blue;">658bf9d448f6c_1703672276.pdf</a></td>
+                        <td><?=$row->created_date?></td>
+                        <td>Quotation <?=$quotationNumber?></td>
+                        <td><a href="<?=ROOT?>/uploads/<?=$row->quotation?>"  target="_blank" style="color: blue;"><?=$row->quotation?></a></td>
                         
                         <td>
-                         <a href="<?=ROOT?>/accept"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
-                           
-                         <a href="<?=ROOT?>/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
-                         
-        
+                            <?php if($row->status === "Pending"): ?>
+                                <a href="<?=ROOT?>/accept"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
+                                <a href="<?=ROOT?>/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
+
+                            <?php else: ?>
+                                <a href="<?=ROOT?>/accept"><button disabled class="accept-button" style="background-color: #ddd;" >Accept</button></a>
+                                <a href="<?=ROOT?>/reject"><button class="reject-button" style="background-color: #ddd;" disabled>Reject</button></a> 
+                            
+                            <?php endif; ?>
                         </td>
                         
                     </tr>
-
+                    <?php $quotationNumber++; ?> 
+                    <?php endforeach;?>
+                <?php endif; ?>
                 </tbody>
         </table>
     </div>

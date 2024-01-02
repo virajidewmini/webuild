@@ -67,6 +67,13 @@ INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'V
 
 INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'Heritage Hues', '2340', 'Kitchen_tile_1.jpeg', 'KITCHEN'), (NULL, 'Antique', '1290', 'Kitchen_tile_2.jpeg', 'KITCHEN'), (NULL, 'Rustic Revival', '3000', 'Kitchen_tile_3.jpeg', 'KITCHEN'), (NULL, 'Crystal Cascade', '2700', 'Kitchen_tile_4.jpeg', 'KITCHEN')
 
+CREATE TABLE `webuild`.`quotation` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `quotation` VARCHAR(255) NOT NULL , `total_amount` DOUBLE NOT NULL , `created_date` DATETIME NOT NULL , `status` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+INSERT INTO `quotation` (`id`, `user_id`, `quotation`, `total_amount`, `created_date`, `status`) VALUES (NULL, '1', '658bf9d448f6c_1703672276.pdf', '4000000', '2024-01-02 17:58:35.000000', 'Pending');
+
+INSERT INTO `quotation` (`id`, `user_id`, `quotation`, `total_amount`, `created_date`, `status`) VALUES (NULL, '1', '65944f5766379_1704218455.pdf', '380000', '2024-01-02 18:01:21.000000', 'Pending');
+
+
 
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;

@@ -568,6 +568,10 @@ td img{
     background-color: #d32f2f;
 }
 
+.accept-button:disabled, .reject-button:disabled {
+    cursor: not-allowed; /* Change the cursor for disabled buttons */
+}
+
 /* End of Accept Reject Button */
 
 /* display card */
