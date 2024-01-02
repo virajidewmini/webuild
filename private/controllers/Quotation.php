@@ -4,7 +4,7 @@
     class Quotation extends Controller{
         
         public function index(){
-            $this->view('RejectedQuotation');
+            $this->view('AcceptedQuotation');
         }
 
     }
