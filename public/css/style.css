@@ -535,6 +535,65 @@ td img{
 
 /* end of ratings */
 
+/* Accept Reject Button */
+
+.accept-button, .reject-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    
+}
+
+.accept-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.accept-button:hover {
+    background-color: #45a049;
+}
+
+.reject-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.reject-button:hover {
+    background-color: #d32f2f;
+}
+
+/* End of Accept Reject Button */
+
+/* display card */
+
+.total-card {
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #E5863D;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.total-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card_label {
+    color: #555;
+}
+
+/* end of display card */
+
 .thankYouImg{
     height: 300px;
     width: 300px;

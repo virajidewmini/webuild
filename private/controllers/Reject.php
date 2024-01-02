@@ -1,10 +1,10 @@
 <?php
 
     //Quotation controller
-    class Quotation extends Controller{
+    class Reject extends Controller{
         
         public function index(){
-            $this->view('ViewQuotation');
+            $this->view('RejectedQuotation');
         }
 
     }

@@ -22,14 +22,7 @@
         <th class="viewTableHeader">Payment Due Date</th>
         <td class="viewTableData" id="complaintDescription">24.01.2024</td>
     </tr>
-    <!-- <tr>
-        <th class="viewTableHeader">Payment Methods</th>
-        <td class="viewTableData" id="complaintRemark"></td>
-    </tr>
-    <tr>
-        <th class="viewTableHeader">Terms and Conditions</th>
-        <td class="viewTableData" id="complaintStatus"></td>
-    </tr> -->
+
   
 </table>
 
