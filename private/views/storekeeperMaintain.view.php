@@ -3,7 +3,7 @@
         <div class="table_header">
             
             <div>
-               <a href="storekeeperSendRequests"><button class="add___">Add Request</button></a>   
+               <a href="<?=ROOT?>/maintain/add"><button class="add___">Add Request</button></a>   
             </div>
         </div>
         <div class="table_section" style="height: 250px;">

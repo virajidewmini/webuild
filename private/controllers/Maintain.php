@@ -21,10 +21,10 @@
             if(count($_POST) > 0){
                 $maintain=new Maintains();
 			    $maintain->insert($_POST);
-                $this->redirect('storekeeperMaintain');
+                $this->redirect('maintain');
             }
 
-            $this->view('storekeeperSendRequest');
+            $this->view('storekeeperSendRequests');
         }
 
         
@@ -33,10 +33,10 @@
             if(count($_POST) > 0){
                 $maintain=new Maintains();
 			    $maintain->delete($id);
-                $this->redirect('storekeeperMaintain');
+                $this->redirect('maintain');
 
             }
-            $this->view('DeleteComplaint');
+            $this->view('DeleteMaintain');
         }
         
         

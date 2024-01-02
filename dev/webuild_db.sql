@@ -24,6 +24,7 @@ INSERT INTO `maintain`
 `requested_quantity`) 
 VALUES ('2', 'Brick', 'M002BR', '11500', '13500')
 
+ALTER TABLE `maintain` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
 
 -- house models database 
 CREATE TABLE `webuild`.`house_models`
