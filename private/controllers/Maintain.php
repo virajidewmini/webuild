@@ -39,6 +39,16 @@
             $this->view('DeleteMaintain');
         }
         
+        public function update($id=null){
+           
+            if(count($_POST) > 0){
+                $maintain=new Maintains();
+			    $maintain->update($id,$_POST);
+                $this->redirect('maintainrequests');
+
+            }
+            $this->view('editMaintainRequests');
+        }
         
     }
 ?>

@@ -15,7 +15,7 @@
                         <th>Material Name</th>
                         <th>Material Code</th>
                         <th>Remain Quantity</th>
-                        <th>RequestedQuntity</th>
+                        <th>Requested Quntity</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,11 +30,12 @@
                         <td><?=$row->requested_quantity?></td>
                         
                         <td>
-                            <button ><i class="fa-solid fa-eye"></i></button>
+                        <a href="<?=ROOT?>/maintain/update/<?=$row->id?>"><button ><i class="fa-regular fa-pen-to-square"></i></button>
                            
                          <a href="<?=ROOT?>/maintain/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
 
                         </td>
+
                         
                     </tr>
 

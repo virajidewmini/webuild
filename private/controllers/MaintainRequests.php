@@ -16,28 +16,7 @@
                 $this->view('maintainRequestAfter',['rows'=> $data]);
         }
 
-        public function add(){
-            if(count($_POST) > 0){
-                $maintainrequests=new Maintains();
-			    $maintainrequests->insert($_POST);
-                $this->redirect('clientcomplaint');
-            }
-
-            $this->view('AddClientComplaint');
-        }
-
-        
-        public function delete($id=null){
-           
-            if(count($_POST) > 0){
-                $maintainrequests=new Maintains();
-			    $maintainrequests->delete($id);
-                $this->redirect('clientcomplaint');
-
-            }
-            $this->view('DeleteComplaint');
-        }
-        
+    
         
     }
 ?>

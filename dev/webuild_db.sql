@@ -26,6 +26,15 @@ VALUES ('2', 'Brick', 'M002BR', '11500', '13500')
 
 ALTER TABLE `maintain` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
 
+-- store material database 
+
+CREATE TABLE `webuild`.`store_materials` 
+(`iid` INT(11) NOT NULL AUTO_INCREMENT , 
+`material_name` VARCHAR(255) NOT NULL , 
+`material_code` VARCHAR(255) NOT NULL , 
+`total_quantity` VARCHAR(255) NOT NULL , 
+PRIMARY KEY (`iid`)) ENGINE = InnoDB;
+
 -- house models database 
 CREATE TABLE `webuild`.`house_models`
  (`id` INT(11) NOT NULL , 
