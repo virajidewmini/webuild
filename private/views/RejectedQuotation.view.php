@@ -13,22 +13,22 @@
             <label class="v_label" id="rejectionReason">Reasons for Rejection</label>
 
                     <div class="checkbox-container">
-                        <input type="checkbox" id="highCost" name="highCost" style="width: 20px; height: 20px; margin-top: 20px;  ">
+                        <input type="checkbox" id="highCost" name="reasons[]" value="Cost too high" style="width: 20px; height: 20px; margin-top: 20px;  ">
                         <label for="agree" id="agree">Cost too high</label><br>
 
-                        <input type="checkbox" id="terms" name="terms" style="width: 20px; height: 20px; margin-top: 20px;  ">
+                        <input type="checkbox" id="terms" name="reasons[]" value="Unsatisfactory terms" style="width: 20px; height: 20px; margin-top: 20px;  ">
                         <label for="agree" id="agree">Unsatisfactory terms</label><br>
 
-                        <input type="checkbox" id="noDetail" name="noDetail" style="width: 20px; height: 20px; margin-top: 20px;  ">
+                        <input type="checkbox" id="noDetail" name="reasons[]" value="No detailed quotation provided" style="width: 20px; height: 20px; margin-top: 20px;  ">
                         <label for="agree" id="agree">No detailed quotation provided</label><br>
 
-                        <input type="checkbox" id="provider" name="provider" style="width: 20px; height: 20px; margin-top: 20px;  ">
+                        <input type="checkbox" id="provider" name="reasons[]" value="Better offer from another provider" style="width: 20px; height: 20px; margin-top: 20px;  ">
                         <label for="agree" id="agree">Better offer from another provider</label><br>
 
-                        <input type="checkbox" id="scope" name="scope" style="width: 20px; height: 20px; margin-top: 20px;  ">
+                        <input type="checkbox" id="scope" name="reasons[]" value="Scope of work not clear" style="width: 20px; height: 20px; margin-top: 20px;  ">
                         <label for="agree" id="agree">Scope of work not clear</label><br>
 
-                        <input type="checkbox" id="other" name="other" style="width: 20px; height: 20px; margin-bottom: 20px;  margin-top: 20px;  ">
+                        <input type="checkbox" id="other" name="reasons[]" value="Other" style="width: 20px; height: 20px; margin-bottom: 20px;  margin-top: 20px;  ">
                         <label for="agree" id="agree">Other</label><br>
                     </div>
 

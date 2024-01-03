@@ -73,6 +73,9 @@ INSERT INTO `quotation` (`id`, `user_id`, `quotation`, `total_amount`, `created_
 
 INSERT INTO `quotation` (`id`, `user_id`, `quotation`, `total_amount`, `created_date`, `status`) VALUES (NULL, '1', '65944f5766379_1704218455.pdf', '380000', '2024-01-02 18:01:21.000000', 'Pending');
 
+CREATE TABLE `webuild`.`reject_quotation` ( `id` INT NOT NULL AUTO_INCREMENT , `reason` VARCHAR(100) NOT NULL , `description` VARCHAR(255) NOT NULL , `comment` VARCHAR(100) NOT NULL , `new_quotation` VARCHAR(6) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `reject_quotation` ADD `rating` VARCHAR(30) NOT NULL AFTER `description`;
 
 
 -- here

@@ -36,11 +36,11 @@
                         <td>
                             <?php if($row->status === "Pending"): ?>
                                 <a href="<?=ROOT?>/accept"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
-                                <a href="<?=ROOT?>/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
+                                <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
 
                             <?php else: ?>
                                 <a href="<?=ROOT?>/accept"><button disabled class="accept-button" style="background-color: #ddd;" >Accept</button></a>
-                                <a href="<?=ROOT?>/reject"><button class="reject-button" style="background-color: #ddd;" disabled>Reject</button></a> 
+                                <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #ddd;" disabled>Reject</button></a> 
                             
                             <?php endif; ?>
                         </td>
