@@ -13,60 +13,58 @@
     }
 </style>
 
-<body>
+<body style="overflow: hidden; max-height: 100px;">
+   
 <section class="pricing">
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing1.png" alt="Pricing 1">
-            <h2>Half & Half </h2>
+            <h2>TriEase Pay </h2>
         </div>
         <div class="card-detail">
-            <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
-            <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
+            <p><span class="fas fa-check check"></span> <b>30%</b> Initial payment </p>
+            <p><span class="fas fa-check check"></span> <b>35%</b> of 2 <sup>nd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>35%</b> of 3 <sup>rd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>5%</b> Interest</p>
         </div>
 
-        <div class="card-price">
-            <p><sup>$</sup>10<sub>/month</sub></p>
-        </div>
-        <button class="card-button">I WANT IT</button>
+       
+        
     </div>
 
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing2.png" alt="Pricing 2">
-            <h2>Half & Half </h2>
+            <h2>DuoEase Pay</h2>
         </div>
         <div class="card-detail">
-            <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
-            <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
+            <p><span class="fas fa-check check"></span> <b>40%</b> Initial payment </p>
+            <p><span class="fas fa-check check"></span> <b>60%</b> of 2 <sup>nd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>No</b> Interest</p>
+
         </div>
 
-        <div class="card-price">
-            <p><sup>$</sup>10<sub>/month</sub></p>
-        </div>
-        <button class="card-button">I WANT IT</button>
+        
     </div>
 
     <div class="card-wrapper">
         <div class="card-header">
             <img src="<?=ROOT?>/img/Pricing3.png" alt="Pricing 3">
-            <h2>Half & Half </h2>
+            <br><br>
+            <h2>PentaEase Pay</h2>
         </div>
         <div class="card-detail">
-            <p><span class="fas fa-check check"></span> <b>1</b> full user</p>
-            <p><span class="fas fa-check check"></span> <b>5</b> contact per clients</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
-            <p><span class="fas fa-check nocheck"></span>Lorem ispum dolor</p>
+        <p><span class="fas fa-check check"></span> <b>20%</b> Initial payment </p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 2 <sup>nd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 3 <sup>rd</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 4 <sup>th</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>20%</b> of 5 <sup>th</sup> Installment</p>
+            <p><span class="fas fa-check check"></span> <b>10%</b> Interest</p>
         </div>
 
-        <div class="card-price">
-            <p><sup>$</sup>10<sub>/month</sub></p>
-        </div>
-        <button class="card-button">I WANT IT</button>
+       
+        
     </div>
 </section>
+
 </body>
