@@ -25,7 +25,7 @@
   <a href="./houses.php">House</a>
   <a href="./completed.php">Completed Projects</a>
   <a href="./about.php">About Us</a>
-  <a href="./contact.php">Contact Us</a>
+  <a href="./contact.php">Contact Us </a>
   <!-- <a href="">Contact Us</a> -->
 
 
