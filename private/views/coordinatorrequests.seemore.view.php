@@ -41,7 +41,44 @@
           }
      </style>
      <div>
-     <?php printr($rows)?>
+     <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>User ID</th>
+                            <th>First Name</th>
+                            <th>Land Type</th>
+                            <th>Model ID</th>
+                            <th>Manager ID</th>
+                            <th>Quotation</th>
+                            <th>Date</th>
+                            <th>State</th>
+                            <th>
+                                
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($rows as $row) :?>
+                            <tr>                       
+                                <td><?=$row->id?></td>
+                                <td><?=$row->user_id?></td>
+                                <td><?=$row->firstname?></td>
+                                <td><?=$row->land_type?>
+                                <td><?=$row->model_id?></td>  
+                                <td><?=$row->manager_id?></td>         
+                                <td><?=$row->total_price?></td>         
+                                <td><?=get_date($row->date)?></td> 
+                                <td><?=$row->action?></td>
+                                <td>
+                                    <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>">
+                                        <button><i class="fa-solid fa-eye"></i></button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
      </div>
 
 

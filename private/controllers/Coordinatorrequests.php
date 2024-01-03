@@ -15,7 +15,6 @@
         }
 
 
-
         public function seemore($id = null){
 		
             if(!Auth::logged_in()){
@@ -23,7 +22,7 @@
             }
 
             $project_requests = new Project_requests();
-            $data = $project_requests->requests('id',$id);
+            $data = $project_requests->requests($id);
 
             $this->view('coordinatorrequests.seemore',['rows'=>$data]);
 

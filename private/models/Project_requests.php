@@ -8,6 +8,11 @@ class Project_requests extends Model{
     protected $table9="staff";
 
     public function requests($value){
+
+
+
+
+        //$query="SELECT * FROM project_requests INNER JOIN user ON project_requests.user_id=user.id WHERE project_requests.id=1"; 
 	
         $query = "SELECT *
                 FROM $this->table
@@ -15,11 +20,15 @@ class Project_requests extends Model{
                 WHERE $this->table.id = :value";
     
         // Assuming you have a method named 'query' to execute the query
+
+
+
+
+        //return $this->query($query);
         return $this->query($query, [
             'value' => $value,
         ]);
     }
-
-
+    //SELECT *
 }
 ?>
