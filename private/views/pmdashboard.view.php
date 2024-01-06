@@ -16,7 +16,7 @@ body{
             style="text-decoration:none">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/on_pro.png');">
-                    <h1>Ongoing</h1>
+                    <h3>Ongoing</h3>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right"></i>
@@ -26,7 +26,7 @@ body{
             <a href="<?=ROOT?>/Pmongoingproject">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cm_pro.png');">
-                    <h1>Completed</h1>
+                    <h3>Completed</h3>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right"></i>
@@ -36,7 +36,7 @@ body{
             <a href="<?=ROOT?>/Pmongoingproject">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cn_pro.png');">
-                    <h1>Canceled</h1>
+                    <h3>Canceled</h3>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right" style="padding-left: 4px;"></i>

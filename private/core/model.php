@@ -179,6 +179,22 @@
 			return $this->query($query);
 		}
 
+		public function tobillm($value){
+			$query = "SELECT *
+			FROM $this->table7
+			INNER JOIN $this->table8 ON $this->table7.id=$this->table8.id";
+
+			$query =  "SELECT * 
+			FROM $this->table7
+			INNER JOIN $this->table8 ON $this->table7.def_id=$this->table8.id
+			WHERE $this->table7.user_id = :value";
+
+			return $this->query($query, [
+				'value' => $value,
+			]);
+		}
+		
+
 	}
 
 ?>

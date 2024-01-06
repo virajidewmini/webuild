@@ -7,6 +7,8 @@ class Dtbase extends Model{
     protected $table4= "project_tasks";
     protected $table5= "members_projects";
     protected $table6= "staff";
+    protected $table7= "modification";
+    protected $table8= "def";
 
 
 
@@ -22,6 +24,8 @@ class Dtbase extends Model{
         return false;
     }
 
+    
+
     public function get_user($data){
 
         $user = new Staffs();
@@ -34,6 +38,8 @@ class Dtbase extends Model{
 
         return $data;
     }
+
+
 
 }
 ?>

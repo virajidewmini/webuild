@@ -15,9 +15,13 @@ class Pmongoingproject extends Controller
 
         $projects = new Projects();
 		$data = $projects->where('manager_id',$pmi);
+
+		$project_request = new Project_requests();
+		$data1 = $project_request->where2('manager_id','action',$pmi,'modified');
     
 		$this->view('pmongoingproject',[
-			'rows'=>$data
+			'rows'=>$data,
+			'rows1'=>$data1,
 		]);
 	}
 

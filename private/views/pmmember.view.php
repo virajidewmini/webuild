@@ -41,7 +41,7 @@ body{
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h3>No school were found at this time</h3>
+                    <h3>No members were found at this time</h3>
                 <?php endif; ?>
                 </tbody>
             </table>
