@@ -19,20 +19,12 @@ body{
                         <tr>
                             <th>Request ID</th>
                             <th>User ID</th>
-                            <th>Land Type</th>
                             <th>Model ID</th>
-                            <th>Land ID</th>
-                            <th>Modification ID</th>
-                            <th>Payment ID</th>
                             <th>Manager ID</th>
-                            <th>Quotation</th>
                             <th>Date</th>
                             <th>State</th>
                             <th>
-                                <a href="#">
-                                    <button><i class="fa-solid fa-user-plus" style="color: #e67f1e;"></i></button>
-                                    <!-- <button class="add___">Add Staff</button> -->
-                                </a>
+                                
                             </th>
                         </tr>
                     </thead>
@@ -41,24 +33,21 @@ body{
                             <tr>                       
                                 <td><?=$row->id?></td>
                                 <td><?=$row->user_id?></td>
-                                <td><?=$row->land_type?>
                                 <td><?=$row->model_id?></td>  
-                                <td><?=$row->land_id?>
-                                <td><?=$row->modification_id?></td>       
-                                <td><?=$row->payment_id?></td>                      
-                                <td><?=$row->manager_id?></td>         
-                                <td><?=$row->total_price?></td>         
+                                <td>
+                                    <?php if(empty($row->manager_id)): ?>
+                                        <a href="<?=ROOT?>/coordinatorrequests/addmanager">
+                                            <button><i class="fa-solid fa-user-plus" style="color: #e67f1e;"></i></button>
+                                        </a>
+                                    <?php else : ?>                                
+                                        <?=$row->manager_id?>
+                                    <?php endif;?>
+                                </td>              
                                 <td><?=get_date($row->date)?></td> 
                                 <td><?=$row->action?></td>
                                 <td>
                                     <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>">
                                         <button><i class="fa-solid fa-eye"></i></button>
-                                    </a>
-                                    <a href="#">
-                                        <button><i class="fa-solid fa-trash"></i></button>
-                                    </a>
-                                    <a href="#">
-                                        <button><i class="fa-solid fa-pen-to-square"></i></button>
                                     </a>
                                 </td>
                             </tr>
@@ -69,11 +58,11 @@ body{
         </div>
     <?php else:?>
         <h4>No requests are found</h4>
-        <div>
+        <!-- <div>
             <a href="#">
                 <button class="add___">Add Staff</button>
             </a>
-        </div>
+        </div> -->
     <?php endif;?>        
 
 <?php $this->view('includes/footer'); ?>
