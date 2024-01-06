@@ -5,7 +5,7 @@ body{
     overflow: hidden;
 }
 </style>
-    <?php if($rows):?>
+    <?php if($rows["managers"]):?>
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
@@ -19,16 +19,25 @@ body{
                         <tr>
                             <th>Employee ID</th>
                             <th>Name</th>
-                            <th>
-                            </th>
+                            <th>No. of Projects</th>
+                            <th>Joined Date</th>
+                            <th>See Projects</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($rows as $row) :?>
+                        <?php foreach ($rows["managers"] as $row) :?>
                             <tr>                       
-                                <td><?=$row->id?></td>
+                                <td><?=$row->staff_id?></td>
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
-                                <td><?=$row->role?></td>  
+                                <td><?=$row->count?></td> 
+                                <td><?=$row->joineddate?></td> 
+                                <td>
+                                    <a href="<?=ROOT?>/coordinatorviewmanagers/seeprojects/<?=$row->staff_id?>">
+                                        <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                    </a>
+                                </td> 
+                                
                             </tr>
                         <?php endforeach;?>
                     </tbody>
@@ -36,8 +45,9 @@ body{
             </div>    
         </div>
     <?php else:?>
-        <h4>No staff is found</h4>
-    <?php endif;?>        
+        <h4>No Project Managers have been assigned projects.</h4>
+    <?php endif;?> 
+    
 
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>

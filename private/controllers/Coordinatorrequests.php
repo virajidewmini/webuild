@@ -41,7 +41,8 @@
             if(!Auth::logged_in()){
                 $this->redirect('/staff_login');
             }
-
+            $project_requests = new Project_requests();
+            $data['district'] = $project_requests->finddistrict($id)[0];
            
 
             $this->view('coordinatorrequests.addmanager');

@@ -2,12 +2,6 @@
 class Project_requests extends Model{
 
     protected $table="project_requests";
-    protected $table6="land";
-    protected $table7="user_land";
-    protected $table8="user";
-    protected $table9="staff";
-    protected $table10="user_data";
-
 
     public function requests($value){
 
@@ -53,6 +47,20 @@ class Project_requests extends Model{
             'value' => $value,
         ]);
     }
-    //SELECT *
+
+    public function add($value){
+
+
+        $query="SELECT * FROM project_requests 
+        INNER JOIN user_lands ON project_requests.land_id = user_lands.id 
+        
+        WHERE project_requests.user_id = :value AND project_requests.status_of_land='customer' "; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+    
 }
 ?>
