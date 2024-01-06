@@ -83,6 +83,9 @@
                                    <input type="text" id="occupation" name="occupation" value= "<?= $rows["customer"]->land_type;?>">
                               </div>
                               <div class="column">
+                                   
+                              </div>
+                              <div class="column">
                                    <label for="locationLink">Road Map</label>
                                    <a href="#" target="#">
                                    <button class="action-button">Road Map</button>
