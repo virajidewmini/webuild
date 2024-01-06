@@ -22,9 +22,29 @@
             }
 
             $project_requests = new Project_requests();
-            $data = $project_requests->requests($id);
-
+            $data['common'] = $project_requests->requests($id)[0];
+            
+            if(strcmp($data['common']->status_of_land,"customer")==0){
+                $data['customer'] = $project_requests->customer($id)[0];
+                }
+            else{
+                $data['company'] = $project_requests->company($id)[0];
+            }
+            
+            
             $this->view('coordinatorrequests.seemore',['rows'=>$data]);
+           
+	    }
+
+        public function addmanager(){
+		
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+           
+
+            $this->view('coordinatorrequests.addmanager');
 
 	    }
 
