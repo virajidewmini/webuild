@@ -1,16 +1,16 @@
 <?php
 
     //Manager materials controller
-    class Pmmaterial extends Controller{
+    class Pmmaterial_r extends Controller{
         
         public function index(){
             if(!Auth::logged_in()){
                 $this->redirect('login');
             }
-            $this->view('pmmaterial');
+            $this->view('pmmaterial_r');
         }
 
-        public function request_view($id = null)
+        public function request($id = null)
             {
                 // code...
             //     if(!Auth::logged_in()){
