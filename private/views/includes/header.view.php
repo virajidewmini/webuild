@@ -15,6 +15,7 @@
     <!--css files-->
     <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
     <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
+    <link rel="stylesheet" href="<?=ROOT?>/css/store.css"/>
   </head>
   <body>
     <section class="sidebar">

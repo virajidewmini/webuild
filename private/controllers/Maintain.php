@@ -10,8 +10,8 @@
                 //$arr['project_id']='2';
                 //$arr['status']='Pending';
                 //$mainTain->insert($arr);
-                //$mainTain->update(3,$arr);
-                //$mainTain->delete(4);
+                // $maintain->update(3,$arr);
+                // $maintain->delete(4);
                 $data=$maintain->findAll();
                 $this->view('storekeeperMaintain',['rows'=> $data]);
         }
