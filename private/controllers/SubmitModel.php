@@ -18,66 +18,50 @@
                     'area' => $_POST['area']
                 ];
 
-                $living_paint_modification= [
-                    'type'=>"LIVING_ROOM_PAINT",
-                    'selection'=>$_POST['livingRoomPaint']
+                $modification_id = uniqid();
+                $_POST['id'] = $modification_id;
+
+                $living_modification= [
+                    'modification_id'=>$modification_id,
+                    'tile_id'=>$_POST['livingRoomTile'],
+                    'paint_id'=>$_POST['livingRoomPaint']
                 ];
 
-                $living_tile_modification= [
-                    'type'=>"LIVING_ROOM_Tile",
-                    'selection'=>$_POST['livingRoomTile']
+                $dining_modification= [
+                    'modification_id'=>$modification_id,
+                    'tile_id'=>$_POST['diningRoomTile'],
+                    'paint_id'=>$_POST['diningRoomPaint']
                 ];
 
-                $dining_paint_modification= [
-                    'type'=>"DINING_ROOM_PAINT",
-                    'selection'=>$_POST['diningRoomPaint']
+                
+                $kitchen_modification= [
+                    'modification_id'=>$modification_id,
+                    'tile_id'=>$_POST['kitchenTile'],
+                    'paint_id'=>$_POST['kitchenPaint']
                 ];
 
-                $dining_tile_modification= [
-                    'type'=>"DINING_ROOM_TILE",
-                    'selection'=>$_POST['diningRoomTile']
+                $bathroom_modification= [
+                    'modification_id'=>$modification_id,
+                    'tile_id'=>$_POST['bathroomTile'],
+                    'paint_id'=>$_POST['bathroomPaint']
                 ];
 
-                $kitchen_paint_modification= [
-                    'type'=>"KITCHEN_PAINT",
-                    'selection'=>$_POST['kitchenPaint']
+                
+                $bedroom_modification= [
+                    'modification_id'=>$modification_id,
+                    'tile_id'=>$_POST['bedroomTile'],
+                    'paint_id'=>$_POST['bedroomPaint']
                 ];
 
-                $kitchen_tile_modification= [
-                    'type'=>"KITCHEN_TILE",
-                    'selection'=>$_POST['kitchenTile']
+                
+
+                $exterior_modification= [
+                    'modification_id'=>$modification_id,
+                    'tile_id'=>$_POST['exteriorTile'],
+                    'paint_id'=>$_POST['exteriorPaint']
                 ];
 
-                $bathroom_paint_modification= [
-                    'type'=>"BATHROOM_PAINT",
-                    'selection'=>$_POST['bathroomPaint']
-                ];
-
-                $bathroom_tile_modification= [
-                    'type'=>"BATHROOM_TILE",
-                    'selection'=>$_POST['bathroomTile']
-                ];
-
-                $bedroom_paint_modification= [
-                    'type'=>"BEDROOM_PAINT",
-                    'selection'=>$_POST['bedroomPaint']
-                ];
-
-                $bedroom_tile_modification= [
-                    'type'=>"BEDROOM_TILE",
-                    'selection'=>$_POST['bedroomTile']
-                ];
-
-                $exterior_paint_modification= [
-                    'type'=>"EXTERIOR_PAINT",
-                    'selection'=>$_POST['exteriorPaint']
-                ];
-
-                $exterior_tile_modification= [
-                    'type'=>"EXTERIOR_TILE",
-                    'selection'=>$_POST['exteriorTile']
-                ];
-
+               
 
 
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
@@ -102,18 +86,25 @@
     
                 $data->insert($userData);
                 $lands->insert($landData);
-                $modify_paint->insert($living_paint_modification);
-                $modify_paint->insert($dining_paint_modification);
-                $modify_paint->insert($kitchen_paint_modification);
-                $modify_paint->insert($bathroom_paint_modification);
-                $modify_paint->insert($bedroom_paint_modification);
-                $modify_paint->insert($exterior_paint_modification);
-                $modify_paint->insert($living_tile_modification);
-                $modify_paint->insert($dining_tile_modification);
-                $modify_paint->insert($kitchen_tile_modification);
-                $modify_paint->insert($bathroom_tile_modification);
-                $modify_paint->insert($bedroom_tile_modification);
-                $modify_paint->insert($exterior_tile_modification);
+
+                $modify_paint->setTable("living_modification");
+                $modify_paint->insert($living_modification);
+
+                $modify_paint->setTable("dining_modification");
+                $modify_paint->insert($dining_modification);
+
+                $modify_paint->setTable("kitchen_modification");
+                $modify_paint->insert($kitchen_modification);
+
+                $modify_paint->setTable("bathroom_modification");
+                $modify_paint->insert($bathroom_modification);
+
+                $modify_paint->setTable("bedroom_modification");
+                $modify_paint->insert($bedroom_modification);
+
+                $modify_paint->setTable("exterior_modification");
+                $modify_paint->insert($exterior_modification);
+                
             }
 
             $paintView=new Paint();

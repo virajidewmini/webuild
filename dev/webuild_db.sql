@@ -77,6 +77,19 @@ CREATE TABLE `webuild`.`reject_quotation` ( `id` INT NOT NULL AUTO_INCREMENT , `
 
 ALTER TABLE `reject_quotation` ADD `rating` VARCHAR(30) NOT NULL AFTER `description`;
 
+CREATE TABLE `webuild`.`kitchen_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`living_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`dining_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`bathroom_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`bedroom_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`exterior_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
 
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
