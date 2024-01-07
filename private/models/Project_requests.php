@@ -3,6 +3,8 @@ class Project_requests extends Model{
 
     protected $table="project_requests";
 
+
+    //this is actually user data from the two tables
     public function requests($value){
 
 
@@ -18,7 +20,8 @@ class Project_requests extends Model{
         ]);
     }
 
-
+    //to get land details
+    //company lands from land table
     public function company($value){
 
 
@@ -33,7 +36,7 @@ class Project_requests extends Model{
         ]);
     }
 
-
+    //user's lands from user_lands
     public function customer($value){
 
 
@@ -41,6 +44,21 @@ class Project_requests extends Model{
         INNER JOIN user_lands ON project_requests.land_id = user_lands.id 
         
         WHERE project_requests.user_id = :value AND project_requests.status_of_land='customer' "; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    //to get manager details
+    public function managerdetails($value){
+
+
+        $query="SELECT * FROM project_requests 
+        INNER JOIN staff ON project_requests.manager_id = staff.id 
+        
+        WHERE project_requests.id = :value"; 
 
         //return $this->query($query);
         return $this->query($query, [
