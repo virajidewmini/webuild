@@ -15,7 +15,7 @@
         }
 
 
-        public function seemore($id = null){
+        public function seemore($id = null,$flag=null){
 		
             if(!Auth::logged_in()){
                 $this->redirect('/staff_login');
@@ -26,28 +26,52 @@
             
             if(strcmp($data['common']->status_of_land,"customer")==0){
                 $data['customer'] = $project_requests->customer($id)[0];
-                }
+                $data['managers']= $project_requests->find_managers_in_district($data['customer']->ul_district);
+            }
             else{
                 $data['company'] = $project_requests->company($id)[0];
+                $data['managers']= $project_requests->find_managers_in_district($data['company']->district);
             }
             
-            
-            $this->view('coordinatorrequests.seemore',['rows'=>$data]);
-           
+            if($flag !== null){
+                $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
+            }
+            else{
+                $this->view('coordinatorrequests.seemore',['rows'=>$data]);
+            }
 	    }
 
-        public function addmanager(){
-		
+
+        public function addmanager($id=null,$manager_id=null){
             if(!Auth::logged_in()){
-                $this->redirect('/staff_login');
+                $this->redirect('/login');
             }
-            $project_requests = new Project_requests();
-            $data['district'] = $project_requests->finddistrict($id)[0];
-           
 
-            $this->view('coordinatorrequests.addmanager');
 
-	    }
+            $project_requests=new Project_requests();
+
+            $errors=array();        
+            if (count($_POST)>0){
+                
+
+                $project_requests->update($id,$_POST);
+                
+
+                $this->redirect('coordinatorrequests');
+
+                
+            }
+            $row = $project_requests->where('id',$id);
+            
+            $this->view('coordinatorrequests.addmanager',[
+                'row'=>$row,
+                'manager_id'=>$manager_id,
+            ]);
+
+            
+
+
+        }
 
     }
 ?>

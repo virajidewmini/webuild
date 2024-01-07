@@ -356,12 +356,7 @@
                 </li>
                 
 
-        <a href="#" class="profile">
-          <img src="<?=ROOT?>/img/profile.jpg" alt="" />
-          <!-- USER -->
-          <?=Auth::user()?>
-        </a>
-      </nav>
+        
 
                 <!-- settings and logout -->
 

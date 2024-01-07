@@ -36,7 +36,7 @@ body{
                                 <td><?=$row->model_id?></td>  
                                 <td>
                                     <?php if(empty($row->manager_id)): ?>
-                                        <a href="<?=ROOT?>/coordinatorrequests/addmanager">
+                                        <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>/<?=$row->id?>">
                                             <button><i class="fa-solid fa-user-plus" style="color: #e67f1e;"></i></button>
                                         </a>
                                     <?php else : ?>                                
