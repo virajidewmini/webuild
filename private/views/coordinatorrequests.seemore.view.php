@@ -198,6 +198,40 @@
                     
                </fieldset>
 
+               <fieldset class="FormFieldset" >
+                    <legend class="Formlegend"> Quotation Details</legend>
+
+                         <?php if(empty($rows["common"]->quotation)): ?>
+                              <h4>No project manager has been assigned to this request yet.</h4>
+                              <a href="<?=ROOT?>/coordinatorrequests">
+                                   <button class="add-button"> Add</button>
+                              </a>
+                         <?php else : ?>                                
+                              <div class="form-group">
+                         
+                                   <div class="column">                   
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->firstname;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->lastname;?>">
+                                   </div>                                  
+                                   <div class="column">
+                                        <label for="lastName">Email</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["manager_details"]->email;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Contact Number</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->contactnumber;?>">
+                                   </div>
+                    
+                              </div>
+                         <?php endif;?>
+            
+                    
+               </fieldset>
+
                
 
      
