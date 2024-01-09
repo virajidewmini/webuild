@@ -57,8 +57,8 @@ body{
                 <br>
                 <br>
                 
-                <div style="display: flex;">
-                    <h2><?php echo $rows["projects"][0]->manager_id?></h2>
+                <div style="display: flex; width: 50%; margin: 0 auto; background-color: #f0f0f0;padding: 20px;">
+                    <h4><?=$rows["projects"][0]->manager->firstname?>  <?=$rows["projects"][0]->manager->lastname?></h4>
                 </div>
     
             </div>
@@ -68,7 +68,7 @@ body{
                         <tr>
                             <th>Project ID</th>
                             <th>Customer Name</th>
-                            <th>Model ID</th>
+                            <th>Model Name</th>
                             <th>Date</th>
                             <th>Action</th>
                             <th>See More</th>
@@ -79,8 +79,8 @@ body{
                             <tr>                       
                                 <td><?=$row->id?></td>
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
-                                <td><?=$row->model_id?></td> 
-                                <td><?=$row->date?></td>
+                                <td><?=$row->model->name?></td> 
+                                <td><?=get_date($row->date)?></td>
                                 <td><?=$row->action?></td> 
                                 <td>
                                     <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>">

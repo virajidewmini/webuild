@@ -26,6 +26,42 @@ class View_Managers extends Model{
     
     }
 
+    protected $afterSelect = [
+        'get_model',
+        'get_manager',
+    ];
+    public function get_model($data){
+    
+        $model = new House_Models();
+        
+
+        foreach ($data as $key => $row){
+            if(property_exists($row,"user_id")){
+                $result = $model->where('id',$row->model_id);
+                $data[$key]->model = is_array($result) ? $result[0] : false ;
+            }
+        }
+    
+        return $data;
+    
+    }
+
+    public function get_manager($data){
+    
+        $manager = new Staffs();
+        
+
+        foreach ($data as $key => $row){
+            if(property_exists($row,"manager_id")){
+                $result = $manager->where('id',$row->manager_id);
+                $data[$key]->manager = is_array($result) ? $result[0] : false ;
+            }
+        }
+    
+        return $data;
+    
+    }
+
 
     
 

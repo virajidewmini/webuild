@@ -7,12 +7,12 @@
      </div>
      
      <div class="form_container">
-          <form method="" enctype="multipart/form-data">
-            
+         
                <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Customer Details</legend>
             
                     <div class="form-group">
+                         <br>
                          
                          <div class="column">                   
                               <label for="firstname">First Name</label>
@@ -52,6 +52,7 @@
                          <legend class="Formlegend"> Land Details</legend>
                
                          <div class="form-group">
+                              <br>
                               
                               <div class="column">                   
                                    <label for="firstname">Land ID</label>
@@ -113,6 +114,7 @@
                          <legend class="Formlegend"> Land Details</legend>
                
                          <div class="form-group">
+                              <br>
                               
                               <div class="column">                   
                                    <label for="firstname">Land ID</label>
@@ -166,14 +168,18 @@
 
                <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Project Manager Details</legend>
+                         <br>
 
                          <?php if(empty($rows["common"]->manager_id)): ?>
                               <h4>No project manager has been assigned to this request yet.</h4>
+                              <br>
                               <a href="<?=ROOT?>/coordinatorrequests">
                                    <button class="add-button"> Add</button>
                               </a>
+                              <br><br>
                          <?php else : ?>                                
                               <div class="form-group">
+                                   <br>
                          
                                    <div class="column">                   
                                         <label for="firstname">First Name</label>
@@ -197,33 +203,151 @@
             
                     
                </fieldset>
+               
+               <br><br>
 
                <fieldset class="FormFieldset" >
-                    <legend class="Formlegend"> Quotation Details</legend>
+                    <legend class="Formlegend"> Modification Details</legend>
+                    <br>
 
-                         <?php if(empty($rows["common"]->quotation)): ?>
-                              <h4>No project manager has been assigned to this request yet.</h4>
-                              <a href="<?=ROOT?>/coordinatorrequests">
-                                   <button class="add-button"> Add</button>
-                              </a>
-                         <?php else : ?>                                
+                         <?php if(empty($rows["common"]->modification_id)): ?>
+                              <h4>No modifications have been applied to this request.</h4>
+                              <br><br>
+                              
+                         <?php else : ?>                           
                               <div class="form-group">
+                                   <br>
                          
                                    <div class="column">                   
-                                        <label for="firstname">First Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->firstname;?>">
+                                        <label for="firstname">Modification ID</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->modification_id;?>">
+                                   </div>                                 
+                                   <div class="column">
+                                        <label for="lastName">kitchen_tile</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->kitchen_tile->tile_name;?>">
                                    </div>
                                    <div class="column">
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->lastname;?>">
+                                        <label for="lastName">kitchen_color_id</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->kitchen_color->name;?>">
+                                   </div>
+                                   <div class="column">                   
+                                        <label for="firstname">bathroom_tile_id </label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->bathroom_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">bathroom_color_id</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->bathroom_color->name;?>">
                                    </div>                                  
                                    <div class="column">
-                                        <label for="lastName">Email</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["manager_details"]->email;?>">
+                                        <label for="lastName">dining_tile_id</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->dining_tile->tile_name;?>">
                                    </div>
                                    <div class="column">
-                                        <label for="lastName">Contact Number</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->contactnumber;?>">
+                                        <label for="lastName">dining_color_id</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->dining_color->name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">living_room_tile_id</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->living_room_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">living_room_color_id</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->living_room_color->name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">living_area_tile_id</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->living_area_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">living_area_color_id</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->living_area_color->name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">exterior_tile_id</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->exterior_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">exterior_color_id</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->exterior_color->name;?>">
+                                   </div>
+                    
+                              </div>
+                         <?php endif;?>
+            
+                    
+               </fieldset>
+               
+               <br><br>
+
+               <fieldset class="FormFieldset" >
+                    <legend class="Formlegend"> Model Details</legend>
+                    <br>
+                         <?php if(empty($rows["common"]->model_id)): ?>
+                              <h4>No models have been selected.</h4>
+                              
+                         <?php else : ?>                                
+                              <div class="form-group">
+                                   <br>
+                         
+                                   <div class="column">                   
+                                        <label for="firstname">Model ID</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->model_id;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Model Name</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->name;?>">
+                                   </div>                                  
+                                   <div class="column">
+                                        <label for="lastName">no_room</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->no_room;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">no_kitchen</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->no_kitchen;?>">
+                                   </div>
+                                   <div class="column">                   
+                                        <label for="firstname">flow_plan </label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->flow_plan;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">no_floor</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->no_floor;?>">
+                                   </div>                                  
+                                   <div class="column">
+                                        <label for="lastName">kitchen_tile</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->kitchen_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">dining_tile</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->dining_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">bathroom_tile</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->bathroom_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">tile</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->default_tile->tile_name;?>">
+                                   </div>
+                                   <div class="column">                   
+                                        <label for="firstname">Colour</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->default_color->name;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Description</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->description;?>">
+                                   </div>                                  
+                                   <div class="column">
+                                        <label for="lastName">time_duration_in_months</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->time_duration_in_months;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">minimum_area</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->minimum_area;?>">
+                                   </div>
+                                   <div class="column">                   
+                                        <label for="firstname">parking_space </label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->parking_space;?>">
                                    </div>
                     
                               </div>

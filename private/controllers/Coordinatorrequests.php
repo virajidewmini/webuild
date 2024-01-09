@@ -23,8 +23,17 @@
 
             $project_requests = new Project_requests();
             $data['common'] = $project_requests->requests($id)[0];
-            $data['manager_details']= $project_requests->managerdetails($id)[0];
             
+            if(!empty($data['common']->manager_id)){
+
+            $data['manager_details']= $project_requests->managerdetails($id)[0];
+            }
+            if(!empty($data['common']->modification_id)){
+            $data['modification_details']= $project_requests->modificationdetails($id)[0];
+            }
+            if(!empty($data['common']->model_id)){
+            $data['model_details']= $project_requests->modeldetails($id)[0];
+            }
             if(strcmp($data['common']->status_of_land,"customer")==0){
                 $data['customer'] = $project_requests->customer($id)[0];
                 $data['managers']= $project_requests->find_managers_in_district($data['customer']->ul_district);

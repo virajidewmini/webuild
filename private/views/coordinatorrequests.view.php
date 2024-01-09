@@ -6,6 +6,7 @@ body{
 }
 </style>
     <?php if($rows):?>
+        
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
@@ -18,7 +19,7 @@ body{
                     <thead>
                         <tr>
                             <th>Request ID</th>
-                            <th>User ID</th>
+                            <th>User Name</th>
                             <th>Model ID</th>
                             <th>Manager ID</th>
                             <th>Date</th>
@@ -32,7 +33,7 @@ body{
                         <?php foreach ($rows as $row) :?>
                             <tr>                       
                                 <td><?=$row->id?></td>
-                                <td><?=$row->user_id?></td>
+                                <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
                                 <td><?=$row->model_id?></td>  
                                 <td>
                                     <?php if(empty($row->manager_id)): ?>
