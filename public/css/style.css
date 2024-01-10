@@ -574,7 +574,56 @@ td img{
 
 /* End of Accept Reject Button */
 
+/* task view for allocate */
+.taskBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    
+}
+.task-header {
+    background-color: #eb904a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.task-name {
+    font-size: 24px;
+    margin: 0;
+}
+.subtask-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+}
+.subtask {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.subtask-icon {
+    margin-right: 10px;
+    color: #eb904a;
+}
+
+/* end of task view for allocate */
+
 /* display card */
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly; 
+    margin-bottom: 30px;
+}
 
 .total-card {
     max-width: 300px;
@@ -597,6 +646,34 @@ td img{
 }
 
 /* end of display card */
+
+/* Add textfields onclick */
+
+.additional-fields {
+    display: flex;
+    flex-direction: row; /* Align fields horizontally */
+    gap: 10px; 
+    margin-top: 10px;
+}
+.additional-button{
+    margin-top: 5px;
+    width: 15%;
+    border : 1px solid #E5863D;
+    height: 50px;
+}
+.additional_form-control{
+    border : 1px solid black;
+    color: black;
+    font-size: medium;
+    border-radius: 10px;
+    display: inline-block;
+    
+    padding: 15px;
+    margin: 5px 0 25px 0;
+    width: 20%;
+}
+
+/* End of add textfields onclick */
 
 .thankYouImg{
     height: 300px;

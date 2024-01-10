@@ -89,6 +89,11 @@ CREATE TABLE `webuild`.`bedroom_modification` ( `id` INT NOT NULL AUTO_INCREMENT
 
 CREATE TABLE `webuild`.`exterior_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
+CREATE TABLE `webuild`.`allocated_task` ( `id` INT NOT NULL AUTO_INCREMENT , `task_id` INT NOT NULL , `status` VARCHAR(10) NOT NULL , `progress` INT(3) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `allocated_task` CHANGE `progress` `progress` INT(3) NOT NULL DEFAULT '0';
+
+ALTER TABLE `allocated_task` ADD `project_id` INT NOT NULL AFTER `id`;
 
 
 -- here
