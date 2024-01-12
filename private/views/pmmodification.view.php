@@ -82,10 +82,8 @@
           
                     <div class="pro-id-details">
                     <form method="post">
-                        <?php if ($row||$row1):?>
+                        <?php if ($rowk||$rowba||$rowl||$rowbe||$rowd||$rowe):?>
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                        <?php print_r($row)?>
-                        <?php print_r($row1)?>
                             <h2 style="margin-top: 20px;margin-bottom: 20px">MODIFICATION</h2>
                         </div>
                         <div class="m-part" id="kitchen">
@@ -100,27 +98,27 @@
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowk[0]->tile->name ?>" type="text"  name="supervisor_id">
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input style="width:150px;"  readonly value="2" type="text" id="dtprice">
+                                        <input style="width:150px;"  readonly value="<?=$drowk[0]->tile->price_per_square_feet ?>" type="text" id="dtprice">
                                     </div>
                                     <div class="unit"> 
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowk[0]->paint->name ?>" type="text" name="supervisor_id">
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="6" type="text" id="dpprice">
+                                        <input readonly style="width:150px;" value="<?=$drowk[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
                                 <div >
@@ -129,14 +127,14 @@
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowk[0]->tile->name ?>" type="text" name="supervisor_id">
                                     </div>
                                     <div class="unit">
                                         <p>Prise per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="3" type="text" id="mtprice">
+                                        <input readonly style="width:150px;" value="<?=$rowk[0]->tile->price_per_square_feet ?>" type="text" id="mtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>

@@ -60,6 +60,17 @@ body{
             height:100px;
           }
 
+
+
+.form-control{
+    width: 150px;
+    height:40px;
+    text-align: center;
+    border-radius: 10px;
+    border-color: #E5863D;
+    margin-right: 5%;
+}
+
 .in_a_c:hover{
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
 }
@@ -68,104 +79,159 @@ body{
 }
 }
 </style>
+<!-- <form action="" method="POST"> -->
 <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
-          <div class="pro-id" style="padding: 0 0 40px 0; ">
-                
+          <div class="pro-id" style="padding: 0 0 20px 0; ">
+            <?php $project_id = ""; ?>
+            <?php $level = ""; ?> 
                     <div class="pro-id-details">
-                    <form method="post">
+                    <form action="" method="GET">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
-                                <h3>Supervisor Details</h3>
+                                <h3>Material Reaquests</h3>
                             </div>
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>ID :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->id)?>" type="text" name="supervisor_id">
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Name :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->firstname)?> <?=get_var('id',$row[0]->lastname)?>" type="text" name="supervisor_name">
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Email :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->email)?>" type="email" name="email">
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>District :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->district)?>" type="text" name="district">
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Qualification :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <textarea readonly class="task_d" style="color:black" values="<?=get_var('id',$row[0]->qualification)?>" type="text" name="qualification" placeholder="Qualification"><?=get_var('task_id',$row[0]->qualification)?></textarea>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Experience:</p>
-                            </div>
-                            <div class="e-id-d">
-                                <textarea readonly class="task_d" style="color:black" values="<?=get_var('task_id',$row[0]->experience)?>" type="text" name="experience" placeholder="Experience"><?=get_var('task_id',$row[0]->experience)?></textarea>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
+                        <?php
+                            if(isset($_GET['project_id']) || isset($_GET['level'])){
+                                $project_id = isset($_GET['project_id']) ? $_GET['project_id'] : null;
+                                $level = isset($_GET['level']) ? $_GET['level'] : null;
+                            }
+                        ?>
+
+                        <?php
+                        if(isset($_GET['project_id'])){
+                        ?>
                         <div class="unit-d">
                             <div class="unit">
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input required value="<?=get_var('id')?>" type="text" name="id">
+                                
+                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_id" class="form-control" type="text">
+                                <option  value="" <?= get_select2('project_id','');?>>--Select ID--</option >
+                                <?php if($rows): ?>
+                                    <?php foreach($rows as $row): ?>
+                                        <option <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected"; } ?>>
+                                            <?= $row->id; ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <option <?= get_select2('project_id','');?> value="">No Project Found</option>
+                                <?php endif; ?>
+                                </select>
                             </div>
+                            <!-- <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button> -->
                         </div>
+                        <?php
+                        }
+                        else{
+                        ?>
                         <div class="unit-d">
                             <div class="unit">
-                                <p>Start Date :</p>
+                                <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input value="<?=get_var('date')?>" type="date" name="date">
+                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_id" class="form-control" type="text">
+                                <option  value="<?=$project_id?>" <?= get_select2('project_id','');?>>--Select ID--</option >
+                                <?php if($rows): ?>
+                                    <?php foreach($rows as $row): ?>
+                                        <option <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected"; } ?>>
+                                            <?= $row->id; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <option <?= get_select2('project_id','');?> value="">No Project Found</option>
+                                <?php endif; ?>
+                                </select>
                             </div>
+                            <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Final Date :</p>
+                        <?php
+                        }
+                        ?>
+                    </form>
+                        <?php if($rows1): ?>
+                            <div class="unit-d">
+                                <div class="unit">
+                                    <p>Model ID :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model_id?>" type="text" name="model_id">
+                                </div>
                             </div>
-                            <div class="e-id-d">
-                                <input value="<?=get_var('final_date')?>" type="date" name="final_date">
+                            <div class="unit-d">
+                                <div class="unit">
+                                    <p>Model Name :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <input readonly style="height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model->name?>" type="text" name="model_name">
+                                </div>
                             </div>
-                        </div>
+                            <?php
+                            if(isset($_GET['level'])){
+                            ?>
+                            <div class="unit-d">
+                                <div class="unit">
+                                    <p>Level :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    
+                                    <select style="height:35px; width:100px; margin-left: 10px;" name="level" class="form-control" type="text">
+                                    <option  value="" <?= get_select2('level','');?>>--Select ID--</option >
+                                    <?php if($rows2): ?>
+                                        <?php foreach($rows2 as $row): ?>
+                                            <option <?= get_select2('level', $row->id); ?> value="<?= $row->id; ?>" <?php if ($level == $row->id) {echo "selected"; } ?>>
+                                                <?= $row->id; ?>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <option <?= get_select2('level','');?> value="">No Project Found</option>
+                                    <?php endif; ?>
+                                    </select>
+                                </div>
+                                <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
+                            </div>
+                            <?php
+                            }
+                            else{
+                            ?>
+                            <div class="unit-d">
+                                <div class="unit">
+                                    <p>Level :</p>
+                                </div>
+                                <div class="e-id-d">
+                                    <select style="height:35px; width:100px; margin-left: 10px;" name="level" class="form-control" type="text">
+                                    <option  value="<?=$level?>" <?= get_select2('level','');?>>--Select ID--</option >
+                                    <?php if($rows2): ?>
+                                        <?php foreach($rows2 as $row): ?>
+                                            <option <?= get_select2('level', $row->id); ?> value="<?= $row->id; ?>" <?php if ($level == $row->id) {echo "selected"; } ?>>
+                                                <?= $row->id; ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    </select>
+                                </div>
+                                <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                        <?php endif; ?>
+                        <br>
+                        <br>
                         <div class="table_header" style="align-items: center; background-color:white">
                         <a href="<?=ROOT?>/pmmember_search">
                         <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                         </a>
                         <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                         </div>
-                    </form>
 
                     </div> 
                 
         </div>
     </div>
+<!-- </form> -->
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>
     <?php $this->view('404'); ?>
 <?php endif; ?>
+
+

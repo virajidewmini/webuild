@@ -8,6 +8,10 @@ class Project_requests extends Model{
     protected $table9="staff";
     protected $table10="user_data";
 
+    protected $afterSelect = [
+        'get_model',
+    ];
+
 
     public function requests($value){
 
@@ -54,5 +58,18 @@ class Project_requests extends Model{
         ]);
     }
     //SELECT *
+    public function get_model($data){
+    
+        $model = new Models();
+        foreach ($data as $key => $row1){
+            
+            $result = $model->where('id',$row1->model_id);
+            $data[$key]->model = is_array($result) ? $result[0] : false ;
+    
+        }
+    
+        return $data;
+    
+    }
 }
 ?>
