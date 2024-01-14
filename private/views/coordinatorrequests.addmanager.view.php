@@ -11,7 +11,7 @@
        
             <div class="delete-message"> 
                 <div style="display: flex; justify-content: center;" >
-                    <h3> <b> Are you sure you want to add <?= get_var('manager_id',$manager_id);?> as the Project Manager ? </b></h3>
+                    <h3> <b> Are you sure you want to add <?= get_var('manager_fname',$manager_fname);?> <?=get_var('manager_lname',$manager_lname);?> as the Project Manager ? </b></h3>
                 </div>
             </div>
                 <!-- <label class="v_label" id="manager_id">Request ID :</label> -->
