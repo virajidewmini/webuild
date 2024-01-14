@@ -12,7 +12,7 @@ class Message extends Model{
         $queryParams['apikey'] = 'ufow2W56lro65sRyy2K8zxV2Bta38WZ3';
         $queryParams['apitoken'] = 'Ap2F1704507255';
         $queryParams['type'] = 'sms';
-        $queryParams['from'] = 'WeBuild';
+        $queryParams['from'] = 'DEMO_SMS';
 
         $queryString = http_build_query($queryParams);
     

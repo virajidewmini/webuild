@@ -29,77 +29,55 @@
 
     <br><br>
 
+    <h4>Estimated Coworker Count</h4><br>
+
     <div class="card-container">
+    <?php if(isset($est)): ?>
+            <?php foreach ($est as $row):?>
 
     <div class="total-card" style="margin-bottom: 30px; width: auto; background-color: #3D9CE5;">
+       
     
-        <p class="card_label">Total Amount</p>
-        <div class="total-amount">10000<br></div> 
-    </div>
+        <p class="card_label"><?=$row->role?></p>
+        <div class="total-amount"><?=$row->count?><br></div> 
 
-    <div class="total-card" style="margin-bottom: 30px; width: auto; background-color: #3D9CE5;">
-        <p class="card_label">Total Amount</p>
-        <div class="total-amount">10000<br></div> 
-    
         
-    </div>
-    <div class="total-card" style="margin-bottom: 30px; width: auto; background-color: #3D9CE5;">
-    
-        <div class="total-amount">10000<br></div> 
-    
-        <p class="card_label">Total Amount</p>
-    </div>
-
-    <div class="total-card" style="margin-bottom: 30px; width: auto; background-color: #3D9CE5;">
-    
-        <div class="total-amount">10000<br></div> 
-    
-        <p class="card_label">Total Amount</p>
-    </div>
 
     </div>
+    <?php endforeach;?>
+        <?php endif; ?>
+
+    </div>
+
+    <!-- <h4>Remain Coworker Count</h4><br>
 
     <div class="card-container">
+    <?php if(isset($est)): ?>
+            <?php foreach ($est as $row):?>
 
-    <div class="total-card" style="margin-bottom: 30px; width: auto; ">
+    <div class="total-card" style="margin-bottom: 30px; width: auto;">
+       
     
-        <div class="total-amount">10000<br></div> 
-    
-        <p class="card_label">Total Amount</p>
-    </div>
+        <p class="card_label"><?=$row->role?></p>
+        <div class="total-amount"><?=$row->count?><br></div> 
 
-    <div class="total-card" style="margin-bottom: 30px; width: auto; ;">
-    
-        <div class="total-amount">10000<br></div> 
-    
-        <p class="card_label">Total Amount</p>
-    </div>
-    <div class="total-card" style="margin-bottom: 30px; width: auto; ">
-    
-        <div class="total-amount">10000<br></div> 
-    
-        <p class="card_label">Total Amount</p>
-    </div>
-
-    <div class="total-card" style="margin-bottom: 30px; width: auto; ">
-    
-        <div class="total-amount">10000<br></div> 
-    
-        <p class="card_label">Total Amount</p>
-    </div>
+        
 
     </div>
+    <?php endforeach;?>
+        <?php endif; ?>
+
+    </div> -->
+
 
 
     <div id="container">
         <div class="additional-fields">
         <select id="type" name="type" class="additional_form-control">
-                <option value="" disabled selected>Select Complaint Type</option>
-                <option value="Quality of the photograph">Quality of the photograph</option>
-                <option value="Construction project delay">Construction project delay</option>
-                <option value="Quality of workmanship and materials">Quality of workmanship and materials </option>
-                <option value="Poor Communication">Poor Communication </option>
-                <option value="other">Other</option>
+                <option value="" disabled selected>Select Role</option>
+                <option value="Concrete Worker">Concrete Worker</option>
+                <option value="General Laborer">General Laborer</option>
+                <option value="Equipment Operator">Equipment Operator </option>
             </select>
             <input type="text" class="additional_form-control">
             

@@ -33,83 +33,26 @@
                         </div>
                     </td>
                     <td class="v_data"><?=$row->progress?></td>
+
                     <td class="v_data">
-                    <a href="<?=ROOT?>/task/addCoworker/<?=$row->id?>"><button class="v_action_button">Allocation</button></a>
+                        <a href="<?= ROOT ?>/task/addCoworker/<?= $row->id ?>" 
+                            style="<?= ($row->status == 'Complete') ? 'display: none;' : '' ?>">
+                            <button class="v_action_button">Allocation</button>
+                        </a>
                     </td>
+
                     <td class="v_data">
-                        <button class="v_action_button" disabled>Edit</button>
+                        <a href="<?= ROOT ?>/task/addCoworker/<?= $row->id ?>" 
+                            style="<?= ($row->status == 'Complete') ? 'display: none;' : '' ?>">
+                            <button class="v_action_button">Edit</button>
+                        </a>
+                        
                     </td>
                 </tr>
                 <?php endforeach;?>
                 <?php endif; ?>
 
-                <!-- <tr>
-                    <td class="v_data">Water Proofing</td>
-                    <td class="v_data">Ongoing</td>
-                    <td class="v_data">
-                    <div class="progress-bar"  style="width: 300px;">
-                            <div class="progress-done" data-value="60" id="progress-done"></div>  
-                        </div>
-                    </td>
-                    <td class="v_data">60%</td>
-                    <td class="v_data">
-                        <button class="v_action_button">Allocation</button>
-                    </td>
-                    <td class="v_data">
-                        <button class="v_action_button">Edit</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="v_data">Reinforcement</td>
-                    <td class="v_data">Suspend</td>
-                    <td class="v_data">
-                    <div class="progress-bar"  style="width: 300px;">
-                            <div class="progress-done" data-value="20" id="progress-done"></div>  
-                        </div>
-                    </td>
-                    <td class="v_data">20%</td>
-                    <td class="v_data">
-                        <button class="v_action_button">Allocation</button>
-                    </td>
-                    <td class="v_data">
-                        <button class="v_action_button">Edit</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="v_data">Back Filling</td>
-                    <td class="v_data">Ongoing</td>
-                    <td class="v_data">
-                    <div class="progress-bar"  style="width: 300px;">
-                            <div class="progress-done" data-value="40" id="progress-done"></div>  
-                        </div>
-                    </td>
-                    <td class="v_data">40%</td>
-                    <td class="v_data">
-                        <button class="v_action_button">Allocation</button>
-                    </td>
-                    <td class="v_data">
-                        <button class="v_action_button">Edit</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="v_data">Framing</td>
-                    <td class="v_data">Planed</td>
-                    <td class="v_data">
-                    <div class="progress-bar"  style="width: 300px;">
-                            <div class="progress-done" data-value="0" id="progress-done"></div>  
-                        </div>
-                    </td>
-                    <td class="v_data">0%</td>
-                    <td class="v_data">
-                        <button class="v_action_button">Allocation</button>
-                    </td>
-                    <td class="v_data">
-                        <button class="v_action_button">Edit</button>
-                    </td>
-                </tr> -->
+                
             </tbody>
         </table>
     </div>
