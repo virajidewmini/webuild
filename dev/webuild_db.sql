@@ -99,6 +99,7 @@ INSERT INTO `task_coworker` (`id`, `task_id`, `role`, `count`) VALUES ('', '1', 
 
 INSERT INTO `task_coworker` (`id`, `task_id`, `role`, `count`) VALUES (NULL, '2', 'Carpenter', '4'), (NULL, '2', 'Steel Workers', '3'), (NULL, '2', 'General Laborer', '2'), (NULL, '2', 'Equipment Operator', '1')
 
+INSERT INTO `coworker` (`id`, `name`, `phone_no`, `district`, `address`, `role`) VALUES (NULL, 'Thusitha deshan', '94775489485', 'Galle', '1st Lane, Upper Dickson Rd, Galle', 'General Laborer'), (NULL, 'Nuvini Wasana', '94761257631', 'Galle', '2nd Lane, Lower Dickson Rd, Galle', 'General Laborer');
 
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
