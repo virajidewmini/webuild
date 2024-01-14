@@ -4,7 +4,21 @@ class Project_requests extends Model{
     protected $table="project_requests";
 
     protected $afterSelect = [
-        'get_model',
+        'get_user',
+        'get_kitchen_tile',
+        'get_bathroom_tile',
+        'get_living_area_tile',
+        'get_living_room_tile',
+        'get_dining_tile',
+        'get_exterior_tile',
+        'get_default_tile',
+        'get_default_color',
+        'get_exterior_color',
+        'get_kitchen_color',
+        'get_bathroom_color',
+        'get_living_area_color',
+        'get_living_room_color',
+        'get_dining_color',
     ];
 
 
@@ -103,33 +117,15 @@ class Project_requests extends Model{
 
     public function find_managers_in_district($value){
 
-        $query="SELECT staff.id , staff.district , staff.firstname, staff.lastname , members_projects.count from staff
-        LEFT JOIN members_projects ON staff.id=members_projects.staff_id
-        WHERE staff.district = :value AND staff.role='Project Manager'
-        ORDER BY members_projects.count ASC";
+        $query="SELECT * FROM staff 
+        INNER JOIN members_projects ON staff.id=members_projects.staff_id
+        WHERE staff.district = :value AND staff.role='Project Manager' "; 
 
         return $this->query($query, [
             'value' => $value,
         ]);
     }
 
-    protected $afterSelect = [
-        'get_user',
-        'get_kitchen_tile',
-        'get_bathroom_tile',
-        'get_living_area_tile',
-        'get_living_room_tile',
-        'get_dining_tile',
-        'get_exterior_tile',
-        'get_default_tile',
-        'get_default_color',
-        'get_exterior_color',
-        'get_kitchen_color',
-        'get_bathroom_color',
-        'get_living_area_color',
-        'get_living_room_color',
-        'get_dining_color',
-    ];
     
 
     public function get_user($data){
@@ -143,6 +139,11 @@ class Project_requests extends Model{
                 $data[$key]->user = is_array($result) ? $result[0] : false ;
             }
 
+        }
+
+        return $data;
+    }
+
     //SELECT *
     public function get_model($data){
     
@@ -151,6 +152,11 @@ class Project_requests extends Model{
             
             $result = $model->where('id',$row1->model_id);
             $data[$key]->model = is_array($result) ? $result[0] : false ;
+
+        }
+
+        return $data;
+    }
 
 
     public function get_kitchen_tile($data){
@@ -380,4 +386,3 @@ class Project_requests extends Model{
     
     }        
 }
-
