@@ -1,22 +1,45 @@
 <?php
 
     //Manager materials controller
-    class Pmmaterial extends Controller{
+    class Pmmaterial_r extends Controller{
         
         public function index(){
             if(!Auth::logged_in()){
                 $this->redirect('login');
             }
-            $this->view('pmmaterial');
+            $pmid = Auth::getId();
+
+            $projects = new Projects();
+		    $data = $projects->where2('action','ongoing','manager_id',$pmid);
+
+            $project_requests = new Project_requests();
+		
+            if(isset($_GET['project_id'])){
+                $project_id = $_GET['project_id'];
+                $data1 = $project_requests->where('id',$project_id);
+            }
+
+            
+           
+            if(isset($_GET['level'])){
+                $level = $_GET['level'];
+                $data1 = $project_requests->where('id',$project_id);
+            }
+           
+            $this->view('pmmaterial_r',[
+                'rows'=>$data,
+                'rows1'=>$data1,
+            ]);
+
         }
 
-        public function request_view($id = null)
+        public function request($id = null)
             {
                 // code...
-            //     if(!Auth::logged_in()){
-            //         $this->redirect('login');
-            //     }
-            //     $project = new Projects();
+                // if(!Auth::logged_in()){
+                //     $this->redirect('login');
+                // }
+                // $project = new Projects();
                 
                     
             //    if( $_SERVER['REQUEST_METHOD'] =='POST'){

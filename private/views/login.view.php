@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/userlogin_wallpaper.png'); ">
+  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/userlogin_wallpaper.png');background-repeat: no-repeat;background-size: cover;background-position: center center; ">
     <div class="center" >
       
       
