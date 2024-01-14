@@ -99,9 +99,10 @@ class Project_requests extends Model{
 
     public function find_managers_in_district($value){
 
-        $query="SELECT * FROM staff 
-        INNER JOIN members_projects ON staff.id=members_projects.staff_id
-        WHERE staff.district = :value AND staff.role='Project Manager' "; 
+        $query="SELECT staff.id , staff.district , staff.firstname, staff.lastname , members_projects.count from staff
+        LEFT JOIN members_projects ON staff.id=members_projects.staff_id
+        WHERE staff.district = :value AND staff.role='Project Manager'
+        ORDER BY members_projects.count ASC";
 
         return $this->query($query, [
             'value' => $value,
@@ -369,6 +370,7 @@ class Project_requests extends Model{
         return $data;
     
     }
+
     
    
 }

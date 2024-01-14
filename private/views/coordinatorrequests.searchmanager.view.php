@@ -38,44 +38,44 @@ body{
 </style>
     
     <h2 style="margin-bottom: 20px">Search Project Managers</h2>
-        
-    <form action="<?=ROOT?>/coordinatormanagersearch" method="POST">
-        
-        <select name="distict" value="<?= get_select2('district','')    ;?>"                                    style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
-            
-            <option selected value="<?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?>">            
-                <?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?>
-                    <?= $rows['customer']->ul_district ; ?>                    
-                <?php else: ?>
-                    <?= $rows['company']->district ; ?>                    
-                <?php endif; ?>                       
-            </option>
-            <option <?= get_select2('district','ampara');?> value="ampara">Ampara</option>
-            <option <?= get_select2('district','anuradhapura');?> value="anuradhapura">Anuradhapura</option>
-            <option <?= get_select2('district','badulla');?>value="badulla">Badulla</option>
-            <option <?= get_select2('district','batticaloa');?>value="batticaloa">Batticaloa</option>
-            <option <?= get_select2('district','colombo');?>value="colombo">Colombo</option>
-            <option <?= get_select2('district','galle');?>value="galle">Galle</option>
-            <option <?= get_select2('district','gampaha');?>value="gampaha">Gampaha</option>
-            <option <?= get_select2('district','hambantota');?>value="hambantota">Hambantota</option>
-            <option <?= get_select2('district','jaffna');?>value="jaffna">Jaffna</option>
-            <option <?= get_select2('district','kaluthara');?>value="kaluthara">Kaluthara</option>
-            <option <?= get_select2('district','kandy');?>value="kandy">Kandy</option>
-            <option <?= get_select2('district','kegalle');?>value="kegalle">Kegalle</option>
-            <option <?= get_select2('district','kilinochchi');?>value="kilinochchi">Kilinochchi</option>
-            <option <?= get_select2('district','kurunegala');?>value="kurunegala">Kurunegala</option>
-            <option <?= get_select2('district','mannar');?>value="mannar">Mannar</option>
-            <option <?= get_select2('district','matara');?>value="matara">Matara</option>
-            <option <?= get_select2('district','monaragala');?>value="monaragala">Monaragala</option>
-            <option <?= get_select2('district','mulathivu');?>value="mulathivu">Mulathivu</option>
-            <option <?= get_select2('district','nuwara eliya');?>value="nuwara eliya">Nuwara Eliya</option>
-            <option <?= get_select2('district','polonnaruwa');?>value="polonnaruwa">Polonnaruwa</option>
-            <option <?= get_select2('district','puttalam');?>value="puttalam">Puttalam</option>
-            <option <?= get_select2('district','rathnapura');?>value="rathnapura">Rathnapura</option>
-            <option <?= get_select2('district','trincomalee');?>value="trincomalee">Trincomalee</option>
-            <option <?= get_select2('district','vavuniya');?>value="vavuniya">Vavuniya</option>
+      
+    <form action="<?=ROOT?>/coordinatormanagersearch/<?=$rows['common']->id?>" method="post">
+            <select name="district" class="v_form-control" value="<?= get_select2('district','');?>" type="text" placeholder="district" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
+                <option selected value="<?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?>">            
+                    <?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?>
+                        <?= $rows['customer']->ul_district ; ?>                    
+                    <?php else: ?>
+                        <?= $rows['company']->district ; ?>                    
+                    <?php endif; ?>                       
+                </option>
+                <option <?= get_select2('district','');?> value="">Select a district</option>
+                <option <?= get_select2('district','Galle');?> value="Galle">Galle</option>
+                <option <?= get_select2('district','Ampara');?> value="Ampara">Ampara</option>
+                <option <?= get_select2('district','Anuradhapura');?> value="Anuradhapura">Anuradhapura</option>
+                <option <?= get_select2('district','Badulla');?>  value="Badulla">Badulla</option>
+                <option <?= get_select2('district','Batticaloa');?> value="Batticaloa">Batticaloa</option>
+                <option <?= get_select2('district','Colombo');?> value="Colombo">Colombo</option>
+                <option <?= get_select2('district','Gampaha');?> value="Gampaha">Gampaha</option>
+                <option <?= get_select2('district','Hambantota');?> value="Hambantota">Hambantota</option>
+                <option <?= get_select2('district','Jaffna');?> value="Jaffna">Jaffna</option>
+                <option <?= get_select2('district','Kaluthara');?> value="Kaluthara">Kaluthara</option>
+                <option <?= get_select2('district','Kandy');?> value="Kandy">Kandy</option>
+                <option <?= get_select2('district','Kegalle');?> value="Kegalle">Kegalle</option>
+                <option <?= get_select2('district','Kilinochchi');?> value="Kilinochchi">Kilinochchi</option>
+                <option <?= get_select2('district','Kurunegala');?> value="Kurunegala">Kurunegala</option>
+                <option <?= get_select2('district','Mannar');?> value="Mannar">Mannar</option>
+                <option <?= get_select2('district','Matara');?> value="Matara">Matara</option>
+                <option <?= get_select2('district','Monaragala');?> value="Monaragala">Monaragala</option>
+                <option <?= get_select2('district','Mulathivu');?> value="Mulathivu">Mulathivu</option>
+                <option <?= get_select2('district','Nuwara eliya');?> value="Nuwara eliya">Nuwara Eliya</option>
+                <option <?= get_select2('district','Polonnaruwa');?> value="Polonnaruwa">Polonnaruwa</option>
+                <option <?= get_select2('district','Puttalam');?> value="Puttalam">Puttalam</option>
+                <option <?= get_select2('district','Rathnapura');?> value="Rathnapura">Rathnapura</option>
+                <option <?= get_select2('district','Trincomalee');?> value="Trincomalee">Trincomalee</option>
+                <option <?= get_select2('district','Vavuniya');?> value="Vavuniya">Vavuniya</option>
+                    
+                </select>
 
-        </select>
 
         <button style="background-color:#E5863D; color:white" class="" type="submit">Search</button>
     </form>
@@ -104,12 +104,18 @@ body{
                     <tbody>
                         <?php foreach ($rows["managers"] as $row) :?>
                             <tr>                       
-                                <td><?=$row->staff_id?></td>
+                                <td><?=$row->id?></td>
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
-                                <td><?=$row->count?></td> 
+                                <td>
+                                    <?php if (empty($row->count)):?>  
+                                        None 
+                                    <?php else:?>
+                                        <?=$row->count?> 
+                                    <?php endif;?>
+                                </td>
                                 <td></td> 
                                 <td>
-                                    <a href="<?=ROOT?>/coordinatorrequests/addmanager/<?=$rows["common"]->id?>/<?=$row->staff_id?>">
+                                    <a href="<?=ROOT?>/coordinatorrequests/addmanager/<?=$rows["common"]->id?>/<?=$row->id?>/<?=$row->firstname?>/<?=$row->lastname?>">
                                         <button><i class="fa-solid fa-plus" style="color: #ed8835;"></i></button>
                                     </a>
                                 </td>                                                              
@@ -120,7 +126,11 @@ body{
             </div>    
         </div>
     <?php else:?>
-        <h4>No Project Managers are in this district.</h4>
+        <div style="border: 2px solid black; margin: 20px;padding:20px">
+        <h3 style="text-align: center;">No Project Managers are in this district.
+        </h3>
+        <h4 style="text-align: center;">Select the nearest disistrict to the project</h4>
+        </div>
     <?php endif;?> 
 
         
