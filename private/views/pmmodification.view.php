@@ -34,6 +34,7 @@
                justify-content: space-around;
                align-items: center;
                margin-left: 5%;
+               margin-right: 5%;
                margin-bottom: 10px;
           }
           .unit{
@@ -66,6 +67,21 @@
                margin-bottom: 10px;
                margin-top: 30px;
           }
+          .defm{
+            background-color: #ececec;
+            border-radius: 20px;
+            padding:15px
+          }
+          .modm{
+            background-color: #ffd699;
+            border-radius: 20px;
+            padding:15px
+          }
+          .bd{
+            border: #E5863D 1px solid;
+            border-radius: 20px;
+            padding:15px
+          }
 
 .in_a_c:hover{
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
@@ -74,8 +90,7 @@
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
 }
 </style>
-<?php if(true): ?>
-    
+<?php if(true): ?>  
      <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
      
           <div class="pro-id" style="padding: 0 0 40px 0; ">
@@ -92,13 +107,13 @@
                             </div>
                             <div class="unit-d">
                                 
-                                <div >
+                                <div class="defm">
                                     <h4 style="text-align:center;">Default</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="<?=$drowk[0]->tile->name ?>" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowk[0]->tile->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
@@ -111,7 +126,7 @@
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="<?=$drowk[0]->paint->name ?>" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowk[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
@@ -121,16 +136,16 @@
                                         <input readonly style="width:150px;" value="<?=$drowk[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
-                                <div >
+                                <div class="modm">
                                     <h4 style="text-align:center;">Modification</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="<?=$rowk[0]->tile->name ?>" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowk[0]->tile->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
@@ -140,14 +155,14 @@
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowk[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="7" type="text" id="mpprice">
+                                        <input readonly style="width:150px;" value="<?=$rowk[0]->paint->price_per_square_feet ?>" type="text" id="mpprice">
                                     </div>
                                 </div>
                             </div>
@@ -158,17 +173,17 @@
                                         <p>Tiling :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="kitchen" onkeyup="dtilefunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="kitchen" onkeyup="dtilefunc(this)" >
                                     </div>
                                     <div class="unit">
                                         <p>Painting :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="kitchen" onkeyup="dpaintfunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="kitchen" onkeyup="dpaintfunc(this)" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="unit-d" style="margin-top:30px; " >
+                            <div class="unit-d bd" style="margin-top:30px; " >
                                 
                                 <div >
                                     <h4 style="text-align:center;">Default price</h4>
@@ -213,62 +228,62 @@
                             </div>
                             <div class="unit-d">
                                 
-                                <div >
+                                <div class="defm">
                                     <h4 style="text-align:center;">Default</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowba[0]->tile->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input style="width:150px;"  readonly value="2" type="text" id="dtprice">
+                                        <input style="width:150px;"  readonly value="<?=$drowba[0]->tile->price_per_square_feet ?>" type="text" id="dtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowba[0]->paint->name?>" type="text"  >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="6" type="text" id="dpprice">
+                                        <input readonly style="width:150px;" value="<?=$drowba[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
-                                <div >
+                                <div class="modm">
                                     <h4 style="text-align:center;">Modification</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowba[0]->tile->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="3" type="text" id="mtprice">
+                                        <input readonly style="width:150px;" value="<?=$rowba[0]->tile->price_per_square_feet ?>" type="text" id="mtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowba[0]->paint->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="7" type="text" id="mpprice">
+                                        <input readonly style="width:150px;" value="<?=$rowba[0]->paint->price_per_square_feet ?>" type="text" id="mpprice">
                                     </div>
                                 </div>
                             </div>
@@ -279,17 +294,17 @@
                                         <p>Tiling :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="bathroom" onkeyup="dtilefunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="bathroom" onkeyup="dtilefunc(this)"  >
                                     </div>
                                     <div class="unit">
                                         <p>Painting :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="bathroom" onkeyup="dpaintfunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="bathroom" onkeyup="dpaintfunc(this)"  >
                                     </div>
                                 </div>
                             </div>
-                            <div class="unit-d" style="margin-top:30px; " >
+                            <div class="unit-d bd" style="margin-top:30px; " >
                                 
                                 <div >
                                     <h4 style="text-align:center;">Default price</h4>
@@ -330,66 +345,66 @@
                         </div>
                         <div class="m-part" id="dinien">
                             <div class="m-part-top">
-                                <h3 style="margin-left:20px;margin-top:30px">Dinien</h3>
+                                <h3 style="margin-left:20px;margin-top:30px">Dining</h3>
                             </div>
                             <div class="unit-d">
                                 
-                                <div >
+                                <div class="defm">
                                     <h4 style="text-align:center;">Default</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowd[0]->tile->name ?>" type="text"   >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input style="width:150px;"  readonly value="2" type="text" id="dtprice">
+                                        <input style="width:150px;"  readonly value="<?=$drowd[0]->tile->price_per_square_feet ?>" type="text" id="dtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowd[0]->paint->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="6" type="text" id="dpprice">
+                                        <input readonly style="width:150px;" value="<?=$drowd[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
-                                <div >
+                                <div class="modm">
                                     <h4 style="text-align:center;">Modification</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowd[0]->tile->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="3" type="text" id="mtprice">
+                                        <input readonly style="width:150px;" value="<?=$rowd[0]->tile->price_per_square_feet ?>" type="text" id="mtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowd[0]->paint->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="7" type="text" id="mpprice">
+                                        <input readonly style="width:150px;" value="<?=$rowd[0]->paint->price_per_square_feet ?>" type="text" id="mpprice">
                                     </div>
                                 </div>
                             </div>
@@ -400,17 +415,17 @@
                                         <p>Tiling :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="dinien" onkeyup="dtilefunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="dinien" onkeyup="dtilefunc(this)"  >
                                     </div>
                                     <div class="unit">
                                         <p>Painting :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="dinien" onkeyup="dpaintfunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="dinien" onkeyup="dpaintfunc(this)"  >
                                     </div>
                                 </div>
                             </div>
-                            <div class="unit-d" style="margin-top:30px; " >
+                            <div class="unit-d bd" style="margin-top:30px; " >
                                 
                                 <div >
                                     <h4 style="text-align:center;">Default price</h4>
@@ -455,62 +470,62 @@
                             </div>
                             <div class="unit-d">
                                 
-                                <div >
+                                <div class="defm">
                                     <h4 style="text-align:center;">Default</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowbe[0]->tile->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input style="width:150px;"  readonly value="2" type="text" id="dtprice">
+                                        <input style="width:150px;"  readonly value="<?=$drowbe[0]->tile->price_per_square_feet ?>" type="text" id="dtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowbe[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="6" type="text" id="dpprice">
+                                        <input readonly style="width:150px;" value="<?=$drowbe[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
-                                <div >
+                                <div class="modm">
                                     <h4 style="text-align:center;">Modification</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowbe[0]->tile->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="3" type="text" id="mtprice">
+                                        <input readonly style="width:150px;" value="<?=$rowbe[0]->tile->price_per_square_feet ?>" type="text" id="mtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowbe[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="7" type="text" id="mpprice">
+                                        <input readonly style="width:150px;" value="<?=$rowbe[0]->paint->price_per_square_feet ?>" type="text" id="mpprice">
                                     </div>
                                 </div>
                             </div>
@@ -521,17 +536,17 @@
                                         <p>Tiling :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="living_room" onkeyup="dtilefunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="living_room" onkeyup="dtilefunc(this)" >
                                     </div>
                                     <div class="unit">
                                         <p>Painting :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="living_room" onkeyup="dpaintfunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="living_room" onkeyup="dpaintfunc(this)" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="unit-d" style="margin-top:30px; " >
+                            <div class="unit-d bd" style="margin-top:30px; " >
                                 
                                 <div >
                                     <h4 style="text-align:center;">Default price</h4>
@@ -576,62 +591,62 @@
                             </div>
                             <div class="unit-d">
                                 
-                                <div >
+                                <div class="defm">
                                     <h4 style="text-align:center;">Default</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowl[0]->tile->name ?>" type="text"  >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input style="width:150px;"  readonly value="2" type="text" id="dtprice">
+                                        <input style="width:150px;"  readonly value="<?=$drowl[0]->tile->price_per_square_feet ?>" type="text" id="dtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowl[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="6" type="text" id="dpprice">
+                                        <input readonly style="width:150px;" value="<?=$drowl[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
-                                <div >
+                                <div class="modm">
                                     <h4 style="text-align:center;">Modification</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowl[0]->tile->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Prise per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="3" type="text" id="mtprice">
+                                        <input readonly style="width:150px;" value="<?=$rowl[0]->tile->price_per_square_feet ?>" type="text" id="mtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowl[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="7" type="text" id="mpprice">
+                                        <input readonly style="width:150px;" value="<?=$rowl[0]->paint->price_per_square_feet ?>" type="text" id="mpprice">
                                     </div>
                                 </div>
                             </div>
@@ -642,17 +657,17 @@
                                         <p>Tiling :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="living_area" onkeyup="dtilefunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="living_area" onkeyup="dtilefunc(this)" >
                                     </div>
                                     <div class="unit">
                                         <p>Painting :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="living_area" onkeyup="dpaintfunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="living_area" onkeyup="dpaintfunc(this)" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="unit-d" style="margin-top:30px; " >
+                            <div class="unit-d bd" style="margin-top:30px; " >
                                 
                                 <div >
                                     <h4 style="text-align:center;">Default price</h4>
@@ -697,62 +712,62 @@
                             </div>
                             <div class="unit-d">
                                 
-                                <div >
+                                <div class="defm">
                                     <h4 style="text-align:center;">Default</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text"  name="supervisor_id">
+                                        <input readonly value="<?=$drowe[0]->tile->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input style="width:150px;"  readonly value="2" type="text" id="dtprice">
+                                        <input style="width:150px;"  readonly value="<?=$drowe[0]->tile->price_per_square_feet ?>" type="text" id="dtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$drowe[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="6" type="text" id="dpprice">
+                                        <input readonly style="width:150px;" value="<?=$drowe[0]->paint->price_per_square_feet ?>" type="text" id="dpprice">
                                     </div>
                                 </div>
-                                <div >
+                                <div class="modm">
                                     <h4 style="text-align:center;">Modification</h4>
                                     <div class="unit">
                                         <p>Tile :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowe[0]->tile->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
                                         <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="3" type="text" id="mtprice">
+                                        <input readonly style="width:150px;" value="<?=$rowe[0]->tile->price_per_square_feet ?>" type="text" id="mtprice">
                                     </div>
                                     <div class="unit">
                                         <p>Color :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input readonly value="" type="text" name="supervisor_id">
+                                        <input readonly value="<?=$rowe[0]->paint->name ?>" type="text" >
                                     </div>
                                     <div class="unit">
-                                        <p>Prise per square foot :</p>
+                                        <p>Price per square foot :</p>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="7" type="text" id="mpprice">
+                                        <input readonly style="width:150px;" value="<?=$rowe[0]->paint->price_per_square_feet ?>" type="text" id="mpprice">
                                     </div>
                                 </div>
                             </div>
@@ -763,17 +778,17 @@
                                         <p>Tiling :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="exterior" onkeyup="dtilefunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="exterior" onkeyup="dtilefunc(this)" >
                                     </div>
                                     <div class="unit">
                                         <p>Painting :</p>
                                     </div>
                                     <div class="e-id-d">
-                                        <input value="" type="text" key="exterior" onkeyup="dpaintfunc(this)" name="supervisor_id">
+                                        <input value="" type="text" key="exterior" onkeyup="dpaintfunc(this)" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="unit-d" style="margin-top:30px; " >
+                            <div class="unit-d bd" style="margin-top:30px; " >
                                 
                                 <div >
                                     <h4 style="text-align:center;">Default price</h4>
@@ -816,6 +831,7 @@
                             <h2 style="margin-top: 20px">Price Details</h2>
                         </div>
                         <div class="m-part">
+                            <?php print_r($_POST) ?>
                             <div class="unit-d">
                                 
                                 <div >
@@ -831,14 +847,14 @@
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="100000" type="text" class="oldprice">
+                                        <input readonly style="width:150px;" value="<?=$price?>" type="text" class="oldprice">
                                     </div>
                                     <div class="unit">
                                         <h4>New price :</h4>
                                     </div>
                                     <div class="e-id-d" style="display:flex;align-items: center;">
                                         <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" type="text" class="newprice">
+                                        <input readonly style="width:150px;" type="text" class="newprice" name="new_price">
                                     </div>
                                 </div>
                             </div>

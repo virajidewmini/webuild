@@ -5,6 +5,7 @@ class Project_requests extends Model{
 
     protected $afterSelect = [
         'get_user',
+        'get_modeln',
         'get_kitchen_tile',
         'get_bathroom_tile',
         'get_living_area_tile',
@@ -20,6 +21,37 @@ class Project_requests extends Model{
         'get_living_room_color',
         'get_dining_color',
     ];
+
+    public function validate($DATA){
+
+        $this->errors = array();
+
+
+        /**
+        price
+        **/
+
+
+        if(empty($DATA['new_price'])){
+            $this->errors['new_price']="New price can't be empty ";
+        }
+        if (!empty($DATA['new_price']) && !preg_match('/^[0-9]+$/', $DATA['new_price'])) {
+            $this->errors['new_price'] = "Invalid Price";
+        }
+        
+
+
+      
+
+
+        if(count($this->errors) == 0){
+            return true;
+        }
+        return false;
+
+
+
+    }
 
 
     //this is actually user data from the two tables
@@ -137,6 +169,22 @@ class Project_requests extends Model{
             if(property_exists($row,"user_id")){
                 $result = $user->where('id',$row->user_id);
                 $data[$key]->user = is_array($result) ? $result[0] : false ;
+            }
+
+        }
+
+        return $data;
+    }
+
+    public function get_modeln($data){
+    
+        $model = new Models();
+        
+
+        foreach ($data as $key => $row){
+            if(property_exists($row,"model_id")){
+                $result = $model->where('id',$row->model_id);
+                $data[$key]->model = is_array($result) ? $result[0] : false ;
             }
 
         }
