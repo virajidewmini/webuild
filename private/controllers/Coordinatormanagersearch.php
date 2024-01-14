@@ -32,7 +32,7 @@
                 $data['managers'] = $project_requests->find_managers_in_district($district);
             }
             
-        
+            
             $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
             
 	    }
