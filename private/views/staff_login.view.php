@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/stafflogin_wallpaper.jpg'); ">
+  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/stafflogin_wallpaper.jpg');background-repeat: no-repeat;background-size: cover;background-position: center center; ">
     <div class="center" >
       
       <form method="post">

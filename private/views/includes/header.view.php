@@ -119,7 +119,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/Pmmaterial" class="nav-link">
                     <i class="fa-solid fa-cubes-stacked"></i>
                     <span class="text">Materials</span>
                   </a>

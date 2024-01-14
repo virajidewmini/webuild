@@ -1,12 +1,14 @@
+<?php if(Auth::getRole()== 'Project Manager'): ?>
 <?php $this->view('includes/header')?>
 <style>
 body{
     overflow: hidden;
 }
 </style>
+    <h2 style="margin-bottom: 20px">MATERIALS</h2>
     <div class="table">
         <div class="table_header">
-            <p>To be recieved</p>
+            <h3>To be recieved</h3>
         </div>
         <div class="table_section">
             <table>
@@ -45,7 +47,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Materials details</p>
+            <h3>Materials details</h3>
         </div>
         <div class="table_section">
             <table>
@@ -86,7 +88,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Items details</p>
+            <h3>Items details</h3>
         </div>
         <div class="table_section">
             <table>
@@ -119,9 +121,9 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <p>Sent request</p>
+            <h3>Sent request</h3>
             <div>
-                <button class="add___">Request</button>
+                <a href="<?=ROOT?>/Pmmaterial_r"><button class="add___">Request</button></a>
             </div>
         </div>
         <div class="table_section">
@@ -168,4 +170,6 @@ body{
     </div>
 
 <?php $this->view('includes/footer'); ?>
-
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

@@ -3,6 +3,10 @@ class Project_requests extends Model{
 
     protected $table="project_requests";
 
+    protected $afterSelect = [
+        'get_model',
+    ];
+
 
     //this is actually user data from the two tables
     public function requests($value){
@@ -137,11 +141,16 @@ class Project_requests extends Model{
                 $result = $user->where('id',$row->user_id);
                 $data[$key]->user = is_array($result) ? $result[0] : false ;
             }
-        }
+
+    //SELECT *
+    public function get_model($data){
     
-        return $data;
-    
-    }
+        $model = new Models();
+        foreach ($data as $key => $row1){
+            
+            $result = $model->where('id',$row1->model_id);
+            $data[$key]->model = is_array($result) ? $result[0] : false ;
+
 
     public function get_kitchen_tile($data){
     
@@ -368,8 +377,6 @@ class Project_requests extends Model{
     
         return $data;
     
-    }
-    
-   
+    }        
 }
-?>
+

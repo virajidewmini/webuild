@@ -38,7 +38,9 @@ body{
 </style>
     <h2 style="margin-bottom: 20px">SEARCH SUPERVISORS</h2>
     <form action="" method="GET">
-    <?php if(isset($_GET['district'])){
+    <?php 
+    $district = "";
+    if(isset($_GET['district'])){
         $district=$_GET['district'];
     } ?>
     <div class="top1">
