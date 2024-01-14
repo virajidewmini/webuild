@@ -23,7 +23,7 @@ body{
                             <th>Model ID</th>
                             <th>Manager ID</th>
                             <th>Date</th>
-                            <th>State</th>
+                            <th>Status</th>
                             <th>
                                 
                             </th>

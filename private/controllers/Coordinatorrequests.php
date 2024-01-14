@@ -51,6 +51,25 @@
             }
 	    }
 
+        public function managersearch (){
+        
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+            $staff = new Project_requests();
+            
+
+            if(isset($_POST['district'])){
+                $district = $_POST['district'];
+                $data = $staff->find_managers_in_district($district);
+            }
+            print_r($data);
+            $this->view('coordinatorrequests.searchmanager',['rows["managers"]'=>$data]);
+        }
+    
+       
+
 
         public function addmanager($id=null,$manager_id=null){
             if(!Auth::logged_in()){

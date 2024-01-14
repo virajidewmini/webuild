@@ -27,7 +27,7 @@
                
         <div style="display: flex; justify-content: center;" >        
             <input type="submit" value="  ADD  "class="save-button"> 
-            <a href="<?=ROOT?>/staff">
+            <a href="<?=ROOT?>/coordinatorrequests">
                 <input type="button" value="Cancel"class="cancel-button">
             </a>
         </div>
