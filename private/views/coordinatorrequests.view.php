@@ -6,6 +6,7 @@ body{
 }
 </style>
     <?php if($rows):?>
+        
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
@@ -18,11 +19,11 @@ body{
                     <thead>
                         <tr>
                             <th>Request ID</th>
-                            <th>User ID</th>
+                            <th>User Name</th>
                             <th>Model ID</th>
                             <th>Manager ID</th>
                             <th>Date</th>
-                            <th>State</th>
+                            <th>Status</th>
                             <th>
                                 
                             </th>
@@ -32,11 +33,11 @@ body{
                         <?php foreach ($rows as $row) :?>
                             <tr>                       
                                 <td><?=$row->id?></td>
-                                <td><?=$row->user_id?></td>
+                                <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
                                 <td><?=$row->model_id?></td>  
                                 <td>
                                     <?php if(empty($row->manager_id)): ?>
-                                        <a href="<?=ROOT?>/coordinatorrequests/addmanager">
+                                        <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>/<?=$row->id?>">
                                             <button><i class="fa-solid fa-user-plus" style="color: #e67f1e;"></i></button>
                                         </a>
                                     <?php else : ?>                                

@@ -49,6 +49,12 @@
                     <span class="text">Complaints</span>
                   </a>
                 </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatorviewmanagers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Project Managers</span>
+                  </a>
+                </li>
                 
                 <!-- settings and logout -->
 
@@ -350,12 +356,7 @@
                 </li>
                 
 
-        <a href="#" class="profile">
-          <img src="<?=ROOT?>/img/profile.jpg" alt="" />
-          <!-- USER -->
-          <?=Auth::user()?>
-        </a>
-      </nav>
+        
 
                 <!-- settings and logout -->
 
