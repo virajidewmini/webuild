@@ -10,6 +10,9 @@
             }
             $pmi = Auth::getid();
 
+            $project_request = new Project_requests();
+            $data2 = $project_request->where2('manager_id',$pmi,'action','modified');
+
             $project_dpr = new Project_dprs();
             $data = $project_dpr->where('manager_id',$pmi);
             // $data1 = $dtbase->alltask($pmi);
@@ -20,6 +23,7 @@
             $this->view('pmdashboard',[
                 'rows'=>$data,
                 'rows1'=>$data1,
+                'rows2'=>$data2,
             ]);
         }
 
@@ -37,6 +41,7 @@
                     'row'=>$row,
                 ]);
             }
+
 
     }
 ?>
