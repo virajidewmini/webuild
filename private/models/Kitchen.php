@@ -23,7 +23,7 @@ class Kitchen extends Model{
 
     public function get_tile($data){
     
-        $tile = new Tile();
+        $tile = new Tiles();
         foreach ($data as $key => $row2){
             
             $result = $tile->where('id',$row2->tile_id);
