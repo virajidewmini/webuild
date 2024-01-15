@@ -47,6 +47,45 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
+            <h3>To modify bill</h3>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Customer Name</th>
+                        <th>Model Name</th>
+                        <th>Land Type</th>
+                        <th>Land ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php if ($rows2):?>
+                    <?php foreach ($rows2 as $row):?>
+                    <tr>
+                        <td><?= $row->id?></td>
+                        <td><?= $row->user->firstname?> <?= $row->user->lastname?></td>
+                        <td><?= $row->model->name?></td>
+                        <td><?= $row->land_type?></td>
+                        <td><?= $row->land_id?></td>
+                        <td>
+                            <a href="<?=ROOT?>/Pmmodification/<?=$row->id?>/<?=$row->modification_id?>/<?=$row->total_price?>">
+                            <button><i class="fa-solid fa-eye"></i></button>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h3>No request were found at this time</h3>
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table_header">
             <h3>Daily Progress reports</h3>
         </div>
         <div class="table_section">
