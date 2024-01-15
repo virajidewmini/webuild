@@ -6,9 +6,9 @@
     <div class="form_container">
         <form method="post"  class="v_form" enctype="multipart/form-data">
             <label class="v_label" id="ccsvFile">Upload CSV File</label>
-            <input type="file" name="csvFile" id="csvFile" accept=".csv" required>
+            <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
             <br><br>
-            <a href="<?=ROOT?>/allcoworkers/process_upload"> <button class="v_submit_button" type="submit">Submit</button></a>
+            <a href="<?=ROOT?>/allcoworkers"> <button class="v_submit_button" type="submit">Submit</button></a>
         </form>
         <br>
         <div class="or-container">
