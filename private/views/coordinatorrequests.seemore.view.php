@@ -215,63 +215,163 @@
                               <br><br>
                               
                          <?php else : ?>                           
-                              <div class="form-group">
+                              <fieldset class="FormFieldset" >
+                                   <legend class="Formlegend"> Kitchen Modification Details</legend>
                                    <br>
+                                        <?php if($rows["kitchen_modification_details"]):?>
+                                             
+                                             <div class="form-group">
+                                                  <div class="column">
+                                                       <label for="lastName">Tile</label>
+                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["kitchen_modification_details"][0]->tile->tile_name;?>">
+                                                  </div>
+                                                  <div class="column">
+                                                       <label for="lastName">Paint</label>
+                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["kitchen_modification_details"][0]->paint->name;?>">
+                                                  </div>
+                                   
+                                             </div>
+                                             
+                                             
+                                        <?php else : ?>                           
+                                             <h4>No modifications have been applied to kitchen.</h4>
+                                             <br><br>
+                                        <?php endif;?>
                          
-                                   <div class="column">                   
-                                        <label for="firstname">Modification ID</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->modification_id;?>">
-                                   </div>                                 
-                                   <div class="column">
-                                        <label for="lastName">kitchen_tile</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->kitchen_tile->tile_name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">kitchen_color_id</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->kitchen_color->name;?>">
-                                   </div>
-                                   <div class="column">                   
-                                        <label for="firstname">bathroom_tile_id </label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->bathroom_tile->tile_name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">bathroom_color_id</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->bathroom_color->name;?>">
-                                   </div>                                  
-                                   <div class="column">
-                                        <label for="lastName">dining_tile_id</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->dining_tile->tile_name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">dining_color_id</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->dining_color->name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">living_room_tile_id</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->living_room_tile->tile_name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">living_room_color_id</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->living_room_color->name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">living_area_tile_id</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->living_area_tile->tile_name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">living_area_color_id</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["modification_details"]->living_area_color->name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">exterior_tile_id</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->exterior_tile->tile_name;?>">
-                                   </div>
-                                   <div class="column">
-                                        <label for="lastName">exterior_color_id</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["modification_details"]->exterior_color->name;?>">
-                                   </div>
-                    
-                              </div>
+                                   
+                              </fieldset>
+                              <br>
+                              <fieldset class="FormFieldset" >
+                                   <legend class="Formlegend"> Dining Room Modification Details</legend>
+                                   <br>
+                                        <?php if($rows["dining_modification_details"]):?>
+                                             
+                                             <div class="form-group">
+                                                  <div class="column">
+                                                       <label for="lastName">Tile</label>
+                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["dining_modification_details"][0]->tile->tile_name;?>">
+                                                  </div>
+                                                  <div class="column">
+                                                       <label for="lastName">Paint</label>
+                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["dining_modification_details"][0]->paint->name;?>">
+                                                  </div>
+                                   
+                                             </div>
+                                             
+                                             
+                                        <?php else : ?>                           
+                                             <h4>No modifications have been applied to Dining Room.</h4>
+                                             <br><br>
+                                        <?php endif;?>
+                         
+                                   
+                              </fieldset>
+                              <br>
+                              <fieldset class="FormFieldset" >
+                                   <legend class="Formlegend"> Living Room Modification Details</legend>
+                                   <br>
+                                        <?php if($rows["living_modification_details"]):?>
+                                             
+                                             <div class="form-group">
+                                                  <div class="column">
+                                                       <label for="lastName">Tile</label>
+                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["living_modification_details"][0]->tile->tile_name;?>">
+                                                  </div>
+                                                  <div class="column">
+                                                       <label for="lastName">Paint</label>
+                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["living_modification_details"][0]->paint->name;?>">
+                                                  </div>
+                                   
+                                             </div>
+                                             
+                                             
+                                        <?php else : ?>                           
+                                             <h4>No modifications have been applied to Living Room.</h4>
+                                             <br><br>
+                                        <?php endif;?>
+                         
+                                   
+                              </fieldset>
+                              <br>
+                              <fieldset class="FormFieldset" >
+                                   <legend class="Formlegend"> Bathroom Modification Details</legend>
+                                   <br>
+                                        <?php if($rows["bathroom_modification_details"]):?>
+                                             
+                                             <div class="form-group">
+                                                  <div class="column">
+                                                       <label for="lastName">Tile</label>
+                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["bathroom_modification_details"][0]->tile->tile_name;?>">
+                                                  </div>
+                                                  <div class="column">
+                                                       <label for="lastName">Paint</label>
+                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["bathroom_modification_details"][0]->paint->name;?>">
+                                                  </div>
+                                   
+                                             </div>
+                                             
+                                             
+                                        <?php else : ?>                           
+                                             <h4>No modifications have been applied to Bathroom.</h4>
+                                             <br><br>
+                                        <?php endif;?>
+                         
+                                   
+                              </fieldset>
+                              <br>
+                              <fieldset class="FormFieldset" >
+                                   <legend class="Formlegend"> Exterior Modification Details</legend>
+                                   <br>
+                                        <?php if($rows["exterior_modification_details"]):?>
+                                             
+                                             <div class="form-group">
+                                                  <div class="column">
+                                                       <label for="lastName">Tile</label>
+                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["exterior_modification_details"][0]->tile->tile_name;?>">
+                                                  </div>
+                                                  <div class="column">
+                                                       <label for="lastName">Paint</label>
+                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["exterior_modification_details"][0]->paint->name;?>">
+                                                  </div>
+                                   
+                                             </div>
+                                             
+                                             
+                                        <?php else : ?>                           
+                                             <h4>No modifications have been applied to Exterior.</h4>
+                                             <br><br>
+                                        <?php endif;?>
+                         
+                                   
+                              </fieldset>
+                              <br>
+                              <fieldset class="FormFieldset" >
+                                   <legend class="Formlegend"> Bedroom Modification Details</legend>
+                                   <br>
+                                        <?php if($rows["bedroom_modification_details"]):?>
+                                             
+                                             <div class="form-group">
+                                                  <div class="column">
+                                                       <label for="lastName">Tile</label>
+                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["bedroom_modification_details"][0]->tile->tile_name;?>">
+                                                  </div>
+                                                  <div class="column">
+                                                       <label for="lastName">Paint</label>
+                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["bedroom_modification_details"][0]->paint->name;?>">
+                                                  </div>
+                                   
+                                             </div>
+                                             
+                                             
+                                        <?php else : ?>                           
+                                             <h4>No modifications have been applied to Bedroom.</h4>
+                                             <br><br>
+                                        <?php endif;?>
+                         
+                                   
+                              </fieldset>
+                              <br>
+                              
                          <?php endif;?>
             
                     
@@ -282,6 +382,7 @@
                <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Model Details</legend>
                     <br>
+                    
                          <?php if(empty($rows["common"]->model_id)): ?>
                               <h4>No models have been selected.</h4>
                               
