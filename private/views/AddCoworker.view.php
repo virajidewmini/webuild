@@ -28,7 +28,7 @@
 
         <div class="form-group">
             <input type="text" name="name" class="v_form-control">
-            <input type="text" name="phone" class="v_form-control">
+            <input type="text" name="phone_no" class="v_form-control">
         </div>
 
         <div class="form-group">
@@ -38,7 +38,7 @@
 
         <div class="form-group">
            
-            <select id="type" name="type" class="v_form-control" style="margin-top: 10px; width: 50%;">
+            <select id="type" name="role" class="v_form-control" style="margin-top: 10px; width: 50%;">
                 <option value="" disabled selected>Select Role</option>
                 <option value="General Laborer">General Laborer</option>
                 <option value="Carpenter">Carpenter</option>
@@ -52,7 +52,7 @@
         </div>
 
         <label class="v_label" id="address">Address</label>
-        <input type="text" name="description" id="description" class="v_form-control">
+        <input type="text" name="address" id="address" class="v_form-control">
 
             
             <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a>

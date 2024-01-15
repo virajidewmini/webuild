@@ -12,7 +12,12 @@
         public function add(){
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                var_dump(isset($_FILES['csv_file']));
+                $model=new CoworkerModel();
+                $model->insert($_POST);
+                $this->redirect('allcoworkers');
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] === UPLOAD_ERR_OK) {
                     $csvData = $this->readCsvFile($_FILES['csv_file']['tmp_name']);
     
@@ -44,7 +49,7 @@
             return $csvData;
         }
    
-
+        
     
 
         
