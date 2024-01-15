@@ -3,8 +3,22 @@
     class AllCoworkers extends Controller{
         
         public function index(){
-            $this->view('ViewCoworkers');
+            $worker=new Coworkers();
+            $data=$worker->findAll();
+
+            $this->view('ViewCoworkers',['worker'=>$data]);
         }
 
+        public function add(){
+            $this->view('AddCoworker');
+        }
+
+        
+
+   
+
+    
+
+        
     }
 ?>

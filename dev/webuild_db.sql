@@ -101,6 +101,17 @@ INSERT INTO `task_coworker` (`id`, `task_id`, `role`, `count`) VALUES (NULL, '2'
 
 INSERT INTO `coworker` (`id`, `name`, `phone_no`, `district`, `address`, `role`) VALUES (NULL, 'Thusitha deshan', '94775489485', 'Galle', '1st Lane, Upper Dickson Rd, Galle', 'General Laborer'), (NULL, 'Nuvini Wasana', '94761257631', 'Galle', '2nd Lane, Lower Dickson Rd, Galle', 'General Laborer');
 
+ALTER TABLE `allocated_task` ADD `est_start_date` DATE NULL AFTER `progress`, ADD `est_end_date` DATE NULL AFTER `est_start_date`;
+ALTER TABLE `allocated_task` DROP `est_end_date`;
+
+ALTER TABLE `tasks` ADD `duration` INT(5) NOT NULL AFTER `sub_task_count`;
+
+ALTER TABLE tasks ADD PRIMARY KEY (id);
+
+UPDATE `allocated_task` SET `est_start_date` = '2024-01-02' WHERE `allocated_task`.`id` = 7; UPDATE `allocated_task` SET `est_start_date` = '2024-01-14' WHERE `allocated_task`.`id` = 8; UPDATE `allocated_task` SET `est_start_date` = '2024-01-12' WHERE `allocated_task`.`id` = 9; UPDATE `allocated_task` SET `est_start_date` = '2024-01-13' WHERE `allocated_task`.`id` = 10; UPDATE `allocated_task` SET `status` = 'Pending', `est_start_date` = '2024-01-20' WHERE `allocated_task`.`id` = 11;
+
+
+
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
 

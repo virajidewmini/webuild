@@ -16,6 +16,7 @@
                     <th class="v_data">Status</th>
                     <th class="v_data">Progress</th>
                     <th class="v_data"></th>
+                    <th class="v_data">Start Date</th>
                     <th class="v_data">Allocate</th>
                     <th class="v_data">Update</th>
                 </tr>
@@ -32,7 +33,8 @@
                             <div class="progress-done" data-value=<?=$row->progress?> id="progress-done"></div>  
                         </div>
                     </td>
-                    <td class="v_data"><?=$row->progress?></td>
+                    <td class="v_data" style="text-align: right;"><?=$row->progress?></td>
+                    <td class="v_data"><?=$row->est_start_date?></td>
 
                     <td class="v_data">
                         <a href="<?= ROOT ?>/task/addCoworker/<?= $row->id ?>" 

@@ -4,8 +4,9 @@
 <div class="table_header">
             <h1>Coworkers</h1>
             <div>
-               <a href="<?=ROOT?>/clientcomplaint/add"><button class="add___">Add More</button></a>  
-               <a href="<?=ROOT?>/clientcomplaint/add"><button class="add___">Add One</button></a>   
+            
+               <a href="<?=ROOT?>/allcoworkers/add"><button class="add___">Add New</button></a>  
+                
             </div>
         </div>
         <div class="table_section" style="height: 1000px;">
@@ -14,20 +15,23 @@
                     <tr>
                         <th>Name</th>
                         <th>Phone No</th>
-                        <th>District</th>
-                        <th>Address</th>
+                        <th style="width: 100px;">District</th>
+                        <th >Address</th>
                         <th>Role</th>
+                        <th style="width: 150px;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php if(isset($rows)): ?>
+                <?php if(isset($worker)): ?>
                 
-                    <?php foreach ($rows as $row):?>
+                    <?php foreach ($worker as $row):?>
+                        
                          <tr>
-                        <td><?=$row->id?></td>
-                        <td><?=$row->type?></td>
-                        <td><?=$row->description?></td>
-                        <td><?=$row->status?></td>
+                        <td><?=$row->name?></td>
+                        <td><?=$row->phone_no?></td>
+                        <td><?=$row->district?></td>
+                        <td><?=$row->address?></td>
+                        <td><?=$row->role?></td>
                         
                         <td>
                          <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fa-solid fa-eye"></i></button></a>

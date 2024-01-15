@@ -29,6 +29,14 @@
 
     <br><br>
 
+    <?php if(isset($start)):?>
+        <h4>Start Date - </h4><p><?=$start[0]->est_start_date?></p> <br>
+    <?php endif;?>
+
+    <?php if(isset($end)):?>
+        <h4>Estimated End Date - </h4><p><?=$end?></p><br>
+    <?php endif;?>
+
     <h4>Estimated Coworker Count</h4><br>
 
     <div class="card-container">
@@ -36,7 +44,6 @@
             <?php foreach ($est as $row):?>
 
     <div class="total-card" style="margin-bottom: 30px; width: auto; background-color: #3D9CE5;">
-       
     
         <p class="card_label"><?=$row->role?></p>
         <div class="total-amount"><?=$row->count?><br></div> 
@@ -49,29 +56,11 @@
 
     </div>
 
-    <!-- <h4>Remain Coworker Count</h4><br>
-
-    <div class="card-container">
-    <?php if(isset($est)): ?>
-            <?php foreach ($est as $row):?>
-
-    <div class="total-card" style="margin-bottom: 30px; width: auto;">
-       
-    
-        <p class="card_label"><?=$row->role?></p>
-        <div class="total-amount"><?=$row->count?><br></div> 
-
-        
-
-    </div>
-    <?php endforeach;?>
-        <?php endif; ?>
-
-    </div> -->
+   
 
 
 
-    <div id="container">
+    <!-- <div id="container">
         <div class="additional-fields">
         <select id="type" name="type" class="additional_form-control">
                 <option value="" disabled selected>Select Role</option>
@@ -83,7 +72,15 @@
             
             <button class="additional-button">Add</button>
         </div>
-    </div>
+    </div> -->
+
+    <div class="table">
+    <div class="table_header">
+            
+            <div>
+               <a href="<?=ROOT?>/clientcomplaint/add"><button class="add___">Add One</button></a>   
+            </div>
+        </div>
 
 <div class="table_section" style="height: 1000px;">
             <table>
@@ -135,6 +132,7 @@
                 </tbody>
             </table>
         </div>
+            </div>
 
         <?php $this->view('includes/footer'); ?>
 
