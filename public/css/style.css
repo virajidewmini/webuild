@@ -309,9 +309,25 @@ td img{
     border-radius: 10px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-    
+.form-group{
+    display: flex;
+}
+.form-group input{
+    margin-top: 10px;
+    width: 50%;
+}
+.form-group input:first-child{
+    margin-right: 25px;
+}
+.form-group select:first-child{
+    margin-right: 25px;
+}
+/* .form-group {
+    width: 48%; 
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .form-group label {
@@ -344,7 +360,7 @@ td img{
     content: "";
     display: table;
     clear: both;
-}
+} */
 
 .column {
     width: 48%;

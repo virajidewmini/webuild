@@ -20,29 +20,46 @@
         <br>
 
         <form method="post"  class="v_form" enctype="multipart/form-data">
-            <label class="v_label" id="complaintType">Complaint Type</label>
+
+        <div class="form-group">
+            <label class="v_label" id="name" >Name</label>
+            <label class="v_label" id="phone" style="margin-left: 450px;">Phone</label>
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="name" class="v_form-control">
+            <input type="text" name="phone" class="v_form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="v_label" id="role" >Role</label>
+            <label class="v_label" id="district" style="margin-left: 450px;">District</label>
+        </div>
+
+        <div class="form-group">
            
-            <select id="type" name="type" class="v_form-control" >
-                <option value="" disabled selected>Select Complaint Type</option>
-                <option value="Quality of the photograph">Quality of the photograph</option>
-                <option value="Construction project delay">Construction project delay</option>
-                <option value="Quality of workmanship and materials">Quality of workmanship and materials </option>
-                <option value="Poor Communication">Poor Communication </option>
+            <select id="type" name="type" class="v_form-control" style="margin-top: 10px; width: 50%;">
+                <option value="" disabled selected>Select Role</option>
+                <option value="General Laborer">General Laborer</option>
+                <option value="Carpenter">Carpenter</option>
+                <option value="Steel Workers">Steel Workers </option>
+                <option value="Equipment Operator">Equipment Operator</option>
                 <option value="other">Other</option>
             </select>
+            <select id="selectDistrict" name="district" class="v_form-control" style="width: 50%;">
+                        <option>Choose a District</option>
+            </select>
+        </div>
 
-            <label for="description">Description</label>
-            <input type="text" name="description" id="description" class="v_form-control" style="height: 150px;" required>
+        <label class="v_label" id="address">Address</label>
+        <input type="text" name="description" id="description" class="v_form-control">
 
-             <input type="hidden" name="status" value="pending">
-           <label for="fileUpload">Select files:</label>
-           <input type="file" name="files[]" id="files" multiple accept="application/pdf,image/*">
-
+            
             <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a>
-           
 
         </form>
-
+        </div>
+            
     </div>
 
-    
+    <?php $this->view('includes/footer'); ?>
