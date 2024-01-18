@@ -46,8 +46,10 @@
                 <li>
                   <a href="#" class="nav-link">
                     <i class="fas fa-comments"></i>
-                    <span class="text">Complaints</span>
+                    <span class="text" id="main_link">Complaints</span>
+                    
                   </a>
+                  <span id="sub_link"></span>
                 </li>
                 <li>
                   <a href="<?=ROOT?>/coordinatorviewmanagers">
