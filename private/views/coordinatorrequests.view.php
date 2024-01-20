@@ -31,10 +31,11 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows as $row) :?>
+                        
                             <tr>                       
                                 <td><?=$row->id?></td>
                                 <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
-                                <td><?=$row->model_id?></td>  
+                                <td><?=$row->model->name?></td>  
                                 <td>
                                     <?php if(empty($row->manager_id)): ?>
                                         <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>/<?=$row->id?>">
