@@ -2,6 +2,9 @@ CREATE DATABASE IF NOT EXISTS webuild;
 
 USE webuild;
 
+
+
+
 CREATE TABLE `webuild`.`complaint` 
 ( `id` INT NOT NULL AUTO_INCREMENT , 
 `project_id` INT(11) NOT NULL , 
