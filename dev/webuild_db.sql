@@ -2,73 +2,6 @@ CREATE DATABASE IF NOT EXISTS webuild;
 
 USE webuild;
 
--- maintain database 
-CREATE TABLE `webuild`.`maintain`
- (`id` INT(11) NOT NULL ,
- `material_name` VARCHAR(255) NOT NULL ,
- `material_code` VARCHAR(255) NOT NULL , 
- `remain_quantity` INT(11) NOT NULL , 
- `requested_quantity` INT(11) NOT NULL , 
- PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-INSERT INTO `maintain` 
-(`id`, `material_name`, 
-`material_code`, 
-`remain_quantity`, 
-`requested_quantity`) 
-VALUES ('1', 'Cement', 'M001CE', '1250', '750');
-
-INSERT INTO `maintain` 
-(`id`, `material_name`, 
-`material_code`, `remain_quantity`, 
-`requested_quantity`) 
-VALUES ('2', 'Brick', 'M002BR', '11500', '13500')
-
-ALTER TABLE `maintain` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
-
--- store material database 
-
-CREATE TABLE `webuild`.`store_materials` 
-(`iid` INT(11) NOT NULL AUTO_INCREMENT , 
-`material_name` VARCHAR(255) NOT NULL , 
-`material_code` VARCHAR(255) NOT NULL , 
-`total_quantity` VARCHAR(255) NOT NULL , 
-PRIMARY KEY (`iid`)) ENGINE = InnoDB;
-
--- house models database 
-CREATE TABLE `webuild`.`house_models`
- (`id` INT(11) NOT NULL , 
- `name` VARCHAR(255) NOT NULL ,
- `no_room` INT(11) NOT NULL , 
- `no_kitchen` INT(11) NOT NULL ,
- `no_floor` INT(11) NOT NULL , 
- `kitchen_tile` VARCHAR(255) NOT NULL ,
- `bathroom_tile` VARCHAR(255) NOT NULL ,
- `dinien_tile` VARCHAR(255) NOT NULL , 
- `wall_color` VARCHAR(255) NOT NULL , 
- `minimum_area` INT(11) NOT NULL , 
- `parking_space` INT(11) NOT NULL , 
- `tile_color` VARCHAR(255) NOT NULL ,
- `description` VARCHAR(255) NOT NULL ,
- `front_img` BLOB NOT NULL ,
- `bath_img` BLOB NOT NULL ,
- `inside_img` BLOB NOT NULL ,
- PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-CREATE TABLE `webuild`.`land`
- (`id` INT(11) NOT NULL , 
- `name` VARCHAR(255) NOT NULL , 
- `lane` VARCHAR(255) NOT NULL , 
- `town` VARCHAR(255) NOT NULL ,
- `district` VARCHAR(255) NOT NULL , 
- `floor_plan` BLOB NOT NULL , 
- `road_map` BLOB NOT NULL , 
- `block_plan` BLOB NOT NULL , 
- PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
- INSERT INTO `land` (`id`, `name`, `lane`, `town`, `district`) VALUES ('1', 'Araliya Lands', 'Mithuru Road', 'Galle', 'Galle')
-
-
 CREATE TABLE `webuild`.`complaint` 
 ( `id` INT NOT NULL AUTO_INCREMENT , 
 `project_id` INT(11) NOT NULL , 
@@ -595,3 +528,52 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- user table 
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `nic` varchar(255) DEFAULT NULL,
+  `gender` varchar(10) NOT NULL,
+  `contactnumber` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `salary` int(15) NOT NULL,
+  `proof_image` blob NOT NULL,
+  `birth_date` date NOT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `nic`, `gender`, `contactnumber`, `address`, `email`, `salary`, `proof_image`, `birth_date`, `password`) VALUES
+(1, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0769117180', 'Seenigoda', 'pramukhapoo@gmail.com', 0, 0x30, '0000-00-00', '$2y$10$TGyHNK5bSx3UmLgFqT2YZuwj0gbnD3sPCK7c2m9CPWgeQXG3VvUKy'),
+(2, 'Rajith', 'Rantharaka', '200056901904', 'male', '0777353594', 'Wathugedara', 'rajith@gmail.com', 0, 0x30, '0000-00-00', 'kjbdvkldjbfv6545'),
+(3, 'Kasun', 'Udara', '200056808042', 'male', '0778959834', 'Ambalangoda', 'kasun@gmail.com', 0, 0x30, '0000-00-00', 'sfjbskjbksd64654'),
+(4, 'Prathibha', 'Poorna', '200161904908', 'male', '0775484861', 'Galle', 'poorna@gmail.com', 0, 0x30, '0000-00-00', 'srfbjksfsdkjdoa654132'),
+(5, 'Thimesh', 'Madushanka', '20006570104', 'male', '0717648232', 'Hikkaduwa', 'thimesh@gmail.com', 0, 0x30, '0000-00-00', 'wefkjbskfljkndchdjfjkaf8465461'),
+(6, 'Charith', 'Deshan', '200054601602', 'male', '0777656591', 'Alpitiya', 'charith@gmail.com', 0, 0x30, '0000-00-00', 'sfsdhvbjzdbvoiajlsjfoasf68465651'),
+(7, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', '0000-00-00', '$2y$10$VMxOUGAnG5OPwAHB/di4g.j4Zy13OuJUtoULJiX6JD4W9xXk1inEy'),
+(8, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', '0000-00-00', '$2y$10$fWh8ayldsA7PbrUv1uE3JejvrftCTXwYqS71Q2qzO29RoP7HXAGZW'),
+(9, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'poo@gmail.com', 0, '', '0000-00-00', '$2y$10$2BHIp.dPHeeidkgcXbTkmOZOnyE0T6XpNXU6IUZtKJ8Z.Z7dNfAze'),
+(10, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'p@gmail.com', 0, '', '0000-00-00', NULL),
+(11, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'o@gmail.com', 0, '', '0000-00-00', 'Pramukha123#'),
+(12, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'oo@gmail.com', 0, '', '0000-00-00', '$2y$10$ajhHXL/sAmQYfby3xhmPUeKZ.u./5okNkhE79A.pp3schZpyefc.2'),
+(13, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', '0000-00-00', '$2y$10$IK1BVN/yf7TTwVlbjLl5m.b68UG.Ob6hP.xaPc6Z2IqxB08r76.ya'),
+(14, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'o1@gmail.com', 0, '', '0000-00-00', '$2y$10$xUNiNtTSIp.804T7i9Qkpuw4BXZHA8ZVPh7wZutNofcu72tFHqNXC');
+
+
+INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `material_or_item_name`, `mesure_unit`, `quantity`) VALUES ('12', '12', '4', 'blicks', 'fzfze', '12')
+
+
+INSERT INTO `store_materials` (`id`, `material_name`, `material_code`, `total_quantity`) VALUES ('1', 'uiiuh', 'dcdc', '123');
+
+INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `material_or_item_name`, `mesure_unit`, `quantity`) VALUES ('5', '6', 'VE1200', 'blicks', 'kg', '123');
+
+
+-- store material low normal conditions
+
+ALTER TABLE `store_materials` ADD `low_normal_limit_quantity` INT(11) NOT NULL AFTER `total_quantity`;
