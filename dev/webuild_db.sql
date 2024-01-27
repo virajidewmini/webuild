@@ -110,7 +110,9 @@ ALTER TABLE tasks ADD PRIMARY KEY (id);
 
 UPDATE `allocated_task` SET `est_start_date` = '2024-01-02' WHERE `allocated_task`.`id` = 7; UPDATE `allocated_task` SET `est_start_date` = '2024-01-14' WHERE `allocated_task`.`id` = 8; UPDATE `allocated_task` SET `est_start_date` = '2024-01-12' WHERE `allocated_task`.`id` = 9; UPDATE `allocated_task` SET `est_start_date` = '2024-01-13' WHERE `allocated_task`.`id` = 10; UPDATE `allocated_task` SET `status` = 'Pending', `est_start_date` = '2024-01-20' WHERE `allocated_task`.`id` = 11;
 
+CREATE TABLE `webuild`.`allocate_coworker` ( `id` INT NULL , `emp_id` INT NOT NULL , `project_id` INT NOT NULL , `task_id` INT NOT NULL , `start_date` DATE NOT NULL , `end_date` DATE NOT NULL ) ENGINE = InnoDB;
 
+ALTER TABLE `allocate_coworker` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
 
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;

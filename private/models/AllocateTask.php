@@ -35,9 +35,7 @@ class AllocateTask extends Model{
         return $this->query($query,$data);
     }
 
-    public function allocate(){
-
-    }
+    
     
 }
 ?>

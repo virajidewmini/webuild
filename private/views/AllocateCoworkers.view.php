@@ -1,5 +1,5 @@
-<?php $this->view('includes/header')?>
 
+<?php $this->view('includes/header')?>
 <div style="margin-left: 400px;" class="table_header" >
         <h1>Allocate Coworkers</h1>
 </div>
@@ -8,7 +8,7 @@
 <div class="task-container">
         <div class="task-header">
 
-        <?php if(isset($rows)): ?>
+        <?php if(isset($rows)):?>
             <h1 class="task-name"><?=$rows[0]->task_name?></h1>
         <?php endif;?>
         </div>
@@ -56,30 +56,28 @@
 
     </div>
 
-   
 
 
 
-    <!-- <div id="container">
-        <div class="additional-fields">
-        <select id="type" name="type" class="additional_form-control">
-                <option value="" disabled selected>Select Role</option>
-                <option value="Concrete Worker">Concrete Worker</option>
-                <option value="General Laborer">General Laborer</option>
-                <option value="Equipment Operator">Equipment Operator </option>
-            </select>
-            <input type="text" class="additional_form-control">
-            
-            <button class="additional-button">Add</button>
-        </div>
-    </div> -->
+    
 
     <div class="table">
-    <div class="table_header">
+    <div style="justify-content: flex-start;" class="table_header" >
             
             <div>
-               <a href="<?=ROOT?>/clientcomplaint/add"><button class="add___">Add One</button></a>   
+
+           <?php
+           $url = $_GET["url"]; 
+           $parts = explode('/', $url); 
+           $id = end($parts); 
+           
+           ?>
+            
+               <a href="<?=ROOT?>/task/addAutomatically/<?=$id?>"><button style="margin-right:10px;" class="add___">Auto Assign</button></a>   
+           
+            
             </div>
+            
         </div>
 
 <div class="table_section" style="height: 1000px;">
@@ -96,12 +94,15 @@
                 <tbody>
                
                 
-                    
+                <?php if(isset($coworkers)&& !empty($coworkers)):?>
+                    <?php $counter = 1; ?>
+                  
+                    <?php foreach ($coworkers as $row):?>
                          <tr>
-                        <td>1</td>
-                        <td>Paint Expert</td>
-                        <td>Amila dissanayake</td>
-                        <td>0772679930</td>
+                        <td><?= $counter++ ?></td>
+                        <td><?=$row->role?></td>
+                        <td><?=$row->name?></td>
+                        <td><?=$row->phone_no?></td>
                         
                         <td>
                            
@@ -110,27 +111,15 @@
                         </td>
                         
                     </tr>
+                    <?php endforeach;?>
+                    <?php else: ?>
+                        <tr><td colspan="5">No data available</td></tr>
+                <?php endif; ?>
 
-                    <tr>
-                        <td>1</td>
-                        <td>Paint Expert</td>
-                        <td>Amila dissanayake</td>
-                        <td>0772679930</td>
-                        
-                        <td>
-                           
-                         <button ><i class="fas fa-trash-alt"></i></button>
-
-                        </td>
-                        
-                    </tr>
-
-                   
-
-            
 
                 </tbody>
             </table>
+            <a href="<?= ROOT ?>/task/" > <button style="margin-left:750px;" class="v_submit_button">Back</button></a>
         </div>
             </div>
 
