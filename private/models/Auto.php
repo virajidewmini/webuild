@@ -16,10 +16,9 @@ class Auto extends Model{
             SELECT emp_id
             FROM allocate_coworker
             WHERE
-                project_id = :project_id
-                AND task_id = :task_id
-                AND start_date <= :start_date
-                AND end_date >= :end_date
+            (start_date <= :start_date AND end_date >= :start_date) OR
+            (start_date <= :end_date AND end_date >= :end_date) OR
+            (start_date >= :start_date AND end_date <= :end_date)
         )
         AND role = :role 
         AND district = 'Galle'
@@ -38,6 +37,7 @@ class Auto extends Model{
     
     
         $results[] = $result;
+        var_dump($result);
         } 
         return $results;
      }
