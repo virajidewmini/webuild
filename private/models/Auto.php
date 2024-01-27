@@ -34,11 +34,10 @@ class Auto extends Model{
             
         ];
         $result = $this->query($query, $params);
-    
-    
         $results[] = $result;
-        var_dump($result);
+        
         } 
+
         return $results;
      }
     

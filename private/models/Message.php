@@ -26,7 +26,6 @@ class Message extends Model{
 
         
         $response = curl_exec($ch);
-        var_dump($response);
 
        
         

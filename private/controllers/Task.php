@@ -74,14 +74,32 @@ class Task extends Controller{
         $Automodel=new Auto();
         $Automodel->allocate($project_id,$id,$startDate,$end_date,$estimate);
 
-        
-    
+        $coworker= new AllocateCoworker();
+        $worker= $coworker->getData($project_id,$id);
 
-            $coworker= new AllocateCoworker();
-            $worker= $coworker->getData($project_id,$id);
+        $phone=$coworker->getPhone($project_id,$id);
+
+       
+        $message=new Message();
 
 
-            $this->view('AutoAssign',['coworkers'=>$worker]);
+        $messageText="Hello! This is a reminder about the project Prime Villas starting on {$start_date[0]->est_start_date} and ending on {$end_date}. Please be prepared and ensure to report on time for duty. Thank you!";
+       
+        foreach ($phone as $phoneNumberObject) {
+
+            
+            $phoneNumber=$phoneNumberObject->phone_no;
+
+                $queryParams = array(
+                    'to' => $phoneNumber,
+                    'text' => $messageText,
+                    
+                );
+                
+                // $message->callApiWithQueryParams($queryParams);
+
+        }
+        $this->view('AutoAssign',['coworkers'=>$worker]);
         
     }
 }
