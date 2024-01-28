@@ -8,7 +8,7 @@ body{
                display: flex;
                padding: 0 0 20px 0;
                border-radius: 20px;
-               width: 90%;
+               width: 100%;
                max-width: 700px;
                height: auto;
                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
@@ -60,6 +60,14 @@ body{
             height:100px;
           }
 
+          .btnnext{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+          }
+
+
 
 
 .form-control{
@@ -79,11 +87,14 @@ body{
 }
 }
 </style>
-<!-- <form action="" method="POST"> -->
+<form action="" method="POST">
 <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
-          <div class="pro-id" style="padding: 0 0 20px 0; ">
+    <!-- <form action="" method="POST"> -->
+          <div class="pro-id" style="padding: 0 0 20px 0; border: 1px solid red; ">
+          
             <?php $project_id = ""; ?>
             <?php $level = ""; ?> 
+            <?php $model = ""; ?> 
                     <div class="pro-id-details">
                     <form action="" method="GET">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
@@ -92,9 +103,10 @@ body{
                             </div>
                         </div>
                         <?php
-                            if(isset($_GET['project_id']) || isset($_GET['level'])){
+                            if(isset($_GET['project_id']) || isset($_GET['model']) || isset($_GET['level'])){
                                 $project_id = isset($_GET['project_id']) ? $_GET['project_id'] : null;
                                 $level = isset($_GET['level']) ? $_GET['level'] : null;
+                                $model = isset($_GET['model_id']) ? $_GET['model_id'] : null;
                             }
                         ?>
 
@@ -143,12 +155,21 @@ body{
                                 <?php endif; ?>
                                 </select>
                             </div>
-                            <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
                         </div>
+                        <?php
+                            if(isset($_GET['model_id'])){
+                            }
+                            else{
+                            ?>
+                                <div class="btnnext">
+                                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Next</button>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         <?php
                         }
                         ?>
-                    </form>
                         <?php if($rows1): ?>
                             <div class="unit-d">
                                 <div class="unit">
@@ -166,8 +187,19 @@ body{
                                     <input readonly style="height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model->name?>" type="text" name="model_name">
                                 </div>
                             </div>
+                            <!-- <?php
+                            if(isset($_GET['model_id'])){
+                            }
+                            else{
+                            ?>
+                                <div class="btnnext">
+                                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Next</button>
+                                </div>
                             <?php
-                            if(isset($_GET['level'])){
+                            }
+                            ?> -->
+                            <?php
+                            if(isset($_GET['model_id'])){
                             ?>
                             <div class="unit-d">
                                 <div class="unit">
@@ -179,56 +211,114 @@ body{
                                     <option  value="" <?= get_select2('level','');?>>--Select ID--</option >
                                     <?php if($rows2): ?>
                                         <?php foreach($rows2 as $row): ?>
-                                            <option <?= get_select2('level', $row->id); ?> value="<?= $row->id; ?>" <?php if ($level == $row->id) {echo "selected"; } ?>>
-                                                <?= $row->id; ?>
+                                            <option <?= get_select2('level', $row->level); ?> value="<?= $row->level; ?>" <?php if ($level == $row->level) {echo "selected"; } ?>>
+                                                <?= $row->level; ?>
                                         <?php endforeach; ?>
                                     <?php else: ?>
-                                        <option <?= get_select2('level','');?> value="">No Project Found</option>
+                                        <option <?= get_select2('level','');?> value="">No Level Found</option>
                                     <?php endif; ?>
                                     </select>
                                 </div>
-                                <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
                             </div>
                             <?php
                             }
+                            ?>
+                            <?php
+                            if(isset($_GET['level'])){
+                            }
                             else{
                             ?>
-                            <div class="unit-d">
-                                <div class="unit">
-                                    <p>Level :</p>
+                                <div class="btnnext">
+                                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Next</button>
                                 </div>
-                                <div class="e-id-d">
-                                    <select style="height:35px; width:100px; margin-left: 10px;" name="level" class="form-control" type="text">
-                                    <option  value="<?=$level?>" <?= get_select2('level','');?>>--Select ID--</option >
-                                    <?php if($rows2): ?>
-                                        <?php foreach($rows2 as $row): ?>
-                                            <option <?= get_select2('level', $row->id); ?> value="<?= $row->id; ?>" <?php if ($level == $row->id) {echo "selected"; } ?>>
-                                                <?= $row->id; ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                    </select>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            if(isset($_GET['level'])){
+                            ?>
+                                <div class="table">
+                                    <div class="table_header">
+                                        <h3>Materials</h3>
+                                    </div>
+                                    <div class="table_section">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Material ID</th>
+                                                    <th>Measure Unit</th>
+                                                    <th>Quantity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php if ($rows3):?>
+                                                <?php foreach ($rows3 as $row):?>
+                                                <tr>
+                                                    <td><?= $row->material_id?></td>
+                                                    <td><?= $row->measure_unit?></td>
+                                                    <td><input value="<?= $row->quantity?>" name="m_quantity[]"></td> 
+                                                </tr>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <h3>No request were found at this time</h3>
+                                            <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
-                            </div>
+                                <div class="table">
+                                    <div class="table_header">
+                                        <h3>Equipments</h3>
+                                    </div>
+                                    <div class="table_section">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Equipment ID</th>
+                                                    <th>Quantity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php if ($rows4):?>
+                                                <?php foreach ($rows4 as $row):?>
+                                                <tr>
+                                                    <td><?= $row->equipment_id?></td>
+                                                    <td><input value="<?= $row->quantity?>" name="e_quantity[]"></td>
+                                                </tr>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <h3>No request were found at this time</h3>
+                                            <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             <?php
                             }
                             ?>
                         <?php endif; ?>
                         <br>
                         <br>
-                        <div class="table_header" style="align-items: center; background-color:white">
-                        <a href="<?=ROOT?>/pmmember_search">
-                        <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
-                        </a>
-                        <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
-                        </div>
-
+                    </form>
+                        <?php
+                            if(isset($_GET['level'])){
+                        ?>
+                            <div class="table_header" style="align-items: center; background-color:white">
+                            <a href="<?=ROOT?>/pmmember_search">
+                            <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
+                            </a>
+                            <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Request">
+                            </div>
+                        <?php
+                            }   
+                        ?>
+                    
                     </div> 
                 
         </div>
+        
     </div>
-<!-- </form> -->
+    </form>
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>
     <?php $this->view('404'); ?>
