@@ -32,8 +32,14 @@ class C_Complaint extends Model{
     public function getPendingBeingDelayedComplaints(){
 
         $query="SELECT * FROM complaint   
-        WHERE complaint.type='Construction project delay ' AND complaint.status='Pending' "; 
-
+        WHERE complaint.type='Construction project delay ' AND complaint.status IN ('Pending','Notified') 
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Notified' THEN 2
+                ELSE 3
+            END
+        "; 
         //return $this->query($query);
         return $this->query($query);
     }
@@ -41,7 +47,14 @@ class C_Complaint extends Model{
     public function getPendingWorkmanshipAndMaterialsComplaints(){
 
         $query="SELECT * FROM complaint   
-        WHERE complaint.type='Quality of workmanship and materials' AND complaint.status='Pending' "; 
+        WHERE complaint.type='Quality of workmanship and materials' AND complaint.status IN ('Pending','Notified') 
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Notified' THEN 2
+                ELSE 3
+            END
+        "; 
 
         //return $this->query($query);
         return $this->query($query);
@@ -50,7 +63,14 @@ class C_Complaint extends Model{
     public function getPendingPoorCommunicationComplaints(){
 
         $query="SELECT * FROM complaint   
-        WHERE complaint.type='Poor Communication' AND complaint.status='Pending' "; 
+        WHERE complaint.type='Poor Communication' AND complaint.status IN ('Pending','Notified') 
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Notified' THEN 2
+                ELSE 3
+            END
+        "; 
 
         //return $this->query($query);
         return $this->query($query);
@@ -59,7 +79,14 @@ class C_Complaint extends Model{
     public function getPendingOtherComplaints(){
 
         $query="SELECT * FROM complaint   
-        WHERE complaint.type='Other' AND complaint.status='Pending' "; 
+        WHERE complaint.type='other ' AND complaint.status IN ('Pending','Notified') 
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Notified' THEN 2
+                ELSE 3
+            END
+        "; 
 
         //return $this->query($query);
         return $this->query($query);
