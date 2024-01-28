@@ -17,8 +17,14 @@ class C_Complaint extends Model{
     public function getPendingPhotographComplaints(){
 
         $query="SELECT * FROM complaint   
-        WHERE complaint.type='Quality of photograph' AND complaint.status='Pending' "; 
-
+        WHERE complaint.type='Quality of photograph' AND complaint.status IN ('Pending','Notified') 
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Notified' THEN 2
+                ELSE 3
+            END
+        "; 
         //return $this->query($query);
         return $this->query($query);
     }

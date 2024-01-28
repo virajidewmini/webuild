@@ -19,7 +19,17 @@
             
         }
 
-        
+
+        public function seemore($id = null){
+            // print_r("blah");
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            $complaint=new C_Complaint();
+            $data=$complaint->viewComplanitDetail($id);
+            $this->view('coordinatorcomplaints.seemore',['row'=>$data]);
+            
+        }
 
     }
 ?>

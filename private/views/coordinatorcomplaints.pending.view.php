@@ -18,27 +18,39 @@ body{
                     <thead>
                         <tr>
                             <th>Complaint ID</th>
-                            <th>Client Name</th>
                             <th>Date</th>
-                            <th>Project ID</th>
+                            <th>Status</th>
                             <th>See more</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($rows["Qualiy_of_Photographs"] as $row) :?>
-                            <tr>                       
-                                <td><?=$row->id?></td>
-                                <td></td>
-                                <td></td> 
-                                <td></td> 
-                                <td>
-                                    <a href="">
-                                        <button><i class="fa-solid fa-sheet-plastic"></i></button>
-                                    </a>
-                                </td> 
-                                
-                            </tr>
+                            <?php if($row->status=='Notified'):?>
+                                <tr style="background-color: #2ecc71;">                       
+                                    <td style="color: white;"><?=$row->id?></td>
+                                    <td style="color: white;"><?=$row->date?></td>
+                                    <td style="color: white;"><?=$row->status?></td>  
+                                    <td>
+                                        <a href="">
+                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                        </a>
+                                    </td> 
+                                    
+                                </tr>
+                            <?php elseif($row->status=='Pending'):?>
+                                <tr>                       
+                                    <td><?=$row->id?></td>
+                                    <td><?=$row->date?></td>
+                                    <td><?=$row->status?></td>  
+                                    <td>
+                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
+                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                        </a>
+                                    </td> 
+                                    
+                                </tr>
+                            <?php endif;?>
                         <?php endforeach;?>
                     </tbody>
                 </table>
