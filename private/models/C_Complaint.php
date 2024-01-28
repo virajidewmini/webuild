@@ -9,6 +9,64 @@ class C_Complaint extends Model{
         return $this->query($query,$data);
     }
     
+
+
+    //gaveesha
+
+    //this is to get unhandled complaints on photograph Quality 
+    public function getPendingPhotographComplaints(){
+
+        $query="SELECT * FROM complaint   
+        WHERE complaint.type='Quality of photograph' AND complaint.status='Pending' "; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
+
+    public function getPendingBeingDelayedComplaints(){
+
+        $query="SELECT * FROM complaint   
+        WHERE complaint.type='Construction project delay ' AND complaint.status='Pending' "; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
+
+    public function getPendingWorkmanshipAndMaterialsComplaints(){
+
+        $query="SELECT * FROM complaint   
+        WHERE complaint.type='Quality of workmanship and materials' AND complaint.status='Pending' "; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
+
+    public function getPendingPoorCommunicationComplaints(){
+
+        $query="SELECT * FROM complaint   
+        WHERE complaint.type='Poor Communication' AND complaint.status='Pending' "; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
+
+    public function getPendingOtherComplaints(){
+
+        $query="SELECT * FROM complaint   
+        WHERE complaint.type='Other' AND complaint.status='Pending' "; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
+    
+    
+    
+    
+
+
+
+
+
 }
 
 

@@ -28,11 +28,35 @@
 
             $data['manager_details']= $project_requests->managerdetails($id)[0];
             }
+
+
+            $kitchen = new Kitchen();
+            $bedroom = new Bedroom();
+            $bathroom = new Bathroom();
+            $dining = new Dining();
+            $exterior = new Exterior();
+            $living = new Living();
+            
+
             if(!empty($data['common']->modification_id)){
-            $data['modification_details']= $project_requests->modificationdetails($id)[0];
+                $data['kitchen_modification_details']=$kitchen->where('modification_id',$data['common']->modification_id) ;
+                $data['bedroom_modification_details']=$bedroom->where('modification_id',$data['common']->modification_id) ;
+                $data['bathroom_modification_details']=$bathroom->where('modification_id',$data['common']->modification_id) ;
+                $data['living_modification_details']=$living->where('modification_id',$data['common']->modification_id) ;
+                $data['dining_modification_details']=$dining->where('modification_id',$data['common']->modification_id) ;
+                $data['exterior_modification_details']=$exterior->where('modification_id',$data['common']->modification_id) ;
+                
+                
+                
             }
+
+            $model = new Models();
+
             if(!empty($data['common']->model_id)){
-            $data['model_details']= $project_requests->modeldetails($id)[0];
+
+               // $data['model_details']= $model->where('id',$data['common']->model_id) ;
+               $data['model_details']=$project_requests->modeldetails($id)[0];
+
             }
             if(strcmp($data['common']->status_of_land,"customer")==0){
                 $data['customer'] = $project_requests->customer($id)[0];
