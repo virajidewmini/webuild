@@ -577,3 +577,59 @@ INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `materia
 -- store material low normal conditions
 
 ALTER TABLE `store_materials` ADD `low_normal_limit_quantity` INT(11) NOT NULL AFTER `total_quantity`;
+
+--  store material id name change 
+ALTER TABLE `store_materials` CHANGE `id` `material_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+
+-- drop maintain and store_materials table 
+
+DROP TABLE maintain;
+
+DROP TABLE store_materials;
+
+-- create table store_materials 
+
+CREATE TABLE `webuild`.`store_materials` 
+(`material_id` INT(11) NOT NULL AUTO_INCREMENT , 
+`material_name` VARCHAR(255) NOT NULL , 
+`material_code` VARCHAR(255) NOT NULL , 
+`measure_unit` VARCHAR(255) NOT NULL , 
+`total_quantity` INT(11) NOT NULL , 
+`low_normal_limit_quantity` INT(11) NOT NULL , 
+`requested_quantity` INT(11) NOT NULL , 
+`remain_quantity` INT(11) NOT NULL , 
+`status` VARCHAR(255) NOT NULL , PRIMARY KEY (`material_id`)) ENGINE = InnoDB;
+
+ALTER TABLE `store_materials` ADD `refill_quantity` INT(11) NOT NULL AFTER `status`;
+
+
+
+-- create material batchwise table 
+
+CREATE TABLE `webuild`.`material_batches` 
+(`batch_id` INT(11) NOT NULL AUTO_INCREMENT , 
+`material_ID` INT(11) NOT NULL , 
+`batch_number` VARCHAR(255) NOT NULL , 
+`stock_quantity` INT(11) NOT NULL , PRIMARY KEY (`batch_id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `material_batches` 
+ADD CONSTRAINT `fk_materialID` 
+FOREIGN KEY (`material_ID`) REFERENCES `store_materials`(`material_id`) 
+ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- create construction_stages table  
+
+CREATE TABLE `webuild`.`construction_stages` 
+(`stage_id` INT(11) NOT NULL AUTO_INCREMENT , 
+`stage_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`stage_id`)) ENGINE = InnoDB;
+
+-- re-create maintain table 
+-- CREATE TABLE `webuild`.
+-- `maintain` (`id` INT(11) NOT NULL AUTO_INCREMENT , 
+-- `material_name` VARCHAR(255) NOT NULL , 
+-- `material_code` VARCHAR(255) NOT NULL , 
+-- `current_quantity` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
