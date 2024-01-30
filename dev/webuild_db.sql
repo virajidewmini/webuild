@@ -627,6 +627,30 @@ CREATE TABLE `webuild`.`construction_stages`
 (`stage_id` INT(11) NOT NULL AUTO_INCREMENT , 
 `stage_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`stage_id`)) ENGINE = InnoDB;
 
+
+-- create material_stage_jointable 
+
+CREATE TABLE material_stage_jointable (
+    Material_id INT,
+    Stage_id INT,
+    -- other columns if needed,
+    PRIMARY KEY (Material_id, Stage_id),
+    FOREIGN KEY (Material_id) REFERENCES store_materials(material_id),
+    FOREIGN KEY (Stage_id) REFERENCES construction_stages(stage_id)
+);
+
+-- data insert store_materials 
+
+INSERT INTO `store_materials` 
+(`material_id`, `material_name`, 
+`material_code`, `measure_unit`, 
+`total_quantity`, 
+`low_normal_limit_quantity`, 
+`requested_quantity`, 
+`remain_quantity`, 
+`status`, 
+`refill_quantity`) VALUES ('1', 'Cement', 'CE/F/1', 'Packet', '1000', '400', '', '', '', '')
+
 -- re-create maintain table 
 -- CREATE TABLE `webuild`.
 -- `maintain` (`id` INT(11) NOT NULL AUTO_INCREMENT , 
