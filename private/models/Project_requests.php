@@ -22,7 +22,7 @@ class Project_requests extends Model{
 
 
         /**
-        price
+        
         **/
 
 
