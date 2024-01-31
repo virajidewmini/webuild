@@ -91,6 +91,40 @@ class C_Complaint extends Model{
         //return $this->query($query);
         return $this->query($query);
     }
+
+
+
+    //for Admin dashboard
+    public function getComplaintsInMonth($month,$type){
+
+
+        $query="SELECT COUNT(*) AS total FROM complaint 
+        WHERE type = :type AND 
+            CASE 
+                WHEN :month = 'January'  THEN date LIKE '____-01-__'
+                WHEN :month = 'February' THEN date LIKE '____-02-__'
+                WHEN :month = 'March' THEN date LIKE '____-03-__'
+                WHEN :month = 'April' THEN date LIKE '____-04-__'
+                WHEN :month = 'May' THEN date LIKE '____-05-__'
+                WHEN :month = 'June' THEN date LIKE '____-06-__'
+                WHEN :month = 'July'  THEN date LIKE '____-07-__'
+                WHEN :month = 'February' THEN date LIKE '____-08-__'
+                WHEN :month = 'February' THEN date LIKE '____-09-__'
+                WHEN :month = 'February' THEN date LIKE '____-10-__'
+                WHEN :month = 'February' THEN date LIKE '____-11-__'
+                WHEN :month = 'February' THEN date LIKE '____-12-__'
+                ELSE FALSE
+            END 
+        "; 
+        //$data['id'] = $id;
+        // return $this->query($query,$data);
+        // //return $this->query($query);
+        return $this->query($query, [
+            'month'=> $month,
+            'type' => $type,
+        ]);
+    }
+
     
     
     
