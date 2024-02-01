@@ -338,14 +338,60 @@ class Project_requests extends Model{
     
     }
     
+    //for admindashboard
+    
+    public function getrequestsInMonth($month){
+
+        $query="SELECT COUNT(*) AS total FROM project_requests 
+        WHERE  
+            CASE 
+                WHEN :month = 'January'  THEN date LIKE '____-01-__'
+                WHEN :month = 'February' THEN date LIKE '____-02-__'
+                WHEN :month = 'March' THEN date LIKE '____-03-__'
+                WHEN :month = 'April' THEN date LIKE '____-04-__'
+                WHEN :month = 'May' THEN date LIKE '____-05-__'
+                WHEN :month = 'June' THEN date LIKE '____-06-__'
+                WHEN :month = 'July'  THEN date LIKE '____-07-__'
+                WHEN :month = 'February' THEN date LIKE '____-08-__'
+                WHEN :month = 'February' THEN date LIKE '____-09-__'
+                WHEN :month = 'February' THEN date LIKE '____-10-__'
+                WHEN :month = 'February' THEN date LIKE '____-11-__'
+                WHEN :month = 'February' THEN date LIKE '____-12-__'
+                ELSE FALSE
+            END 
+        "; 
+        
+        return $this->query($query, [
+            'month'=> $month,
+        ]);
+    
+    }
     
     
     
     
     
+    //delete once done
+
+    public function getProjectsInMonth($action,$period){
     
-    
-    
+        $query="SELECT COUNT(*) AS total FROM projects 
+            WHERE action = :action AND 
+                CASE 
+                    WHEN :period = 'first'  THEN date LIKE '____-01-__' OR date LIKE '____-02-__' OR date LIKE '____-03-__'
+                    WHEN :period = 'second' THEN date LIKE '____-04-__' OR date LIKE '____-05-__' OR date LIKE '____-06-__'
+                    WHEN :period = 'third' THEN date LIKE '____-07-__' OR date LIKE '____-08-__' OR date LIKE '____-09-__'
+                    WHEN :period = 'fourth' THEN date LIKE '____-10-__' OR date LIKE '____-12-__' OR date LIKE '____-11-__'
+                    
+                    ELSE FALSE
+                END 
+            "; 
+            
+            return $this->query($query, [
+                'action'=> $action,
+                'period' => $period,
+            ]);
+        }
     
     
     
