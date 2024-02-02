@@ -20,7 +20,7 @@
         public function add(){
             if(count($_POST) > 0){
                 $maintain=new Maintains();
-			    $maintain->insert($_POST);
+                $maintain->insert($_POST);
                 $this->redirect('maintainrequests');
             }
 
@@ -32,7 +32,7 @@
            
             if(count($_POST) > 0){
                 $maintain=new Maintains();
-			    $maintain->delete($id);
+                $maintain->delete($id);
                 $this->redirect('maintainrequests');
 
             }
@@ -43,7 +43,7 @@
            
             if(count($_POST) > 0){
                 $maintain=new Maintains();
-			    $maintain->update($id,$_POST);
+                $maintain->update($id,$_POST);
                 $this->redirect('maintainrequests');
 
             }

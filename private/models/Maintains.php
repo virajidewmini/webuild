@@ -1,5 +1,10 @@
-<?php 
-class Maintains extends Model{
+<?php
+
+class Maintains extends Model
+{
     protected $table = "maintain";
+
+    
+    // Other methods...
 }
 ?>

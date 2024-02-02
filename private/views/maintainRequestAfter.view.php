@@ -30,9 +30,10 @@
                         <td><?=$row->requested_quantity?></td>
                         
                         <td>
+
                         <a href="<?=ROOT?>/maintain/update/<?=$row->id?>"><button ><i class="fa-regular fa-pen-to-square"></i></button>
                            
-                         <a href="<?=ROOT?>/maintain/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+                        <a href="<?=ROOT?>/maintain/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
 
                         </td>
 
@@ -42,12 +43,13 @@
                     <?php endforeach;?>
 
             <?php else: ?>
-                <h3>No Complaints Yet</h3>
+                <!-- <h3>No Complaints Yet</h3> -->
 
             <?php endif; ?>
 
                 </tbody>
             </table>
+            
         </div>
     </div>
      
