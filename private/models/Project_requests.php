@@ -342,7 +342,6 @@ class Project_requests extends Model{
 
     public function get_land($data){
     
-<<<<<<< HEAD
         $land = new Land();
         foreach ($data as $key => $row1){
             if(isset($row1->land_id)){
@@ -366,7 +365,8 @@ class Project_requests extends Model{
         }
     
         return $data;
-=======
+    }
+
     //for admindashboard
     
     public function getrequestsInMonth($month){
@@ -394,7 +394,6 @@ class Project_requests extends Model{
             'month'=> $month,
         ]);
     
->>>>>>> db4d010b1b06a27bb99512cb25c6d787e488dc10
     }
     
     
