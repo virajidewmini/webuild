@@ -7,7 +7,6 @@ body{
     <div class="table">
         <div class="table_header">
             <h2>On Going Projects</h2>
-            <?php print_r($rows);?>
         </div>
         <div class="table_section">
             <table>

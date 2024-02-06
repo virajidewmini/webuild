@@ -65,7 +65,6 @@
 
     #pro_de {
         padding: 10px;
-        border: 1px solid #ccc;
         margin-top: 10px;
     }
 
@@ -122,9 +121,15 @@
                 <div class="unit">
                     <p>Project Supervisor : </p>
                 </div>
+                <?php if ($rows[0]->staff) : ?>
                 <div class="e-id-d">
                     <p><?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?></p>
                 </div>
+                <?php else: ?>
+                <div class="e-id-d">
+                    <p style="color:red">Not Assigned</p>
+                </div>
+                <?php endif; ?>
             </div>
             <div class="unit-d">
                 <div class="unit">
@@ -632,6 +637,45 @@
                     <button onclick="toggleDiv()" id="toggleButton" class="add___">More</button>
                 </div>
             </div>
+        </div>
+        <div class="pro-id-details">
+        <div class="table">
+                <div class="title-id">
+                    <div class="p-title">
+                        <h2 class="ind-topic">Members</h2>
+                    </div>
+                </div>
+                <?php if($rows[0]->staff) : ?>
+                    <div class="unit-d">
+                        <div class="unit" style="display:flex;">
+                            <h3>Supervisor :  <?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?> </h3>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="unit-d">
+                        <button style="background-color:#E5863D; color:#fff;">Add Supervisor</button>
+                    </div>
+                <?php endif; ?>
+                <div class="table_header">
+                    <h3>Co-Workers</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Skill</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
         </div>
         <div class="pro-id-details" id="mid">
             <div class="title-id">

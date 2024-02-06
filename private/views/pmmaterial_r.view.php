@@ -273,6 +273,7 @@ body{
                                 <div class="table">
                                     <div class="table_header">
                                         <h3>Equipments</h3>
+                                        <pre><?=print_r($_POST) ?></pre>
                                     </div>
                                     <div class="table_section">
                                         <table>
@@ -311,9 +312,7 @@ body{
                             <a href="<?=ROOT?>/pmmember_search">
                             <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                             </a>
-                            <form action="" id="request-submit-form">
                             <input id="request-button" class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Request">
-                            </form>
                             </div>
                         <?php
                             }   
@@ -334,20 +333,23 @@ body{
 </script> -->
 <script>
     let form = document.getElementById('form');
-    let submitForm = document.getElementById('request-submit-form');
+    let requestButton = document.getElementById('request-button');
+    
+    requestButton.addEventListener('click', function(e) {
+       let formData= new FormData(form)
+       var hiddenForm = document.createElement('form');
+            hiddenForm.setAttribute('method', 'POST');
+            hiddenForm.setAttribute('action', '');
 
-    submitForm.addEventListener('click', function(e) {
-  e.preventDefault();
-  for (var i = 0; i < form.elements.length; i++) {
-    var inputA = form.elements[i];
-    var name = inputA.name;
-    var value = inputA.value;
-    var inputB = submitForm.elements[name];
-    if (inputB) {
-      inputB.value = value;
-    }
-    submitForm.submit();
-  }
+            for (var pair of formData.entries()) {
+                var hiddenInput = document.createElement('input');
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('name', pair[0]);
+                hiddenInput.setAttribute('value', pair[1]);
+                hiddenForm.appendChild(hiddenInput);
+            }
+            document.body.appendChild(hiddenForm);
+            hiddenForm.submit();  
 }); 
 
 </script>

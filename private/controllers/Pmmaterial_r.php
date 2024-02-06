@@ -4,9 +4,7 @@
     class Pmmaterial_r extends Controller{
         
         public function index(){
-            if (!empty($_POST)) {
-                print_r($_POST);
-            }
+            
             if(!Auth::logged_in()){
                 $this->redirect('login');
             }
