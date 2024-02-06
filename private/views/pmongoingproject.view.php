@@ -7,6 +7,7 @@ body{
     <div class="table">
         <div class="table_header">
             <h2>On Going Projects</h2>
+            <?php print_r($rows);?>
         </div>
         <div class="table_section">
             <table>
@@ -28,7 +29,7 @@ body{
                                 <td><?= $row->project_request_id?></td>
                                 <td><?=get_date($row->date)?></td>
                                 <td>
-                                    <a href="<?=ROOT?>/Pmongoingproject/show/<?=$row->id?>">
+                                    <a href="<?=ROOT?>/Pmongoingproject/projectdeatils/<?=$row->id?>/<?= $row->project_request_id?>/<?= $row->req->modification_id?>/">
                                     <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
                                 </td>

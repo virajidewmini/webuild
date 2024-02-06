@@ -4,13 +4,16 @@
     class Pmmaterial_r extends Controller{
         
         public function index(){
+            if (!empty($_POST)) {
+                print_r($_POST);
+            }
             if(!Auth::logged_in()){
                 $this->redirect('login');
             }
             $pmid = Auth::getId();
 
             $projects = new Projects();
-		    $data = $projects->where2('action','ongoing','manager_id',$pmid);
+		    $data = $projects->where2('status','ongoing','manager_id',$pmid);
 
             $project_requests = new Project_requests();
 		

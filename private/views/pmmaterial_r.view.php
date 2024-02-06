@@ -9,11 +9,15 @@ body{
                padding: 0 0 20px 0;
                border-radius: 20px;
                width: 100%;
-               max-width: 700px;
+               max-width: 1200px;
                height: auto;
                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
           }
           .pro-id-details{
+            width: 100%;
+          }
+
+          .pro-id{
                width: 100%;
           }
           .title-id{
@@ -87,23 +91,23 @@ body{
 }
 }
 </style>
-<form action="" method="POST">
-<div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
-    <!-- <form action="" method="POST"> -->
-          <div class="pro-id" style="padding: 0 0 20px 0; border: 1px solid red; ">
+
+<div class="pro-id1" style="display:flex;  justify-content: center; padding: 0 0 40px 0;">
+    
+          <div class="pro-id" style="padding: 0 0 20px 0;">
           
             <?php $project_id = ""; ?>
             <?php $level = ""; ?> 
             <?php $model = ""; ?> 
                     <div class="pro-id-details">
-                    <form action="" method="GET">
+                    <form action="" method="GET" id="form">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
                                 <h3>Material Reaquests</h3>
                             </div>
                         </div>
                         <?php
-                            if(isset($_GET['project_id']) || isset($_GET['model']) || isset($_GET['level'])){
+                            if(isset($_GET['project_id']) || isset($_GET['model_id']) || isset($_GET['level'])){
                                 $project_id = isset($_GET['project_id']) ? $_GET['project_id'] : null;
                                 $level = isset($_GET['level']) ? $_GET['level'] : null;
                                 $model = isset($_GET['model_id']) ? $_GET['model_id'] : null;
@@ -254,8 +258,8 @@ body{
                                             <?php if ($rows3):?>
                                                 <?php foreach ($rows3 as $row):?>
                                                 <tr>
-                                                    <td><?= $row->material_id?></td>
-                                                    <td><?= $row->measure_unit?></td>
+                                                    <td><input readonly value="<?= $row->material_id?>" name="m_id[]"></td>
+                                                    <td><input readonly value="<?= $row->measure_unit?>" name="m_uit[]"></td>
                                                     <td><input value="<?= $row->quantity?>" name="m_quantity[]"></td> 
                                                 </tr>
                                                 <?php endforeach; ?>
@@ -282,7 +286,7 @@ body{
                                             <?php if ($rows4):?>
                                                 <?php foreach ($rows4 as $row):?>
                                                 <tr>
-                                                    <td><?= $row->equipment_id?></td>
+                                                    <td><input readonly value="<?= $row->equipment_id?>" name="e_id[]"></td>
                                                     <td><input value="<?= $row->quantity?>" name="e_quantity[]"></td>
                                                 </tr>
                                                 <?php endforeach; ?>
@@ -307,18 +311,47 @@ body{
                             <a href="<?=ROOT?>/pmmember_search">
                             <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                             </a>
-                            <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Request">
+                            <form action="" id="request-submit-form">
+                            <input id="request-button" class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Request">
+                            </form>
                             </div>
                         <?php
                             }   
                         ?>
                     
-                    </div> 
+                    
                 
         </div>
-        
     </div>
-    </form>
+<!-- <script>
+    let form = document.getElementById('form');
+    let requestButton = document.getElementById('request-button');
+    requestButton.addEventListener('click', function(e){
+        e.preventDefault();
+        form.add
+        form.submit();  
+    });
+</script> -->
+<script>
+    let form = document.getElementById('form');
+    let submitForm = document.getElementById('request-submit-form');
+
+    submitForm.addEventListener('click', function(e) {
+  e.preventDefault();
+  for (var i = 0; i < form.elements.length; i++) {
+    var inputA = form.elements[i];
+    var name = inputA.name;
+    var value = inputA.value;
+    var inputB = submitForm.elements[name];
+    if (inputB) {
+      inputB.value = value;
+    }
+    submitForm.submit();
+  }
+}); 
+
+</script>
+
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>
     <?php $this->view('404'); ?>
