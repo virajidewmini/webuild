@@ -21,7 +21,12 @@
                         if (Auth::getRole() == 'Project Coordinator'){
                             $this->redirect('/coordinatordashboard');
                         }
-                        $this->redirect('/home');
+                        if (Auth::getRole() == 'Admin'){
+                            $this->redirect('/admindashboard');
+                        }
+                        
+                            $this->redirect('/home');
+                        
                     }
                    
                 }

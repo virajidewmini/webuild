@@ -26,8 +26,9 @@ public function validate($DATA){
 }
 
 
-public function get_user($data){
+// public function get_user($data){
     
+<<<<<<< HEAD
     $staff = new Staffs();
     foreach ($data as $key => $row2){
         if(isset($row2->supervisor_id)){
@@ -35,9 +36,40 @@ public function get_user($data){
             $data[$key]->staff = is_array($result) ? $result[0] : false ;
         }
        
+=======
+//     $staff = new Staffs();
+//     foreach ($data as $key => $row2){
+        
+//         $result = $staff->where('id',$row2->supervisor_id);
+//         $data[$key]->staff = is_array($result) ? $result[0] : false ;
+>>>>>>> db4d010b1b06a27bb99512cb25c6d787e488dc10
 
+//     }
+
+//     return $data;
+
+// }
+
+//get projects according to 
+public function getProjectsInMonth($action,$period){
+    
+    $query="SELECT COUNT(*) AS total FROM projects 
+        WHERE action = :action AND 
+            CASE 
+                WHEN :period = 'first'  THEN date LIKE '____-01-__' OR date LIKE '____-02-__' OR date LIKE '____-03-__'
+                WHEN :period = 'second' THEN date LIKE '____-04-__' OR date LIKE '____-05-__' OR date LIKE '____-06-__'
+                WHEN :period = 'third' THEN date LIKE '____-07-__' OR date LIKE '____-08-__' OR date LIKE '____-09-__'
+                WHEN :period = 'fourth' THEN date LIKE '____-10-__' OR date LIKE '____-12-__' OR date LIKE '____-11-__'
+                
+                ELSE FALSE
+            END 
+        "; 
+        
+        return $this->query($query, [
+            'action'=> $action,
+            'period' => $period,
+        ]);
     }
-
     return $data;
 
 }
@@ -147,7 +179,6 @@ public function completeTask($id){
     return $this->query($query,$data);
     
 }
-
 
 
 }

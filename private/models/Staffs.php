@@ -305,6 +305,41 @@ class Staffs extends Model{
         return $data;
     }
 
+
+
+
+    //for Admin dashboard
+    public function findEmployeeByRole($value){
+
+        $query="SELECT COUNT(*) AS total FROM staff WHERE staff.role = :value";
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    //without admin
+    public function findAllEmployees(){
+
+        $query="SELECT COUNT(*) AS total FROM staff WHERE staff.role NOT IN ('Admin') ";
+
+        return $this->query($query);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 }
 
