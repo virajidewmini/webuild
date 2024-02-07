@@ -14,6 +14,8 @@ class Project_requests extends Model{
         'get_kitchen_color',
         'get_bathroom_color',
         'get_dining_color',
+        'get_land',
+        'get_land_u',
     ];
 
     public function validate($DATA){
@@ -337,7 +339,34 @@ class Project_requests extends Model{
         return $data;
     
     }
+
+    public function get_land($data){
     
+        $land = new Land();
+        foreach ($data as $key => $row1){
+            if(isset($row1->land_id)){
+                $result = $land->where('id',$row1->land_id);
+                $data[$key]->land = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+    public function get_land_u($data){
+    
+        $land_u = new User_land();
+        foreach ($data as $key => $row1){
+            if(isset($row1->land_id)){
+                $result = $land_u->where('id',$row1->land_id);
+                $data[$key]->land_u = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+
     //for admindashboard
     
     public function getrequestsInMonth($month){

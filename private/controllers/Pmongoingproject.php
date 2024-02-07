@@ -5,38 +5,85 @@
  */
 class Pmongoingproject extends Controller
 {
-	
+
 	public function index()
 	{
-		if(!Auth::logged_in()){
+		if (!Auth::logged_in()) {
 			$this->redirect('/login');
 		}
-        $pmi = Auth::getid();
+		$pmi = Auth::getid();
 
-        $projects = new Projects();
-		$data = $projects->where('manager_id',$pmi);
+		$projects = new Projects();
+		$data = $projects->where('manager_id', $pmi);
 
 		$project_request = new Project_requests();
-		$data1 = $project_request->where2('manager_id','action',$pmi,'modified');
-    
-		$this->view('pmongoingproject',[
-			'rows'=>$data,
-			'rows1'=>$data1,
+		$data1 = $project_request->where2('manager_id', 'action', $pmi, 'modified');
+
+		$this->view('pmongoingproject', [
+			'rows' => $data,
+			'rows1' => $data1,
 		]);
 	}
 
-	public function show($id = null)
+	public function projectdeatils($id = null, $req = null, $mid = null)
 	{
-		// code...
-		if(!Auth::logged_in()){
+		// code... 
+		if (!Auth::logged_in()) {
 			$this->redirect('/login');
 		}
 
-        // $project_detail = new Project_detail();
-		// $data = $project_detail->where('project_id',$id);
+		$project = new Projects();
+		$data = $project->viewProjectDetail($id);
 
-		$this->view('pmprojectprofile',['rows'=>$data]);
+		$data1 = $project->ongoingTask($id);
+		$data2 = $project->completeTask($id);
 
+		$kitchen = new Kitchen();
+		$bathroom = new Bathroom();
+		$living = new Living();
+		$bedroom = new Bedroom();
+		$dining = new Dining();
+		$exterior = new Exterior();
+
+
+		$data3 = $kitchen->where('modification_id', $mid);
+		$data4 = $bathroom->where('modification_id', $mid);
+		$data5 = $living->where('modification_id', $mid);
+		$data6 = $bedroom->where('modification_id', $mid);
+		$data7 = $dining->where('modification_id', $mid);
+		$data8 = $exterior->where('modification_id', $mid);
+
+		$project_request = new Project_requests();
+		$data9 = $project_request->where('id', $req);
+
+		$this->view('pmprojectprofile', [
+			'rows' => $data,
+			'rows1' => $data1,
+			'rows2' => $data2,
+
+			'rowk' => $data3,
+			'rowba' => $data4,
+			'rowl' => $data5,
+			'rowbe' => $data6,
+			'rowd' => $data7,
+			'rowe' => $data8,
+
+			'row3' => $data9,
+		]);
 	}
 
+	public function acceptTask($id)
+	{
+		print_r($id);
+		// code...
+		if (!Auth::logged_in()) {
+			$this->redirect('/login');
+		}
+
+		$project_task = new Project_tasks();
+		$arr['status'] = 'done';
+		$project_task->update($id, $arr);
+
+		$this->view('pmprojectprofile');
+	}
 }
