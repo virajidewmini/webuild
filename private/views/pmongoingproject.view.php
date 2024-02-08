@@ -28,7 +28,7 @@ body{
                                 <td><?= $row->project_request_id?></td>
                                 <td><?=get_date($row->date)?></td>
                                 <td>
-                                    <a href="<?=ROOT?>/Pmongoingproject/projectdeatils/<?=$row->id?>/<?= $row->project_request_id?>/<?= $row->req->modification_id?>/">
+                                    <a href="<?=ROOT?>/Pmongoingproject/projectdeatils/<?=$row->id?>/<?= $row->project_request_id?>/<?= $row->req->modification_id?>/<?= $row->req->model_id?>/">
                                     <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
                                 </td>
