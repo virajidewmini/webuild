@@ -24,6 +24,18 @@
         public function add(){
             if(count($_POST) > 0){
 
+                $message=new Message();
+        
+                $queryParams = array(
+                    'to' => '94772679930',
+                    'text' => 'Hii Panda',
+                    
+                );
+                
+                $message->callApiWithQueryParams($queryParams);
+               
+                
+
                 $model = new UploadModel();
                 
 
@@ -44,7 +56,7 @@
                     $attachment_model->insert($attachment_data);
                 }
 
-                $this->redirect('clientcomplaint');
+                // $this->redirect('clientcomplaint');
             }
 
            

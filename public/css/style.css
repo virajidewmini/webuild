@@ -201,7 +201,7 @@ input{
 
 .table_section{
     height: auto;
-    max-height: 450px;
+   
     overflow: auto;
 }
 
@@ -303,6 +303,59 @@ td img{
     border-radius: 10px;
 }
 
+/* .form-group{
+    display: flex;
+}
+.form-group input{
+    margin-top: 10px;
+    width: 50%;
+}
+.form-group input:first-child{
+    margin-right: 25px;
+}
+.form-group select:first-child{
+    margin-right: 25px;
+} */
+/* .form-group {
+    width: 48%; 
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 12px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40px;
+    font-size: medium;
+}
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 40px;
+    font-size: medium;
+}
+
+.form-group::after {
+    content: "";
+    display: table;
+    clear: both;
+} */
+
 .form-group {
     margin-bottom: 20px;
     
@@ -339,7 +392,6 @@ td img{
     display: table;
     clear: both;
 }
-
 .column {
     width: 48%;
     float: left;
@@ -487,6 +539,214 @@ td img{
 }
 
 /* view of each one end */
+
+/* ratings */
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
+/* end of ratings */
+
+/* Accept Reject Button */
+
+.accept-button, .reject-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    
+}
+
+.accept-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.accept-button:hover {
+    background-color: #45a049;
+}
+
+.reject-button {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.reject-button:hover {
+    background-color: #d32f2f;
+}
+
+.accept-button:disabled, .reject-button:disabled {
+    cursor: not-allowed; /* Change the cursor for disabled buttons */
+}
+
+/* End of Accept Reject Button */
+
+/* task view for allocate */
+.taskBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    
+}
+.task-header {
+    background-color: #eb904a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.task-name {
+    font-size: 24px;
+    margin: 0;
+}
+.subtask-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+}
+.subtask {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.subtask-icon {
+    margin-right: 10px;
+    color: #eb904a;
+}
+
+/* end of task view for allocate */
+
+/* display card */
+
+.card-container {
+    display: flex;
+    justify-content: space-evenly; 
+    margin-bottom: 30px;
+}
+
+.total-card {
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #E5863D;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.total-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card_label {
+    color: #555;
+}
+
+/* end of display card */
+
+/* Add textfields onclick */
+
+.additional-fields {
+    display: flex;
+    flex-direction: row; /* Align fields horizontally */
+    gap: 10px; 
+    margin-top: 10px;
+}
+.additional-button{
+    margin-top: 5px;
+    width: 15%;
+    border : 1px solid #E5863D;
+    height: 50px;
+}
+.additional_form-control{
+    border : 1px solid black;
+    color: black;
+    font-size: medium;
+    border-radius: 10px;
+    display: inline-block;
+    
+    padding: 15px;
+    margin: 5px 0 25px 0;
+    width: 20%;
+}
+
+/* End of add textfields onclick */
+
+.thankYouImg{
+    height: 300px;
+    width: 300px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+/* horzontal line */
+
+.or-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .or-line {
+    flex-grow: 1;
+    border-top: 1px solid #000; /* You can adjust the color as needed */
+  }
+
+  .or-text {
+    padding: 0 10px;
+  }
+
 
 /* --Collapsible-- */
 
