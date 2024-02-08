@@ -31,25 +31,26 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        
-        
+
+
     }
 
-    .unit{
+    .unit {
         /* min-width: 150px;
         width: 30%;
         margin: 5px; */
         width: 50%;
         float: left;
         box-sizing: border-box;
-        padding: 10px;    
+        padding: 10px;
         margin-left: 30%;
     }
-    .e-id-d{
+
+    .e-id-d {
         width: 50%;
         float: right;
         box-sizing: border-box;
-        padding: 10px;   
+        padding: 10px;
         margin-right: 20%;
     }
 
@@ -83,10 +84,53 @@
         margin-top: 10px;
         margin-bottom: 20px;
     }
-    .mod-title{
+
+    .mod-title {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #fff;
+    }
+
+    .container .progress-container {
+        margin-bottom: 25px;
+    }
+
+    .container .progress-container h4 {
+        margin: 0 0 15px 15px;
+        letter-spacing: .5px;
+    }
+
+    .container .progress-container .progress-bar {
+        position: relative;
+        width: 500px;
+        height: 40px;
+        border-radius: 30px;
+        background-color: white;
+        box-shadow: 3px 4px 5px 0px rgba(204 185 185 / .75);
+    }
+
+    .container .progress-container .progress-bar span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        color: white;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 2.2;
+        text-align: center;
+        border-radius: 30px;
+        background: linear-gradient(90deg, rgba(255, 152, 0, 1) 50%, rgba(255, 193, 7, 1) 100%);
+        transition: width .5s linear;
     }
 </style>
 <?= $modification_id = ""; ?>
@@ -122,13 +166,13 @@
                     <p>Project Supervisor : </p>
                 </div>
                 <?php if ($rows[0]->staff) : ?>
-                <div class="e-id-d">
-                    <p><?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?></p>
-                </div>
-                <?php else: ?>
-                <div class="e-id-d">
-                    <p style="color:red">Not Assigned</p>
-                </div>
+                    <div class="e-id-d">
+                        <p><?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?></p>
+                    </div>
+                <?php else : ?>
+                    <div class="e-id-d">
+                        <p style="color:red">Not Assigned</p>
+                    </div>
                 <?php endif; ?>
             </div>
             <div class="unit-d">
@@ -498,7 +542,7 @@
                         </div>
                     <?php endif; ?>
                     <h3 class="ind-topic">Land Details</h3>
-                    <?php if ($row3[0]->land_type=='user') : ?>
+                    <?php if ($row3[0]->land_type == 'user') : ?>
                         <div class="unit-d">
                             <div class="unit">
                                 <p>ID :</p>
@@ -555,7 +599,7 @@
                                 <p><?= $row3[0]->land_u->image ?></p>
                             </div>
                         </div>
-                    <?php else: ?>
+                    <?php else : ?>
                         <div class="unit-d">
                             <div class="unit">
                                 <p>ID :</p>
@@ -632,26 +676,78 @@
                 </div>
             </div>
             <div class="unit-d" style="display: flex; justify-content: center; align-items: center;">
-                <h3></h3>
                 <div>
                     <button onclick="toggleDiv()" id="toggleButton" class="add___">More</button>
                 </div>
             </div>
         </div>
         <div class="pro-id-details">
-        <div class="table">
+            <div class="title-id">
+                <div class="p-title">
+                    <h2 class="ind-topic">Progress</h2>
+                </div>
+            </div>
+            <div class="container">
+                <div class="progress-container">
+                    <h3>Project Progress</h3>
+                    <div class="progress-bar">
+                        <span id="p_progress" data-width="<?= (int)(($row6[0]->total_progress) / ($row4[0]->task_count)) ?>%"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="title-id">
+                <div class="p-title">
+                    <h3 class="ind-topic">Tasks Progress</h3>
+                </div>
+            </div>
+            <?php if ($row5) : ?>
+                <?php foreach ($row5 as $row) : ?>
+                    <?php if ($row->status == 'Accept') : ?>
+                        <div class="container">
+                            <div class="progress-container">
+                                <h4><?= $row->task->task_name ?></h4>
+                                <div class="progress-bar">
+                                    <span style="background:linear-gradient(90deg, rgba(0, 128, 0, 1) 50%, rgba(0, 255, 0, 1) 100%);
+" data-width="<?= $row->progress ?>%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php elseif (($row->status == 'Complete') || ($row->status == 'Ongoing')) : ?>
+                        <div class="container">
+                            <div class="progress-container">
+                                <h4><?= $row->task->task_name ?></h4>
+                                <div class="progress-bar">
+                                    <span data-width="<?= $row->progress ?>%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php elseif ($row->status == 'Pending') : ?>
+                        <div class="container">
+                            <div class="progress-container">
+                                <h4><?= $row->task->task_name ?></h4>
+                                <div style="background-color: grey;" class="progress-bar">
+                                    <span style="color: grey;" data-width="<?= $row->progress ?>%"></span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <div class="pro-id-details">
+            <div class="table">
                 <div class="title-id">
                     <div class="p-title">
                         <h2 class="ind-topic">Members</h2>
                     </div>
                 </div>
-                <?php if($rows[0]->staff) : ?>
+                <?php if ($rows[0]->staff) : ?>
                     <div class="unit-d">
                         <div class="unit" style="display:flex;">
-                            <h3>Supervisor :  <?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?> </h3>
+                            <h3>Supervisor : <?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?> </h3>
                         </div>
                     </div>
-                <?php else: ?>
+                <?php else : ?>
                     <div class="unit-d">
                         <button style="background-color:#E5863D; color:#fff;">Add Supervisor</button>
                     </div>
@@ -675,7 +771,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div> 
+            </div>
         </div>
         <div class="pro-id-details" id="mid">
             <div class="title-id">
@@ -795,6 +891,14 @@
             toggleButton.innerHTML = "Less";
         }
     }
+
+    const spans = document.querySelectorAll('.progress-bar span');
+
+    spans.forEach((span) => {
+        span.style.width = span.dataset.width;
+        span.innerHTML = span.dataset.width;
+    });
+
 </script>
 
 

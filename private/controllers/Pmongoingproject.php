@@ -25,7 +25,7 @@ class Pmongoingproject extends Controller
 		]);
 	}
 
-	public function projectdeatils($id = null, $req = null, $mid = null)
+	public function projectdeatils($id = null, $req = null, $mid = null, $model = null)
 	{
 		// code... 
 		if (!Auth::logged_in()) {
@@ -56,6 +56,13 @@ class Pmongoingproject extends Controller
 		$project_request = new Project_requests();
 		$data9 = $project_request->where('id', $req);
 
+		$task = new Tasks();
+		$data10 = $task->taskCount($model);
+
+		$allocated_task = new Allocated_tasks();
+		$data11 = $allocated_task->where('project_id', $id);
+		$data12 = $allocated_task->totalProgress($id);
+
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
 			'rows1' => $data1,
@@ -69,6 +76,9 @@ class Pmongoingproject extends Controller
 			'rowe' => $data8,
 
 			'row3' => $data9,
+			'row4' => $data10,
+			'row5' => $data11,
+			'row6' => $data12,
 		]);
 	}
 

@@ -11,6 +11,15 @@ class Tasks extends Model{
 
         return $this->query($query,$id);
     }
+
+    public function taskCount($id) {
+        $query = "SELECT COUNT(*) AS task_count
+                  FROM tasks
+                  WHERE model_id = :id";
+        $data['id'] = $id;
+    
+        return $this->query($query, $data);
+    }
     
 }
 ?>
