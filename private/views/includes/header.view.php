@@ -34,7 +34,7 @@
                 <li>
                   <a href="<?=ROOT?>/coordinatorrequests">
                     <i class="fa-solid fa-users"></i>
-                    <span class="text">Requests</span>
+                    <span class="text">Project Requests</span>
                   </a>
                 </li>
                 <li>
@@ -55,6 +55,18 @@
                   <a href="<?=ROOT?>/coordinatorviewmanagers">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Project Managers</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatormaterialrequests">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Material Requests</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatorviewsuppliers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Suppliers</span>
                   </a>
                 </li>
                 
