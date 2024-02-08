@@ -7,7 +7,7 @@ class Suppliers extends Model{
     public function getSupplier($value){
 
 
-        $query="SELECT * FROM project_requests 
+        $query="SELECT * FROM suppliers 
         INNER JOIN land ON project_requests.land_id = land.id 
         
         WHERE project_requests.user_id = :value AND project_requests.status_of_land='company' "; 
