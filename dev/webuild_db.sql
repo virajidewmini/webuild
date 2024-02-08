@@ -70,6 +70,52 @@ INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'V
 
 INSERT INTO `tile` (`id`, `name`, `price`, `file_name`, `type`) VALUES (NULL, 'Heritage Hues', '2340', 'Kitchen_tile_1.jpeg', 'KITCHEN'), (NULL, 'Antique', '1290', 'Kitchen_tile_2.jpeg', 'KITCHEN'), (NULL, 'Rustic Revival', '3000', 'Kitchen_tile_3.jpeg', 'KITCHEN'), (NULL, 'Crystal Cascade', '2700', 'Kitchen_tile_4.jpeg', 'KITCHEN')
 
+CREATE TABLE `webuild`.`quotation` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `quotation` VARCHAR(255) NOT NULL , `total_amount` DOUBLE NOT NULL , `created_date` DATETIME NOT NULL , `status` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+INSERT INTO `quotation` (`id`, `user_id`, `quotation`, `total_amount`, `created_date`, `status`) VALUES (NULL, '1', '658bf9d448f6c_1703672276.pdf', '4000000', '2024-01-02 17:58:35.000000', 'Pending');
+
+INSERT INTO `quotation` (`id`, `user_id`, `quotation`, `total_amount`, `created_date`, `status`) VALUES (NULL, '1', '65944f5766379_1704218455.pdf', '380000', '2024-01-02 18:01:21.000000', 'Pending');
+
+CREATE TABLE `webuild`.`reject_quotation` ( `id` INT NOT NULL AUTO_INCREMENT , `reason` VARCHAR(100) NOT NULL , `description` VARCHAR(255) NOT NULL , `comment` VARCHAR(100) NOT NULL , `new_quotation` VARCHAR(6) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `reject_quotation` ADD `rating` VARCHAR(30) NOT NULL AFTER `description`;
+
+CREATE TABLE `webuild`.`kitchen_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`living_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`dining_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`bathroom_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`bedroom_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`exterior_modification` ( `id` INT NOT NULL AUTO_INCREMENT , `modification_id` VARCHAR(100) NOT NULL , `tile_id` VARCHAR(30) NOT NULL , `paint_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `webuild`.`allocated_task` ( `id` INT NOT NULL AUTO_INCREMENT , `task_id` INT NOT NULL , `status` VARCHAR(10) NOT NULL , `progress` INT(3) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `allocated_task` CHANGE `progress` `progress` INT(3) NOT NULL DEFAULT '0';
+
+ALTER TABLE `allocated_task` ADD `project_id` INT NOT NULL AFTER `id`;
+
+INSERT INTO `task_coworker` (`id`, `task_id`, `role`, `count`) VALUES ('', '1', 'Concrete Worker', '4'), ('', '1', 'General Laborer', '6'), ('', '1', 'Equipment Operator', '1')
+
+INSERT INTO `task_coworker` (`id`, `task_id`, `role`, `count`) VALUES (NULL, '2', 'Carpenter', '4'), (NULL, '2', 'Steel Workers', '3'), (NULL, '2', 'General Laborer', '2'), (NULL, '2', 'Equipment Operator', '1')
+
+INSERT INTO `coworker` (`id`, `name`, `phone_no`, `district`, `address`, `role`) VALUES (NULL, 'Thusitha deshan', '94775489485', 'Galle', '1st Lane, Upper Dickson Rd, Galle', 'General Laborer'), (NULL, 'Nuvini Wasana', '94761257631', 'Galle', '2nd Lane, Lower Dickson Rd, Galle', 'General Laborer');
+
+ALTER TABLE `allocated_task` ADD `est_start_date` DATE NULL AFTER `progress`, ADD `est_end_date` DATE NULL AFTER `est_start_date`;
+ALTER TABLE `allocated_task` DROP `est_end_date`;
+
+ALTER TABLE `tasks` ADD `duration` INT(5) NOT NULL AFTER `sub_task_count`;
+
+ALTER TABLE tasks ADD PRIMARY KEY (id);
+
+UPDATE `allocated_task` SET `est_start_date` = '2024-01-02' WHERE `allocated_task`.`id` = 7; UPDATE `allocated_task` SET `est_start_date` = '2024-01-14' WHERE `allocated_task`.`id` = 8; UPDATE `allocated_task` SET `est_start_date` = '2024-01-12' WHERE `allocated_task`.`id` = 9; UPDATE `allocated_task` SET `est_start_date` = '2024-01-13' WHERE `allocated_task`.`id` = 10; UPDATE `allocated_task` SET `status` = 'Pending', `est_start_date` = '2024-01-20' WHERE `allocated_task`.`id` = 11;
+
+CREATE TABLE `webuild`.`allocate_coworker` ( `id` INT NULL , `emp_id` INT NOT NULL , `project_id` INT NOT NULL , `task_id` INT NOT NULL , `start_date` DATE NOT NULL , `end_date` DATE NOT NULL ) ENGINE = InnoDB;
+
+ALTER TABLE `allocate_coworker` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
 
 -- here
 ALTER TABLE `complaint` CHANGE `remark` `remark` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
