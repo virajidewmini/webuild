@@ -23,9 +23,7 @@
     }
     </style>
 
-        <pre>
-            <?php print_r($rows);?>
-        </pre>
+        
             <div class="form-row">
                 <div class="form-group2">
                     <label class="v_label" id="id">Complaint ID :</label>
