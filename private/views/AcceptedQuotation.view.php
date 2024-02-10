@@ -12,15 +12,16 @@
   
     <tr>
         <th class="viewTableHeader">Total Project Cost</th>
-        <td class="viewTableData" id="complaintId">RS. 200 000 000</td>
+        <td class="viewTableData" id="cost" >RS. 200 000 000</td>
     </tr>
+    
     <tr> 
         <th class="viewTableHeader">Initial Payment Amount</th>
-        <td class="viewTableData" id="complaintType">RS. 2 000 000</td>
+        <td class="viewTableData">RS. <span id="price">2 000 000</span></td>
     </tr>
     <tr>
         <th class="viewTableHeader">Payment Due Date</th>
-        <td class="viewTableData" id="complaintDescription">24.01.2024</td>
+        <td class="viewTableData" id="date">24.01.2024</td>
     </tr>
 
   
@@ -38,4 +39,6 @@
 <p> <b>3.</b>  Clients are required to notify us in writing of their intention to cancel the project, stating the reasons for cancellation.</p>
 <p> <b>4.</b>  Refunds, if applicable, will be processed within 90 business days after deducting the applicable cancellation fee.</p>
 
-<a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="button" style=" margin-left: 830px; margin-top: 30px;">Pay</button></a>
+<button class="v_submit_button" onclick="buyNow()"  style=" margin-left: 830px; margin-top: 30px;">Pay</button>
+
+<?php $this->view('includes/footer'); ?>
