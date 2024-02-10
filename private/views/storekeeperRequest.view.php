@@ -16,7 +16,7 @@
                         <th>Material Code</th>
                         <th>Material Name</th>
                         <th>Measure Unit</th>
-                        <th> Quntity</th>
+                        <th>Quntity</th>
                         <th>Availability</th>
                         
                         <th> Action</th>
@@ -36,9 +36,8 @@
                         
                         
                         <td>
-                        <a href="<?=ROOT?>/request/sendQuotation/<?=$row->id?>"><button  id="button1" onclick="disableButton()"><i class="fa-solid fa-square-check"></i></button>
-                        <a href="<?=ROOT?>/clientcomplaint/delete/<?=$row->id?>"><button ><i class="fa-solid fa-clock"></i></button></a>
-                        <a href="<?=ROOT?>/request/delete/<?=$row->id?>"><button id="button2" onclick="disableButton()" ><i class="fa-solid fa-circle-xmark"></i></button></a>
+                        <a href="<?=ROOT?>/quotationorder/add"><button ><i class="fa-regular fa-clock"></i></button></a>
+                        
                         </td>
 
                         
@@ -56,19 +55,7 @@
         </div>
     </div>
      
-    <script>
-        function disableButton() {
-      // Get the clicked button element
-      var clickedButton = event.target;
-
-      // Disable the clicked button
-      clickedButton.disabled = true;
-
-      // Enable the other button
-      var otherButton = (clickedButton.id === 'button1') ? document.getElementById('button2') : document.getElementById('button1');
-      otherButton.disabled = false;
-    }
-    </script>
+    
 
 <?php $this->view('includes/footer'); ?>
 

@@ -211,6 +211,9 @@ INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `materia
 ('11', '100', '3', 'vvf', 'vdsv', 2),
 ('11', '100', '3', 'vvf', 'vdsv', 2);
 
+ALTER TABLE `material_requests` 
+ADD `availablity` VARCHAR(255) NOT NULL AFTER `Remain_quantity`, ADD `action` VARCHAR(255) NOT NULL AFTER `availablity`;
+
 -- --------------------------------------------------------
 
 --
@@ -226,6 +229,8 @@ CREATE TABLE `project_details` (
   `location` varchar(100) NOT NULL,
   `action` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 
 --
 -- Dumping data for table `project_details`
@@ -614,12 +619,20 @@ CREATE TABLE `webuild`.`material_batches`
 `batch_number` VARCHAR(255) NOT NULL , 
 `stock_quantity` INT(11) NOT NULL , PRIMARY KEY (`batch_id`)) ENGINE = InnoDB;
 
+ALTER TABLE `material_batches` 
+ADD `unit_price` INT(11) NOT NULL AFTER 
+`stock_quantity`, ADD `total_price` INT(11) NOT NULL AFTER `unit_price`;
+
 
 ALTER TABLE `material_batches` 
 ADD CONSTRAINT `fk_materialID` 
 FOREIGN KEY (`material_ID`) REFERENCES `store_materials`(`material_id`) 
 ON DELETE RESTRICT ON UPDATE RESTRICT;
 
+INSERT INTO `material_batches` 
+(`batch_id`, `material_ID`, 
+`batch_number`, `stock_quantity`, 
+`unit_price`, `total_price`) VALUES ('1', '1', 'CE/B1', '1000', '400', '400000')
 
 -- create construction_stages table  
 
@@ -627,7 +640,13 @@ CREATE TABLE `webuild`.`construction_stages`
 (`stage_id` INT(11) NOT NULL AUTO_INCREMENT , 
 `stage_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`stage_id`)) ENGINE = InnoDB;
 
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('1', 'foundation')
 
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('2', 'framing'), ('3', 'enclousure')
+
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('4', 'mechanical system');
+
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('5', 'finishing'), ('6', 'exterior finish')
 -- create material_stage_jointable 
 
 CREATE TABLE material_stage_jointable (
@@ -651,9 +670,40 @@ INSERT INTO `store_materials`
 `status`, 
 `refill_quantity`) VALUES ('1', 'Cement', 'CE/F/1', 'Packet', '1000', '400', '', '', '', '')
 
+
+
+INSERT INTO `store_materials` 
+(`material_id`, `material_name`,
+`material_code`, `measure_unit`, 
+`total_quantity`, `low_normal_limit_quantity`, 
+`requested_quantity`, `remain_quantity`, `status`, 
+`refill_quantity`) VALUES ('2', 'Crashed Stones', 'CRS/F/2', 'cubic meters', '500', '200', '', '', '', '')
+
 -- re-create maintain table 
 -- CREATE TABLE `webuild`.
 -- `maintain` (`id` INT(11) NOT NULL AUTO_INCREMENT , 
 -- `material_name` VARCHAR(255) NOT NULL , 
 -- `material_code` VARCHAR(255) NOT NULL , 
 -- `current_quantity` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `maintain` CHANGE `id` `maintain_id` INT(11) NULL AUTO_INCREMENT;
+
+ALTER TABLE `maintain` CHANGE `maintain_id` `maintain_id` INT(11) NULL AUTO_INCREMENT;
+
+
+
+
+CREATE TABLE `webuild`.`sendquotation` 
+(`quotation_id` INT(11) NOT NULL , 
+`material_ID` INT(11) NOT NULL , 
+`material_name` VARCHAR(255) NOT NULL , 
+`material_code` VARCHAR(255) NOT NULL , 
+`batch_NO` VARCHAR(255) NOT NULL ,
+`measure_Unit` VARCHAR(255) NOT NULL , 
+`send_quantity` INT(11) NOT NULL , 
+`unit_Price` INT(11) NOT NULL , 
+`total_price` INT(11) NOT NULL , 
+`quotation_issue_date` DATE NOT NULL ) ENGINE = InnoDB;
+
+ALTER TABLE `sendquotation` CHANGE `quotation_id` `quotation_id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`quotation_id`);
+ALTER TABLE `sendquotation` ADD `decision` VARCHAR(255) NOT NULL AFTER `quotation_issue_date`;

@@ -8,7 +8,7 @@
 			 	<input style="margin-top: 20px; display: block; margin-left: auto; margin-right: 0; color: white; background-color: #E5863D;" 
 					class="btn btn-danger float-end"  type="submit" value="Delete">
 					
-					<!-- <a href="<?=ROOT?>/maintainrequests"> <button class="v_submit_button" type="submit">Submit</button></a> -->
+					<a href="<?=ROOT?>/quotationorder"> <button class="v_submit_button" type="submit">Submit</button></a>
 
 			 </form>
 </div>

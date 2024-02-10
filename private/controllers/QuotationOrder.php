@@ -1,28 +1,25 @@
 <?php 
-    class Request extends Controller{
+    class QuotationOrder extends Controller{
         public function index(){
             
                 //$db = new Database();
-                //$request=$this->load_model('request');
-                $request=new Requests();
+                $quotationorder=new QuotationSK();
+
                 // $data = $db->query("select * from miantain");
-                //$data= $request->where('id',1);
+                $data= $quotationorder->findAll();
                 //$arr['project_id']='2';
                 //$arr['status']='Pending';
-                //$request->insert($arr);
-                // $request->update(3,$arr);
-                // $request->delete(4);
-                $data=$request->findAll();
-                $this->view('storekeeperrequest',['rows'=> $data]);
-
-
-
+                //$mainTain->insert($arr);
+                // $maintain->update(3,$arr);
+                // $maintain->delete(4);
+                // $data=$maintain->findAll();
+                $this->view('quotationSendAfter',['rows'=> $data]);
         }
 
         public function add(){
             if(count($_POST) > 0){
-                $request=new QuotationSK();
-                $request->insert($_POST);
+                $quotationorder=new QuotationSK();
+                $quotationorder->insert($_POST);
                 $this->redirect('quotationorder');
             }
 
@@ -34,8 +31,8 @@
         public function delete($id=null){
            
             if(count($_POST) > 0){
-                $request=new QuotationSK();
-                $request->delete($id);
+                $quotationorder=new QuotationSK();
+                $quotationorder->delete($id);
                 $this->redirect('quotationorder');
 
             }
@@ -45,13 +42,14 @@
         public function update($id=null){
            
             if(count($_POST) > 0){
-                $request=new QuotationSK();
-                $request->update($id,$_POST);
+                $quotationorder=new QuotationSK();
+                $quotationorder->update($id,$_POST);
                 $this->redirect('quotationorder');
 
             }
             $this->view('storekeeperUpdateQuotation');
         }
+   
         
     }
 ?>
