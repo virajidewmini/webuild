@@ -10,6 +10,17 @@
                 //$arr['project_id']='2';
                 //$arr['status']='Pending';
                 //$mainTain->insert($arr);
+
+                usort($data, function($a, $b) {
+                    if ($a->decision == 'REJECT' && $b->decision != 'REJECT') {
+                        return 1; // Move "REJECT" row to the bottom
+                    } elseif ($a->decision != 'REJECT' && $b->decision == 'REJECT') {
+                        return -1; // Keep "REJECT" row at the top
+                    } else {
+                        return 0; // Preserve original order for other rows
+                    }
+                });
+                
                 // $maintain->update(3,$arr);
                 // $maintain->delete(4);
                 // $data=$maintain->findAll();

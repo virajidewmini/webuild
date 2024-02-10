@@ -9,6 +9,15 @@
                 $data= $storeMaintain->findAll();
                 //$arr['project_id']='2';
                 //$arr['status']='Pending';
+                usort($data, function($a, $b) {
+                    if ($a->status == 'NORMAL' && $b->status != 'NORMAL') {
+                        return 1; // Move "REJECT" row to the bottom
+                    } elseif ($a->status != 'NORMAL' && $b->status == 'NORMAL') {
+                        return -1; // Keep "REJECT" row at the top
+                    } else {
+                        return 0; // Preserve original order for other rows
+                    }
+                });
                 //$mainTain->insert($arr);
                 // $maintain->update(3,$arr);
                 // $maintain->delete(4);
