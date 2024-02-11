@@ -5,9 +5,7 @@ body{
     overflow: hidden;
 }
 </style>
-<pre>
-    <?php print_r($rows);?>
-</pre>
+
     <?php if($rows):?>
         <div class="table">
             <div class="table_header">

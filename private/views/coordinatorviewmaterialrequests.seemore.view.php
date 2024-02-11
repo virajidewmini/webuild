@@ -61,6 +61,11 @@
                             <div class="column">
                                 <label for="lastName">Contact Person's Email</label>
                                 <input type="text" id="occupation" name="occupation" value= "<?= $rows["supplier"]->contact_person_email;?>">
+                                <br>
+                                <br>
+                                <a href="<?=ROOT?>/coordinatormaterialrequests/emailsupplier/<?= $rows["supplier"]->id?>">                
+                                   <input type="button" value="Email Supplier"class="">
+                                </a>
                             </div>
                             
                         </div>

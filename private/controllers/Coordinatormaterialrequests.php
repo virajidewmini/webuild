@@ -31,7 +31,18 @@
             $this->view('coordinatorviewmaterialrequests.seemore',['rows'=>$data]);
         }
 
+        public function emailsupplier($id = null){
+           
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            
+            $material_requests=new Material_requests();
 
+            
+            $this->view('coordinatorviewmaterialrequests.emailsupplier');
+            //$this->view('coordinatorviewmaterialrequests.seemore',['rows'=>$data]);
+        }
         
 
     }
