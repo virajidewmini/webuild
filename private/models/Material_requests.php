@@ -25,12 +25,12 @@ class Material_requests extends Model{
         return $data;
     }
     
-    public function getStaffID($value,$type){
+    public function getSupplierDetails($value){
 
 
 
-        $query="SELECT * FROM projects        
-        WHERE projects.id = :value"; 
+        $query="SELECT * FROM suppliers        
+        WHERE suppliers.material = :value"; 
     
 
         
