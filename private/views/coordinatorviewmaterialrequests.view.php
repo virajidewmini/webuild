@@ -5,6 +5,9 @@ body{
     overflow: hidden;
 }
 </style>
+<pre>
+    <?php print_r($rows);?>
+</pre>
     <?php if($rows):?>
         <div class="table">
             <div class="table_header">
@@ -30,7 +33,7 @@ body{
                         <?php foreach ($rows as $row) :?>
                                 <tr>                       
                                     <td><?=$row->id?></td>
-                                    <td><?=$row->material->name?></td>
+                                    <td><?=$row->material->material_name?></td>
                                     <td><?=$row->requested_quantity?></td>
                                     <td><?=$row->requested_date?></td>
                                     <td><?=$row->status?></td>  
