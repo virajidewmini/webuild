@@ -105,18 +105,17 @@
  
     <form action="" method="post" enctype="multipart/form-data" class="under">
     <div class="info">
-        Send an email to 
+        Send an email to <?php print_r($rows['supplier']);?>
     </div>
 
-    
     <label>Enter Supplier's email</label>
-    <input type="email" name="email" value="">
+    <input type="email" name="email" value="<?php print_r($rows['email']);?>">
 
     <label>Enter a subject</label>
-    <input type="text" name="subject" value="">
+    <input type="text" name="subject" value="<?php print_r($rows['subject']);?>">
 
     <label>Enter your message</label>
-    <textarea name="message"></textarea>
+    <textarea name="message" ><?php print_r($rows['message']);?></textarea>
 
     <button type="submit" name="submit">Submit</button>
     
@@ -124,8 +123,17 @@
     <?php
       if(@$response == "success"){
          ?>
+         <style>
+            .sidebar,.content nav{
+                filter: blur(5px);
+                pointer-events: none;
+            }
+            .success{
+                filter: blur(0px); 
+            }
+         </style>
             <p class="success">Email send successfully</p>
-            <a href="<?=ROOT?>/coordinatormaterialrequests">                
+            <a href="<?=ROOT?>/coordinatormaterialrequests/changestatus/<?= $rows['reqID'];?>">                
                 <input type="button" value="Go Back"class="">
             </a>
          <?php

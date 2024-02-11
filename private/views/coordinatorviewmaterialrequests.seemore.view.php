@@ -60,12 +60,22 @@
                             </div>
                             <div class="column">
                                 <label for="lastName">Contact Person's Email</label>
-                                <input type="text" id="occupation" name="occupation" value= "<?= $rows["supplier"]->contact_person_email;?>">
-                                <br>
-                                <br>
-                                <a href="<?=ROOT?>/coordinatormaterialrequests/emailsupplier/<?= $rows["supplier"]->id?>">                
-                                   <input type="button" value="Email Supplier"class="">
-                                </a>
+                                <input type="text" id="occupation" name="occupation" value= "<?= $rows["supplier"]->contact_person_email;?>">    
+                            </div>
+                            <div class="column">
+                                <?php if($rows["common"]->status=="Pending"):?>
+                                    <br>
+                                    <br>
+                                    <a href="<?=ROOT?>/coordinatormaterialrequests/emailsupplier/<?= $rows["supplier"]->name;?>/<?= $rows["supplier"]->contact_person_email;?>/<?=$rows["common"]->material->material_name;?>/<?= $rows["common"]->requested_quantity;?>/<?= $rows["common"]->id;?>">                
+                                    <button style="margin-left: 180px; ">Email Supplier</button>
+                                    </a>
+                                <?php elseif($rows["common"]->status=="Emailed"):?>
+                                    <br>
+                                    <br>
+                                    <a href="<?=ROOT?>/coordinatormaterialrequests/changeStatusToRecieved/<?= $rows["common"]->id;?>">                
+                                    <button style="margin-left: 180px; ">Change Status to 'Recieved'</button>
+                                    </a>
+                                <?php endif;?>
                             </div>
                             
                         </div>

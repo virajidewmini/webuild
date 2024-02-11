@@ -31,8 +31,6 @@ class Material_requests extends Model{
 
         $query="SELECT * FROM suppliers        
         WHERE suppliers.material = :value"; 
-    
-
         
         return $this->query($query, [
             'value' => $value,
@@ -40,8 +38,20 @@ class Material_requests extends Model{
     }
 
 
+    public function findAll(){
 
-    
+        $query="SELECT * FROM material_requests_to_coordinator  
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Emailed' THEN 2
+                WHEN status='Recieved' THEN 3
+                ELSE 4
+            END
+        "; 
+        //return $this->query($query);
+        return $this->query($query);
+    }
     
     
 

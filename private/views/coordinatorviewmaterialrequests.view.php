@@ -29,6 +29,22 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows as $row) :?>
+                            <?php if($row->status=='Emailed'):?>
+                                <tr style="background-color: #2ecc71;">                       
+                                    
+                                    <td style="color: white;"><?=$row->id?></td>
+                                    <td style="color: white;"><?=$row->material->material_name?></td>
+                                    <td style="color: white;"><?=$row->requested_quantity?></td>
+                                    <td style="color: white;"><?=$row->requested_date?></td>
+                                    <td style="color: white;"><?=$row->status?></td>  
+                                    <td>
+                                        <a href="<?=ROOT?>/coordinatormaterialrequests/seemore/<?=$row->id?>">
+                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                        </a>
+                                    </td> 
+                                    
+                                </tr>
+                            <?php elseif($row->status=='Pending'):?>
                                 <tr>                       
                                     <td><?=$row->id?></td>
                                     <td><?=$row->material->material_name?></td>
@@ -42,6 +58,23 @@ body{
                                     </td> 
                                     
                                 </tr>
+                            <?php elseif($row->status=='Recieved'):?>
+                                <tr style="background-color: #e5863d;">                       
+                                    
+                                    <td style="color: white;"><?=$row->id?></td>
+                                    <td style="color: white;"><?=$row->material->material_name?></td>
+                                    <td style="color: white;"><?=$row->requested_quantity?></td>
+                                    <td style="color: white;"><?=$row->requested_date?></td>
+                                    <td style="color: white;"><?=$row->status?></td>  
+                                    <td>
+                                        <a href="<?=ROOT?>/coordinatormaterialrequests/seemore/<?=$row->id?>">
+                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                        </a>
+                                    </td> 
+                                    
+                                </tr>
+                            <?php endif;?>
+                                
                         <?php endforeach;?>
                     </tbody>
                 </table>

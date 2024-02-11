@@ -55,6 +55,7 @@
 
             $errors=array();        
             if (count($_POST)>0){
+
                 if($supplier->validate2($_POST)){
 
                 $supplier->update($id,$_POST);
