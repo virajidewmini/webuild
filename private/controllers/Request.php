@@ -19,39 +19,39 @@
 
         }
 
-        public function add(){
-            if(count($_POST) > 0){
-                $request=new QuotationSK();
-                $request->insert($_POST);
-                $this->redirect('quotationorder');
-            }
+        // public function add(){
+        //     if(count($_POST) > 0){
+        //         $request=new QuotationSK();
+        //         $request->insert($_POST);
+        //         $this->redirect('quotationorder');
+        //     }
 
-            $this->view('storekeeperRequestQuotation');
-        }
+        //     $this->view('storekeeperRequestQuotation');
+        // }
 
 
         
-        public function delete($id=null){
+        // public function delete($id=null){
            
-            if(count($_POST) > 0){
-                $request=new QuotationSK();
-                $request->delete($id);
-                $this->redirect('quotationorder');
+        //     if(count($_POST) > 0){
+        //         $request=new QuotationSK();
+        //         $request->delete($id);
+        //         $this->redirect('quotationorder');
 
-            }
-            $this->view('storekeeperDeleteQuotation');
-        }
+        //     }
+        //     $this->view('storekeeperDeleteQuotation');
+        // }
         
-        public function update($id=null){
+        // public function update($id=null){
            
-            if(count($_POST) > 0){
-                $request=new QuotationSK();
-                $request->update($id,$_POST);
-                $this->redirect('quotationorder');
+        //     if(count($_POST) > 0){
+        //         $request=new QuotationSK();
+        //         $request->update($id,$_POST);
+        //         $this->redirect('quotationorder');
 
-            }
-            $this->view('storekeeperUpdateQuotation');
-        }
+        //     }
+        //     $this->view('storekeeperUpdateQuotation');
+        // }
         
     }
 ?>

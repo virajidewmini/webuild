@@ -30,6 +30,7 @@
 
             $this->view('storekeeperSendRequests');
         }
+        
         public function delete($id=null){
            
             if(count($_POST) > 0){
