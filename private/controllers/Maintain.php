@@ -18,6 +18,23 @@
                         return 0; // Preserve original order for other rows
                     }
                 });
+                
+                // Get the filter value from the request
+        $materialNameFilter = isset($_GET['material_name']) ? $_GET['material_name'] : null;
+
+        // If a filter is applied, filter the data by material_name
+        if ($materialNameFilter !== null) {
+            $filteredData = [];
+            foreach ($data as $row) {
+                if (stripos($row->material_name, $materialNameFilter) !== false) {
+                    $filteredData[] = $row;
+                }
+            }
+            $data = $filteredData;
+        }
+                
+
+                
                 //$mainTain->insert($arr);
                 // $maintain->update(3,$arr);
                 // $maintain->delete(4);
@@ -26,40 +43,6 @@
         }
 
         
-        // public function add(){
-        //     if(count($_POST) > 0){
-        //         $maintain=new Maintains();
-        //         $maintain->insert($_POST);
-        //         $this->redirect('maintainrequests');
-        //     }
-
-        //     $this->view('storekeeperSendRequests');
-        // }
-
-        
-        // public function delete($id=null){
-           
-        //     if(count($_POST) > 0){
-        //         $maintain=new Maintains();
-		// 	    $maintain->delete($id);
-        //         $this->redirect('maintainrequests');
-
-        //     }
-        //     $this->view('DeleteMaintain');
-        // }
-        
-        
-        
-        // public function update($id=null){
-           
-        //     if(count($_POST) > 0){
-        //         $maintain=new Maintains();
-        //         $maintain->update($id,$_POST);
-        //         $this->redirect('maintainrequests');
-
-        //     }
-        //     $this->view('editMaintainRequests');
-        // }
         
     }
 ?>
