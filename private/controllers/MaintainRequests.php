@@ -11,6 +11,11 @@
                 //$data= $maintainrequests->where('id',1);
                 //$arr['project_id']='2';
                 //$arr['status']='Pending';
+
+                // Check if there is a search query
+        
+
+
                 //$maintainrequests->insert($arr);
                 //$maintainrequests->update(3,$arr);
                 //$maintainrequests->delete(4);

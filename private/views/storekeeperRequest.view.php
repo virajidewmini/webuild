@@ -1,6 +1,12 @@
 <?php $this->view('includes/header')?>
 
 <div class="table">
+
+<form method="GET" action="<?= ROOT ?>/request/index">
+    <input type="text" name="filter" placeholder="Enter project CODE...">
+    <button type="submit" class="filter-button">Filter</button>
+</form>
+
     <div class="table_header">
         <h1>Requests from project manager</h1>
     </div>
