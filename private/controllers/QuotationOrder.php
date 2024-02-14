@@ -9,6 +9,20 @@
                 $data= $quotationorder->findAll();
                 //$arr['project_id']='2';
                 //$arr['status']='Pending';
+
+// Check if there is a search query
+$filter = isset($_GET['filter']) ? $_GET['filter'] : null;
+
+// If a filter is applied, filter the data by p_id
+if ($filter !== null) {
+    // Perform filtering based on p_id
+    $filteredData = array_filter($data, function($row) use ($filter) {
+        return stripos($row->p_id, $filter) !== false;
+    });
+
+    $data = $filteredData;
+}
+
                 //$mainTain->insert($arr);
 
                 usort($data, function($a, $b) {
@@ -60,7 +74,7 @@
             }
             $this->view('storekeeperUpdateQuotation');
         }
-   
+       
         
     }
 ?>
