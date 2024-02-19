@@ -67,8 +67,25 @@
             $this->view('UpdateDailyProgessReport');
         }
 
-        public function viewReport(){
-            $this->view('ViewDailyProgressReport');
+        public function viewReport($id=null){
+
+            $report= new ProgressReport();
+            $data=$report->viewReportDetail($id);
+            $weather=$report->viewWeatherDetail($id);
+            $challenge=$report->viewChallengeDetail($id);
+
+            $this->view('ViewDailyProgressReport',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
+        }
+
+        public function delete($id=null){
+           
+            if(count($_POST) > 0){
+                $clientComplaint=new ProgressReport();
+			    $clientComplaint->deleteReport($id);
+                $this->redirect('dailyprogressreport');
+
+            }
+            $this->view('DeleteComplaint');
         }
 
     }

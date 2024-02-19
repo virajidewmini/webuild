@@ -180,7 +180,7 @@
            
                 <div style="display: flex;">
                 <a href="#" class="form_btn form_btn-previous">Previous</a> 
-                <a href="#" ><button class="v_submit_button" style="margin-left:500px; width:200px;" type="submit">Submit</button></a>
+                <a href="<?=ROOT?>/dailyprogressreport/" ><button class="v_submit_button" style="margin-left:500px; width:200px;" type="submit">Submit</button></a>
           
             </div>
             

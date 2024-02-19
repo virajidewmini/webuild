@@ -17,7 +17,7 @@
                 $complaint_attachment= new Attachment();
                 $attachment= $complaint_attachment->where('reference_id',$id);
                 $this->view('ViewMoreComplaint',['rows'=> $data,'attachment'=>$attachment]);
-                //$this->redirect('clientcomplaint');
+                
             
         }
 
