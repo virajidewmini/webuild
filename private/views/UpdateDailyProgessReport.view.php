@@ -1,21 +1,20 @@
-<?php $this->view('includes/header')?>
+<?php $this->view('includes/header')?> 
 
 <div  class="table_header" >
         <h1 style="margin-left: 35%;">Daily Progress Report</h1>
 </div>
- <form method="post" >
+ 
 <div class="form_container">
     <div class="form_progressbar">
         <div class="form_progress" id="form_progress"></div>
         <div class="form_progress-step  form_progress-step-active" data-title="Weather Report"></div>
-        <div class="form_progress-step" data-title="Machinery Details"></div>
         <div class="form_progress-step" data-title="Work Description"></div>
         <div class="form_progress-step" data-title="Challenges"></div>
         <div class="form_progress-step" data-title="General Note"></div>
     </div>
    
    
-
+    <form method="post" >
     <!-- First Form -->
         <div class="v_form-step v_form-step-active">
             <h1 style="text-align: center; margin-bottom:30px;" >Weather Report</h1>
@@ -94,13 +93,13 @@
             </div>
         <br>
 
-        <label class="v_label" id="temp" style="font-weight: bolder;">Temparature</label>
+        <label class="v_label" id="tempe" name='tempe'style="font-weight: bolder;">Temperature</label>
        
-        <input type="text" name="description" id="description" class="v_form-control" style=" width:400px; margin-left:32px;" required>
+        <input type="text" name="temp" id="temp" class="v_form-control" style=" width:400px; margin-left:32px;" required>
         <br>
-        <label class="v_label" id="overall" style="font-weight: bolder;">Overall Weather </label>
+        <label class="v_label" id="overallW" style="font-weight: bolder;">Overall Weather </label>
            
-            <select id="type" name="type" class="v_form-control" style=" width:400px; margin-left:10px" >
+            <select id="type" name="overall" class="v_form-control" style=" width:400px; margin-left:10px" >
                 <option value="" disabled selected>Select Weather Type</option>
                 <option value="Sunny with Scattered Clouds">Sunny with Scattered Clouds</option>
                 <option value="Partly Cloudy with Showers">Partly Cloudy with Showers</option>
@@ -111,63 +110,11 @@
             </select>    
             <a class="form_btn form_btn-next">Next</a>
         </div>
+        
 
     <!-- End of the First Form -->
 
-    <!-- Second Form -->
-    <div class="v_form-step ">
-
-            <div class="table" style="max-height: 500px;">
-            <div class="table_header" style="background-color: white;">
-                    <h1>Machinery Details</h1>
-                    <div>
-                    <a href="https://www.youtube.com/"><button class="add___">Add New</button></a>   
-                    </div>
-                </div>
-                <div class="table_section" style="height: 1000px;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Machine Type</th>
-                                <th>Start Meter</th>
-                                <th>End Meter</th>
-                                <th>Hours/Days</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        
-                                <tr>
-                                <td>Excavator</td>
-                                <td>12345.8</td>
-                                <td>14566.9</td>
-                                <td>6 Hours</td>
-                                
-                                <td>
-                                <a href="<?=ROOT?>/clientcomplaint/viewComplaint/"><button ><i class="fa-solid fa-eye"></i></button></a>
-                                
-                                <a href="<?=ROOT?>/clientcomplaint/delete/"><button ><i class="fas fa-trash-alt"></i></button></a> 
-
-                                </td>
-                                
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-        
-            <div class="form_btns-group">
-                <a href="#" class="form_btn form_btn-previous">Previous</a>
-                <a href="#" class="form_btn form_btn-next">Next</a>
-            </div>
-            
-
-</div>
-
-
-<!-- End of the Second Form -->
+    
 
  <!-- Third Form -->
 
@@ -191,26 +138,26 @@
     <div class="v_form-step ">
 
         <h1 style="text-align: center; margin-bottom:30px;" >Challenges</h1>
-        <label for="description">Nature of the Challenge</label>
-        <input type="text" name="description" id="description" class="v_form-control" >
+        <label for="nature">Nature of the Challenge</label>
+        <input type="text" name="nature" id="nature" class="v_form-control" >
 
-        <label for="description">Description</label>
-        <input type="text" name="description" id="description" class="v_form-control" style="height: 150px;">
+        <label for="challenge_description">Description</label>
+        <input type="text" name="challenge_description" id="challenge_description" class="v_form-control" style="height: 150px;">
 
-        <label for="description">Impact of the Schedule</label>
+        <label for="impact">Impact of the Schedule</label>
         <br><br>
-        <input type="radio" id="q1_option1" name="h4" value="None">
-        <label for="description">Yes</label>
-        <input type="radio" id="q1_option2" name="h4" value="Drizzle">
-        <label for="description">No</label>
+        <input type="radio" id="impact_yes" name="impact" value="Yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="impact_no" name="impact" value="No">
+        <label for="no">No</label>
 
         <br><br>
 
-        <label for="description">Root Case</label>
-        <input type="text" name="description" id="description" class="v_form-control">
+        <label for="root_case">Root Case</label>
+        <input type="text" name="root_case" id="root_case" class="v_form-control">
 
-        <label for="description">How face it</label>
-        <input type="text" name="description" id="description" class="v_form-control" style="height: 250px;">
+        <label for="face">How face it</label>
+        <input type="text" name="face" id="face" class="v_form-control" style="height: 250px;">
         
             <div class="form_btns-group">
                 <a href="#" class="form_btn form_btn-previous">Previous</a>
@@ -227,15 +174,17 @@
         <div class="v_form-step ">
 
         <h1 style="text-align: center; margin-bottom:30px;" >General Note</h1>
-        <label for="description">General Note & Comments</label>
-        <input type="text" name="description" id="description" class="v_form-control" style="height: 150px;">
+        <label for="comment">General Note & Comments</label>
+        <input type="text" name="comment" id="comment" class="v_form-control" style="height: 150px;">
            
-            <div class="form_btns-group">
-                <a href="#" class="form_btn form_btn-previous">Previous</a>
-                <a href="#" class="form_btn form_btn-next" type="submit">Submit</a>
+           
+                <div style="display: flex;">
+                <a href="#" class="form_btn form_btn-previous">Previous</a> 
+                <a href="#" ><button class="v_submit_button" style="margin-left:500px; width:200px;" type="submit">Submit</button></a>
+          
             </div>
             
-
+           
         </div>
 
         <!-- End of the Final Form -->

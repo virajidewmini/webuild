@@ -13,7 +13,6 @@
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th style="width:600px;">Work Description</th>
                         <th style="width:400px;">General Note</th>
                         <th>Action</th>
                         
@@ -25,7 +24,6 @@
                     <?php foreach ($rows as $row):?>
                          <tr>
                         <td><?=$row->date?></td> 
-                        <td><?=$row->work_description?></td> 
                         <td><?=$row->comment?></td>
                         <td>
                          <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fa-solid fa-eye"></i></button></a>

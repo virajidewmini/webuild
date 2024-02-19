@@ -124,7 +124,14 @@ INSERT INTO `complaint` (`id`, `project_id`, `type`, `description`, `remark`, `s
 `Construction project delay`, `I\'m worried about the delays in our construction project. We\'re not getting enough updates on what\'s going on,
 and unexpected problems are making things slow. `, NULL, `Pending`);
 
+CREATE TABLE `webuild`.`weather_report` ( `id` INT NOT NULL AUTO_INCREMENT , `hour_8` VARCHAR(10) NOT NULL , `hour_9` VARCHAR(10) NOT NULL , `hour_10` VARCHAR(10) NOT NULL , `hour_11` VARCHAR(10) NOT NULL , `hour_1` VARCHAR(10) NOT NULL , `hour_2` VARCHAR(10) NOT NULL , `hour_3` VARCHAR(10) NOT NULL , `hour_4` VARCHAR(10) NOT NULL , `temperature` VARCHAR(4) NOT NULL , `overall` VARCHAR(20) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
+ALTER TABLE weather_report ADD date date;
+ALTER TABLE `weather_report` CHANGE `overall` `overall` VARCHAR(60) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+CREATE TABLE `webuild`.`challenge` ( `id` INT NOT NULL AUTO_INCREMENT , `date` DATE NOT NULL , `challenge` INT(100) NOT NULL , `description` INT(150) NOT NULL , `impact` ENUM('Yes','No') NOT NULL , `root_case` VARCHAR(100) NOT NULL , `face-it` VARCHAR(250) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `challenge` CHANGE `challenge` `challenge` VARCHAR(100) NOT NULL, CHANGE `description` `description` VARCHAR(150) NOT NULL;
 
 CREATE TABLE `webuild`.`user` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
