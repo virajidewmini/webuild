@@ -114,16 +114,16 @@
     <div class="star-container">
      <h1>Put Your Reviews & Ratings</h1>
       <div class="star-widget">
-        <input type="radio" name="rate" id="rate-5" style="display:none;">
-        <label for="rate-5" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-4" style="display:none;">
-        <label for="rate-4" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-3" style="display:none;">
-        <label for="rate-3" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-2" style="display:none;">
-        <label for="rate-2" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-1" style="display:none;">
-        <label for="rate-1" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-5" style="display:none;" class="star-input">
+        <label for="rate-5" class="star-label fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4" style="display:none;" class="star-input">
+        <label for="rate-4" class="star-label fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3" style="display:none;" class="star-input">
+        <label for="rate-3" class="star-label fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2" style="display:none;" class="star-input">
+        <label for="rate-2" class="star-label fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1" style="display:none;" class="star-input">
+        <label for="rate-1" class="star-label fas fa-star"></label>
         <form action="#">
           <header></header>
           <div>

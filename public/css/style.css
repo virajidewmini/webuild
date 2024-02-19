@@ -923,11 +923,8 @@ input[type="radio"]:checked  {
     float: right;
     transition: all 0.2s ease;
   }
-  input:not(:checked) ~ label:hover,
-  input:not(:checked) ~ label:hover ~ label{
-    color: #fd4;
-  }
-  input:checked ~ label{
+  .star-input:not(:checked) ~ .star-label:hover,
+  .star-input:not(:checked) ~ .star-label:hover ~ .star-label{
     color: #fd4;
   }
   input#rate-5:checked ~ label{
@@ -958,6 +955,47 @@ input[type="radio"]:checked  {
 
 /* end of rating and review */
 
+/* Daily progress report view */
+
+.report-container{
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.report-section {
+    margin-bottom: 20px;
+}
+
+.report-section-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.report-section-content {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.report-table {
+    /* width: 100%; */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.report-table th, .report-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.report-table th {
+    background-color: #f2f2f2;
+}
+/* End of daily progress report view */
 /* Add textfields onclick */
 
 .additional-fields {

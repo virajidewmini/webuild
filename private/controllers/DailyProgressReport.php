@@ -67,5 +67,9 @@
             $this->view('UpdateDailyProgessReport');
         }
 
+        public function viewReport(){
+            $this->view('ViewDailyProgressReport');
+        }
+
     }
 ?>

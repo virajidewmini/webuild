@@ -3,7 +3,7 @@
 
 <div class="table">
 <div class="table_header">
-            <h1>Complaints</h1>
+            <h1>Daily Progress Reports</h1>
             <div>
                <a href="<?=ROOT?>/dailyprogressreport/add"><button class="add___">Add New</button></a>   
             </div>
@@ -26,7 +26,7 @@
                         <td><?=$row->date?></td> 
                         <td><?=$row->comment?></td>
                         <td>
-                         <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fa-solid fa-eye"></i></button></a>
+                         <a href="<?=ROOT?>/dailyprogressreport/viewReport"><button ><i class="fa-solid fa-eye"></i></button></a>
                          <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fas fa-edit"></i></button></a>
                          <a href="<?=ROOT?>/clientcomplaint/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
 
