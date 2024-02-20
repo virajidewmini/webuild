@@ -210,7 +210,7 @@
 					  FROM $this->table1
 					  INNER JOIN $this->table5 ON $this->table1.supervisor_id = $this->table5.staff_id
 					  WHERE $this->table1.manager_id = :value
-					  AND $this->table1.action = 'ongoing'ORDER BY $this->table1.supervisor_id ASC";
+					  AND $this->table1.status = 'ongoing'ORDER BY $this->table1.supervisor_id ASC";
 	
 			// Assuming you have a method named 'query' to execute the query
 			return $this->query($query, [

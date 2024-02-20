@@ -20,6 +20,14 @@ class Tasks extends Model{
     
         return $this->query($query, $data);
     }
+
+    public function toDoTask($id=null){
+
+            $query = "SELECT * FROM tasks WHERE id NOT IN (SELECT task_id FROM allocated_task WHERE project_id = :id)";
+            $data['id'] = $id;
+            return $this->query($query,$data);
+    
+    }
     
 }
 ?>

@@ -72,7 +72,7 @@
                     <form method="post">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
-                                <h3>Supervisor Details</h3>
+                                <h3>Sub Task Details</h3>
                             </div>
                         </div>
                         <div class="unit-d">
@@ -80,7 +80,7 @@
                                 <p>ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->id)?>" type="text" name="supervisor_id">
+                                <input readonly value="<?= $row[0]->id ?>" type="text" >
                             </div>
                         </div>
                         <div class="unit-d">
@@ -88,78 +88,38 @@
                                 <p>Name :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->firstname)?> <?=get_var('id',$row[0]->lastname)?>" type="text" name="supervisor_name">
+                                <input readonly value="<?= $row[0]->sub_task_name ?>" type="text">
                             </div>
                         </div>
                         <div class="unit-d">
                             <div class="unit">
-                                <p>Email :</p>
+                                <p>Details :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->email)?>" type="email" name="email">
+                                <textarea readonly class="task_d" style="color:black" type="text" ><?= $row[0]->sub_task_details ?></textarea>
                             </div>
                         </div>
                         <div class="unit-d">
                             <div class="unit">
-                                <p>District :</p>
+                                <p>Co-workers count :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly value="<?=get_var('id',$row[0]->district)?>" type="text" name="district">
+                                <input readonly value="<?= $row[0]->co_workers_count ?>" type="text">
                             </div>
                         </div>
                         <div class="unit-d">
                             <div class="unit">
-                                <p>Qualification :</p>
+                                <p>Duration in Days :</p>
                             </div>
                             <div class="e-id-d">
-                                <textarea readonly class="task_d" style="color:black" values="<?=get_var('id',$row[0]->qualification)?>" type="text" name="qualification" placeholder="Qualification"><?=get_var('task_id',$row[0]->qualification)?></textarea>
+                                <input readonly value="<?= $row[0]->duration_in_days ?>" type="text">
                             </div>
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Experience:</p>
-                            </div>
-                            <div class="e-id-d">
-                                <textarea readonly class="task_d" style="color:black" values="<?=get_var('task_id',$row[0]->experience)?>" type="text" name="experience" placeholder="Experience"><?=get_var('task_id',$row[0]->experience)?></textarea>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Project ID :</p>
-                            </div>
-                            <div class="e-id-d">
-                            <?php if($row1[0]->id): ?>
-                                <input readonly value="<?=get_var('id',$row1[0]->id)?>" type="text" name="id">
-                            <?php else: ?>
-                                <input required value="<?=get_var('id')?>" type="text" name="id">
-                            <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Start Date :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <input value="<?=get_var('date')?>" type="date" name="date">
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Final Date :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <input value="<?=get_var('final_date')?>" type="date" name="final_date">
-                            </div>
-                        </div>
-                        <div class="table_header" style="align-items: center; background-color:white">
+                        <!-- <div class="table_header" style="align-items: center; background-color:white">
                         <a href="<?=ROOT?>/pmmember_search">
-                        <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
+                        <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Back">
                         </a>
-                        <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
-                        </div>
+                        </div> -->
                     </form>
 
                     </div> 
@@ -167,7 +127,4 @@
         </div>
     </div>
  <?php endif; ?>
- <script>console.log(window.location.href)
-console.log("")
-</script>
 <?php $this->view('includes/footer'); ?>

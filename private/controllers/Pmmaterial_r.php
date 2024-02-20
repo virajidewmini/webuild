@@ -3,7 +3,7 @@
     //Manager materials controller
     class Pmmaterial_r extends Controller{
         
-        public function index(){
+        public function index($p_id = null, $mdl = null,){
             
             if(!Auth::logged_in()){
                 $this->redirect('login');
@@ -13,24 +13,22 @@
             $projects = new Projects();
 		    $data = $projects->where2('status','ongoing','manager_id',$pmid);
 
-            $project_requests = new Project_requests();
-		
-            if(isset($_GET['project_id'])){
-                $project_id = $_GET['project_id'];
-                $data1 = $project_requests->where('id',$project_id);
-            }
-           
-            $task = new Tasks();
-            if(isset($_GET['model_id'])){
-                $model = $_GET['model_id'];
-                $data2 = $task->levelwhere('level','model_id',$model);
-            }
+                if(isset($_GET['project_id'])){
+                    $project_id = $_GET['project_id'];
+                    $data1 = $projects->where('id',$project_id);
+                }
+            
+                $task = new Tasks();
+                if(isset($_GET['model_id'])){
+                    $model = $_GET['model_id'];
+                    $data2 = $task->levelwhere('level','model_id',$model);
+                }
 
-            if(isset($_GET['level'])){
-                $level = $_GET['level'];
-                $data3 = $task->dmaterial($model,$level);
-                $data4 = $task->dequipment($model,$level);
-            }
+                if(isset($_GET['level'])){
+                    $level = $_GET['level'];
+                    $data3 = $task->dmaterial($model,$level);
+                    $data4 = $task->dequipment($model,$level);
+                }
            
             $this->view('pmmaterial_r',[
                 'rows'=>$data,

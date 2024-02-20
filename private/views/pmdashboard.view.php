@@ -123,7 +123,7 @@ body{
     </div>
     <div class="table">
         <div class="table_header">
-            <h3>On going sub task</h3>
+            <h3>On going task</h3>
         </div>
         <div class="table_section">
             <table>
@@ -131,8 +131,7 @@ body{
                     <tr>
                         <th>Project ID</th>
                         <th>Task ID</th>
-                        <th>Sub Task ID</th>
-                        <th>Sub Task Name</th>
+                        <th>Task Name</th>
                         <th>Start Date</th>
                         <th>Action</th>
                     </tr>
@@ -143,11 +142,10 @@ body{
                     <tr>
                         <td><?= $row->project_id?></td>
                         <td><?= $row->task_id?></td>
-                        <td><?= $row->sub_task_id?></td>
-                        <td><?= $row->sub_task_name ?></td>
-                        <td><?=get_date($row->start_date)?></td>
+                        <td><?= $row->task->task_name?></td>
+                        <td><?=get_date($row->est_start_date)?></td>
                         <td>
-                            <a href="<?=ROOT?>/Pmdashboard/subtask/<?=$row->sub_task_id?>">
+                            <a href="<?=ROOT?>/Pmdashboard/subtask/<?=$row->task_id?>">
                             <button><i class="fa-solid fa-eye"></i></button>
                             </a>
                         </td>

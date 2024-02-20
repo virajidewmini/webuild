@@ -7,6 +7,19 @@ class Allocated_tasks extends Model{
     ];
 
 
+    public function validate($DATA){
+
+        $this->errors = array();
+
+
+        if(count($this->errors) == 0){
+            return true;
+        }
+        return false;
+
+
+    }
+
     public function totalProgress($id){
 
     $query = "SELECT SUM(progress) AS total_progress
@@ -28,6 +41,17 @@ class Allocated_tasks extends Model{
         }
 
         return $data;
+    }
+
+    public function pendingTask($id)
+    {
+
+        $query = "SELECT *
+        FROM allocated_task
+        WHERE allocated_task.status = 'Pending' AND allocated_task.project_id = :id";
+
+        $data['id'] = $id;
+        return $this->query($query, $data);
     }
     
 }

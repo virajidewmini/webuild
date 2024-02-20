@@ -96,9 +96,15 @@ body{
                         <td><?= $row->district ?></td>
                         <td><?= $row->experience?></td>
                         <td>
-                            <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>">
-                            <button><i class="fa-solid fa-eye"></i></button>
-                            </a>
+                            <?php if($row1[0]->id): ?>
+                                <a href="<?=ROOT?>/Pmmember_search/view_sup_details_t_/<?=$row->id?>/<?=$row1[0]->id?>/">
+                                <button><i class="fa-solid fa-eye"></i></button>
+                                </a>
+                            <?php else: ?>
+                                <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>/">
+                                <button><i class="fa-solid fa-eye"></i></button>
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -111,7 +117,7 @@ body{
     </div>
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>
-    <?php $this->view('404'); ?>
+<?php $this->view('404'); ?>
 <?php endif; ?>
 
 

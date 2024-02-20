@@ -96,7 +96,7 @@ body{
     
           <div class="pro-id" style="padding: 0 0 20px 0;">
           
-            <?php $project_id = ""; ?>
+            <?php $project_request_id = ""; ?>
             <?php $level = ""; ?> 
             <?php $model = ""; ?> 
                     <div class="pro-id-details">
@@ -107,15 +107,15 @@ body{
                             </div>
                         </div>
                         <?php
-                            if(isset($_GET['project_id']) || isset($_GET['model_id']) || isset($_GET['level'])){
-                                $project_id = isset($_GET['project_id']) ? $_GET['project_id'] : null;
+                            if(isset($_GET['project_request_id']) || isset($_GET['model_id']) || isset($_GET['level'])){
+                                $project_request_id = isset($_GET['project_request_id']) ? $_GET['project_request_id'] : null;
                                 $level = isset($_GET['level']) ? $_GET['level'] : null;
                                 $model = isset($_GET['model_id']) ? $_GET['model_id'] : null;
                             }
                         ?>
 
                         <?php
-                        if(isset($_GET['project_id'])){
+                        if(isset($_GET['project_request_id'])){
                         ?>
                         <div class="unit-d">
                             <div class="unit">
@@ -123,19 +123,19 @@ body{
                             </div>
                             <div class="e-id-d">
                                 
-                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_id" class="form-control" type="text">
-                                <option  value="" <?= get_select2('project_id','');?>>--Select ID--</option >
+                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_request_id" class="form-control" type="text">
+                                <option  value="" <?= get_select2('project_request_id','');?>>--Select ID--</option >
                                 <?php if($rows): ?>
                                     <?php foreach($rows as $row): ?>
-                                        <option <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected"; } ?>>
+                                        <option <?= get_select2('project_request_id', $row->project_request_id); ?> value="<?= $row->id; ?>" <?php if ($project_request_id == $row->project_request_id) {echo "selected"; } ?>>
                                             <?= $row->id; ?>
                                     <?php endforeach; ?>
                                 <?php else: ?>
-                                    <option <?= get_select2('project_id','');?> value="">No Project Found</option>
+                                    <option <?= get_select2('project_request_id','');?> value="">No Project Found</option>
                                 <?php endif; ?>
                                 </select>
                             </div>
-                            <!-- <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button> -->
+                            <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button>
                         </div>
                         <?php
                         }
@@ -146,16 +146,16 @@ body{
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_id" class="form-control" type="text">
-                                <option  value="<?=$project_id?>" <?= get_select2('project_id','');?>>--Select ID--</option >
+                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_request_id" class="form-control" type="text">
+                                <option  value="<?=$project_request_id?>" <?= get_select2('project_request_id','');?>>--Select ID--</option >
                                 <?php if($rows): ?>
                                     <?php foreach($rows as $row): ?>
-                                        <option <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected"; } ?>>
+                                        <option <?= get_select2('project_request_id', $row->project_request_id); ?> value="<?= $row->id; ?>" <?php if ($project_request_id == $row->project_request_id) {echo "selected"; } ?>>
                                             <?= $row->id; ?>
                                         </option>
                                     <?php endforeach; ?>
                                 <?php else: ?>
-                                    <option <?= get_select2('project_id','');?> value="">No Project Found</option>
+                                    <option <?= get_select2('project_request_id','');?> value="">No Project Found</option>
                                 <?php endif; ?>
                                 </select>
                             </div>
@@ -191,17 +191,6 @@ body{
                                     <input readonly style="height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model->name?>" type="text" name="model_name">
                                 </div>
                             </div>
-                            <!-- <?php
-                            if(isset($_GET['model_id'])){
-                            }
-                            else{
-                            ?>
-                                <div class="btnnext">
-                                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Next</button>
-                                </div>
-                            <?php
-                            }
-                            ?> -->
                             <?php
                             if(isset($_GET['model_id'])){
                             ?>
@@ -242,6 +231,9 @@ body{
                             if(isset($_GET['level'])){
                             ?>
                                 <div class="table">
+                                    <div class="btnnext">
+                                        <button style="background-color:#E5863D; color:white; margin-left: 20px; margin-bottom: 30px;" type="submit">Next</button>
+                                    </div>
                                     <div class="table_header">
                                         <h3>Materials</h3>
                                     </div>

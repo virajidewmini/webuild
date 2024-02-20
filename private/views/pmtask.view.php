@@ -4,7 +4,7 @@
 <div class="table">
         <h2 style="margin-bottom: 20px">TASKS</h2>
         <div class="table_header">
-            <h3>On going sub task</h3>
+            <h3>On going task</h3>
         </div>
         <div class="table_section">
             <table>
@@ -12,18 +12,25 @@
                     <tr>
                         <th>Project ID</th>
                         <th>Task ID</th>
-                        <th>Sub Task ID</th>
-                        <th>Detail</th>
+                        <th>Task Name</th>
+                        <th>Start date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php if ($rows1):?>
+                    <?php foreach ($rows1 as $row):?>
                     <tr>
-                        <td>P003</td>
-                        <td>TSK001</td>
-                        <td>TSK001S023</td>
-                        <td>Foundation excavation</td>
+                        <td><?= $row->project_id?></td>
+                        <td><?= $row->task_id?></td>
+                        <td><?= $row->task->task_name?></td>
+                        <td><?= $row->est_start_date?></td>
+                        <td></td>
                     </tr>
-
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h3>No tasks were found at this time</h3>
+                <?php endif; ?> 
                 </tbody>
             </table>
         </div>
@@ -35,30 +42,30 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Project ID</th>
                         <th>Task ID</th>
-                        <th>Sub Task ID</th>
-                        <th>Sub Name</th>
-                        <th>Action</th>
+                        <th>Task Name</th>
+                        <th>Sub Task Count</th>
+                        <th>Duration in days</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php if ($rows):?>
                     <?php foreach ($rows as $row):?>
                         <tr>
-                            <td></td>
-                            <td><?= $row->task_id?></td>
-                            <td><?= $row->sub_task_id?></td>
-                            <td><?= $row->sub_task_name?></td>
+                            <td><?= $row->id?></td>
+                            <td><?= $row->task_name?></td>
+                            <td><?= $row->sub_task_count?></td>
+                            <td><?= $row->duration_in_days?></td>
                             <td>
-                                <a href="<?=ROOT?>/Pmtask/add/<?=$row->sub_task_id?>">
+                                <a href="<?=ROOT?>/Pmtask/add/<?=$row->id?>">
                                 <button><i class="fa-solid fa-plus"></i></button>
                                 </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h3>No Sub tasks were found at this time</h3>
+                    <h3>No tasks were found at this time</h3>
                 <?php endif; ?> 
 
                 </tbody>

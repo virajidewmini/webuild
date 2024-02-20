@@ -64,6 +64,17 @@
         padding: 20px;
     }
 
+    th{
+        position: sticky;
+        top: 0;
+    }
+    .table_section{
+        max-height: 500px;
+        overflow-y: scroll;
+
+        margin: 1px;
+    }
+
     #pro_de {
         padding: 10px;
         margin-top: 10px;
@@ -702,7 +713,7 @@
             </div>
             <?php if ($row5) : ?>
                 <?php foreach ($row5 as $row) : ?>
-                    <?php if ($row->status == 'Accept') : ?>
+                    <?php if ($row->status == 'Done') : ?>
                         <div class="container">
                             <div class="progress-container">
                                 <h4><?= $row->task->task_name ?></h4>
@@ -730,6 +741,16 @@
                                 </div>
                             </div>
                         </div>
+                    <?php elseif ($row->status == 'Suspend') : ?>
+                        <div class="container">
+                            <div class="progress-container">
+                                <h4><?= $row->task->task_name ?></h4>
+                                <div class="progress-bar">
+                                    <span style="background:linear-gradient(90deg, rgba(200, 0, 0, 1) 50%, rgba(255, 0, 0, 1) 100%)
+;" data-width="<?= $row->progress ?>%"></span>
+                                </div>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -742,14 +763,18 @@
                     </div>
                 </div>
                 <?php if ($rows[0]->staff) : ?>
-                    <div class="unit-d">
-                        <div class="unit" style="display:flex;">
-                            <h3>Supervisor : <?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?> </h3>
+                    <div class="">
+                        <div class="" style="margin:0 0 20px 5px;">
+                            <h3>Supervisor : <?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?> </h3>
                         </div>
                     </div>
                 <?php else : ?>
                     <div class="unit-d">
-                        <button style="background-color:#E5863D; color:#fff;">Add Supervisor</button>
+                        <?php if ($row3[0]->land_type == 'user') : ?>
+                            <a href="<?= ROOT ?>/Pmmember_search/<?= $row3[0]->land_u->district ?>/<?= $rows[0]->id ?>/"><button style="background-color:#E5863D; color:#fff; margin-bottom 10px;">Add Supervisor</button></a>
+                        <?php else : ?>
+                            <a href="<?= ROOT ?>/Pmmember_search/<?= $row3[0]->land->district ?>/<?= $rows[0]->id ?>/"><button style="background-color:#E5863D; color:#fff; margin-bottom 10px;">Add Supervisor</button></a>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
                 <div class="table_header">
@@ -759,15 +784,29 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Employee ID</th>
                                 <th>Name</th>
                                 <th>Skill</th>
+                                <th>Task ID</th>
+                                <th>Task Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            </tr>
-
+                            <?php if ($row9) : ?>
+                                <?php foreach ($row9 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->emp_id ?></td>
+                                        <td><?= $row->coworker->name ?></td>
+                                        <td><?= $row->coworker->role ?></td>
+                                        <td><?= $row->task_id ?></td>
+                                        <td><?= $row->task->task_name ?></td>
+                                        <td><?= get_date($row->start_date) ?></td>
+                                        <td><?= get_date($row->end_date) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -775,13 +814,13 @@
         </div>
         <div class="pro-id-details" id="mid">
             <div class="title-id">
-                <div class="p-title">
-                    <h2 class="ind-topic">Task</h2>
+                <div class="">
+                    <h2 class="ind-topic">Tasks</h2>
                 </div>
             </div>
             <div class="table">
                 <div class="table_header">
-                    <h3>Ongoing And Done Task</h3>
+                    <h3>Tasks</h3>
                 </div>
                 <div class="table_section">
                     <table>
@@ -796,7 +835,7 @@
                             <?php if ($rows1) : ?>
                                 <?php foreach ($rows1 as $row) : ?>
                                     <tr>
-                                        <td><?= $row->id ?></td>
+                                        <td><?= $row->task_id ?></td>
                                         <td><?= $row->task->task_name ?></td>
                                         <td><?= $row->status ?></td>
                                     </tr>
@@ -823,7 +862,7 @@
                             <?php if ($rows2) : ?>
                                 <?php foreach ($rows2 as $row) : ?>
                                     <tr>
-                                        <td><?= $row->id ?></td>
+                                        <td><?= $row->task_id ?></td>
                                         <td><?= $row->task->task_name ?></td>
                                         <td><button style="background-color:#E5863D; color:#fff;">Accept</button></a> <button style="background-color:#f2eaea;">Reject</button></td>
                                     </tr>
@@ -843,19 +882,26 @@
                             <tr>
                                 <th>Task ID</th>
                                 <th>Task Name</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            </tr>
-
+                            <?php if ($row8) : ?>
+                                <?php foreach ($row8 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->task_id ?></td>
+                                        <td><?= $row->task->task_name ?></td>
+                                        <td></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="table">
                 <div class="table_header">
-                    <h3>Tasks</h3>
+                    <h3>To Do Tasks</h3>
                 </div>
                 <div class="table_section">
                     <table>
@@ -863,13 +909,192 @@
                             <tr>
                                 <th>Task ID</th>
                                 <th>Task Name</th>
+                                <th>Sub Task Count</th>
+                                <th>Duration in days</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php if ($row7) : ?>
+                                <?php foreach ($row7 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->id ?></td>
+                                        <td><?= $row->task_name ?></td>
+                                        <td><?= $row->sub_task_count ?></td>
+                                        <td><?= $row->duration_in_days ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
+                                                <button><i class="fa-solid fa-plus"></i></button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="pro-id-details">
+            <h2 style="margin:0 0 20px 20px">MATERIALS</h2>
+            <div class="table">
+                <div class="table_header">
+                    <h3>Sent request</h3>
+                    <div>
+                        <a href="<?= ROOT ?>/Pmmaterial_r"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
+                    </div>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
                             <tr>
+                                <th>Request ID</th>
+                                <th>Date</th>
+                                <th>Action</th>
                             </tr>
-
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RQT013</td>
+                                <td>11/05/2022</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RQT013</td>
+                                <td>11/05/2022</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RQT013</td>
+                                <td>11/05/2022</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RQT013</td>
+                                <td>11/05/2022</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_header">
+                    <h3>To be recieved</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>ID</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RQT013</td>
+                                <td>012</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RQT010</td>
+                                <td>009</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RQT009</td>
+                                <td>007</td>
+                                <td>
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_header">
+                    <h3>Materials details</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Material ID</th>
+                                <th>Material name</th>
+                                <th>Mesure unit</th>
+                                <th>Available Quantity</th>
+                                <th>Used Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MTL001</td>
+                                <td>Sand</td>
+                                <td>Cube</td>
+                                <td>06</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>MTL002</td>
+                                <td>6x9 Rock</td>
+                                <td>Cube</td>
+                                <td>03</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>MTL006</td>
+                                <td>Cement</td>
+                                <td>Num</td>
+                                <td>03</td>
+                                <td>6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_header">
+                    <h3>Items details</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Item name</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ITM025</td>
+                                <td>Concrete pump</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>ITM005</td>
+                                <td>Power drill</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>ITM010</td>
+                                <td>Wacker</td>
+                                <td>2</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -898,7 +1123,6 @@
         span.style.width = span.dataset.width;
         span.innerHTML = span.dataset.width;
     });
-
 </script>
 
 
