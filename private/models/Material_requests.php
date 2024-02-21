@@ -16,7 +16,7 @@ class Material_requests extends Model{
 
         foreach ($data as $key => $row){
             if(property_exists($row,"material_code")){
-                $result = $material->where('code',$row->material_code);
+                $result = $material->where('material_code',$row->material_code);
                 $data[$key]->material = is_array($result) ? $result[0] : false ;
             }
 

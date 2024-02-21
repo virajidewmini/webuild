@@ -41,8 +41,8 @@ body{
       
     <form action="<?=ROOT?>/coordinatormanagersearch/<?=$rows['common']->id?>" method="post">
             <select name="district" class="v_form-control" value="<?= get_select2('district','');?>" type="text" placeholder="district" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
-                <option selected value="<?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?>">            
-                    <?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?>
+                <option selected value="<?php if(strcmp($rows['common']->land_type,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?>">            
+                    <?php if(strcmp($rows['common']->land_type,"customer")==0): ?>
                         <?= $rows['customer']->ul_district ; ?>                    
                     <?php else: ?>
                         <?= $rows['company']->district ; ?>                    
@@ -86,7 +86,7 @@ body{
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
-                    <h3>  Project Managers in <?php if(strcmp($rows['common']->status_of_land,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?> district  </h3>
+                    <h3>  Project Managers in <?php if(strcmp($rows['common']->_land,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?> district  </h3>
                 </div>
                 
             </div>

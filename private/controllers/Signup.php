@@ -35,5 +35,15 @@
 
         }
 
+
+
+        // public function sendotp(){
+
+
+
+
+        // }
+
     }
 ?>
+

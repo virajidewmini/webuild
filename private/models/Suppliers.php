@@ -10,7 +10,7 @@ class Suppliers extends Model{
         $query="SELECT * FROM suppliers 
         INNER JOIN land ON project_requests.land_id = land.id 
         
-        WHERE project_requests.user_id = :value AND project_requests.status_of_land='company' "; 
+        WHERE project_requests.user_id = :value AND project_requests.land_type='company' "; 
 
         //return $this->query($query);
         return $this->query($query, [
