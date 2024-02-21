@@ -11,7 +11,7 @@
             $pmi = Auth::getid();
 
             $project_request = new Project_requests();
-            $data2 = $project_request->where2('manager_id',$pmi,'action','modified');
+            $data2 = $project_request->where2('manager_id',$pmi,'status','modified');
 
             $project_dpr = new Project_dprs();
             $data = $project_dpr->where('manager_id',$pmi);

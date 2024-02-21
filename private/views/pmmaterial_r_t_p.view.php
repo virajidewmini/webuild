@@ -95,10 +95,7 @@ body{
 <div class="pro-id1" style="display:flex;  justify-content: center; padding: 0 0 40px 0;">
     
           <div class="pro-id" style="padding: 0 0 20px 0;">
-          
-            <?php $project_request_id = ""; ?>
-            <?php $level = ""; ?> 
-            <?php $model = ""; ?> 
+            <?php $level = ""; ?>
                     <div class="pro-id-details">
                     <form action="" method="GET" id="form">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
@@ -107,73 +104,20 @@ body{
                             </div>
                         </div>
                         <?php
-                            if(isset($_GET['project_request_id']) || isset($_GET['model_id']) || isset($_GET['level'])){
-                                $project_request_id = isset($_GET['project_request_id']) ? $_GET['project_request_id'] : null;
+                            if(isset($_GET['level'])){
                                 $level = isset($_GET['level']) ? $_GET['level'] : null;
-                                $model = isset($_GET['model_id']) ? $_GET['model_id'] : null;
                             }
                         ?>
 
-                        <?php
-                        if(isset($_GET['project_request_id'])){
-                        ?>
                         <div class="unit-d">
                             <div class="unit">
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                
-                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_request_id" class="form-control" type="text">
-                                <option  value="" <?= get_select2('project_request_id','');?>>--Select ID--</option >
-                                <?php if($rows): ?>
-                                    <?php foreach($rows as $row): ?>
-                                        <option <?= get_select2('project_request_id', $row->project_request_id); ?> value="<?= $row->id; ?>" <?php if ($project_request_id == $row->project_request_id) {echo "selected"; } ?>>
-                                            <?= $row->id; ?>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <option <?= get_select2('project_request_id','');?> value="">No Project Found</option>
-                                <?php endif; ?>
-                                </select>
+                                <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows[0]->id ?>" type="text" name="project_id">
                             </div>
                             <!-- <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button> -->
                         </div>
-                        <?php
-                        }
-                        else{
-                        ?>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Project ID :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_request_id" class="form-control" type="text">
-                                <option  value="<?=$project_request_id?>" <?= get_select2('project_request_id','');?>>--Select ID--</option >
-                                <?php if($rows): ?>
-                                    <?php foreach($rows as $row): ?>
-                                        <option <?= get_select2('project_request_id', $row->project_request_id); ?> value="<?= $row->id; ?>" <?php if ($project_request_id == $row->project_request_id) {echo "selected"; } ?>>
-                                            <?= $row->id; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <option <?= get_select2('project_request_id','');?> value="">No Project Found</option>
-                                <?php endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <?php
-                            if(isset($_GET['model_id'])){
-                            }
-                            else{
-                            ?>
-                                <div class="btnnext">
-                                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Next</button>
-                                </div>
-                            <?php
-                            }
-                            ?>
-                        <?php
-                        }
-                        ?>
                         <?php if($rows1): ?>
                             <div class="unit-d">
                                 <div class="unit">

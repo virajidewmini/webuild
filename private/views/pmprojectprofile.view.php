@@ -941,7 +941,7 @@
                 <div class="table_header">
                     <h3>Sent request</h3>
                     <div>
-                        <a href="<?= ROOT ?>/Pmmaterial_r"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
+                        <a href="<?= ROOT ?>/Pmmaterial_r/p_thruogh_request/<?= $rows[0]->id ?>/<?= $rows[0]->project_request_id ?>/<?= $rows[0]->mdl->id ?>"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
                     </div>
                 </div>
                 <div class="table_section">
