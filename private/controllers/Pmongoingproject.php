@@ -58,10 +58,17 @@ class Pmongoingproject extends Controller
 
 		$task = new Tasks();
 		$data10 = $task->taskCount($model);
+		$data13 = $task->toDoTask($id);
 
 		$allocated_task = new Allocated_tasks();
 		$data11 = $allocated_task->where('project_id', $id);
 		$data12 = $allocated_task->totalProgress($id);
+		$data14 = $allocated_task->pendingTask($id);
+
+		$allocated_co = new AllocateCoworker();
+		$data15 = $allocated_co->where('project_id', $id);
+
+
 
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
@@ -79,6 +86,9 @@ class Pmongoingproject extends Controller
 			'row4' => $data10,
 			'row5' => $data11,
 			'row6' => $data12,
+			'row7' => $data13,
+			'row8' => $data14,
+			'row9' => $data15,
 		]);
 	}
 

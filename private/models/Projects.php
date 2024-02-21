@@ -152,8 +152,8 @@ class Projects extends Model
     {
 
         $query = "SELECT *
-        FROM project_tasks
-        WHERE (project_tasks.status = 'ongoing' OR project_tasks.status = 'done') AND project_tasks.project_id = :id";
+        FROM allocated_task
+        WHERE (allocated_task.status = 'Ongoing' OR allocated_task.status = 'Done' OR allocated_task.status = 'Suspend') AND allocated_task.project_id = :id";
 
         $data['id'] = $id;
         return $this->query($query, $data);
@@ -163,8 +163,8 @@ class Projects extends Model
     {
 
         $query = "SELECT *
-        FROM project_tasks
-        WHERE project_tasks.status = 'complete' AND project_tasks.project_id = :id";
+        FROM allocated_task
+        WHERE allocated_task.status = 'complete' AND allocated_task.project_id = :id";
 
         $data['id'] = $id;
         return $this->query($query, $data);
