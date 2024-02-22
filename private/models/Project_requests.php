@@ -74,7 +74,7 @@ class Project_requests extends Model{
         $query="SELECT * FROM project_requests 
         INNER JOIN land ON project_requests.land_id = land.id 
         
-        WHERE project_requests.user_id = :value AND project_requests.status_of_land='company' "; 
+        WHERE project_requests.user_id = :value AND project_requests.land_type='company' "; 
 
         //return $this->query($query);
         return $this->query($query, [
@@ -89,7 +89,7 @@ class Project_requests extends Model{
         $query="SELECT * FROM project_requests 
         INNER JOIN user_lands ON project_requests.land_id = user_lands.id 
         
-        WHERE project_requests.user_id = :value AND project_requests.status_of_land='customer' "; 
+        WHERE project_requests.user_id = :value AND project_requests.land_type='customer' "; 
 
         //return $this->query($query);
         return $this->query($query, [
@@ -191,7 +191,7 @@ class Project_requests extends Model{
         return $data;
     }
 
-    //SELECT *
+    
     public function get_model($data){
     
         $model = new Models();
@@ -262,8 +262,8 @@ class Project_requests extends Model{
         
         foreach ($data as $key => $row){
             if(property_exists($row,"dining_tile")){
-                $result = $tile->where('id',$row->default_tile);
-                $data[$key]->default_tile = is_array($result) ? $result[0] : false ;
+                $result = $tile->where('id',$row->tile);
+                $data[$key]->tile = is_array($result) ? $result[0] : false ;
             }
             
        }
@@ -277,9 +277,9 @@ class Project_requests extends Model{
         $tile = new Paint();
         
         foreach ($data as $key => $row){
-            if(property_exists($row,"default_color")){
-                $result = $tile->where('id',$row->default_color);
-                $data[$key]->default_color = is_array($result) ? $result[0] : false ;
+            if(property_exists($row,"color")){
+                $result = $tile->where('id',$row->color);
+                $data[$key]->color = is_array($result) ? $result[0] : false ;
             }
             
        }

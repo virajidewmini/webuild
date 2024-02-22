@@ -26,7 +26,7 @@ class Material_requests extends Model{
 
         foreach ($data as $key => $row){
             if(property_exists($row,"material_code")){
-                $result = $material->where('code',$row->material_code);
+                $result = $material->where('material_code',$row->material_code);
                 $data[$key]->material = is_array($result) ? $result[0] : false ;
             }
 
@@ -35,14 +35,12 @@ class Material_requests extends Model{
         return $data;
     }
     
-    public function getStaffID($value,$type){
+    public function getSupplierDetails($value){
 
 
 
-        $query="SELECT * FROM projects        
-        WHERE projects.id = :value"; 
-    
-
+        $query="SELECT * FROM suppliers        
+        WHERE suppliers.material = :value"; 
         
         return $this->query($query, [
             'value' => $value,
@@ -102,8 +100,20 @@ class Material_requests extends Model{
     }
 
 
+    public function findAll(){
 
-    
+        $query="SELECT * FROM material_requests_to_coordinator  
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Emailed' THEN 2
+                WHEN status='Recieved' THEN 3
+                ELSE 4
+            END
+        "; 
+        //return $this->query($query);
+        return $this->query($query);
+    }
     
     
 
