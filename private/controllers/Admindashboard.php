@@ -38,6 +38,20 @@
                 $data['O'] = $complaint->getComplaintsInMonth("January","other ");
             }
 
+
+            //getting all complaints   
+
+            
+            $data["AllQP"]=$complaint->getComplaintCount('Quality of the photograph');
+            $data["AllCP"]=$complaint->getComplaintCount('Construction project delay ');
+            $data["AllQW"]=$complaint->getComplaintCount('Quality of workmanship and materials');
+            $data["AllPC"]=$complaint->getComplaintCount('Poor Communication');
+            $data["AllOT"]=$complaint->getComplaintCount('other ');
+            $data["AllComp"]=$data["AllQP"][0]->total;//+$data["AllCP"]+ $data["AllQW"]+$data["AllPC"]+$data["AllOT"];
+
+
+
+
             $requests=new Project_requests();
 
             $data['JANPR'] = $requests->getrequestsInMonth("January");
@@ -59,17 +73,17 @@
             $data['FOG'] = $requests->getprojectsInMonth("ongoing","first");
             $data['SOG'] = $requests->getprojectsInMonth("ongoing","second");
             $data['TOG'] = $requests->getprojectsInMonth("ongoing","third");    
-            $data['FOG'] = $requests->getprojectsInMonth("ongoing","fourth");
+            $data['EOG'] = $requests->getprojectsInMonth("ongoing","fourth");
 
             $data['FRE'] = $requests->getprojectsInMonth("rejected","first");
             $data['SRE'] = $requests->getprojectsInMonth("rejected","second");
             $data['TRE'] = $requests->getprojectsInMonth("rejected","third");    
-            $data['FRE'] = $requests->getprojectsInMonth("rejected","fourth");
+            $data['ERE'] = $requests->getprojectsInMonth("rejected","fourth");
 
             $data['FFI'] = $requests->getprojectsInMonth("finished","first");
             $data['SFI'] = $requests->getprojectsInMonth("finished","second");
             $data['TFI'] = $requests->getprojectsInMonth("finished","third");    
-            $data['FFI'] = $requests->getprojectsInMonth("finished","fourth");
+            $data['EFI'] = $requests->getprojectsInMonth("finished","fourth");
 
 
 

@@ -402,10 +402,10 @@ class Project_requests extends Model{
     
     //delete once done
 
-    public function getProjectsInMonth($action,$period){
+    public function getProjectsInMonth($status,$period){
     
         $query="SELECT COUNT(*) AS total FROM projects 
-            WHERE action = :action AND 
+            WHERE status = :status AND 
                 CASE 
                     WHEN :period = 'first'  THEN date LIKE '____-01-__' OR date LIKE '____-02-__' OR date LIKE '____-03-__'
                     WHEN :period = 'second' THEN date LIKE '____-04-__' OR date LIKE '____-05-__' OR date LIKE '____-06-__'
@@ -417,7 +417,7 @@ class Project_requests extends Model{
             "; 
             
             return $this->query($query, [
-                'action'=> $action,
+                'status'=> $status,
                 'period' => $period,
             ]);
         }
