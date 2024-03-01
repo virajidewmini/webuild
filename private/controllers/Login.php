@@ -21,7 +21,6 @@
                             $this->redirect('/coordinatordashboard');
                         }
                         if (Auth::getRole() == 'Admin'){
-                            print_r('came2');
                             $this->redirect('/admindashboard');
                         }
                         

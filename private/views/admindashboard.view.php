@@ -11,23 +11,25 @@
     .item{
         background : lightblue;
         padding: 1rem;
-            
-            border: 1px solid blue;
+        border-radius: 2rem;
+        background: #e9e9e9;           
+        border: 1px solid blue;
     }
     .container{
+        padding: 1rem;
         display : grid;
-        grid-template-columns: 1fr 1fr 4fr;
-        grid-template-rows: repeat(2, 2fr) repeat(1, 4fr);
+        grid-template-columns: repeat(8,1fr);
+        grid-template-rows: repeat(6,1fr);
         grid-gap: 1rem;
         grid-template-areas:
-            "a a b b c c c c" 
-            "a a b b c c c c" 
-            "d d d d c c c c" 
-            "d d d d c c c c" 
-            "e e e e f f f f" 
-            "e e e e f f f f" 
-            "e e e e f f f f" 
-            "e e e e f f f f"  
+            "a b e e e e e e" 
+            "a b e e e e e e" 
+            "d d e e e e e e" 
+            "d d c c c c c c"
+            "d d c c c c c c" 
+            "d d c c c c c c"
+            
+              
 
     }
     .item-1{
@@ -38,17 +40,15 @@
     }
 
     .item-3{
-        grid-area: c;
-    }
-
-    .item-4{
         grid-area: d;
     }
+
+    
     .item-5{
-        grid-area: e;
+        grid-area: c;
     }
     .item-6{
-        grid-area: f;
+        grid-area: e;
     }
 
     .role-box {
@@ -100,7 +100,7 @@
 </style>
      <div class="container">  
 
-        <div class="item item-1">
+        <div class="item item-1" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
             <div class="role-box">
                 
@@ -115,15 +115,15 @@
                 <div class="role">Project Coordinators: <?=$rows["coo"][0]->total?></div>
             </div>
         </div>
-        lllllllllllllllllllllllllllllll
+        <!-- lllllllllllllllllllllllllllllll
         <pre>
             <?php print_r($rows) ;?>
-        </pre>
-        <div class="item item-2">
+        </pre> -->
+        <div class="item item-2" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
             <div class="role-box">
                 
-                <div class="total-employees"><?=$rows["AllComp"][0]?></div>
+                <!-- <div class="total-employees"><?=$rows["AllComp"][0]?></div> -->
             
                 <div class="role">Quality of the photograph: <?=$rows["AllQP"][0]->total?></div>
                 <hr>
@@ -164,8 +164,9 @@
                     </form>
                 
                     <?php if(  $rows["QOP"][0]->total !=0 || $rows["CPD"][0]->total !=0 || $rows["QWM"][0]->total !=0 || $rows["PC"][0]->total!=0 || $rows["O"][0]->total!=0):?>
-                        
-                        <canvas id="myPieChart" width=300px height=300px></canvas>
+                        <div>
+                            <canvas id="myPieChart" width=300px height=300px></canvas>
+                        </div>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
                                 var ctx = document.getElementById('myPieChart').getContext('2d');
@@ -254,7 +255,7 @@
 
         <!-- for projects -->
         <div class="item item-6">
-            <div style="max-width: 50%; height: auto; ">
+            <div style="max-width: 100%; height: 100%; ">
                 <canvas id="myBarChart"></canvas>
             </div>
     
