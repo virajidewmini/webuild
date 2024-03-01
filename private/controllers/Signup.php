@@ -13,6 +13,8 @@
 
                 if($user->validate($_POST)){
 
+                    $user->insert($_POST);
+
                     $this->redirect('login');
 
                 }else{
