@@ -2,8 +2,7 @@
     class Request extends Controller{
         public function index(){
             
-                //$db = new Database();
-                //$request=$this->load_model('request');
+               
                 $request=new Requests();
                 // $data = $db->query("select * from miantain");
                 //$data= $request->where('id',1);
@@ -18,13 +17,13 @@
 
 
             // Check if there is a search query
-$filter = isset($_GET['filter']) ? $_GET['filter'] : null;
+            $filter = isset($_GET['filter']) ? $_GET['filter'] : null;
 
-// If a filter is applied, filter the data by p_id
-if ($filter !== null) {
-    // Perform filtering based on p_id
-    $filteredData = array_filter($data, function($row) use ($filter) {
-        return stripos($row->p_id, $filter) !== false;
+           // If a filter is applied, filter the data by project_id
+           if ($filter !== null) {
+           // Perform filtering based on project_id
+           $filteredData = array_filter($data, function($row) use ($filter) {
+           return stripos($row->project_id, $filter) !== false;
     });
 
     $data = $filteredData;
@@ -39,17 +38,34 @@ if ($filter !== null) {
 
         }
 
-        // public function add(){
-        //     if(count($_POST) > 0){
-        //         $request=new QuotationSK();
-        //         $request->insert($_POST);
-        //         $this->redirect('quotationorder');
-        //     }
+        // public function viewDetails($id=null){
+            
+        //         $request=new RequestsSecond();
+        //         $request->findAll();
+        //         var_dump($request);
+              
+            
 
-        //     $this->view('storekeeperRequestQuotation');
+        //     $this->view('storekeeperRequestSecond',['rows'=> $request]);
         // }
 
 
+
+        public function viewDetails($id = null) {
+            // Check if request ID is provided
+            if ($id !== null) {
+                // Instantiate the RequestsSecond model
+                $requestSecond = new RequestsSecond();
+                
+                // Fetch data from the material_requests table based on request_id
+                // $data = $requestSecond->findAll(['conditions' => ['request_id' => $id]]);
+                $data = $requestSecond->where('request_id',$id);
+                // Pass the filtered data to the view
+                $this->view('storekeeperRequestSecond', ['rows' => $data]);
+            }
+        }
+        
+        
         
         // public function delete($id=null){
            

@@ -36,6 +36,7 @@
                     <th>Unit Price</th>
                     <th>Total Price</th>
                     <th>Issue Date</th>
+                    <!-- <th>Total Amout</th> -->
                     <th>Action</th>
                     <th>Decision</th>
                 </tr>
@@ -44,16 +45,17 @@
                 <?php if(isset($rows)): ?>
                     <?php foreach ($rows as $row):?>
                         <tr class="<?php echo $row->decision === 'ACCEPT' ? 'accept' : ($row->decision === 'REJECT' ? 'reject' : 'pending'); ?>">
-                            <td><?=$row->p_id?></td>
+                            <td><?=$row->project_id?></td>
                             <td><?=$row->quotation_id?></td>
-                            <td><?=$row->material_name?></td>
-                            <td><?=$row->material_code?></td>
-                            <td><?=$row->requested_quantity?></td>
+                            <td><?=$row->material_or_item_name?></td>
+                            <td><?=$row->material_or_item_id?></td>
+                            <td><?=$row->quantity?></td>
                             <td><?=$row->batch_NO?></td>
                             <td><?=$row->send_quantity?></td>
                             <td><?=$row->unit_Price?></td>
                             <td><?=$row->total_price?></td>
                             <td><?=$row->quotation_issue_date?></td>
+                            <!-- <td><?=$row->final_total_amout?></td> -->
                             <td>
                                 <a href="<?=ROOT?>/quotationorder/update/<?=$row->id?>"><button><i class="fa-regular fa-pen-to-square"></i></button></a>
                                 <a href="<?=ROOT?>/quotationorder/delete/<?=$row->id?>"><button><i class="fas fa-trash-alt"></i></button></a> 

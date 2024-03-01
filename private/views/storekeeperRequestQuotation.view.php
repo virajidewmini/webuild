@@ -1,37 +1,88 @@
-<?php 
-$this->view('includes/header');
-$projectId = $_GET['p_id'] ?? '';
-$materialCode = $_GET['material_code'] ?? '';
-$materialName = $_GET['material_name'] ?? '';
-$measureUnit = $_GET['measure_unit'] ?? '';
-$requestedQuantity = $_GET['requested_quantity'] ?? '';
-?>
-<div style="margin-left: 285px;" class="table_header">
-    <h1>Send Quotations</h1>
-</div>
-<div class="form_container">
-    <form method="post" class="v_form">
-        <label class="v_label">Project No</label>
-        <input type="text" name="p_id" id="p_id" class="v_form-control" style="height: 50px;" value="<?=$projectId?>" required>
-        <label class="v_label">Material Name</label>
-        <input type="text" name="material_name" id="material_name" class="v_form-control" style="height: 50px;" value="<?=$materialName?>" required>
-        <label class="v_label">Material Code</label>
-        <input type="text" name="material_code" id="material_code" class="v_form-control" style="height: 50px;" value="<?=$materialCode?>" required>
-        <label class="v_label">Requested Quantity</label>
-        <input type="text" name="requested_quantity" id="requested_quantity" class="v_form-control" style="height: 50px;" value="<?=$requestedQuantity?>" required>
-        <label class="v_label">Measure Unit</label>
-        <input type="text" name="measure_unit" id="measure_unit" class="v_form-control" style="height: 50px;" value="<?=$measureUnit?>" required>
-        <label class="v_label">Batch No</label>
-        <input type="text" name="batch_NO" id="batch_NO" class="v_form-control" style="height: 50px;" required>
-        <label class="v_label">Send Quantity</label>
-        <input type="text" name="send_quantity" id="send_quantity" class="v_form-control" style="height: 50px;" required>
-        <label class="v_label">Unit Price</label>
-        <input type="text" name="unit_Price" id="unit_price" class="v_form-control" style="height: 50px;" required>
-        <label class="v_label">Total Price</label>
-        <input type="text" name="total_price" id="total_price" class="v_form-control" style="height: 50px;" required>
-        <label class="v_label">Issue Date</label>
-        <input type="text" name="quotation_issue_date" id="quotation_issue_date" class="v_form-control" style="height: 50px;" required>
+<?php $this->view('includes/header'); ?>
+
+<form method="post" action="add.php"> <!-- Replace "add.php" with the appropriate action URL -->
+    <div class="table_header" style="margin-left: 0rem;">
+        <h1>Send Quotations</h1>
+    </div>
+
+    <div class="form_container" style="width: 150%; margin-left: 0rem;">
+        <table id="quotation_table" class="v_table" style="width: 100%; margin-left: -1.5rem; margin-top:-2rem;">
+            <thead>
+                <tr>
+                    <th>Project ID</th>
+                    <th>Request ID</th>
+                    <th>Material Name</th>
+                    <th>Material Code</th>
+                    <th>Measure Unit</th>
+                    <th>Requested Quantity</th>
+                    <th>Batch No</th>
+                    <th>Send Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                    <!-- <th>Issue Date</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(isset($rows) && !empty($rows)): ?>
+                    <?php foreach ($rows as $row):?>
+                        <tr class="materials">
+                            <td><?= $row->project_id ?></td>
+                            <td><?= $row->request_id ?></td>
+                            <td><?= $row->material_or_item_name ?></td>
+                            <td><?= $row->material_or_item_id ?></td>
+                            <td><?= $row->mesure_unit ?></td>
+                            <td><?= $row->quantity ?></td>
+                            <td>
+                                <select name="batch_NO[]" class="v_form-control" style="height: 30px;" required>
+                                    <option value="batch1">Batch 1</option>
+                                    <option value="batch2">Batch 2</option>
+                                    <!-- Add more options if needed -->
+                                </select>
+                            </td>
+                            <td><input type="text" name="send_quantity[]" class="v_form-control send_quantity" style="height: 30px;" required></td>
+                            <td><input type="text" name="unit_Price[]" class="v_form-control unit_price" style="height: 30px;" required></td>
+                            <td><input type="text" name="total_price[]" class="v_form-control total_price" style="height: 30px;" required readonly></td>
+                            <!-- <td><input type="text" name="quotation_issue_date[]" class="v_form-control" style="height: 30px;" required></td> -->
+                        </tr>
+                    <?php endforeach;?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        <div>
+            <label>Total Amount:</label>
+            <input type="text" id="full_total_amout" name="full_total_amout" class="v_form-control" style="height: 30px;" readonly>
+
+            <label>Date:</label>
+            <input type="text" id="quotation_issue_date" name="quotation_issue_date" class="v_form-control" style="height: 30px;" required>
+        </div>
         <button class="v_submit_button" type="submit">Submit</button>
-    </form>
-</div>
+    </div>
+</form>
+
+<script>
+    // Function to calculate the total amount
+    function calculateTotalAmount() {
+        var totalAmount = 0;
+        var total_price_inputs = document.querySelectorAll('.total_price');
+        total_price_inputs.forEach(function(input) {
+            totalAmount += parseFloat(input.value) || 0;
+        });
+        return totalAmount;
+    }
+
+    // Update total amount when any total price input changes
+    document.querySelectorAll('.send_quantity, .unit_price').forEach(function(input) {
+        input.addEventListener('input', function() {
+            var row = input.closest('tr');
+            var quantity = parseFloat(row.querySelector('.send_quantity').value) || 0;
+            var unitPrice = parseFloat(row.querySelector('.unit_price').value) || 0;
+            var totalPrice = quantity * unitPrice;
+            row.querySelector('.total_price').value = totalPrice.toFixed(2); // Adjust decimal places as needed
+
+            var totalAmount = calculateTotalAmount();
+            document.getElementById('full_total_amout').value = totalAmount.toFixed(2); // Adjust decimal places as needed
+        });
+    });
+</script>
+
 <?php $this->view('includes/footer'); ?>
