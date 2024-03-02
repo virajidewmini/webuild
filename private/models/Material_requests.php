@@ -3,6 +3,9 @@
 class Material_requests extends Model{
     protected $table = "material_requests_to_coordinator";
     protected $table1 = "material_requests";
+    protected $table2 = "project_material_request";
+
+    
 
 
     protected $afterSelect = [
@@ -10,14 +13,6 @@ class Material_requests extends Model{
         
     ];
 
-    protected $allowedColumns = [
-        'p_id',
-        'r_id',
-        'material_or_item_id',
-        'material_or_item_name',
-        'mesure_unit',
-        'quantity',
-    ];
 
     public function get_material($data){
     
@@ -49,23 +44,34 @@ class Material_requests extends Model{
         ]);
     }
 
-    public function validate($data)
+    public function validate($DATA){
+        $this->errors = array();
+
+        if (empty($DATA['project_id'])) {
+            $this->errors['project_id'] = "Project ID can't be empty";
+        }
+
+
+
+        if(count($this->errors) == 0){
+            return true;
+        }
+    
+        return false;
+    }
+
+    public function inserMaterial($data)
     {
         $this->table1;
 
+        $query = "SELECT * FROM $this->table2 ORDER BY id DESC LIMIT 1";
+        $result = $this->query($query);
 
-        // $p_id =$data["project_id"];
-
-        // unset($data["number"]);
-        // $data["p_id"] = $last_p_id;
-        // $data["r_id"] = $last_r_id;
-
-        // print_r($result);
-        // echo $last_p_id, $last_r_id;
+        $new_request_id = $result[0]->id;
 
         $keys = array_keys($data);
         // $columns = implode(',', $keys);
-        $columns = "material_or_item_id, material_or_item_name, mesure_unit, quantity, project_id, level";
+        $columns = "material_or_item_id, material_or_item_name, mesure_unit, quantity, project_id, level, request_id";
 
         // foreach data
         $errors = 0;
@@ -77,6 +83,8 @@ class Material_requests extends Model{
             $quantity = $data["m_quantity"][$i];
             $project_id = $data["project_id"];
             $level = $data["level"];
+            $request_id = $new_request_id;
+
 
             $db_data = [
                 "material_or_item_id" => $material_or_item_id,
@@ -85,9 +93,10 @@ class Material_requests extends Model{
                 "quantity" => $quantity,
                 "project_id" => $project_id,
                 "level" => $level,
+                "request_id" => $request_id,
             ];
 
-            $query = "insert into $this->table1 ($columns) values (:material_or_item_id,:material_or_item_name,:mesure_unit,:quantity,:project_id,:level)";
+            $query = "insert into $this->table1 ($columns) values (:material_or_item_id,:material_or_item_name,:mesure_unit,:quantity,:project_id,:level,:request_id)";
             // echo $query;
             $result = $this->query($query, $db_data);
             if (!$result) {
@@ -101,11 +110,49 @@ class Material_requests extends Model{
         return false;
     }
 
+    public function update_p_m_request($data,$pmid)
+    {
+        $this->table2;
 
 
-    
-    
-    
+        // $p_id =$data["project_id"];
+
+        // unset($data["number"]);
+        // $data["p_id"] = $last_p_id;
+        // $data["r_id"] = $last_r_id;
+
+        // print_r($result);
+        // echo $last_p_id, $last_r_id;
+
+        $keys = array_keys($data);
+        // $columns = implode(',', $keys);
+        $columns = "project_id, manager_id, date";
+
+        // foreach data
+        $errors = 0;
+            $project_id = $data["project_id"];
+            $manager_id = $pmid;
+            $date = date("Y-m-d");
+
+
+            $db_data = [
+                "project_id" => $project_id,
+                "manager_id" => $manager_id,
+                "date" => $date,
+            ];
+
+            $query = "insert into $this->table2 ($columns) values (:project_id,:manager_id,:date)";
+            // echo $query;
+            $result = $this->query($query, $db_data);
+            if (!$result) {
+                $errors++;
+            }
+
+        if ($errors == 0)
+            return true;
+
+        return false;
+    }
 
 
 }

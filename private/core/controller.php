@@ -32,6 +32,18 @@
 		    header("Location: ". ROOT . "/".trim($link,"/"));
 		    die;
 	    }
+
+
+        public function redirectWithParams($link, $params = array()) {
+            $queryString = http_build_query($params); // Convert parameters to query string
+        
+            // Append query string to the URL
+            $redirectUrl = ROOT . '/' . trim($link, '/') . '?' . $queryString;
+        
+            header("Location: " . $redirectUrl);
+            die;
+        }
+        
     }
     
 

@@ -64,11 +64,12 @@
         padding: 20px;
     }
 
-    th{
+    th {
         position: sticky;
         top: 0;
     }
-    .table_section{
+
+    .table_section {
         max-height: 500px;
         overflow-y: scroll;
 
@@ -864,7 +865,7 @@
                                     <tr>
                                         <td><?= $row->task_id ?></td>
                                         <td><?= $row->task->task_name ?></td>
-                                        <td><button style="background-color:#E5863D; color:#fff;">Accept</button></a> <button style="background-color:#f2eaea;">Reject</button></td>
+                                        <td><button id="task_accept" style="background-color:#E5863D; color:#fff;">Accept</button> <button id="task_reject" style="background-color:#f2eaea;">Reject</button></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -1101,10 +1102,56 @@
             </div>
         </div>
 
+        <div class="pro-id-details">
+            <div class="table">
+                <div class="title-id">
+                    <div class="p-title">
+                        <h2 class="ind-topic">Daily Progress Report</h2>
+                    </div>
+                </div>
+                <div class="table_header">
+                    <h3>Reports</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Skill</th>
+                                <th>Task ID</th>
+                                <th>Task Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($row9) : ?>
+                                <?php foreach ($row9 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->emp_id ?></td>
+                                        <td><?= $row->coworker->name ?></td>
+                                        <td><?= $row->coworker->role ?></td>
+                                        <td><?= $row->task_id ?></td>
+                                        <td><?= $row->task->task_name ?></td>
+                                        <td><?= get_date($row->start_date) ?></td>
+                                        <td><?= get_date($row->end_date) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <script>
+    const task_accept = document.getElementById('task_accept');
+
     function toggleDiv() {
+
         var myDiv = document.getElementById("pro_de");
         var toggleButton = document.getElementById("toggleButton");
 
@@ -1123,6 +1170,14 @@
         span.style.width = span.dataset.width;
         span.innerHTML = span.dataset.width;
     });
+    <?php if ($rows2) : ?>
+
+        task_accept.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch("<?= ROOT ?>/Pmongoingproject/acceptSupervisor/<?= $rows2[0]->id ?>")
+            window.location.reload();
+        });
+    <?php endif; ?>
 </script>
 
 

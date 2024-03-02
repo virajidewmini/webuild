@@ -24,7 +24,7 @@ class Pmongoingproject extends Controller
 			'rows1' => $data1,
 		]);
 	}
-
+	
 	public function projectdeatils($id = null, $req = null, $mid = null, $model = null)
 	{
 		// code... 
@@ -68,7 +68,7 @@ class Pmongoingproject extends Controller
 		$allocated_co = new AllocateCoworker();
 		$data15 = $allocated_co->where('project_id', $id);
 
-
+		print_r($data2);
 
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
@@ -94,16 +94,12 @@ class Pmongoingproject extends Controller
 
 	public function acceptTask($id)
 	{
-		print_r($id);
-		// code...
 		if (!Auth::logged_in()) {
 			$this->redirect('/login');
 		}
 
-		$project_task = new Project_tasks();
-		$arr['status'] = 'done';
-		$project_task->update($id, $arr);
-
-		$this->view('pmprojectprofile');
+		$allocated_task = new Allocated_tasks();
+		$arr['status'] = 'Done';
+		$allocated_task->update($id, $arr);
 	}
 }
