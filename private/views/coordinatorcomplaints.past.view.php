@@ -26,8 +26,8 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows["Qualiy_of_Photographs"] as $row) :?>
-                            <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #e5863d;">                       
+                            
+                                <tr style="background-color: #f2781b;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
@@ -38,19 +38,7 @@ body{
                                     </td> 
                                     
                                 </tr>
-                            <?php elseif($row->status=='Pending'):?>
-                                <tr>                       
-                                    <td><?=$row->id?></td>
-                                    <td><?=$row->date?></td>
-                                    <td><?=$row->status?></td>  
-                                    <td>
-                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td> 
-                                    
-                                </tr>
-                            <?php endif;?>
+                            
                         <?php endforeach;?>
                     </tbody>
                 </table>
@@ -81,8 +69,8 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows["being_delayed"] as $row) :?>
-                            <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #e5863d;">                       
+                            
+                                <tr style="background-color: #f2781b;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
@@ -93,19 +81,7 @@ body{
                                     </td> 
                                     
                                 </tr>
-                            <?php elseif($row->status=='Pending'):?>
-                                <tr>                       
-                                    <td><?=$row->id?></td>
-                                    <td><?=$row->date?></td>
-                                    <td><?=$row->status?></td>  
-                                    <td>
-                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td> 
-                                    
-                                </tr>
-                            <?php endif;?>
+                            
                         <?php endforeach;?>
                     </tbody>
                 </table>
@@ -136,8 +112,8 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows["Workmanship_&_Materials"] as $row) :?>
-                            <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #e5863d;">                       
+                            
+                                <tr style="background-color: #f2781b;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
@@ -148,19 +124,7 @@ body{
                                     </td> 
                                     
                                 </tr>
-                            <?php elseif($row->status=='Pending'):?>
-                                <tr>                       
-                                    <td><?=$row->id?></td>
-                                    <td><?=$row->date?></td>
-                                    <td><?=$row->status?></td>  
-                                    <td>
-                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td> 
-                                    
-                                </tr>
-                            <?php endif;?>
+                            
                         <?php endforeach;?>
                     </tbody>
                 </table>
@@ -194,8 +158,8 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows["Poor_Communication"] as $row) :?>
-                            <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #e5863d;">                       
+                            
+                                <tr style="background-color: #f2781b;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
@@ -206,19 +170,7 @@ body{
                                     </td> 
                                     
                                 </tr>
-                            <?php elseif($row->status=='Pending'):?>
-                                <tr>                       
-                                    <td><?=$row->id?></td>
-                                    <td><?=$row->date?></td>
-                                    <td><?=$row->status?></td>  
-                                    <td>
-                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td> 
-                                    
-                                </tr>
-                            <?php endif;?>
+                            
                         <?php endforeach;?>
                     </tbody>
                 </table>
@@ -252,8 +204,8 @@ body{
                     </thead>
                     <tbody>
                         <?php foreach ($rows["Other"] as $row) :?>
-                            <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #e5863d;">                       
+                            
+                                <tr style="background-color: #f2781b;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
@@ -264,19 +216,7 @@ body{
                                     </td> 
                                     
                                 </tr>
-                            <?php elseif($row->status=='Pending'):?>
-                                <tr>                       
-                                    <td><?=$row->id?></td>
-                                    <td><?=$row->date?></td>
-                                    <td><?=$row->status?></td>  
-                                    <td>
-                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td> 
-                                    
-                                </tr>
-                            <?php endif;?>
+                            
                         <?php endforeach;?>
                     </tbody>
                 </table>

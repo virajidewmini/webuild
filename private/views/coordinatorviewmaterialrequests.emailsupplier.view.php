@@ -60,7 +60,7 @@
     }
     
     .under button{
-        background: #32749a;
+        background: #e5863d;
         color: white;
         border: none;	
         padding: 15px;
@@ -81,7 +81,7 @@
     
     .success{
         margin-top: 30px;
-        color: green;
+        color: #e5863d;
     }
 
 

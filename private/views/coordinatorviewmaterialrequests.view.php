@@ -23,14 +23,14 @@ body{
                             <th>Requested Quantity</th>
                             <th>Date</th>
                             <th>Status</th>
-                            <th></th>
+                            <th>See more</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($rows as $row) :?>
                             <?php if($row->status=='Emailed'):?>
-                                <tr style="background-color: #2ecc71;">                       
+                                <tr style="background-color: #3d9ce5;">                       
                                     
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->material->material_name?></td>
@@ -39,7 +39,7 @@ body{
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatormaterialrequests/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -53,22 +53,23 @@ body{
                                     <td><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatormaterialrequests/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
                                 </tr>
                             <?php elseif($row->status=='Recieved'):?>
-                                <tr style="background-color: #e5863d;">                       
+                                <tr style="background-color: #e5863d;"> 
+                                <!-- <tr>  -->
                                     
-                                    <td style="color: white;"><?=$row->id?></td>
-                                    <td style="color: white;"><?=$row->material->material_name?></td>
-                                    <td style="color: white;"><?=$row->requested_quantity?></td>
-                                    <td style="color: white;"><?=$row->requested_date?></td>
+                                    <td style="color: white;" ><?=$row->id?></td>
+                                    <td style="color: white;" ><?=$row->material->material_name?></td>
+                                    <td style="color: white;" ><?=$row->requested_quantity?></td>
+                                    <td style="color: white;" ><?=$row->requested_date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatormaterialrequests/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
