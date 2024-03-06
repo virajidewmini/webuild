@@ -38,16 +38,7 @@
 
         }
 
-        // public function viewDetails($id=null){
-            
-        //         $request=new RequestsSecond();
-        //         $request->findAll();
-        //         var_dump($request);
-              
-            
-
-        //     $this->view('storekeeperRequestSecond',['rows'=> $request]);
-        // }
+        
 
 
 
@@ -64,30 +55,11 @@
                 $this->view('storekeeperRequestSecond', ['rows' => $data]);
             }
         }
-        
-        
-        
-        // public function delete($id=null){
-           
-        //     if(count($_POST) > 0){
-        //         $request=new QuotationSK();
-        //         $request->delete($id);
-        //         $this->redirect('quotationorder');
 
-        //     }
-        //     $this->view('storekeeperDeleteQuotation');
-        // }
         
-        // public function update($id=null){
-           
-        //     if(count($_POST) > 0){
-        //         $request=new QuotationSK();
-        //         $request->update($id,$_POST);
-        //         $this->redirect('quotationorder');
-
-        //     }
-        //     $this->view('storekeeperUpdateQuotation');
-        // }
+        
+        
+       
         
     }
 ?>
