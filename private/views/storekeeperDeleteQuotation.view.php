@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'Storekeeper'): ?>
 <?php $this->view('includes/header')?>
 <div class="form_container">
 <form method="post">

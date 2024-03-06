@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'Storekeeper'): ?>
 <?php $this->view('includes/header')?>
 
 <div style="margin-left: 285px;" class="table_header" >
