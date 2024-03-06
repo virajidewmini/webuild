@@ -15,7 +15,10 @@
     <!--css files-->
     <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
     <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
   </head>
   <body>
     <section class="sidebar">
