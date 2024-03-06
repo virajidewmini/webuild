@@ -121,29 +121,24 @@
               <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
                 <li class="active">
-                  <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
+                  <a href="<?=ROOT?>/storekeeperdashboard" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>
-                  <a href="<?=ROOT?>/coordinatorrequests">
+                  <a href="<?=ROOT?>/Request">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Requests</span>
                   </a>
                 </li>
                 <li>
-                  <a href="<?=ROOT?>/co_allprojects">
+                  <a href="<?=ROOT?>/maintain">
                     <i class="fa-solid fa-list-check"></i>
-                    <span class="text">Projects</span>
+                    <span class="text">Store Materials</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fas fa-comments"></i>
-                    <span class="text">Complaints</span>
-                  </a>
-                </li>
+               
                 
                 <!-- settings and logout -->
 
