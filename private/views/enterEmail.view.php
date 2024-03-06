@@ -34,7 +34,7 @@
             <h2>WEBUILD</h2>
             <p>Here we are introducing a web-based platform for Making
                 Your Dream House a Reality.</p>
-            <a href=""><button>login</button></a>
+            <a href="<?=ROOT;?>/Login"><button>login</button></a>
         </div>  
       </div>
       <script>
