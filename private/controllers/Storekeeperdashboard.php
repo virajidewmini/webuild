@@ -1,7 +1,7 @@
 <?php
 
     //Manager members controller
-    class Storedashboard extends Controller{
+    class Storekeeperdashboard extends Controller{
         
         public function index()
     {
