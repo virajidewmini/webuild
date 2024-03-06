@@ -4,4 +4,5 @@ class RequestsSecond extends Model{
     
     
 }
+
 ?>

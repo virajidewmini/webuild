@@ -7,11 +7,11 @@
 <!-- swiper cs link -->
   <link
   rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  
+  <script src="https://kit.fontawesome.com/9e9a03ae37.js" crossorigin="anonymous"></script>
   
   <!-- font awesome cdn link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="<?=ROOT?>/css/home.css">
 </head>
 <body>
 
@@ -23,16 +23,15 @@
         <img src="./Photos/LOGO2.png" alt="" class="LOGO-img" width="50" hight="50">
 </a> -->
 
-<a href="./houses.php" class="logo">WEBUILD</a>
+<a href="/houses.php" class="logo">WEBUILD</a>
 <nav class="navbar">
-  <a href="./lands.php">Lands</a>
+  <a href="./homeLand.view.php">Lands</a>
   <a href="./houses.php">House</a>
   <a href="./completed.php">Completed Projects</a>
   <a href="./about.php">About Us</a>
   <a href="./contact.php">Contact Us</a>
-  <a href="#">Login</a>
-  <a href="#">Sign Up</a>
-
+  <a href="#" class="btn-main">Login</a>
+  <a href="#" class="btn-main">Sign Up</a>
 
 </nav>
 
@@ -49,21 +48,21 @@
 <section class="home">
   <div class="swiper home-slider">
     <div class="swiper-wrapper">
-      <div class="swiper-swiper-slider slide swiper-slider slide" style="background: url(./Photos/741_house_1.jpg);">
+      <div class="swiper-slide slide " style="background: url(<?=ROOT?>/img/Photos/1_Floor/pexels-photo-5824901.jpeg);">
         <div class="content">
           <span>purchase your dream place</span>
           <h3>dream with webuild</h3>
           <a href="#" class="btn">See More</a>       
          </div>
       </div>
-      <div class="swiper-swiper-slider slide swiper-slider slide" style="background: url(./Photos/1630000306A.jpg);">
+      <div class="swiper-slide slide " style="background: url(./Photos/Houses/1_Floor/pexels-photo-3767442.jpeg);">
         <div class="content">
           <span>purchase your dream place</span>
           <h3>dream with webuild</h3>
           <a href="#" class="btn">See More</a>        
         </div>
       </div>
-      <div class="swiper-swiper-slider slide swiper-slider slide" style="background: url(./Photos/hq720.jpg)">
+      <div class="swiper-slide slide " style="background: url(./Photos/Houses/1_Floor/pexels-photo-5824901.jpeg)">
         <div class="content">
           <span>purchase your dream place</span>
           <h3>dream with webuild</h3>
@@ -85,11 +84,11 @@
   <h1 class="heading-title">Our Services</h1>
   <div class="box-container">
     <div class="box">
-    <img src="./Photos/images.jpeg" alt="">
+    
     <h3>Houses</h3>
     </div>
     <div class="box">
-      <img src="./Photos/images.jpeg" alt="">
+      <img src="/Photos/Houses/Service/Home.jpg" alt="">
       <h3>Lands</h3>
     </div>
     <div class="box">
@@ -174,11 +173,10 @@
 <!-- home offer section ends -->
 
 <!-- reviews section starts -->
-<h1 class="heading-title">Client Reviews</h1>
 <section class="reviews">
-  <div class=" swiper reviews-slider">
-    <div class="swiper-wrapper">
-      <div class="swiper-slider slide">
+  <div class="swiper reviews-slider">
+    <div class="">
+      <div class="slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -189,8 +187,9 @@
         <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
+        <img src="./Photos/Reviews/RE1.jpg" alt="">
       </div>
-      <div class="swiper-slider slide">
+      <div class="slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -201,8 +200,9 @@
         <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
+        <img src="./Photos/Reviews/RE1.jpg" alt="">
       </div>
-      <div class="swiper-slider slide">
+      <div class="slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -213,8 +213,9 @@
         <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
+        <img src="./Photos/Reviews/RE3.jpg" alt="">
       </div>
-      <div class="swiper-slider slide">
+      <div class="slide">
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -225,30 +226,7 @@
         <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
         <h3>N.M.Siriwardhane</h3>
         <span>Doctor</span>
-      </div>
-      <div class="swiper-slider slide">
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
-        <h3>N.M.Siriwardhane</h3>
-        <span>Doctor</span>
-      </div>
-      <div class="swiper-slider slide">
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p>lorem huh huhuhs sjois ijiia ijis iji ijiw ijiw ijiw ijijw ijiw ijiw jiw oow</p>
-        <h3>N.M.Siriwardhane</h3>
-        <span>Doctor</span>
+        <img src="./Photos/Reviews/RE5.jpg" alt="">
       </div>
     </div>
   </div>

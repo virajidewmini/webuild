@@ -1,12 +1,13 @@
+<?php if(Auth::getRole()== 'Storekeeper'): ?>
 <?php $this->view('includes/header'); ?>
 
-<form method="post" action="add.php"> <!-- Replace "add.php" with the appropriate action URL -->
+<form method="post" action="a"<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>""> <!-- Replace "add.php" with the appropriate action URL -->
     <div class="table_header" style="margin-left: 0rem;">
         <h1>Send Quotations</h1>
     </div>
 
-    <div class="form_container" style="width: 150%; margin-left: 0rem;">
-        <table id="quotation_table" class="v_table" style="width: 100%; margin-left: -1.5rem; margin-top:-2rem;">
+    <div class="form_container" style="width: 160%; margin-left: 0rem;">
+        <table id="quotation_table" class="v_table" style="width: 150%; margin-left: -1.5rem; margin-top:-2rem; margin-right:4rem;">
             <thead>
                 <tr>
                     <th>Project ID</th>
@@ -16,8 +17,10 @@
                     <th>Measure Unit</th>
                     <th>Requested Quantity</th>
                     <th>Batch No</th>
-                    <th>Send Quantity</th>
-                    <th>Unit Price</th>
+                    <th>Batch 1 Quantity</th>
+                    <th>Unit Price 1</th>
+                    <th>Batch 2 Quantity</th>
+                    <th>Unit Price2</th>
                     <th>Total Price</th>
                     <!-- <th>Issue Date</th> -->
                 </tr>
@@ -39,9 +42,11 @@
                                     <!-- Add more options if needed -->
                                 </select>
                             </td>
-                            <td><input type="text" name="send_quantity[]" class="v_form-control send_quantity" style="height: 30px;" required></td>
-                            <td><input type="text" name="unit_Price[]" class="v_form-control unit_price" style="height: 30px;" required></td>
-                            <td><input type="text" name="total_price[]" class="v_form-control total_price" style="height: 30px;" required readonly></td>
+                            <td><input type="text" name="batch_1_quantity[]" class="v_form-control send_quantity" style="height: 30px; width:5rem;" required></td>
+                            <td><input type="text" name="unit_Price_1[]" class="v_form-control unit_price_1" style="height: 30px;width:5rem;" required></td>
+                            <td><input type="text" name="batch_2_quantity[]" class="v_form-control send_quantity" style="height: 30px; width:5rem;" required></td>
+                            <td><input type="text" name="unit_Price_2[]" class="v_form-control unit_price" style="height: 30px; width:5rem;" required></td>
+                            <td><input type="text" name="total_price[]" class="v_form-control total_price" style="height: 30px; width:5rem;" required readonly></td>
                             <!-- <td><input type="text" name="quotation_issue_date[]" class="v_form-control" style="height: 30px;" required></td> -->
                         </tr>
                     <?php endforeach;?>
@@ -60,29 +65,32 @@
 </form>
 
 <script>
-    // Function to calculate the total amount
-    function calculateTotalAmount() {
-        var totalAmount = 0;
-        var total_price_inputs = document.querySelectorAll('.total_price');
-        total_price_inputs.forEach(function(input) {
-            totalAmount += parseFloat(input.value) || 0;
+    // Update total price and full total amount
+    function updateTotalPriceAndAmount() {
+        var rows = document.querySelectorAll('.materials');
+        var fullTotalAmount = 0;
+        rows.forEach(function(row) {
+            var batch1Quantity = parseFloat(row.querySelector('input[name="batch_1_quantity[]"]').value) || 0;
+            var unitPrice1 = parseFloat(row.querySelector('input[name="unit_Price_1[]"]').value) || 0;
+            var batch2Quantity = parseFloat(row.querySelector('input[name="batch_2_quantity[]"]').value) || 0;
+            var unitPrice2 = parseFloat(row.querySelector('input[name="unit_Price_2[]"]').value) || 0;
+
+            var totalPrice = (batch1Quantity * unitPrice1) + (batch2Quantity * unitPrice2);
+            row.querySelector('input[name="total_price[]"]').value = totalPrice.toFixed(2);
+
+            fullTotalAmount += totalPrice;
         });
-        return totalAmount;
+
+        document.getElementById('full_total_amout').value = fullTotalAmount.toFixed(2);
     }
 
-    // Update total amount when any total price input changes
+    // Update total price and full total amount when input values change
     document.querySelectorAll('.send_quantity, .unit_price').forEach(function(input) {
         input.addEventListener('input', function() {
-            var row = input.closest('tr');
-            var quantity = parseFloat(row.querySelector('.send_quantity').value) || 0;
-            var unitPrice = parseFloat(row.querySelector('.unit_price').value) || 0;
-            var totalPrice = quantity * unitPrice;
-            row.querySelector('.total_price').value = totalPrice.toFixed(2); // Adjust decimal places as needed
-
-            var totalAmount = calculateTotalAmount();
-            document.getElementById('full_total_amout').value = totalAmount.toFixed(2); // Adjust decimal places as needed
+            updateTotalPriceAndAmount();
         });
     });
 </script>
+
 
 <?php $this->view('includes/footer'); ?>

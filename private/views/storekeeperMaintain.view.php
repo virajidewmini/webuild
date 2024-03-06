@@ -1,24 +1,4 @@
-<!-- <style>
-    .filter-button {
-  background-color: #4CAF50; /* Green background */
-  border: none; /* Remove border */
-  color: white; /* White text color */
-  padding: 10px 20px; /* Padding */
-  text-align: center; /* Center text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Display as inline block */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Add cursor pointer */
-  border-radius: 4px; /* Rounded corners */
-  transition: background-color 0.3s; /* Smooth transition */
-}
-
-.filter-button:hover {
-  background-color: #45a049; /* Darker green on hover */
-}
-
-</style> -->
-
+<?php if(Auth::getRole()== 'Storekeeper'): ?>
 <?php $this->view('includes/header')?>
 
 <form method="GET" action="<?= ROOT ?>/maintain/index">
@@ -31,7 +11,7 @@
     <div class="table_header">
         <h1>Details of Store Materials</h1>
     </div>
-    <div class="table_section" style="height: 250px;">
+    <div class="table_section" style="height: 700px;">
         <table>
             <thead>
                 <tr>
