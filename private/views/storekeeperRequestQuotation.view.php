@@ -94,3 +94,7 @@
 
 
 <?php $this->view('includes/footer'); ?>
+
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

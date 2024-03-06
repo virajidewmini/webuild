@@ -24,3 +24,6 @@ $remainQuantity = $_GET['remain_quantity'] ?? '';
     </form>
 </div>
 <?php $this->view('includes/footer'); ?>
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
