@@ -56,15 +56,6 @@ class Database
 		return false;
 	}
 
-	private function con()
-	{ 
-		$con=mysqli_connect(DBHOST,DBUSER,'',DBDRIVER);
-	 {
-
-       if(mysqli_connect_errno()){
-				echo "Connection Error" . mysqli_connect_error();
-			 }
-	 }
-	}
+	
 	
 }
