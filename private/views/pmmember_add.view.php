@@ -131,7 +131,11 @@
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
+                            <?php if($row1[0]->id): ?>
+                                <input readonly value="<?=get_var('id',$row1[0]->id)?>" type="text" name="id">
+                            <?php else: ?>
                                 <input required value="<?=get_var('id')?>" type="text" name="id">
+                            <?php endif; ?>
                             </div>
                         </div>
                         <div class="unit-d">

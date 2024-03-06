@@ -28,6 +28,70 @@
 			return $data;
 		}
 
+		public function levelwhere($col,$column, $value){
+
+			$column = addslashes($column);
+			$col = addslashes($col);
+			$query= "select distinct $col from $this->table where $column =:value";
+			$data =  $this->query($query,[
+				'value'=>$value
+			]);
+
+			if(is_array($data)){
+				if(property_exists($this, 'afterSelect')){
+					foreach($this->afterSelect as $func){
+						$data = $this->$func($data);
+					}
+				}
+			}
+
+			return $data;
+		}
+
+		public function dmaterial($model_id, $level){
+
+			$query= "SELECT task_materials.* FROM tasks
+			INNER JOIN task_materials ON tasks.id = task_materials.task_id
+			WHERE tasks.model_id = :model_id
+			AND tasks.level = :level";
+			$data =  $this->query($query,[
+				'model_id'=>$model_id,
+				'level'=>$level
+			]);
+
+			if(is_array($data)){
+				if(property_exists($this, 'afterSelect')){
+					foreach($this->afterSelect as $func){
+						$data = $this->$func($data);
+					}
+				}
+			}
+
+			return $data;
+		}
+
+		public function dequipment($model_id, $level){
+
+			$query= "SELECT task_equipment.* FROM tasks
+			INNER JOIN task_equipment ON tasks.id = task_equipment.task_id
+			WHERE tasks.model_id = :model_id
+			AND tasks.level = :level";
+			$data =  $this->query($query,[
+				'model_id'=>$model_id,
+				'level'=>$level
+			]);
+
+			if(is_array($data)){
+				if(property_exists($this, 'afterSelect')){
+					foreach($this->afterSelect as $func){
+						$data = $this->$func($data);
+					}
+				}
+			}
+
+			return $data;
+		}
+
 		public function where2($column1, $value1, $column2, $value2) {
 			$column1 = addslashes($column1);
 			$column2 = addslashes($column2);
@@ -146,7 +210,7 @@
 					  FROM $this->table1
 					  INNER JOIN $this->table5 ON $this->table1.supervisor_id = $this->table5.staff_id
 					  WHERE $this->table1.manager_id = :value
-					  AND $this->table1.action = 'ongoing'ORDER BY $this->table1.supervisor_id ASC";
+					  AND $this->table1.status = 'ongoing'ORDER BY $this->table1.supervisor_id ASC";
 	
 			// Assuming you have a method named 'query' to execute the query
 			return $this->query($query, [
@@ -179,6 +243,22 @@
 			return $this->query($query);
 		}
    
+		
+
+		public function tobillm($value){
+			$query = "SELECT *
+			FROM $this->table7
+			INNER JOIN $this->table8 ON $this->table7.id=$this->table8.id";
+
+			$query =  "SELECT * 
+			FROM $this->table7
+			INNER JOIN $this->table8 ON $this->table7.def_id=$this->table8.id
+			WHERE $this->table7.user_id = :value";
+
+			return $this->query($query, [
+				'value' => $value,
+			]);
+		}
 		
 
 	}

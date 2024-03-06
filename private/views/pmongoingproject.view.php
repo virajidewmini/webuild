@@ -13,7 +13,6 @@ body{
                 <thead>
                     <tr>
                         <th>Project ID</th>
-                        <th>Manager Name</th>
                         <th>Supervisor Name</th>
                         <th>Project Request ID</th>
                         <th>Final Date</th>
@@ -25,12 +24,11 @@ body{
                         <?php foreach ($rows as $row):?>
                             <tr>
                                 <td><?= $row->id?></td>
-                                <td><?= $row->staffm->firstname?> <?= $row->staffm->lastname?></td>
-                                <td><?= $row->staffs->firstname?> <?= $row->staffs->lastname?></td>
+                                <td><?= $row->staff->firstname?> <?= $row->staff->lastname?></td>
                                 <td><?= $row->project_request_id?></td>
                                 <td><?=get_date($row->date)?></td>
                                 <td>
-                                    <a href="<?=ROOT?>/Pmongoingproject/show/<?=$row->id?>">
+                                    <a href="<?=ROOT?>/Pmongoingproject/projectdeatils/<?=$row->id?>/<?= $row->project_request_id?>/<?= $row->req->modification_id?>/<?= $row->req->model_id?>/">
                                     <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
                                 </td>

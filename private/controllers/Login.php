@@ -9,7 +9,6 @@
             $errors = array();
 
             if (count($_POST)>0){
-
                 $user=new Users();
                 if($row=$user->where('email',$_POST['email'])){
                     $row = $row[0];
@@ -21,7 +20,12 @@
                         if (Auth::getRole() == 'Project Coordinator'){
                             $this->redirect('/coordinatordashboard');
                         }
-                        $this->redirect('/home');
+                        if (Auth::getRole() == 'Admin'){
+                            $this->redirect('/admindashboard');
+                        }
+                        
+                            $this->redirect('/home');
+                        
                     }
                    
                 }

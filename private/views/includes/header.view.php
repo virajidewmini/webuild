@@ -38,7 +38,7 @@
                 <li>
                   <a href="<?=ROOT?>/coordinatorrequests">
                     <i class="fa-solid fa-users"></i>
-                    <span class="text">Requests</span>
+                    <span class="text">Project Requests</span>
                   </a>
                 </li>
                 <li>
@@ -50,7 +50,27 @@
                 <li>
                   <a href="#" class="nav-link">
                     <i class="fas fa-comments"></i>
-                    <span class="text">Complaints</span>
+                    <span class="text" id="main_link">Complaints</span>
+                    
+                  </a>
+                  <span id="sub_link"></span>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatorviewmanagers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Project Managers</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatormaterialrequests">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Material Requests</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatorviewsuppliers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Suppliers</span>
                   </a>
                 </li>
                 
@@ -190,7 +210,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/Pmmaterial" class="nav-link">
                     <i class="fa-solid fa-cubes-stacked"></i>
                     <span class="text">Materials</span>
                   </a>
@@ -427,12 +447,7 @@
                 </li>
                 
 
-        <a href="#" class="profile">
-          <img src="<?=ROOT?>/img/profile.jpg" alt="" />
-          <!-- USER -->
-          <?=Auth::user()?>
-        </a>
-      </nav>
+        
 
                 <!-- settings and logout -->
 
