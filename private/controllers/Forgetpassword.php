@@ -81,82 +81,45 @@
 
         //updatePassword
         public function updatePassword(){
+            //print_r($_SESSION['user_email']);
+            $errors = array();
             
-        
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                
-                $data = [
-                    'user_id' => $user_id,
-                    'pass' => trim($_POST['pass']),
-                    'confirm_pass' => trim($_POST['confirm_pass']),
-                    'pass_err' => '',
-                    'confirm_pass_err' => '',
-                ];
-        
-                // Validate password  
-                
-                
-        
-                // If no errors, proceed with updating the password
-                if (empty($data['pass_err']) && empty($data['confirm_pass_err'])) {
-                    // Get user ID based on the email
-                    $user = $this->userModel->findUserById($user_id);
-                    $user_role=$user[0]->user_role;
+            if (count($_POST)>0){
+                //print_r($_POST);
+
+                $user=new Users();
+
+                if($user->passwordvalidation($_POST)){
+                    $data=$user->getIdByEmail($_SESSION['user_email']);
                     
-                    if ($user) {
-                        // Hash the password
-                        
-                        $data['pass']=password_hash($data['pass'],PASSWORD_DEFAULT);
-                        // Update the user's password
-                        if ($this->userModel->updatePassword($data)) {
-                            if($user_role=='publisher'){
-                                if($this->userModel->updatePasswordPub($data)){
-                                    redirect('landing/login');
-                                }else {
-                                    die('Something went wrong');
-                                }
-                            }else if($user_role=='customer'){
-                                if($this->userModel->updatePasswordCus($data)){
-                                    redirect('landing/login');
-                                }else {
-                                    die('Something went wrong');
-                                }
-                            }else if($user_role=='charity'){
-                                if($this->userModel->updatePasswordCharity($data)){
-                                    redirect('landing/login');
-                                }else {
-                                    die('Something went wrong');
-                                }
-                            }
-                            
-                        } else {
-                            die('Something went wrong');
-                        }
-                    } else {
-                        // User not found
-                        die('User not found');
-                    }
-                } else {
-                    // There were errors, reload the view with error messages
-                    $this->view('landing/updatepass', $data);
+                    $id=$data[0]->id;
+                    
+                    $arr['password']=$_POST['password'];
+                    
+                    
+                    $user->update($id,$arr);
+                    $this->redirect('/Login');
+
+                }else{
+                    
+
+                    //errors
+                    $errors = $user->errors;
+                    
+                    
                 }
-            } 
-            else {
-                // $userEmail=$_SESSION['user_email'] ;
-                // GET request, load the view
-                $data = [
-                    'user_id' => $user_id,
-                    'pass' => '',
-                    'confirm_pass' => '',
-                    'pass_err' => '',
-                    'confirm_pass_err' => '',
-                ];
-        
-                $this->view('updatePassword', $data);
             }
+            
+
+            $this->view('updatePassword',[
+                'errors'=>$errors,
+                
+            ]);
+
+
         }
+        
+            
             
         
     }

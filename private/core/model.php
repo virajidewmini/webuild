@@ -157,6 +157,14 @@
 				$str .= $key. "=:". $key.",";
 			}
 
+
+			//run functons before update
+			if(property_exists($this, 'beforeUpdate')){
+				foreach ($this->beforeUpdate as $func) {
+					$data =$this->$func($data);
+				}
+			}
+
 			$str = trim($str,",");//trim trims from the beg and the end
  
 			$data['id'] = $id;

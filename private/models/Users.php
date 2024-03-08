@@ -16,6 +16,8 @@ class Users extends Model{
 
     protected $beforeInsert =['hash_password'];
 
+    protected $beforeUpdate =['hash_password'];
+
 
 
     public function validate($DATA){
@@ -212,7 +214,7 @@ class Users extends Model{
         }
 
         //password length
-        if(strlen($DATA['password'])<8 || strlen($DATA['password'])>12){
+        if((!empty($DATA['password'])) && (strlen($DATA['password'])<8 || strlen($DATA['password'])>12)){
             $this->errors['password']="Password should have 8-12 characters.";
         }
 
@@ -225,14 +227,32 @@ class Users extends Model{
 
 
         //same as confirmpassword
-        if((!empty($DATA['password'])) && ($DATA['password'] != $DATA['confirmpassword'])){
+        if((!empty($DATA['password'])) && (!empty($DATA['confirmpassword'])) && ($DATA['password'] != $DATA['confirmpassword'])){
             $this->errors['password']="Passwords do not match";
+        }
+
+
+        if(empty($DATA['confirmpassword'])){
+            $this->errors['confirmpassword']="Confirm New Password can't be empty ";
         }
 
         if(count($this->errors) == 0){
             return true;
         }
         return false;
+    }
+
+
+    public function getIdByEmail($email){
+
+        $query="SELECT id FROM user 
+        WHERE user.email = :email"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'email' => $email,
+        ]);
+
     }
     
 }
