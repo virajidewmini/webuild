@@ -7,13 +7,14 @@
             padding: 0;
             box-sizing: content-box;
 
-        }
+    }
+
     .item{
         background : lightblue;
         padding: 1rem;
         border-radius: 2rem;
         background: #e9e9e9;           
-        border: 1px solid blue;
+        border: 1px solid #c41212;
     }
     .container{
         padding: 1rem;
@@ -52,8 +53,8 @@
     }
 
     .role-box {
-        width: 200px; /* Increased width to accommodate changes */
-        background-color: #f2f2f2;
+        width: 200px;
+        background-color: #e5863d; /* Change background color before hovering */
         border-radius: 15px;
         margin: 10px;
         display: flex;
@@ -61,69 +62,144 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: box-shadow 0.3s ease-in-out;
+        /* transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; */
     }
 
     .role-box:hover {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: white ; /* Keep background color same after hovering */
     }
 
     .total-employees {
-        font-size: 32px; /* Increased font size for emphasis */
-        font-weight: bold;
-        background-color: #e79556; /* Highlighted color */
-        padding: 10px 0; /* Adjusting padding to extend horizontally */
-        border-radius: 10px; /* Round corners for the highlighted box */
-        margin-bottom: 5px; /* Space between total and roles */
-        width: 100%; /* Take the whole horizontal space */
-        text-align: center; /* Center the text horizontally */
+        font-size: 24px; /* Increase font size before hovering */
+        font-weight: bold; /* Make text bold before hovering */
+        text-align: center; /* Center text before hovering */
     }
 
     .role-box hr {
         width: 80%;
-        /* margin: 8px 0; */
         border: 1px solid #ccc;
     }
 
     .role {
         margin: 5px 0;
+        text-align: center;
+    }
+
+    .chart-container {}
+
+    .role-box .role {
+        display: none;
+    }
+
+    .role-box:hover .total-employees {
+        display: none;
+    }
+
+    .role-box:hover .role {
+        display: block;
+    }
+
+    .role-box hr {
+        display: none; /* Hide the horizontal lines initially */
+    }
+
+    .role-box:hover hr {
+        display: block; /* Display horizontal lines when hovering over .role-box */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //item 3
+    .item-3 {
+        position: relative;
     }
 
     .chart-container {
-            /* width: 500px;
-            height: 500px; */
-            /* border: 1px solid #ccc;
-            border-radius: 10px;
-            overflow: hidden; */
-        }
+        position: relative;
+    }
+
+    .select-wrapper {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .select-dropdown {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    .search-button {
+        background-color: #E5863D;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .pie-chart-container {
+        position: relative;
+    }
+
+    .legend-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-align: right;
+        font-size: 14px;
+
+
+
 
 </style>
+<!-- <pre>
+    <?php print_r($rows['AllComp']);?>
+</pre> -->
      <div class="container">  
 
         <div class="item item-1" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
             <div class="role-box">
                 
-                <div class="total-employees"><?=$rows["all"][0]->total?></div>
+                <div class="total-employees">Total Employees<br>  <?=$rows["all"][0]->total?></div>
             
-                <div class="role">Project Managers: <?=$rows["man"][0]->total?></div>
+                <div class="role" >Project Managers: <?=$rows["man"][0]->total?></div>
                 <hr>
-                <div class="role">Supervisors: <?=$rows["sup"][0]->total?></div>
+                <div class="role" >Supervisors: <?=$rows["sup"][0]->total?></div>
                 <hr>
-                <div class="role">Storekeepers: <?=$rows["sk"][0]->total?></div>
+                <div class="role" >Storekeepers: <?=$rows["sk"][0]->total?></div>
                 <hr>
-                <div class="role">Project Coordinators: <?=$rows["coo"][0]->total?></div>
+                <div class="role" >Project Coordinators: <?=$rows["coo"][0]->total?></div>
             </div>
         </div>
-        <!-- lllllllllllllllllllllllllllllll
-        <pre>
-            <?php print_r($rows) ;?>
-        </pre> -->
+        
         <div class="item item-2" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
             <div class="role-box">
                 
-                <!-- <div class="total-employees"><?=$rows["AllComp"][0]?></div> -->
+                <div class="total-employees">Total Complaints<br> <?=$rows["AllComp"];?></div>
             
                 <div class="role">Quality of the photograph: <?=$rows["AllQP"][0]->total?></div>
                 <hr>
@@ -140,31 +216,34 @@
 
         <!-- complaints -->
         <div class="item item-3">
-            <!-- <div style="display:flex"> -->
-                <div class="chart-container" style="">
+            
+                <div class="chart-container" >
 
                     <form action="<?=ROOT?>/admindashboard/getMonth" method="post">
-                        <select name="month" class="" value="<?= get_select2('month','');?>">
-                            <option <?= get_select2('month','January');?> value="January">January</option>
-                            <option <?= get_select2('month','February');?> value="February">February</option>
-                            <option <?= get_select2('month','March');?> value="March">March</option>
-                            <option <?= get_select2('month','April');?>  value="April">April</option>
-                            <option <?= get_select2('month','May');?> value="May">May</option>
-                            <option <?= get_select2('month','June');?> value="June">June</option>
-                            <option <?= get_select2('month','July');?> value="July">July</option>
-                            <option <?= get_select2('month','August');?> value="August">August</option>
-                            <option <?= get_select2('month','September');?> value="September">September</option>
-                            <option <?= get_select2('month','October');?> value="October">October</option>
-                            <option <?= get_select2('month','November');?> value="November">November</option>
-                            <option <?= get_select2('month','December');?> value="Desember">December</option>
-                            
-                        </select>
                         
-                        <button style="background-color:#E5863D; color:white" class="" type="submit">Search</button>
-                    </form>
+                            <select name="month" class="select-dropdown" value="<?= get_select2('month','');?>">
+                                <option <?= get_select2('month','January');?> value="January">January</option>
+                                <option <?= get_select2('month','February');?> value="February">February</option>
+                                <option <?= get_select2('month','March');?> value="March">March</option>
+                                <option <?= get_select2('month','April');?>  value="April">April</option>
+                                <option <?= get_select2('month','May');?> value="May">May</option>
+                                <option <?= get_select2('month','June');?> value="June">June</option>
+                                <option <?= get_select2('month','July');?> value="July">July</option>
+                                <option <?= get_select2('month','August');?> value="August">August</option>
+                                <option <?= get_select2('month','September');?> value="September">September</option>
+                                <option <?= get_select2('month','October');?> value="October">October</option>
+                                <option <?= get_select2('month','November');?> value="November">November</option>
+                                <option <?= get_select2('month','December');?> value="Desember">December</option>
+                                
+                            </select>
+                        
+                            <button style="background-color:#E5863D; color:white" class="search-button" type="submit">Search</button>
+
+                            
+                        </form>
                 
                     <?php if(  $rows["QOP"][0]->total !=0 || $rows["CPD"][0]->total !=0 || $rows["QWM"][0]->total !=0 || $rows["PC"][0]->total!=0 || $rows["O"][0]->total!=0):?>
-                        <div>
+                        <div class="pie-chart-container">
                             <canvas id="myPieChart" width=300px height=300px></canvas>
                         </div>
                         <script>
@@ -180,7 +259,10 @@
                                         }]
                                     },
                                     options: {
-                                        // Additional options go here
+                                        legend: {
+                                            position: 'right',
+                                            align: 'start'
+                                        }
                                     }
                                 });
                             });
