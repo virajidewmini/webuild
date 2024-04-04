@@ -44,7 +44,7 @@
                     </td>
 
                     <td class="v_data">
-                        <a href="<?= ROOT ?>/task/addCoworker/<?= $row->id ?>" 
+                        <a href="<?= ROOT ?>/task/edit/<?= $row->id ?>" 
                             style="<?= ($row->status == 'Complete') ? 'display: none;' : '' ?>">
                             <button class="v_action_button">Edit</button>
                         </a>

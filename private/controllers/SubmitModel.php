@@ -12,10 +12,10 @@
                 ];
     
                 $landData = [
-                    'street' => $_POST['street'],
-                    'town' => $_POST['town'],
-                    'district' => $_POST['district'],
-                    'area' => $_POST['area']
+                    'ul_street' => $_POST['street'],
+                    'ul_town' => $_POST['town'],
+                    'ul_district' => $_POST['district'],
+                    'ul_area' => $_POST['area']
                 ];
 
                 $modification_id = uniqid();
