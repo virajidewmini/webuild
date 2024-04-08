@@ -19,11 +19,15 @@
 
             $allocated_task = new Allocated_tasks();
             $data1 = $allocated_task->where("status","Ongoing");
+
+            $quotation = new Project_Quotation();
+            $data3 = $quotation->where('status','Accept');
         
             $this->view('pmdashboard',[
                 'rows'=>$data,
                 'rows1'=>$data1,
                 'rows2'=>$data2,
+                'rows3'=>$data3,
             ]);
         }
 
