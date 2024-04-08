@@ -68,7 +68,8 @@ class Pmongoingproject extends Controller
 		$allocated_co = new AllocateCoworker();
 		$data15 = $allocated_co->where('project_id', $id);
 
-		print_r($data2);
+		$project_material_quatation = new Project_material_quatation();
+		$data16 = $project_material_quatation->where2('project_id', $id, 'status', 'Remaining');
 
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
@@ -89,6 +90,7 @@ class Pmongoingproject extends Controller
 			'row7' => $data13,
 			'row8' => $data14,
 			'row9' => $data15,
+			'row10' => $data16,
 		]);
 	}
 

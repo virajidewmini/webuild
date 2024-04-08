@@ -40,7 +40,7 @@ class Pmmaterial_r extends Controller
             if ($material_request->validate($_POST)) {
 
                 $material_request->update_p_m_request($_POST, $pmid);
-                $material_request->inserMaterial($_POST);
+                $material_request->insertMaterial($_POST);
                 $this->redirect('Pmmaterial');
             } else {
                 $errors = $material_request->errors;
@@ -89,7 +89,7 @@ class Pmmaterial_r extends Controller
             if ($material_request->validate($_POST)) {
 
                 $material_request->update_p_m_request($_POST, $pmid);
-                $material_request->inserMaterial($_POST);
+                $material_request->insertMaterial($_POST);
                 $this->redirect('Pmongoingproject/projectdeatils/1/1/apple123/1/1');
             } else {
                 $errors = $material_request->errors;
@@ -104,6 +104,43 @@ class Pmmaterial_r extends Controller
             'rows1' => $data1,
             'rows2' => $data2,
             'rows3' => $data3,
+            'errors' => $errors,
+        ]);
+    }
+
+    public function remaining_request($id = null, $m_req = null)
+    {
+        if (!Auth::logged_in()) {
+            $this->redirect('staff_login');
+        }
+
+        $pmid = Auth::getId();
+
+        $errors = array();
+
+        $material_request = new Material_requests();
+        
+        
+        $data = $material_request->remaining_req($m_req);
+        
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            if ($material_request->validate($_POST)) {
+                $material_request->statusChange($id);
+                $material_request->update_p_m_request($_POST, $pmid);
+                $material_request->insertMaterial($_POST);
+                $this->redirect('Pmongoingproject/projectdeatils/1/1/apple123/1/1');
+            } else {
+                $errors = $material_request->errors;
+            }
+
+            die;
+        }
+
+
+        $this->view('pmmaterial_r_t_p', [
+            'rows' => $data,
             'errors' => $errors,
         ]);
     }

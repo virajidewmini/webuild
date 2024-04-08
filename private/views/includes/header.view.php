@@ -139,7 +139,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/Pmdailyreports" class="nav-link">
                     <i class="fa-solid fa-chart-line"></i>
                     <span class="text">Daily Reports</span>
                   </a>

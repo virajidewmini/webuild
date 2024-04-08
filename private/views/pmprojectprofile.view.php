@@ -584,7 +584,7 @@
                                 <p>District :</p>
                             </div>
                             <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->district ?></p>
+                                <p><?= $row3[0]->land_u->ul_district ?></p>
                             </div>
                         </div>
                         <div class="unit-d">
@@ -983,6 +983,37 @@
                                     <button><i class="fa-solid fa-eye"></i></button>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_header">
+                    <h3>Remaining</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Quatation ID</th>
+                                <th>Level</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($row10) : ?>
+                                <?php foreach ($row10 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->request_id ?></td>
+                                        <td><?= $row->id ?></td>
+                                        <td><?= $row->req->level ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmmaterial_r/remaining_request/<?= $row->id ?>/<?= $row->request_id ?>/"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
