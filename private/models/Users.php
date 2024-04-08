@@ -16,6 +16,8 @@ class Users extends Model{
 
     protected $beforeInsert =['hash_password'];
 
+    protected $beforeUpdate =['hash_password'];
+
 
 
     public function validate($DATA){
@@ -197,6 +199,60 @@ class Users extends Model{
             return false;
         }
         return true;
+    }
+
+
+        /**
+        password validation
+        **/
+    public function passwordValidation($DATA){
+
+        $this->errors = array();
+        //empty
+        if(empty($DATA['password'])){
+            $this->errors['password']="Password can't be empty ";
+        }
+
+        //password length
+        if((!empty($DATA['password'])) && (strlen($DATA['password'])<8 || strlen($DATA['password'])>12)){
+            $this->errors['password']="Password should have 8-12 characters.";
+        }
+
+
+        //password strength
+        if(!empty($DATA['password']) && !preg_match('/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])/',$DATA['password'])){
+            $this->errors['password']="Your Password does not meet the expected criteria; should contain an uppercase letter a number and a special character";
+        }
+
+
+
+        //same as confirmpassword
+        if((!empty($DATA['password'])) && (!empty($DATA['confirmpassword'])) && ($DATA['password'] != $DATA['confirmpassword'])){
+            $this->errors['password']="Passwords do not match";
+        }
+
+
+        if(empty($DATA['confirmpassword'])){
+            $this->errors['confirmpassword']="Confirm New Password can't be empty ";
+        }
+
+        if(count($this->errors) == 0){
+            return true;
+        }
+        return false;
+    }
+
+
+    public function getIdByEmail($email){
+
+        $query="SELECT id FROM user 
+        WHERE user.email = :email"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'email' => $email,
+        ]);
+
     }
     
 }

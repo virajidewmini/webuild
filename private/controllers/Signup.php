@@ -92,50 +92,7 @@
     }
 
 
-       
     
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
         public function registerUser(){
             $Email=$_SESSION['penEmailOfCustomer'];
             //code

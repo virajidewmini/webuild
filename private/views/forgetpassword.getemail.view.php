@@ -13,17 +13,18 @@
     
 
     <div class="container">
-        <form class="login" action="<?=ROOT?>/Signup" method="post">
+        <form class="login" action="<?=ROOT?>/Forgetpassword" method="post">
                             
-            <h1>Sign up AS A Customer</h1>
-           
-            <br><br>
-            <input type="email" name="email" placeholder="Email" <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['email']; ?>"  >
-
+            <h2>Enter your registered email address</h2>
+            <br>
+            <br>
             <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
+            <input type="email" name="email"  placeholder="Email address " required>
+
+            
 
            <br>
-            <button class="btn" name="submit" type="submit">sign up</button><br>
+            <button class="btn" name="submit" type="submit">Submit</button><br>
             <div>
                 <span class="copyright">&copy;2023</span> 
             </div>  
@@ -34,7 +35,7 @@
             <h2>WEBUILD</h2>
             <p>Here we are introducing a web-based platform for Making
                 Your Dream House a Reality.</p>
-            <a href="<?=ROOT;?>/Login"><button>login</button></a>
+            <a href="<?=ROOT;?>/Login"><button>Back</button></a>
         </div>  
       </div>
       <script>

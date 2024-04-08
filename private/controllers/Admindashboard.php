@@ -47,7 +47,7 @@
             $data["AllQW"]=$complaint->getComplaintCount('Quality of workmanship and materials');
             $data["AllPC"]=$complaint->getComplaintCount('Poor Communication');
             $data["AllOT"]=$complaint->getComplaintCount('other ');
-            $data["AllComp"]=$data["AllQP"][0]->total;//+$data["AllCP"]+ $data["AllQW"]+$data["AllPC"]+$data["AllOT"];
+            $data["AllComp"]=$data["AllQP"][0]->total+ $data["AllCP"][0]->total+ $data["AllQW"][0]->total +$data["AllPC"][0]->total +$data["AllOT"][0]->total;
 
 
 
