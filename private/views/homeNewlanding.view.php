@@ -7,6 +7,9 @@
 
    <!-- fontawesome cdn link  -->
 
+
+  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
@@ -46,9 +49,11 @@
     <a  href="./blogs.php">Blogs</a> -->
 
 
-    <a  href="#home">home</a>
+    <a  href=Home/houses>Houses</a>
+    <a  href=Home/lands>Lands</a>
     <!-- <a  href="#lands">Lands</a>
     <a  href="#houses">houses</a> -->
+    <a  href=ExistingModels>existing models </a>
     <a  href="#about">about</a>
     <a  href="#services">services</a>
     <a  href="#projects">completed projects</a>
@@ -130,15 +135,18 @@
 
   <!-- home section starts  -->
 
-  <section class="home" id="home">
+  <!-- <section class="home" id="home">
     <div class="swiper home-slider">
 
       <div class="swiper-wrapper">
         <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg)no-repeat;">
           <div class="content">
             <h3>we provide best service</h3>
-            <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-            <a href="#" class="btn">get started</a>
+            <p>Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here,
+               amidst the rhythmic symphony of hammers and drills,
+               we craft the foundations of tomorrow. Join us on this journey of creation, 
+              where every beam raised is a testament to progress and possibilit</p>
+            
           </div>
         </section>
 
@@ -147,7 +155,6 @@
             <div class="content">
               <h3>making dream come to life</h3>
               <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-              <a href="#" class="btn">get started</a>
             </div>
           </section>
 
@@ -156,7 +163,6 @@
               <div class="content">
                 <h3>from concept to creation</h3>
                 <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-                <a href="#" class="btn">get started</a>
               </div>
             </section>
       </div>
@@ -165,7 +171,36 @@
       <div class="swiper-button-prev"></div>
       
     </div>
-  </section>
+  </section> -->
+  <section class="home" id="home">
+  <div class="swiper home-slider">
+    <div class="swiper-wrapper">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg) no-repeat;">
+        <div class="content">
+          <h3>we provide best service</h3>
+          <p style="margin-bottom:35px;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
+          <!-- Form -->
+          <form action="submit.php" method="post">
+            <label for="house-type" style="font-weight: 800;margin:25px;font-size:x-large;">What do you want to purches:</label>
+            <select id="house-type" name="house-type" style="font-size:large;">
+              <option value=Home/houses><a href=Home/houses></option>
+              <option value="Land-with-house">Land with house</option>
+              <!-- Add more options as needed -->
+            </select>
+            
+          </form>
+          <!-- End Form -->
+        </div>
+      </section>
+      
+      <!-- Add more swiper slides as needed -->
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
 
     <!-- home section ends  -->
 
@@ -183,8 +218,13 @@
 
         <div class="content">
           <h3>We will provide you the best work which you dreamt for!</h3>
-          <p>lkkjjowjijjjjwoejjwijwjowjwwoojlojjoikmdddddnnk9ioqpp  okokkwnkcwnnohdvcn</p>
-          <a href="#services" class="btn">read more</a>
+          <p>Everyone aspires to own a great piece of property. We, at Prime Lands, made it our aim to make 
+            this dream a reality. Assume you wish to buy land to build a house for you and your family. Prime
+             Lands provide you with a selection of the most excellent land alternatives in the country, as well 
+             as a variety of support services, such as legal and financial assistance, to help you realize your
+              property dreams. In Sri Lanka's highly competitive real estate market, Prime Lands acquired over 
+              300,000 customers, sufficient proof of Prime Lands' capacity and leadership in the real estate industry. </p>
+          
         </div>
 
       </div>
