@@ -21,7 +21,7 @@ class Material_requests extends Model{
 
         foreach ($data as $key => $row){
             if(property_exists($row,"material_code")){
-                $result = $material->where('code',$row->material_code);
+                $result = $material->where('material_code',$row->material_code);
                 $data[$key]->material = is_array($result) ? $result[0] : false ;
             }
 
@@ -30,14 +30,12 @@ class Material_requests extends Model{
         return $data;
     }
     
-    public function getStaffID($value,$type){
+    public function getSupplierDetails($value){
 
 
 
-        $query="SELECT * FROM projects        
-        WHERE projects.id = :value"; 
-    
-
+        $query="SELECT * FROM suppliers        
+        WHERE suppliers.material = :value"; 
         
         return $this->query($query, [
             'value' => $value,
@@ -110,49 +108,11 @@ class Material_requests extends Model{
         return false;
     }
 
-    public function update_p_m_request($data,$pmid)
-    {
-        $this->table2;
 
 
-        // $p_id =$data["project_id"];
-
-        // unset($data["number"]);
-        // $data["p_id"] = $last_p_id;
-        // $data["r_id"] = $last_r_id;
-
-        // print_r($result);
-        // echo $last_p_id, $last_r_id;
-
-        $keys = array_keys($data);
-        // $columns = implode(',', $keys);
-        $columns = "project_id, manager_id, date";
-
-        // foreach data
-        $errors = 0;
-            $project_id = $data["project_id"];
-            $manager_id = $pmid;
-            $date = date("Y-m-d");
-
-
-            $db_data = [
-                "project_id" => $project_id,
-                "manager_id" => $manager_id,
-                "date" => $date,
-            ];
-
-            $query = "insert into $this->table2 ($columns) values (:project_id,:manager_id,:date)";
-            // echo $query;
-            $result = $this->query($query, $db_data);
-            if (!$result) {
-                $errors++;
-            }
-
-        if ($errors == 0)
-            return true;
-
-        return false;
-    }
+    
+    
+    
 
 
 }

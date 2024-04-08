@@ -19,7 +19,7 @@
             
             
             
-            if(strcmp($data['common']->status_of_land,"customer")==0){
+            if(strcmp($data['common']->land_type,"customer")==0){
                 $data['customer'] = $project_requests->customer($id)[0];
             }
             else{

@@ -22,7 +22,7 @@
                             $this->redirect('/coordinatordashboard');
                         }
                         if (Auth::getRole() == 'Admin'){
-                            $this->redirect('/admin');
+                            $this->redirect('/admindashboard');
                         }
                         $this->redirect('/home');
                     }
