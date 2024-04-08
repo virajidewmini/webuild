@@ -88,6 +88,23 @@
                
             }            
         }
+
+        //view past compalints
+        public function past(){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            $complaint=new C_Complaint();
+
+            $data['Qualiy_of_Photographs']=$complaint->getPastPhotographComplaints();
+            $data['being_delayed']=$complaint->getPastBeingDelayedComplaints();
+            $data['Workmanship_&_Materials']=$complaint->getPastWorkmanshipAndMaterialsComplaints();
+            $data['Poor_Communication']=$complaint->getPastPoorCommunicationComplaints();
+            $data['Other']=$complaint->getPastOtherComplaints();
+            
+            $this->view('coordinatorcomplaints.past',['rows'=>$data]);
+            
+        }
         
        
     }

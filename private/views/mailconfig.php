@@ -3,10 +3,10 @@
 define('MAILHOST', "smtp.gmail.com");
  
 // Define as a username the email that you use in your Gmail account.
-define('USERNAME', "gaveesha.wickrama2001@gmail.com");
+define('USERNAME', "webuild.ucsc@gmail.com");
  
 // Define your 16 digit Gmail app-password.
-define('PASSWORD', "gqqm zzdx syxl gpex");
+define('PASSWORD', "zdhw suey sszk gaob");
  
 // Define the email address from which the email is sent.
 define('SEND_FROM', "webuild.ucsc@gmail.com");

@@ -180,6 +180,24 @@ class Users extends Model{
         $data['password']=password_hash($data['password'],PASSWORD_DEFAULT);
         return $data;
     }
+
+
+
+    //for first email validation
+    public function emailtakenvalidation($email){
+        
+
+        $this->errors = array();
+
+        if($this->where('email',$email)){
+            $this->errors['email']="The email already exists ";
+        }
+
+        if(count($this->errors) == 0){
+            return false;
+        }
+        return true;
+    }
     
 }
 ?>

@@ -242,6 +242,8 @@
 
 			return $this->query($query);
 		}
+   
+		
 
 		public function tobillm($value){
 			$query = "SELECT *

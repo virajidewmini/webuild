@@ -27,13 +27,13 @@ body{
                     <tbody>
                         <?php foreach ($rows["Qualiy_of_Photographs"] as $row) :?>
                             <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #2ecc71;">                       
+                                <tr style="background-color: #e5863d;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -45,7 +45,7 @@ body{
                                     <td><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -82,13 +82,13 @@ body{
                     <tbody>
                         <?php foreach ($rows["being_delayed"] as $row) :?>
                             <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #2ecc71;">                       
+                                <tr style="background-color: #e5863d;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -100,7 +100,7 @@ body{
                                     <td><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -137,13 +137,13 @@ body{
                     <tbody>
                         <?php foreach ($rows["Workmanship_&_Materials"] as $row) :?>
                             <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #2ecc71;">                       
+                                <tr style="background-color: #e5863d;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -155,7 +155,7 @@ body{
                                     <td><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -195,13 +195,13 @@ body{
                     <tbody>
                         <?php foreach ($rows["Poor_Communication"] as $row) :?>
                             <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #2ecc71;">                       
+                                <tr style="background-color: #e5863d;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -213,7 +213,7 @@ body{
                                     <td><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -253,13 +253,13 @@ body{
                     <tbody>
                         <?php foreach ($rows["Other"] as $row) :?>
                             <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #2ecc71;">                       
+                                <tr style="background-color: #e5863d;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     
@@ -271,7 +271,7 @@ body{
                                     <td><?=$row->status?></td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
-                                            <button><i class="fa-solid fa-sheet-plastic"></i></button>
+                                            <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td> 
                                     

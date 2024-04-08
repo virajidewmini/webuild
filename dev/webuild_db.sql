@@ -329,6 +329,9 @@ INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `materia
 ('12', '101', 'kjbhkh', 'kjbkn', 'hkbkhb', 0),
 ('12', '101', 'jhvjh', 'vjhjk', 'bkjj', 0);
 
+ALTER TABLE `material_requests` 
+ADD `availablity` VARCHAR(255) NOT NULL AFTER `Remain_quantity`, ADD `action` VARCHAR(255) NOT NULL AFTER `availablity`;
+
 -- --------------------------------------------------------
 
 --
@@ -492,6 +495,8 @@ CREATE TABLE `projects` (
   `final_date` date NOT NULL,
   `action` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 
 --
 -- Dumping data for table `projects`
@@ -1166,3 +1171,177 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- user table 
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `nic` varchar(255) DEFAULT NULL,
+  `gender` varchar(10) NOT NULL,
+  `contactnumber` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `salary` int(15) NOT NULL,
+  `proof_image` blob NOT NULL,
+  `birth_date` date NOT NULL,
+  `password` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `nic`, `gender`, `contactnumber`, `address`, `email`, `salary`, `proof_image`, `birth_date`, `password`) VALUES
+(1, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0769117180', 'Seenigoda', 'pramukhapoo@gmail.com', 0, 0x30, '0000-00-00', '$2y$10$TGyHNK5bSx3UmLgFqT2YZuwj0gbnD3sPCK7c2m9CPWgeQXG3VvUKy'),
+(2, 'Rajith', 'Rantharaka', '200056901904', 'male', '0777353594', 'Wathugedara', 'rajith@gmail.com', 0, 0x30, '0000-00-00', 'kjbdvkldjbfv6545'),
+(3, 'Kasun', 'Udara', '200056808042', 'male', '0778959834', 'Ambalangoda', 'kasun@gmail.com', 0, 0x30, '0000-00-00', 'sfjbskjbksd64654'),
+(4, 'Prathibha', 'Poorna', '200161904908', 'male', '0775484861', 'Galle', 'poorna@gmail.com', 0, 0x30, '0000-00-00', 'srfbjksfsdkjdoa654132'),
+(5, 'Thimesh', 'Madushanka', '20006570104', 'male', '0717648232', 'Hikkaduwa', 'thimesh@gmail.com', 0, 0x30, '0000-00-00', 'wefkjbskfljkndchdjfjkaf8465461'),
+(6, 'Charith', 'Deshan', '200054601602', 'male', '0777656591', 'Alpitiya', 'charith@gmail.com', 0, 0x30, '0000-00-00', 'sfsdhvbjzdbvoiajlsjfoasf68465651'),
+(7, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', '0000-00-00', '$2y$10$VMxOUGAnG5OPwAHB/di4g.j4Zy13OuJUtoULJiX6JD4W9xXk1inEy'),
+(8, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', '0000-00-00', '$2y$10$fWh8ayldsA7PbrUv1uE3JejvrftCTXwYqS71Q2qzO29RoP7HXAGZW'),
+(9, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'poo@gmail.com', 0, '', '0000-00-00', '$2y$10$2BHIp.dPHeeidkgcXbTkmOZOnyE0T6XpNXU6IUZtKJ8Z.Z7dNfAze'),
+(10, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'p@gmail.com', 0, '', '0000-00-00', NULL),
+(11, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'o@gmail.com', 0, '', '0000-00-00', 'Pramukha123#'),
+(12, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'oo@gmail.com', 0, '', '0000-00-00', '$2y$10$ajhHXL/sAmQYfby3xhmPUeKZ.u./5okNkhE79A.pp3schZpyefc.2'),
+(13, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, '', '0000-00-00', '$2y$10$IK1BVN/yf7TTwVlbjLl5m.b68UG.Ob6hP.xaPc6Z2IqxB08r76.ya'),
+(14, 'Pramukha', 'Thenuwara', '200027801803', 'male', '0714120111', 'No:44,seenigoda', 'o1@gmail.com', 0, '', '0000-00-00', '$2y$10$xUNiNtTSIp.804T7i9Qkpuw4BXZHA8ZVPh7wZutNofcu72tFHqNXC');
+
+
+INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `material_or_item_name`, `mesure_unit`, `quantity`) VALUES ('12', '12', '4', 'blicks', 'fzfze', '12')
+
+
+INSERT INTO `store_materials` (`id`, `material_name`, `material_code`, `total_quantity`) VALUES ('1', 'uiiuh', 'dcdc', '123');
+
+INSERT INTO `material_requests` (`p_id`, `r_id`, `material_or_item_id`, `material_or_item_name`, `mesure_unit`, `quantity`) VALUES ('5', '6', 'VE1200', 'blicks', 'kg', '123');
+
+
+-- store material low normal conditions
+
+ALTER TABLE `store_materials` ADD `low_normal_limit_quantity` INT(11) NOT NULL AFTER `total_quantity`;
+
+--  store material id name change 
+ALTER TABLE `store_materials` CHANGE `id` `material_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+
+-- drop maintain and store_materials table 
+
+DROP TABLE maintain;
+
+DROP TABLE store_materials;
+
+-- create table store_materials 
+
+CREATE TABLE `webuild`.`store_materials` 
+(`material_id` INT(11) NOT NULL AUTO_INCREMENT , 
+`material_name` VARCHAR(255) NOT NULL , 
+`material_code` VARCHAR(255) NOT NULL , 
+`measure_unit` VARCHAR(255) NOT NULL , 
+`total_quantity` INT(11) NOT NULL , 
+`low_normal_limit_quantity` INT(11) NOT NULL , 
+`requested_quantity` INT(11) NOT NULL , 
+`remain_quantity` INT(11) NOT NULL , 
+`status` VARCHAR(255) NOT NULL , PRIMARY KEY (`material_id`)) ENGINE = InnoDB;
+
+ALTER TABLE `store_materials` ADD `refill_quantity` INT(11) NOT NULL AFTER `status`;
+
+
+
+-- create material batchwise table 
+
+CREATE TABLE `webuild`.`material_batches` 
+(`batch_id` INT(11) NOT NULL AUTO_INCREMENT , 
+`material_ID` INT(11) NOT NULL , 
+`batch_number` VARCHAR(255) NOT NULL , 
+`stock_quantity` INT(11) NOT NULL , PRIMARY KEY (`batch_id`)) ENGINE = InnoDB;
+
+ALTER TABLE `material_batches` 
+ADD `unit_price` INT(11) NOT NULL AFTER 
+`stock_quantity`, ADD `total_price` INT(11) NOT NULL AFTER `unit_price`;
+
+
+ALTER TABLE `material_batches` 
+ADD CONSTRAINT `fk_materialID` 
+FOREIGN KEY (`material_ID`) REFERENCES `store_materials`(`material_id`) 
+ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+INSERT INTO `material_batches` 
+(`batch_id`, `material_ID`, 
+`batch_number`, `stock_quantity`, 
+`unit_price`, `total_price`) VALUES ('1', '1', 'CE/B1', '1000', '400', '400000')
+
+-- create construction_stages table  
+
+CREATE TABLE `webuild`.`construction_stages` 
+(`stage_id` INT(11) NOT NULL AUTO_INCREMENT , 
+`stage_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`stage_id`)) ENGINE = InnoDB;
+
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('1', 'foundation')
+
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('2', 'framing'), ('3', 'enclousure')
+
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('4', 'mechanical system');
+
+INSERT INTO `construction_stages` (`stage_id`, `stage_name`) VALUES ('5', 'finishing'), ('6', 'exterior finish')
+-- create material_stage_jointable 
+
+CREATE TABLE material_stage_jointable (
+    Material_id INT,
+    Stage_id INT,
+    -- other columns if needed,
+    PRIMARY KEY (Material_id, Stage_id),
+    FOREIGN KEY (Material_id) REFERENCES store_materials(material_id),
+    FOREIGN KEY (Stage_id) REFERENCES construction_stages(stage_id)
+);
+
+-- data insert store_materials 
+
+INSERT INTO `store_materials` 
+(`material_id`, `material_name`, 
+`material_code`, `measure_unit`, 
+`total_quantity`, 
+`low_normal_limit_quantity`, 
+`requested_quantity`, 
+`remain_quantity`, 
+`status`, 
+`refill_quantity`) VALUES ('1', 'Cement', 'CE/F/1', 'Packet', '1000', '400', '', '', '', '')
+
+
+
+INSERT INTO `store_materials` 
+(`material_id`, `material_name`,
+`material_code`, `measure_unit`, 
+`total_quantity`, `low_normal_limit_quantity`, 
+`requested_quantity`, `remain_quantity`, `status`, 
+`refill_quantity`) VALUES ('2', 'Crashed Stones', 'CRS/F/2', 'cubic meters', '500', '200', '', '', '', '')
+
+-- re-create maintain table 
+-- CREATE TABLE `webuild`.
+-- `maintain` (`id` INT(11) NOT NULL AUTO_INCREMENT , 
+-- `material_name` VARCHAR(255) NOT NULL , 
+-- `material_code` VARCHAR(255) NOT NULL , 
+-- `current_quantity` INT(11) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `maintain` CHANGE `id` `maintain_id` INT(11) NULL AUTO_INCREMENT;
+
+ALTER TABLE `maintain` CHANGE `maintain_id` `maintain_id` INT(11) NULL AUTO_INCREMENT;
+
+
+
+
+CREATE TABLE `webuild`.`sendquotation` 
+(`quotation_id` INT(11) NOT NULL , 
+`material_ID` INT(11) NOT NULL , 
+`material_name` VARCHAR(255) NOT NULL , 
+`material_code` VARCHAR(255) NOT NULL , 
+`batch_NO` VARCHAR(255) NOT NULL ,
+`measure_Unit` VARCHAR(255) NOT NULL , 
+`send_quantity` INT(11) NOT NULL , 
+`unit_Price` INT(11) NOT NULL , 
+`total_price` INT(11) NOT NULL , 
+`quotation_issue_date` DATE NOT NULL ) ENGINE = InnoDB;
+
+ALTER TABLE `sendquotation` CHANGE `quotation_id` `quotation_id` INT(11) NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`quotation_id`);
+ALTER TABLE `sendquotation` ADD `decision` VARCHAR(255) NOT NULL AFTER `quotation_issue_date`;
