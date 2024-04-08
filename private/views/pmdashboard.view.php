@@ -44,7 +44,7 @@
             </a>
         </div>
     </div>
-    <?php if ($rows3) : ?>
+    <?php if ($rows3 || $rows4) : ?>
         
             <div class="table" style="margin-top:60px">
                 <div class="table_header">
@@ -59,6 +59,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php if ($rows3) : ?>
                         <?php foreach ($rows3 as $row) : ?>
                             <tr>
                                 <td><?= $row->request_id ?></td>
@@ -69,6 +70,19 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
+                        <?php endif; ?>
+                        <?php if ($rows4) : ?>
+                        <?php foreach ($rows4 as $row) : ?>
+                            <tr>
+                                <td><?= $row->id ?></td>
+                                <td>
+                                    <a href="<?= ROOT ?>/Pmcreateproject/<?= $row->id ?>/">
+                                    <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Start">
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

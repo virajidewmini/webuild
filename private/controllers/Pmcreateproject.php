@@ -27,9 +27,14 @@
                 $arr['status'] = 'Ongoing';
 
                 $project->insert($arr);
-
-                $arr1['status'] = 'Started';
-                $quotation->update($q_id,$arr1);
+                if($q_id != null){
+                    $arr1['status'] = 'Started';
+                    $quotation->update($q_id,$arr1);
+                }
+                else{
+                    $arr1['status'] = 'Done';
+                    $project_request->update($req_id,$arr1);
+                }
 
                 $this->redirect('pmdashboard');
             }

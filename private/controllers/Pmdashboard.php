@@ -22,12 +22,14 @@
 
             $quotation = new Project_Quotation();
             $data3 = $quotation->where('status','Accept');
+            $data4 = $project_request->where('status','Accept');
         
             $this->view('pmdashboard',[
                 'rows'=>$data,
                 'rows1'=>$data1,
                 'rows2'=>$data2,
                 'rows3'=>$data3,
+                'rows4'=>$data4,
             ]);
         }
 
