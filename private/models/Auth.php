@@ -3,7 +3,7 @@
 /**
  * Authentication Class
  * */
-class Auth{
+class Auth {
 
     public static function authenticate($row){
         //code

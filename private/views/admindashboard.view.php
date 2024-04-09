@@ -12,9 +12,10 @@
     .item{
         background : lightblue;
         padding: 1rem;
-        border-radius: 2rem;
-        background: #e9e9e9;           
-        border: 1px solid #c41212;
+        border-radius: 1rem;
+        background: #f5f5f5; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);          
+        /* border: 1px solid #c41212; */
     }
     .container{
         padding: 1rem;
@@ -54,7 +55,7 @@
 
     .role-box {
         width: 200px;
-        background-color: #e5863d; /* Change background color before hovering */
+        /* background-color: #e5863d; Change background color before hovering */
         border-radius: 15px;
         margin: 10px;
         display: flex;
@@ -170,20 +171,18 @@
         text-align: right;
         font-size: 14px;
 
-
+    }
 
 
 </style>
-<!-- <pre>
-    <?php print_r($rows['AllComp']);?>
-</pre> -->
+
      <div class="container">  
 
         <div class="item item-1" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
             <div class="role-box">
                 
-                <div class="total-employees">Total Employees<br>  <?=$rows["all"][0]->total?></div>
+                <div class="total-employees">Total Employees<br><div style="font-size: 60px"><?=$rows["all"][0]->total?></div>  </div>
             
                 <div class="role" >Project Managers: <?=$rows["man"][0]->total?></div>
                 <hr>
@@ -199,7 +198,7 @@
             <!-- Employees -->
             <div class="role-box">
                 
-                <div class="total-employees">Total Complaints<br> <?=$rows["AllComp"];?></div>
+                <div class="total-employees">Total Complaints<br> <div style="font-size: 60px"><?=$rows["AllComp"];?></div></div>
             
                 <div class="role">Quality of the photograph: <?=$rows["AllQP"][0]->total?></div>
                 <hr>
@@ -216,10 +215,13 @@
 
         <!-- complaints -->
         <div class="item item-3">
+            <div style="text-align: center; font-size: 24px; font-weight: bold; color: black;">
+            Complaints Recieved in Month , 
+            </div>
             
                 <div class="chart-container" >
-
-                    <form action="<?=ROOT?>/admindashboard/getMonth" method="post">
+                    <div style="text-align: center;">
+                    <form action="<?=ROOT?>/admindashboard/getMonth" method="post" >
                         
                             <select name="month" class="select-dropdown" value="<?= get_select2('month','');?>">
                                 <option <?= get_select2('month','January');?> value="January">January</option>
@@ -241,9 +243,11 @@
 
                             
                         </form>
+                        </div>
+                        <br><br>
                 
                     <?php if(  $rows["QOP"][0]->total !=0 || $rows["CPD"][0]->total !=0 || $rows["QWM"][0]->total !=0 || $rows["PC"][0]->total!=0 || $rows["O"][0]->total!=0):?>
-                        <div class="pie-chart-container">
+                        <div class="pie-chart-container" >
                             <canvas id="myPieChart" width=300px height=300px></canvas>
                         </div>
                         <script>
@@ -259,6 +263,12 @@
                                         }]
                                     },
                                     options: {
+                                        title: { // Add title here
+                                            display: true,
+                                            text: 'Complaints Recieved in Month',
+                                            fontSize: 24, // Adjust font size as needed
+                    fontStyle: 'bold' // Adjust font style as needed
+                                        },
                                         legend: {
                                             position: 'right',
                                             align: 'start'
@@ -284,54 +294,54 @@
         
 
         <!-- project requests -->
-        <div class="item item-5">
-            <!-- <div style="width: 50%; margin: auto; height: 50%"> -->
-                <canvas id="lineChart"></canvas>
-            <!-- </div> -->
 
-            <script>
-                // Sample data
-                var data = {
-                    labels: ["January", "February", "March", "April", "May","June", "July", "August", "September", "October","November", "December"],
-                    datasets: [{
-                        label: "Project Requests Recieved",
-                        fill: false,
-                        borderColor: "#e79556",
-                        data: [<?=$rows["JANPR"][0]->total?>, <?=$rows["FEBPR"][0]->total?>, <?=$rows["MARPR"][0]->total?>, <?=$rows["APRPR"][0]->total?>, <?=$rows["MAYPR"][0]->total?>, <?=$rows["JUNPR"][0]->total?>, <?=$rows["JULPR"][0]->total?>, <?=$rows["AUGPR"][0]->total?>, <?=$rows["SEPPR"][0]->total?>, <?=$rows["OCTPR"][0]->total?>, <?=$rows["NOVPR"][0]->total?>, <?=$rows["DECPR"][0]->total?>],
-                    }]
-                };
+<div class="item item-5">
+    <canvas id="lineChart" width="200" height="200"></canvas>
 
-                // Configuration options
-                var options = {
-                    responsive: true,
-                    maintainAspectRatio: false, // To make the chart responsive
-                    scales: {
-                        x: {
-                            type: 'category',
-                            position: 'bottom'
-                        },
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                };
+    <script>
+        // Sample data
+        var data = {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [{
+                label: "Project Requests Recieved In Each Month",
+                fill: true,
+                borderColor: "black",
+                data: [<?=$rows["JANPR"][0]->total?>, <?=$rows["FEBPR"][0]->total?>, <?=$rows["MARPR"][0]->total?>, <?=$rows["APRPR"][0]->total?>, <?=$rows["MAYPR"][0]->total?>, <?=$rows["JUNPR"][0]->total?>, <?=$rows["JULPR"][0]->total?>, <?=$rows["AUGPR"][0]->total?>, <?=$rows["SEPPR"][0]->total?>, <?=$rows["OCTPR"][0]->total?>, <?=$rows["NOVPR"][0]->total?>, <?=$rows["DECPR"][0]->total?>],
+            }]
+        };
 
-                // Get the context of the canvas element
-                var ctx = document.getElementById('lineChart').getContext('2d');
+        // Configuration options
+        var options = {
+            title: {
+                display: true,
+                text: 'Complaints Received in Month',
+                fontSize: 14,
+                fontStyle: 'bold'
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'category',
+                    position: 'bottom'
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
 
-                // Create the line chart
-                var lineChart = new Chart(ctx, {
-                    type: 'line',
-                    data: data,
-                    options: options
-                });
-            </script>
-        </div>
-        
-        
-        
-        
-        
+        // Get the context of the canvas element
+        var ctx = document.getElementById('lineChart').getContext('2d');
+
+        // Create the line chart
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
+</div>
 
 
 
@@ -376,9 +386,21 @@
                 responsive: true,
                 maintainAspectRatio: false, // Disable aspect ratio to make it fully responsive
                 scales: {
-                y: {
-                    beginAtZero: true
-                }
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Projects Overview In Each Quarter',
+                        font: {
+                            
+                size: 24,
+                weight: 'bold'
+                        },
+                        color: 'black'
+                    }
                 }
             };
 
