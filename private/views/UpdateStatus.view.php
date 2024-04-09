@@ -11,7 +11,6 @@
                 <option value="<?= get_var('role',$rows->status);?>" selected><?= get_var('role',$rows->status);?></option>
                 <option value="Complete">Complete</option>
                 <option value="Ongoing">Ongoing</option>
-                <option value="Pending ">Pending </option>
                 <option value="Suspend">Suspend </option>
             </select>
 

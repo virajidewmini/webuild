@@ -14,14 +14,16 @@
 
             if(count($_POST) > 0){
 
+                $project_id=1;
+
                 $model=new SubTask();
 			    $model->update($id,$_POST);
 
                 $task_id=$model->where("subtask_id",$id);
                 
 
-                $taskStatus=$model->getStatus($task_id[0]->task_id);
-
+                $taskStatus=$model->getStatus($task_id[0]->task_id,$project_id);
+                
                 $allCompleted = true;
                 
                 foreach ($taskStatus as $statusObject) {
@@ -33,24 +35,32 @@
                 }
                 
                 if ($allCompleted) {
-                    $model->UpdateStatus($task_id[0]->task_id);
+                    $model->UpdateStatus($task_id[0]->task_id,$project_id);
                 } 
 
                 foreach ($taskStatus as $statusObject) {
                     
                     $status = trim($statusObject->status);
                     if ($status == "Suspend") {
-                        $model->UpdateSuspendStatus($task_id[0]->task_id);
+                        $model->UpdateSuspendStatus($task_id[0]->task_id,$project_id);
                         break;
                     }else if($_POST['status']=="Suspend"){
-                        $model->UpdateSuspendStatus($task_id[0]->task_id);
+                        $model->UpdateSuspendStatus($task_id[0]->task_id,$project_id);
                     }else if($_POST['status']=="Ongoing"){
-                        $model->UpdateOngoingStatus($task_id[0]->task_id);
+                        $model->UpdateOngoingStatus($task_id[0]->task_id,$project_id);
+                    }else if($_POST['status']=="Complete"){
+                        $model->UpdateStatus($task_id[0]->task_id,$project_id);
                     }
                 }
 
+                // if($_POST['status']=="Ongoing"){
+                //     $task_weight=$model->getweight($id);
+
+                // }
+                
+                
                
-                $this->redirect('task');
+                //$this->redirect('task');
             }
 
             $this->view('UpdateStatus',["rows"=>$data]);
