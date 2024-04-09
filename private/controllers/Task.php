@@ -13,6 +13,16 @@ class Task extends Controller{
         $this->view('ViewTask',["rows"=>$data]);
     }
 
+    public function edit($id=null){
+        
+        // Need to get module id from session
+       
+        $model=new AllocateTask();
+       
+        $sub_task=$model->getSubTaskDetails($id);
+        $this->view('ViewSubTask',["rows"=>$sub_task, "ids"=>$id]);
+    }
+
     public function addCoworker($id){
         $project_id=1;
         $model=new AllocateTask();

@@ -18,7 +18,8 @@
                     <th class="v_data"></th>
                     <th class="v_data">Start Date</th>
                     <th class="v_data">Allocate</th>
-                    <th class="v_data">Update</th>
+                    <th class="v_data">Subtask</th>
+                    <th class="v_data">Evidence</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +30,7 @@
                     <td class="v_data"><?=$row->task_name?></td>
                     <td class="v_data"><?=$row->status?></td>
                     <td class="v_data">
-                        <div class="progress-bar"  style="width: 300px;">
+                        <div class="progress-bar"  style="width: 250px;">
                             <div class="progress-done" data-value=<?=$row->progress?> id="progress-done"></div>  
                         </div>
                     </td>
@@ -44,9 +45,15 @@
                     </td>
 
                     <td class="v_data">
-                        <a href="<?= ROOT ?>/task/edit/<?= $row->id ?>" 
-                            style="<?= ($row->status == 'Complete') ? 'display: none;' : '' ?>">
-                            <button class="v_action_button">Edit</button>
+                        <a href="<?= ROOT ?>/task/edit/<?= $row->id ?>">
+                            <button class="v_action_button">Subtask</button>
+                        </a>
+                        
+                    </td>
+
+                    <td class="v_data">
+                        <a href="<?= ROOT ?>/progress/viewPhotograph/<?= $row->id ?>">
+                            <button class="v_action_button">Photo</button>
                         </a>
                         
                     </td>
