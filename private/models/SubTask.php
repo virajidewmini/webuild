@@ -46,7 +46,7 @@ class SubTask extends Model{
 
     public function getweight($id){
 
-        $query = "select weight from sub_tasks where id= :id && project_id= :project_id";
+        $query = "select weight from sub_tasks where id= :id";
 		$params = [
             'id' => $id
         ];
@@ -55,10 +55,21 @@ class SubTask extends Model{
     
     public function getPreviousProgress($id,$project_id){
 
-        $query = "select progress from allocated_tasks where task_id= :task_id && project_id= :project_id";
+        $query = "select progress from allocated_task where task_id= :task_id && project_id= :project_id";
 		$params = [
             'task_id' => $id,
             'project_id'=>$project_id
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function updateProgress($id,$project_id,$progress){
+
+        $query = "update allocated_task set progress=:progress where task_id= :task_id && project_id= :project_id";
+		$params = [
+            'task_id' => $id,
+            'project_id'=>$project_id,
+            'progress'=>$progress
         ];
         return $this->query($query,$params);
     }

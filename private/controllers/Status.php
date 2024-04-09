@@ -48,19 +48,25 @@
                         $model->UpdateSuspendStatus($task_id[0]->task_id,$project_id);
                     }else if($_POST['status']=="Ongoing"){
                         $model->UpdateOngoingStatus($task_id[0]->task_id,$project_id);
-                    }else if($_POST['status']=="Complete"){
-                        $model->UpdateStatus($task_id[0]->task_id,$project_id);
-                    }
+                     }
+                    
                 }
 
-                // if($_POST['status']=="Ongoing"){
-                //     $task_weight=$model->getweight($id);
 
-                // }
+                if($_POST['status']=="Complete"){
+                    $task_weight=$model->getweight($id);
+                    $previousProgress=$model->getPreviousProgress($task_id[0]->task_id,$project_id);
+
+                    $task_weight=intval($task_weight[0]->weight);
+                    $previousProgress = intval($previousProgress[0]->progress);
+                    
+                    $progress=$task_weight+$previousProgress;
+                    $model->updateProgress($task_id[0]->task_id,$project_id,$progress);
+                }
                 
                 
                
-                //$this->redirect('task');
+                $this->redirect('task');
             }
 
             $this->view('UpdateStatus',["rows"=>$data]);
