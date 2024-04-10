@@ -9,11 +9,37 @@
             }
             $complaint=new C_Complaint();
 
-            $data['Qualiy_of_Photographs']=$complaint->getPendingPhotographComplaints();
-            $data['being_delayed']=$complaint->getPendingBeingDelayedComplaints();
-            $data['Workmanship_&_Materials']=$complaint->getPendingWorkmanshipAndMaterialsComplaints();
-            $data['Poor_Communication']=$complaint->getPendingPoorCommunicationComplaints();
-            $data['Other']=$complaint->getPendingOtherComplaints();
+            if(isset($_POST['complaint_type'])){
+                $complaint_type = $_POST['complaint_type'];
+
+                if($complaint_type=='Quality of the photograph'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingPhotographComplaints();
+                }
+                elseif($complaint_type=='Construction project delay '){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingBeingDelayedComplaints();
+                }
+                elseif($complaint_type=='Other'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingOtherComplaints();
+                }
+                elseif($complaint_type=='Poor Communication'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingPoorCommunicationComplaints();
+                }
+                elseif($complaint_type=='Quality of workmanship and materials'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingWorkmanshipAndMaterialsComplaints();
+                };
+
+                
+            }
+            else{
+                $data['complaint_type']="Quality of the photograph";
+                $data['complaints']=$complaint->getPendingPhotographComplaints();
+            }
+
             
             $this->view('coordinatorcomplaints.pending',['rows'=>$data]);
             

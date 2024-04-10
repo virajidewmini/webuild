@@ -91,7 +91,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <input type="search" placeholder="search..." />
