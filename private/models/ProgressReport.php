@@ -7,25 +7,53 @@ class ProgressReport extends Model{
         $this->table = $table;
     }
 
-    public function viewReportDetail($id){
+   
+    public function viewReport($project_id){
 
-        $query = "select * from daily_progress_report where date = :id";
-		$data['id'] = $id;
-        return $this->query($query,$data);
+        $query = "select * from daily_progress_report where project_id= :project_id";
+		$params = [
+            'project_id' => $project_id
+        ];
+        return $this->query($query,$params);
     }
 
-    public function viewWeatherDetail($id){
+    public function viewReportCount($project_id,$date){
+       
+        $query = "select COUNT(id) as count from daily_progress_report where date = :date && project_id= :project_id;";
+		$params = [
+            'project_id' => $project_id,
+            'date'=>$date,
+        ];
+        return $this->query($query,$params);
+    }
+    public function viewReportDetail($id,$project_id){
 
-        $query = "select * from weather_report where date = :id";
-		$data['id'] = $id;
-        return $this->query($query,$data);
+        $query = "select * from daily_progress_report where date = :id && project_id= :project_id";
+		$params = [
+            'id' => $id,
+            'project_id' => $project_id
+        ];
+        return $this->query($query,$params);
     }
 
-    public function viewChallengeDetail($id){
+    public function viewWeatherDetail($id,$project_id){
 
-        $query = "select * from challenge where date = :id";
-		$data['id'] = $id;
-        return $this->query($query,$data);
+        $query = "select * from weather_report where date = :id && project_id= :project_id";
+		$params = [
+            'id' => $id,
+            'project_id' => $project_id
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function viewChallengeDetail($id,$project_id){
+
+        $query = "select * from challenge where date = :id && project_id= :project_id";
+		$params = [
+            'id' => $id,
+            'project_id' => $project_id
+        ];
+        return $this->query($query,$params);
     }
 
     public function deleteReport($id){

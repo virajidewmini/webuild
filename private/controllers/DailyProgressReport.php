@@ -3,10 +3,15 @@
     class DailyProgressReport extends Controller{
         
         public function index(){
-
+            $project_id=1;
             $report= new ProgressReport();
-            $data= $report->findAll();
-            $this->view('ViewDPR',['rows'=> $data]);
+            $date=date("Y-m-d");
+            
+            $data=$report->viewReport($project_id);
+            $count=$report->viewReportCount($project_id,$date);
+            $count=(int)$count[0]->count;
+            var_dump($count);
+            $this->view('ViewDPR',['rows'=> $data,'check'=>$count]);
         }
 
         public function add(){
@@ -27,6 +32,7 @@
                     'temperature'=>$_POST['temp'],
                     'overall'=>$_POST['overall'],
                     'date'=>date("Y-m-d"),
+                    'project_id'=>1,
                 ];
 
                 $reportData=new ProgressReport();
@@ -37,6 +43,7 @@
                     'work_description'=>$_POST['description'],
                     'comment'=>$_POST['comment'],
                     'date'=>date("Y-m-d"),
+                    'project_id'=>1,
                 ];
 
         
@@ -50,18 +57,15 @@
                     'impact'=>$_POST['impact'],
                     'root_case'=>$_POST['root_case'],
                     'face_it'=>$_POST['face'],
-
-                    // 'date'=>'2022-02-25',
-                    // 'challenge'=>'qwert',
-                    // 'description'=>'whebwjdndj',
-                    // 'impact'=>'wffgfgff',
-                    // 'root_case'=>'hf sjmcd',
-                    // 'face_it'=>'wufnddjfn',
+                    'project_id'=>1,
+                    
                     
                 ];
 
                 $reportData->setTable('challenge');
                 $reportData->insert($challenge);
+
+                $this->redirect('dailyprogressreport');
 
             }
             $this->view('UpdateDailyProgessReport');
@@ -69,10 +73,12 @@
 
         public function viewReport($id=null){
 
+            $project_id=1;
+
             $report= new ProgressReport();
-            $data=$report->viewReportDetail($id);
-            $weather=$report->viewWeatherDetail($id);
-            $challenge=$report->viewChallengeDetail($id);
+            $data=$report->viewReportDetail($id,$project_id);
+            $weather=$report->viewWeatherDetail($id,$project_id);
+            $challenge=$report->viewChallengeDetail($id,$project_id);
 
             $this->view('ViewDailyProgressReport',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
         }

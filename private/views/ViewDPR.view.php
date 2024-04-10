@@ -5,7 +5,10 @@
 <div class="table_header">
             <h1>Daily Progress Reports</h1>
             <div>
-               <a href="<?=ROOT?>/dailyprogressreport/add"><button class="add___">Add New</button></a>   
+            <?php if(isset($check)): ?>
+               <a href="<?=ROOT?>/dailyprogressreport/add" style="<?= ($check> 0) ? 'display: none;' : '' ?>"><button class="add___">Add New</button></a>   
+               <?php endif; ?>
+
             </div>
         </div>
         <div class="table_section" style="height: 1000px;">
@@ -26,9 +29,20 @@
                         <td><?=$row->date?></td> 
                         <td><?=$row->comment?></td>
                         <td>
-                         <a href="<?=ROOT?>/dailyprogressreport/viewReport/<?=$row->date?>"><button ><i class="fa-solid fa-eye"></i></button></a>
-                         <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fas fa-edit"></i></button></a>
-                         <a href="<?=ROOT?>/dailyprogressreport/delete/<?=$row->date?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+
+                        <?php if($row->date === date('Y-m-d')): ?>
+
+                            <a href="<?=ROOT?>/dailyprogressreport/viewReport/<?=$row->date?>"><button ><i class="fa-solid fa-eye"></i></button></a>
+                            <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fas fa-edit"></i></button></a>
+                            <a href="<?=ROOT?>/dailyprogressreport/delete/<?=$row->date?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+
+                        <?php else: ?>
+                            <a href="<?=ROOT?>/dailyprogressreport/viewReport/<?=$row->date?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                            <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button disabled style="background-color: #ddd; cursor: not-allowed;"><i class="fas fa-edit"></i></button></a>
+                            <a href="<?=ROOT?>/dailyprogressreport/delete/<?=$row->date?>"><button disabled style="background-color: #ddd; cursor: not-allowed;"><i class="fas fa-trash-alt"></i></button></a> 
+
+                        <?php endif; ?>
+                         
 
                         </td>
                         
