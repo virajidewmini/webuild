@@ -16,9 +16,18 @@ class AllocateTask extends Model{
     }
 
     public function getSubTask($id){
-        $query ="select sub_task_name,sub_task_details from sub_tasks where task_id= :id";
+        $query ="select id,sub_task_name,sub_task_details from sub_tasks where task_id= :id";
         $data['id'] = $id;
         return $this->query($query,$data);
+    }
+
+    public function getSubTaskDetails($id){
+        $query ="select sub_tasks.id,sub_tasks.sub_task_name,sub_tasks.sub_task_details,allocated_subtask.status from allocated_subtask inner join sub_tasks where allocated_subtask.project_id=:project_id  and allocated_subtask.task_id = :id and allocated_subtask.subtask_id=sub_tasks.id";
+        $params = [
+            'project_id' => Auth::getProjectId(),
+            'id' => $id
+        ];  
+        return $this->query($query,$params);
     }
 
     public function getStartDate($id,$project_id){

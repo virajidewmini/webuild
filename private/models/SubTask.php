@@ -12,12 +12,33 @@ class SubTask extends Model{
         return $this->query($query,$params);
     }
 
+    public function getSubTaskStatus($task_id,$project_id){
+
+        $query = "select status from allocated_subtask where subtask_id= :task_id && project_id= :project_id";
+		$params = [
+            'task_id' => $task_id,
+            'project_id'=>$project_id
+        ];
+        return $this->query($query,$params);
+    }
     
 
     public function UpdateStatus($task_id,$project_id){
 
         $query = "update allocated_task set status='Complete' where task_id= :task_id && project_id= :project_id";
 		$params = [
+            'task_id' => $task_id,
+            'project_id'=>$project_id
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function UpdateSubTaskStatus($task_id,$subtask_id,$project_id,$status){
+
+        $query = "update allocated_subtask set status=:status where task_id= :task_id && project_id= :project_id && subtask_id= :subtask_id";
+		$params = [
+            'subtask_id'=>$subtask_id,
+            'status'=> $status,
             'task_id' => $task_id,
             'project_id'=>$project_id
         ];

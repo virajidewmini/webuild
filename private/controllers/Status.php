@@ -7,19 +7,27 @@
         }
         public function UpdateState($id){
             $model=new SubTask();
-            $data=$model->where('id',$id);
+
+            $project_id=Auth::getProjectId();
+            $data=$model->getSubTaskStatus($id,$project_id);
+            // var_dump($id,$project_id);
+           
             if($data){
                 $data=$data[0];
             }
 
             if(count($_POST) > 0){
 
-                $project_id=1;
+                $project_id=Auth::getProjectId();
 
                 $model=new SubTask();
-			    $model->update($id,$_POST);
+
+			    //$model->update($id,$_POST);
+                
 
                 $task_id=$model->where("subtask_id",$id);
+                
+                $model->UpdateSubTaskStatus($task_id[0]->task_id,$id,$project_id,$_POST["status"]);
                 
 
                 $taskStatus=$model->getStatus($task_id[0]->task_id,$project_id);
@@ -66,7 +74,7 @@
                 
                 
                
-                $this->redirect('task');
+                $this->redirect('task/'.Auth::getProjectId());
             }
 
             $this->view('UpdateStatus',["rows"=>$data]);
