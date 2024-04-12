@@ -6,7 +6,7 @@
 class Pmongoingproject extends Controller
 {
 
-	public function index()
+	public function index($status)
 	{
 		if (!Auth::logged_in()) {
 			$this->redirect('/login');
@@ -14,14 +14,11 @@ class Pmongoingproject extends Controller
 		$pmi = Auth::getid();
 
 		$projects = new Projects();
-		$data = $projects->where('manager_id', $pmi);
+		$data = $projects->where2('manager_id',  $pmi, 'status', $status);
 
-		$project_request = new Project_requests();
-		$data1 = $project_request->where2('manager_id', 'action', $pmi, 'modified');
 
 		$this->view('pmongoingproject', [
 			'rows' => $data,
-			'rows1' => $data1,
 		]);
 	}
 	

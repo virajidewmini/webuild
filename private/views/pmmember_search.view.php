@@ -36,7 +36,7 @@ body{
             }
         }
 </style>
-    <h2 style="margin-bottom: 20px">SEARCH SUPERVISORS</h2>
+    <h2 style="margin-bottom: 20px">SELECT SUPERVISOR</h2>
     <form action="" method="GET">
     <?php 
     $district = "";
@@ -83,6 +83,9 @@ body{
                         <th>Last Name</th>
                         <th>District</th>
                         <th>Experience</th>
+                        <th>Currently working project count</th>
+                        <th>Number of projects completed in last month</th>
+                        <th>Number of done projects</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -94,17 +97,17 @@ body{
                         <td><?= $row->firstname?></td>
                         <td><?= $row->lastname?></td>
                         <td><?= $row->district ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><?= $row->experience?></td>
                         <td>
-                            <?php if($row1[0]->id): ?>
-                                <a href="<?=ROOT?>/Pmmember_search/view_sup_details_t_/<?=$row->id?>/<?=$row1[0]->id?>/">
-                                <button><i class="fa-solid fa-eye"></i></button>
-                                </a>
-                            <?php else: ?>
                                 <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>/">
                                 <button><i class="fa-solid fa-eye"></i></button>
                                 </a>
-                            <?php endif; ?>
+                                <a href="<?=ROOT?>/Pmcreateproject/<?=$row->id?>/<?=$r_id?>/">
+                                <button><i class="fa-solid fa-add"></i></button>
+                                </a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

@@ -17,6 +17,7 @@ class Project_requests extends Model{
         'get_land',
         'get_land_u',
         'get_model_price',
+        'get_payment',
     ];
 
     public function validate($DATA){
@@ -382,6 +383,20 @@ class Project_requests extends Model{
         return $data;
     }
 
+    public function get_payment($data){
+    
+        $payment = new Payment_packages();
+        foreach ($data as $key => $row1){
+            if(isset($row1->payment_plan_id)){
+                $result = $payment->where('id',$row1->payment_plan_id);
+                $data[$key]->payment = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+
     //for admindashboard
     
     public function getrequestsInMonth($month){
@@ -437,9 +452,18 @@ class Project_requests extends Model{
             ]);
         }
     
+    //for coordinator dashboard
+
     
-    
-    
+    public function getProjectRequestCount(){
+
+        $query="SELECT COUNT(*) AS total
+        FROM project_requests
+        WHERE project_requests.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)
+         ";
+
+        return $this->query($query);
+    }
     
     
 }
