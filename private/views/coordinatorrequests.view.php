@@ -46,7 +46,7 @@ body{
                                     <?php endif;?>
                                 </td>              
                                 <td><?=get_date($row->date)?></td> 
-                                <td><?=$row->action?></td>
+                                <td><?=$row->status?></td>
                                 <td>
                                     <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>">
                                         <button><i class="fa-solid fa-eye"></i></button>

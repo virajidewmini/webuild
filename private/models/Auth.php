@@ -3,7 +3,7 @@
 /**
  * Authentication Class
  * */
-class Auth{
+class Auth {
 
     public static function authenticate($row){
         //code
@@ -47,5 +47,12 @@ class Auth{
             return $_SESSION['USER']->$prop;
         }
 
+    }
+
+    public static function getProjectId() {
+        if(isset($_SESSION['project_id'])) {
+            return $_SESSION['project_id'];
+        }
+        return null; 
     }
 }

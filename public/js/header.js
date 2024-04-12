@@ -55,3 +55,23 @@ let subLink=document.getElementById("sub_link");
 mainLink.addEventListener("click", () => {
   subLink.innerHTML="Past Complaints";
 });
+
+
+
+
+//for notification box
+
+document.addEventListener('DOMContentLoaded', function() {
+  var bellIcon = document.getElementById('notificationBell');
+  var notificationDropdown = document.getElementById('notificationDropdown');
+
+  bellIcon.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default action of the link
+      if (notificationDropdown.style.display === 'none') {
+          notificationDropdown.style.display = 'block';
+      } else {
+          notificationDropdown.style.display = 'none';
+      }
+  });
+});
+
