@@ -28,6 +28,15 @@ class Project_Quotation extends Model{
     //     return $this->query($query,$data);
     // }
 
+    public function validate($DATA){
+        $this->errors = array();
+        if(count($this->errors) == 0){
+            return true;
+        }
+    
+        return false;
+    }
+
     
 }
 

@@ -77,13 +77,14 @@
         <div class="pro-id" style="padding: 0 0 40px 0; ">
 
             <div class="pro-id-details">
-                <form method="post">
+                <form method="post" action="<?= ROOT ?>/Pmmodification/<?= $rows[0]->user_id ?>/<?= $rows[0]->id ?>/<?= $rows[0]->modification_id ?>/<?= $rows[0]->mdl->price ?>/<?= $rows[0]->payment->interest ?>/">
+                
                     <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                         <div class="p-title">
                             <h3>Create Project</h3>
                         </div>
                     </div>
-                    <fieldset style="padding:10px;" class="FormFieldset">
+                    <fieldset style="padding:10px; margin:10px;" class="FormFieldset">
                         <legend class="Formlegend">Details</legend>
 
                         <div class="form-group">
@@ -91,43 +92,43 @@
 
                             <div class="column">
                                 <label for="user_id">Customer ID :</label>
-                                <input type="text" name="user_id" value="<?= $rows[0]->user_id ?>">
+                                <input readonly type="text" name="user_id" value="<?= $rows[0]->user_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Customer Name :</label>
-                                <input type="text" value="<?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?>">
+                                <input readonly type="text" value="<?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?>">
                             </div>
                             <div class="column">
                                 <label for="manager_id">Project Manager ID :</label>
-                                <input type="text" name="manager_id" value="<?= $rows[0]->manager_id ?>">
+                                <input readonly type="text" name="manager_id" value="<?= $rows[0]->manager_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Project Manager Name :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?>">
+                                <input readonly type="text" id="occupation" value="<?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?>">
                             </div>
                             <div class="column">
                                 <label for="request_id">Request ID: :</label>
-                                <input type="text" id="occupation" name="request_id" value="<?= $rows[0]->id ?>">
+                                <input readonly type="text" id="occupation" name="request_id" value="<?= $rows[0]->id ?>">
                             </div>
                             <div class="column">
                                 <label for="modification_id">Modification ID: :</label>
-                                <input type="text" id="occupation" name="modification_id" value="<?= $rows[0]->modification_id ?>">
+                                <input readonly type="text" id="occupation" name="modification_id" value="<?= $rows[0]->modification_id ?>">
                             </div>
                             <div class="column">
                                 <label for="model_id">Model ID: :</label>
-                                <input type="text" name="model_id" id="occupation"  value="<?= $rows[0]->model_id ?>">
+                                <input readonly type="text" name="model_id" id="occupation"  value="<?= $rows[0]->model_id ?>">
                             </div>
                             <div class="column">
                                 <label for="model_name">Model Name :</label>
-                                <input type="text" id="occupation"  value="<?= $rows[0]->mdl->name ?>">
+                                <input readonly type="text" id="occupation"  value="<?= $rows[0]->mdl->name ?>">
                             </div>
                             <div class="column">
                                 <label for="payment_package_id">Payment Package ID: :</label>
-                                <input type="text" name="payment_package_id" id="occupation"  value="<?= $rows[0]->payment_plan_id ?>">
+                                <input readonly type="text" name="payment_package_id" id="occupation"  value="<?= $rows[0]->payment_plan_id ?>">
                             </div>
                             <div class="column">
                                 <label for="payment_package_name">Payment Package Name: :</label>
-                                <input type="text" name="payment_package_name" id="occupation"  value="<?= $rows[0]->payment_plan_id ?>">
+                                <input readonly type="text"   value="<?= $rows[0]->payment->name ?>">
                             </div>
                         </div>
                     </fieldset>
@@ -135,7 +136,7 @@
                         <a href="<?= ROOT ?>/Pmdashboard">
                             <input class="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                         </a>
-                        <a href="<?= ROOT ?>/Pmmodification/<?= $rows[0]->user_id ?>/<?= $rows[0]->id ?>/<?= $rows[0]->modification_id ?>/<?= $rows[0]->mdl->price ?>/<?= $rows[0]->payment->interest ?>/"><input class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add"></a>
+                       <input class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                     </div>
                 </form>
 

@@ -10,6 +10,9 @@
             }
             $pmi = Auth::getid();
 
+            $project = new Projects();
+            $data3 = $project->toStart($pmi);
+
             $project_request = new Project_requests();
             $data2 = $project_request->where2('manager_id',$pmi,'status','Modified');
 
@@ -26,6 +29,7 @@
                 'rows'=>$data,
                 'rows1'=>$data1,
                 'rows2'=>$data2,
+                'rows3'=>$data3,
                 'rows4'=>$data4,
             ]);
         }
