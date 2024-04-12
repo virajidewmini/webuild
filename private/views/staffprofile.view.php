@@ -1,4 +1,4 @@
-<?php if(Auth::getRole()== 'Admin'): ?>
+<?php if(Auth::getRole()== 'Admin'||Auth::getRole()== 'Project Coordinator'||Auth::getRole()== 'Project Manager'): ?>
 <?php $this->view('includes/header')?>
 
     <div class="profile_area">

@@ -9,7 +9,6 @@
             $errors = array();
 
             if (count($_POST)>0){
-
                 $user=new Users();
                 if($row=$user->where('email',$_POST['email'])){
                     $row = $row[0];
@@ -18,10 +17,18 @@
                         if (Auth::getRole() == 'Project Manager'){
                             $this->redirect('/pmdashboard');
                         }
+                        if (Auth::getRole() == 'Storekeeper'){
+                            $this->redirect('/storekeeperdashboard');
+                        }
                         if (Auth::getRole() == 'Project Coordinator'){
                             $this->redirect('/coordinatordashboard');
                         }
-                        $this->redirect('/home');
+                        if (Auth::getRole() == 'Admin'){
+                            $this->redirect('/admindashboard');
+                        }
+                        
+                            $this->redirect('/home');
+                        
                     }
                    
                 }

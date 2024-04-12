@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?=ROOT;?>/css/login.css">
   </head>
   <body>
-  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/userlogin_wallpaper.png'); ">
+  <div class="wrapper" style="background-image: url('<?=ROOT?>/img/userlogin_wallpaper.png');background-repeat: no-repeat;background-size: cover;background-position: center center; ">
     <div class="center" >
       
       
@@ -35,7 +35,7 @@
           <span></span>
           <label>Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
+        <a class="pass" href="Forgetpassword">Forgot Password?</a>
         <input type="submit" value="Login">
         <div class="signup_link">
          Haven't registered yet ? <a href="signup">Signup</a>

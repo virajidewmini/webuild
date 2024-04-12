@@ -17,21 +17,21 @@ body{
             <table>
                 <thead>
                     <tr>
-                        <th>Employee ID</th>
+                        <th>Project ID</th>
                         <th>Profile</th>
-                        <th>Name</th>
-                        <th>Since</th>
+                        <th>Supervisor Name</th>
+                        <th>NO. Project</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php print_r($rows)?>  
                 <?php if ($rows):?>
                     <?php foreach ($rows as $row):?>
                         <tr>
-                            <td><?= $row->user->id ?></td>
-                            <td><?= $row->staff->id?> <?= $row->staff->id?></td>
-                            <td><?= $row->staffs->id?> <?= $row->staffs->id?></td>
+                            <td><?= $row->id ?></td>
+                            <td></td>
+                            <td><?= $row->user->firstname?> <?= $row->user->lastname?></td>
+                            <td><?= $row->count?></td>
                             <td>
                                 <a href="#">
                                 <button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
@@ -41,7 +41,7 @@ body{
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <h3>No school were found at this time</h3>
+                    <h3>No members were found at this time</h3>
                 <?php endif; ?>
                 </tbody>
             </table>
@@ -62,19 +62,6 @@ body{
                 </thead>
                 <tbody>
                     <tr>
-                        <td>EM025</td>
-                        <td>K.H. Shantha</td>
-                        <td>Masons</td>
-                    </tr>
-                    <tr>
-                        <td>EM024</td>
-                        <td>P.I. Sanath</td>
-                        <td>Welders</td>
-                    </tr>
-                    <tr>
-                        <td>EM020</td>
-                        <td>L.H. Arun</td>
-                        <td>Tile setters</td>
                     </tr>
                 </tbody>
             </table>

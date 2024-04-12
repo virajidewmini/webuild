@@ -1,10 +1,14 @@
 <?php 
 class Dtbase extends Model{
-    protected $table1 = "project_details";
+    protected $table1 = "projects";
     protected $table2 = "user";
     protected $table3= "project_dprs";
 
     protected $table4= "project_tasks";
+    protected $table5= "members_projects";
+    protected $table6= "staff";
+    protected $table7= "modification";
+    protected $table8= "def";
 
 
 
@@ -20,18 +24,22 @@ class Dtbase extends Model{
         return false;
     }
 
+    
+
     public function get_user($data){
 
-        $user = new Users();
+        $user = new Staffs();
         foreach ($data as $key => $row){
             
-            $result = $user->where('id',$row->s_user_id);
+            $result = $user->where('id',$row->supervisor_id);
             $data[$key]->user = is_array($result) ? $result[0] : false ;
 
         }
 
         return $data;
     }
+
+
 
 }
 ?>

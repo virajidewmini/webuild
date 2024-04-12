@@ -38,7 +38,9 @@ body{
 </style>
     <h2 style="margin-bottom: 20px">SEARCH SUPERVISORS</h2>
     <form action="" method="GET">
-    <?php if(isset($_GET['district'])){
+    <?php 
+    $district = "";
+    if(isset($_GET['district'])){
         $district=$_GET['district'];
     } ?>
     <div class="top1">
@@ -46,28 +48,28 @@ body{
             <option <?= get_select2('district','');?> value="">--Select District--</option >
             <option <?= get_select2('district','ampara');?> value="ampara" <?php if($district == 'ampara') {echo "selected" ;} ?>>Ampara</option>
             <option <?= get_select2('district','anuradhapura');?> value="anuradhapura" <?php if($district == 'anuradhapura') {echo "selected" ;} ?>>Anuradhapura</option>
-            <option <?= get_select2('district','district');?>value="other">Badulla</option>
-            <option <?= get_select2('district','district');?>value="other">Batticaloa</option>
-            <option <?= get_select2('district','district');?>value="other">Colombo</option>
+            <option <?= get_select2('district','badulla');?>value="badulla" <?php if($district == 'badulla') {echo "selected" ;} ?>>Badulla</option>
+            <option <?= get_select2('district','batticaloa');?>value="batticaloa" <?php if($district == 'batticaloa') {echo "selected" ;} ?>>Batticaloa</option>
+            <option <?= get_select2('district','colombo');?>value="colombo" <?php if($district == 'colombo') {echo "selected" ;} ?>>Colombo</option>
             <option <?= get_select2('district','galle');?>value="galle" <?php if($district == 'galle') {echo "selected" ;} ?>>Galle</option>
-            <option <?= get_select2('district','district');?>value="other">Gampaha</option>
-            <option <?= get_select2('district','district');?>value="other">Hambantota</option>
-            <option <?= get_select2('district','district');?>value="other">Jaffna</option>
-            <option <?= get_select2('district','district');?>value="other">Kaluthara</option>
-            <option <?= get_select2('district','district');?>value="other">Kandy</option>
-            <option <?= get_select2('district','district');?>value="other">Kegalle</option>
-            <option <?= get_select2('district','district');?>value="other">Kilinochchi</option>
-            <option <?= get_select2('district','district');?>value="other">Kurunegala</option>
-            <option <?= get_select2('district','district');?>value="other">Mannar</option>
-            <option <?= get_select2('district','district');?>value="other">Matara</option>
-            <option <?= get_select2('district','district');?>value="other">Monaragarla</option>
-            <option <?= get_select2('district','district');?>value="other">Mulathivu</option>
-            <option <?= get_select2('district','district');?>value="other">Nuwara Eliya</option>
-            <option <?= get_select2('district','district');?>value="other">Polonnaruwa</option>
-            <option <?= get_select2('district','district');?>value="other">Puttalam</option>
-            <option <?= get_select2('district','district');?>value="other">Rathnapura</option>
-            <option <?= get_select2('district','district');?>value="other">Trincomalee</option>
-            <option <?= get_select2('district','district');?>value="vavuniya">Vavuniya</option>
+            <option <?= get_select2('district','gampaha');?>value="gampaha" <?php if($district == 'gampaha') {echo "selected" ;} ?>>Gampaha</option>
+            <option <?= get_select2('district','hambantota');?>value="hambantota" <?php if($district == 'hambantota') {echo "selected" ;} ?>>Hambantota</option>
+            <option <?= get_select2('district','jaffna');?>value="jaffna" <?php if($district == 'jaffna') {echo "selected" ;} ?>>Jaffna</option>
+            <option <?= get_select2('district','kaluthara');?>value="kaluthara" <?php if($district == 'kaluthara') {echo "selected" ;} ?>>Kaluthara</option>
+            <option <?= get_select2('district','kandy');?>value="kandy" <?php if($district == 'kandy') {echo "selected" ;} ?>>Kandy</option>
+            <option <?= get_select2('district','kegalle');?>value="kegalle" <?php if($district == 'kegalle') {echo "selected" ;} ?>>Kegalle</option>
+            <option <?= get_select2('district','kilinochchi');?>value="kilinochchi" <?php if($district == 'kilinochchi') {echo "selected" ;} ?>>Kilinochchi</option>
+            <option <?= get_select2('district','kurunegala');?>value="kurunegala" <?php if($district == 'kurunegala') {echo "selected" ;} ?>>Kurunegala</option>
+            <option <?= get_select2('district','mannar');?>value="mannar" <?php if($district == 'mannar') {echo "selected" ;} ?>>Mannar</option>
+            <option <?= get_select2('district','matara');?>value="matara" <?php if($district == 'matara') {echo "selected" ;} ?>>Matara</option>
+            <option <?= get_select2('district','monaragala');?>value="monaragala" <?php if($district == 'monaragala') {echo "selected" ;} ?>>Monaragala</option>
+            <option <?= get_select2('district','mulathivu');?>value="mulathivu" <?php if($district == 'mulathivu') {echo "selected" ;} ?>>Mulathivu</option>
+            <option <?= get_select2('district','nuwara eliya');?>value="nuwara eliya" <?php if($district == 'nuwara eliya') {echo "selected" ;} ?>>Nuwara Eliya</option>
+            <option <?= get_select2('district','polonnaruwa');?>value="polonnaruwa" <?php if($district == 'polonnaruwa') {echo "selected" ;} ?>>Polonnaruwa</option>
+            <option <?= get_select2('district','puttalam');?>value="puttalam" <?php if($district == 'puttalam') {echo "selected" ;} ?>>Puttalam</option>
+            <option <?= get_select2('district','rathnapura');?>value="rathnapura" <?php if($district == 'rathnapura') {echo "selected" ;} ?>>Rathnapura</option>
+            <option <?= get_select2('district','trincomalee');?>value="trincomalee" <?php if($district == 'trincomalee') {echo "selected" ;} ?>>Trincomalee</option>
+            <option <?= get_select2('district','vavuniya');?>value="vavuniya" <?php if($district == 'vavuniya') {echo "selected" ;} ?>>Vavuniya</option>
           </select>
         <button style="background-color:#E5863D; color:white" class="" type="submit">Search</button>
     </div>
@@ -94,9 +96,15 @@ body{
                         <td><?= $row->district ?></td>
                         <td><?= $row->experience?></td>
                         <td>
-                            <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>">
-                            <button><i class="fa-solid fa-eye"></i></button>
-                            </a>
+                            <?php if($row1[0]->id): ?>
+                                <a href="<?=ROOT?>/Pmmember_search/view_sup_details_t_/<?=$row->id?>/<?=$row1[0]->id?>/">
+                                <button><i class="fa-solid fa-eye"></i></button>
+                                </a>
+                            <?php else: ?>
+                                <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>/">
+                                <button><i class="fa-solid fa-eye"></i></button>
+                                </a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -109,6 +117,11 @@ body{
     </div>
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>
-    <?php $this->view('404'); ?>
+<?php $this->view('404'); ?>
 <?php endif; ?>
+
+
+
+
+
 

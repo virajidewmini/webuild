@@ -6,9 +6,7 @@
         public function index(){
 
 
-            if(!Auth::logged_in()){
-                $this->redirect('/login');
-            }
+           
 
 
             //$db = new Database(); -- VIraji
@@ -20,7 +18,8 @@
            //$data=$complaints->query("select * from complaint");-- VIraji
             
             
-            $this->view('home',['rows'=> $data]);
+           $this->view('homeNewLanding',['rows'=> $data]);
+            // $this->view('homeLanding',['rows'=> $data]);
 
 
 

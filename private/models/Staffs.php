@@ -277,18 +277,18 @@ class Staffs extends Model{
         role
         **/
 
-        //empty
-        if(empty($DATA['role'])){
-            $this->errors['role']="Role can't be empty ";
-        }
-         /**
-        role validation
-        **/
+        // //empty
+        // if(empty($DATA['role'])){
+        //     $this->errors['role']="Role can't be empty ";
+        // }
+        //  /**
+        // role validation
+        // **/
         
-        $roles=['Project Coordinator','Project Manager','Storekeeper','Supervisor'];
-        if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
-            $this->errors['role']="Role is invalid ";
-        }
+        // $roles=['Project Coordinator','Project Manager','Storekeeper','Supervisor'];
+        // if(empty($DATA['role']) || !in_array($DATA['role'],$roles)){
+        //     $this->errors['role']="Role is invalid ";
+        // }
 
 
         if(count($this->errors) == 0){
@@ -304,6 +304,41 @@ class Staffs extends Model{
         $data['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
         return $data;
     }
+
+
+
+
+    //for Admin dashboard
+    public function findEmployeeByRole($value){
+
+        $query="SELECT COUNT(*) AS total FROM staff WHERE staff.role = :value";
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    //without admin
+    public function findAllEmployees(){
+
+        $query="SELECT COUNT(*) AS total FROM staff WHERE staff.role NOT IN ('Admin') ";
+
+        return $this->query($query);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 }

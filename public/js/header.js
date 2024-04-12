@@ -48,3 +48,10 @@ window.addEventListener("resize", () => {
 if (window.innerWidth < 768) {
   sideBar.classList.add("hide");
 }
+
+let mainLink=document.getElementById("main_link");
+let subLink=document.getElementById("sub_link");
+
+mainLink.addEventListener("click", () => {
+  subLink.innerHTML="Past Complaints";
+});

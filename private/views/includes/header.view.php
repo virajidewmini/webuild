@@ -15,6 +15,7 @@
     <!--css files-->
     <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
     <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
+    
   </head>
   <body>
     <section class="sidebar">
@@ -34,7 +35,7 @@
                 <li>
                   <a href="<?=ROOT?>/coordinatorrequests">
                     <i class="fa-solid fa-users"></i>
-                    <span class="text">Requests</span>
+                    <span class="text">Project Requests</span>
                   </a>
                 </li>
                 <li>
@@ -46,7 +47,27 @@
                 <li>
                   <a href="#" class="nav-link">
                     <i class="fas fa-comments"></i>
-                    <span class="text">Complaints</span>
+                    <span class="text" id="main_link">Complaints</span>
+                    
+                  </a>
+                  <span id="sub_link"></span>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatorviewmanagers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Project Managers</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatormaterialrequests">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Material Requests</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/coordinatorviewsuppliers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Suppliers</span>
                   </a>
                 </li>
                 
@@ -92,6 +113,74 @@
                   </a>
                 </nav>
               <main>
+
+
+              <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
+              <ul class="side-menu top">
+                <li class="active">
+                  <a href="<?=ROOT?>/storekeeperdashboard" class="nav-link" class="nav-link">
+                    <i class="fas fa-border-all"></i>
+                    <span class="text">Dashboard</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/Request">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Requests</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?=ROOT?>/maintain">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="text">Store Materials</span>
+                  </a>
+                </li>
+               
+                
+                <!-- settings and logout -->
+
+                <ul class="side-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fas fa-cog"></i>
+                      <span class="text">Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?=ROOT?>/logout" class="logout">
+                      <i class="fas fa-right-from-bracket"></i>
+                      <span class="text" >Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="content">
+                <nav>
+                  <i class="fas fa-bars menu-btn"></i>
+                  <form action="#">
+                    <div class="form-input">
+                      <input type="search" placeholder="search..." />
+                      <button class="search-btn">
+                        <i class="fas fa-search search-icon"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                  <a href="#" class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="num">28</span>
+                  </a>
+
+                  <a href="<?=ROOT?>/Staffprofile" class="profile">
+                    <img src="<?=ROOT?>/img/profile.png" alt="" />
+                    <!-- USER -->
+                    <?=Auth::getFirstname()?>
+                  </a>
+                </nav>
+              <main>
+
+
             <?php elseif(Auth::getRole()== 'Project Manager'): ?>
               <ul class="side-menu top">
                 <li class="active">
@@ -113,13 +202,13 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/Pmmaterial" class="nav-link">
                     <i class="fa-solid fa-cubes-stacked"></i>
                     <span class="text">Materials</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/Pmdailyreports" class="nav-link">
                     <i class="fa-solid fa-chart-line"></i>
                     <span class="text">Daily Reports</span>
                   </a>
@@ -350,12 +439,7 @@
                 </li>
                 
 
-        <a href="#" class="profile">
-          <img src="<?=ROOT?>/img/profile.jpg" alt="" />
-          <!-- USER -->
-          <?=Auth::user()?>
-        </a>
-      </nav>
+        
 
                 <!-- settings and logout -->
 
@@ -473,5 +557,6 @@
                   </a>
                 </nav>
               <main>
+
             <?php endif; ?>
           <?php endif; ?>

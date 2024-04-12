@@ -34,8 +34,6 @@
       </div>
       
 
-
-
         <div class="form-group">
           <input name="firstname" value= "<?= get_var('firstname');?>" type="text" placeholder="First Name" class="form-control">
           <input name="lastname" value="<?= get_var('lastname');?>" type="text" placeholder="Last Name" class="form-control">
@@ -59,7 +57,7 @@
           </select>
         </div>
         <div class="form-wrapper">
-          <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email Address" class="form-control">
+          <input name="email"  type="text" value="<?php print_r( $Email);?>" class="form-control" readonly>
           <!-- <span class="form-invalid">     </span> -->
         </div>
 
