@@ -6,6 +6,7 @@ class Task extends Controller{
         
         $_SESSION['project_id'] = $id;
         
+        
         // var_dump(Auth::getProjectId());
         $model=new AllocateTask();
        
@@ -24,7 +25,7 @@ class Task extends Controller{
     }
 
     public function addCoworker($id){
-        $project_id=1;
+        $project_id=Auth::getProjectId();
         $model=new AllocateTask();
         $data= $model->getMainTask($id);
         $sub_task=$model->getSubTask($id);
@@ -58,7 +59,7 @@ class Task extends Controller{
     public function addAutomatically($id){
         
      
-        $project_id=1;
+        $project_id=Auth::getProjectId();
         $model=new AllocateTask();
         $data= $model->getMainTask($id);
         $sub_task=$model->getSubTask($id);
