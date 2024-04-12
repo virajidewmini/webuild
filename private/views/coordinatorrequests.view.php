@@ -5,6 +5,7 @@ body{
     overflow: hidden;
 }
 </style>
+
     <?php if($rows):?>
         
         <div class="table">
@@ -20,8 +21,8 @@ body{
                         <tr>
                             <th>Request ID</th>
                             <th>User Name</th>
-                            <th>Model ID</th>
-                            <th>Manager ID</th>
+                            <th>Model Name</th>
+                            <th>Project Manager</th>
                             <th>Date</th>
                             <th>Status</th>
                             <th>
@@ -42,7 +43,7 @@ body{
                                             <button><i class="fa-solid fa-user-plus" style="color: #e67f1e;"></i></button>
                                         </a>
                                     <?php else : ?>                                
-                                        <?=$row->manager_id?>
+                                        <?=$row->managerName->firstname?> <?=$row->managerName->lastname?>
                                     <?php endif;?>
                                 </td>              
                                 <td><?=get_date($row->date)?></td> 

@@ -55,6 +55,14 @@
             }
             $complaint=new C_Complaint();
             $data=$complaint->viewComplanitDetail($id);
+
+            //to change the notification status as seen
+            $notification = new Notifications();
+
+            $notification->updateComplaintNotification($id);
+
+
+
             $this->view('coordinatorcomplaints.seemore',['row'=>$data]);
             
         }
@@ -72,7 +80,7 @@
                 if(!($_POST['remark']==NULL)  && ($_POST['type'] == "other"   ||  $_POST['type']=="Poor Communication") ){
                    
                     $_POST['status'] = "Notified";
-                    print_r($_POST);
+                    // print_r($_POST);
                 }
                 $complaint->update($id,$_POST);
                 $this->redirect('coordinatorviewcomplaints');                 

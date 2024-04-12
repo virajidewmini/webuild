@@ -21,6 +21,10 @@
                 $this->redirect('/staff_login');
             }
 
+            //to change the notification status as seen
+            $notification = new Notifications();
+            $notification->updateProjectRequestNotification($id);
+
             $project_requests = new Project_requests();
             $data['common'] = $project_requests->requests($id)[0];
             
@@ -55,17 +59,24 @@
             if(!empty($data['common']->model_id)){
 
                // $data['model_details']= $model->where('id',$data['common']->model_id) ;
-               $data['model_details']=$project_requests->modeldetails($id)[0];
+               $data['model_details']=$model->modeldetails($id)[0];
 
             }
-            if(strcmp($data['common']->land_type,"customer")==0){
-                $data['customer'] = $project_requests->customer($id)[0];
-                $data['managers']= $project_requests->find_managers_in_district($data['customer']->ul_district);
-            }
-            else{
-                $data['company'] = $project_requests->company($id)[0];
-                $data['managers']= $project_requests->find_managers_in_district($data['company']->district);
-            }
+
+
+            $data['customer'] = $project_requests->customer($data['common']->modification_id)[0];
+            $data['managers']= $project_requests->find_managers_in_district($data['customer']->ul_district);
+            
+           
+            
+            // if(strcmp($data['common']->land_type,"customer")==0){
+            //     $data['customer'] = $project_requests->customer($id)[0];
+            //     $data['managers']= $project_requests->find_managers_in_district($data['customer']->ul_district);
+            // }
+            // else{
+            //     $data['company'] = $project_requests->company($id)[0];
+            //     $data['managers']= $project_requests->find_managers_in_district($data['company']->district);
+            // }
             
             if($flag !== null){
                 $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
@@ -84,18 +95,7 @@
 
 
             $project_requests=new Project_requests();
-
-            $errors=array();        
-            if (count($_POST)>0){
-                
-
-                $project_requests->update($id,$_POST);
-                
-
-                $this->redirect('coordinatorrequests');
-
-                
-            }
+           
             $row = $project_requests->where('id',$id);
             
             $this->view('coordinatorrequests.addmanager',[
@@ -104,6 +104,37 @@
                 'manager_fname'=>$manager_fname,
                 'manager_lname'=>$manager_lname,
             ]);
+
+            
+
+
+        }
+        
+        public function updateRequestStatusANDIncrementProjectCount($request_id=null,$manager_id=null){
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+
+            $project_requests=new Project_requests();
+            $staff=new Staffs();
+
+            $errors=array();        
+            if (count($_POST)>0){
+                
+
+                $project_requests->update($request_id,$_POST);
+
+                $current=$staff->getProjectCount($manager_id);
+               
+                $projectcount['project_count']=$current[0]->project_count+1;
+                $staff->update($manager_id,$projectcount);
+
+                $this->redirect('coordinatorrequests');
+
+                
+            }
+           
 
             
 
