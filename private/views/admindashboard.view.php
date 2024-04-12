@@ -312,12 +312,16 @@
 
         // Configuration options
         var options = {
-            title: {
-                display: true,
-                text: 'Complaints Received in Month',
-                fontSize: 14,
-                fontStyle: 'bold'
-            },
+            plugins: {
+        title: {
+          display: true,
+          text: 'Project Requests Overview',
+          font: {
+            size: 24, // Increase font size for the title
+            weight: 'bold' ,// Make title bold
+            color:"black"
+          }}
+        },
             responsive: true,
             maintainAspectRatio: false,
             scales: {

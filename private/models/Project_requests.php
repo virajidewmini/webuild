@@ -422,9 +422,18 @@ class Project_requests extends Model{
             ]);
         }
     
+    //for coordinator dashboard
+
     
-    
-    
+    public function getProjectRequestCount(){
+
+        $query="SELECT COUNT(*) AS total
+        FROM project_requests
+        WHERE project_requests.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)
+         ";
+
+        return $this->query($query);
+    }
     
     
 }

@@ -39,6 +39,8 @@
                 $data['complaint_type']="Quality of the photograph";
                 $data['complaints']=$complaint->getPendingPhotographComplaints();
             }
+            
+            
 
             
             $this->view('coordinatorcomplaints.pending',['rows'=>$data]);
