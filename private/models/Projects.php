@@ -169,4 +169,18 @@ class Projects extends Model
         $data['id'] = $id;
         return $this->query($query, $data);
     }
+
+
+
+    //for coordinator dashboard
+    public function getOngoingProjectCount()
+    {
+
+        $query = "SELECT COUNT(*) AS total
+        FROM projects
+        WHERE status = 'ongoing' ";
+
+        
+        return $this->query($query);
+    }
 }
