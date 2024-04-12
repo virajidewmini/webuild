@@ -4,7 +4,7 @@
     class Pmmodification extends Controller{
         
 
-        public function index($uid=null, $id=null,$mid=null,$price=null)
+        public function index($uid=null, $id=null,$mid=null,$price=null,$rate=null)
         {
             if(!Auth::logged_in()){
                 $this->redirect('/login');
