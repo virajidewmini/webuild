@@ -16,6 +16,8 @@ class Project_requests extends Model{
         'get_dining_color',
         'get_land',
         'get_land_u',
+        'get_model_price',
+        'get_payment',
     ];
 
     public function validate($DATA){
@@ -360,6 +362,34 @@ class Project_requests extends Model{
             if(isset($row1->land_id)){
                 $result = $land_u->where('id',$row1->land_id);
                 $data[$key]->land_u = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+
+    public function get_model_price($data){
+    
+        $model = new Models();
+        foreach ($data as $key => $row1){
+            if(isset($row1->model_id)){
+                $result = $model->where('id',$row1->model_id);
+                $data[$key]->mdl = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+
+    public function get_payment($data){
+    
+        $payment = new Payment_packages();
+        foreach ($data as $key => $row1){
+            if(isset($row1->payment_plan_id)){
+                $result = $payment->where('id',$row1->payment_plan_id);
+                $data[$key]->payment = is_array($result) ? $result[0] : false ;
             }
     
         }

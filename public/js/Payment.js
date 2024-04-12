@@ -1,8 +1,8 @@
-function buyNow() {
-    var name = document.getElementById("name");
-    var price = document.getElementById("price");
+function buyNow(price1) {
+    // var name = document.getElementById("name");
+    // var price = document.getElementById("price").value;
 
-    console.log(price);
+    console.log("Test Price", price1);
     
     
 
@@ -32,7 +32,7 @@ function buyNow() {
                         var order_id = data.order_id;
                         var merchant_id = data.merchant_id;
                         var name = data.name;
-                        var price = data.price;
+                        var price = price;
                         var currency = data.currency;
                         var hash = data.hash;
                         // Further processing with payment details...
@@ -71,12 +71,12 @@ function buyNow() {
     var payment = {
         sandbox: true,
         merchant_id: data.merchant_id, // Replace your Merchant ID
-        return_url: undefined, // Important
+        return_url: 'http://localhost:8888/webuild/public/accept?id=100', // Important
         cancel_url: undefined, // Important
         notify_url: "http://sample.com/notify",
         order_id: data.order_id,
         items: data.name,
-        amount: data.price,
+        amount: price1,
         currency: data.currency,
         hash: data.hash, // *Replace with generated hash retrieved from backend
         first_name: "Saman",

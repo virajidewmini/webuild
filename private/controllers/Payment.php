@@ -6,7 +6,7 @@
             $order_id = "1234";
             $merchant_id = "1225745";
             
-            $price = "100";
+            $price = '1000';
             $currency = "LKR";
             $merchant_secret = "MTI5NTAzNzQyOTI0NDczMzQzNzAyNjc2NjQ1NTIzMzg3MzkyNDM5MQ==";
             $hash = strtoupper(

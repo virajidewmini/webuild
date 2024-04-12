@@ -27,7 +27,7 @@ class Living extends Model{
         $tile = new Tiles();
         foreach ($data as $key => $row2){
             
-            $result = $tile->where('id',$row2->tile_id);
+            $result = $tile->where('file_name',$row2->tile_id);
             $data[$key]->tile = is_array($result) ? $result[0] : false ;
     
         }

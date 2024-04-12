@@ -2,19 +2,30 @@
 
 class Task extends Controller{
     
-    public function index(){
+    public function index($id){
         
-        // Need to get module id from session
-        $id=1;
-
+        $_SESSION['project_id'] = $id;
+        
+        
+        // var_dump(Auth::getProjectId());
         $model=new AllocateTask();
        
         $data=$model->getTask($id);
         $this->view('ViewTask',["rows"=>$data]);
     }
 
+    public function edit($id=null){
+        
+        // Need to get module id from session
+       
+        $model=new AllocateTask();
+       
+        $sub_task=$model->getSubTaskDetails($id);
+        $this->view('ViewSubTask',["rows"=>$sub_task, "ids"=>$id]);
+    }
+
     public function addCoworker($id){
-        $project_id=1;
+        $project_id=Auth::getProjectId();
         $model=new AllocateTask();
         $data= $model->getMainTask($id);
         $sub_task=$model->getSubTask($id);
@@ -48,7 +59,7 @@ class Task extends Controller{
     public function addAutomatically($id){
         
      
-        $project_id=1;
+        $project_id=Auth::getProjectId();
         $model=new AllocateTask();
         $data= $model->getMainTask($id);
         $sub_task=$model->getSubTask($id);

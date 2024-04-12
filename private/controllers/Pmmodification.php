@@ -4,7 +4,7 @@
     class Pmmodification extends Controller{
         
 
-        public function index($id=null,$mid=null,$price=null)
+        public function index($uid=null, $id=null,$mid=null,$price=null,$rate=null)
         {
             if(!Auth::logged_in()){
                 $this->redirect('/login');
@@ -19,6 +19,7 @@
             $exterior = new Exterior();
 
             $project_request = new Project_requests();
+            $quotation = new Project_Quotation();
             
             $data1 = $kitchen->where('modification_id',$mid);
             $data2 = $bathroom->where('modification_id',$mid);
@@ -37,9 +38,16 @@
             if( $_SERVER['REQUEST_METHOD'] =='POST'){
                 if($project_request->validate($_POST)){
                     
-                    $arr['total_price']=$_POST['new_price'];
-                    $arr['action'] = 'updated';
-                    $project_request->update($id,$arr);
+                    $arr['total_amount']=$_POST['new_price'];
+                    $arr['user_id']=$uid;
+                    $arr['request_id']=$id;
+                    $arr['status'] = 'Pending';
+                    $arr['created_date'] = date("Y-m-d");
+                    $quotation->insert($arr);
+
+                    $arr1['status'] = 'Done';
+                    $project_request->update($id,$arr1);
+
                     $this->redirect('pmdashboard');
                 }
                 }

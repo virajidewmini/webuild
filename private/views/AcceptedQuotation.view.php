@@ -39,6 +39,6 @@
 <p> <b>3.</b>  Clients are required to notify us in writing of their intention to cancel the project, stating the reasons for cancellation.</p>
 <p> <b>4.</b>  Refunds, if applicable, will be processed within 90 business days after deducting the applicable cancellation fee.</p>
 
-<button class="v_submit_button" onclick="buyNow()"  style=" margin-left: 830px; margin-top: 30px;">Pay</button>
+<button class="v_submit_button" onclick="buyNow('1000')"  style=" margin-left: 830px; margin-top: 30px;">Pay</button>
 
 <?php $this->view('includes/footer'); ?>

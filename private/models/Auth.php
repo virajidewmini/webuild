@@ -48,4 +48,11 @@ class Auth {
         }
 
     }
+
+    public static function getProjectId() {
+        if(isset($_SESSION['project_id'])) {
+            return $_SESSION['project_id'];
+        }
+        return null; 
+    }
 }

@@ -97,10 +97,10 @@
           
                     <div class="pro-id-details">
                     <form method="post">
-                        <?php if ($rowk||$rowba||$rowl||$rowbe||$rowd||$rowe):?>
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             <h2 style="margin-top: 20px;margin-bottom: 20px">MODIFICATION</h2>
                         </div>
+                        <?php if ($rowk):?>
                         <div class="m-part" id="kitchen">
                             <div class="m-part-top">
                                 <h3 style="margin-left:20px;margin-top:20px">Kitchen</h3>
@@ -222,6 +222,8 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
+                        <?php endif;?>
+                        <?php if ($rowba):?>
                         <div class="m-part" id="bathroom">
                             <div class="m-part-top">
                                 <h3 style="margin-left:20px;margin-top:30px">Bathroom</h3>
@@ -343,6 +345,8 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
+                        <?php endif;?>
+                        <?php if ($rowd):?>
                         <div class="m-part" id="dinien">
                             <div class="m-part-top">
                                 <h3 style="margin-left:20px;margin-top:30px">Dining</h3>
@@ -464,6 +468,8 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
+                        <?php endif;?>
+                        <?php if ($rowbe):?>
                         <div class="m-part" id="living_room">
                             <div class="m-part-top">
                                 <h3 style="margin-left:20px;margin-top:30px">Living Room</h3>
@@ -585,6 +591,8 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
+                        <?php endif;?>
+                        <?php if ($rowl):?>
                         <div class="m-part" id="living_area">
                             <div class="m-part-top">
                                 <h3 style="margin-left:20px;margin-top:30px">Living Area</h3>
@@ -706,6 +714,8 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
+                        <?php endif;?>
+                        <?php if ($rowe):?>
                         <div class="m-part" id="exterior">
                             <div class="m-part-top">
                                 <h3 style="margin-left:20px;margin-top:30px">Exterior</h3>
@@ -827,11 +837,12 @@
                             </div>
                             <hr style="margin-top:40px">
                         </div>
+                        <?php endif;?>
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             <h2 style="margin-top: 20px">Price Details</h2>
                         </div>
                         <div class="m-part">
-                            <?php print_r($_POST) ?>
+                            <!-- <?php print_r($_POST) ?> -->
                             <div class="unit-d">
                                 
                                 <div >
@@ -868,9 +879,6 @@
                         </a>
                         <input class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
                         </div>
-                        <?php else: ?>
-                            <h3>No Modifications were found at this time</h3>
-                        <?php endif; ?>
                     </form>
                     </div> 
                 
