@@ -112,7 +112,7 @@
                 }
 
 
-                $ProjectRequest=new ProjectRequest();
+                $ProjectRequest=new Project_requests();
 
                 $request=[
                     'user_id'=>Auth::id(),

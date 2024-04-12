@@ -331,6 +331,7 @@ class Staffs extends Model{
 
         $query="SELECT COUNT(*) AS total FROM notifications WHERE staff_id = :value AND status ='Unseen'";
 
+
         return $this->query($query, [
             'value' => $value,
         ]);
@@ -338,12 +339,15 @@ class Staffs extends Model{
 
     public function getNotifications($value){
 
+
         $query="SELECT * FROM notifications WHERE staff_id = :value AND status ='Unseen' ";
+
 
         return $this->query($query, [
             'value' => $value,
         ]);
     }
+
 
 
     
