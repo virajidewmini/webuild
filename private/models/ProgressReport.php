@@ -36,12 +36,35 @@ class ProgressReport extends Model{
         return $this->query($query,$params);
     }
 
+    public function updateReportDetail($id,$project_id,$description,$comment){
+
+        $query = "update daily_progress_report set work_description=:description, comment=:comment where date = :id && project_id= :project_id";
+		$params = [
+            'id' => $id,
+            'project_id' => $project_id,
+            'description'=>$description,
+            'comment'=>$comment,
+        ];
+        return $this->query($query,$params);
+    }
+
     public function viewWeatherDetail($id,$project_id){
 
         $query = "select * from weather_report where date = :id && project_id= :project_id";
 		$params = [
             'id' => $id,
             'project_id' => $project_id
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function updateWeatherDetail($id,$project_id){
+
+        $query = "update weather_report set hour_8=:h8,hour_9=:h9,hour_10=:h10,hour_11=:h11,hour_1=:h1,hour_2=:h2,hour_3=:h3,hour_4=:h4,temperature=:temp,Overall=:Overall where date = :id && project_id= :project_id";
+		$params = [
+            'id' => $id,
+            'project_id' => $project_id,
+            'h8'
         ];
         return $this->query($query,$params);
     }

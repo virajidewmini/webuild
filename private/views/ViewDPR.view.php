@@ -22,9 +22,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php if(isset($rows)): ?>
+                <?php if(isset($rows)&& !empty($rows)): ?>
                 
-                    <?php foreach ($rows as $row):?>
+                    <?php foreach ($rows as $row ):?>
                          <tr>
                         <td><?=$row->date?></td> 
                         <td><?=$row->comment?></td>
@@ -33,7 +33,7 @@
                         <?php if($row->date === date('Y-m-d')): ?>
 
                             <a href="<?=ROOT?>/dailyprogressreport/viewReport/<?=$row->date?>"><button ><i class="fa-solid fa-eye"></i></button></a>
-                            <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fas fa-edit"></i></button></a>
+                            <a href="<?=ROOT?>/dailyprogressreport/updateReport/<?=$row->date?>"><button ><i class="fas fa-edit"></i></button></a>
                             <a href="<?=ROOT?>/dailyprogressreport/delete/<?=$row->date?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
 
                         <?php else: ?>

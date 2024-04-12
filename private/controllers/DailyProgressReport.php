@@ -3,14 +3,15 @@
     class DailyProgressReport extends Controller{
         
         public function index(){
-            $project_id=1;
+            $project_id=Auth::getProjectId();
             $report= new ProgressReport();
             $date=date("Y-m-d");
             
             $data=$report->viewReport($project_id);
+           
             $count=$report->viewReportCount($project_id,$date);
             $count=(int)$count[0]->count;
-            var_dump($count);
+            
             $this->view('ViewDPR',['rows'=> $data,'check'=>$count]);
         }
 
@@ -32,7 +33,7 @@
                     'temperature'=>$_POST['temp'],
                     'overall'=>$_POST['overall'],
                     'date'=>date("Y-m-d"),
-                    'project_id'=>1,
+                    'project_id'=>Auth::getProjectId(),
                 ];
 
                 $reportData=new ProgressReport();
@@ -40,10 +41,11 @@
                 $reportData->insert($weather);
 
                 $work=[
+                    
                     'work_description'=>$_POST['description'],
                     'comment'=>$_POST['comment'],
                     'date'=>date("Y-m-d"),
-                    'project_id'=>1,
+                    'project_id'=>Auth::getProjectId(),
                 ];
 
         
@@ -57,7 +59,7 @@
                     'impact'=>$_POST['impact'],
                     'root_case'=>$_POST['root_case'],
                     'face_it'=>$_POST['face'],
-                    'project_id'=>1,
+                    'project_id'=>Auth::getProjectId(),
                     
                     
                 ];
@@ -73,21 +75,53 @@
 
         public function viewReport($id=null){
 
-            $project_id=1;
+            $project_id=Auth::getProjectId();
 
             $report= new ProgressReport();
             $data=$report->viewReportDetail($id,$project_id);
+            
+
             $weather=$report->viewWeatherDetail($id,$project_id);
+            
             $challenge=$report->viewChallengeDetail($id,$project_id);
 
             $this->view('ViewDailyProgressReport',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
         }
 
+        public function updateReport($id=null){
+
+            $report=new ProgressReport();
+            $project_id=Auth::getProjectId();
+            $data=$report->viewReportDetail($id,$project_id);
+            $weather=$report->viewWeatherDetail($id,$project_id);
+            $challenge=$report->viewChallengeDetail($id,$project_id);
+            if($data){
+                $data=$data[0];
+            }
+            if($weather){
+                $weather=$weather[0];
+            }
+            if($challenge){
+                $challenge=$challenge[0];
+            }
+
+            if(count($_POST) > 0){
+
+                $report=new ProgressReport();
+                var_dump($_POST);
+                $report->updateReportDetail($id,$project_id,$_POST["description"],$_POST['comment']);
+			    // $report->update($id,$_POST);
+
+                //   $this->redirect('allcoworkers');
+            }
+            $this->view('UpdateDailyProgress',['rows'=>$data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
+        }
+
         public function delete($id=null){
            
             if(count($_POST) > 0){
-                $clientComplaint=new ProgressReport();
-			    $clientComplaint->deleteReport($id);
+                $report=new ProgressReport();
+			    $report->deleteReport($id);
                 $this->redirect('dailyprogressreport');
 
             }
