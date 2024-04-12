@@ -460,7 +460,6 @@ section{
  .row{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: 3rem;
 
     .video{
@@ -474,6 +473,7 @@ section{
     .content {
       flex: 1 1 41rem;
       flex-wrap: wrap;
+      display: flex;
 
       h3{
         @include titleText(3rem);
@@ -489,11 +489,19 @@ section{
     margin-top: 3rem;
     @include grid(25rem);
     align-items: flex-end;
+    margin-top: 1.5rem;
+    display: flex;
+  gap: 1rem;
+  align-items: flex-end;
 
     .box{
       text-align: center;
       background: var(--light-bg);
       padding: 3rem 2rem;
+      margin-left: 4rem;
+      @include grid(25rem);
+    /* display: flex; */
+    flex-wrap: wrap;
 
       h3{
         @include titleText(4rem);
@@ -513,6 +521,7 @@ section{
 
   .box-container{
     @include grid(25rem);
+    display: flex;
 
     .box{
       text-align: center;
