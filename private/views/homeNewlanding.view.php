@@ -37,22 +37,8 @@
   
   
   <nav class="navbar">
-  
-
-    <!-- <a  href="./lands.php">Lands</a>
-    <a  href="./houses.php">houses</a>
-    <a  href="./about.php">about</a>
-    <a  href="./services.php">services</a>
-    <a  href="./completed projects.php">completed projects</a>
-    <a  href="./pricing.php">pricing</a>
-    <a  href="./contact.php">Contact </a>
-    <a  href="./blogs.php">Blogs</a> -->
-
 
     <a  href=Home/houses>Houses</a>
-    <a  href=Home/lands>Lands</a>
-    <!-- <a  href="#lands">Lands</a>
-    <a  href="#houses">houses</a> -->
     <a  href=ExistingModels>existing models </a>
     <a  href="#about">about</a>
     <a  href="#services">services</a>
@@ -179,21 +165,10 @@
         <div class="content">
           <h3>we provide best service</h3>
           <p style="margin-bottom:35px;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
-          <!-- Form -->
-          <form action="submit.php" method="post">
-            <label for="house-type" style="font-weight: 800;margin:25px;font-size:x-large;">What do you want to purches:</label>
-            <select id="house-type" name="house-type" style="font-size:large;">
-              <option value=Home/houses><a href=Home/houses></option>
-              <option value="Land-with-house">Land with house</option>
-              <!-- Add more options as needed -->
-            </select>
-            
-          </form>
-          <!-- End Form -->
+          
         </div>
       </section>
       
-      <!-- Add more swiper slides as needed -->
     </div>
 
     <div class="swiper-button-next"></div>
@@ -229,7 +204,7 @@
 
       </div>
 
-      <div class="box-container">
+      <div class="box-container" style="display: flex;justify-content:center;gap:3rem;">
 
         <div class="box">
           <h3>10+</h3>
@@ -253,49 +228,41 @@
       </div>
     </section>
 
-    <!-- about section ends -->
-
-    <!-- service section starts  -->
-
+   
     <section class="services" id="services">
-
-      <h1 class="heading">our services</h1>
-
-      <div class="box-container">
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/kitchen/k1jpg.jpg" alt="">
-          <h3>building construction</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
+  
+        <h1 class="heading">our services</h1>
+  
+        <div class="box-container" style="display:flex">
+  
+          <div class="box">
+            <img src="/Photos/woman-1455991_1280.png" alt="">
+            <h3>building construction</h3>
+            <p> Crafting dreams into concrete reality. Our expert
+               team transforms blueprints into breathtaking structures,
+                ensuring quality, precision, and timely delivery.Crafting dreams into concrete reality. Our expert team transforms blueprints into breathtaking structures, ensuring quality, precision, and timely delivery.</p>
+          </div>
+  
+          <div class="box">
+            <img src="<?=ROOT?>/img/Photos/bedrooms/br5.jpg" alt="">
+            <h3>construction consultant</h3>
+            <p> Navigating the complexities of construction with finesse.
+               Our consultants offer invaluable insights, strategic guidance,
+                and innovative solutions, ensuring your project stays on track and exceeds expectations."</p>
+          </div>
+  
+          <div class="box">
+            <img src="<?=ROOT?>/img/Photos/bedrooms/br7.jpg" alt="">
+            <h3>architecture design</h3>
+            <p>Where imagination meets functionality. Our architects blend
+               creativity with practicality to design spaces that inspire,
+                innovate, and elevate the human experience. Let's turn your vision into architectural marvels.</p>
+          </div>
+  
         </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br3.jpg" alt="">
-          <h3>house renovation</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br3.jpg" alt="">
-          <h3>material supply</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br5.jpg" alt="">
-          <h3>construction consultant</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br7.jpg" alt="">
-          <h3>architecture design</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-      </div>
-    </section>
-    <!-- service section ends  -->
+      </section>
+      <!-- service section ends  -->
+   
  
 
 <!-- completed project section starts  -->
@@ -304,7 +271,7 @@
 
   <h1 class="heading">our completed projects</h1>
 
-  <div class="box-container">
+  <div class="box-container" style="display: flex;gap:2rem;">
     <a href="" class="box">
       <div class="image">
         <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/21080514083801.jpg" alt="">
@@ -485,7 +452,7 @@
 
   <h1 class="heading"> our pricing</h1>
 
-  <div class="box-container">
+  <div class="box-container" style="display: flex;justify-content:center">
 
     <div class="box">
       <i class="fas fa-home"></i>
@@ -675,14 +642,14 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 <section class="footer">
 
   <div class="links">
-    <a class="btn" href="#home.php">Lands</a>
+    <!-- <a class="btn" href="#home.php">Lands</a> -->
     <a class="btn" href="#houses.php">About Us</a>
     <a class="btn" href="#about.php">House</a>
     <a class="btn" href="#services.php">Completed Projects</a>
     <a class="btn" href="#completed projects.php">About Us</a>
     <a class="btn" href="#pricing">Pricing</a>
     <a class="btn" href="#contact">Contact Us</a>
-    <a class="btn" href="#blogs">Blogs</a>
+    <!-- <a class="btn" href="#blogs">Blogs</a> -->
 
   </div>
 

@@ -74,35 +74,66 @@
 
 <!-- header section ends -->
 
+<!-- <section class="blogs" id="blogs">
+
+  <h1 class="heading">Gallery</h1>
+
+  
+  <div class="-wrapper">
+
+    <div class="slide">
+      <div class="image">
+      
+     <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/download (1).jpg" alt="">
+     
+      </div>
+      <div class="content">
+        <h3>10% reservation, then 1% in 40 equal installments, and the remaining 50% at handover.<br>Enjoy this Special Payment Plan that designed just for you!</h3>
+        <p style="text-align: center;"><i class="fa-solid fa-square">   2 Bed Room</i><br>
+          <i class="fa-solid fa-square">   1 Bath Room & 1 Kitchen</i><br>
+          <i class="fa-solid fa-square">   Living Room &Dining Area</i></p>
+        
+      </div>
+    </div>
+
+    
+
+  </div>
+  
+</section> -->
 <section class="blogs" id="blogs">
 
   <h1 class="heading">Gallery</h1>
 
-  <div class=" swiper blog-slider">
+  <div class="-wrapper">
 
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/download (1).jpg" alt="">
-        </div>
+    <div class="slide">
+      <div class="image">
+        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/download (1).jpg" alt="" class="slide-img">
       </div>
-
+      <div class="content">
+        <h3>10% reservation, then 1% in 40 equal installments, and the remaining 50% at handover.<br>Enjoy this Special Payment Plan that designed just for you!</h3>
+        <p style="text-align: center;"><i class="fa-solid fa-square">   2 Bed Room</i><br>
+          <i class="fa-solid fa-square">   1 Bath Room & 1 Kitchen</i><br>
+          <i class="fa-solid fa-square">   Living Room & Dining Area</i></p>
+      </div>
     </div>
 
   </div>
-  
+
 </section>
 
-<section class="about" id="about">
 
-      <!-- <h1 class="heading">about us</h1> -->
+
+<!-- <section class="about" id="about" style="background-color: var();">
+
+      
 
       <div class="row">
 
-        <!-- <div class="video">
+        <div class="video">
           <img src="<?=ROOT?>/img/Photos/forLandingPage/istockphoto-538575738-612x612.jpg" alt="">
-        </div> -->
+        </div>
 
         <div class="content">
           <h3>10% reservation, then 1% in 40 equal installments, and the remaining 50% at handover.<br>Enjoy this Special Payment Plan that designed just for you!</h3><br>
@@ -116,10 +147,10 @@
       </div>
 
       
-    </section>
+    </section> -->
 
 
-<section class="floorplan" id="floorplan">
+<section class="floorplan" id="floorplan" style="background-color: azure;">
 
   <h1 class="heading">Floor Plan</h1>
 

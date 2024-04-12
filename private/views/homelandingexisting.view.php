@@ -39,22 +39,12 @@
   <nav class="navbar">
   
 
-    <!-- <a  href="./lands.php">Lands</a>
-    <a  href="./houses.php">houses</a>
-    <a  href="./about.php">about</a>
-    <a  href="./services.php">services</a>
-    <a  href="./completed projects.php">completed projects</a>
-    <a  href="./pricing.php">pricing</a>
-    <a  href="./contact.php">Contact </a>
-    <a  href="./blogs.php">Blogs</a> -->
+  
 
 
     <a  href="#home">home</a>
     <!-- <a  href="#lands">Lands</a>
     <a  href="#houses">houses</a> -->
-    <a  href=ExistingModels>existing models </a>
-    <a  href="#about">about</a>
-    <a  href="#services">services</a>
     <a  href="#projects">completed projects</a>
    
   
@@ -130,27 +120,43 @@
   
   <!-- header section ends -->
 
-  <!-- home section starts  -->
-
-  <section class="home" id="home">
-    <div class="swiper home-slider">
-
-      <div class="swiper-wrapper">
-        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/pexels-pixasquare-com-1115804.jpg)no-repeat; width:100%; height:100%;">
-          <div class="content">
-            <h3>Existing Models</h3>
-            <p>Welcome to our diverse range of homes, each meticulously designed to suit every lifestyle. From the intimate charm of our 2-bedroom model to the grandeur of our 6-bedroom masterpiece, experience unparalleled comfort, style, and functionality tailored to your needs. Step into luxury, step into your dream home.</p>
-            
+ 
+  <section class="home" id="home" style="background-color: #f2f2f2; padding: 20px; ">
+  <div class="swiper home-slider" >
+    <div class="swiper-wrapper">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/pexels-pixasquare-com-1115804.jpg) no-repeat; width:100%; height:100%;">
+        <div class="content">
+          <h3>Existing Models</h3>
+          <p>Welcome to our diverse range of homes, each meticulously designed to suit every lifestyle. From the intimate charm of our 2-bedroom model to the grandeur of our 6-bedroom masterpiece, experience unparalleled comfort, style, and functionality tailored to your needs. Step into luxury, step into your dream home.</p>
+          <!-- Form for filtering -->
+          <div class="filtermodel" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <form id="filterForm" style="display: flex; align-items: center; justify-content: center;">
+            <h3>Find Your Dream Place</h3>
+              <label for="numRooms" style="margin-right: 10px;">Number of Rooms:</label>
+              <select id="numRooms" name="numRooms" style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
+                <option value="1">1 Room</option>
+                <option value="2">2 Room</option>
+                <option value="3">3 Room</option>
+                <!-- Add more options as needed -->
+              </select>
+              <label for="numFloors" style="margin-right: 10px;">Number of Floors:</label>
+              <select id="numFloors" name="numFloors" style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
+                <option value="1">1 Floor</option>
+                <option value="2">2 Floor</option>
+                <option value="3">3 Floor</option>
+                <!-- Add more options as needed -->
+              </select>
+              <button type="submit" style="padding: 8px 16px; background-color: #E5863D; color: white; border: none; border-radius: 5px; cursor: pointer;">Search</button>
+            </form>
           </div>
-        </section>
-
-          
-      </div>
-
-      
-      
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
+</section>
+
+  
+  
 
     <!-- home section ends  -->
 
@@ -169,7 +175,7 @@
       </a>
       </div>
       <div class="content" style="margin-bottom: 5rem;">
-        <h3>Serene Retreat Cottages</h3>
+        <h3>"Cozy Haven: 1-Story, 2 Bedroom Retreat</h3>
         
         <!-- <a href="#" class="btn">read more</a> -->
       </div>
@@ -182,7 +188,7 @@
     </a>
 </div>
       <div class="content"style="margin-bottom: 5rem;">
-        <h3>blog title goes here</h3>
+        <h3>Family Oasis: 1-Story, 3 Bedroom Haven</h3>
       </div>
     </div>
 
@@ -193,7 +199,7 @@
     </a>
 </div>
       <div class="content" style="margin-bottom: 5rem;">
-        <h3>blog title goes here</h3>
+        <h3>Elevated Living: 2-Story, 3 Bedroom Sanctuary</h3>
       </div>
     </div>
 
@@ -205,7 +211,7 @@
 </div>
 
       <div class="content"style="margin-bottom: 5rem;">
-        <h3>blog title goes here</h3>
+        <h3>Grand Estate: 2-Story, 5 Bedroom Residence</h3>
       </div>
     </div>
 
@@ -217,7 +223,7 @@
 </div>
 
       <div class="content"style="margin-bottom: 5rem;">
-        <h3>blog title goes here</h3>
+        <h3>Skyline Villa: 3-Story, 6 Bedroom Penthouse</h3>
       </div>
     </div>
 
