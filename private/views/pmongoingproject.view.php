@@ -16,7 +16,7 @@ body{
                         <th>Supervisor Name</th>
                         <th>Project Request ID</th>
                         <th>Final Date</th>
-                        <th>Action</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
