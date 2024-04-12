@@ -1,4 +1,4 @@
-<?php
+<?php   
 
     //coordinator dashboard controller
     class Coordinatorviewmanagers extends Controller{

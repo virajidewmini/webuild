@@ -19,8 +19,8 @@ body{
                         <tr>
                             <th>Employee ID</th>
                             <th>Name</th>
-                            <th>No. of Projects</th>
-                            <th>Joined Date</th>
+                            <th>District</th>
+                            <th>No. of Currently Working Projects</th>
                             <th>See Projects</th>
 
                         </tr>
@@ -28,10 +28,10 @@ body{
                     <tbody>
                         <?php foreach ($rows["managers"] as $row) :?>
                             <tr>                       
-                                <td><?=$row->staff_id?></td>
+                                <td><?=$row->id?></td>
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
-                                <td><?=$row->count?></td> 
-                                <td><?=$row->joineddate?></td> 
+                                <td><?=$row->district?></td> 
+                                <td></td> 
                                 <td>
                                     <button><i class="fa-solid fa-sheet-plastic"></i></button>
                                 </td> 
@@ -70,7 +70,7 @@ body{
                             <th>Customer Name</th>
                             <th>Model Name</th>
                             <th>Date</th>
-                            <th>Action</th>
+                            <th>Staus</th>
                             <th>See More</th>
                         </tr>
                     </thead>
@@ -81,7 +81,7 @@ body{
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
                                 <td><?=$row->model->name?></td> 
                                 <td><?=get_date($row->date)?></td>
-                                <td><?=$row->action?></td> 
+                                <td><?=$row->status?></td> 
                                 <td>
                                     <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->id?>">
                                         <button><i class="fa-solid fa-eye"></i></button>

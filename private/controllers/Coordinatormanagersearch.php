@@ -18,13 +18,13 @@
             
             
             
-            
-            if(strcmp($data['common']->land_type,"customer")==0){
-                $data['customer'] = $project_requests->customer($id)[0];
-            }
-            else{
-                $data['company'] = $project_requests->company($id)[0];
-            }
+            $data['customer'] = $project_requests->customer($id)[0];
+            // if(strcmp($data['common']->land_type,"customer")==0){
+            //     $data['customer'] = $project_requests->customer($id)[0];
+            // }
+            // else{
+            //     $data['company'] = $project_requests->company($id)[0];
+            // }
 
 
             if(isset($_POST['district'])){

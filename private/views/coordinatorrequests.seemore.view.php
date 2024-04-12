@@ -1,10 +1,13 @@
 <?php if(Auth::getRole()== 'Project Coordinator'): ?>
 <?php $this->view('includes/header')?>
 
+<!-- <pre><?php print_r($rows["model_details"]);?></pre> -->
      <div  class="table_header" >
-          <h1 style="margin-left: 35%;"> Request Details </h1>
-          <h2 style="margin-left: 35%;"> ID : <?= $rows["common"]->id;?> </h2>
+          
+          
      </div>
+     <div style="text-align:center;"><h1> Details of the Request </h1></div>
+     <div style="text-align:center;"><h3>Request ID : <?= $rows["common"]->id;?> </h3></div>
      
      <div class="form_container">
          
@@ -47,7 +50,7 @@
                <br><br>
 
                
-               <?php if(($rows["common"]->land_type)=='customer'): ?>
+              
                     <fieldset class="FormFieldset" >
                          <legend class="Formlegend"> Land Details</legend>
                
@@ -56,12 +59,9 @@
                               
                               <div class="column">                   
                                    <label for="firstname">Land ID</label>
-                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["customer"]->land_id;?>">
+                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["customer"]->id;?>">
                               </div>
-                              <div class="column">
-                                   <label for="lastName">Land Name</label>
-                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->firstname;?><?= $rows["customer"]->land_id;?>">
-                              </div>
+                              
                               <div class="column">
                                    <label for="lastName">Street</label>
                                    <input type="text" id="occupation" name="occupation"value= "<?= $rows["customer"]->ul_street;?>">
@@ -79,10 +79,7 @@
                                    <label for="occupation">Area (in perch)</label>
                                    <input type="text" id="contactnumber" name="contactnumber" value= "<?= $rows["customer"]->ul_area;?>">
                               </div>
-                              <div class="column">
-                                   <label for="lastName">Land Type</label>
-                                   <input type="text" id="occupation" name="occupation" value= "<?= $rows["customer"]->land_type;?>">
-                              </div>
+                              
                               
                              
                               <div class="column">
@@ -102,60 +99,8 @@
                          </div>
                     </fieldset>
 
-               <?php elseif(($rows["common"]->land_type)=='company'): ?>
-                    <fieldset class="FormFieldset" >
-                         <legend class="Formlegend"> Land Details</legend>
                
-                         <div class="form-group">
-                              <br>
-                              
-                              <div class="column">                   
-                                   <label for="firstname">Land ID</label>
-                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["company"]->land_id;?>">
-                              </div>
-                              <div class="column">
-                                   <label for="lastName">Land Name</label>
-                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["company"]->name;?>">
-                              </div>
-                              <div class="column">
-                                   <label for="occupation">Lane</label>
-                                   <input type="text" id="occupation" name="occupation" value= "<?= $rows["company"]->lane;?>">
-                              </div>
-                              <div class="column">
-                                   <label for="occupation">Town</label>
-                                   <input type="text" id="occupation" name="occupation" value= "<?= $rows["company"]->town;?>">
-                              </div>
-                              <div class="column">
-                                   <label for="lastName">District</label>
-                                   <input type="text" id="occupation" name="occupation" value= "<?= $rows["company"]->district;?>">
-
-                              </div>
-                              <div class="column">
-                                   <label for="occupation">Area (in perch)</label>
-                                   <input type="text" id="contactnumber" name="contactnumber" value= "<?= $rows["company"]->area_in_perch;?>">
-                              </div>
-                              <div class="column">
-                                   <label for="locationLink">Road Map</label>
-                                   <a href="#" target="#">
-                                   <button class="action-button">Road Map</button>
-                                   </a>
-                              </div>
-                              <div class="column">
-                                   <label for="locationLink">Image</label>
-                                   <a href="#" target="#">
-                                   <button class="action-button">Image</button>
-                                   </a>
-                              </div>
-                              <div class="column">
-                                   <label for="locationLink">Block Plan</label>
-                                   <a href="#" target="#">
-                                   <button class="action-button">Block Plan</button>
-                                   </a>
-                              </div>
-                         
-                         </div>
-                    </fieldset>
-               <?php endif; ?>
+               
 
                <br><br>
 
@@ -386,7 +331,7 @@
                          
                                    <div class="column">                   
                                         <label for="firstname">Model ID</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->model_id;?>">
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->id;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Model Name</label>
@@ -410,23 +355,23 @@
                                    </div>                                  
                                    <div class="column">
                                         <label for="lastName">Kitchen Tile</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->kitchen_tile->name;?>">
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->kitchenTile->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Dining Tile</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->dining_tile->name;?>">
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->diningTile->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Bathroom Tile</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->bathroom_tile->name;?>">
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->bathroomTile->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Default Tile</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->tile->name;?>">
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->defaultTile->name;?>">
                                    </div>
                                    <div class="column">                   
                                         <label for="firstname">Default Colour</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->color->name;?>">
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->defaultColor->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Description</label>
