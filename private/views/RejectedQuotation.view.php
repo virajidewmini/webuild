@@ -99,10 +99,10 @@
             <label for="comment">Comments & Suggestions</label>
             <input type="text" name="comment" id="comment" class="v_form-control" style="height: 150px;" required>
 
-            <div class="checkbox-container">
+            <!-- <div class="checkbox-container">
                         <input type="checkbox" id="otherQuotation" name="otherQuotation" style="width: 20px; height: 20px; margin-bottom: 20px; ">
                         <label for="agree" id="agree">Please send another Quotaion</label><br>
-            </div>
+            </div> -->
 
             <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="submit">Submit</button></a>
            

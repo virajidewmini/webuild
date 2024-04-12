@@ -12,18 +12,20 @@
   
     <tr>
         <th class="viewTableHeader">Total Project Cost</th>
-        <td class="viewTableData" id="cost" >RS. 200 000 000</td>
+        <?php if(isset($rows)): ?>
+        <td class="viewTableData" id="cost" >RS.<?=$rows[0]->total_amount?></td>
+        <?php endif; ?>
     </tr>
-    
+    <?php if(isset($details)): ?>
     <tr> 
         <th class="viewTableHeader">Initial Payment Amount</th>
-        <td class="viewTableData">RS. <span id="price">2 000 000</span></td>
+        <td class="viewTableData">RS. <span id="price"><?=$details[0]->amount?></span></td>
     </tr>
     <tr>
         <th class="viewTableHeader">Payment Due Date</th>
-        <td class="viewTableData" id="date">24.01.2024</td>
+        <td class="viewTableData" id="date"><?=$details[0]->date?></td>
     </tr>
-
+    <?php endif; ?>
   
 </table>
 
