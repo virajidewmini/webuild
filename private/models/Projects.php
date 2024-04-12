@@ -169,4 +169,14 @@ class Projects extends Model
         $data['id'] = $id;
         return $this->query($query, $data);
     }
+
+    public function toStart($mid){
+
+        $query = "SELECT *, projects.status AS pstatus, quotation.status AS qstatus
+        FROM projects
+        JOIN quotation ON projects.project_request_id = quotation.request_id
+        WHERE manager_id = :mid AND quotation.status = 'Paid'";
+		$data['mid'] = $mid;
+        return $this->query($query,$data);
+    }
 }

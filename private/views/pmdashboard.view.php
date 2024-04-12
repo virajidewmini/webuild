@@ -44,25 +44,48 @@
             </a>
         </div>
     </div>
-    <?php if ($rows4) : ?>
-
-        <div class="table" style="margin-top:60px">
+    <?php if ($rows3) : ?>
+        <div class="table">
             <div class="table_header">
-                <h2>To Start</h2>
+                <h3>To Start Project</h3>
             </div>
             <div class="table_section">
                 <table>
                     <thead>
                         <tr>
                             <th>Request ID</th>
-                            <th></th>
+                            <th>Customer Name</th>
+                            <th>Model Name</th>
+                            <th>Modification ID</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($rows3 as $row) : ?>
+                            <tr>
+                                <td><?= $row->id ?></td>
+                                <td><?= $row->user->firstname ?> <?= $row->user->lastname ?></td>
+                                <td><?= $row->model->name ?></td>
+                                <td><?= $row->modification_id ?></td>
+                                <td>
+                                <a href="<?= ROOT ?>/Pmcreateproject/<?= $row->id ?>/">
+                                        <button><i class="fa-solid fa-eye"></i></button>
+                                    </a>
+                                    <!-- <a href="<?= ROOT ?>/Pmmodification/<?= $row->user_id ?>/<?= $row->id ?>/<?= $row->modification_id ?>/<?= $row->mdl->price ?>">
+                                        <button><i class="fa-solid fa-eye"></i></button>
+                                    </a> -->
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <?php endif; ?>
     <?php if ($rows2) : ?>
         <div class="table">
             <div class="table_header">
-                <h3>To modify bill</h3>
+                <h3>Modification</h3>
             </div>
             <div class="table_section">
                 <table>
@@ -92,11 +115,11 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    <?php endif; ?>
                     </tbody>
                 </table>
             </div>
         </div>
+    <?php endif; ?>
         <div class="table">
             <div class="table_header">
                 <h3>Daily Progress reports</h3>
