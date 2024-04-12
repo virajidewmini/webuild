@@ -69,7 +69,7 @@
                                 <td><?= $row->modification_id ?></td>
                                 <td>
                                 <a href="<?= ROOT ?>/Pmcreateproject/<?= $row->id ?>/">
-                                        <button><i class="fa-solid fa-eye"></i></button>
+                                <button class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" >Start</button>
                                     </a>
                                     <!-- <a href="<?= ROOT ?>/Pmmodification/<?= $row->user_id ?>/<?= $row->id ?>/<?= $row->modification_id ?>/<?= $row->mdl->price ?>">
                                         <button><i class="fa-solid fa-eye"></i></button>
@@ -120,6 +120,7 @@
             </div>
         </div>
     <?php endif; ?>
+    <?php if ($rows) : ?>
         <div class="table">
             <div class="table_header">
                 <h3>Daily Progress reports</h3>
@@ -136,7 +137,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if ($rows) : ?>
                             <?php foreach ($rows as $row) : ?>
                                 <tr>
                                     <td><?= $row->project_id ?></td>
@@ -150,13 +150,11 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        <?php else : ?>
-                            <h3>No Reports were found at this time</h3>
-                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
         </div>
+    <?php endif; ?>
         <div class="table">
             <div class="table_header">
                 <h3>On going task</h3>

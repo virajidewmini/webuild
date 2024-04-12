@@ -7,38 +7,37 @@ class ProgressReport extends Model{
         $this->table = $table;
     }
 
-    public function viewReportDetail($id){
+    public function viewALLReport($id){
 
-        $query = "select * from daily_progress_report where date = :id";
-		$data['id'] = $id;
+        $query = "SELECT daily_progress_report.* FROM projects JOIN daily_progress_report ON projects.id = daily_progress_report.project_id WHERE manager_id = :id ORDER BY daily_progress_report.date DESC";
+		$params = [
+            'id' => $id
+        ];
+        return $this->query($query,$params);
+    }
+
+
+    public function viewDPRDetail($project_id, $date){
+
+        $query = "SELECT * FROM daily_progress_report WHERE date = :date AND project_id = :project_id";
+        $data['project_id'] = $project_id;
+		$data['date'] = $date;
         return $this->query($query,$data);
     }
 
-    public function viewWeatherDetail($id){
-
-        $query = "select * from weather_report where date = :id";
-		$data['id'] = $id;
+    public function viewDPRWeatherDetail($project_id, $date){
+        $query = "SELECT * FROM weather_report WHERE date = :date AND project_id = :project_id";
+		$data['project_id'] = $project_id;
+		$data['date'] = $date;
         return $this->query($query,$data);
     }
 
-    public function viewChallengeDetail($id){
+    public function viewDPRChallengeDetail($project_id, $date){
 
-        $query = "select * from challenge where date = :id";
-		$data['id'] = $id;
+        $query = "SELECT * FROM challenge WHERE date = :date AND project_id = :project_id";
+		$data['project_id'] = $project_id;
+		$data['date'] = $date;
         return $this->query($query,$data);
-    }
-
-    public function deleteReport($id){
-
-        $query = "delete from daily_progress_report where date = :id";
-		$data['id'] = $id;
-        $this->query($query,$data);
-
-        $query2 = "delete from weather_report where date = :id";
-        $this->query($query2, $data);
-
-        $query3 = "delete from challenge where date = :id";
-        $this->query($query3, $data);
     }
 
     
