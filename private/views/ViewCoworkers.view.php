@@ -34,9 +34,8 @@
                         <td><?=$row->role?></td>
                         
                         <td>
-                         <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fa-solid fa-eye"></i></button></a>
-                           
-                         <a href="<?=ROOT?>/clientcomplaint/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+                        <a href="<?=ROOT?>/allcoworkers/editCoworker/<?=$row->id?>"><button ><i class="fas fa-edit"></i></button></a>
+                         <a href="<?=ROOT?>/allcoworkers/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
 
                         </td>
                         
