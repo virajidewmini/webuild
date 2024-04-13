@@ -41,12 +41,10 @@ body{
       
     <form action="<?=ROOT?>/coordinatormanagersearch/<?=$rows['common']->id?>" method="post">
             <select name="district" class="v_form-control" value="<?= get_select2('district','');?>" type="text" placeholder="district" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
-                <option selected value="<?php if(strcmp($rows['common']->land_type,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?>">            
-                    <?php if(strcmp($rows['common']->land_type,"customer")==0): ?>
+                <option selected value="<?= $rows['customer']->ul_district ; ?>">            
+                   
                         <?= $rows['customer']->ul_district ; ?>                    
-                    <?php else: ?>
-                        <?= $rows['company']->district ; ?>                    
-                    <?php endif; ?>                       
+                                        
                 </option>
                 <option <?= get_select2('district','');?> value="">Select a district</option>
                 <option <?= get_select2('district','Galle');?> value="Galle">Galle</option>
@@ -86,7 +84,7 @@ body{
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
-                    <h3>  Project Managers in <?php if(strcmp($rows['common']->_land,"customer")==0): ?><?= $rows['customer']->ul_district ; ?><?php else: ?><?= $rows['company']->district ; ?><?php endif; ?> district  </h3>
+                    <h3>  Project Managers in <?= $rows['customer']->ul_district ; ?> district  </h3>
                 </div>
                 
             </div>
@@ -107,13 +105,13 @@ body{
                                 <td><?=$row->id?></td>
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
                                 <td>
-                                    <?php if (empty($row->count)):?>  
+                                    <?php if (empty($row->current_working_projects_count)):?>  
                                         None 
                                     <?php else:?>
-                                        <?=$row->count?> 
+                                        <?=$row->current_working_projects_count?> 
                                     <?php endif;?>
                                 </td>
-                                <td></td> 
+                                <td><?=$row->worked_project_count?> </td> 
                                 <td>
                                     <a href="<?=ROOT?>/coordinatorrequests/addmanager/<?=$rows["common"]->id?>/<?=$row->id?>/<?=$row->firstname?>/<?=$row->lastname?>">
                                         <button><i class="fa-solid fa-plus" style="color: #ed8835;"></i></button>

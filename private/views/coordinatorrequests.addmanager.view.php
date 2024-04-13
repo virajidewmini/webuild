@@ -4,10 +4,13 @@
    
 
 </style>
+<!-- <pre><?php print_r($row);?></pre>
+<?php print_r($manager_id);?> -->
+
     <?php if($row):?>
     
     <div class="delete-box">
-        <form method="post">
+        <form method="post" action="<?=ROOT?>/coordinatorrequests/updateRequestStatusANDIncrementProjectCount/<?=$row[0]->id?>/<?=$manager_id?>">
        
             <div class="delete-message"> 
                 <div style="display: flex; justify-content: center;" >
