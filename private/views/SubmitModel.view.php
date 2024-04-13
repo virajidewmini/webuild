@@ -1,6 +1,17 @@
 
 <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
 
+<style>
+   
+
+input:disabled:hover + .radio-tile {
+  box-shadow: 0 0 0 0;
+}
+.input-container input:disabled {
+  cursor: not-allowed; 
+}
+</style>
+
 
 
 <div  class="table_header" >
@@ -120,7 +131,7 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="Paint">
+                            <input id="defaultColor" type="radio" name="Paint" disabled>
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -145,14 +156,16 @@
                 
 
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
-
+                
                 <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio" disabled>
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);">
-                               
+                                
                             </div>
+                            
                     </div>
                     <p style="margin-left: 20px;">Default</p>
+                    
                     <div class="radio-tile-group"  style="display: none;  display: flex; flex-wrap: wrap;">
 
                     <?php for ($i = 2; $i <= 4; $i++): ?>
@@ -182,7 +195,7 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="Paint">
+                            <input id="defaultColor" type="radio" name="Paint" disabled>
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -209,7 +222,7 @@
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
 
                 <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio" disabled>
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);">
                                
                             </div>
@@ -245,7 +258,7 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="Paint">
+                            <input id="defaultColor" type="radio" name="Paint" disabled>
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -272,7 +285,7 @@
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
 
                 <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio" disabled>
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Kitchen_tile_1.jpeg);">
                                
                             </div>
@@ -304,7 +317,7 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="Paint">
+                            <input id="defaultColor" type="radio" name="Paint" disabled>
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -331,7 +344,7 @@
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
 
                 <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio" disabled>
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Bathroom_tile_1.jpeg);">
                                
                             </div>
@@ -362,7 +375,7 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="Paint">
+                            <input id="defaultColor" type="radio" name="Paint" disabled>
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -389,8 +402,8 @@
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
 
                 <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
-                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);">
+                            <input id="defaultColor" type="radio" name="radio" disabled>
+                            <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Interior_tile_1.jpeg);" >
                                
                             </div>
                     </div>
@@ -421,7 +434,7 @@
                    <label for="paint" class="lableForCollaps">Paint Colour</label>
 
                    <div class="input-container">
-                            <input id="defaultColor" type="radio" name="Paint">
+                            <input id="defaultColor" type="radio" name="Paint" disabled>
                             <div class="radio-tile" style="background-color: white;">
                                 <label for="default">White</label>
                             </div>
@@ -448,7 +461,7 @@
                 <label for="tile" class="lableForCollaps">Tile Styles</label>
 
                 <div class="input-container">
-                            <input id="defaultColor" type="radio" name="radio">
+                            <input id="defaultColor" type="radio" name="radio" disabled>
                             <div class="radio-tile" style="background-image: url(<?=ROOT?>/tiles/Exterior_tile_1.jpeg);">
                                
                             </div>
@@ -483,18 +496,19 @@
 
             <div class="column">
                     <label for="locationLink">View Payment Plans</label>
-                    <a href="<?=ROOT?>/price" target="_blank">
+                    <!-- <a href="<?=ROOT?>/price" target="_blank">
                     <button class="action-button">View</button>
-                    </a>
+                    </a> -->
+                    <button id="viewPaymentPlans" class="action-button">View</button>
                 </div>
                 
                 <div class="column">
                     <label for="landCondition">Payment Plan</label>
                         <select id="type" name="type" >
                             <option value="" disabled selected>Select Payment Plan</option>
-                            <option value="DuoEase Pay">DuoEase Pay</option>
-                            <option value="TriEase Pay">TriEase Pay</option>
-                            <option value="PentaEase Pay">PentaEase Pay</option>
+                            <option value="1">DuoEase Pay</option>
+                            <option value="2">TriEase Pay</option>
+                            <option value="3">PentaEase Pay</option>
                         </select>
                 </div>
                 
@@ -503,7 +517,7 @@
             </div>
             </fieldset>  
 
-            <button class="add___" style="width: 50%; font-size: medium; height: 40px; margin-top: 25px;">Submit</button>
+            <button class="add___" style="width: 50%; font-size: medium; height: 40px; margin-top: 25px;" type="submit">Submit</button>
             
             </form>
         
@@ -523,7 +537,12 @@
       hiddenForm.style.display = 'none';
   }
 
-}</script>
+}
+document.getElementById('viewPaymentPlans').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        window.open('<?= ROOT ?>/price', '_blank');
+    });
+</script>
 
     <?php $this->view('includes/footer'); ?>
 

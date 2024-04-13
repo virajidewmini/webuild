@@ -27,6 +27,26 @@
             $this->view('AddCoworker');
         }
 
+        public function editCoworker($id=null){
+
+            $model=new CoworkerModel();
+            $data=$model->where('id',$id);
+            if($data){
+                $data=$data[0];
+            }
+
+            if(count($_POST) > 0){
+
+                $model=new CoworkerModel();
+			    $model->update($id,$_POST);
+
+                  $this->redirect('allcoworkers');
+            }
+
+            $this->view('UpdateCoworker',['rows'=>$data]);
+        }
+
+
         
         private function readCsvFile($filePath) {
             // Read CSV file and return data as an array
@@ -46,7 +66,16 @@
             return $csvData;
         }
    
-        
+        public function delete($id=null){
+           
+            if(count($_POST) > 0){
+                $coworker=new CoworkerModel();
+			    $coworker->delete($id);
+                $this->redirect('allcoworkers');
+
+            }
+            $this->view('DeleteComplaint');
+        }
     
 
         

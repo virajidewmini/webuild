@@ -170,6 +170,7 @@ class Projects extends Model
         return $this->query($query, $data);
     }
 
+
     public function toStart($mid){
 
         $query = "SELECT *, projects.status AS pstatus, quotation.status AS qstatus
@@ -178,5 +179,19 @@ class Projects extends Model
         WHERE manager_id = :mid AND quotation.status = 'Paid'";
 		$data['mid'] = $mid;
         return $this->query($query,$data);
+ }
+
+
+    //for coordinator dashboard
+    public function getOngoingProjectCount()
+    {
+
+        $query = "SELECT COUNT(*) AS total
+        FROM projects
+        WHERE status = 'ongoing' ";
+
+        
+        return $this->query($query);
+
     }
 }
