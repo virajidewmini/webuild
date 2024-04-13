@@ -29,6 +29,12 @@
         public function lands(){
             $this->view('homepagelands');
          }
+         public function completedProjects(){
+            $this->view('homeNewcompletedprojects');
+         }
+         public function staff(){
+            $this->view('homeNewStaff');
+         }
 
     }
 ?>

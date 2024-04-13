@@ -42,7 +42,7 @@
   
 
 
-    <a  href="#home">home</a>
+    <a  href=Home>home</a>
     <!-- <a  href="#lands">Lands</a>
     <a  href="#houses">houses</a> -->
     <a  href="#projects">completed projects</a>
@@ -162,7 +162,7 @@
 
 <section class="blogs" id="blogs">
 
-<h1 class="heading">our existing models </h1>
+<h1 class="heading" style="margin-top: -3.5rem;" >our existing models </h1>
 
 <div class="blog-slider">
 
@@ -202,6 +202,7 @@
         <h3>Elevated Living: 2-Story, 3 Bedroom Sanctuary</h3>
       </div>
     </div>
+    
 
     <div class=" slide">
     <div class="image">
