@@ -42,10 +42,10 @@
     <a  href=ExistingModels>existing models </a>
     <a  href="#about">about</a>
     <a  href="#services">services</a>
-    <a  href="#projects">completed projects</a>
+    <a  href=Home/completedProjects>completed projects</a>
     <a  href="#pricing">pricing</a>
     <a  href="#contact">contact </a>
-    <a  href="#blogs">blogs</a>
+    <a  href=Home/staff>Staff</a>
   
   </nav>
   <div class="icons">
@@ -119,45 +119,9 @@
   
   <!-- header section ends -->
 
-  <!-- home section starts  -->
+ 
 
-  <!-- <section class="home" id="home">
-    <div class="swiper home-slider">
-
-      <div class="swiper-wrapper">
-        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg)no-repeat;">
-          <div class="content">
-            <h3>we provide best service</h3>
-            <p>Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here,
-               amidst the rhythmic symphony of hammers and drills,
-               we craft the foundations of tomorrow. Join us on this journey of creation, 
-              where every beam raised is a testament to progress and possibilit</p>
-            
-          </div>
-        </section>
-
-       
-          <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/engineers-plan-complete-construction-create-together_37714-575.jpg)no-repeat;">
-            <div class="content">
-              <h3>making dream come to life</h3>
-              <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-            </div>
-          </section>
-
-          
-            <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg)no-repeat;">
-              <div class="content">
-                <h3>from concept to creation</h3>
-                <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-              </div>
-            </section>
-      </div>
-
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      
-    </div>
-  </section> -->
+  
   <section class="home" id="home">
   <div class="swiper home-slider">
     <div class="swiper-wrapper">
@@ -236,7 +200,7 @@
         <div class="box-container" style="display:flex">
   
           <div class="box">
-            <img src="/Photos/woman-1455991_1280.png" alt="">
+            <img src="<?=ROOT?>/img/Photos/forLandingPage/construction.jpg" alt="">
             <h3>building construction</h3>
             <p> Crafting dreams into concrete reality. Our expert
                team transforms blueprints into breathtaking structures,
@@ -244,7 +208,7 @@
           </div>
   
           <div class="box">
-            <img src="<?=ROOT?>/img/Photos/bedrooms/br5.jpg" alt="">
+            <img src="<?=ROOT?>/img/Photos/forLandingPage/02d4c179-b590-4bd4-b18d-9882b95b8d46.jpg" alt="">
             <h3>construction consultant</h3>
             <p> Navigating the complexities of construction with finesse.
                Our consultants offer invaluable insights, strategic guidance,
@@ -533,7 +497,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <!-- blogs section starts  -->
 
-<section class="blogs" id="blogs">
+<!-- <section class="blogs" id="blogs">
 
   <h1 class="heading"> our blogs </h1>
 
@@ -596,16 +560,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
         </div>
       </div>
 
-      <!-- <div class="swiper-slide slide">
-        <div class="image">
-          <img src="image ekk add karanna" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div> -->
+      
 
 
     </div>
@@ -615,7 +570,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
   
 
 
-</section>
+</section> -->
 
 <!-- blogs section ends  -->
 
@@ -623,7 +578,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 <!-- client logo section starts  -->
 
 <section class="logo-container">
-  <div class="swiper logo-slider">
+  <div class="swiper logo-slider" >
     <div class="swiper-wrapper">
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/1535965.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/11990055.png" alt=""></div>
