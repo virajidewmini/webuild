@@ -1,5 +1,7 @@
 <?php $this->view('includes/header')?>
 
+<script src="https://cdn.jsdelivr.net/npm/js-md5@0.8.3/src/md5.min.js"></script>
+
 <img src="<?=ROOT?>/img/Thank_you.png" alt="thank you"  class="thankYouImg">
 
 <p style="text-align: center; font-weight: 500;">Thank you for choosing our services! We appreciate your trust and look forward to 
@@ -41,6 +43,45 @@
 <p> <b>3.</b>  Clients are required to notify us in writing of their intention to cancel the project, stating the reasons for cancellation.</p>
 <p> <b>4.</b>  Refunds, if applicable, will be processed within 90 business days after deducting the applicable cancellation fee.</p>
 
-<button class="v_submit_button" onclick="buyNow('1000')"  style=" margin-left: 830px; margin-top: 30px;">Pay</button>
+
+<form action="https://sandbox.payhere.lk/pay/checkout" method="POST" id="payhere-payment-form">
+    <input type="hidden" name="merchant_id" value="1225745"> 
+    <input type="hidden" name="return_url" value="<?=ROOT?>/payment/">
+    <input type="hidden" name="cancel_url" value="<?=ROOT?>/payment/fail">
+    <input type="hidden" name="notify_url" value="http://localhost:8888/payhere">
+    <input type="hidden" name="first_name" value="<?=$user[0]->firstname?>">
+    <input type="hidden" name="last_name" value="<?=$user[0]->lastname?>">
+    <input type="hidden" name="email" value="<?=$user[0]->email?>">
+    <input type="hidden" name="phone" value="<?=$user[0]->contactnumber?>">
+    <input type="hidden" name="address" value="<?=$user[0]->address?>">
+    <input type="hidden" name="city" value="Galle">
+    <input type="hidden" name="country" value="Sri Lanka">
+    <input type="hidden" name="order_id" value="<?=$details[0]->id?>">
+    <input type="hidden" name="items" value="<?=$details[0]->id?>">
+    <input type="hidden" name="currency" value="LKR">
+    <input type="hidden" name="amount" value="<?=$details[0]->amount?>">
+    <input type="hidden" name="hash" id="hashField"> 
+
+    <button class="v_submit_button" type="submit" onclick="calculateChecksum()"  style=" margin-left: 830px; margin-top: 30px;">Pay</button>
+  </form>
+
+  <script>
+    function calculateChecksum() {
+      const merchantSecret = 'MTI5NTAzNzQyOTI0NDczMzQzNzAyNjc2NjQ1NTIzMzg3MzkyNDM5MQ=='; // Replace!
+      const merchantSecretHASH = md5(merchantSecret).toUpperCase();
+      const stringToHash = 
+            document.getElementById('payhere-payment-form').merchant_id.value +
+            document.getElementById('payhere-payment-form').order_id.value + 
+            document.getElementById('payhere-payment-form').amount.value+
+            document.getElementById('payhere-payment-form').currency.value
+            // ...add other required fields based on PayHere's instructions
+
+        const hash = md5(stringToHash + merchantSecretHASH).toUpperCase();
+        document.getElementById('hashField').value = hash;
+    }
+  </script>
+
+<!-- <button class="v_submit_button" type="submit" onclick="calculateChecksum()"  style=" margin-left: 830px; margin-top: 30px;">Pay</button> -->
+    
 
 <?php $this->view('includes/footer'); ?>

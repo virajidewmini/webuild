@@ -7,6 +7,7 @@
 
             $quotation= new Project_Quotation();
             $data=$quotation->where("user_id",Auth::id());
+            var_dump("AUTH ID",Auth::id());
 
             $this->view('ViewQuotation',["rows"=>$data]);
         }
