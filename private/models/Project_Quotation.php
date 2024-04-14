@@ -13,7 +13,7 @@ class Project_Quotation extends Model{
 
     public function getPaymentDetail($project_id){
 
-        $query = "select date,amount from payments where project_id= :project_id && installement_number=1";
+        $query = "select id,date,amount from payments where project_id= :project_id && installement_number=1";
 		$params = [
             'project_id'=>$project_id
         ];

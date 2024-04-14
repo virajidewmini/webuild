@@ -4,6 +4,7 @@
         
         public function index(){
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // var_dump($_POST);
                 
                 $model = new UploadModel();
                 $userData = [
@@ -127,6 +128,7 @@
 
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
                 foreach ($uploadedFiles as $file) {
+                    var_dump($uploadedFiles);
                     $attachment_data_salary= [
                         'file_name' => $file,
                         'attachment_type'=> "SALARY"
