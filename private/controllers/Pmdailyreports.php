@@ -3,22 +3,25 @@
 class Pmdailyreports extends Controller{
     
     public function index(){
-
+        $pmi = Auth::getId();
         $report= new ProgressReport();
-        $data= $report->findAll();
-        $this->view('pmdpr_view',['rows'=> $data]);
+        
+        $data=$report->viewAllReport($pmi);
+        
+        $this->view('pmdailyreportsv',['rows'=> $data]);
     }
 
-   
-
-    public function viewReport($id=null){
+    public function viewDPR($id=null, $date=null){
 
         $report= new ProgressReport();
-        $data=$report->viewReportDetail($id);
-        $weather=$report->viewWeatherDetail($id);
-        $challenge=$report->viewChallengeDetail($id);
+        $data=$report->viewDPRDetail($id, $date);
+        
 
-        $this->view('ViewDailyProgressReport',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
+        $weather=$report->viewDPRWeatherDetail($id, $date);
+        
+        $challenge=$report->viewDPRChallengeDetail($id, $date);
+
+        $this->view('pmdailyreports',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
     }
 
 }

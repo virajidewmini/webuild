@@ -94,10 +94,10 @@
                   <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
-                      <input type="search" placeholder="search..." />
+                      <!-- <input type="search" placeholder="search..." />
                       <button class="search-btn">
                         <i class="fas fa-search search-icon"></i>
-                      </button>
+                      </button> -->
                     </div>
                   </form>
                   <?php

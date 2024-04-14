@@ -7,16 +7,43 @@ class ProgressReport extends Model{
         $this->table = $table;
     }
 
+
+    public function viewALLReport($id){
+
+        $query = "SELECT daily_progress_report.* FROM projects JOIN daily_progress_report ON projects.id = daily_progress_report.project_id WHERE manager_id = :id ORDER BY daily_progress_report.date DESC";
+		$params = [
+            'id' => $id
+      ];
+        return $this->query($query,$params);
+    }
+
    
     public function viewReport($project_id){
 
         $query = "select * from daily_progress_report where project_id= :project_id";
 		$params = [
             'project_id' => $project_id
+
         ];
         return $this->query($query,$params);
     }
 
+
+
+    public function viewDPRDetail($project_id, $date){
+
+        $query = "SELECT * FROM daily_progress_report WHERE date = :date AND project_id = :project_id";
+        $data['project_id'] = $project_id;
+		$data['date'] = $date;
+        return $this->query($query,$data);
+    }
+
+    public function viewDPRWeatherDetail($project_id, $date){
+        $query = "SELECT * FROM weather_report WHERE date = :date AND project_id = :project_id";
+		$data['project_id'] = $project_id;
+		$data['date'] = $date;
+        return $this->query($query,$data);
+ }
     public function viewReportCount($project_id,$date){
        
         $query = "select COUNT(id) as count from daily_progress_report where date = :date && project_id= :project_id;";
@@ -77,19 +104,15 @@ class ProgressReport extends Model{
             'project_id' => $project_id
         ];
         return $this->query($query,$params);
+
     }
 
-    public function deleteReport($id){
+    public function viewDPRChallengeDetail($project_id, $date){
 
-        $query = "delete from daily_progress_report where date = :id";
-		$data['id'] = $id;
-        $this->query($query,$data);
-
-        $query2 = "delete from weather_report where date = :id";
-        $this->query($query2, $data);
-
-        $query3 = "delete from challenge where date = :id";
-        $this->query($query3, $data);
+        $query = "SELECT * FROM challenge WHERE date = :date AND project_id = :project_id";
+		$data['project_id'] = $project_id;
+		$data['date'] = $date;
+        return $this->query($query,$data);
     }
 
     
