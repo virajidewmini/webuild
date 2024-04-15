@@ -13,6 +13,10 @@
             <td class="viewTableData" id="complaintId"><?=$rows[0]->id?></td>
         </tr>
         <tr>
+            <th class="viewTableHeader">Project ID</th>
+            <td class="viewTableData" id="projectId"><?=$rows[0]->project_id?></td>
+        </tr>
+        <tr>
             <th class="viewTableHeader">Date</th>
             <td class="viewTableData" id="complaintDate"><?=$rows[0]->date?></td>
         </tr>
@@ -56,6 +60,17 @@
              </tr>
         </table>
 
-        <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="button" style="margin-left: 830px;">Ok</button></a>
+        <?php if($rows[0]->remark==null):?>
+        <div class="form_container">
+            <form method="post"  class="v_form" enctype="multipart/form-data">
+                
+                <label for="description">Remark</label>
+                <input type="text" name="remark" id="remark" class="v_form-control" style="height: 150px;" required>
+
+                <a href=""> <button class="v_submit_button" type="submit">Submit</button></a>
+            </form>
+        </div>
+    <?php endif; ?>
+        <a href="<?=ROOT?>/supcomplaint"> <button class="v_submit_button" type="button" style="margin-left: 830px; margin-top: 40px;">Ok</button></a>
         </div>
     

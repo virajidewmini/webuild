@@ -8,6 +8,16 @@ class C_Complaint extends Model{
 		$data['id'] = $id;
         return $this->query($query,$data);
     }
+
+    public function updateRemark($id,$remark){
+
+        $query = "update complaint set remark=:remark where id=:complaint_id";
+		$param=[
+            'complaint_id'=>$id,
+            'remark'=>$remark,
+        ];
+        return $this->query($query,$param);
+    }
     
 
 

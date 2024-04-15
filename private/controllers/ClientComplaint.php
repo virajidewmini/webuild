@@ -5,8 +5,10 @@
             
                 
                 $clientComplaint=new C_Complaint();
+                $project_id=Auth::getProjectId();
                 
-                $data=$clientComplaint->findAll();
+                
+                $data=$clientComplaint->where("project_id",$project_id);
                 $this->view('ViewClientComplaint',['rows'=> $data]);
         }
 
@@ -30,6 +32,8 @@
                 $clientComplaint=new C_Complaint();
                 $complaint_id = uniqid();
                 $_POST['id'] = $complaint_id;
+                $_POST['date']=date('Y-m-d');
+                $_POST['project_id']=Auth::getProjectId();
 			    $clientComplaint->insert($_POST);
                
 
@@ -46,7 +50,7 @@
                     
                 }
 
-                //  $this->redirect('clientcomplaint');
+                  $this->redirect('clientcomplaint');
             }
 
            

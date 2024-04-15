@@ -4,9 +4,7 @@
 <div class="table">
 <div class="table_header">
             <h1>Complaints</h1>
-            <div>
-               <a href="<?=ROOT?>/clientcomplaint/add"><button class="add___">Add New</button></a>   
-            </div>
+           
         </div>
         <div class="table_section" style="height: 1000px;">
             <table>
@@ -30,9 +28,9 @@
                         <td><?=$row->status?></td>
                         
                         <td>
-                         <a href="<?=ROOT?>/clientcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fa-solid fa-eye"></i></button></a>
+                         <a href="<?=ROOT?>/supcomplaint/viewComplaint/<?=$row->id?>"><button ><i class="fa-solid fa-eye"></i></button></a>
                            
-                         <a href="<?=ROOT?>/clientcomplaint/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+                         
 
                         </td>
                         
