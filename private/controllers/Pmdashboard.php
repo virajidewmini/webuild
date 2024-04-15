@@ -14,10 +14,11 @@
             $data3 = $project->toStart($pmi);
 
             $project_request = new Project_requests();
-            $data2 = $project_request->where2('manager_id',$pmi,'status','Modified');
+            $data2 = $project_request->LatestReq($pmi);
 
-            $project_dpr = new Project_dprs();
-            $data = $project_dpr->where('manager_id',$pmi);
+
+            $report= new ProgressReport();
+            $data=$report->viewAllReport($pmi);
             // $data1 = $dtbase->alltask($pmi);
 
             $allocated_task = new Allocated_tasks();

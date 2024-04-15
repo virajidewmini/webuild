@@ -5,6 +5,7 @@ class Project_requests extends Model{
 
     protected $afterSelect = [
         'get_user',
+        'get_user_m',
         'get_modeln',
         'get_kitchen_tile',
         'get_bathroom_tile',
@@ -157,6 +158,22 @@ class Project_requests extends Model{
             if(property_exists($row,"user_id")){
                 $result = $user->where('id',$row->user_id);
                 $data[$key]->user = is_array($result) ? $result[0] : false ;
+            }
+
+        }
+
+        return $data;
+    }
+
+    public function get_user_m($data){
+    
+        $staff = new Staffs();
+        
+
+        foreach ($data as $key => $row){
+            if(property_exists($row,"manager_id")){
+                $result = $staff->where('id',$row->manager_id);
+                $data[$key]->staff_m = is_array($result) ? $result[0] : false ;
             }
 
         }
@@ -470,6 +487,13 @@ class Project_requests extends Model{
     
         return $data;
     
+    }
+
+    public function LatestReq($p_id = null){
+
+        $query="SELECT * FROM project_requests WHERE manager_id = :p_id AND status = 'Modified' ORDER BY project_requests.date DESC";
+        $data['p_id'] = $p_id;
+        return $this->query($query,$data);
     }
    
 
