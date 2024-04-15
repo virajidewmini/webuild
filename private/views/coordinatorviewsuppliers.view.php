@@ -5,6 +5,7 @@
         overflow: hidden;
     }
     </style>
+    
 
         <?php if($rows):?>
             <div class="table">

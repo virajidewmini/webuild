@@ -25,14 +25,75 @@ class Payments extends Model{
 
         $user = new Users();
         foreach ($data as $key => $row){
-            
-            $result = $user->where('id',$row->user_id);
-            $data[$key]->user = is_array($result) ? $result[0] : false ;
+            if(property_exists($row,"user_id")){
+                $result = $user->where('id',$row->user_id);
+                $data[$key]->user = is_array($result) ? $result[0] : false ;
+            }
             
         }
     
         return $data;
     }
 
+    public function getAllInstallments($value){
+
+
+        $query="SELECT * 
+        FROM payments 
+        WHERE project_id =:value 
+        ORDER BY date ASC"; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getPaymentPlan($value){
+
+
+        $query="SELECT * 
+        FROM payment_packages 
+        WHERE id =:value"; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    
+    public function getPaymentPlanInstallments($value){
+
+
+        $query="SELECT * 
+        FROM installements 
+        WHERE payment_plan_id =:value"; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getRemainingUnpaidTotal($value){
+
+
+        $query="SELECT SUM(amount) AS total_amount
+        FROM payments 
+        WHERE project_id = :value 
+        AND (status='Unpaid' OR status='Notified')
+        
+        "; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+
+    
 }
 ?>

@@ -35,7 +35,7 @@ body{
                 border: 1px solid #ccc;
             }
         }
-</style>
+</style>    
     
     <h2 style="margin-bottom: 20px">Search Project Managers</h2>
       
@@ -43,7 +43,7 @@ body{
             <select name="district" class="v_form-control" value="<?= get_select2('district','');?>" type="text" placeholder="district" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
                 <option selected value="<?= $rows['customer']->ul_district ; ?>">            
                    
-                        <?= $rows['customer']->ul_district ; ?>                    
+                    <?= $rows['customer']->ul_district ; ?>                    
                                         
                 </option>
                 <option <?= get_select2('district','');?> value="">Select a district</option>
