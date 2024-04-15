@@ -104,7 +104,7 @@
                             </div>
                             <div class="column">
                                 <label for="lastName">Project Manager Name :</label>
-                                <input readonly type="text" id="occupation" value="<?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?>">
+                                <input readonly type="text" id="occupation" value="<?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?>">
                             </div>
                             <div class="column">
                                 <label for="request_id">Request ID: :</label>

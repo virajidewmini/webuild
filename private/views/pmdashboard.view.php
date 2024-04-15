@@ -53,10 +53,11 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Project ID</th>
                             <th>Request ID</th>
+                            <th>Quotation ID</th>
                             <th>Customer Name</th>
                             <th>Model Name</th>
-                            <th>Modification ID</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -64,16 +65,14 @@
                         <?php foreach ($rows3 as $row) : ?>
                             <tr>
                                 <td><?= $row->id ?></td>
+                                <td><?= $row->project_request_id ?></td>
+                                <td><?= $row->quotation_id ?></td>
                                 <td><?= $row->user->firstname ?> <?= $row->user->lastname ?></td>
-                                <td><?= $row->model->name ?></td>
-                                <td><?= $row->modification_id ?></td>
+                                <td><?= $row->mdl->name ?></td>
                                 <td>
-                                <a href="<?= ROOT ?>/Pmcreateproject/<?= $row->id ?>/">
-                                <button class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" >Start</button>
+                                    <a href="<?= ROOT ?>/Pmmember_search/<?= $row->land->ul_district ?>/<?= $row->id ?>/<?= $row->quotation_id ?>/<?= $row->mdl->time_duraion_in_months ?>/">
+                                        <button class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit">Start</button>
                                     </a>
-                                    <!-- <a href="<?= ROOT ?>/Pmmodification/<?= $row->user_id ?>/<?= $row->id ?>/<?= $row->modification_id ?>/<?= $row->mdl->price ?>">
-                                        <button><i class="fa-solid fa-eye"></i></button>
-                                    </a> -->
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -106,7 +105,7 @@
                                 <td><?= $row->model->name ?></td>
                                 <td><?= $row->modification_id ?></td>
                                 <td>
-                                <a href="<?= ROOT ?>/Pmcreateproject/<?= $row->id ?>/">
+                                    <a href="<?= ROOT ?>/Pmcreateproject/<?= $row->id ?>/">
                                         <button><i class="fa-solid fa-eye"></i></button>
                                     </a>
                                     <!-- <a href="<?= ROOT ?>/Pmmodification/<?= $row->user_id ?>/<?= $row->id ?>/<?= $row->modification_id ?>/<?= $row->mdl->price ?>">
@@ -137,64 +136,64 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <?php foreach ($rows as $row) : ?>
-                                <tr>
-                                    <td><?= $row->project_id ?></td>
-                                    <td><?= $row->id ?></td>
-                                    <td><?= $row->staff->firstname ?> <?= $row->staff->lastname ?></td>
-                                    <td><?= get_date($row->date) ?></td>
-                                    <td>
-                                        <a href="#">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
+                        <?php foreach ($rows as $row) : ?>
+                            <tr>
+                                <td><?= $row->project_id ?></td>
+                                <td><?= $row->id ?></td>
+                                <td><?= $row->staff->firstname ?> <?= $row->staff->lastname ?></td>
+                                <td><?= get_date($row->date) ?></td>
+                                <td>
+                                    <a href="#">
+                                        <button><i class="fa-solid fa-eye"></i></button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
     <?php endif; ?>
-        <div class="table">
-            <div class="table_header">
-                <h3>On going task</h3>
-            </div>
-            <div class="table_section">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Project ID</th>
-                            <th>Task ID</th>
-                            <th>Task Name</th>
-                            <th>Start Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if ($rows1) : ?>
-                            <?php foreach ($rows1 as $row) : ?>
-                                <tr>
-                                    <td><?= $row->project_id ?></td>
-                                    <td><?= $row->task_id ?></td>
-                                    <td><?= $row->task->task_name ?></td>
-                                    <td><?= get_date($row->est_start_date) ?></td>
-                                    <td>
-                                        <a href="<?= ROOT ?>/Pmdashboard/subtask/<?= $row->task_id ?>">
-                                            <button><i class="fa-solid fa-eye"></i></button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            <h3>No Reports were found at this time</h3>
-                        <?php endif; ?>
-
-                    </tbody>
-                </table>
-            </div>
+    <div class="table">
+        <div class="table_header">
+            <h3>On going task</h3>
         </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project ID</th>
+                        <th>Task ID</th>
+                        <th>Task Name</th>
+                        <th>Start Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if ($rows1) : ?>
+                        <?php foreach ($rows1 as $row) : ?>
+                            <tr>
+                                <td><?= $row->project_id ?></td>
+                                <td><?= $row->task_id ?></td>
+                                <td><?= $row->task->task_name ?></td>
+                                <td><?= get_date($row->est_start_date) ?></td>
+                                <td>
+                                    <a href="<?= ROOT ?>/Pmdashboard/subtask/<?= $row->task_id ?>">
+                                        <button><i class="fa-solid fa-eye"></i></button>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <h3>No Reports were found at this time</h3>
+                    <?php endif; ?>
 
-        <?php $this->view('includes/footer'); ?>
-    <?php else : ?>
-        <?php $this->view('404'); ?>
-    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <?php $this->view('includes/footer'); ?>
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

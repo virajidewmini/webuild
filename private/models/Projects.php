@@ -13,6 +13,7 @@ class Projects extends Model
         'get_model',
         'get_task',
         'get_req',
+        'get_land',
     ];
 
     public $user_id;
@@ -109,6 +110,20 @@ class Projects extends Model
         return $data;
     }
 
+    public function get_land($data)
+    {
+
+        $land = new User_land();
+        foreach ($data as $key => $row1) {
+            if (isset($row1->modification_id)) {
+                $result = $land->where('modification_id', $row1->modification_id);
+                $data[$key]->land = is_array($result) ? $result[0] : false;
+            }
+        }
+
+        return $data;
+    }
+
     public function get_task($data)
     {
 
@@ -173,10 +188,10 @@ class Projects extends Model
 
     public function toStart($mid){
 
-        $query = "SELECT *, projects.status AS pstatus, quotation.status AS qstatus
+        $query = "SELECT projects.*, quotation.id AS quotation_id
         FROM projects
-        JOIN quotation ON projects.project_request_id = quotation.request_id
-        WHERE manager_id = :mid AND quotation.status = 'Paid'";
+        JOIN quotation ON projects.id = quotation.project_id
+        WHERE projects.manager_id = :mid AND quotation.status = 'Paid' AND projects.status = 'Pending'";
 		$data['mid'] = $mid;
         return $this->query($query,$data);
  }
