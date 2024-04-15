@@ -13,7 +13,7 @@ class Project_Quotation extends Model{
 
     public function getPaymentDetail($project_id){
 
-        $query = "select date,amount from payments where project_id= :project_id && installement_number=1";
+        $query = "select id,date,amount from payments where project_id= :project_id && installement_number=1";
 		$params = [
             'project_id'=>$project_id
         ];
@@ -34,6 +34,64 @@ class Project_Quotation extends Model{
             return true;
         }
     
+        return false;
+    }
+
+    public function remaining_req($value)
+    {
+
+        $query = "SELECT mr.request_id, mr.project_id, mr.level, mr.material_or_item_id, mr.material_or_item_name, mr.mesure_unit, (mr.quantity - mqd.send_total_quantity) AS remaining_quantity FROM project_material_quatation AS pmq JOIN material_requests AS mr ON pmq.request_id = mr.request_id JOIN material_quatation_detail AS mqd ON pmq.id = mqd.quatation_id AND mr.material_or_item_id = mqd.material_or_item_id WHERE pmq.status = 'Remaining' AND mr.request_id = :value";
+
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function InsertQuotationData($data)
+    {
+        $last_p_id = "";
+        $query = "SELECT * FROM projects ORDER BY id DESC LIMIT 1";
+        $result = $this->query($query);
+
+        $last_p_id = $result[0]->id;
+        $data["project_id"] = $last_p_id;
+        // $data["r_id"] = $last_r_id;
+
+        // print_r($result);
+        // echo $last_p_id, $last_r_id;
+
+        $keys = array_keys($data);
+        // $columns = implode(',', $keys);
+        $columns = "user_id, project_id, total_amount, created_date, status";
+
+        // foreach data
+        $errors = 0;
+            $user_id = $data["user_id"];
+            $project_id = $data["project_id"];
+            $total_amount = $data['totalprice'];
+            $status = 'Pending';
+            $created_date = date("Y-m-d");
+
+
+            $db_data = [
+                "user_id" => $user_id,
+                "project_id" => $project_id,
+                "total_amount" => $total_amount,
+                "status" => $status,
+                "created_date" => $created_date,
+            ];
+
+            $query = "insert into quotation ($columns) values (:user_id, :project_id, :total_amount, :created_date, :status)";
+            // echo $query;
+            $result = $this->query($query, $db_data);
+            if (!$result) {
+                $errors++;
+            }
+
+        if ($errors == 0)
+            return true;
+
         return false;
     }
 

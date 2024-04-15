@@ -10,8 +10,12 @@
 
             $detail=$quotation->getPaymentDetail($id);
             
+            $user=new Users();
+            $user_data=$user->where("id",Auth::id());
 
-            $this->view('AcceptedQuotation',['rows'=>$data,'details'=>$detail]);
+            var_dump(Auth::id());
+
+            $this->view('AcceptedQuotation',['rows'=>$data,'details'=>$detail,'user'=>$user_data]);
         }
 
     }
