@@ -84,6 +84,18 @@ class Notifications extends Model{
         ]);
     }
 
+    public function updateQuotaionNotification($value){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :value AND notifications.type='quotation_pm_to_co' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
 
 }
 ?>
