@@ -69,6 +69,17 @@
             $this->view('UploadPhotograph');
         }
 
+        public function delete($id=null){
+           
+            if(count($_POST) > 0){
+                $attachment=new Attachment();
+			    $attachment->delete($id);
+                $this->redirect('task/'.Auth::getProjectId());
+
+            }
+            $this->view('DeleteComplaint');
+        }
+
         
     }
 ?>
