@@ -5,7 +5,7 @@ class Pmmodification extends Controller
 {
 
 
-    public function index($uid = null, $id = null, $mid = null, $price = null, $interest = null)
+    public function index($uid = null, $id = null, $mid = null, $price = null, $interest = null, $model_id  = null)
     {
         if (!Auth::logged_in()) {
             $this->redirect('/login');
@@ -18,6 +18,7 @@ class Pmmodification extends Controller
         $bedroom = new Bedroom();
         $dining = new Dining();
         $exterior = new Exterior();
+        $model = new Models(); 
 
         $project_request = new Project_requests();
         $quotation = new Project_Quotation();
@@ -36,7 +37,9 @@ class Pmmodification extends Controller
         $data10 = $bedroom->where('modification_id', 'default');
         $data11 = $dining->where('modification_id', 'default');
         $data12 = $exterior->where('modification_id', 'default');
-        $data13 = $project_request->where('id',$id);
+        $data13 = $model->where('id',$model_id);
+        $data14 = $project_request->where('id',$id);
+
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($project_request->validate($_POST)&&$quotation->validate($_POST)&&$project->validate($_POST)) {
@@ -87,7 +90,8 @@ class Pmmodification extends Controller
             'drowbe' => $data10,
             'drowd' => $data11,
             'drowe' => $data12,
-            'rows'=> $data13,
+            'model'=> $data13,
+            'rows'=> $data14,
         ]);
     }
 }

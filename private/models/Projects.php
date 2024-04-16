@@ -191,7 +191,8 @@ class Projects extends Model
         $query = "SELECT projects.*, quotation.id AS quotation_id
         FROM projects
         JOIN quotation ON projects.id = quotation.project_id
-        WHERE projects.manager_id = :mid AND quotation.status = 'Paid' AND projects.status = 'Pending'";
+        JOIN payments ON projects.id = payments.project_id
+        WHERE projects.manager_id = :mid AND payments.status = 'Paid' AND projects.status = 'Pending' AND payments.installement_number = 1";
 		$data['mid'] = $mid;
         return $this->query($query,$data);
  }

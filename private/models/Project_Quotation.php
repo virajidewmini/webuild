@@ -48,7 +48,7 @@ class Project_Quotation extends Model{
         ]);
     }
 
-    public function InsertQuotationData($data)
+    public function InsertQuotationData($data, $uploadedFiles)
     {
         $last_p_id = "";
         $query = "SELECT * FROM projects ORDER BY id DESC LIMIT 1";
@@ -56,14 +56,8 @@ class Project_Quotation extends Model{
 
         $last_p_id = $result[0]->id;
         $data["project_id"] = $last_p_id;
-        // $data["r_id"] = $last_r_id;
 
-        // print_r($result);
-        // echo $last_p_id, $last_r_id;
-
-        $keys = array_keys($data);
-        // $columns = implode(',', $keys);
-        $columns = "user_id, project_id, total_amount, created_date, status";
+        $columns = "user_id, project_id, quotation, total_amount, created_date, status";
 
         // foreach data
         $errors = 0;
@@ -72,6 +66,7 @@ class Project_Quotation extends Model{
             $total_amount = $data['totalprice'];
             $status = 'Pending';
             $created_date = date("Y-m-d");
+            $quotation = $uploadedFiles;
 
 
             $db_data = [
@@ -80,9 +75,10 @@ class Project_Quotation extends Model{
                 "total_amount" => $total_amount,
                 "status" => $status,
                 "created_date" => $created_date,
+                "quotation" => $quotation,
             ];
 
-            $query = "insert into quotation ($columns) values (:user_id, :project_id, :total_amount, :created_date, :status)";
+            $query = "insert into quotation ($columns) values (:user_id, :project_id, :quotation, :total_amount, :created_date, :status)";
             // echo $query;
             $result = $this->query($query, $db_data);
             if (!$result) {
@@ -94,6 +90,7 @@ class Project_Quotation extends Model{
 
         return false;
     }
+
 
     
 }
