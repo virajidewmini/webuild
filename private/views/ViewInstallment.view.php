@@ -60,11 +60,6 @@
                         <?php else: ?>
                             <button class="reject-button" style="background-color: #f44336; cursor: not-allowed">Completed</button>
                         <?php endif; ?>
-
-                       
-                        
-
-                        
                          
                         </td>
                         

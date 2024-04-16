@@ -44,6 +44,34 @@ class AllocateTask extends Model{
         return $this->query($query,$data);
     }
 
+    public function getFeedback($task_id){
+        $query ="select feedback from allocated_task where project_id= :project_id && task_id=:task_id";
+        $params = [
+            'project_id' => Auth::getProjectId(),
+            'task_id' => $task_id
+        ];  
+        return $this->query($query,$params);
+    }
+
+    public function getStatus($task_id){
+        $query ="select status from allocated_task where project_id= :project_id && task_id=:task_id";
+        $params = [
+            'project_id' => Auth::getProjectId(),
+            'task_id' => $task_id
+        ];  
+        return $this->query($query,$params);
+    }
+
+    public function updateFeedback($task_id,$feedback){
+        $query ="update allocated_task set feedback= :feedback where project_id= :project_id && task_id=:task_id";
+        $params = [
+            'project_id' => Auth::getProjectId(),
+            'task_id' => $task_id,
+            'feedback'=>$feedback
+        ];  
+        return $this->query($query,$params);
+    }
+
     
     
 }

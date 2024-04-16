@@ -37,8 +37,8 @@
 
 
                     <td class="v_data">
-                        <a href="<?= ROOT ?>/progress/viewPhotograph/<?= $row->id ?>">
-                            <button class="v_action_button">Photo</button>
+                        <a href="<?= ROOT ?>/clienttask/viewProgress/<?= $row->id ?>">
+                            <button class="v_action_button">View</button>
                         </a>
                         
                     </td>
