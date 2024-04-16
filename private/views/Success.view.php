@@ -53,7 +53,7 @@
         </div>
         <h1>Payment Successful</h1>
         <p>Thank you for your payment.</p>
-        <a href="<?=ROOT?>/quotation"><button class="btn">Continue Shopping</button></a>
+        <a href="<?=ROOT?>/clientdashboard"><button class="btn">Continue Shopping</button></a>
     </div>
 </body>
 </html>

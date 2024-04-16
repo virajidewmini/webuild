@@ -13,7 +13,7 @@
             $user=new Users();
             $user_data=$user->where("id",Auth::id());
 
-            var_dump(Auth::id());
+        
 
             $this->view('AcceptedQuotation',['rows'=>$data,'details'=>$detail,'user'=>$user_data]);
         }

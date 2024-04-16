@@ -25,13 +25,43 @@ class Payments extends Model{
 
         $user = new Users();
         foreach ($data as $key => $row){
-            
-            $result = $user->where('id',$row->user_id);
-            $data[$key]->user = is_array($result) ? $result[0] : false ;
-            
+            if(property_exists($row,"user_id")){
+                $result = $user->where('id',$row->user_id);
+                $data[$key]->user = is_array($result) ? $result[0] : false ;
+            }
         }
     
         return $data;
+    }
+
+    public function updateStatus($order_id){
+
+        $query = "update payments set status='Paid' where id=:order_id";
+		$params = [
+            'order_id' => $order_id,
+           
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function getDetails($project_id){
+
+        $query = "select * from payments where project_id=:project_id";
+		$params = [
+            'project_id' => $project_id,
+           
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function getInstallmentDetail($id){
+
+        $query = "select * from payments where id= :id ";
+		$params = [
+            'id'=>$id,
+           
+        ];
+        return $this->query($query,$params);
     }
 
 }
