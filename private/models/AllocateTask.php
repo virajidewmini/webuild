@@ -30,6 +30,26 @@ class AllocateTask extends Model{
         return $this->query($query,$params);
     }
 
+    public function getLevel($id){
+        
+        $query ="select level from tasks where id= :id ";
+        $data['id'] = $id;
+        return $this->query($query,$data);
+    }
+    public function getTaskByLevel($level){
+        
+        $query ="select id from tasks where level= :level ";
+        $data['level'] = $level;
+        return $this->query($query,$data);
+    }
+    
+    public function getAverageProgress(){
+        
+        $query ="select avg(progress) as average from allocated_task where project_id= :project_id ";
+        $data['project_id'] = Auth::getProjectId();
+        return $this->query($query,$data);
+    }
+    
     public function getStartDate($id,$project_id){
         
         $query ="select est_start_date from allocated_task where task_id= :id && project_id= :project_id";

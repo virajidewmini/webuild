@@ -1,10 +1,21 @@
 <?php $this->view('includes/header')?>
 
-<div style="margin-left: 450px;" class="table_header" >
+<div  class="table_header" >
         <h1>  Tasks</h1>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<style>
+        
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+</style>
+
+<canvas id="myPieChart" width="300" height="300"></canvas>
+<br><br><br>
 
 <div class="v_table">
     
@@ -54,6 +65,29 @@
             </div>
         </div>
     </body>
+
+    <script>
+        
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Complete', 'Not Complete'],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [<?=(int)$avg[0]->average?>,<?=100-(int)$avg[0]->average?>],
+                    backgroundColor: [
+                        '#4CAF50',
+                        '#F44336',
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                
+            }
+        });
+    </script>
 </html>
 
 <?php $this->view('includes/footer'); ?>

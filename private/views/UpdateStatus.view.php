@@ -13,6 +13,9 @@
                 <option value="Ongoing">Ongoing</option>
                 <option value="Suspend">Suspend </option>
             </select>
+                
+                <label for="description">Remark</label>
+                <input type="text" name="remark" id="remark" class="v_form-control" style="height: 150px;">
 
             <a href="<?=ROOT?>/task/1"> <button class="v_submit_button" type="submit">Submit</button></a>
            

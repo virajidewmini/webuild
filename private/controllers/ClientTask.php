@@ -9,8 +9,9 @@
         $model=new AllocateTask();
        
         $data=$model->getTask($id);
+        $avg=$model->getAverageProgress();
        
-            $this->view('viewTaskProgress',["rows"=>$data]);
+            $this->view('viewTaskProgress',["rows"=>$data,"avg"=>$avg]);
         }
 
         public function viewProgress($id){
