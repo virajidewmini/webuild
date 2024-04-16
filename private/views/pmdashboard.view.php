@@ -122,33 +122,40 @@
     <?php if ($rows) : ?>
         <div class="table">
             <div class="table_header">
-                <h3>Daily Progress reports</h3>
+                <h1>Daily Progress Reports</h1>
             </div>
             <div class="table_section">
                 <table>
                     <thead>
                         <tr>
-                            <th>Project ID</th>
-                            <th>Report ID</th>
-                            <th>Supervisor Name</th>
                             <th>Date</th>
-                            <th>Action</th>
+                            <th style="width:400px;">General Note</th>
+                            <th></th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($rows as $row) : ?>
-                            <tr>
-                                <td><?= $row->project_id ?></td>
-                                <td><?= $row->id ?></td>
-                                <td><?= $row->staff->firstname ?> <?= $row->staff->lastname ?></td>
-                                <td><?= get_date($row->date) ?></td>
-                                <td>
-                                    <a href="#">
-                                        <button><i class="fa-solid fa-eye"></i></button>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                        <?php if (isset($rows) && !empty($rows)) : ?>
+
+                            <?php foreach ($rows as $row) : ?>
+                                <tr>
+                                    <td><?= $row->date ?></td>
+                                    <td><?= $row->comment ?></td>
+                                    <td>
+
+                                        <a href="<?= ROOT ?>/Pmdailyreports/viewDPR/<?= $row->project_id ?>/<?= $row->date ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
+
+                                    </td>
+
+                                </tr>
+
+                            <?php endforeach; ?>
+
+                        <?php else : ?>
+                            <h3>No Daily Progress Report Yet</h3>
+
+                        <?php endif; ?>
+
                     </tbody>
                 </table>
             </div>

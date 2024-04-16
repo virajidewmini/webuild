@@ -77,7 +77,7 @@
         <div class="pro-id" style="padding: 0 0 40px 0; ">
 
             <div class="pro-id-details">
-                <form method="post" action="<?= ROOT ?>/Pmmodification/<?= $rows[0]->user_id ?>/<?= $rows[0]->id ?>/<?= $rows[0]->modification_id ?>/<?= $rows[0]->mdl->price ?>/<?= $rows[0]->payment->interest ?>/">
+                <form method="post" action="<?= ROOT ?>/Pmmodification/<?= $rows[0]->user_id ?>/<?= $rows[0]->id ?>/<?= $rows[0]->modification_id ?>/<?= $rows[0]->mdl->price ?>/<?= $rows[0]->payment->interest ?>/<?= $rows[0]->model_id ?>/">
                 
                     <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                         <div class="p-title">
@@ -136,7 +136,7 @@
                         <a href="<?= ROOT ?>/Pmdashboard">
                             <input class="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                         </a>
-                       <input class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
+                       <input class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Next">
                     </div>
                 </form>
 
