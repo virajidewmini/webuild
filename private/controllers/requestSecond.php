@@ -8,8 +8,7 @@
         } else {
             echo "No data found.";
         }
-
-        
+ 
     }
 
     public function add() {
@@ -22,9 +21,6 @@
         $data = $requestSecondModel->findAll();
         $this->view('storekeeperRequestQuotation', ['rows' => $data]);
     }
-      
    
-
-    
     }
 ?>
