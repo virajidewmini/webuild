@@ -47,9 +47,20 @@
     <a  href="#contact">contact </a>
     <a  href=Home/staff>Staff</a>
   
+    
   </nav>
   <div class="icons">
-    <div id="menu-btn" class="fas fa-bars"></div>
+    <div id="menu-btn" class="fas fa-bars">
+    <script>
+      let navbar =document.querySelector('.header .navbar');
+      
+document.querySelector('#menu-btn').onclick = () =>{
+  navbar.classList.toggle('active');
+  searchForm.classList.remove(' active');
+  loginForm.classList.remove(' active');
+};
+    </script>
+    </div>
     <div id="info-btn" class="fas fa-info-circle"></div>
     <div id="search-btn" class="fas fa-search"></div>
     <div id="login-btn" class="fas fa-user"></div>
@@ -122,10 +133,10 @@
  
 
   
-  <section class="home" id="home">
+  <section class="home" id="home" style="padding-bottom:4.8rem;">
   <div class="swiper home-slider">
     <div class="swiper-wrapper">
-      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg) no-repeat;">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
         <div class="content">
           <h3>we provide best service</h3>
           <p style="margin-bottom:35px;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
@@ -216,7 +227,7 @@
           </div>
   
           <div class="box">
-            <img src="<?=ROOT?>/img/Photos/bedrooms/br7.jpg" alt="">
+            <img src="<?=ROOT?>/img/Photos/forLandingPage/7608710.jpg" alt="">
             <h3>architecture design</h3>
             <p>Where imagination meets functionality. Our architects blend
                creativity with practicality to design spaces that inspire,
@@ -233,7 +244,7 @@
 
 <section class="projects" id="projects">
 
-  <h1 class="heading">our completed projects</h1>
+  <h1 class="heading">our Existing Models</h1>
 
   <div class="box-container" style="display: flex;gap:2rem;">
     <a href="" class="box">
@@ -242,10 +253,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Cozy Haven: 1-Story, 2 Bedroom Retreat</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -255,10 +266,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Family Oasis: 1-Story, 3 Bedroom Haven</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -266,12 +277,13 @@
       <div class="image">
         <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/hq720.jpg" alt="">
       </div>
+      
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Elevated Living: 2-Story, 3 Bedroom Sanctuary</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -281,10 +293,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Grand Estate: 2-Story, 5 Bedroom Residence</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -294,10 +306,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Skyline Villa: 3-Story, 6 Bedroom Penthouse</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
   </div>
@@ -405,6 +417,24 @@
       </div>
     </div>
   </div>
+  <script>
+    var swiper = new Swiper(".reviews-slider",{
+  loop:true,
+  grabCursor:true,
+  spaceBetween:20,
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    991: {
+      slidesPerView: 3,
+    },
+  },
+});
+  </script>
 
 </section>
 
@@ -416,9 +446,9 @@
 
   <h1 class="heading"> our pricing</h1>
 
-  <div class="box-container" style="display: flex;justify-content:center">
+  <div class="box-container" style="display: flex;justify-content:center;" >
 
-    <div class="box">
+    <div class="box" style="padding:8rem;">
       <i class="fas fa-home"></i>
       <h3>basic plan</h3>
       <div class="price"><span>Rs</span>250<span>/no</span></div>
@@ -428,10 +458,10 @@
         <p>material supply</p>
         <p>24/7 support</p>
       </div>
-      <a href="#" class="btn">choose plan</a>
+      <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box">
+    <div class="box" style="padding:8rem;">
       <i class="fas fa-building"></i>
       <h3>premium plan</h3>
       <div class="price"><span>Rs</span>650<span>/no</span></div>
@@ -441,10 +471,10 @@
         <p>material supply</p>
         <p>24/7 support</p>
       </div>
-      <a href="#" class="btn">choose plan</a>
+      <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box">
+    <div class="box" style="padding:8rem;">
       <i class="fas fa-city"></i>
       <h3>ultimate plan</h3>
       <div class="price"><span>Rs</span>1250<span>/no</span></div>
@@ -454,7 +484,7 @@
         <p>material supply</p>
         <p>24/7 support</p>
       </div>
-      <a href="#" class="btn">choose plan</a>
+      <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
   
@@ -478,12 +508,12 @@
 University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4v1708289637822!5m2!1sen!2slk"
   allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-  <form action="">
+  <form action=ContactUsHome/add method="post" class="conatct-us">
     <h3>get in touch</h3>
     <input type="text" placeholder="name" class="box">
     <input type="email" placeholder="email" class="box">
     <input type="number" placeholder="phone" class="box">
-    <textarea name="" placeholder="message"  class="box"  id="" cols="30" rows="10"></textarea>
+    <textarea name="message" placeholder="message"  class="box"  id="" cols="30" rows="10"></textarea>
     <input type="submit" value="send message" class="btn">
   </form>
 
@@ -582,12 +612,65 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
     <div class="swiper-wrapper">
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/1535965.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/11990055.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/269947.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/270072.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/buildings_24914.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
     </div>
   </div>
+  <style>
+    .logo-container{
+  text-align: center;
+
+  img{
+    height: 10rem;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.footer{
+  text-align: center;
+
+  .links .btn{
+    margin: .5rem;
+  }
+
+  .credit{
+    @include titleText(2rem);
+    margin-top: 2rem;
+    padding-top: 1rem;
+
+    span{
+      color: var(--yellow);
+    }
+  }
+}
+
+  </style>
+  <script>
+    var swiper =new Swiper(".logo-slider",{
+  grabCursor:true,
+  spaceBetween:20,
+  breakpoints: {
+    450: {
+      slidesPerView: 2,
+    },
+    640: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    1000: {
+      slidesPerView: 5,
+    },
+  },
+});
+  </script>
 </section>
 
 <!-- client logo section ends  -->
