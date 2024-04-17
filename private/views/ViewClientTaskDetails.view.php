@@ -1,5 +1,7 @@
 <?php $this->view('includes/header')?>
 
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
+
 <style>
     #gallery img {
         max-width: 500px; 
@@ -141,6 +143,18 @@
             </div>
         </div>
     </body>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lg-thumbnail@1.10.0/dist/lg-thumbnail.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                lightGallery(document.getElementById('gallery'), {
+                    mode: 'lg-fade', 
+                    download: false, 
+                    thumbnail: true 
+                });
+            });
+        </script>
 </html>
 
 <?php $this->view('includes/footer'); ?>
