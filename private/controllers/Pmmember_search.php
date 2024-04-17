@@ -1,53 +1,85 @@
 <?php
 
-    //Manager members controller
-    class Pmmember_search extends Controller{
-        
+//Manager members controller
+class Pmmember_search extends Controller
+{
 
-        public function index($district = null, $r_id = null, $model_id = null)
-	{
-		if(!Auth::logged_in()){
-			$this->redirect('/login');
-		}
+
+    public function index($district = null, $p_id = null, $q_id = null, $months = null)
+    {
+        if (!Auth::logged_in()) {
+            $this->redirect('/login');
+        }
 
         $staff = new Staffs();
-		
-        if(isset($district)){
+
+        if (isset($district)) {
             $data = $staff->ssup($district);
-        }
-        elseif(isset($_GET['district'])){
+        } elseif (isset($_GET['district'])) {
             $district = $_GET['district'];
             $data = $staff->ssup($district);
-        }
-        else{
+        } else {
             $data = $staff->supAll();
         }
-    
-		$this->view('pmmember_search',[
-            'rows1'=>$data,
-            'r_id'=>$r_id,
-            
+
+        $this->view('pmmember_search', [
+            'rows1' => $data,
+            'p_id' => $p_id,
+            'q_id' => $q_id,
+            'months' => $months,
+
         ]);
-	}
-
-    public function view_sup_details($id = null)
-            {
-                // code...
-                if(!Auth::logged_in()){
-                    $this->redirect('login');
-                }
-                $staff=new Staffs();
-                $row = $staff->where('id',$id);
-
-                
-                
-                
-                $this->view('pmmember_add',[
-                    'row'=>$row,
-                ]);
-            }
-
-   
-
     }
-?>
+
+    public function add_sup($uid = null, $fname = null, $lname = null, $p_id = null, $q_id = null, $months = null)
+    {
+        // code...
+        if (!Auth::logged_in()) {
+            $this->redirect('login');
+        }
+        $project = new Projects();
+        $row = $project->where('id', $p_id);
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($project->validate($_POST)) {
+
+                $_POST['status'] = 'Ongoing';
+                $p_id = $_POST['id'];
+                $project->update($p_id, $_POST);
+
+
+                $this->redirect('pmdashboard');
+            }
+        }
+
+
+
+
+        $this->view('pmmember_add', [
+            'rows' => $row,
+            'months' => $months,
+            'uid' => $uid,
+            'q_id' => $q_id,
+            'fname' => $fname,
+            'lname' => $lname,
+        ]);
+    }
+
+    public function view_sup($uid = null)
+    {
+        // code...
+        if (!Auth::logged_in()) {
+            $this->redirect('login');
+        }
+        $staff = new staffs();
+        $row = $staff->where('id', $uid);
+
+
+
+
+
+        $this->view('pmmember_detail', [
+            'row' => $row,
+        ]);
+    }
+}

@@ -13,12 +13,14 @@
             $data['common'] = $project_requests->requests($id)[0];
 
             if(!empty($data['common']->model_id)){
-            $data['model_details']= $project_requests->modeldetails($id)[0];
+
+                $model=new Models();
+                $data['model_details']= $model->modeldetails($data['common']->model_id)[0];
             }
             
             
             
-            $data['customer'] = $project_requests->customer($id)[0];
+            $data['customer'] = $project_requests->customer($data['common']->modification_id)[0];
             // if(strcmp($data['common']->land_type,"customer")==0){
             //     $data['customer'] = $project_requests->customer($id)[0];
             // }

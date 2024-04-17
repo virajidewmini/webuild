@@ -78,6 +78,11 @@
             //     $data['managers']= $project_requests->find_managers_in_district($data['company']->district);
             // }
             
+
+            $payment_plan=new Payment_plan();
+            $data['payment_plan']=$payment_plan->findPaymentPlan($data['common']->payment_plan_id);
+
+
             if($flag !== null){
                 $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
             }
@@ -118,6 +123,7 @@
 
             $project_requests=new Project_requests();
             $staff=new Staffs();
+            $notification=new Notifications();
 
             $errors=array();        
             if (count($_POST)>0){
@@ -129,6 +135,16 @@
                
                 $projectcount['project_count']=$current[0]->project_count+1;
                 $staff->update($manager_id,$projectcount);
+
+                $row['date']=date("Y-m-d H:i:s");
+                $row['staff_id']=$manager_id;
+                $row['message']="You are assigned for the project request".$request_id;
+                $row['status']="Unseen";
+                $row['type']="project_request_pm";
+                $row['msg_id']=$request_id;
+
+                $notification->insert($row);
+
 
                 $this->redirect('coordinatorrequests');
 

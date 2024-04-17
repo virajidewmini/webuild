@@ -396,6 +396,47 @@
                     
                </fieldset>
 
+               <br>
+                    <fieldset class="FormFieldset" >
+                         <legend class="Formlegend"> Selected Payment Package Details</legend>
+                         <br>
+                              <?php if($rows["payment_plan"]):?>
+                                   
+                                   <div class="form-group">
+                                        <div class="column">
+                                             <label for="lastName">Payment Plan ID</label>
+                                             <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
+                                        </div>
+                                        <div class="column">
+                                             <label for="lastName">Paint</label>
+                                             <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
+                                        </div>
+                                        <div class="column">
+                                             <label for="lastName">Installment Count</label>
+                                             <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->installement_count;?>">
+                                        </div>
+                                        <div class="column">
+                                             <label for="lastName">Interest(IN Percentage)</label>
+                                             <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->interest;?>%">
+                                        </div>
+                         
+                                   </div>
+                                   
+                                   
+                              <?php else : ?>                           
+                                   <h4>No pament plan has been selected to this project request.</h4>
+                                   <br><br>
+                              <?php endif;?>
+               
+                         
+                    </fieldset>
+                    <br>
+                              
+                         
+            
+                    
+               </fieldset>
+
                
 
      

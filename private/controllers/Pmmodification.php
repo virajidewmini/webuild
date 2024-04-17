@@ -5,7 +5,7 @@ class Pmmodification extends Controller
 {
 
 
-    public function index($uid = null, $id = null, $mid = null, $price = null, $interest = null)
+    public function index($uid = null, $id = null, $mid = null, $price = null, $interest = null, $model_id  = null)
     {
         if (!Auth::logged_in()) {
             $this->redirect('/login');
@@ -18,6 +18,7 @@ class Pmmodification extends Controller
         $bedroom = new Bedroom();
         $dining = new Dining();
         $exterior = new Exterior();
+        $model = new Models(); 
 
         $project_request = new Project_requests();
         $quotation = new Project_Quotation();
@@ -36,18 +37,14 @@ class Pmmodification extends Controller
         $data10 = $bedroom->where('modification_id', 'default');
         $data11 = $dining->where('modification_id', 'default');
         $data12 = $exterior->where('modification_id', 'default');
-        $data13 = $project_request->where('id',$id);
+        $data13 = $model->where('id',$model_id);
+        $data14 = $project_request->where('id',$id);
+
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($project_request->validate($_POST)&&$quotation->validate($_POST)&&$project->validate($_POST)) {
 
-                $arr['total_amount'] = $_POST['totalprice'];
-                $arr['user_id'] = $uid;
-                $arr['request_id'] = $id;
-                $arr['status'] = 'Display';
-                $arr['created_date'] = date("Y-m-d");
-                $quotation->insert($arr);
-
+                
                 $arr1['manager_id'] = $_POST['manager_id'];
                 $arr1['project_request_id'] = $id;
                 $arr1['status'] = 'Pending';
@@ -56,6 +53,15 @@ class Pmmodification extends Controller
                 $arr1['model_id'] = $_POST['model_id'];
                 $arr1['payment_package_id'] = $_POST['payment_package_id'];
                 $project->insert($arr1);
+                // $arr['total_amount'] = $_POST['totalprice'];
+                // $arr['user_id'] = $uid;
+                // $arr['request_id'] = $id;
+                // $arr['status'] = 'Display';
+                // $arr['created_date'] = date("Y-m-d");
+                // $quotation->insert($arr);
+                $quotation->InsertQuotationData($_POST);
+
+                
             
                 $arr2['status'] = 'Done';
                 $project_request->update($id, $arr2);
@@ -84,7 +90,8 @@ class Pmmodification extends Controller
             'drowbe' => $data10,
             'drowd' => $data11,
             'drowe' => $data12,
-            'rows'=> $data13,
+            'model'=> $data13,
+            'rows'=> $data14,
         ]);
     }
 }

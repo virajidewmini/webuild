@@ -64,5 +64,65 @@ class Payments extends Model{
         return $this->query($query,$params);
     }
 
+    public function getAllInstallments($value){
+
+
+        $query="SELECT * 
+        FROM payments 
+        WHERE project_id =:value 
+        ORDER BY date ASC"; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getPaymentPlan($value){
+
+
+        $query="SELECT * 
+        FROM payment_packages 
+        WHERE id =:value"; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    
+    public function getPaymentPlanInstallments($value){
+
+
+        $query="SELECT * 
+        FROM installements 
+        WHERE payment_plan_id =:value"; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getRemainingUnpaidTotal($value){
+
+
+        $query="SELECT SUM(amount) AS total_amount
+        FROM payments 
+        WHERE project_id = :value 
+        AND (status='Unpaid' OR status='Notified')
+        
+        "; 
+
+       
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+
+    
 }
 ?>

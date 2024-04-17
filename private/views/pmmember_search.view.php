@@ -97,15 +97,15 @@ body{
                         <td><?= $row->firstname?></td>
                         <td><?= $row->lastname?></td>
                         <td><?= $row->district ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                         <td><?= $row->experience?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
-                                <a href="<?=ROOT?>/Pmmember_search/view_sup_details/<?=$row->id?>/">
+                                <a href="<?=ROOT?>/Pmmember_search/view_sup/<?=$row->id?>/">
                                 <button><i class="fa-solid fa-eye"></i></button>
                                 </a>
-                                <a href="<?=ROOT?>/Pmcreateproject/<?=$row->id?>/<?=$r_id?>/">
+                                <a href="<?=ROOT?>/Pmmember_search/add_sup/<?=$row->id?>/<?= $row->firstname?>/<?= $row->lastname?>/<?=$p_id?>/<?=$q_id?>/<?= $months?>/">
                                 <button><i class="fa-solid fa-add"></i></button>
                                 </a>
                         </td>

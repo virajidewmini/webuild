@@ -39,9 +39,9 @@
                   </a>
                 </li>
                 <li>
-                  <a href="<?=ROOT?>/co_allprojects">
+                  <a href="<?=ROOT?>/coordinatorprojects">
                     <i class="fa-solid fa-list-check"></i>
-                    <span class="text">Projects</span>
+                    <span class="text">On Going Projects</span>
                   </a>
                 </li>
                 <li>
@@ -135,6 +135,8 @@
                               <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php elseif ($row->type == 'project request'):?>
                               <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <?php elseif ($row->type == 'quotation_pm_to_co'):?>
+                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php endif;?>
 
                               <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
@@ -217,7 +219,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <!-- <input type="search" placeholder="search..." />
@@ -305,7 +307,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <!-- <input type="search" placeholder="search..." />
@@ -379,7 +381,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <!-- <input type="search" placeholder="search..." />
@@ -451,7 +453,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <!-- <input type="search" placeholder="search..." /> 
@@ -515,7 +517,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <!-- <input type="search" placeholder="search..." />
@@ -647,7 +649,7 @@
 
               <section class="content">
                 <nav>
-                  <!-- <i class="fas fa-bars menu-btn"></i> -->
+                  <i class="fas fa-bars menu-btn"></i>
                   <form action="#">
                     <div class="form-input">
                       <!-- <input type="search" placeholder="search..." />
