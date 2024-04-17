@@ -12,6 +12,10 @@
             <th class="viewTableHeader">Complaint ID</th>
             <td class="viewTableData" id="complaintId"><?=$rows[0]->id?></td>
         </tr>
+        <tr>
+            <th class="viewTableHeader">Date</th>
+            <td class="viewTableData" id="complaintDate"><?=$rows[0]->date?></td>
+        </tr>
         <tr> 
             <th class="viewTableHeader">Complaint Type</th>
             <td class="viewTableData" id="complaintType"><?=$rows[0]->type?></td>

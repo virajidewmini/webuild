@@ -28,6 +28,8 @@
                 $task_id=$model->where("subtask_id",$id);
                 
                 $model->UpdateSubTaskStatus($task_id[0]->task_id,$id,$project_id,$_POST["status"]);
+
+                $model->UpdadeRemark($task_id[0]->task_id,$id,$project_id,$_POST["remark"]);
                 
 
                 $taskStatus=$model->getStatus($task_id[0]->task_id,$project_id);

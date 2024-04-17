@@ -11,7 +11,9 @@ class Task extends Controller{
         $model=new AllocateTask();
        
         $data=$model->getTask($id);
-        $this->view('ViewTask',["rows"=>$data]);
+
+        $avg=$model->getAverageProgress();
+        $this->view('ViewTask',["rows"=>$data,"avg"=>$avg]);
     }
 
     public function edit($id=null){
@@ -21,7 +23,24 @@ class Task extends Controller{
         $model=new AllocateTask();
        
         $sub_task=$model->getSubTaskDetails($id);
-        $this->view('ViewSubTask',["rows"=>$sub_task, "ids"=>$id]);
+        $level=$model->getLevel((int)$id); 
+        $tasks=$model->getTaskByLevel($level[0]->level-1);
+        $isComplete=true;
+
+        if($level[0]->level==1){
+            $isComplete=true;
+        }else{
+            foreach($tasks as $task){
+                $id = $task->id;
+                $status=$model->getStatus($id);
+                if($status[0]->status!=="Complete"){
+                    $isComplete=false;   
+                }
+            }
+
+        }
+        
+        $this->view('ViewSubTask',["rows"=>$sub_task, "ids"=>$id, 'complete'=>$isComplete]);
     }
 
     public function addCoworker($id){

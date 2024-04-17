@@ -896,6 +896,11 @@ input[type="radio"]:checked  {
 
 /* end of rating and review */
 
+.errors{
+    padding-bottom: 20px;
+    color: red;
+  }
+
 .main-container{
     place-items: center;
     display: grid;

@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?php if(isset($rows)): ?>
+            <?php if(isset($rows)):?>
                 <?php foreach ($rows as $row): ?>
                     
 
@@ -33,11 +33,15 @@
                     
 
                     <td class="v_data">
-                        <a href="<?= ROOT ?>/status/UpdateState/<?= $row->id ?>"
-                        style="<?= ($row->status == 'Complete') ? 'display: none;' : '' ?>" >
-                            <button class="v_action_button">Edit</button>
-                        </a>
+                       
+                        <?php if($complete):?>
+                            <a href="<?= ROOT ?>/status/UpdateState/<?= $row->id ?>"
+                            style="<?= ($row->status == 'Complete') ? 'display: none;' : '' ?>" >
+                                <button class="v_action_button">Edit</button>
+                            </a>
+                        <?php endif; ?>
                         
+                    
                     </td>
                 </tr>
                 <?php endforeach;?>

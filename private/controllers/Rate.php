@@ -7,7 +7,8 @@
             if (count($_POST) >0) {
 
                 $rate=[
-                    'user_id'=>1,
+                    'user_id'=>Auth::id(),
+                    'project_id'=>Auth::getProjectId(),
                     'rate'=>intval($_POST["rate"]),
                     'review'=>$_POST['review'],
                 ];
@@ -15,9 +16,14 @@
                 $ratings->insert($rate);
                 
             }
-            $data=$ratings->findAll();
+            
+            $data=$ratings->getRating();
+            $rateCount=$ratings->getStarRating();
+            $avgRate=$ratings->avgRate();
+            $count=$ratings->getCount();
+            
 
-            $this->view('RateAndReview',['rows'=>$data]);
+            $this->view('RateAndReview',['rows'=>$data,'rate'=>$rateCount, 'averageRate'=>$avgRate,'count'=>$count]);
         }
 
     }

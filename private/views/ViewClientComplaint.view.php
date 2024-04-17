@@ -14,7 +14,7 @@
                     <tr>
                         <th>Complaint No</th>
                         <th>Type</th>
-                        <th>Description</th>
+                        <th>Date</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -26,7 +26,7 @@
                          <tr>
                         <td><?=$row->id?></td>
                         <td><?=$row->type?></td>
-                        <td><?=$row->description?></td>
+                        <td><?=$row->date?></td>
                         <td><?=$row->status?></td>
                         
                         <td>

@@ -44,6 +44,19 @@ class SubTask extends Model{
         ];
         return $this->query($query,$params);
     }
+
+    public function UpdadeRemark($task_id,$subtask_id,$project_id,$remark){
+
+        $query = "update allocated_subtask set remark=:remark where task_id= :task_id && project_id= :project_id && subtask_id= :subtask_id";
+		$params = [
+            'subtask_id'=>$subtask_id,
+            'remark'=> $remark,
+            'task_id' => $task_id,
+            'project_id'=>$project_id
+        ];
+        return $this->query($query,$params);
+    }
+
     public function UpdateSuspendStatus($task_id,$project_id){
 
         $query = "update allocated_task set status='Suspend' where task_id= :task_id && project_id= :project_id";

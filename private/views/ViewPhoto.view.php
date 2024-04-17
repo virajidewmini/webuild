@@ -9,6 +9,19 @@
         max-width: 500px; 
         max-height: 500px; 
     }
+    .thumbnail1 {
+            width: 200px; 
+            height: 100px; 
+            max-width: 200px;
+            max-height: 100px;
+            
+    }
+    td img{
+        border-radius: 0%;
+    }
+    table{
+        width: 500px;
+    }
     
 </style>
 
@@ -33,15 +46,56 @@
 <?php if($photo): ?>
         <?php foreach ($photo as $row): ?>
     <a href="<?=ROOT?>/uploads/<?=$row->file_name?>">
-        <img src="<?=ROOT?>/uploads/<?=$row->file_name?>" alt="Image 1">
+        <img src="<?=ROOT?>/uploads/<?=$row->file_name?>" alt="Image ">
     </a>
+   
     <?php endforeach;?>
         <?php else: ?>
             <p>No Photograph evidence</p> 
 <?php endif; ?>
-    
-    
 </div>
+<br><br><br>
+
+<div class="table_section" style="height: 1000px;">
+            <table>
+                <thead>
+                    <tr>
+                       
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php if($photo): ?>
+                
+                    <?php foreach ($photo as $row):?>
+                         <tr>
+                        
+                        
+                        <td><img class="thumbnail1" src="<?=ROOT?>/uploads/<?=$row->file_name?>" alt="Image "></td>
+                        
+                        
+                        <td>
+                           
+                         <a href="<?=ROOT?>/progress/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+
+                        </td>
+                        
+                    </tr>
+
+                    <?php endforeach;?>
+
+            <?php else: ?>
+                <h3>No Complaints Yet</h3>
+
+            <?php endif; ?>
+
+                </tbody>
+            </table>
+        </div>
+    
+    
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lg-thumbnail@1.10.0/dist/lg-thumbnail.min.js"></script>

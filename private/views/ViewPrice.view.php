@@ -8,8 +8,7 @@
         width: 100%; 
         height: auto; 
         background-color: #5222d0; 
-        background-image: linear-gradient(45deg, #5222d0 0% , #ec615b 100%);
-
+        background-image: linear-gradient(to right, #E5863D, #ffffff);
     }
 </style>
 

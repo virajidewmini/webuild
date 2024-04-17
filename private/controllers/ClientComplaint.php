@@ -1,12 +1,17 @@
 <?php 
+        use Respect\Validation\Validator as v;
+
     class ClientComplaint extends Controller{
+
 
         public function index(){
             
                 
                 $clientComplaint=new C_Complaint();
+                $project_id=Auth::getProjectId();
                 
-                $data=$clientComplaint->findAll();
+                
+                $data=$clientComplaint->where("project_id",$project_id);
                 $this->view('ViewClientComplaint',['rows'=> $data]);
         }
 
@@ -24,29 +29,48 @@
         public function add(){
             if(count($_POST) > 0){
 
-                $model = new UploadModel();
+                $descriptionValidator = v::notEmpty()->stringType()->length(null, 20);
+        
+                $errors = [];
+
+                if (! isset($_POST['type'])) {
+                    $errors['type'] = 'Please select .....';
+                }
+        
+                if (! $descriptionValidator->validate($_POST['description'])) {
+                    $errors['email'] = 'Must be a valid email address';
+                }
+    
+                if (empty($errors)) {
+                    $model = new UploadModel();
                 
 
-                $clientComplaint=new C_Complaint();
-                $complaint_id = uniqid();
-                $_POST['id'] = $complaint_id;
-			    $clientComplaint->insert($_POST);
-               
-
-                $uploadedFiles = $model->uploadFiles($_FILES['files']);
-                foreach ($uploadedFiles as $file) {
-                    $attachment_data= [
-                        'reference_id' => $complaint_id,
-                        'file_name' => $file,
-                        'attachment_type'=> "COMPLAINT"
-                    ];
-                    $attachment_model = new Attachment();
-                    $attachment_model->insert($attachment_data);
-
-                    
+                    $clientComplaint=new C_Complaint();
+                    $complaint_id = uniqid();
+                    $_POST['id'] = $complaint_id;
+                    $_POST['date']=date('Y-m-d');
+                    $_POST['project_id']=Auth::getProjectId();
+                    $clientComplaint->insert($_POST);
+                   
+    
+                    $uploadedFiles = $model->uploadFiles($_FILES['files']);
+                    foreach ($uploadedFiles as $file) {
+                        $attachment_data= [
+                            'reference_id' => $complaint_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "COMPLAINT"
+                        ];
+                        $attachment_model = new Attachment();
+                        $attachment_model->insert($attachment_data);
+    
+                        
+                    }
+    
+                      $this->redirect('clientcomplaint');
+                } else {
+                    // Form has errors, display them to the user
+                    $this->view('AddClientComplaint', ['errors' => $errors]);
                 }
-
-                //  $this->redirect('clientcomplaint');
             }
 
            

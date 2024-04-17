@@ -19,6 +19,9 @@ class Project_Quotation extends Model{
         ];
         return $this->query($query,$params);
     }
+
+    
+
     // public function createproject($r_id, $q_id){
 
     //     $query = "SELECT * $table1.$column1 AS alias1, $table2.$column2 AS alias2, $table2.$columnToSelect AS $columnAlias 

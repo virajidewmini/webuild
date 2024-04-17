@@ -3,7 +3,7 @@
         
         public function index(){
 
-            var_dump(Auth::getRole());
+            
             $id=Auth::getId();
 
             $model=new Supervisor();

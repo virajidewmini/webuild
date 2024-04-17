@@ -84,6 +84,14 @@ class Notifications extends Model{
         ]);
     }
 
+    public function getSupervisorComplaint($user_id){
+        $query="select complaint.* from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
     public function updateQuotaionNotification($value){
         
 
