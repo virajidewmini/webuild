@@ -17,8 +17,8 @@
                 <tr>
                     <th>Project ID</th>
                     <th>Request ID</th>
-                    <th>Manager ID</th>
-                    <th>Date</th>
+                    <!-- <th>Manager ID</th> -->
+                    <!-- <th>Date</th> -->
                     <th>Action</th>
                 </tr>
             </thead>
@@ -27,20 +27,16 @@
                     <?php foreach ($rows as $row):?>
                          <tr
                              data-project-id="<?=$row->project_id?>" 
-                             data-request-id="<?=$row->id?>" 
-                             data-manager-id="<?=$row->manager_id?>" 
-                             data-manager-id="<?=$row->request_id?>"
-                             data-date="<?=$row->date?>" 
                              
                              >
                             <td><?=$row->project_id?></td>
                             <td><?=$row->id?></td>
-                            <td><?=$row->manager_id?></td>
-                            
-                            <td><?=$row->date?></td>
+                            <!-- <td><?=$row->manager_id?></td> -->
+                            <!-- <td><?=$row->date?></td> -->
                             <td>
                                 <!-- <button ><i class="fa-regular fa-clock"></i><a href="<?=ROOT?>/requestsecond/add"></button> -->
-                                <a href="<?=ROOT?>/request/viewDetails/<?=$row->id?>"><button ><i class="fa-regular fa-clock"></i></button>
+                                <!-- <a href="<?=ROOT?>/request/viewDetails/<?=$row->id?>"><button ><i class="fa-regular fa-clock"></i></button> -->
+                                <a href="<?=ROOT?>/request/viewDetails/<?=$row->id?>"><button><i class="fa-regular fa-clock"></i></button></a>
                             </td>
                             <!-- <td>
                                 <button class="send-quotation-btn"><i class="fa-regular fa-clock"></i><a href="<?=ROOT?>/requestsecond/"></a></button>
