@@ -82,8 +82,9 @@
             $payment_plan=new Payment_plan();
             $data['payment_plan']=$payment_plan->findPaymentPlan($data['common']->payment_plan_id);
 
-
+            $data['common'] ->id=$id;
             if($flag !== null){
+                
                 $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
             }
             else{

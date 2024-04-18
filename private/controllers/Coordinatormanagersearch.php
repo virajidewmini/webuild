@@ -10,7 +10,9 @@
             }
 
             $project_requests = new Project_requests();
+           // print_r($id);
             $data['common'] = $project_requests->requests($id)[0];
+            $data['common'] ->id=$id;
 
             if(!empty($data['common']->model_id)){
 
@@ -35,7 +37,7 @@
             }
             
             
-            $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
+           $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
             
 	    }
 

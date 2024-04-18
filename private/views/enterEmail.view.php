@@ -15,7 +15,7 @@
     <div class="container">
         <form class="login" action="<?=ROOT?>/Signup" method="post">
                             
-            <h1>Sign up AS A Customer</h1>
+            <h1>SIGN UP</h1>
            
             <br><br>
             <input type="email" name="email" placeholder="Email" <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['email']; ?>"  >
