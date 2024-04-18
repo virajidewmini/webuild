@@ -127,19 +127,34 @@
                 $ProjectRequest->insert($request);
 
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
+                $i = 0;
                 foreach ($uploadedFiles as $file) {
                     var_dump($uploadedFiles);
-                    $attachment_data_salary= [
-                        'file_name' => $file,
-                        'attachment_type'=> "SALARY"
-                    ];
-                    $attachment_data_land= [
-                        'file_name' => $file,
-                        'attachment_type'=> "LAND"
-                    ];
+                     
+                    if ($i == 0) {
+                        $attachment_data= [
+                            'reference_id'=>$modification_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "SALARY"
+                        ];
+                    }elseif ($i ==1){
+                        $attachment_data= [
+                            'reference_id'=>$modification_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "LANDPHOTO"
+                        ];
+                    }else{
+                        $attachment_data= [
+                            'reference_id'=>$modification_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "LANDBLOCK"
+                        ];
+                    }
+
+
                     $attachment_model = new Attachment();
-                    $attachment_model->insert($attachment_data_salary);
-                    $attachment_model->insert($attachment_data_land);
+                    $attachment_model->insert($attachment_data);
+                    $i++;
                     
                 }
 
