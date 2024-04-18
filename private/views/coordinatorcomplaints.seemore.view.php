@@ -61,6 +61,22 @@
                 </div>
             </div>
 
+            <?php if($row["attachments"]):?>
+                <div class="form-group2">
+                        <label class="v_label" id="description">Attachments :</label>
+                        
+                </div>
+                <!-- <pre><?php print_r($row["attachments"]);?></pre> -->
+                <div class="form-row">
+                    <?php foreach ($row["attachments"] as $rows) :?>
+                        <!-- <pre><?php print_r($rows);?></pre> -->
+                        <div class="form-group2">
+                            <a href="<?=ROOT?>/uploads/<?=$rows->file_name?>"><input name="description" value= "<?=$rows->file_name?>" type="text" placeholder="" class="v_form-control" readonly ></a>
+                        </div>
+                    <?php endforeach;?>
+                </div>
+            <?php endif;?>
+
             <div class="">
                 <div class="">
                     <label class="v_label" id="remark">Remark :</label>
@@ -79,18 +95,18 @@
         <br><br>
 
         <!-- for manager and supervisor handling complaints -->
-        <?php if($row[0]->type=='Quality of photograph'   ||  $row[0]->type=="Quality of workmanship and materials"   ||  $row[0]->type=="Construction project delay "):?>
+        <?php if($row[0]->type=="Quality of the photograph"  ||  $row[0]->type=="Quality of workmanship and materials"   ||  $row[0]->type=="Construction project delay "):?>
             <!-- only for pending complaints -->
             <?php if($row[0]->status=='Pending'):?>
 
-                <form method="post" action="<?=ROOT?>/coordinatorviewcomplaints/notify/<?=$row[0]->project_id?>"> 
+                <form method="post" action="<?=ROOT?>/coordinatorviewcomplaints/notify/<?=$row[0]->project_id?>/<?=$row[0]->id?>"> 
                     
                     <div>
                         <label class="v_label" id="status">Status :</label>
                         <input name="status" value= "<?= get_var('status',$row[0]->status);?>" type="text" placeholder="" class="v_form-control" readonly >
                     </div> 
                     
-                    <?php if($row[0]->type=='Quality of photograph'   ||  $row[0]->type=="Quality of workmanship and materials" ):?>
+                    <?php if($row[0]->type=="Quality of the photograph"   ||  $row[0]->type=="Quality of workmanship and materials" ):?>
                         <div style="display: flex; justify-content:center; margin-left: 461px" >                        
                             <input type="submit" value="Notify Supervisor"class="cancel-button">                         
                         </div>
@@ -114,7 +130,7 @@
                 </div>
 
             <?php endif;?>
-        <?php elseif($row[0]->type=='other'   ||  $row[0]->type=="Poor Communication" ):?>
+        <?php elseif($row[0]->type=="Other"  ||  $row[0]->type=="Poor Communication" ):?>
             
             <div>
                 <label class="v_label" id="status">Status :</label>

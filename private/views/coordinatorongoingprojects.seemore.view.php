@@ -6,12 +6,12 @@
           
           
      </div>
-     <div style="text-align:center;"><h1> Details of the Request </h1></div>
-     <div style="text-align:center;"><h3>Request ID : <?= $rows["common"]->id;?> </h3></div>
+     <div style="text-align:center;"><h1> Details of the Project </h1></div>
+     <div style="text-align:center;"><h3>Project ID : <?= $rows["common"]->id;?> </h3></div>
      
      <div class="form_container">
          
-               <fieldset style="padding:10px;" class="FormFieldset" >
+               <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Customer Details</legend>
             
                     <div class="form-group">
@@ -51,7 +51,7 @@
 
                
               
-                    <fieldset style="padding:10px;" class="FormFieldset" >
+                    <fieldset class="FormFieldset" >
                          <legend class="Formlegend"> Land Details</legend>
                
                          <div class="form-group">
@@ -104,7 +104,7 @@
 
                <br><br>
 
-               <fieldset style="padding:10px;" class="FormFieldset" >
+               <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Project Manager Details</legend>
                          <br>
 
@@ -141,12 +141,40 @@
             
                     
                </fieldset>
+               <fieldset style="padding:10px;" class="FormFieldset" >
+                    <legend class="Formlegend"> Project Supervisor Details</legend>
+                         <br>
 
-               
+                                                        
+                              <div class="form-group">
+                                   <br>
+                         
+                                   <div class="column">                   
+                                        <label for="firstname">First Name</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->firstname;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->lastname;?>">
+                                   </div>                                  
+                                   <div class="column">
+                                        <label for="lastName">Email</label>
+                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["supervisor_details"]->staff->email;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Contact Number</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->contactnumber;?>">
+                                   </div>
+                    
+                              </div>
+                        
+            
+                    
+               </fieldset>
                
                <br><br>
 
-               <fieldset style="padding:10px;" class="FormFieldset" >
+               <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Modification Details</legend>
                     <br>
 
@@ -155,7 +183,7 @@
                               <br><br>
                               
                          <?php else : ?>                           
-                              <fieldset style="padding:10px;" class="FormFieldset" >
+                              <fieldset class="FormFieldset" >
                                    <legend class="Formlegend"> Kitchen Modification Details</legend>
                                    <br>
                                         <?php if($rows["kitchen_modification_details"]):?>
@@ -181,7 +209,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset style="padding:10px;" class="FormFieldset" >
+                              <fieldset class="FormFieldset" >
                                    <legend class="Formlegend"> Dining Room Modification Details</legend>
                                    <br>
                                         <?php if($rows["dining_modification_details"]):?>
@@ -207,7 +235,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset style="padding:10px;" class="FormFieldset" >
+                              <fieldset class="FormFieldset" >
                                    <legend class="Formlegend"> Living Room Modification Details</legend>
                                    <br>
                                         <?php if($rows["living_modification_details"]):?>
@@ -233,7 +261,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset style="padding:10px;" class="FormFieldset" >
+                              <fieldset class="FormFieldset" >
                                    <legend class="Formlegend"> Bathroom Modification Details</legend>
                                    <br>
                                         <?php if($rows["bathroom_modification_details"]):?>
@@ -259,7 +287,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset style="padding:10px;" class="FormFieldset" >
+                              <fieldset class="FormFieldset" >
                                    <legend class="Formlegend"> Exterior Modification Details</legend>
                                    <br>
                                         <?php if($rows["exterior_modification_details"]):?>
@@ -285,7 +313,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset style="padding:10px;" class="FormFieldset" >
+                              <fieldset class="FormFieldset" >
                                    <legend class="Formlegend"> Bedroom Modification Details</legend>
                                    <br>
                                         <?php if($rows["bedroom_modification_details"]):?>
@@ -319,7 +347,7 @@
                
                <br><br>
 
-               <fieldset style="padding:10px;" class="FormFieldset" >
+               <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Model Details</legend>
                     <br>
                     
@@ -399,45 +427,68 @@
                </fieldset>
 
                <br>
-                    <fieldset style="padding:10px;" class="FormFieldset" >
-                         <legend class="Formlegend"> Selected Payment Package Details</legend>
-                         <br>
-                              <?php if($rows["payment_plan"]):?>
-                                   
-                                   <div class="form-group">
-                                        <div class="column">
-                                             <label for="lastName">Payment Plan ID</label>
-                                             <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
-                                        </div>
-                                        <div class="column">
-                                             <label for="lastName">Paint</label>
-                                             <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
-                                        </div>
-                                        <div class="column">
-                                             <label for="lastName">Installment Count</label>
-                                             <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->installement_count;?>">
-                                        </div>
-                                        <div class="column">
-                                             <label for="lastName">Interest(In Percentage)</label>
-                                             <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->interest;?>%">
-                                        </div>
-                         
-                                   </div>
-                                   
-                                   
-                              <?php else : ?>                           
-                                   <h4>No pament plan has been selected to this project request.</h4>
-                                   <br><br>
-                              <?php endif;?>
-               
-                         
-                    </fieldset>
-                    <br>
-                              
-                         
+                <fieldset class="FormFieldset" >
+                        <legend class="Formlegend"> Selected Payment Package Details</legend>
+                        <br>
+                            <?php if($rows["payment_plan"]):?>
+                                
+                                <div class="form-group">
+                                    <div class="column">
+                                            <label for="lastName">Payment Plan ID</label>
+                                            <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
+                                    </div>
+                                    <div class="column">
+                                            <label for="lastName">Paint</label>
+                                            <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
+                                    </div>
+                                    <div class="column">
+                                            <label for="lastName">Installment Count</label>
+                                            <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->installement_count;?>">
+                                    </div>
+                                    <div class="column">
+                                            <label for="lastName">Interest(In Percentage)</label>
+                                            <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->interest;?>%">
+                                    </div>
+                        
+                                </div>
+                                
+                                
+                            <?php else : ?>                           
+                                <h4>No pament plan has been selected to this project request.</h4>
+                                <br><br>
+                            <?php endif;?>
             
+                        
+                </fieldset>
+                <br>
                     
-               </fieldset>
+                <style>
+                    .button-box {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: #3d9ce5; /* Your desired color */
+                        color: #fff; /* Text color */
+                        border: 2px solid #3d9ce5; /* Border color */
+                        border-radius: 5px;
+                        text-decoration: none;
+                        font-size: 16px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease, color 0.3s ease;
+                    }
+
+                    .button-box:hover {
+                        background-color: #2d7cbf; /* Darker color on hover */
+                        border-color: #2d7cbf; /* Darker border color on hover */
+                    }
+                    </style>
+                    
+                    
+                    <br>
+                    
+                    <a href="<?=ROOT?>/uploads/<?=($rows['quotation']->quotation)?>" class="button-box">View Quotation</a>
+               
+            </div>
 
                
 

@@ -56,6 +56,10 @@
             $complaint=new C_Complaint();
             $data=$complaint->viewComplanitDetail($id);
 
+            $attachments=new Attachment();
+            $data['attachments']=$attachments->getComplaintaAttachments($id);
+            // print_r($data['attachments']);
+
             //to change the notification status as seen
             $notification = new Notifications();
 
@@ -77,13 +81,14 @@
             if (count($_POST)>0){
 
                 //for poor comm and other complaints only
-                if(!($_POST['remark']==NULL)  && ($_POST['type'] == "other"   ||  $_POST['type']=="Poor Communication") ){
+                if(!($_POST['remark']==NULL)  && ($_POST['type'] == "Other"   ||  $_POST['type']=="Poor Communication") ){
                    
                     $_POST['status'] = "Notified";
                     // print_r($_POST);
                 }
                 $complaint->update($id,$_POST);
-                $this->redirect('coordinatorviewcomplaints');                 
+                $this->redirect("coordinatorviewcomplaints/seemore/$id");   
+                //$this->redirect("coordinatorprojects/viewpayments/$project_details->project_id/$project_details->payment_package_id");              
             }
             $row = $complaint->where('id',$id);
             $this->view('coordinatorviewcomplaints.addremark',[
@@ -92,7 +97,7 @@
             
         }
 
-        public function notify($id = null){
+        public function notify($id = null,$complaint_id=null){
         
             if(!Auth::logged_in()){
                 $this->redirect('/staff_login');
@@ -120,7 +125,8 @@
 
                 //updating complaint status
                 $notification->setState($_POST['id']);
-                $this->redirect("coordinatorviewcomplaints");
+                //print_r($complaint_id);
+                $this->redirect("coordinatorviewcomplaints/seemore/$complaint_id");
                
             }            
         }

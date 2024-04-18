@@ -264,4 +264,27 @@ class Projects extends Model
     }
 
     
+    public function get_project_request_id($value){
+
+
+        $query="SELECT projects.project_request_id FROM projects 
+        WHERE projects.id = :value"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getsupervisordetails($value){
+
+
+        $query="SELECT supervisor_id FROM projects 
+        WHERE id = :value"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
 }

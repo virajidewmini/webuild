@@ -39,7 +39,7 @@ body{
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
-                    <h3>  Complaints on Qualiy of Photographs </h3>
+                    <h3>  Complaints on <?=$rows["complaints"][0]->type;?> </h3>
                 </div>
                 
             </div>

@@ -25,9 +25,7 @@ body{
                             <th>Project Manager</th>
                             <th>Date</th>
                             <th>Status</th>
-                            <th>
-                                
-                            </th>
+                            <th>See more</th>
                         </tr>
                     </thead>
                     <tbody>
