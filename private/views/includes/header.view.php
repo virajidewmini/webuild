@@ -15,10 +15,7 @@
     <!--css files-->
     <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
     <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
-<<<<<<< Updated upstream
     
-=======
->>>>>>> Stashed changes
   </head>
   <body>
     <section class="sidebar">
@@ -127,7 +124,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="<?=ROOT?>/Request">
+                  <a href="<?=ROOT?>/request">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Requests</span>
                   </a>

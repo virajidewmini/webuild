@@ -64,7 +64,7 @@
         </table>
 
         <h3>Tiles Maintain</h3>
-        <table>
+        <table style="background-color: antiquewhite;">
             <thead>
                 <tr>
                     <th>Material Name</th>
@@ -113,7 +113,7 @@
         </table>
 
         <h3>Paint Maintain</h3>
-           <table>
+           <table  style="background-color:beige;">
             <thead>
                 <tr>
                     <th>Material Name</th>

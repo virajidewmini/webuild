@@ -27,8 +27,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Project No</th>
-                    <th>Quotation No</th>
+                    
                     <th>Material Name</th>
                     <th>Material Code</th>
                     <th>Requested Quantity</th>
@@ -46,8 +45,8 @@
                 <?php if(isset($rows)): ?>
                     <?php foreach ($rows as $row):?>
                         <tr class="<?php echo $row->decision === 'ACCEPT' ? 'accept' : ($row->decision === 'REJECT' ? 'reject' : 'pending'); ?>">
-                            <td><?=$row->project_id?></td>
-                            <td><?=$row->quotation_id?></td>
+                            <!-- <td><?=$row->project_id?></td> -->
+                            <!-- <td><?=$row->quotation_id?></td> -->
                             <td><?=$row->material_or_item_name?></td>
                             <td><?=$row->material_or_item_id?></td>
                             <td><?=$row->quantity?></td>

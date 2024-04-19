@@ -30,13 +30,13 @@
                              
                              >
                             <td><?=$row->project_id?></td>
-                            <td><?=$row->id?></td>
+                            <td><?=$row->request_id?></td>
                             <!-- <td><?=$row->manager_id?></td> -->
                             <!-- <td><?=$row->date?></td> -->
                             <td>
                                 <!-- <button ><i class="fa-regular fa-clock"></i><a href="<?=ROOT?>/requestsecond/add"></button> -->
                                 <!-- <a href="<?=ROOT?>/request/viewDetails/<?=$row->id?>"><button ><i class="fa-regular fa-clock"></i></button> -->
-                                <a href="<?=ROOT?>/request/viewDetails/<?=$row->id?>"><button><i class="fa-regular fa-clock"></i></button></a>
+                                <a href="<?=ROOT?>/request/viewDetails/<?=$row->request_id?>"><button><i class="fa-regular fa-clock"></i></button></a>
                             </td>
                             <!-- <td>
                                 <button class="send-quotation-btn"><i class="fa-regular fa-clock"></i><a href="<?=ROOT?>/requestsecond/"></a></button>

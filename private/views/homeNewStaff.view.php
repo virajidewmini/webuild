@@ -137,6 +137,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-shadow: #f2f2f2;
 }
 .heading1 h1{
   font-size: 5rem;

@@ -5,7 +5,7 @@
                
                 $request=new Requests();
               
-                $data=$request->findAll();
+                $data=$request->getRequest();
 
 
             // Check if there is a search query
@@ -24,18 +24,36 @@
 
            }
 
+           
         public function viewDetails($id = null) {
             // Check if request ID is provided
             if ($id !== null) {
                 // Instantiate the RequestsSecond model
-                $requestSecond = new RequestsSecond();
+                $requestSecond = new Requests();
                 
                 // Fetch data from the material_requests table based on request_id
                 // $data = $requestSecond->findAll(['conditions' => ['request_id' => $id]]);
-                $data = $requestSecond->where('id',$id);
+                $data = $requestSecond->getRequestDetails($id);
                 // Pass the filtered data to the view
-                $this->view('storekeeperRequestSecond', ['rows' => $data]);
+                $this->view('storekeeperRequestSecond', ['rows' => $data, 'r_id' => $id]);
             }
+        }
+        public function add($id = null, $district = null) {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $quotationSKModel = new QuotationSK();
+                $quotation_id = $quotationSKModel->insertMaterialquatation($_POST);
+                
+                // $quotationSKModel->updateMaterial($quotation_id);
+
+                $this->redirect('quotationorder');
+            }
+            
+            // Fetch the same data as in the index method
+            $requestSecondModel = new Requests();
+            $data = $requestSecondModel->toQuotation($id);
+            
+            // Pass the data to the second view
+            $this->view('storekeeperRequestQuotation', ['rows' => $data, 'r_id' => $id, 'district' => $district]);
         }
  
     }
