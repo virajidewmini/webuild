@@ -8,6 +8,7 @@
                 
                 $model = new UploadModel();
                 $userData = [
+                    'user_id'=>Auth::id(),
                     'occupation' => $_POST['occupation'],
                     'salary' => $_POST['salary']
                     

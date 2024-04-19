@@ -71,6 +71,10 @@
                     </td>
                 </tr>
                 <?php endforeach;?>
+
+                <?php else: ?>
+                <h3>No task allocated Yet</h3>
+
                 <?php endif; ?>
 
                 
