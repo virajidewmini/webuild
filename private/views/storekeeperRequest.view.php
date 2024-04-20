@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if(isset($rows)): ?>
+                <?php if($rows): ?>
                     <?php foreach ($rows as $row):?>
                          <tr
                              data-project-id="<?=$row->project_id?>" 
