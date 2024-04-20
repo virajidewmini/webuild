@@ -18,6 +18,15 @@ class C_Complaint extends Model{
         ];
         return $this->query($query,$param);
     }
+
+    public function updateStatus($id){
+
+        $query = "update complaint set status='Complete' where id=:complaint_id";
+		$param=[
+            'complaint_id'=>$id,
+        ];
+        return $this->query($query,$param);
+    }
     
 
 

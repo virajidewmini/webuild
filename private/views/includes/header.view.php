@@ -332,15 +332,15 @@
             <?php elseif(Auth::getRole()== 'Supervisor'): ?>
               <ul class="side-menu top">
                 <li class="active">
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/supmaindashboard/<?= Auth::getProjectId() ?>" class="nav-link">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link">
+                  <a href="<?=ROOT?>/dailyprogressreport" class="nav-link">
                     <i class="fas fa-file"></i>
-                    <span class="text">Report</span>
+                    <span class="text">Daily Progress Report</span>
                   </a>
                 </li>
                 <li>

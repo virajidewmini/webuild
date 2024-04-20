@@ -63,6 +63,16 @@ class ProgressReport extends Model{
         return $this->query($query,$params);
     }
 
+    public function viewReportDay(){
+
+        $query = "select * from daily_progress_report where date = :id && project_id= :project_id";
+		$params = [
+            'id' => date('Y-m-d'),
+            'project_id' => Auth::getProjectId(),
+        ];
+        return $this->query($query,$params);
+    }
+
     public function updateReportDetail($id,$project_id,$description,$comment){
 
         $query = "update daily_progress_report set work_description=:description, comment=:comment where date = :id && project_id= :project_id";
