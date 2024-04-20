@@ -1,14 +1,14 @@
 <?php 
     class requestSecond extends Controller {
-        public function index() {
-            $requestSecondModel = new RequestsSecond();
-            $data = $requestSecondModel->findAll();
-            if ($data) {
-                $this->view('storekeeperRequestSecond', ['rows' => $data]);
-            } else {
-                echo "No data found.";
-            }
-        }
+        // public function index() {
+        //     $requestSecondModel = new RequestsSecond();
+        //     $data = $requestSecondModel->findAll();
+        //     if ($data) {
+        //         $this->view('storekeeperRequestSecond', ['rows' => $data]);
+        //     } else {
+        //         echo "No data found.";
+        //     }
+        // }
     
     //     public function add() {
     //         if ($_SERVER["REQUEST_METHOD"] == "POST") {
