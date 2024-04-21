@@ -1,33 +1,58 @@
-<?php 
-class Allocated_tasks extends Model{
+<?php
+class Allocated_tasks extends Model
+{
     protected $table = "allocated_task";
+
 
     protected $afterSelect = [
         'get_task',
     ];
 
 
-    public function validate($DATA){
+    public function validate($DATA)
+    {
 
         $this->errors = array();
 
+        /**
+        Check task with Already added
+         **/
+        $project = new Projects();
 
-        if(count($this->errors) == 0){
+        if (empty($DATA['project_id'])) {
+            $this->errors['project_id'] = "Project ID can't be empty";
+        }
+
+        elseif (preg_match('/^\d{1,4}\d{0,9}$/', $DATA['project_id'])) {
+            if($project->where('id', $DATA['project_id'])){
+                if ($this->where2('project_id', $DATA['project_id'], 'task_id', $DATA['task_id'])) {
+                    $this->errors['project_id'] = "The task already added to this project ";
+                }
+            }
+            else{
+                $this->errors['project_id'] = "Invalid Project ID";
+            }
+        }
+        else {
+            $this->errors['project_id'] = "Invalid Project ID; Enter only the digits";
+        }
+
+
+        if (count($this->errors) == 0) {
             return true;
         }
         return false;
-
-
     }
 
-    public function totalProgress($id){
+    public function totalProgress($id)
+    {
 
-    $query = "SELECT SUM(progress) AS total_progress
+        $query = "SELECT SUM(progress) AS total_progress
         FROM allocated_task
         WHERE project_id = :id";
-    $data['id'] = $id;
-    return $this->query($query,$data);
-}
+        $data['id'] = $id;
+        return $this->query($query, $data);
+    }
 
     public function get_task($data)
     {
@@ -53,6 +78,4 @@ class Allocated_tasks extends Model{
         $data['id'] = $id;
         return $this->query($query, $data);
     }
-    
 }
-?>

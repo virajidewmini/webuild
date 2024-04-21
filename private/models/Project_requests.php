@@ -5,6 +5,7 @@ class Project_requests extends Model{
 
     protected $afterSelect = [
         'get_user',
+        'get_user_m',
         'get_modeln',
         'get_kitchen_tile',
         'get_bathroom_tile',
@@ -16,16 +17,15 @@ class Project_requests extends Model{
         'get_dining_color',
         'get_land',
         'get_land_u',
+        'get_model_price',
+        'get_payment',
+        'get_manager',
     ];
 
     public function validate($DATA){
 
         $this->errors = array();
 
-
-        /**
-        
-        **/
 
 
         if(empty($DATA['new_price'])){
@@ -68,28 +68,27 @@ class Project_requests extends Model{
 
     //to get land details
     //company lands from land table
-    public function company($value){
+    // public function company($value){
 
 
-        $query="SELECT * FROM project_requests 
-        INNER JOIN land ON project_requests.land_id = land.id 
+    //     $query="SELECT * FROM project_requests 
+    //     INNER JOIN land ON project_requests.land_id = land.id 
         
-        WHERE project_requests.user_id = :value AND project_requests.land_type='company' "; 
+    //     WHERE project_requests.user_id = :value AND project_requests.land_type='company' "; 
 
-        //return $this->query($query);
-        return $this->query($query, [
-            'value' => $value,
-        ]);
-    }
+    //     //return $this->query($query);
+    //     return $this->query($query, [
+    //         'value' => $value,
+    //     ]);
+    // }
 
     //user's lands from user_lands
     public function customer($value){
 
 
-        $query="SELECT * FROM project_requests 
-        INNER JOIN user_lands ON project_requests.land_id = user_lands.id 
+        $query="SELECT * FROM user_lands 
         
-        WHERE project_requests.user_id = :value AND project_requests.land_type='customer' "; 
+        WHERE user_lands.modification_id = :value  "; 
 
         //return $this->query($query);
         return $this->query($query, [
@@ -112,19 +111,7 @@ class Project_requests extends Model{
             'value' => $value,
         ]);
     }
-    public function modeldetails($value){
-
-
-        $query="SELECT * FROM project_requests 
-        INNER JOIN model ON project_requests.model_id = model.id 
-        
-        WHERE project_requests.id = :value"; 
-
-        //return $this->query($query);
-        return $this->query($query, [
-            'value' => $value,
-        ]);
-    }
+    
 
      //to get modification details
      public function modificationdetails($value){
@@ -144,10 +131,13 @@ class Project_requests extends Model{
 
     public function find_managers_in_district($value){
 
-        $query="SELECT staff.id , staff.district , staff.firstname, staff.lastname , members_projects.count from staff
-        LEFT JOIN members_projects ON staff.id=members_projects.staff_id
-        WHERE staff.district = :value AND staff.role='Project Manager'
-        ORDER BY members_projects.count ASC";
+        $query="SELECT staff.id, staff.district, staff.firstname, staff.lastname, staff.project_count, 
+        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Ongoing' AND projects.manager_id = staff.id), 0) 
+            AS current_working_projects_count, 
+        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' AND projects.manager_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
+            AS worked_project_count 
+        FROM staff WHERE staff.district = :value
+        AND staff.role = 'Project Manager' ORDER BY staff.project_count ASC;";
 
         return $this->query($query, [
             'value' => $value,
@@ -168,6 +158,22 @@ class Project_requests extends Model{
             if(property_exists($row,"user_id")){
                 $result = $user->where('id',$row->user_id);
                 $data[$key]->user = is_array($result) ? $result[0] : false ;
+            }
+
+        }
+
+        return $data;
+    }
+
+    public function get_user_m($data){
+    
+        $staff = new Staffs();
+        
+
+        foreach ($data as $key => $row){
+            if(property_exists($row,"manager_id")){
+                $result = $staff->where('id',$row->manager_id);
+                $data[$key]->staff_m = is_array($result) ? $result[0] : false ;
             }
 
         }
@@ -211,9 +217,9 @@ class Project_requests extends Model{
         $tile = new Tiles();
         
         foreach ($data as $key => $row){
-            if(property_exists($row,"kitchen_tile")){
-                $result = $tile->where('id',$row->kitchen_tile);
-                $data[$key]->kitchen_tile = is_array($result) ? $result[0] : false ;
+            if(property_exists($row,"tile_id")){
+                $result = $tile->where('file_name',$row->tile_id);
+                $data[$key]->tile_id = is_array($result) ? $result[0] : false ;
             }
             
        }
@@ -227,9 +233,9 @@ class Project_requests extends Model{
         $tile = new Tiles();
         
         foreach ($data as $key => $row){
-            if(property_exists($row,"bathroom_tile")){
-                $result = $tile->where('id',$row->bathroom_tile);
-                $data[$key]->bathroom_tile = is_array($result) ? $result[0] : false ;
+            if(property_exists($row,"tile_id")){
+                $result = $tile->where('id',$row->tile_id);
+                $data[$key]->tile_id = is_array($result) ? $result[0] : false ;
         
             }
        }
@@ -244,9 +250,9 @@ class Project_requests extends Model{
         $tile = new Tiles();
         
         foreach ($data as $key => $row){
-            if(property_exists($row,"dining_tile")){
-                $result = $tile->where('id',$row->dining_tile);
-                $data[$key]->dining_tile = is_array($result) ? $result[0] : false ;
+            if(property_exists($row,"tile_id")){
+                $result = $tile->where('id',$row->tile_id);
+                $data[$key]->tile_id = is_array($result) ? $result[0] : false ;
             }
             
        }
@@ -261,9 +267,9 @@ class Project_requests extends Model{
         $tile = new Tiles();
         
         foreach ($data as $key => $row){
-            if(property_exists($row,"dining_tile")){
+            if(property_exists($row,"tile_id")){
                 $result = $tile->where('id',$row->tile);
-                $data[$key]->tile = is_array($result) ? $result[0] : false ;
+                $data[$key]->tile_id = is_array($result) ? $result[0] : false ;
             }
             
        }
@@ -367,6 +373,34 @@ class Project_requests extends Model{
         return $data;
     }
 
+    public function get_model_price($data){
+    
+        $model = new Models();
+        foreach ($data as $key => $row1){
+            if(isset($row1->model_id)){
+                $result = $model->where('id',$row1->model_id);
+                $data[$key]->mdl = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+
+    public function get_payment($data){
+    
+        $payment = new Payment_packages();
+        foreach ($data as $key => $row1){
+            if(isset($row1->payment_plan_id)){
+                $result = $payment->where('id',$row1->payment_plan_id);
+                $data[$key]->payment = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
+        return $data;
+    }
+
     //for admindashboard
     
     public function getrequestsInMonth($month){
@@ -422,9 +456,47 @@ class Project_requests extends Model{
             ]);
         }
     
+    //for coordinator dashboard
+
+
     
+    public function getProjectRequestCount(){
+
+        $query="SELECT COUNT(*) AS total
+        FROM project_requests
+        WHERE project_requests.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)
+         ";
+
+        return $this->query($query);
+    }
+
+
+    //to get manager's name
+    public function get_manager($data){
     
+        $staff = new Staffs();
+        
+        foreach ($data as $key => $row){
+            if(property_exists($row,"manager_id")){
+                $result = $staff->where('id',$row->manager_id);
+                $data[$key]->managerName = is_array($result) ? $result[0] : false ;
+            }
+            
+       }
+
     
+        return $data;
+    
+    }
+
+    public function LatestReq($p_id = null){
+
+        $query="SELECT * FROM project_requests WHERE manager_id = :p_id AND status = 'Modified' ORDER BY project_requests.date DESC";
+        $data['p_id'] = $p_id;
+        return $this->query($query,$data);
+    }
+   
+
     
     
 }

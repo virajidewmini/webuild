@@ -33,11 +33,70 @@ class Notifications extends Model{
         ]);
     }
     
-    
+    //for complaints
     public function setState($value){
 
         $query="UPDATE complaint set complaint.status='Notified'       
         WHERE complaint.id = :value"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+    //for payments
+    public function setStateForPayment($value){
+
+        $query="UPDATE payments set payments.status='Notified'       
+        WHERE payments.id = :value"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+
+    public function updateProjectRequestNotification($value){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :value AND notifications.type='project request' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function updateComplaintNotification($value){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :value AND notifications.type='complaint' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getSupervisorComplaint($user_id){
+        $query="select complaint.* from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+    public function updateQuotaionNotification($value){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :value AND notifications.type='quotation_pm_to_co' "; 
         
         //return $this->query($query);
         return $this->query($query, [

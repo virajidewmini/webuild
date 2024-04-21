@@ -6,7 +6,8 @@
         public function index(){
 
             $quotation= new Project_Quotation();
-            $data=$quotation->where("user_id","1");
+            $data=$quotation->where("user_id",Auth::id());
+            // var_dump("AUTH ID",Auth::id());
 
             $this->view('ViewQuotation',["rows"=>$data]);
         }
@@ -32,7 +33,7 @@
                     "description"=>$_POST['description'] ,
                     "rating"=>$rating,
                     "comment"=>$_POST['comment'] ,
-                    "new_quotation"=>isset($_POST['otherQuotation'])?"True" : "False"
+                    // "new_quotation"=>isset($_POST['otherQuotation'])?"True" : "False"
                 ];
                 
 			    $reject->insert($reject_quotation);

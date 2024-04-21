@@ -50,8 +50,8 @@
 
 		public function dmaterial($model_id, $level){
 
-			$query= "SELECT task_materials.* FROM tasks
-			INNER JOIN task_materials ON tasks.id = task_materials.task_id
+			$query= "SELECT task_materials_equipment.* FROM tasks
+			INNER JOIN task_materials_equipment ON tasks.id = task_materials_equipment.task_id
 			WHERE tasks.model_id = :model_id
 			AND tasks.level = :level";
 			$data =  $this->query($query,[
@@ -155,6 +155,14 @@
 			foreach ($data as $key => $value) {
 				//code
 				$str .= $key. "=:". $key.",";
+			}
+
+
+			//run functons before update
+			if(property_exists($this, 'beforeUpdate')){
+				foreach ($this->beforeUpdate as $func) {
+					$data =$this->$func($data);
+				}
 			}
 
 			$str = trim($str,",");//trim trims from the beg and the end

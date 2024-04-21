@@ -95,91 +95,41 @@ body{
 <div class="pro-id1" style="display:flex;  justify-content: center; padding: 0 0 40px 0;">
     
           <div class="pro-id" style="padding: 0 0 20px 0;">
-            <?php $level = ""; ?>
                     <div class="pro-id-details">
                     <form action="" method="GET" id="form">
                         <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                             <div class="p-title">
-                                <h3>Material Reaquests</h3>
+                                <h3>Remaining Material Reaquests</h3>
                             </div>
                         </div>
-                        <?php
-                            if(isset($_GET['level'])){
-                                $level = isset($_GET['level']) ? $_GET['level'] : null;
-                            }
-                        ?>
-
+                        <?php if($rows): ?>
                         <div class="unit-d">
                             <div class="unit">
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows[0]->id ?>" type="text" name="project_id">
+                                <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows[0]->project_id ?>" type="text" name="project_id">
                             </div>
-                            <!-- <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Add</button> -->
                         </div>
-                        <?php if($rows1): ?>
-                            <div class="unit-d">
-                                <div class="unit">
-                                    <p>Model ID :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model_id?>" type="text" name="model_id">
-                                </div>
+                        <div class="unit-d">
+                            <div class="unit">
+                                <p>Request ID :</p>
                             </div>
-                            <div class="unit-d">
-                                <div class="unit">
-                                    <p>Model Name :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    <input readonly style="height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model->name?>" type="text" name="model_name">
-                                </div>
+                            <div class="e-id-d">
+                                <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows[0]->request_id ?>" type="text" name="request_id">
                             </div>
-                            <?php
-                            if(isset($_GET['model_id'])){
-                            ?>
-                            <div class="unit-d">
-                                <div class="unit">
-                                    <p>Level :</p>
-                                </div>
-                                <div class="e-id-d">
-                                    
-                                    <select style="height:35px; width:100px; margin-left: 10px;" name="level" class="form-control" type="text">
-                                    <option  value="" <?= get_select2('level','');?>>--Select ID--</option >
-                                    <?php if($rows2): ?>
-                                        <?php foreach($rows2 as $row): ?>
-                                            <option <?= get_select2('level', $row->level); ?> value="<?= $row->level; ?>" <?php if ($level == $row->level) {echo "selected"; } ?>>
-                                                <?= $row->level; ?>
-                                        <?php endforeach; ?>
-                                    <?php else: ?>
-                                        <option <?= get_select2('level','');?> value="">No Level Found</option>
-                                    <?php endif; ?>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="unit-d">
+                            <div class="unit">
+                                <p>Level:</p>
                             </div>
-                            <?php
-                            }
-                            ?>
-                            <?php
-                            if(isset($_GET['level'])){
-                            }
-                            else{
-                            ?>
-                                <div class="btnnext">
-                                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Next</button>
-                                </div>
-                            <?php
-                            }
-                            ?>
-                            <?php
-                            if(isset($_GET['level'])){
-                            ?>
-                                <div class="table">
-                                    <div class="btnnext">
-                                        <button style="background-color:#E5863D; color:white; margin-left: 20px; margin-bottom: 30px;" type="submit">Next</button>
-                                    </div>
+                            <div class="e-id-d">
+                                <input readonly style="height:35px; width:100px; border-color:#E5863D; text-align:center" value="<?=$rows[0]->level ?>" type="text" name="level">
+                            </div>
+                        </div>
+                        <div >
                                     <div class="table_header">
-                                        <h3>Materials and Equipment</h3>
+                                        <h3>Remaining Materials and Equipment</h3>
                                     </div>
                                     <div class="table_section">
                                         <table>
@@ -192,14 +142,16 @@ body{
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php if ($rows3):?>
-                                                <?php foreach ($rows3 as $row):?>
+                                            <?php if ($rows):?>
+                                                <?php foreach ($rows as $row):?>
+                                                    <?php if (!($row->remaining_quantity <= 0 )):?>
                                                 <tr>
-                                                    <td><input readonly value="<?= $row->material_id?>" name="m_id[]"></td>
-                                                    <td><input readonly value="<?= $row->measure_unit?>" name="m_name[]"></td>
-                                                    <td><input readonly value="<?= $row->measure_unit?>" name="m_unit[]"></td>
-                                                    <td><input value="<?= $row->quantity?>" name="m_quantity[]"></td> 
+                                                    <td><input readonly value="<?= $row->material_or_item_id?>" name="m_id[]"></td>
+                                                    <td><input readonly value="<?= $row->material_or_item_name?>" name="m_name[]"></td>
+                                                    <td><input readonly value="<?= $row->mesure_unit?>" name="m_unit[]"></td>
+                                                    <td><input value="<?= $row->remaining_quantity?>" name="m_quantity[]"></td> 
                                                 </tr>
+                                                    <?php endif; ?>
                                                 <?php endforeach; ?>
                                             <?php else: ?>
                                                 <h3>No request were found at this time</h3>
@@ -208,31 +160,17 @@ body{
                                         </table>
                                     </div>
                                 </div>
-                            <?php
-                            }
-                            ?>
                         <?php endif; ?>
-                        <pre><?=print_r($_POST) ?></pre>
                         <br>
                         <br>
                     </form>
-                        <?php
-                            if(isset($_GET['level'])){
-                        ?>
                             <div class="table_header" style="align-items: center; background-color:white">
                             <a href="<?=ROOT?>//Pmmaterial">
                             <input class ="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                             </a>
                             <input id="request-button" class ="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Request">
                             </div>
-                        <?php
-                            }   
-                        ?>
-                    
-                    
-                
-        </div>
-    </div>
+                    </div>
 <!-- <script>
     let form = document.getElementById('form');
     let requestButton = document.getElementById('request-button');

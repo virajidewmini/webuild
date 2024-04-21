@@ -119,7 +119,7 @@
 
                 </tbody>
             </table>
-            <a href="<?= ROOT ?>/task/" > <button style="margin-left:750px;" class="v_submit_button">Back</button></a>
+            <a href="<?= ROOT ?>/task/<?= Auth::getProjectId() ?>" > <button style="margin-left:750px;" class="v_submit_button">Back</button></a>
         </div>
             </div>
 

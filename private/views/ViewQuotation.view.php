@@ -1,6 +1,6 @@
 <?php $this->view('includes/header')?>
 
-<div style="margin-left: 400px;" class="table_header" >
+<div style="margin-left: 600px;" class="table_header" >
         <h1>Quotation </h1>
 </div>
 
@@ -18,6 +18,7 @@
                     <tr>
                         <th>Created Date</th>
                         <th>Quotation Number</th>
+                        <th>Project ID</th>
                         <th>Quotation</th>
                         <th>Action</th>
                     </tr>
@@ -25,28 +26,25 @@
 
                 <tbody>
                 <?php if(isset($rows)): ?>
-                    <?php $quotationNumber = 1; ?>
+                    
+                    
                     <?php foreach ($rows as $row):?>
-
+                        <?php if($row->status === "Display"): ?>
                     <tr>
                         <td><?=$row->created_date?></td>
-                        <td>Quotation <?=$quotationNumber?></td>
+                        <td><?=$row->id?></td>
+                        <td><?=$row->project_id?></td>
                         <td><a href="<?=ROOT?>/uploads/<?=$row->quotation?>"  target="_blank" style="color: blue;"><?=$row->quotation?></a></td>
                         
                         <td>
-                            <?php if($row->status === "Pending"): ?>
-                                <a href="<?=ROOT?>/accept"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
-                                <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
-
-                            <?php else: ?>
-                                <a href="<?=ROOT?>/accept"><button disabled class="accept-button" style="background-color: #ddd;" >Accept</button></a>
-                                <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #ddd;" disabled>Reject</button></a> 
                             
-                            <?php endif; ?>
+                                <a href="<?=ROOT?>/accept/<?=$row->project_id?>"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
+                                <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
+                 
                         </td>
-                        
+                        <?php endif; ?> 
                     </tr>
-                    <?php $quotationNumber++; ?> 
+                    
                     <?php endforeach;?>
                 <?php endif; ?>
                 </tbody>

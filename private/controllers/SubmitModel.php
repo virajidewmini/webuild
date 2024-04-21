@@ -4,79 +4,157 @@
         
         public function index(){
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // var_dump($_POST);
+                
                 $model = new UploadModel();
                 $userData = [
                     'occupation' => $_POST['occupation'],
                     'salary' => $_POST['salary']
                     
                 ];
-    
-                $landData = [
-                    'street' => $_POST['street'],
-                    'town' => $_POST['town'],
-                    'district' => $_POST['district'],
-                    'area' => $_POST['area']
-                ];
 
                 $modification_id = uniqid();
+    
+                $landData = [
+                    'ul_street' => $_POST['street'],
+                    'ul_town' => $_POST['town'],
+                    'ul_district' => $_POST['district'],
+                    'ul_area' => $_POST['area'],
+                    'user_id'=>Auth::id(),
+                    'modification_id'=>$modification_id,
+                ];
+
+                
                 $_POST['id'] = $modification_id;
 
-                $living_modification= [
+
+                $modify_paint = new Modification();
+
+                if (isset($_POST['livingRoomTile']) || isset($_POST['livingRoomPaint'])) {
+                   
+                    
+                    $living_modification= [
+                        'modification_id'=>$modification_id,
+                        'tile_id'=>$_POST['livingRoomTile'] ?? null,
+                        'paint_id'=>$_POST['livingRoomPaint'] ?? null
+                    ];
+                    $modify_paint->setTable("living_modification");
+                    $modify_paint->insert($living_modification);
+                }
+
+                if (isset($_POST['diningRoomTile']) || isset($_POST['diningRoomPaint'])) {
+                    
+                    $dining_modification= [
+                        'modification_id'=>$modification_id,
+                        'tile_id'=>$_POST['diningRoomTile'] ?? null,
+                        'paint_id'=>$_POST['diningRoomPaint'] ?? null
+                    ];
+                    
+                    $modify_paint->setTable("dining_modification");
+                    $modify_paint->insert($dining_modification);
+                }
+
+                if (isset($_POST['kitchenTile']) || isset($_POST['kitchenPaint'])) {
+                    
+
+                    $kitchen_modification= [
+                        'modification_id'=>$modification_id,
+                        'tile_id'=>$_POST['kitchenTile'] ?? null,
+                        'paint_id'=>$_POST['kitchenPaint'] ?? null
+                    ];
+                    
+                    $modify_paint->setTable("kitchen_modification");
+                    $modify_paint->insert($kitchen_modification);
+                    
+                }
+
+                if (isset($_POST['bathroomTile']) || isset($_POST['bathroomPaint'])) {
+                    
+
+                    $bathroom_modification= [
+                        'modification_id'=>$modification_id,
+                        'tile_id'=>$_POST['bathroomTile'] ?? null,
+                        'paint_id'=>$_POST['bathroomPaint'] ?? null
+                    ];
+                    
+                    $modify_paint->setTable("bathroom_modification");
+                    $modify_paint->insert($bathroom_modification);
+                    
+                    
+                }
+
+                if (isset($_POST['bedroomTile']) || isset($_POST['bedroomTile'])) {
+                    
+
+                    $bedroom_modification= [
+                        'modification_id'=>$modification_id,
+                        'tile_id'=>$_POST['bedroomTile'] ?? null,
+                        'paint_id'=>$_POST['bedroomPaint'] ?? null
+                    ];
+                    
+                    $modify_paint->setTable("bedroom_modification");
+                    $modify_paint->insert($bedroom_modification);      
+                    
+                }
+
+                if (isset($_POST['exteriorTile']) || isset($_POST['exteriorPaint'])) {
+                    
+
+                    $exterior_modification= [
+                        'modification_id'=>$modification_id,
+                        'tile_id'=>$_POST['exteriorTile'] ?? null,
+                        'paint_id'=>$_POST['exteriorPaint'] ?? null
+                    ];
+                    
+                    $modify_paint->setTable("exterior_modification");
+                    $modify_paint->insert($exterior_modification);
+                    
+                    
+                }
+
+
+                $ProjectRequest=new Project_requests();
+
+                $request=[
+                    'user_id'=>Auth::id(),
+                    'model_id'=>1,
                     'modification_id'=>$modification_id,
-                    'tile_id'=>$_POST['livingRoomTile'],
-                    'paint_id'=>$_POST['livingRoomPaint']
+                    'payment_plan_id'=>(int)$_POST['type'],
+                    'date'=>date('Y-m-d'),
+                    'status'=>"Modified",
                 ];
-
-                $dining_modification= [
-                    'modification_id'=>$modification_id,
-                    'tile_id'=>$_POST['diningRoomTile'],
-                    'paint_id'=>$_POST['diningRoomPaint']
-                ];
-
-                
-                $kitchen_modification= [
-                    'modification_id'=>$modification_id,
-                    'tile_id'=>$_POST['kitchenTile'],
-                    'paint_id'=>$_POST['kitchenPaint']
-                ];
-
-                $bathroom_modification= [
-                    'modification_id'=>$modification_id,
-                    'tile_id'=>$_POST['bathroomTile'],
-                    'paint_id'=>$_POST['bathroomPaint']
-                ];
-
-                
-                $bedroom_modification= [
-                    'modification_id'=>$modification_id,
-                    'tile_id'=>$_POST['bedroomTile'],
-                    'paint_id'=>$_POST['bedroomPaint']
-                ];
-
-                
-
-                $exterior_modification= [
-                    'modification_id'=>$modification_id,
-                    'tile_id'=>$_POST['exteriorTile'],
-                    'paint_id'=>$_POST['exteriorPaint']
-                ];
-
                
-
+                $ProjectRequest->insert($request);
 
                 $uploadedFiles = $model->uploadFiles($_FILES['files']);
+                $i = 0;
                 foreach ($uploadedFiles as $file) {
-                    $attachment_data_salary= [
-                        'file_name' => $file,
-                        'attachment_type'=> "SALARY"
-                    ];
-                    $attachment_data_land= [
-                        'file_name' => $file,
-                        'attachment_type'=> "LAND"
-                    ];
+                    var_dump($uploadedFiles);
+                     
+                    if ($i == 0) {
+                        $attachment_data= [
+                            'reference_id'=>$modification_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "SALARY"
+                        ];
+                    }elseif ($i ==1){
+                        $attachment_data= [
+                            'reference_id'=>$modification_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "LANDPHOTO"
+                        ];
+                    }else{
+                        $attachment_data= [
+                            'reference_id'=>$modification_id,
+                            'file_name' => $file,
+                            'attachment_type'=> "LANDBLOCK"
+                        ];
+                    }
+
+
                     $attachment_model = new Attachment();
-                    $attachment_model->insert($attachment_data_salary);
-                    $attachment_model->insert($attachment_data_land);
+                    $attachment_model->insert($attachment_data);
+                    $i++;
                     
                 }
 
@@ -86,27 +164,9 @@
     
                 $data->insert($userData);
                 $lands->insert($landData);
-
-                $modify_paint->setTable("living_modification");
-                $modify_paint->insert($living_modification);
-
-                $modify_paint->setTable("dining_modification");
-                $modify_paint->insert($dining_modification);
-
-                $modify_paint->setTable("kitchen_modification");
-                $modify_paint->insert($kitchen_modification);
-
-                $modify_paint->setTable("bathroom_modification");
-                $modify_paint->insert($bathroom_modification);
-
-                $modify_paint->setTable("bedroom_modification");
-                $modify_paint->insert($bedroom_modification);
-
-                $modify_paint->setTable("exterior_modification");
-                $modify_paint->insert($exterior_modification);
                 
             }
-
+            
             $paintView=new Paint();
         
             $data=$paintView->where("type","INTERIOR");

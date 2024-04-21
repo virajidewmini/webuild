@@ -9,11 +9,39 @@
             }
             $complaint=new C_Complaint();
 
-            $data['Qualiy_of_Photographs']=$complaint->getPendingPhotographComplaints();
-            $data['being_delayed']=$complaint->getPendingBeingDelayedComplaints();
-            $data['Workmanship_&_Materials']=$complaint->getPendingWorkmanshipAndMaterialsComplaints();
-            $data['Poor_Communication']=$complaint->getPendingPoorCommunicationComplaints();
-            $data['Other']=$complaint->getPendingOtherComplaints();
+            if(isset($_POST['complaint_type'])){
+                $complaint_type = $_POST['complaint_type'];
+
+                if($complaint_type=='Quality of the photograph'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingPhotographComplaints();
+                }
+                elseif($complaint_type=='Construction project delay '){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingBeingDelayedComplaints();
+                }
+                elseif($complaint_type=='Other'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingOtherComplaints();
+                }
+                elseif($complaint_type=='Poor Communication'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingPoorCommunicationComplaints();
+                }
+                elseif($complaint_type=='Quality of workmanship and materials'){
+                    $data['complaint_type']=$complaint_type;
+                    $data['complaints']=$complaint->getPendingWorkmanshipAndMaterialsComplaints();
+                };
+
+                
+            }
+            else{
+                $data['complaint_type']="Quality of the photograph";
+                $data['complaints']=$complaint->getPendingPhotographComplaints();
+            }
+            
+            
+
             
             $this->view('coordinatorcomplaints.pending',['rows'=>$data]);
             
@@ -27,6 +55,18 @@
             }
             $complaint=new C_Complaint();
             $data=$complaint->viewComplanitDetail($id);
+
+            $attachments=new Attachment();
+            $data['attachments']=$attachments->getComplaintaAttachments($id);
+            // print_r($data['attachments']);
+
+            //to change the notification status as seen
+            $notification = new Notifications();
+
+            $notification->updateComplaintNotification($id);
+
+
+
             $this->view('coordinatorcomplaints.seemore',['row'=>$data]);
             
         }
@@ -41,13 +81,14 @@
             if (count($_POST)>0){
 
                 //for poor comm and other complaints only
-                if(!($_POST['remark']==NULL)  && ($_POST['type'] == "other"   ||  $_POST['type']=="Poor Communication") ){
+                if(!($_POST['remark']==NULL)  && ($_POST['type'] == "Other"   ||  $_POST['type']=="Poor Communication") ){
                    
                     $_POST['status'] = "Notified";
-                    print_r($_POST);
+                    // print_r($_POST);
                 }
                 $complaint->update($id,$_POST);
-                $this->redirect('coordinatorviewcomplaints');                 
+                $this->redirect("coordinatorviewcomplaints/seemore/$id");   
+                //$this->redirect("coordinatorprojects/viewpayments/$project_details->project_id/$project_details->payment_package_id");              
             }
             $row = $complaint->where('id',$id);
             $this->view('coordinatorviewcomplaints.addremark',[
@@ -56,7 +97,7 @@
             
         }
 
-        public function notify($id = null){
+        public function notify($id = null,$complaint_id=null){
         
             if(!Auth::logged_in()){
                 $this->redirect('/staff_login');
@@ -84,7 +125,8 @@
 
                 //updating complaint status
                 $notification->setState($_POST['id']);
-                $this->redirect("coordinatorviewcomplaints");
+                //print_r($complaint_id);
+                $this->redirect("coordinatorviewcomplaints/seemore/$complaint_id");
                
             }            
         }

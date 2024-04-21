@@ -13,6 +13,7 @@ class Projects extends Model
         'get_model',
         'get_task',
         'get_req',
+        'get_land',
     ];
 
     public $user_id;
@@ -109,6 +110,20 @@ class Projects extends Model
         return $data;
     }
 
+    public function get_land($data)
+    {
+
+        $land = new User_land();
+        foreach ($data as $key => $row1) {
+            if (isset($row1->modification_id)) {
+                $result = $land->where('modification_id', $row1->modification_id);
+                $data[$key]->land = is_array($result) ? $result[0] : false;
+            }
+        }
+
+        return $data;
+    }
+
     public function get_task($data)
     {
 
@@ -168,5 +183,109 @@ class Projects extends Model
 
         $data['id'] = $id;
         return $this->query($query, $data);
+    }
+
+
+    public function toStart($mid){
+
+        $query = "SELECT projects.*, quotation.id AS quotation_id
+        FROM projects
+        JOIN quotation ON projects.id = quotation.project_id
+        JOIN payments ON projects.id = payments.project_id
+        WHERE projects.manager_id = :mid AND payments.status = 'Paid' AND projects.status = 'Pending' AND payments.installement_number = 1";
+		$data['mid'] = $mid;
+        return $this->query($query,$data);
+ }
+
+
+    //for coordinator dashboard
+    public function getOngoingProjectCount()
+    {
+
+        $query = "SELECT COUNT(*) AS total
+        FROM projects
+        WHERE status = 'ongoing' ";
+
+        
+        return $this->query($query);
+
+    }
+
+
+    //for coordinator ongoing projects view
+    public function getOngoingProjects()
+    {
+
+        $query = "SELECT
+        p.id AS project_id,
+        p.manager_id,
+        p.supervisor_id,
+        p.user_id,
+        p.status AS project_status,
+        p.payment_package_id,
+        pm.payment_id,
+        pm.amount AS payment_amount,
+        pm.date AS payment_date
+    FROM
+        projects p
+    LEFT JOIN (
+        SELECT
+            id AS payment_id,
+            project_id,
+            amount,
+            date
+        FROM
+            payments
+        WHERE
+            status = 'Unpaid' OR status = 'Notified'
+    ) pm ON p.id = pm.project_id
+    WHERE
+        p.status = 'Ongoing'
+        AND (
+            pm.date = (
+                SELECT MIN(date)
+                FROM payments
+                WHERE project_id = p.id
+                AND status = 'Unpaid'  OR status = 'Notified'
+            )
+            OR pm.payment_id IS NULL -- Include projects without unpaid payments
+        )
+    ORDER BY
+        CASE
+            WHEN pm.date IS NULL THEN 1 -- Place rows with NULL payment date last
+            ELSE 0 -- Place rows with non-NULL payment date first
+        END,
+        pm.date ASC, -- Then order by payment date within each group
+        p.id; -- Finally, order by project ID for consistency
+    ";
+
+        
+        return $this->query($query);
+
+    }
+
+    
+    public function get_project_request_id($value){
+
+
+        $query="SELECT projects.project_request_id FROM projects 
+        WHERE projects.id = :value"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getsupervisordetails($value){
+
+
+        $query="SELECT supervisor_id FROM projects 
+        WHERE id = :value"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
     }
 }

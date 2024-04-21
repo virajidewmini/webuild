@@ -6,7 +6,7 @@
 class Pmongoingproject extends Controller
 {
 
-	public function index()
+	public function index($status)
 	{
 		if (!Auth::logged_in()) {
 			$this->redirect('/login');
@@ -14,17 +14,14 @@ class Pmongoingproject extends Controller
 		$pmi = Auth::getid();
 
 		$projects = new Projects();
-		$data = $projects->where('manager_id', $pmi);
+		$data = $projects->where2('manager_id',  $pmi, 'status', $status);
 
-		$project_request = new Project_requests();
-		$data1 = $project_request->where2('manager_id', 'action', $pmi, 'modified');
 
 		$this->view('pmongoingproject', [
 			'rows' => $data,
-			'rows1' => $data1,
 		]);
 	}
-
+	
 	public function projectdeatils($id = null, $req = null, $mid = null, $model = null)
 	{
 		// code... 
@@ -68,7 +65,8 @@ class Pmongoingproject extends Controller
 		$allocated_co = new AllocateCoworker();
 		$data15 = $allocated_co->where('project_id', $id);
 
-
+		$project_material_quatation = new Project_material_quatation();
+		$data16 = $project_material_quatation->where2('project_id', $id, 'status', 'Remaining');
 
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
@@ -89,21 +87,18 @@ class Pmongoingproject extends Controller
 			'row7' => $data13,
 			'row8' => $data14,
 			'row9' => $data15,
+			'row10' => $data16,
 		]);
 	}
 
 	public function acceptTask($id)
 	{
-		print_r($id);
-		// code...
 		if (!Auth::logged_in()) {
 			$this->redirect('/login');
 		}
 
-		$project_task = new Project_tasks();
-		$arr['status'] = 'done';
-		$project_task->update($id, $arr);
-
-		$this->view('pmprojectprofile');
+		$allocated_task = new Allocated_tasks();
+		$arr['status'] = 'Done';
+		$allocated_task->update($id, $arr);
 	}
 }

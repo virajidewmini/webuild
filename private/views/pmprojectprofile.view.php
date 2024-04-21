@@ -64,11 +64,12 @@
         padding: 20px;
     }
 
-    th{
+    th {
         position: sticky;
         top: 0;
     }
-    .table_section{
+
+    .table_section {
         max-height: 500px;
         overflow-y: scroll;
 
@@ -143,552 +144,330 @@
         background: linear-gradient(90deg, rgba(255, 152, 0, 1) 50%, rgba(255, 193, 7, 1) 100%);
         transition: width .5s linear;
     }
+
+    .modi_top {
+        margin-top: 20px;
+    }
 </style>
 <?= $modification_id = ""; ?>
 <div>
     <div class="pro-id">
-        <div class="pro-id-details">
-            <div class="title-id ind-topic">
-                <div class="p-title">
-                    <h2 class="">Project ID :</h2>
-                </div>
-                <div class="p-title-detail">
-                    <h2><?= $rows[0]->id ?></h2>
-                </div>
+        <div class="title-id ind-topic">
+            <div class="p-title">
+                <h2 class="">Project ID :</h2>
             </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Customer Name : </p>
-                </div>
-                <div class="e-id-d">
-                    <p><?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?></p>
-                </div>
+            <div class="p-title-detail">
+                <h2><?= $rows[0]->id ?></h2>
             </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Project Manager : </p>
-                </div>
-                <div class="e-id-d">
-                    <p><?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?></p>
-                </div>
-            </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Project Supervisor : </p>
-                </div>
-                <?php if ($rows[0]->staff) : ?>
-                    <div class="e-id-d">
-                        <p><?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?></p>
+        </div>
+
+        <div class="form_container">
+
+            <fieldset style="padding:10px;" class="FormFieldset">
+                <legend class="Formlegend"> Project Details</legend>
+
+                <div class="form-group">
+                    <br>
+
+                    <div class="column">
+                        <label for="firstname">Customer Name :</label>
+                        <input type="text" name="customer_name" value="<?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?>">
                     </div>
-                <?php else : ?>
-                    <div class="e-id-d">
-                        <p style="color:red">Not Assigned</p>
+                    <div class="column">
+                        <label for="lastName">Project Manager :</label>
+                        <input type="text" value="<?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?>">
                     </div>
-                <?php endif; ?>
-            </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Start date :</p>
+                    <div class="column">
+                        <label for="occupation">Project Supervisor :</label>
+                        <?php if ($rows[0]->staff) : ?>
+                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->staff->firstname ?> <?= $rows[0]->staff->lastname ?>">
+                        <?php else : ?>
+                            <input style="color:red" type="text" id="occupation" name="occupation" value="Not Assigned">
+                        <?php endif; ?>
+                    </div>
+                    <div class="column">
+                        <label for="lastName">Start date :</label>
+                        <input type="text" id="occupation" name="occupation" value="<?= get_date($rows[0]->date) ?>">
+
+                    </div>
+                    <div class="column">
+                        <label for="occupation">Estimate Finishing Date :</label>
+                        <input type="text" id="contactnumber" name="contactnumber" value="<?= get_date($rows[0]->final_date) ?>">
+                    </div>
+                    <div class="column">
+                        <label for="lastName">Land Type :</label>
+                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->land_type ?>">
+                    </div>
+                    <div class="column">
+                        <label for="lastName">Land ID :</label>
+                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->land_id ?>">
+                    </div>
+                    <div class="column">
+                        <label for="lastName">Model Name :</label>
+                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->name ?>">
+                    </div>
+
                 </div>
-                <div class="e-id-d">
-                    <p><?= get_date($rows[0]->date) ?></p>
-                </div>
-            </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Estimate Finishing Date :</p>
-                </div>
-                <div class="e-id-d">
-                    <p><?= get_date($rows[0]->final_date) ?></p>
-                </div>
-            </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Land Type :</p>
-                </div>
-                <div class="e-id-d">
-                    <p><?= $rows[0]->land_type ?></p>
-                </div>
-            </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Land ID :</p>
-                </div>
-                <div class="e-id-d">
-                    <p><?= $rows[0]->land_id ?></p>
-                </div>
-            </div>
-            <div class="unit-d">
-                <div class="unit">
-                    <p>Model Name :</p>
-                </div>
-                <div class="e-id-d">
-                    <p><?= $rows[0]->mdl->name ?></p>
-                </div>
-            </div>
+            </fieldset>
             <div id="pro_de" class="hidden">
-                <div>
-                    <h3 class="ind-topic">Model Details</h3>
-                    <div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>ID :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->id ?></p>
-                            </div>
+                <fieldset style="padding:10px;" class="FormFieldset">
+                    <legend class="Formlegend">Model Details</legend>
+
+                    <div class="form-group">
+                        <br>
+
+                        <div class="column">
+                            <label for="firstname">ID :</label>
+                            <input type="text" name="customer_name" value="<?= $rows[0]->mdl->id ?>">
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Name :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->name ?></p>
-                            </div>
+                        <div class="column">
+                            <label for="lastName">Name :</label>
+                            <input type="text" value="<?= $rows[0]->mdl->name ?>">
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>No. Of Rooms :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->no_room ?></p>
-                            </div>
+                        <div class="column">
+                            <label for="occupation">No. Of Rooms :</label>
+                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->no_room ?>">
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>No. Of Kitchen :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->no_kitchen ?></p>
-                            </div>
+                        <div class="column">
+                            <label for="lastName">No. Of Kitchen :</label>
+                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->no_kitchen ?>">
+
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Flow Plan :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p></p>
-                            </div>
+                        <div class="column">
+                            <label for="occupation">Flow Plan :</label>
+                            <input type="text" id="contactnumber" name="contactnumber" value="<?= get_date($rows[0]->final_date) ?>">
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>No. Of Floars :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->no_floar ?></p>
-                            </div>
+                        <div class="column">
+                            <label for="lastName">No. Of Floars :</label>
+                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->no_floar ?>">
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Parking Space In Square Feet :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->parking_space ?></p>
-                            </div>
+                        <div class="column">
+                            <label for="lastName">Description :</label>
+                            <textarea style="height:200px; width: 400px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px; padding:10px;" type="text" id="occupation" name="occupation" value=""><?= $rows[0]->mdl->description ?></textarea>
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Tile ID Of Kitchen :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->kitchen_tile ?></p>
-                            </div>
+                        <div class="column">
+                            <label for="lastName">Parking Space In Square Feet :</label>
+                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->parking_space ?>">
                         </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Tile ID Of Dining :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->dinien_tile ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Tile ID Of Bathroom :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->bathroom_tile ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Color ID :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->color ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Description :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $rows[0]->mdl->description ?></p>
-                            </div>
-                        </div>
+
                     </div>
-                    <?php if ($rowk || $rowba || $rowl || $rowbe || $rowd || $rowe) : ?>
-                        <h3 class="ind-topic">Modification Details</h3>
-                        <div>
-                            <?php if ($rowk) : ?>
-                                <h4 class="mod-title">Kitchen</h4>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Name :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowk[0]->paint->name ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Code :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowk[0]->paint->color ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile Name :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowk[0]->tile->name ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile ID :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowk[0]->tile->id ?></p>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                        <div>
+                </fieldset>
+                <br>
+                <?php if ($rowk || $rowba || $rowl || $rowbe || $rowd || $rowe) : ?>
+                    <fieldset class="FormFieldset">
+                        <legend class="Formlegend"> Modification Details</legend>
+
+                        <div class="form-group">
                             <?php if ($rowba) : ?>
-                                <h4 class="mod-title">Bathroom</h4>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Name :</p>
+                                <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
+                                    <legend style="color:black;" class="Formlegend"><b>Bathroom</b></legend>
+                                    <div class="column">
+                                        <label for="firstname">Color Code :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowba[0]->paint->color ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowba[0]->paint->name ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Color Name :</label>
+                                        <input type="text" value="<?= $rowba[0]->paint->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Code :</p>
+                                    <div class="column">
+                                        <label for="firstname">Tile ID :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowba[0]->tile->id ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowba[0]->paint->color ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Tile Name :</label>
+                                        <input type="text" value="<?= $rowba[0]->tile->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile Name :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowba[0]->tile->name ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile ID :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowba[0]->tile->id ?></p>
-                                    </div>
-                                </div>
+                                </fieldset>
                             <?php endif; ?>
-                        </div>
-                        <div>
                             <?php if ($rowl) : ?>
-                                <h4 class="mod-title">Living Area</h4>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Name :</p>
+                                <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
+                                    <legend style="color:black;" class="Formlegend"><b>Living Room</b></legend>
+                                    <div class="column">
+                                        <label for="firstname">Color Code :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowl[0]->paint->color ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowl[0]->paint->name ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Color Name :</label>
+                                        <input type="text" value="<?= $rowl[0]->paint->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Code :</p>
+                                    <div class="column">
+                                        <label for="firstname">Tile ID :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowl[0]->tile->id ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowl[0]->paint->color ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Tile Name :</label>
+                                        <input type="text" value="<?= $rowl[0]->tile->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile Name :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowl[0]->tile->name ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile ID :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowl[0]->tile->id ?></p>
-                                    </div>
-                                </div>
+                                </fieldset>
                             <?php endif; ?>
-                        </div>
-                        <div>
                             <?php if ($rowbe) : ?>
-                                <h4 class="mod-title">Bedroom</h4>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Name :</p>
+                                <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
+                                    <legend style="color:black;" class="Formlegend"><b>Bedroom</b></legend>
+                                    <div class="column">
+                                        <label for="firstname">Color Code :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowbe[0]->paint->color ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowbe[0]->paint->name ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Color Name :</label>
+                                        <input type="text" value="<?= $rowbe[0]->paint->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Code :</p>
+                                    <div class="column">
+                                        <label for="firstname">Tile ID :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowbe[0]->tile->id ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowbe[0]->paint->color ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Tile Name :</label>
+                                        <input type="text" value="<?= $rowbe[0]->tile->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile Name :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowbe[0]->tile->name ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile ID :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowbe[0]->tile->id ?></p>
-                                    </div>
-                                </div>
+                                </fieldset>
                             <?php endif; ?>
-                        </div>
-                        <div>
                             <?php if ($rowd) : ?>
-                                <h4 class="mod-title">Dining</h4>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Name :</p>
+                                <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
+                                    <legend style="color:black;" class="Formlegend"><b>Dining</b></legend>
+                                    <div class="column">
+                                        <label for="firstname">Color Code :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowd[0]->paint->color ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowd[0]->paint->name ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Color Name :</label>
+                                        <input type="text" value="<?= $rowd[0]->paint->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Code :</p>
+                                    <div class="column">
+                                        <label for="firstname">Tile ID :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowd[0]->tile->id ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowd[0]->paint->color ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Tile Name :</label>
+                                        <input type="text" value="<?= $rowd[0]->tile->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile Name :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowd[0]->tile->name ?></p>
-                                    </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile ID :</p>
-                                    </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowd[0]->tile->id ?></p>
-                                    </div>
-                                </div>
+                                </fieldset>
                             <?php endif; ?>
-                        </div>
-                        <div>
                             <?php if ($rowe) : ?>
-                                <h4 class="mod-title">Exterior</h4>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Name :</p>
+                                <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
+                                    <legend style="color:black;" class="Formlegend"><b>Exterior</b></legend>
+                                    <div class="column">
+                                        <label for="firstname">Color Code :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowe[0]->paint->color ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowe[0]->paint->name ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Color Name :</label>
+                                        <input type="text" value="<?= $rowe[0]->paint->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Color Code :</p>
+                                    <div class="column">
+                                        <label for="firstname">Tile ID :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowe[0]->tile->id ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowe[0]->paint->color ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Tile Name :</label>
+                                        <input type="text" value="<?= $rowe[0]->tile->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile Name :</p>
+                                </fieldset>
+                            <?php endif; ?>
+                            <?php if ($rowk) : ?>
+                                <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
+                                    <legend style="color:black;" class="Formlegend"><b>Kitchen</b></legend>
+                                    <div class="column">
+                                        <label for="firstname">Color Code :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowk[0]->paint->color ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowe[0]->tile->name ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Color Name :</label>
+                                        <input type="text" value="<?= $rowk[0]->paint->name ?>">
                                     </div>
-                                </div>
-                                <div class="unit-d">
-                                    <div class="unit">
-                                        <p>Tile ID :</p>
+                                    <div class="column">
+                                        <label for="firstname">Tile ID :</label>
+                                        <input type="text" name="customer_name" value="<?= $rowk[0]->tile->id ?>">
                                     </div>
-                                    <div class="e-id-d">
-                                        <p><?= $rowe[0]->tile->id ?></p>
+                                    <div class="column">
+                                        <label for="lastName">Tile Name :</label>
+                                        <input type="text" value="<?= $rowk[0]->tile->name ?>">
                                     </div>
-                                </div>
+                                </fieldset>
                             <?php endif; ?>
                         </div>
-                    <?php endif; ?>
-                    <h3 class="ind-topic">Land Details</h3>
-                    <?php if ($row3[0]->land_type == 'user') : ?>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>ID :</p>
+                    </fieldset>
+                    <br>
+                <?php endif; ?>
+                <fieldset style="padding:10px;" class="FormFieldset">
+                    <legend class="Formlegend">Land Details</legend>
+
+                    <div class="form-group">
+                        <br>
+                        <?php if ($row3[0]->land_type == 'user') : ?>
+                            <div class="column">
+                                <label for="firstname">ID :</label>
+                                <input type="text" name="customer_name" value="<?= $row3[0]->land_u->id ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->id ?></p>
+                            <div class="column">
+                                <label for="lastName">Street :</label>
+                                <input type="text" value="<?= $row3[0]->land_u->street ?>">
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Street :</p>
+                            <div class="column">
+                                <label for="occupation">Town :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->town ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->street ?></p>
+                            <div class="column">
+                                <label for="lastName">District :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->ul_district ?>">
+
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Town :</p>
+                            <div class="column">
+                                <label for="occupation">Block Plan :</label>
+                                <input type="text" id="contactnumber" name="contactnumber" value="<?= $row3[0]->land_u->block_plan ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->town ?></p>
+                            <div class="column">
+                                <label for="lastName">Area in perch :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->area ?>">
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>District :</p>
+                            <div class="column">
+                                <label for="lastName">Image :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->image ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->district ?></p>
+                        <?php else : ?>
+                            <div class="column">
+                                <label for="lastName">ID :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->id ?>">
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Block Plan :</p>
+                            <div class="column">
+                                <label for="lastName">Name :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->name ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->block_plan ?></p>
+                            <div class="column">
+                                <label for="lastName">Lane :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->lane ?>">
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Area in perch :</p>
+                            <div class="column">
+                                <label for="lastName">Town :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->town ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->area ?></p>
+                            <div class="column">
+                                <label for="lastName">District :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->district ?>">
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Image :</p>
+                            <div class="column">
+                                <label for="lastName">Area in perch :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->area_in_perch ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land_u->image ?></p>
+                            <div class="column">
+                                <label for="lastName">Image :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->block_plan ?>">
                             </div>
-                        </div>
-                    <?php else : ?>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>ID :</p>
+                            <div class="column">
+                                <label for="lastName">Block plan :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->town ?>">
                             </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->id ?></p>
+                            <div class="column">
+                                <label for="lastName">Road map :</label>
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->road_map ?>">
                             </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Name :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->name ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Lane :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->lane ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Town :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->town ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>District :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->district ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Area in perch :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->area_in_perch ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Image :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->image ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Block plan :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->block_plan ?></p>
-                            </div>
-                        </div>
-                        <div class="unit-d">
-                            <div class="unit">
-                                <p>Road map :</p>
-                            </div>
-                            <div class="e-id-d">
-                                <p><?= $row3[0]->land->road_map ?></p>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
+                        <?php endif; ?>
+                    </div>
+                </fieldset>
+
             </div>
             <div class="unit-d" style="display: flex; justify-content: center; align-items: center;">
                 <div>
-                    <button onclick="toggleDiv()" id="toggleButton" class="add___">More</button>
+                    <button onclick="toggleDiv()" id="toggleButton" class="add___" style="margin-top:20px">More</button>
                 </div>
             </div>
         </div>
@@ -864,7 +643,7 @@
                                     <tr>
                                         <td><?= $row->task_id ?></td>
                                         <td><?= $row->task->task_name ?></td>
-                                        <td><button style="background-color:#E5863D; color:#fff;">Accept</button></a> <button style="background-color:#f2eaea;">Reject</button></td>
+                                        <td><button id="task_accept" style="background-color:#E5863D; color:#fff;">Accept</button> <button id="task_reject" style="background-color:#f2eaea;">Reject</button></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -988,6 +767,37 @@
             </div>
             <div class="table">
                 <div class="table_header">
+                    <h3>Remaining</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Quatation ID</th>
+                                <th>Level</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($row10) : ?>
+                                <?php foreach ($row10 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->request_id ?></td>
+                                        <td><?= $row->id ?></td>
+                                        <td><?= $row->req->level ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmmaterial_r/remaining_request/<?= $row->id ?>/<?= $row->request_id ?>/"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table_header">
                     <h3>To be recieved</h3>
                 </div>
                 <div class="table_section">
@@ -1101,10 +911,56 @@
             </div>
         </div>
 
+        <div class="pro-id-details">
+            <div class="table">
+                <div class="title-id">
+                    <div class="p-title">
+                        <h2 class="ind-topic">Daily Progress Report</h2>
+                    </div>
+                </div>
+                <div class="table_header">
+                    <h3>Reports</h3>
+                </div>
+                <div class="table_section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>Skill</th>
+                                <th>Task ID</th>
+                                <th>Task Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($row9) : ?>
+                                <?php foreach ($row9 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->emp_id ?></td>
+                                        <td><?= $row->coworker->name ?></td>
+                                        <td><?= $row->coworker->role ?></td>
+                                        <td><?= $row->task_id ?></td>
+                                        <td><?= $row->task->task_name ?></td>
+                                        <td><?= get_date($row->start_date) ?></td>
+                                        <td><?= get_date($row->end_date) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <script>
+    const task_accept = document.getElementById('task_accept');
+
     function toggleDiv() {
+
         var myDiv = document.getElementById("pro_de");
         var toggleButton = document.getElementById("toggleButton");
 
@@ -1123,6 +979,14 @@
         span.style.width = span.dataset.width;
         span.innerHTML = span.dataset.width;
     });
+    <?php if ($rows2) : ?>
+
+        task_accept.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch("<?= ROOT ?>/Pmongoingproject/acceptSupervisor/<?= $rows2[0]->id ?>")
+            window.location.reload();
+        });
+    <?php endif; ?>
 </script>
 
 

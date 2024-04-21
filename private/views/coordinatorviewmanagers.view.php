@@ -19,8 +19,8 @@ body{
                         <tr>
                             <th>Employee ID</th>
                             <th>Name</th>
-                            <th>No. of Projects</th>
-                            <th>Joined Date</th>
+                            <th>District</th>
+                            <th>No. of Currently Working Projects</th>
                             <th>See Projects</th>
 
                         </tr>
@@ -28,12 +28,12 @@ body{
                     <tbody>
                         <?php foreach ($rows["managers"] as $row) :?>
                             <tr>                       
-                                <td><?=$row->staff_id?></td>
+                                <td><?=$row->id?></td>
                                 <td><?=$row->firstname?> <?=$row->lastname?></td>
-                                <td><?=$row->count?></td> 
-                                <td><?=$row->joineddate?></td> 
+                                <td><?=$row->district?></td>
+                                <td><?=$row->project_count?></td> 
                                 <td>
-                                    <a href="<?=ROOT?>/coordinatorviewmanagers/seeprojects/<?=$row->staff_id?>">
+                                    <a href="<?=ROOT?>/coordinatorviewmanagers/seeprojects/<?=$row->id?>">
                                         <button><i class="fa-solid fa-sheet-plastic"></i></button>
                                     </a>
                                 </td> 

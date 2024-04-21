@@ -416,6 +416,119 @@ td img{
 
 /* --End of the form styles-- */
 
+/* Multi Step Form  */
+
+.v_form-step{
+    display: none;
+}
+.v_form-step-active{
+    display: block;
+}
+
+.form_progressbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+}
+.form_progressbar::before, .form_progress{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc; 
+    /* Change */
+     /* z-index: -1; */
+ 
+}
+.form_progress{
+    background-color: #E5863D;
+    width: 0%;
+    /* Change */
+    transition: 0.3s;
+}
+.form_progress-step{
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.form_progress-step::before{
+    counter-increment: step;
+    content: counter(step);
+}
+.form_progress-step::after{
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem );
+    font-size: 0.85rem;
+    color: #666;
+}
+.form_progress-step-active{
+    background-color: #E5863D;
+    color: #f3f3f3;
+}
+.form_btns-group{
+    display: flex;
+}
+.form_btn{
+    width: 25%;
+    height: 50px;
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: #E5863D;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: auto;
+}
+.form_btn:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #eb904a;
+    background-color: #eb904a;
+}
+.form_btn-previous{
+    margin-left: 3px;
+}
+
+/* End of Multi step form */
+
+/* Multi Choice grid form */
+.optionDiv{
+    margin-left: 300px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+    gap: 10px;
+}
+input[type="radio"]  {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+    border: 5px solid #007bff;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+input[type="radio"]:checked  {
+    background-color: #007bff;
+}
+
+
+
+
+/* End of Multi Choice grid form */
+
 
 /* -- pricing -- */
 
@@ -692,6 +805,218 @@ td img{
 
 /* end of display card */
 
+/* rating and review */
+
+.rate-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rate-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 20px;
+  }
+  .rate-heading span{
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .rate-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .rate-box{
+    width: 500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+  }
+  .rate-box :hover{
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+  }
+  .rate-profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  .rate-profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .rate-profile{
+    display: flex;
+    align-items: center;
+  }
+  .name-user{
+    display: flex;
+    flex-direction: column;
+  }
+  .name-user strong{
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  .name-user span{
+    color: #979797;
+    font-size: 0.8rem;
+  }
+  .reviews{
+    color: #f9d71c;
+  }
+  .rate-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .rate-comment{
+    font-size: 0.9rem;
+    color: #4b4b4b;
+    text-align: justify;
+  }
+
+/* end of rating and review */
+
+.errors{
+    padding-bottom: 20px;
+    color: red;
+  }
+
+.main-container{
+    place-items: center;
+    display: grid;
+}
+.star-container{ 
+    position: relative;
+    width: 400px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  .star-widget label{
+    font-size: 40px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+  }
+  .star-input:not(:checked) ~ .star-label:hover,
+  .star-input:not(:checked) ~ .star-label:hover ~ .star-label{
+    color: #fd4;
+  }
+  .star-input:checked ~ label:hover {
+    color: #fe7;
+  }
+
+
+.star-label:hover, 
+.star-input:checked ~ .star-label { 
+  color: #fd4;
+}
+
+.star-input:checked ~ label {
+  color: #fe7;
+  
+}
+
+/* Add the following style */
+.star-input:checked ~ label:hover {
+  color: #fe7;
+}
+  .star-input#rate-5:checked ~ label{
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+  }
+  #rate-1:checked ~ form header:before{
+    content: "I just hate it ";
+  }
+  #rate-2:checked ~ form header:before{
+    content: "I don't like it ";
+  }
+  #rate-3:checked ~ form header:before{
+    content: "It is awesome ";
+  }
+  #rate-4:checked ~ form header:before{
+    content: "I just like it ";
+  }
+  #rate-5:checked ~ form header:before{
+    content: "I just love it ";
+  }
+  .container form{
+    display: none;
+  }
+  .star-input:checked ~ form{
+    display: block;
+  }
+
+/* end of rating and review */
+
+
+
+/* end of rating and review */
+
+/* Daily progress report view */
+
+.report-container{
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.report-section {
+    margin-bottom: 20px;
+}
+
+.report-section-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.report-section-content {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.report-table {
+    /* width: 100%; */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.report-table th, .report-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.report-table th {
+    background-color: #f2f2f2;
+}
+/* End of daily progress report view */
 /* Add textfields onclick */
 
 .additional-fields {
