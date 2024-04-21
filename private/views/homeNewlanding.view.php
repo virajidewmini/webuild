@@ -7,6 +7,9 @@
 
    <!-- fontawesome cdn link  -->
 
+
+  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
@@ -34,31 +37,30 @@
   
   
   <nav class="navbar">
-  
 
-    <!-- <a  href="./lands.php">Lands</a>
-    <a  href="./houses.php">houses</a>
-    <a  href="./about.php">about</a>
-    <a  href="./services.php">services</a>
-    <a  href="./completed projects.php">completed projects</a>
-    <a  href="./pricing.php">pricing</a>
-    <a  href="./contact.php">Contact </a>
-    <a  href="./blogs.php">Blogs</a> -->
-
-
-    <a  href="#home">home</a>
-    <!-- <a  href="#lands">Lands</a>
-    <a  href="#houses">houses</a> -->
+    <a  href=Home/houses>Houses</a>
+    <a  href=ExistingModels>existing models </a>
     <a  href="#about">about</a>
     <a  href="#services">services</a>
-    <a  href="#projects">completed projects</a>
+    <a  href=Home/completedProjects>completed projects</a>
     <a  href="#pricing">pricing</a>
     <a  href="#contact">contact </a>
-    <a  href="#blogs">blogs</a>
+    <a  href=Home/staff>Staff</a>
   
+    
   </nav>
   <div class="icons">
-    <div id="menu-btn" class="fas fa-bars"></div>
+    <div id="menu-btn" class="fas fa-bars">
+    <script>
+      let navbar =document.querySelector('.header .navbar');
+      
+document.querySelector('#menu-btn').onclick = () =>{
+  navbar.classList.toggle('active');
+  searchForm.classList.remove(' active');
+  loginForm.classList.remove(' active');
+};
+    </script>
+    </div>
     <div id="info-btn" class="fas fa-info-circle"></div>
     <div id="search-btn" class="fas fa-search"></div>
     <div id="login-btn" class="fas fa-user"></div>
@@ -128,44 +130,27 @@
   
   <!-- header section ends -->
 
-  <!-- home section starts  -->
+ 
 
-  <section class="home" id="home">
-    <div class="swiper home-slider">
-
-      <div class="swiper-wrapper">
-        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg)no-repeat;">
-          <div class="content">
-            <h3>we provide best service</h3>
-            <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-            <a href="#" class="btn">get started</a>
-          </div>
-        </section>
-
-       
-          <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/engineers-plan-complete-construction-create-together_37714-575.jpg)no-repeat;">
-            <div class="content">
-              <h3>making dream come to life</h3>
-              <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-              <a href="#" class="btn">get started</a>
-            </div>
-          </section>
-
+  
+  <section class="home" id="home" style="padding-bottom:4.8rem;">
+  <div class="swiper home-slider">
+    <div class="swiper-wrapper">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
+        <div class="content">
+          <h3>we provide best service</h3>
+          <p style="margin-bottom:35px;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
           
-            <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg)no-repeat;">
-              <div class="content">
-                <h3>from concept to creation</h3>
-                <p>uhuhuh iuihjwooijoqd ojijod ojoijojdwe oijoid oijjiuheeiueiuh</p>
-                <a href="#" class="btn">get started</a>
-              </div>
-            </section>
-      </div>
-
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+        </div>
+      </section>
       
     </div>
-  </section>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
 
     <!-- home section ends  -->
 
@@ -183,13 +168,18 @@
 
         <div class="content">
           <h3>We will provide you the best work which you dreamt for!</h3>
-          <p>lkkjjowjijjjjwoejjwijwjowjwwoojlojjoikmdddddnnk9ioqpp  okokkwnkcwnnohdvcn</p>
-          <a href="#services" class="btn">read more</a>
+          <p>Everyone aspires to own a great piece of property. We, at Prime Lands, made it our aim to make 
+            this dream a reality. Assume you wish to buy land to build a house for you and your family. Prime
+             Lands provide you with a selection of the most excellent land alternatives in the country, as well 
+             as a variety of support services, such as legal and financial assistance, to help you realize your
+              property dreams. In Sri Lanka's highly competitive real estate market, Prime Lands acquired over 
+              300,000 customers, sufficient proof of Prime Lands' capacity and leadership in the real estate industry. </p>
+          
         </div>
 
       </div>
 
-      <div class="box-container">
+      <div class="box-container" style="display: flex;justify-content:center;gap:3rem;">
 
         <div class="box">
           <h3>10+</h3>
@@ -213,68 +203,60 @@
       </div>
     </section>
 
-    <!-- about section ends -->
-
-    <!-- service section starts  -->
-
+   
     <section class="services" id="services">
-
-      <h1 class="heading">our services</h1>
-
-      <div class="box-container">
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/kitchen/k1jpg.jpg" alt="">
-          <h3>building construction</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
+  
+        <h1 class="heading">our services</h1>
+  
+        <div class="box-container" style="display:flex">
+  
+          <div class="box">
+            <img src="<?=ROOT?>/img/Photos/forLandingPage/construction.jpg" alt="">
+            <h3>building construction</h3>
+            <p> Crafting dreams into concrete reality. Our expert
+               team transforms blueprints into breathtaking structures,
+                ensuring quality, precision, and timely delivery.Crafting dreams into concrete reality. Our expert team transforms blueprints into breathtaking structures, ensuring quality, precision, and timely delivery.</p>
+          </div>
+  
+          <div class="box">
+            <img src="<?=ROOT?>/img/Photos/forLandingPage/02d4c179-b590-4bd4-b18d-9882b95b8d46.jpg" alt="">
+            <h3>construction consultant</h3>
+            <p> Navigating the complexities of construction with finesse.
+               Our consultants offer invaluable insights, strategic guidance,
+                and innovative solutions, ensuring your project stays on track and exceeds expectations."</p>
+          </div>
+  
+          <div class="box">
+            <img src="<?=ROOT?>/img/Photos/forLandingPage/7608710.jpg" alt="">
+            <h3>architecture design</h3>
+            <p>Where imagination meets functionality. Our architects blend
+               creativity with practicality to design spaces that inspire,
+                innovate, and elevate the human experience. Let's turn your vision into architectural marvels.</p>
+          </div>
+  
         </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br3.jpg" alt="">
-          <h3>house renovation</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br3.jpg" alt="">
-          <h3>material supply</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br5.jpg" alt="">
-          <h3>construction consultant</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-        <div class="box">
-          <img src="<?=ROOT?>/img/Photos/bedrooms/br7.jpg" alt="">
-          <h3>architecture design</h3>
-          <p> hh uahiu iuhiihiuioxAOKSOASJOQSPojoidjjkodjooio</p>
-        </div>
-
-      </div>
-    </section>
-    <!-- service section ends  -->
+      </section>
+      <!-- service section ends  -->
+   
  
 
 <!-- completed project section starts  -->
 
 <section class="projects" id="projects">
 
-  <h1 class="heading">our completed projects</h1>
+  <h1 class="heading">our Existing Models</h1>
 
-  <div class="box-container">
+  <div class="box-container" style="display: flex;gap:2rem;">
     <a href="" class="box">
       <div class="image">
         <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/21080514083801.jpg" alt="">
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Cozy Haven: 1-Story, 2 Bedroom Retreat</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -284,10 +266,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Family Oasis: 1-Story, 3 Bedroom Haven</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -295,12 +277,13 @@
       <div class="image">
         <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/hq720.jpg" alt="">
       </div>
+      
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Elevated Living: 2-Story, 3 Bedroom Sanctuary</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -310,10 +293,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Grand Estate: 2-Story, 5 Bedroom Residence</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
@@ -323,10 +306,10 @@
       </div>
       <div class="content">
         <div class="info">
-          <h3>dream house</h3>
-          <p>construction ,design</p>
+          <h3>Skyline Villa: 3-Story, 6 Bedroom Penthouse</h3>
+          <!-- <p>construction ,design</p> -->
         </div>
-        <i class="fas fa-plus"></i>
+        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
   </div>
@@ -434,6 +417,24 @@
       </div>
     </div>
   </div>
+  <script>
+    var swiper = new Swiper(".reviews-slider",{
+  loop:true,
+  grabCursor:true,
+  spaceBetween:20,
+  breakpoints: {
+    640: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    991: {
+      slidesPerView: 3,
+    },
+  },
+});
+  </script>
 
 </section>
 
@@ -445,9 +446,9 @@
 
   <h1 class="heading"> our pricing</h1>
 
-  <div class="box-container">
+  <div class="box-container" style="display: flex;justify-content:center;" >
 
-    <div class="box">
+    <div class="box" style="padding:8rem;">
       <i class="fas fa-home"></i>
       <h3>basic plan</h3>
       <div class="price"><span>Rs</span>250<span>/no</span></div>
@@ -457,10 +458,10 @@
         <p>material supply</p>
         <p>24/7 support</p>
       </div>
-      <a href="#" class="btn">choose plan</a>
+      <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box">
+    <div class="box" style="padding:8rem;">
       <i class="fas fa-building"></i>
       <h3>premium plan</h3>
       <div class="price"><span>Rs</span>650<span>/no</span></div>
@@ -470,10 +471,10 @@
         <p>material supply</p>
         <p>24/7 support</p>
       </div>
-      <a href="#" class="btn">choose plan</a>
+      <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box">
+    <div class="box" style="padding:8rem;">
       <i class="fas fa-city"></i>
       <h3>ultimate plan</h3>
       <div class="price"><span>Rs</span>1250<span>/no</span></div>
@@ -483,7 +484,7 @@
         <p>material supply</p>
         <p>24/7 support</p>
       </div>
-      <a href="#" class="btn">choose plan</a>
+      <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
   
@@ -507,12 +508,12 @@
 University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4v1708289637822!5m2!1sen!2slk"
   allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-  <form action="">
+  <form action=ContactUsHome/add method="post" class="conatct-us">
     <h3>get in touch</h3>
     <input type="text" placeholder="name" class="box">
     <input type="email" placeholder="email" class="box">
     <input type="number" placeholder="phone" class="box">
-    <textarea name="" placeholder="message"  class="box"  id="" cols="30" rows="10"></textarea>
+    <textarea name="message" placeholder="message"  class="box"  id="" cols="30" rows="10"></textarea>
     <input type="submit" value="send message" class="btn">
   </form>
 
@@ -526,7 +527,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <!-- blogs section starts  -->
 
-<section class="blogs" id="blogs">
+<!-- <section class="blogs" id="blogs">
 
   <h1 class="heading"> our blogs </h1>
 
@@ -589,16 +590,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
         </div>
       </div>
 
-      <!-- <div class="swiper-slide slide">
-        <div class="image">
-          <img src="image ekk add karanna" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div> -->
+      
 
 
     </div>
@@ -608,7 +600,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
   
 
 
-</section>
+</section> -->
 
 <!-- blogs section ends  -->
 
@@ -616,16 +608,69 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 <!-- client logo section starts  -->
 
 <section class="logo-container">
-  <div class="swiper logo-slider">
+  <div class="swiper logo-slider" >
     <div class="swiper-wrapper">
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/1535965.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/11990055.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/269947.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/270072.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/buildings_24914.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
     </div>
   </div>
+  <style>
+    .logo-container{
+  text-align: center;
+
+  img{
+    height: 10rem;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.footer{
+  text-align: center;
+
+  .links .btn{
+    margin: .5rem;
+  }
+
+  .credit{
+    @include titleText(2rem);
+    margin-top: 2rem;
+    padding-top: 1rem;
+
+    span{
+      color: var(--yellow);
+    }
+  }
+}
+
+  </style>
+  <script>
+    var swiper =new Swiper(".logo-slider",{
+  grabCursor:true,
+  spaceBetween:20,
+  breakpoints: {
+    450: {
+      slidesPerView: 2,
+    },
+    640: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    1000: {
+      slidesPerView: 5,
+    },
+  },
+});
+  </script>
 </section>
 
 <!-- client logo section ends  -->
@@ -635,14 +680,14 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 <section class="footer">
 
   <div class="links">
-    <a class="btn" href="#home.php">Lands</a>
+    <!-- <a class="btn" href="#home.php">Lands</a> -->
     <a class="btn" href="#houses.php">About Us</a>
     <a class="btn" href="#about.php">House</a>
     <a class="btn" href="#services.php">Completed Projects</a>
     <a class="btn" href="#completed projects.php">About Us</a>
     <a class="btn" href="#pricing">Pricing</a>
     <a class="btn" href="#contact">Contact Us</a>
-    <a class="btn" href="#blogs">Blogs</a>
+    <!-- <a class="btn" href="#blogs">Blogs</a> -->
 
   </div>
 

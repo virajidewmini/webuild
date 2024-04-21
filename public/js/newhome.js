@@ -43,8 +43,8 @@ var swiper =  new Swiper(".home-slider",{
   loop:true,
   // grabCursor:true,
   navigation:{
-    nextE1:".swiper-button-next",
-    prevE1:".swiper-button-prev",
+    nextEl:".swiper-button-next",
+    prevEl:".swiper-button-prev",
   },
 });
 

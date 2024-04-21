@@ -32,9 +32,9 @@
                         
                         <td>
 
-                        <a href="<?=ROOT?>/maintainrequests/update/<?=$row->id?>"><button ><i class="fa-regular fa-pen-to-square"></i></button>
+                        <a href="<?=ROOT?>/maintainrequests/update"><button ><i class="fa-regular fa-pen-to-square"></i></button>
                            
-                        <a href="<?=ROOT?>/maintainrequests/delete/<?=$row->id?>"><button ><i class="fas fa-trash-alt"></i></button></a> 
+                        <a href="<?=ROOT?>/maintainrequests/delete"><button ><i class="fas fa-trash-alt"></i></button></a> 
 
                         </td>
 

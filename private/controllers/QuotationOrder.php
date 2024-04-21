@@ -5,10 +5,7 @@
                 //$db = new Database();
                 $quotationorder=new QuotationSK();
 
-                // $data = $db->query("select * from miantain");
-                $data= $quotationorder->findAll();
-                //$arr['project_id']='2';
-                //$arr['status']='Pending';
+                $data = $quotationorder->getquatation();
 
 // Check if there is a search query
 $filter = isset($_GET['filter']) ? $_GET['filter'] : null;
@@ -23,23 +20,26 @@ if ($filter !== null) {
     $data = $filteredData;
 }
 
-                //$mainTain->insert($arr);
+                $this->view('quatationSendAfter1',['rows'=> $data]);
 
-                usort($data, function($a, $b) {
-                    if ($a->decision == 'REJECT' && $b->decision != 'REJECT') {
-                        return 1; // Move "REJECT" row to the bottom
-                    } elseif ($a->decision != 'REJECT' && $b->decision == 'REJECT') {
-                        return -1; // Keep "REJECT" row at the top
-                    } else {
-                        return 0; // Preserve original order for other rows
-                    }
-                });
-                
-                // $maintain->update(3,$arr);
-                // $maintain->delete(4);
-                // $data=$maintain->findAll();
-                $this->view('quotationSendAfter',['rows'=> $data]);
         }
+
+        public function quotationviewDetails($id = null)
+    {
+        // Check if request ID is provided
+        if ($id !== null) {
+            // Instantiate the RequestsSecond model
+            $requestSecond = new QuotationSK();
+
+            // Fetch data from the material_requests table based on request_id
+            // $data = $requestSecond->findAll(['conditions' => ['request_id' => $id]]);
+            $data = $requestSecond->getquatationDetails($id);
+            // Pass the filtered data to the view
+            $this->view('quOtationSendAfter2', ['rows' => $data, 'r_id' => $id]);
+        }
+    }
+
+ 
 
         public function add(){
             if(count($_POST) > 0){

@@ -153,9 +153,20 @@ section{
   #menu-btn{
     display: none;
   }
+  .existing1{
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.5rem 10%;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  justify-content: space-between;
+  background: var(--white);
+  
+  }
 
-
-
+}
 
 
 
@@ -317,7 +328,7 @@ section{
       }
      }
   }
-}
+
 
 
 .contact-info{
@@ -446,10 +457,9 @@ section{
 
 .about{
 
-  .row{
+ .row{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: 3rem;
 
     .video{
@@ -462,6 +472,8 @@ section{
 
     .content {
       flex: 1 1 41rem;
+      flex-wrap: wrap;
+      display: flex;
 
       h3{
         @include titleText(3rem);
@@ -477,11 +489,19 @@ section{
     margin-top: 3rem;
     @include grid(25rem);
     align-items: flex-end;
+    margin-top: 1.5rem;
+    display: flex;
+  gap: 1rem;
+  align-items: flex-end;
 
     .box{
       text-align: center;
       background: var(--light-bg);
       padding: 3rem 2rem;
+      margin-left: 4rem;
+      @include grid(25rem);
+    /* display: flex; */
+    flex-wrap: wrap;
 
       h3{
         @include titleText(4rem);
@@ -495,11 +515,13 @@ section{
   }
 }
 
+
 .services{
   background: var(--light-bg);
 
   .box-container{
     @include grid(25rem);
+    display: flex;
 
     .box{
       text-align: center;
@@ -687,6 +709,7 @@ section{
 }
 
 
+
 .contact{
   background: var(--black);
 
@@ -776,7 +799,27 @@ section{
     }
   }
 }
+.floorplan{
 
+ 
+  .floorimg{
+
+  }
+  .image{
+    height: 25rem;
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: -3rem;
+
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: .2s linear;
+    }
+  }
+}
 .logo-container{
   text-align: center;
 
