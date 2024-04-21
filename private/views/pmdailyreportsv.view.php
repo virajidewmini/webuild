@@ -20,13 +20,7 @@
 
                     <?php foreach ($rows as $row) : ?>
                         <tr>
-                            <td><?= $row->date ?></td>
-                            <td><?= $row->comment ?></td>
-                            <td>
-
-                                <a href="<?= ROOT ?>/Pmdailyreports/viewDPR/<?= $row->project_id ?>/<?= $row->date ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
-
-                            </td>
+                            
 
                         </tr>
 

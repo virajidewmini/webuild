@@ -138,7 +138,7 @@
                         <div class="unit-d">
                             <div class="unit">
                                 <p>Project ID :</p>
-                            </div>
+                            </div> 
                             <div class="e-id-d">
                                 <?php if (isset($row1[0]->id)) : ?>
                                     <input readonly name="project_id" value="<?= get_var('project_id', $row1[0]->id); ?>" type="text" class="form-control">
@@ -208,40 +208,6 @@
         </div>
     </div>
 <?php endif; ?>
-<script>
-    function link(link) {
-        location.href = link.value;
-    }
-
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     // Get the popup container element
-    //     var popup = document.querySelector('.popup-container');
-
-    //     // Get the close button element
-    //     var closeButton = popup.querySelector('.btn-close');
-
-    //     // Close the popup when the close button is clicked
-    //     closeButton.addEventListener('click', function() {
-    //         popup.style.display = 'none';
-    //     });
-
-    //     // Close the popup when clicked anywhere on the screen except the popup itself
-    //     // document.addEventListener('click', function(event) {
-    //     //     if (event.target === popup) {
-    //     //         popup.style.display = 'none';
-    //     //     }
-    //     // });
-    // });
-    document.addEventListener('DOMContentLoaded', function() {
-        var popupContainer = document.querySelector('.popup-container');
-        var closeButton = popupContainer.querySelector('.btn-close');
-
-        // Close the popup when the close button is clicked
-        closeButton.addEventListener('click', function() {
-            popupContainer.style.display = 'none';
-            document.querySelector('.popup-overlay').style.display = 'none';
-        });
-    });
-</script>
+ 
 
 <?php $this->view('includes/footer'); ?>
