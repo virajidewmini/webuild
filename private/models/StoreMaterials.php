@@ -18,5 +18,12 @@ class storeMaterials extends Model
         return $this->query($query);
     }
 
+    public function getLOWMaterials_C() {
+        $query = "SELECT COUNT(*) AS request_count
+        FROM materials
+        WHERE status = 'LOW'";
+        return $this->query($query);
+    }
+
 }
 ?>

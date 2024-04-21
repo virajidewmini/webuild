@@ -116,7 +116,7 @@
                                     <?php elseif ($row->batch_1_quantity > $row->batch_2_quantity) : ?>
                                         <?php if ($row->quantity == $row->batch_2_quantity || $row->quantity < $row->batch_2_quantity) : ?>
                                             <td><input type="text" name="send_quantity1[]" class="v_form-control send_quantity" style="height: 30px; width:5rem; background-color: #ff0000;" readonly></td>
-                                            <td><input type="text" name="unit_Price_[]" class="v_form-control unit_price" style="height: 30px; width:5rem; background-color: #ff0000;" readonly></td>
+                                            <td><input type="text" name="unit_Price_1[]" class="v_form-control unit_price" style="height: 30px; width:5rem; background-color: #ff0000;" readonly></td>
                                             <td><input value="<?= $row->quantity ?>" type="text" name="send_quantity2[]" class="v_form-control send_quantity" style="height: 30px; width:5rem;" readonly></td>
                                             <td><input value="<?= $row->unit_price_2 ?>" type="text" name="unit_Price_2[]" class="v_form-control unit_price_1" style="height: 30px;width:5rem;" readonly></td>
 
@@ -151,33 +151,6 @@
             </div>
     </form>
 
-    <!-- <script>
-   
-    function updateTotalPriceAndAmount() {
-        var rows = document.querySelectorAll('.materials');
-        var fullTotalAmount = 0;
-        rows.forEach(function(row) {
-            var batch1Quantity = parseFloat(row.querySelector('input[name="batch_1_quantity[]"]').value) || 0;
-            var unitPrice1 = parseFloat(row.querySelector('input[name="unit_Price_1[]"]').value) || 0;
-            var batch2Quantity = parseFloat(row.querySelector('input[name="batch_2_quantity[]"]').value) || 0;
-            var unitPrice2 = parseFloat(row.querySelector('input[name="unit_Price_2[]"]').value) || 0;
-
-            var totalPrice = (batch1Quantity * unitPrice1) + (batch2Quantity * unitPrice2);
-            row.querySelector('input[name="total_price[]"]').value = totalPrice.toFixed(2);
-
-            fullTotalAmount += totalPrice;
-        });
-
-        document.getElementById('full_total_amout').value = fullTotalAmount.toFixed(2);
-    }
-
-    
-    document.querySelectorAll('.send_quantity, .unit_price').forEach(function(input) {
-        input.addEventListener('input', function() {
-            updateTotalPriceAndAmount();
-        });
-    });
-</script> -->
     <script>
         function updateTotalQuantityAndPrice() {
             var rows = document.querySelectorAll('.materials');
@@ -187,22 +160,21 @@
                 var unitPrice1 = parseFloat(row.querySelector('input[name="unit_Price_1[]"]').value) || 0;
                 var unitPrice2 = parseFloat(row.querySelector('input[name="unit_Price_2[]"]').value) || 0;
 
-                var totalQuantity = batch1Quantity + batch2Quantity;
+                var totalQuantity = parseInt((batch1Quantity || 0)) + parseInt((batch2Quantity || 0));
                 row.querySelector('input[name="total_quantity[]"]').value = parseInt(totalQuantity.toFixed(2));
 
-                var totalPrice = (unitPrice1 * batch1Quantity) + (unitPrice2 * batch2Quantity);
+                var totalPrice = ((unitPrice1 * batch1Quantity) || 0) + ((unitPrice2 * batch2Quantity) || 0);
                 row.querySelector('input[name="total_price[]"]').value = parseInt(totalPrice.toFixed(2));
             });
         }
 
-        // Listen for input events on relevant inputs
+       
         document.querySelectorAll('input[name^="send_quantity"], input[name^="unit_Price_"]').forEach(function(input) {
             input.addEventListener('input', function() {
                 updateTotalQuantityAndPrice();
             });
         });
 
-        // Call the function initially to calculate totals
         updateTotalQuantityAndPrice();
     </script>
     <script>
@@ -210,25 +182,6 @@
             location.href = link.value;
         }
 
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     // Get the popup container element
-        //     var popup = document.querySelector('.popup-container');
-
-        //     // Get the close button element
-        //     var closeButton = popup.querySelector('.btn-close');
-
-        //     // Close the popup when the close button is clicked
-        //     closeButton.addEventListener('click', function() {
-        //         popup.style.display = 'none';
-        //     });
-
-        //     // Close the popup when clicked anywhere on the screen except the popup itself
-        //     // document.addEventListener('click', function(event) {
-        //     //     if (event.target === popup) {
-        //     //         popup.style.display = 'none';
-        //     //     }
-        //     // });
-        // });
         document.addEventListener('DOMContentLoaded', function() {
             var popupContainer = document.querySelector('.popup-container');
             var closeButton = popupContainer.querySelector('.btn-close');

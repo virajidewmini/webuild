@@ -1,14 +1,11 @@
 
 <?php 
     class RefillStore extends Controller{
-        public function index(){
+        public function index() {
+            $storeMaterialsModel = new StoreMaterials();
             
-          $refill=new Refill();
-
-                
-          $data=$refill->findAll();
-         
-          $this->view('storeRefill');
+            $data['materials'] = $storeMaterialsModel->getAllMaterials(); // Assuming you have a method to fetch all materials
+            $this->view('storeRefill', $data);
         }
            
 
