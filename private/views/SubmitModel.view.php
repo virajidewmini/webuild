@@ -10,6 +10,10 @@ input:disabled:hover + .radio-tile {
 .input-container input:disabled {
   cursor: not-allowed; 
 }
+.errors{
+    padding-bottom: 20px;
+    color: red;
+  }
 </style>
 
 
@@ -19,6 +23,14 @@ input:disabled:hover + .radio-tile {
 </div>
     <div class="form_container">
         <form method="post" enctype="multipart/form-data">
+
+        <?php if (isset($errors)) : ?>
+            <div class="errors">
+                <?php foreach ($errors as $error) : ?>
+                    <p class="error"><?= $error ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
             
             <fieldset class="FormFieldset" >
             <legend class="Formlegend"> Personal Details</legend>
@@ -45,7 +57,7 @@ input:disabled:hover + .radio-tile {
                     <label for="proof">Salary Proofing Document</label>
                     <p>Upload monthly salary sheet or any kind of your monthly income proof docuxment</p>
                     
-                    <input type="file" name="files[]" id="file" multiple accept="application/pdf,image/*">
+                    <input type="file" name="files[]" id="file" multiple accept="application/pdf,image/*" required>
                 </div>
 
             </div>
@@ -74,14 +86,14 @@ input:disabled:hover + .radio-tile {
                 <div class="column">
                     <label for="district">District</label>
                     <select id="selectDistrict" name="district" onchange="updateTown()">
-                        <option>Choose a District</option>
+                        <option value="" disabled selected>Choose a District</option>
                     </select>
                 </div>
 
                 <div class="column">
                     <label for="town">Town</label>
                     <select id="selectTown" name="town">
-                        <option>Choose a Town</option>
+                        <option value="" disabled selected>Choose a Town</option>
                     </select>
                 </div>
                 
@@ -97,11 +109,11 @@ input:disabled:hover + .radio-tile {
 
                 <div class="column">
                     <label for="plan">Land Photograph</label>
-                     <input type="file" name="files[]" id="file" multiple accept="image/*">
+                     <input type="file" name="files[]" id="file" multiple accept="image/*" required>
                 </div>
                 <div class="column">
                     <label for="plan">Block Plan of the Land</label>
-                    <input type="file" name="files[]" id="file" multiple accept="application/pdf">
+                    <input type="file" name="files[]" id="file" multiple accept="application/pdf" required>
                 </div>
             </div>
             </fieldset>

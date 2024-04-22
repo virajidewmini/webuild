@@ -28,6 +28,36 @@ class ProgressReport extends Model{
         return $this->query($query,$params);
     }
 
+    public function deleteReport($id){
+        
+        $query = "delete from daily_progress_report where date=:id && project_id=:project_id";
+		$params = [
+            'id' => $id,
+            'project_id'=>Auth::getProjectId()
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function deleteChallengeReport($id){
+
+        $query = "delete from challenge where date=:id && project_id=:project_id";
+		$params = [
+            'id' => $id,
+            'project_id'=>Auth::getProjectId()
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function deleteWeatherReport($id){
+
+        $query = "delete from weather_report where date=:id && project_id=:project_id";
+		$params = [
+            'id' => $id,
+            'project_id'=>Auth::getProjectId()
+        ];
+        return $this->query($query,$params);
+    }
+
 
 
     public function viewDPRDetail($project_id, $date){
