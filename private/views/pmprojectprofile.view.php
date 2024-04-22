@@ -195,14 +195,6 @@
                         <input type="text" id="contactnumber" name="contactnumber" value="<?= get_date($rows[0]->final_date) ?>">
                     </div>
                     <div class="column">
-                        <label for="lastName">Land Type :</label>
-                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->land_type ?>">
-                    </div>
-                    <div class="column">
-                        <label for="lastName">Land ID :</label>
-                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->land_id ?>">
-                    </div>
-                    <div class="column">
                         <label for="lastName">Model Name :</label>
                         <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->name ?>">
                     </div>
@@ -983,12 +975,13 @@
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
-                            <?php endif; ?>
+                           
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
 
     </div>
 </div>

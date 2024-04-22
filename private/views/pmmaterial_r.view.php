@@ -96,7 +96,7 @@ body{
     
           <div class="pro-id" style="padding: 0 0 20px 0;">
           
-            <?php $project_request_id = ""; ?>
+            <?php $project_id = ""; ?>
             <?php $level = ""; ?> 
             <?php $model = ""; ?> 
                     <div class="pro-id-details">
@@ -107,15 +107,15 @@ body{
                             </div>
                         </div>
                         <?php
-                            if(isset($_GET['project_request_id']) || isset($_GET['model_id']) || isset($_GET['level'])){
-                                $project_request_id = isset($_GET['project_request_id']) ? $_GET['project_request_id'] : null;
+                            if(isset($_GET['project_id']) || isset($_GET['model_id']) || isset($_GET['level'])){
+                                $project_id = isset($_GET['project_id']) ? $_GET['project_id'] : null;
                                 $level = isset($_GET['level']) ? $_GET['level'] : null;
                                 $model = isset($_GET['model_id']) ? $_GET['model_id'] : null;
                             }
                         ?>
 
                         <?php
-                        if(isset($_GET['project_request_id'])){
+                        if(isset($_GET['project_id'])){
                         ?>
                         <div class="unit-d">
                             <div class="unit">
@@ -123,15 +123,15 @@ body{
                             </div>
                             <div class="e-id-d">
                                 
-                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_request_id" class="form-control" type="text">
-                                <option  value="" <?= get_select2('project_request_id','');?>>--Select ID--</option >
+                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_id" class="form-control" type="text">
+                                <option  value="" <?= get_select2('project_id','');?>>--Select ID--</option >
                                 <?php if($rows): ?>
                                     <?php foreach($rows as $row): ?>
-                                        <option <?= get_select2('project_request_id', $row->project_request_id); ?> value="<?= $row->id; ?>" <?php if ($project_request_id == $row->project_request_id) {echo "selected"; } ?>>
+                                        <option <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected"; } ?>>
                                             <?= $row->id; ?>
                                     <?php endforeach; ?>
                                 <?php else: ?>
-                                    <option <?= get_select2('project_request_id','');?> value="">No Project Found</option>
+                                    <option <?= get_select2('project_id','');?> value="">No Project Found</option>
                                 <?php endif; ?>
                                 </select>
                             </div>
@@ -146,16 +146,16 @@ body{
                                 <p>Project ID :</p>
                             </div>
                             <div class="e-id-d">
-                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_request_id" class="form-control" type="text">
-                                <option  value="<?=$project_request_id?>" <?= get_select2('project_request_id','');?>>--Select ID--</option >
+                                <select style="height:35px; width:100px; margin-left: 10px;" name="project_id" class="form-control" type="text">
+                                <option  value="<?=$project_id?>" <?= get_select2('project_id','');?>>--Select ID--</option >
                                 <?php if($rows): ?>
                                     <?php foreach($rows as $row): ?>
-                                        <option <?= get_select2('project_request_id', $row->project_request_id); ?> value="<?= $row->id; ?>" <?php if ($project_request_id == $row->project_request_id) {echo "selected"; } ?>>
+                                        <option <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected"; } ?>>
                                             <?= $row->id; ?>
                                         </option>
                                     <?php endforeach; ?>
                                 <?php else: ?>
-                                    <option <?= get_select2('project_request_id','');?> value="">No Project Found</option>
+                                    <option <?= get_select2('project_id','');?> value="">No Project Found</option>
                                 <?php endif; ?>
                                 </select>
                             </div>
@@ -188,7 +188,8 @@ body{
                                     <p>Model Name :</p>
                                 </div>
                                 <div class="e-id-d">
-                                    <input readonly style="height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->model->name?>" type="text" name="model_name">
+                                    <input readonly style="height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->mdl->name?>" type="text" name="model_name">
+                                    <input readonly style="display:none; height:35px; width:300px; border-color:#E5863D; text-align:center" value="<?=$rows1[0]->land->ul_district?>" type="text" name="district">
                                 </div>
                             </div>
                             <?php
@@ -252,7 +253,7 @@ body{
                                                 <?php foreach ($rows3 as $row):?>
                                                 <tr>
                                                     <td><input readonly value="<?= $row->material_id?>" name="m_id[]"></td>
-                                                    <td><input readonly value="<?= $row->measure_unit?>" name="m_name[]"></td>
+                                                    <td><input readonly value="<?= $row->material->material_name?>" name="m_name[]"></td>
                                                     <td><input readonly value="<?= $row->measure_unit?>" name="m_unit[]"></td>
                                                     <td><input value="<?= $row->quantity?>" name="m_quantity[]"></td> 
                                                 </tr>
@@ -284,6 +285,8 @@ body{
                         <?php
                             }   
                         ?>
+
+                        <?php print_r($_POST) ?>
                     
                     
                 

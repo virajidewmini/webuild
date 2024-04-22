@@ -4,7 +4,6 @@ class Material_requests extends Model
 {
     protected $table = "material_requests_to_coordinator";
     protected $table1 = "material_requests";
-    protected $table2 = "project_material_request";
 
 
 
@@ -48,18 +47,18 @@ class Material_requests extends Model
     {
         $this->errors = array();
 
-        if (empty($DATA['project_id'])) {
-            $this->errors['project_id'] = "Project ID can't be empty";
-        }
-        //empty
-        if(empty($DATA['m_quantity[]'])){
-            $this->errors['quantity[]']="Quantity can't be empty ";
-        }
+        // if (empty($DATA['project_id'])) {
+        //     $this->errors['project_id'] = "Project ID can't be empty";
+        // }
+        // //empty
+        // if(empty($DATA['m_quantity[]'])){
+        //     $this->errors['quantity[]']="Quantity can't be empty ";
+        // }
 
-        //valid contactnumber
-        if(!empty($DATA['m_quantity[]']) && !preg_match('/\d{3}$/',$DATA['m_quantity[]'])) {
-            $this->errors['contactnumber']="Invalid contactnumber Number; Enter only the 10 digits";
-        }
+        // //valid contactnumber
+        // if(!empty($DATA['m_quantity[]']) && !preg_match('/\d{3}$/',$DATA['m_quantity[]'])) {
+        //     $this->errors['contactnumber']="Invalid contactnumber Number; Enter only the 10 digits";
+        // }
 
 
 
@@ -72,53 +71,54 @@ class Material_requests extends Model
 
     public function insertMaterial($data)
     {
-        $this->table1;
-
-        $query = "SELECT * FROM $this->table2 ORDER BY id DESC LIMIT 1";
+        $query = "SELECT * FROM material_requests ORDER BY request_id DESC LIMIT 1";
         $result = $this->query($query);
+        if ($result) {
+            $old_request_id = $result[0]->request_id;
+            $new_request_id = ++$old_request_id;
+        } else {
+            $new_request_id = 1;
+        }
 
-        $new_request_id = $result[0]->id;
+        $columns = "material_or_item_id, material_or_item_name, mesure_unit, quantity, project_id, level, request_id, date, status, send_district";
 
-        $keys = array_keys($data);
-        // $columns = implode(',', $keys);
-        $columns = "material_or_item_id, material_or_item_name, mesure_unit, quantity, project_id, level, request_id";
-
-        // foreach data
         $errors = 0;
         $count_data = count($data["m_id"]);
         for ($i = 0; $i < $count_data; $i++) {
             $material_or_item_id = $data["m_id"][$i];
             $material_or_item_name = $data["m_name"][$i];
-            $mesure_unit = $data["m_unit"][$i];
+            $measure_unit = $data["m_unit"][$i];
             $quantity = $data["m_quantity"][$i];
             $project_id = $data["project_id"];
             $level = $data["level"];
             $request_id = $new_request_id;
-
+            $date = date("Y-m-d");
+            $status = "Request";
+            $send_district = $data["district"];
 
             $db_data = [
                 "material_or_item_id" => $material_or_item_id,
                 "material_or_item_name" => $material_or_item_name,
-                "mesure_unit" => $mesure_unit,
+                "mesure_unit" => $measure_unit,
                 "quantity" => $quantity,
                 "project_id" => $project_id,
                 "level" => $level,
                 "request_id" => $request_id,
+                "date" => $date,
+                "status" => $status,
+                "send_district" => $send_district
             ];
 
-            $query = "insert into $this->table1 ($columns) values (:material_or_item_id,:material_or_item_name,:mesure_unit,:quantity,:project_id,:level,:request_id)";
-            // echo $query;
+            $query = "INSERT INTO material_requests ($columns) VALUES (:material_or_item_id, :material_or_item_name, :mesure_unit, :quantity, :project_id, :level, :request_id, :date, :status, :send_district)";
             $result = $this->query($query, $db_data);
             if (!$result) {
                 $errors++;
             }
         }
 
-        if ($errors == 0)
-            return true;
-
-        return false;
+        return $errors === 0;
     }
+
 
     public function remaining_req($value)
     {
@@ -131,56 +131,12 @@ class Material_requests extends Model
         ]);
     }
 
-    public function update_p_m_request($data,$pmid)
+
+    public function statusChange($id)
     {
-        $this->table2;
-        // $p_id =$data["project_id"];
-
-        // unset($data["number"]);
-        // $data["p_id"] = $last_p_id;
-        // $data["r_id"] = $last_r_id;
-
-        // print_r($result);
-        // echo $last_p_id, $last_r_id;
-
-        $keys = array_keys($data);
-        // $columns = implode(',', $keys);
-        $columns = "project_id, level, manager_id, date";
-
-        // foreach data
-        $errors = 0;
-            $project_id = $data["project_id"];
-            $level = $data["level"];
-            $manager_id = $pmid;
-            $date = date("Y-m-d");
-
-
-            $db_data = [
-                "project_id" => $project_id,
-                "manager_id" => $manager_id,
-                "level" => $level,
-                "date" => $date,
-            ];
-
-            $query = "insert into $this->table2 ($columns) values (:project_id, :level, :manager_id,:date)";
-            // echo $query;
-            $result = $this->query($query, $db_data);
-            if (!$result) {
-                $errors++;
-            }
-
-        if ($errors == 0)
-            return true;
-
-        return false;
-    }
-
-    public function statusChange($id){
-
-
-            $query="UPDATE `project_material_quatation` SET `status`='Complete' WHERE `id` = :id"; 
-		    $data['id'] = $id;
-            return $this->query($query,$data);
+        $query = "UPDATE `material_requests` SET `status`='Complete' WHERE `request_id` = :id";
+        $data['id'] = $id;
+        return $this->query($query, $data);
     }
 }
 ?>

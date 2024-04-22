@@ -28,47 +28,9 @@
 			return $data;
 		}
 
-		public function levelwhere($col,$column, $value){
+		
 
-			$column = addslashes($column);
-			$col = addslashes($col);
-			$query= "select distinct $col from $this->table where $column =:value";
-			$data =  $this->query($query,[
-				'value'=>$value
-			]);
-
-			if(is_array($data)){
-				if(property_exists($this, 'afterSelect')){
-					foreach($this->afterSelect as $func){
-						$data = $this->$func($data);
-					}
-				}
-			}
-
-			return $data;
-		}
-
-		public function dmaterial($model_id, $level){
-
-			$query= "SELECT task_materials_equipment.* FROM tasks
-			INNER JOIN task_materials_equipment ON tasks.id = task_materials_equipment.task_id
-			WHERE tasks.model_id = :model_id
-			AND tasks.level = :level";
-			$data =  $this->query($query,[
-				'model_id'=>$model_id,
-				'level'=>$level
-			]);
-
-			if(is_array($data)){
-				if(property_exists($this, 'afterSelect')){
-					foreach($this->afterSelect as $func){
-						$data = $this->$func($data);
-					}
-				}
-			}
-
-			return $data;
-		}
+		
 
 		public function dequipment($model_id, $level){
 
