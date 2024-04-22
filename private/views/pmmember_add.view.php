@@ -91,68 +91,68 @@
 
                             <div class="column">
                                 <label for="firstname">Project ID :</label>
-                                <input type="text" name="id" value="<?= $rows[0]->id ?>">
+                                <input readonly type="text" name="id" value="<?= $rows[0]->id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Request ID :</label>
-                                <input type="text" value="<?= $rows[0]->project_request_id ?>">
+                                <input readonly type="text" value="<?= $rows[0]->project_request_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Project Manager ID :</label>
-                                <input type="text" value="<?= $rows[0]->manager_id ?>">
+                                <input readonly type="text" value="<?= $rows[0]->manager_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Project Manager Name :</label>
-                                <input type="text" value="<?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?>">
+                                <input readonly type="text" value="<?= $rows[0]->staff_m->firstname ?> <?= $rows[0]->staff_m->lastname ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Project Supervisor ID :</label>
-                                <input type="text" name="supervisor_id" value="<?= $uid ?>">
+                                <input readonly type="text" name="supervisor_id" value="<?= $uid ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Project Supervisor Name :</label>
-                                <input type="text" value="<?= $fname ?> <?= $lname ?>">
+                                <input readonly type="text" value="<?= $fname ?> <?= $lname ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Customer ID :</label>
-                                <input type="text" name="user_id" value="<?= $rows[0]->user_id ?>">
+                                <input readonly type="text" name="user_id" value="<?= $rows[0]->user_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Customer Name :</label>
-                                <input type="text" value="<?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?>">
+                                <input readonly type="text" value="<?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Modification ID :</label>
-                                <input type="text"  value="<?= $rows[0]->	modification_id ?>">
+                                <input readonly type="text"  value="<?= $rows[0]->	modification_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Quotation ID :</label>
-                                <input type="text"  value="<?= $q_id ?>">
+                                <input readonly type="text"  value="<?= $q_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Model ID :</label>
-                                <input type="text"  value="<?= $rows[0]->model_id ?>">
+                                <input readonly type="text"  value="<?= $rows[0]->model_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Model Name :</label>
-                                <input type="text" value="<?= $rows[0]->manager_id ?>">
+                                <input readonly type="text" value="<?= $rows[0]->mdl->name ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Payment Plan ID :</label>
-                                <input type="text"  value="<?= $rows[0]->	payment_package_id ?>">
+                                <input readonly type="text"  value="<?= $rows[0]->	payment_package_id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Payment Plan Name :</label>
-                                <input type="text" value="<?= $rows[0]->manager_id ?>">
+                                <input readonly type="text" value="<?= $rows[0]->payment->name ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Start Date :</label>
-                                <input type="date"
+                                <input readonly type="date"
                                 Name="date" value="<?= date("Y-m-d", strtotime("+7 days")) ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">EstimateFinal Date :</label>
-                                <input type="date"
+                                <input readonly type="date"
                                 Name="final_date"  value="<?= date("Y-m-d", strtotime(" +$months months +7 days")) ?>">
                             </div>
 
@@ -164,7 +164,7 @@
                         <a href="<?= ROOT ?>/pmmember_search">
                             <input class="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">
                         </a>
-                        <input class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Add">
+                        <input class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Start">
                     </div>
                 </form>
 

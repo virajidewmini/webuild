@@ -29,6 +29,8 @@ class Pmongoingproject extends Controller
 			$this->redirect('/login');
 		}
 
+		$pmi = Auth::getid();
+
 		$project = new Projects();
 		$data = $project->viewProjectDetail($id);
 
@@ -65,8 +67,16 @@ class Pmongoingproject extends Controller
 		$allocated_co = new AllocateCoworker();
 		$data15 = $allocated_co->where('project_id', $id);
 
-		$project_material_quatation = new Project_material_quatation();
-		$data16 = $project_material_quatation->where2('project_id', $id, 'status', 'Remaining');
+		// $project_material_quatation = new Project_material_quatation();
+		// $data16 = $project_material_quatation->where2('project_id', $id, 'status', 'Remaining');
+
+		$complaint = new C_Complaint();
+        $data17 = $complaint->man_viewComplanit_noty($pmi,$id);
+
+		$report= new ProgressReport();
+        $data18=$report->viewReport($pmi);
+
+
 
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
@@ -87,7 +97,9 @@ class Pmongoingproject extends Controller
 			'row7' => $data13,
 			'row8' => $data14,
 			'row9' => $data15,
-			'row10' => $data16,
+			// 'row10' => $data16,
+			'rows17' => $data17,
+			'rows18' => $data18,
 		]);
 	}
 

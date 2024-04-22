@@ -10,7 +10,7 @@ class ProgressReport extends Model{
 
     public function viewALLReport($id){
 
-        $query = "SELECT daily_progress_report.* FROM projects JOIN daily_progress_report ON projects.id = daily_progress_report.project_id WHERE manager_id = :id ORDER BY daily_progress_report.date DESC";
+        $query = "SELECT daily_progress_report.* FROM projects JOIN daily_progress_report ON projects.id = daily_progress_report.project_id WHERE projects.manager_id = :id ORDER BY daily_progress_report.date DESC";
 		$params = [
             'id' => $id
       ];
@@ -20,7 +20,7 @@ class ProgressReport extends Model{
    
     public function viewReport($project_id){
 
-        $query = "select * from daily_progress_report where project_id= :project_id";
+        $query = "select * from daily_progress_report where project_id= :project_id  order by date DESC";
 		$params = [
             'project_id' => $project_id
 
