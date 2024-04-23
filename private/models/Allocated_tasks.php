@@ -78,4 +78,13 @@ class Allocated_tasks extends Model
         $data['id'] = $id;
         return $this->query($query, $data);
     }
+
+    public function OngoingAllTask($mid)
+    {
+
+        $query = "SELECT allocated_task.* FROM allocated_task INNER JOIN projects ON allocated_task.project_id = projects.id WHERE projects.manager_id = :mid";
+
+        $data['mid'] = $mid;
+        return $this->query($query, $data);
+    }
 }

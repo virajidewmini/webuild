@@ -303,4 +303,26 @@ class Projects extends Model
             'value' => $value,
         ]);
     }
+
+    public function get_allTasks_P($p_id){
+            $query = "SELECT *, tasks.id as task_id FROM projects INNER JOIN tasks ON projects.model_id = tasks.model_id WHERE projects.id = :p_id";
+            return $this->query($query, [
+                'p_id' => $p_id,
+            ]);
+    } 
+    public function get_allToDoTasks_P($p_id){
+        $query = "SELECT tasks.*
+        FROM projects 
+        INNER JOIN tasks ON projects.model_id = tasks.model_id
+        LEFT JOIN (
+            SELECT *
+            FROM allocated_task
+            WHERE project_id = :p_id
+        ) AS table_1
+        ON tasks.id = table_1.task_id 
+        WHERE table_1.task_id IS NULL";
+        return $this->query($query, [
+            'p_id' => $p_id,
+        ]);
+} 
 }
