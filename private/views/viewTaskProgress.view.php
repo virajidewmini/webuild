@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?php if(isset($rows)): ?>
+            <?php if(isset($rows) && !empty($rows)): ?>
                 <?php foreach ($rows as $row):?>
 
                 <tr>
@@ -55,6 +55,8 @@
                     </td>
                 </tr>
                 <?php endforeach;?>
+                <?php else: ?>
+                <h3>No task allocated Yet</h3>
                 <?php endif; ?>
 
                 

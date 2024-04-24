@@ -13,6 +13,9 @@
                 if($row=$user->where('email',$_POST['email'])){
                     $row = $row[0];
                     if(password_verify($_POST['password'],$row->password)){
+                        
+                        $_SESSION['role'] = 'Client';
+                        
                         Auth::authenticate($row);
                         if (Auth::getRole() == 'Project Manager'){
                             $this->redirect('/pmdashboard');
@@ -27,7 +30,7 @@
                             $this->redirect('/admindashboard');
                         }
                         
-                            $this->redirect('/home');
+                             $this->redirect('/home');
                         
                     }
                    

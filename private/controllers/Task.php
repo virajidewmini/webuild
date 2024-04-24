@@ -4,7 +4,7 @@ class Task extends Controller{
     
     public function index($id){
         
-        $_SESSION['project_id'] = $id;
+        // $_SESSION['project_id'] = $id;
         
         
         // var_dump(Auth::getProjectId());
@@ -63,7 +63,7 @@ class Task extends Controller{
         
         
 
-        $durationOb=intval($duration[0]->duration);
+        $durationOb=intval($duration[0]->duration_in_days);
 
         $when = new DateTime($startDate);
         $when->modify('+' . $durationOb . ' days');
@@ -95,7 +95,7 @@ class Task extends Controller{
         
         
 
-        $durationOb=intval($duration[0]->duration);
+        $durationOb=intval($duration[0]->duration_in_days);
 
         $when = new DateTime($startDate);
         $when->modify('+' . $durationOb . ' days');

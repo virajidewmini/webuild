@@ -199,6 +199,17 @@
             </div>
         </div>
 
+
+        <div class="data-cards">
+        <?php foreach($coworkers as $cowoker): ?>
+            <div class="card" style="background-color: #607D8B;">
+                <h2><?=$cowoker->role?></h2>
+                <p  style="font-size: larger;"><?=$cowoker->row_count?></p> 
+            </div>
+        <?php endforeach?>
+            
+        </div>
+
         <div class="charts">
             <div class="chart-container">
                 <h2>Progress</h2> 
@@ -206,33 +217,12 @@
             </div>
 
             <div class="chart-container">
-                <h2>Payments</h2>
-                <canvas id="donutChart"></canvas>
-            </div>
-        </div>
-        <div class="charts">
-            <div class="chart-container">
                 <h2>Complaint Status</h2>
                 <canvas id="complaintChart"></canvas>
             </div>
 
-            <div class="timeline">
-                <ul>
-                <?php foreach($payments as $payment): ?>
-                    <li>
-                        <div class="content-timeline">
-                            <i class="icon fa-solid fa-credit-card"></i>
-                            <h3>Installment Number <?=$payment->installement_number?></h3>
-                            <p>Amount: <?=$payment->amount?></p>
-                            <p>Date: <?=$payment->date?></p>
-                        </div>
-                    </li>
-                <?php endforeach?>
-                    
-                    </ul>
-            </div>
-
-            </div>
+        </div>
+        
 
             <div class="tables">
             <div class="table-containers">
@@ -240,54 +230,51 @@
                 <caption style="font-size: larger; font-weight: bold;">Unresolved Complaint</caption>
                 <thead>
                     <tr>
-                        <th style="max">Type</th>
+                        <th >Type</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($complaints as $complaint): ?>
-                    <tr>
-                        <td><?=$complaint->type?></td>
-                        <td><?=$complaint->date?></td>
-                    </tr>
-                  <?php endforeach?>
-                    
+                <?php if(isset($complaint)&&empty($complaint)):?>
+                    <h3>No Unresolve Complaint</h3>
+                <?php else:?>
+                
+                    <?php foreach($complaints as $complaint): ?>
+                        <tr>
+                            <td><?=$complaint->type?></td>
+                            <td><?=$complaint->date?></td>
+                        </tr>
+                    <?php endforeach?>
+                <?php endif?>
                 </tbody>
             </table>
             </div>
 
             <div class="table-containers">
-              <div class="reviewDiv">
-                 <h4 class="reviews__heading">Customer reviews</h4>
-
-                <div class="reviews__average-ratings">
-                  <div class="average-ratings__stars">
-                      <?php
-                          $overallRating = $averageRate[0]->overall_rating ;
-
-                          
-                          for ($i = 1; $i <= 5; $i++) {
-                              
-                              if ($i <= $overallRating) {
-                              echo ' <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2l2.356 7.236H21l-6.046 4.392 2.355 7.239L12 17.47l-6.308 4.397 2.355-7.239L3 9.236h6.644z" fill="#f1b41b"/>
-                                </svg>';
-                              } else {
-                                  echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                  <path d="M12 2l2.356 7.236H21l-6.046 4.392 2.355 7.239L12 17.47l-6.308 4.397 2.355-7.239L3 9.236h6.644z" fill="#BDBDBD"/>
-                              </svg>';
-                              }
-
-                              
-                          }
-                      ?>
-  
-         
-                  </div>
-                    <div class="average-ratings__total-customers">
-                      <?=$count[0]->count." Customer Ratings "?> 
-                    </div>
-                </div>
+            <table class="table-bottom" >
+                <caption style="font-size: larger; font-weight: bold;">Today Daily Progress Report</caption>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Work Desciption</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php if(isset($report)&&empty($report)):?>
+                    <h3>No added Daily Progress Report Yet</h3>
+                <?php else:?>
+                
+                    
+                        <tr>
+                            <td><?=$report[0]->date?></td>
+                            <td><?=$report[0]->work_description?></td>
+                            <td><a href="<?=ROOT?>/dailyprogressreport/viewReport/<?=$report[0]->date?>"><button ><i class="fa-solid fa-eye"></i></button></a></td>
+                        </tr>
+                    
+                <?php endif?>
+                </tbody>
+            </table>
             
               </div>
         </div>
@@ -308,17 +295,10 @@ const userData = {
       backgroundColor: ['#4CAF50', '#FF9800'] 
   }]
 };
-const revenueData = {
-  labels: ['Paid', 'Not Paid'],
-  datasets: [{
-      data: [<?=$paid[0]->paidAmount?>, <?=$unpaid[0]->notPaidAmount?>],
-      backgroundColor: ['#4CAF50', '#F44336']
-  }]
-};
+
 
 // Chart configurations
 const pieChartConfig = {type: 'pie', data: userData};
-const donutChartConfig = {type: 'doughnut', data: revenueData };
 
 // Sample complaint data
 const complaintData = {
@@ -335,6 +315,7 @@ const complaintData = {
 
 // Chart configuration
 const complaintChartConfig = {
+    labels: ['Resolved', 'Unresolved'],
     type: 'bar',
     data: complaintData,
     options: {
@@ -343,13 +324,13 @@ const complaintChartConfig = {
                 beginAtZero: true // Start the y-axis at 0
             }
         }
+        
     }
 };
 
 // Render charts
 window.onload = function() {
   new Chart(document.getElementById('pieChart'), pieChartConfig);
-  new Chart(document.getElementById('donutChart'), donutChartConfig);
   new Chart(document.getElementById('complaintChart'), complaintChartConfig);
 };
 

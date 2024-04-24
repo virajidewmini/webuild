@@ -1,5 +1,12 @@
 <?php $this->view('includes/header')?> 
 
+<style>
+    .errors{
+    padding-bottom: 20px;
+    color: red;
+  }
+</style>
+
 <div  class="table_header" >
         <h1 style="margin-left: 35%;">Daily Progress Report</h1>
 </div>
@@ -15,6 +22,14 @@
    
    
     <form method="post" >
+    <?php if (isset($errors)) : ?>
+            <div class="errors">
+                <?php foreach ($errors as $error) : ?>
+                    <p class="error"><?= $error ?></p>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+    
     <!-- First Form -->
         <div class="v_form-step v_form-step-active">
             <h1 style="text-align: center; margin-bottom:30px;" >Weather Report</h1>
@@ -93,11 +108,11 @@
             </div>
         <br>
 
-        <label class="v_label" id="tempe" name='tempe'style="font-weight: bolder;">Temperature</label>
+        <label class="v_label" for="temp" style="font-weight: bolder;">Temperature</label>
        
-        <input type="text" name="temp" id="temp" class="v_form-control" style=" width:400px; margin-left:32px;" required>
+        <input type="text" name="temp" id="temp" class="v_form-control" style=" width:400px; margin-left:32px;">
         <br>
-        <label class="v_label" id="overallW" style="font-weight: bolder;">Overall Weather </label>
+        <label class="v_label" id="overallW" for="overall" style="font-weight: bolder;">Overall Weather </label>
            
             <select id="type" name="overall" class="v_form-control" style=" width:400px; margin-left:10px" >
                 <option value="" disabled selected>Select Weather Type</option>
@@ -171,6 +186,9 @@
 
 
     <!-- Final Form -->
+
+    
+
         <div class="v_form-step ">
 
         <h1 style="text-align: center; margin-bottom:30px;" >General Note</h1>
