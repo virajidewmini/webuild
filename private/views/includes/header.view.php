@@ -181,7 +181,7 @@
               <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
                 <li class="active">
-                  <a href="<?=ROOT?>/storekeeperdashboard" class="nav-link" class="nav-link">
+                  <a href="#" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
