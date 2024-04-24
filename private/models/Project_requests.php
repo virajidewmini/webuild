@@ -598,7 +598,7 @@ class Project_requests extends Model{
 
         $query="SELECT file_name FROM attachment
        
-        WHERE reference_id = :value AND  attachment_type = 'LAND'"; 
+        WHERE reference_id = :value AND  attachment_type = 'LANDPHOTO'"; 
 
         //return $this->query($query);
         return $this->query($query, [
@@ -611,7 +611,7 @@ class Project_requests extends Model{
 
         $query="SELECT file_name FROM attachment
        
-        WHERE reference_id = :value AND  attachment_type = 'BLOCK PLAN'"; 
+        WHERE reference_id = :value AND  attachment_type = 'LANDBLOCK'"; 
 
         return $this->query($query, [
             'value' => $value,
