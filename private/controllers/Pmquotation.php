@@ -23,10 +23,11 @@ class Pmquotation extends Controller
                 $arr1['payment_package_id'] = $_POST['payment_package_id'];
                 $project->insert($arr1);
 
+                
+                $uploadedFiles = $model->uploadQuotation($_FILES['files']);
+                $quotation_data = $quotation->InsertQuotationData($_POST, $uploadedFiles);
 
-                $uploadedFiles = $model->uploadFiles($_FILES);
-                $quotation->InsertQuotationData($_POST, $uploadedFiles);
-
+                $quotation->insert($quotation_data);
 
                 $arr2['status'] = 'Done';
                 $project_request->update($request_id, $arr2);

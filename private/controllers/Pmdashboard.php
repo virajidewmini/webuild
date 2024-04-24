@@ -27,12 +27,16 @@ class Pmdashboard extends Controller
 
         $data4 = $project_request->where('status', 'Paid');
 
+        $complaint = new C_Complaint();
+        $data5 = $complaint->man_viewComplanit_noty($pmi);
+
         $this->view('pmdashboard', [
             'rows' => $data,
             'rows1' => $data1,
             'rows2' => $data2,
             'rows3' => $data3,
             'rows4' => $data4,
+            'rows5' => $data5,
         ]);
     }
 

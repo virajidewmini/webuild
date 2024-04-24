@@ -11,7 +11,7 @@
      
      <div class="form_container">
          
-               <fieldset class="FormFieldset" >
+               <fieldset style="padding:10px;" class="FormFieldset" >
                     <legend class="Formlegend"> Customer Details</legend>
             
                     <div class="form-group">
@@ -51,7 +51,7 @@
 
                
               
-                    <fieldset class="FormFieldset" >
+                    <fieldset style="padding:10px;" class="FormFieldset" >
                          <legend class="Formlegend"> Land Details</legend>
                
                          <div class="form-group">
@@ -104,7 +104,7 @@
 
                <br><br>
 
-               <fieldset class="FormFieldset" >
+               <fieldset style="padding:10px;" class="FormFieldset" >
                     <legend class="Formlegend"> Project Manager Details</legend>
                          <br>
 
@@ -141,10 +141,12 @@
             
                     
                </fieldset>
+
+               
                
                <br><br>
 
-               <fieldset class="FormFieldset" >
+               <fieldset style="padding:10px;" class="FormFieldset" >
                     <legend class="Formlegend"> Modification Details</legend>
                     <br>
 
@@ -153,7 +155,7 @@
                               <br><br>
                               
                          <?php else : ?>                           
-                              <fieldset class="FormFieldset" >
+                              <fieldset style="padding:10px;" class="FormFieldset" >
                                    <legend class="Formlegend"> Kitchen Modification Details</legend>
                                    <br>
                                         <?php if($rows["kitchen_modification_details"]):?>
@@ -179,7 +181,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset class="FormFieldset" >
+                              <fieldset style="padding:10px;" class="FormFieldset" >
                                    <legend class="Formlegend"> Dining Room Modification Details</legend>
                                    <br>
                                         <?php if($rows["dining_modification_details"]):?>
@@ -205,7 +207,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset class="FormFieldset" >
+                              <fieldset style="padding:10px;" class="FormFieldset" >
                                    <legend class="Formlegend"> Living Room Modification Details</legend>
                                    <br>
                                         <?php if($rows["living_modification_details"]):?>
@@ -231,7 +233,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset class="FormFieldset" >
+                              <fieldset style="padding:10px;" class="FormFieldset" >
                                    <legend class="Formlegend"> Bathroom Modification Details</legend>
                                    <br>
                                         <?php if($rows["bathroom_modification_details"]):?>
@@ -257,7 +259,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset class="FormFieldset" >
+                              <fieldset style="padding:10px;" class="FormFieldset" >
                                    <legend class="Formlegend"> Exterior Modification Details</legend>
                                    <br>
                                         <?php if($rows["exterior_modification_details"]):?>
@@ -283,7 +285,7 @@
                                    
                               </fieldset>
                               <br>
-                              <fieldset class="FormFieldset" >
+                              <fieldset style="padding:10px;" class="FormFieldset" >
                                    <legend class="Formlegend"> Bedroom Modification Details</legend>
                                    <br>
                                         <?php if($rows["bedroom_modification_details"]):?>
@@ -317,7 +319,7 @@
                
                <br><br>
 
-               <fieldset class="FormFieldset" >
+               <fieldset style="padding:10px;" class="FormFieldset" >
                     <legend class="Formlegend"> Model Details</legend>
                     <br>
                     
@@ -397,7 +399,7 @@
                </fieldset>
 
                <br>
-                    <fieldset class="FormFieldset" >
+                    <fieldset style="padding:10px;" class="FormFieldset" >
                          <legend class="Formlegend"> Selected Payment Package Details</legend>
                          <br>
                               <?php if($rows["payment_plan"]):?>
@@ -416,7 +418,7 @@
                                              <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->installement_count;?>">
                                         </div>
                                         <div class="column">
-                                             <label for="lastName">Interest(IN Percentage)</label>
+                                             <label for="lastName">Interest(In Percentage)</label>
                                              <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->interest;?>%">
                                         </div>
                          

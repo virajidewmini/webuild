@@ -14,6 +14,7 @@ class Projects extends Model
         'get_task',
         'get_req',
         'get_land',
+        'get_payment',
     ];
 
     public $user_id;
@@ -107,6 +108,20 @@ class Projects extends Model
             }
         }
 
+        return $data;
+    }
+
+    public function get_payment($data){
+    
+        $payment = new Payment_packages();
+        foreach ($data as $key => $row1){
+            if(isset($row1->payment_package_id)){
+                $result = $payment->where('id',$row1->payment_package_id);
+                $data[$key]->payment = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
         return $data;
     }
 
@@ -265,4 +280,27 @@ class Projects extends Model
     }
 
     
+    public function get_project_request_id($value){
+
+
+        $query="SELECT projects.project_request_id FROM projects 
+        WHERE projects.id = :value"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getsupervisordetails($value){
+
+
+        $query="SELECT supervisor_id FROM projects 
+        WHERE id = :value"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
 }

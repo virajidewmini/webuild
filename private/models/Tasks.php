@@ -28,6 +28,17 @@ class Tasks extends Model{
             return $this->query($query,$data);
     
     }
+
+    public function levelwhere($col,$column, $value){
+
+        $column = addslashes($column);
+        $col = addslashes($col);
+        $query= "select distinct $col from tasks where $column =:value";
+
+        return $this->query($query,[
+            'value'=>$value
+        ]);;
+    }
     
 }
 ?>
