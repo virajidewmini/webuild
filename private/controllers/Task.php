@@ -2,12 +2,9 @@
 
 class Task extends Controller{
     
-    public function index($id){
+    public function index(){
+        $id=Auth::getProjectId();
         
-        // $_SESSION['project_id'] = $id;
-        
-        
-        // var_dump(Auth::getProjectId());
         $model=new AllocateTask();
        
         $data=$model->getTask($id);
