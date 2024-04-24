@@ -320,6 +320,10 @@
                     </div>
                   </form>
 
+                  
+
+                  <!-- put notification here -->
+
                   <a href="#" class="notification">
                     <i class="fas fa-bell"></i>
                     <span class="num">28</span>
@@ -404,7 +408,7 @@
                 </nav>
               <main>
 
-            <?php elseif(Auth::getRole()== NULL): ?>
+            <?php elseif($_SESSION['role']=='Client'): ?>
               <ul class="side-menu top">
                 <?php if(Auth::getProjectId() !== NULL ):?>
                 <li data-url="<?=ROOT?>/clientmaindashboard/<?= Auth::getProjectId() ?>"> 
