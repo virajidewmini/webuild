@@ -202,11 +202,12 @@
             }
         }
     </style>
+   
 
 <div style="text-align: center;" >
         <h2>All Project Requests</h2>
         
-    </div>
+    
         <br>
         <form method="post">
         
@@ -216,17 +217,51 @@
             
             <select name="year" class="" type="text" placeholder="Select Year" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
                 <?php for ($year = date('Y'); $year >= 2022; $year--) : ?>
-                    <option <?= ($year == get_select2('year', $year)) ? 'selected' : '' ?> value="<?= $year ?>"><?= $year ?></option>
-                <?php endfor; ?>
+                    <option <?= get_select2('year',$year);?> value="<?= $year ?>"><?= $year ?></option>
+                 <?php endfor; ?>
             </select>
             
             &nbsp;
         
             <button style="background-color:#E5863D; color:white"  type="submit">Search</button>
-            
-            
 
         </form>
+        </div>
 <br><br><br>
+<div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
 
-<?php endif;?>
+<div class="pro-id" style="padding: 0 0 40px 0; ">
+
+    <div class="pro-id-details">
+
+
+<pre><?php print_r($rows['most_selected_model_details']);?></pre>
+<!-- <br>
+<?php print_r($rows['all_requests_count'][0]->total);?>
+<br><?php print_r($rows['rejected_requests_count'][0]->total);?> -->
+        <div id="pdf">
+            <div class="header">
+                <h1>WEBUILD</h1>
+            </div>
+            <div style="text-align: center;" >
+                <h2 style="margin-top: 20px;margin-bottom: 20px">Analysis of All Project Requests Recieved in the Year <?=$rows['year'];?></h2>
+            </div>
+                <div class="main">
+                <div class="bill-details">
+                    <h2>Basic Information</h2>
+                    <p><strong>All Requests Recieved : </strong><?= $rows['all_requests_count'][0]->total; ?></p>
+                    <p><strong>Rejected Requests : </strong><?= $rows['rejected_requests_count'][0]->total;?></p>
+                    <p><strong>Completed Requests: </strong><?= $rows['all_requests_count'][0]->total; ?></p>
+                    <?php if ($rows['year']==date('Y')):?>
+                        <p><strong>Still Ongoing Requests : </strong><?= $rows['rejected_requests_count'][0]->total;?></p>
+                    <?php endif;?>
+                </div>
+
+                <div class="customer-info">
+                    <h2>Most Selected Model Information</h2>
+                    <p><strong>Model ID : </strong><?= $rows['most_selected_model_details']?></p>
+                    <!-- <p><strong>Model Name : </strong><?= $rows[0]->user->firstname ?> <?= $rows[0]->user->lastname ?></p> -->
+                </div>
+
+    <?php endif;?>
+<?php $this->view('includes/footer') ?>

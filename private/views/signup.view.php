@@ -4,7 +4,7 @@
 <head>
   <title>WEBUILD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="<?PHP echo ROOT;?>/css/signup.css"> -->
+  <link rel="stylesheet" href="<?PHP echo ROOT;?>/css/signup.css">
 </head>
 
 <body style="background-image: url('<?PHP echo ROOT;?>/img/back.jpeg');">
@@ -24,7 +24,7 @@
 
 
       <!-- error dispaly -->
-      <div style="color: #fff; /* Red color for error messages */font-size: 14px;">
+      <div style="color: #000; /* Red color for error messages */font-size: 14px;">
       <?php if(count($errors) >0):?>
         <strong>Errors:</strong>
       <?php foreach($errors as $error):?>

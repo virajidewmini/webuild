@@ -535,6 +535,49 @@ class Project_requests extends Model{
         ]);
     }
 
+    public function findAllRequestsCountInYear($value){
+
+
+        $query="SELECT COUNT(*) AS total FROM project_requests   
+        WHERE YEAR(date) = :value "; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function findAllRejectedRequestsCountInYear($value){
+
+
+        $query="SELECT COUNT(*) AS total FROM project_requests   
+        WHERE YEAR(date) = :value AND status='Rejected'"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+    //get most selected model details
+    public function getMostSelectedModelID($value){
+
+        $query="SELECT model_id, COUNT(*) AS request_count
+        FROM project_requests
+        WHERE YEAR(date) = :value
+        GROUP BY model_id
+        ORDER BY request_count DESC
+        LIMIT 1";
+
+
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
 
     //to get salary , land photograph and block plan 
     public function getSalary($value){

@@ -38,7 +38,7 @@ input:disabled:hover + .radio-tile {
                 
                 <div class="column">
                     <label for="occupation">Occupation</label>
-                    <input type="text" id="occupation" name="occupation">
+                    <input type="text" id="occupation" name="occupation" value="<?= get_var('occupation');?>">
                 </div>
                 <div class="column">
                     <label for="lastName">Monthly Salary(LKR)</label>
