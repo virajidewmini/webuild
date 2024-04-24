@@ -26,6 +26,7 @@
           <?php if(Auth::logged_in()): ?>
             <?php if(Auth::getRole()== 'Project Coordinator'): ?>
               <ul class="side-menu top">
+
                 <li class="active">
                   <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
@@ -352,7 +353,7 @@
                 <li>
                   <a href="#" class="nav-link">
                     <i class="fa-brands fa-paypal"></i>
-                    <span class="text">Payment</span>
+                    <span class="text">Coworkers</span>
                   </a>
                 </li>
                 <li>
@@ -401,14 +402,16 @@
                 </nav>
               <main>
 
-            <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
+            <?php elseif(Auth::getRole()== NULL): ?>
               <ul class="side-menu top">
-                <li class="active">
+                <?php if(Auth::getProjectId() !== NULL ):?>
+                <li class="active"> 
                   <a href="#" class="nav-link">
                     <i class="fas fa-border-all"></i>
-                    <span class="text">Dashboard</span>
+                    <span class="text">Dashboard </span>
                   </a>
                 </li>
+                <?php endif?>
                 <li>
                   <a href="#" class="nav-link">
                     <i class="fas fa-file"></i>

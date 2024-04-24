@@ -81,7 +81,7 @@ p {
 
 
 <div class="container">
-        <h1>Select Your Project</h1>
+        <h1>Select Your Project Request</h1>
         
             <div class="role-container">
             <?php if(isset($rows) && !empty($rows)):?>
@@ -90,7 +90,7 @@ p {
                         <div class="role-border">
                             <h2>Project ID: <?=$row->id?></h2>
                             <img src="<?=ROOT?>/img/project.png" alt="Designer Image">
-                            <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+                            <a href="<?= ROOT ?>/clientrequest/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
                         </div>
                     </div>
                 <?php endforeach;?>
@@ -101,11 +101,6 @@ p {
             
 
             </div>
-            <div>
-                <a href="<?= ROOT ?>/allclientrequest"><button class="role-btn" style="background-color: #E5863D;">View Project Request</button></a>
-            </div>
 
     </div>
-
-    <?php $this->view('includes/footer'); ?>
     

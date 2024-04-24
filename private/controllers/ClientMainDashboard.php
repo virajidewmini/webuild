@@ -2,7 +2,11 @@
 
     class ClientMainDashboard extends Controller{
         
-        public function index(){
+        public function index($id){
+
+            //  $_SESSION['project_id'] = $id;
+
+            // var_dump(Auth::getProjectId());
 
             $model= new Dashboards();
             $model_id=$model->getModel();
@@ -32,6 +36,7 @@
                 'complaints'=>$pendingComplaintDetail, 'averageRate'=>$avgRate,'count'=>$count, 'payments'=>$payment
             ]);
         }
+
 
     }
 ?>

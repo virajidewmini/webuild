@@ -15,7 +15,7 @@ use Respect\Validation\Validator as v;
 
                 $minValue=40;
                 
-                $occupationValidator = v::notEmpty()->alpha()->length(null, 255);
+                $occupationValidator = v::notEmpty()->stringType()->length(null, 255);
                 $streetValidator = v::notEmpty()->stringType()->length(null, 20); 
                 $areaValidator = v::notEmpty()->intVal()->between($minValue, 160);
         

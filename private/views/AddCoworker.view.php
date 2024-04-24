@@ -21,16 +21,24 @@
 
         <form method="post"  class="v_form" enctype="multipart/form-data">
 
+        <?php if (isset($errors)) : ?>
+            <div class="errors">
+                <?php foreach ($errors as $error) : ?>
+                    <p class="error"><?= $error ?></p>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+
         <div class="form-group">
             <div class="column">
                 <label class="v_label" id="name" >Name</label>
-                <input type="text" name="name" class="v_form-control" required>
+                <input type="text" name="name" class="v_form-control" >
                 
             </div>
 
             <div class="column">
                 <label class="v_label" id="phone">Phone</label>
-                <input type="text" name="phone_no" class="v_form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter a phone number in the format XXX-XXX-XXXX" required>
+                <input type="text" name="phone_no" class="v_form-control" >
             </div>
 
             <div class="column">
