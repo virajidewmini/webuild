@@ -20,6 +20,9 @@
                         if (Auth::getRole() == 'Project Manager'){
                             $this->redirect('/pmdashboard');
                         }
+                        if (Auth::getRole() == 'Supervisor'){
+                            $this->redirect('/supdashboard');
+                        }
                         if (Auth::getRole() == 'Storekeeper'){
                             $this->redirect('/storekeeperdashboard');
                         }

@@ -29,6 +29,7 @@
 
                 <li class="active">
                   <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
+                  
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
@@ -689,9 +690,7 @@
 
             <?php endif; ?>
           <?php endif; ?>
-
-
-          <script>
+         <script>
             let liList=document.querySelectorAll(".side-menu.top>li")
                   liList.forEach(li=>{
                     let value=li.dataset.url;
