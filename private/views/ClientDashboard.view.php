@@ -1,4 +1,4 @@
-<?php $this->view('includes/header')?>
+
 
 <style>
    .container {
@@ -85,17 +85,30 @@ p {
         
             <div class="role-container">
             <?php if(isset($rows) && !empty($rows)):?>
-                <?php foreach ($rows as $row):  ?>
+                <?php foreach ($rows as $row): ?>
                     <div class="role">
                         <div class="role-border">
+                        <?php 
+                            $project=new Client();
+                            $status=$project->getStatus($row->id);
+                        ?>
                             <h2>Project ID: <?=$row->id?></h2>
                             <img src="<?=ROOT?>/img/project.png" alt="Designer Image">
-                            <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+
+                            <?php if($status[0]->status=='Pending'):?>
+                              <a href="<?= ROOT ?>/quotation/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+                            <?php else: ?>
+                              <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+                            <?php endif; ?> 
                         </div>
                     </div>
                 <?php endforeach;?>
             <?php else: ?>
-                <h3>No Ongoing Project Yet</h3>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="<?= ROOT ?>/img/noProject.png" alt="" style="width: 300px; height: 300px;">
+                <h3>No Ongoing or Complete Project Yet</h3>
+                <p>Go Back <a href="<?=ROOT?>/home">Home</a></p>
+              </div>
             <?php endif; ?> 
 
             

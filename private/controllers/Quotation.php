@@ -3,10 +3,11 @@
     //Quotation controller
     class Quotation extends Controller{
         
-        public function index(){
+        public function index($id){
 
             $quotation= new Project_Quotation();
-            $data=$quotation->where("user_id",Auth::id());
+            $data=$quotation->getQuotation($id);
+            $_SESSION['project_id']=$id;
             // var_dump("AUTH ID",Auth::id());
 
             $this->view('ViewQuotation',["rows"=>$data]);

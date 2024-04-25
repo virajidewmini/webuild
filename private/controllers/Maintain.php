@@ -39,9 +39,9 @@ class Maintain extends Controller
 
     // Separate materials based on their types
     foreach ($data['materials'] as $row) {
-        if ($row->type === 'tile') {
+        if ($row->type =='tile') {
             $tiles[] = $row;
-        } elseif ($row->type === 'paint') {
+        } elseif ($row->type == 'paint') {
             $paints[] = $row;
         } else {
             $others[] = $row;
