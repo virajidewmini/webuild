@@ -258,12 +258,26 @@
             if(!Auth::logged_in()){
                 $this->redirect('/staff_login');
             }
-            //print_r($year);
-            $project_requests=new Project_requests();
+            
+            $project_requests = new Project_requests();
 
-            $data=$project_requests->findAllRequestsInYear($year);
-            //print_r($data);
+            if(isset($_POST['year'])){    
+                $data['all_project_requests']=$project_requests->findAllRequestsInYear($_POST['year']);        
+                $data['all_requests_count']=$project_requests->findAllRequestsCountInYear($_POST['year']);
+                $data['rejected_requests_count']=$project_requests->findAllRejectedRequestsCountInYear($_POST['year']);
+                $data['year']=$_POST['year'];
+            }
+            else{
+                $data['all_project_requests']=$project_requests->findAllRequestsInYear(date('Y'));
+                $data['all_requests_count']=$project_requests->findAllRequestsCountInYear(date('Y'));
+                $data['rejected_requests_count']=$project_requests->findAllRejectedRequestsCountInYear(date('Y'));
+                $data['year']=date('Y');
+            }
 
+            $data['most_selected_model_details']=$project_requests->getMostSelectedModelID($data['year'])[0];
+            
+
+            //print_r($data['all_project_requests']);
            $this->view('coordinatorrequests.all',['rows'=>$data]);
         }
     }
