@@ -195,14 +195,6 @@
                         <input type="text" id="contactnumber" name="contactnumber" value="<?= get_date($rows[0]->final_date) ?>">
                     </div>
                     <div class="column">
-                        <label for="lastName">Land Type :</label>
-                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->land_type ?>">
-                    </div>
-                    <div class="column">
-                        <label for="lastName">Land ID :</label>
-                        <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->land_id ?>">
-                    </div>
-                    <div class="column">
                         <label for="lastName">Model Name :</label>
                         <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->name ?>">
                     </div>
@@ -910,7 +902,50 @@
                 </div>
             </div>
         </div>
+        <?php if ($rows17) : ?>
+            <div class="pro-id-details">
+                <div class="table">
+                    <div class="title-id">
+                        <div class="p-title">
+                            <h2 class="ind-topic">Complaints</h2>
+                        </div>
+                    </div>
+                    <div class="table_section">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Project ID</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($rows17 as $row) : ?>
+                                    <tr>
+                                        <td><?= $row->project_id ?></td>
+                                        <td><?= $row->type ?></td>
+                                        <td><?= $row->description ?></td>
+                                        <td><?= $row->date ?></td>
+                                        <td><?= $row->status ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmcomplaint/man_view_complaint/<?= $row->id ?>"><button><i class="fa-solid fa-eye"></i></button></a>
 
+
+
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($rows18) : ?>
         <div class="pro-id-details">
             <div class="table">
                 <div class="title-id">
@@ -918,41 +953,35 @@
                         <h2 class="ind-topic">Daily Progress Report</h2>
                     </div>
                 </div>
-                <div class="table_header">
-                    <h3>Reports</h3>
-                </div>
                 <div class="table_section">
                     <table>
                         <thead>
                             <tr>
-                                <th>Employee ID</th>
-                                <th>Name</th>
-                                <th>Skill</th>
-                                <th>Task ID</th>
-                                <th>Task Name</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
+                                <th>Date</th>
+                                <th style="width:400px;">General Note</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($row9) : ?>
-                                <?php foreach ($row9 as $row) : ?>
+  
+                                <?php foreach ($rows18 as $row) : ?>
                                     <tr>
-                                        <td><?= $row->emp_id ?></td>
-                                        <td><?= $row->coworker->name ?></td>
-                                        <td><?= $row->coworker->role ?></td>
-                                        <td><?= $row->task_id ?></td>
-                                        <td><?= $row->task->task_name ?></td>
-                                        <td><?= get_date($row->start_date) ?></td>
-                                        <td><?= get_date($row->end_date) ?></td>
+                                        <td><?= $row->date ?></td>
+                                        <td><?= $row->comment ?></td>
+                                        <td>
+
+                                            <a href="<?= ROOT ?>/Pmdailyreports/viewDPR/<?= $row->project_id ?>/<?= $row->date ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
+
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
-                            <?php endif; ?>
+                           
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
 
     </div>
 </div>

@@ -212,6 +212,7 @@
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             <h2 style="margin-top: 20px;margin-bottom: 20px">MODIFICATION</h2>
                         </div>
+                        <div style="display: none;">
                         <?php if ($rowk) : ?>
                             <div class="m-part" id="kitchen">
                                 <div class="m-part-top">
@@ -1086,7 +1087,6 @@
                             <h2 style="margin-top: 20px">Price Details</h2>
                         </div>
                         <div class="m-part">
-                            <!-- <?php print_r($_POST) ?> -->
                             <div class="unit-d">
 
                                 <div>
@@ -1142,6 +1142,7 @@
                         <br>
                         <br>
                         <br>
+                                        </div>
                         <div id="pdf">
                             <div class="header">
                                 <h1>WEBUILD</h1>
@@ -1172,65 +1173,77 @@
                                             <th>Default Price</th>
                                             <th>New Price</th>
                                         </tr>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Kitchen</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowk[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_kitchens ?></td>
-                                                <td id="kit_p_d_price"></td>
-                                                <td id="kit_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowk) : ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Kitchen</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowk[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_kitchens ?></td>
+                                                    <td id="kit_p_d_price"></td>
+                                                    <td id="kit_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Bathroom</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowba[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_bathrooms ?></td>
-                                                <td id="bath_p_d_price"></td>
-                                                <td id="bath_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowba) : ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Bathroom</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowba[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_bathrooms ?></td>
+                                                    <td id="bath_p_d_price"></td>
+                                                    <td id="bath_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Dining</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowd[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_dining ?></td>
-                                                <td id="din_p_d_price"></td>
-                                                <td id="din_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowd) : ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Dining</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowd[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_dining ?></td>
+                                                    <td id="din_p_d_price"></td>
+                                                    <td id="din_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Bedroom</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowbe[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_bedrooms ?></td>
-                                                <td id="bed_p_d_price"></td>
-                                                <td id="bed_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowbe) : ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Bedroom</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowbe[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_bedrooms ?></td>
+                                                    <td id="bed_p_d_price"></td>
+                                                    <td id="bed_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Living Area</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowl[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_living_area ?></td>
-                                                <td id="liv_p_d_price"></td>
-                                                <td id="liv_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowl) : ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Living Area</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowl[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_living_area ?></td>
+                                                    <td id="liv_p_d_price"></td>
+                                                    <td id="liv_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Exterior</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowbe[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_exterior ?></td>
-                                                <td id="ext_p_d_price"></td>
-                                                <td id="ext_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowbe) : ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Exterior</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowbe[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_exterior ?></td>
+                                                    <td id="ext_p_d_price"></td>
+                                                    <td id="ext_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </table>
                                 </div>
@@ -1245,65 +1258,77 @@
                                             <th>Default Price</th>
                                             <th>New Price</th>
                                         </tr>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Kitchen</td>
-                                                <td><?= $model[0]->kitchenTile->name ?></td>
-                                                <td><?= $rowk[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_kitchens ?></td>
-                                                <td id="kit_t_d_price"></td>
-                                                <td id="kit_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowk) : ?>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Kitchen</td>
+                                                    <td><?= $model[0]->kitchenTile->name ?></td>
+                                                    <td><?= $rowk[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_kitchens ?></td>
+                                                    <td id="kit_t_d_price"></td>
+                                                    <td id="kit_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Bathroom</td>
-                                                <td><?= $model[0]->bathroomTile->name ?></td>
-                                                <td><?= $rowba[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?></td>
-                                                <td id="bath_t_d_price"></td>
-                                                <td id="bath_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowba) : ?>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Bathroom</td>
+                                                    <td><?= $model[0]->bathroomTile->name ?></td>
+                                                    <td><?= $rowba[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?></td>
+                                                    <td id="bath_t_d_price"></td>
+                                                    <td id="bath_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Dining</td>
-                                                <td><?= $model[0]->diningTile->name ?></td>
-                                                <td><?= $rowd[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_dining ?></td>
-                                                <td id="din_t_d_price"></td>
-                                                <td id="din_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowd) : ?>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Dining</td>
+                                                    <td><?= $model[0]->diningTile->name ?></td>
+                                                    <td><?= $rowd[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_dining ?></td>
+                                                    <td id="din_t_d_price"></td>
+                                                    <td id="din_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Bedroom</td>
-                                                <td><?= $model[0]->defaultTile->name ?></td>
-                                                <td><?= $rowbe[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?></td>
-                                                <td id="bed_t_d_price"></td>
-                                                <td id="bed_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowbe) : ?>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Bedroom</td>
+                                                    <td><?= $model[0]->defaultTile->name ?></td>
+                                                    <td><?= $rowbe[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?></td>
+                                                    <td id="bed_t_d_price"></td>
+                                                    <td id="bed_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Living Area</td>
-                                                <td><?= $model[0]->defaultTile->name ?></td>
-                                                <td><?= $rowl[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_living_area ?></td>
-                                                <td id="liv_t_d_price"></td>
-                                                <td id="liv_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowl) : ?>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Living Area</td>
+                                                    <td><?= $model[0]->defaultTile->name ?></td>
+                                                    <td><?= $rowl[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_living_area ?></td>
+                                                    <td id="liv_t_d_price"></td>
+                                                    <td id="liv_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Exterior</td>
-                                                <td><?= $model[0]->defaultTile->name ?></td>
-                                                <td><?= $rowe[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_exterior ?></td>
-                                                <td id="ext_t_d_price"></td>
-                                                <td id="ext_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowe) : ?>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Exterior</td>
+                                                    <td><?= $model[0]->defaultTile->name ?></td>
+                                                    <td><?= $rowe[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_exterior ?></td>
+                                                    <td id="ext_t_d_price"></td>
+                                                    <td id="ext_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </table>
                                 </div>
@@ -1384,25 +1409,9 @@
             </div>
         </div>
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.debug.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
-
-
-
-
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
-
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
         <script>
             function calculate() {
                 // Get the values from input elements
@@ -1637,15 +1646,6 @@
                         compress: true
                     }
                 }
-
-                // $('#print').click(function(e) {
-                //     e.preventDefault();
-                //     const element = document.getElementById('pdf');
-                //     const name = 'pramuka';
-                //     options.filename = name + '.pdf';
-                //     html2pdf().from(element).set(options).save();
-                //     window.location.href = 'http://localhost/webuild/public/pmdashboard';
-                // });
 
                 $('#print').click(function(e) {
                     e.preventDefault();

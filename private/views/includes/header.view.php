@@ -190,7 +190,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="<?=ROOT?>/Request">
+                  <a href="<?=ROOT?>/request">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Requests</span>
                   </a>

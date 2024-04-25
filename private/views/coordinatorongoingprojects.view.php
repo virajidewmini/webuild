@@ -46,7 +46,7 @@ body{
                                     <td style="color: white;"><?=$row->staff_m->firstname?> <?=$row->staff_m->firstname?></td>
                                     <!-- <td style="color: white;"><?=$row->staff->firstname?> <?=$row->staff->firstname?></td>   -->
                                     <td >
-                                        <a href="#">
+                                        <a href="<?=ROOT?>/coordinatorprojects/seemore/<?=$row->project_id?>">
                                             <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td>
@@ -66,7 +66,7 @@ body{
                                     <td><?=$row->staff_m->firstname?> <?=$row->staff_m->firstname?></td>
                                     <!-- <td><?=$row->staff->firstname?> <?=$row->staff->firstname?></td>   -->
                                     <td >
-                                        <a href="#">
+                                        <a href="<?=ROOT?>/coordinatorprojects/seemore/<?=$row->project_id?>">
                                             <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td>
@@ -90,7 +90,7 @@ body{
                                     <td><?=$row->staff_m->firstname?> <?=$row->staff_m->firstname?></td>
                                     <!-- <td><?=$row->staff->firstname?> <?=$row->staff->firstname?></td>   -->
                                     <td>
-                                        <a href="#">
+                                        <a href="<?=ROOT?>/coordinatorprojects/seemore/<?=$row->project_id?>">
                                             <button><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </td>

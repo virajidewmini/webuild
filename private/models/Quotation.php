@@ -41,7 +41,16 @@ class Quotation extends Model
         ]);
     }
 
+    
+    public function getQuotationName($value){
 
+        $query = "SELECT quotation  FROM quotation 
+        WHERE project_id = :value";
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
 
 
 }

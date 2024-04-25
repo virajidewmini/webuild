@@ -1,23 +1,37 @@
-<?php 
-class C_Complaint extends Model{
+<?php
+class C_Complaint extends Model
+{
     protected $table = "complaint";
 
-    public function viewComplanitDetail($id){
+    public function validate($DATA)
+    {
+        $this->errors = array();
+        if (count($this->errors) == 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function viewComplanitDetail($id)
+    {
 
         $query = "select * from complaint where id = :id";
-		$data['id'] = $id;
-        return $this->query($query,$data);
+        $data['id'] = $id;
+        return $this->query($query, $data);
     }
 
-    public function updateRemark($id,$remark){
+    public function updateRemark($id, $remark)
+    {
 
         $query = "update complaint set remark=:remark where id=:complaint_id";
-		$param=[
-            'complaint_id'=>$id,
-            'remark'=>$remark,
+        $param = [
+            'complaint_id' => $id,
+            'remark' => $remark,
         ];
-        return $this->query($query,$param);
+        return $this->query($query, $param);
     }
+
 
     public function updateStatus($id){
 
@@ -27,15 +41,16 @@ class C_Complaint extends Model{
         ];
         return $this->query($query,$param);
     }
-    
+
 
 
     //gaveesha
 
     //this is to get unhandled complaints on photograph Quality 
-    public function getPendingPhotographComplaints(){
+    public function getPendingPhotographComplaints()
+    {
 
-        $query="SELECT * FROM (
+        $query = "SELECT * FROM (
                     SELECT *
                     FROM complaint   
                     WHERE complaint.type='Quality of the photograph' AND complaint.status IN ('Pending','Notified')
@@ -55,14 +70,15 @@ class C_Complaint extends Model{
                         END,
                     STR_TO_DATE(date, '%Y-%m-%d'); -- Convert string date to MySQL date format
             
-        "; 
+        ";
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPendingBeingDelayedComplaints(){ 
+    public function getPendingBeingDelayedComplaints()
+    {
 
-        $query="SELECT * FROM (
+        $query = "SELECT * FROM (
             SELECT *
             FROM complaint   
             WHERE complaint.type='Construction project delay ' AND complaint.status IN ('Pending','Notified')
@@ -81,14 +97,15 @@ class C_Complaint extends Model{
                     ELSE 3
                 END,
             STR_TO_DATE(date, '%Y-%m-%d'); -- Convert string date to MySQL date format
-        "; 
+        ";
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPendingWorkmanshipAndMaterialsComplaints(){
+    public function getPendingWorkmanshipAndMaterialsComplaints()
+    {
 
-        $query="SELECT * FROM (
+        $query = "SELECT * FROM (
             SELECT *
             FROM complaint   
             WHERE complaint.type='Quality of workmanship and materials' AND complaint.status IN ('Pending','Notified')
@@ -107,15 +124,16 @@ class C_Complaint extends Model{
                     ELSE 3
                 END,
             STR_TO_DATE(date, '%Y-%m-%d'); -- Convert string date to MySQL date format
-        "; 
+        ";
 
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPendingPoorCommunicationComplaints(){
+    public function getPendingPoorCommunicationComplaints()
+    {
 
-        $query="SELECT * FROM (
+        $query = "SELECT * FROM (
             SELECT *
             FROM complaint   
             WHERE complaint.type='Poor Communication' AND complaint.status IN ('Pending','Notified')
@@ -134,15 +152,16 @@ class C_Complaint extends Model{
                     ELSE 3
                 END,
             STR_TO_DATE(date, '%Y-%m-%d'); -- Convert string date to MySQL date format
-        "; 
+        ";
 
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPendingOtherComplaints(){
+    public function getPendingOtherComplaints()
+    {
 
-        $query="SELECT * FROM (
+        $query = "SELECT * FROM (
             SELECT *
             FROM complaint   
             WHERE complaint.type='other ' AND complaint.status IN ('Pending','Notified')
@@ -161,7 +180,7 @@ class C_Complaint extends Model{
                     ELSE 3
                 END,
             STR_TO_DATE(date, '%Y-%m-%d'); -- Convert string date to MySQL date format
-        "; 
+        ";
 
         //return $this->query($query);
         return $this->query($query);
@@ -170,10 +189,11 @@ class C_Complaint extends Model{
 
 
     //for Admin dashboard
-    public function getComplaintsInMonth($month,$type){
+    public function getComplaintsInMonth($month, $type)
+    {
 
 
-        $query="SELECT COUNT(*) AS total FROM complaint 
+        $query = "SELECT COUNT(*) AS total FROM complaint 
         WHERE type = :type AND 
             CASE 
                 WHEN :month = 'January'  THEN date LIKE '____-01-__'
@@ -190,23 +210,24 @@ class C_Complaint extends Model{
                 WHEN :month = 'February' THEN date LIKE '____-12-__'
                 ELSE FALSE
             END 
-        "; 
+        ";
         //$data['id'] = $id;
         // return $this->query($query,$data);
         // //return $this->query($query);
         return $this->query($query, [
-            'month'=> $month,
+            'month' => $month,
             'type' => $type,
         ]);
     }
 
     //get all complaint counts
-    public function getComplaintCount($type){
+    public function getComplaintCount($type)
+    {
 
 
-        $query="SELECT COUNT(*) AS total FROM complaint 
-        WHERE type = :type "; 
-       
+        $query = "SELECT COUNT(*) AS total FROM complaint 
+        WHERE type = :type ";
+
         return $this->query($query, [
             'type' => $type,
         ]);
@@ -216,83 +237,94 @@ class C_Complaint extends Model{
 
 
     //from this point down are handled complaints 
-    
-    
-    //on photograph Quality 
-    public function getPastPhotographComplaints(){
 
-        $query="SELECT * FROM complaint WHERE complaint.type='Quality of the photograph' AND complaint.status = 'Handled'
+
+    //on photograph Quality 
+    public function getPastPhotographComplaints()
+    {
+
+        $query = "SELECT * FROM complaint WHERE complaint.type='Quality of the photograph' AND complaint.status = 'Handled'
                 
                 ORDER BY
                     STR_TO_DATE(date, '%Y-%m-%d')DESC; -- Convert string date to MySQL date format
             
-        "; 
+        ";
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPastBeingDelayedComplaints(){ 
+    public function getPastBeingDelayedComplaints()
+    {
 
-        $query="SELECT * FROM complaint WHERE complaint.type='Construction project delay ' AND complaint.status = 'Handled'
+        $query = "SELECT * FROM complaint WHERE complaint.type='Construction project delay ' AND complaint.status = 'Handled'
                 
                 ORDER BY
                     STR_TO_DATE(date, '%Y-%m-%d')DESC;   
             
-        "; 
+        ";
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPastWorkmanshipAndMaterialsComplaints(){
+    public function getPastWorkmanshipAndMaterialsComplaints()
+    {
 
-        $query="SELECT * FROM complaint WHERE complaint.type='Quality of workmanship and materials' AND complaint.status = 'Handled'
+        $query = "SELECT * FROM complaint WHERE complaint.type='Quality of workmanship and materials' AND complaint.status = 'Handled'
                 
                 ORDER BY
                     STR_TO_DATE(date, '%Y-%m-%d')DESC;  
             
-        "; 
+        ";
 
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPastPoorCommunicationComplaints(){
+    public function getPastPoorCommunicationComplaints()
+    {
 
-        $query="SELECT * FROM complaint WHERE complaint.type='Poor Communication' AND complaint.status = 'Handled'
+        $query = "SELECT * FROM complaint WHERE complaint.type='Poor Communication' AND complaint.status = 'Handled'
                 
                 ORDER BY
                     STR_TO_DATE(date, '%Y-%m-%d')DESC; 
             
-        "; 
+        ";
 
         //return $this->query($query);
         return $this->query($query);
     }
 
-    public function getPastOtherComplaints(){
+    public function getPastOtherComplaints()
+    {
 
-        $query="SELECT * FROM complaint WHERE complaint.type='other ' AND complaint.status = 'Handled'
+        $query = "SELECT * FROM complaint WHERE complaint.type='other ' AND complaint.status = 'Handled'
                 
                 ORDER BY
                     STR_TO_DATE(date, '%Y-%m-%d')DESC; 
             
-        "; 
+        ";
 
         //return $this->query($query);
         return $this->query($query);
     }
 
-    
-    
-    
-    
-
-
-
-
-
+    public function man_viewComplanit_noty($man_id, $pro_id = null)
+    {
+        if ($pro_id) {
+            $query = "SELECT complaint.*
+        FROM complaint
+        JOIN projects ON complaint.project_id = projects.id
+        WHERE ( complaint.status = 'Notified' OR complaint.status = 'Handled') AND projects.id = :pro_id AND complaint.type = 'Construction project delay '";
+            $data['pro_id'] = $pro_id;
+            return $this->query($query, $data);
+        } 
+        else {
+            $query = "SELECT complaint.*
+        FROM complaint
+        JOIN projects ON complaint.project_id = projects.id
+        WHERE ( complaint.status = 'Notified' OR complaint.status = 'Handled') AND projects.manager_id = :man_id AND complaint.type = 'Construction project delay '";
+            $data['man_id'] = $man_id;
+            return $this->query($query, $data);
+        }
+    }
 }
-
-
-?>
-

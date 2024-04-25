@@ -13,11 +13,17 @@ class storeMaterials extends Model
         // return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
+    public function getAllMaterials() {
+        $query = "SELECT material_name FROM $this->table";
+        return $this->query($query);
+    }
 
-//     public function findAllFilteredByMaterialName($materialNameFilter) {
-//         // Fetch all rows from the materials table filtered by material_name
-//         $sql = "SELECT * FROM $this->table WHERE material_name LIKE ?";
-//     // Other methods...
-// }
+    public function getLOWMaterials_C() {
+        $query = "SELECT COUNT(*) AS request_count
+        FROM materials
+        WHERE status = 'LOW'";
+        return $this->query($query);
+    }
+
 }
 ?>
