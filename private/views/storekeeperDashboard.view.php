@@ -157,19 +157,31 @@
     <div class="data-cards">
       <?php if ($rows1) : ?>
         <div class="card">
-          <h2>New Requests </h2>
-          <p id="userCount"><?= $rows1[0]->total_rows ?></p>
+          <div>
+            <a href=request>
+            <h2 style="font-weight: 1000;">New Requests </h2>
+          <p id="userCount" style="font-weight: bolder;"><?= $rows1[0]->total_rows ?></p>
+            </a>
+          </div>
+          
         </div>
       <?php endif; ?>
       <div class="card">
-        <h2>Low Materials</h2>
+        <div>
+          <a href=maintain>
+          <h2>Low Materials</h2>
         <p id="orderCount"><?= $rows2[0]->request_count ?></p>
+          </a>
+        </div>
+        
       </div>
 
     </div>
 
-    <div class="charts">
-      <?php if (count($rows3) == 2) : ?>
+    <div class="charts" >
+      <div>
+      <div class="pie-chart">
+      <?php if (count($rows3) ==2) : ?>
         <div class="chart-container">
           <h2>Requests</h2>
           <canvas id="pieChart"></canvas>
@@ -196,12 +208,13 @@
           </script>
         </div>
       <?php elseif (count($rows3) == 3) : ?>
-        <div class="chart-container">
-          <h2>Product Sales</h2>
+        <div class="chart-container"  style="padding-left: 6rem;">
+          <div></div>
+          <h2>Requests Status</h2>
           <canvas id="pieChart"></canvas>
           <script>
             // Extracting data from $rows3 and constructing the chart data
-            const userData = {
+             userData = {
               labels: [
                 '<?= $rows3[0]->status ?>',
                 '<?= $rows3[1]->status ?>',
@@ -222,7 +235,7 @@
             };
 
             // Chart configuration
-            const pieChartConfig = {
+             pieChartConfig = {
               type: 'pie',
               data: userData
             };
@@ -237,53 +250,75 @@
 
         </div>
       <?php endif; ?>
+      </div>
+      </div>
 
+      <div class="bar-chart">
       <?php if ($rows4) : ?>
-      <div class="chart-container">
-        <h2>Complaint Status</h2>
-        <canvas id="complaintChart"></canvas>
-        <script>
-          // Sample complaint data
-          const complaintData = {
-            labels: [
-              <?php foreach ($rows4 as $data) : ?> '<?= $data['district'] ?>',
-              <?php endforeach; ?>
+      <div class="chart-container"  style="padding-left: 15rem;">
+        <h2>Requests Status</h2>
+        <div class="chart-container" style="height: 150%;">
+      
+      <canvas id="barChart"></canvas>
+      <script>
+        // Extracting data from $rows4 and constructing the chart data
+        const barChartData = {
+          labels: [
+            // Labels for your columns (assuming data is available in $rows4)
+            'Galle', 'Colombo', 'Kaluthar', 'Gampaha', 'Matara'
+          ],
+          datasets: [{
+            label: 'Column Chart Data', // Label for the dataset
+            data: [
+              // Data for your columns (assuming data is available in $rows4)
+              <?= $rows6[0]->countgalle ?>,
+              <?= $rows7[0]->countColombo ?>,             
+              <?= $rows8[0]->countKaluthara ?>,
+              <?= $rows9[0]->countGampaha ?>,
+              <?= $rows10[0]->countMatara ?>,            
+              
             ],
-            datasets: [{
-              label: 
-              <?php foreach ($rows4 as $data) : ?> '<?= $data['district'] ?>',
-              <?php endforeach; ?> ,
-              data: [
-              <?php foreach ($rows4 as $data) : ?> '<?= $data['request_count'] ?>',
-              <?php endforeach; ?>
-            ],
-              backgroundColor: [
-                '#4CAF50',
-                '#4CAF50', // Green for resolved
-                '#FF9800' // Orange for unresolved
-              ]
-            }]
-          };
+            backgroundColor: [
+                // Background colors for the bars
+                '#2196F3', // Blue
+                '#FF5722', // Orange
+                '#4CAF50', // Green
+                '#FFC107', // Yellow
+                '#9C27B0'  // Purple
+              ],// Background color for the bars
+            borderColor: '#0D47A1', // Border color for the bars
+            borderWidth: 1 // Border width for the bars
+          }]
+        };
 
-          // Chart configuration
-          const complaintChartConfig = {
-            type: 'bar',
-            data: complaintData,
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true // Start the y-axis at 0
+        // Chart configuration
+        const barChartConfig = {
+          type: 'bar',
+          data: barChartData,
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                grid: {
+                  display: false // Hide X-axis grid lines
+                }
+              },
+              y: {
+                grid: {
+                  color: 'rgba(0, 0, 0, 0.1)' // Adjust Y-axis grid color
                 }
               }
             }
-          };
+          }
+        };
 
-          // Render charts
-          window.onload = function() {
-            // new Chart(document.getElementById('pieChart'), pieChartConfig);
-            new Chart(document.getElementById('complaintChart'), complaintChartConfig);
-          };
-        </script>
+        // Create the bar chart when the window is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+          new Chart(document.getElementById('barChart'), barChartConfig);
+        });
+      </script>
+    </div>
+        
       </div>
       <?php endif; ?>
     </div>
@@ -297,5 +332,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- <script src="scripts.js"></script> -->
 </body>

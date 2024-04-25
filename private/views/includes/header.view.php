@@ -242,6 +242,73 @@
                       </button> -->
                     </div>
                   </form>
+                <?php
+                  $staff = new Staffs();
+                  $_SESSION['notifications']=$staff->getNotifications(Auth::getid());
+                  $_SESSION['notification_count']=$staff->getNotificationCount(Auth::getid())[0]->total;
+                  ?>
+                  <a href="#" class="notification" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="num"><?=($_SESSION['notification_count']);?></span>
+                  </a>
+                  <div class="notification-dropdown" id="notificationDropdown" style="display: none;
+                          position: absolute;
+                          top: calc(100% + 10px);
+                          right: 0;
+                          z-index: 1000;
+                          background: #fff;
+                          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                          border-radius: 8px;
+                          padding: 8px 0;
+                          min-width: 200px;
+                          max-height: 200px; /* Set max height for scroll */
+                          overflow-y: auto; /* Enable vertical scroll if content exceeds max height */">
+                      <ul class="notification-list" style="padding: 0;
+                                  margin: 0;
+                                  list-style-type: none;">
+      
+                        <?php if($_SESSION['notifications']):?>
+                          <?php foreach ($_SESSION['notifications'] as $row) :?>
+                            
+                            <li style="position: relative; padding: 8px 16px;">
+
+
+                            <?php if ($row->type == 'requestpm'):?>
+                              <a href="<?=ROOT?>/request/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <?php elseif ($row->type == 'quotationpm'):?>
+                              <a href="<?=ROOT?>/request/add/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <!-- <?php elseif ($row->type == 'quotation_pm_to_co'):?>
+                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a> -->
+                            <?php endif;?>
+
+                              <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
+                            </li>
+                          <?php endforeach;?>
+                        <?php else:?>
+                            <li>No notifications</li>
+                            <hr>
+                        <?php endif;?> 
+                      </ul>
+                  </div>
+
+                  <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                          const bellIcon = document.getElementById('notificationBell');
+                          const dropdown = document.getElementById('notificationDropdown');
+
+                          bellIcon.addEventListener('click', function(event) {
+                              event.preventDefault();
+                              dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                          });
+
+                          // Close dropdown if clicked outside
+                          document.addEventListener('click', function(event) {
+                              if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                                  dropdown.style.display = 'none';
+                              }
+                          });
+                      });
+                  </script>
 
                   <a href="#" class="notification">
                     <i class="fas fa-bell"></i>
