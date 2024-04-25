@@ -9,7 +9,7 @@
             }
             $project_requests=new Project_requests();
 
-            $data=$project_requests->findAll();
+            $data=$project_requests->findAllRequests();
 
             $this->view('coordinatorrequests',['rows'=>$data]);
         }
@@ -82,13 +82,29 @@
             $payment_plan=new Payment_plan();
             $data['payment_plan']=$payment_plan->findPaymentPlan($data['common']->payment_plan_id);
 
-
+            $data['common'] ->id=$id;
             if($flag !== null){
+                
                 $this->view('coordinatorrequests.searchmanager',['rows'=>$data]);
             }
             else{
+                 //get attachments
+                $data['salary'] = $project_requests->getSalary($id)[0];
+                $data['landphoto'] = $project_requests->getLandPhoto($id)[0];
+                $data['blockplan'] = $project_requests->getBlockPlan($id)[0];
+
+                if($data["common"]->status == 'Rejected'){
+                    $data['reject_reason']=$project_requests->getRejectReason($id)[0];
+                    //print_r($data['reject_reason'] );
+                }
+
+                
+
                 $this->view('coordinatorrequests.seemore',['rows'=>$data]);
             }
+
+
+           
 	    }
     
 
@@ -150,12 +166,119 @@
 
                 
             }
-           
-
-            
-
 
         }
 
+        //for rejected requests
+        public function rejectedrequests(){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            $project_requests=new Project_requests();
+
+            $data=$project_requests->findAllRejectedRequests();
+
+            $this->view('coordinatorrejectedrequests',['rows'=>$data]);
+        }
+
+        //accept or reject
+        public function reject($request_id=null,$user_id=null){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            $project_requests=new Project_requests();
+            
+            $req['status'] = "Rejected";
+            $project_requests->update($request_id,$req);
+
+            //get the reason for rejection
+            if (count($_POST)>0){
+                //print_r($_POST['reject_reason']);
+                $reason=$_POST['reject_reason'];
+            }
+
+
+
+            //insert the reason for rejection
+            $preject_reason=new Rejected_Project_Requests();
+            
+            $row['project_request_id'] = $request_id;
+            $row['reason'] = $_POST['reject_reason'];
+
+            $preject_reason->insert($row);
+            
+
+
+            //notify customer of rejection
+            $notification = new Notifications();
+
+            $row1['date'] = date("Y-m-d H:i:s");
+            $row1['message'] = "Your Project Request of ID :" .$request_id." is Rejected due to " . $reason ;
+            $row1['customer_id'] = $user_id;
+            $row1['type']="pr_reject_co";
+            $row1['status']="Unseen";
+            $row1['msg_id']=$request_id;
+
+            $notification->insert($row1);
+
+            $this->redirect('coordinatorrequests');
+        }
+
+
+
+
+
+        public function accept($request_id=null,$user_id=null){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            $project_requests=new Project_requests();
+            
+            $req['status'] = "Accepted";
+            $project_requests->update($request_id,$req);
+
+
+            //notify customer of rejection
+            $notification = new Notifications();
+
+            $row1['date'] = date("Y-m-d H:i:s");
+            $row1['message'] = "Your Project Request of ID :" .$request_id." is Accepted " ;
+            $row1['customer_id'] = $user_id;
+            $row1['type']="pr_accept_co";
+            $row1['status']="Unseen";
+            $row1['msg_id']=$request_id;
+
+            $notification->insert($row1);
+
+            $this->redirect('coordinatorrequests');
+        }
+
+        //for the analysis getting all requests
+        public function getALLRequests($year=null){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            
+            $project_requests = new Project_requests();
+
+            if(isset($_POST['year'])){    
+                $data['all_project_requests']=$project_requests->findAllRequestsInYear($_POST['year']);        
+                $data['all_requests_count']=$project_requests->findAllRequestsCountInYear($_POST['year']);
+                $data['rejected_requests_count']=$project_requests->findAllRejectedRequestsCountInYear($_POST['year']);
+                $data['year']=$_POST['year'];
+            }
+            else{
+                $data['all_project_requests']=$project_requests->findAllRequestsInYear(date('Y'));
+                $data['all_requests_count']=$project_requests->findAllRequestsCountInYear(date('Y'));
+                $data['rejected_requests_count']=$project_requests->findAllRejectedRequestsCountInYear(date('Y'));
+                $data['year']=date('Y');
+            }
+
+            $data['most_selected_model_details']=$project_requests->getMostSelectedModelID($data['year'])[0];
+            
+
+            //print_r($data['all_project_requests']);
+           $this->view('coordinatorrequests.all',['rows'=>$data]);
+        }
     }
 ?>

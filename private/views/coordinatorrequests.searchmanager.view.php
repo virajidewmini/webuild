@@ -38,8 +38,10 @@ body{
 </style>    
     
     <h2 style="margin-bottom: 20px">Search Project Managers</h2>
-      
+    
+      <?php print_r($rows['common']->id)?>
     <form action="<?=ROOT?>/coordinatormanagersearch/<?=$rows['common']->id?>" method="post">
+    
             <select name="district" class="v_form-control" value="<?= get_select2('district','');?>" type="text" placeholder="district" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
                 <option selected value="<?= $rows['customer']->ul_district ; ?>">            
                    

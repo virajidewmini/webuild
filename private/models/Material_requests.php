@@ -138,5 +138,17 @@ class Material_requests extends Model
         $data['id'] = $id;
         return $this->query($query, $data);
     }
+    public function getAllMaterialRequest($mid)
+    {
+        $query = "SELECT *, material_requests.date AS r_date FROM projects INNER JOIN material_requests ON projects.id = material_requests.project_id WHERE projects.manager_id = :mid GROUP BY request_id";
+        $data['mid'] = $mid;
+        return $this->query($query, $data);
+    }
+    public function getMaterialRequest($p_id)
+    {
+        $query = "SELECT *, date AS r_date FROM material_requests WHERE project_id = :p_id GROUP BY request_id";
+        $data['p_id'] = $p_id;
+        return $this->query($query, $data);
+    }
 }
 ?>

@@ -113,6 +113,10 @@
         cursor: pointer;
         margin-bottom: 10px;
     }
+    .subtask_id{
+        width:60px;
+        text-align: center;
+    }
 </style>
 <?php if ($row) : ?>
     <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
@@ -140,11 +144,7 @@
                                 <p>Project ID :</p>
                             </div> 
                             <div class="e-id-d">
-                                <?php if (isset($row1[0]->id)) : ?>
-                                    <input readonly name="project_id" value="<?= get_var('project_id', $row1[0]->id); ?>" type="text" class="form-control">
-                                <?php else : ?>
-                                    <input required name="project_id" value="<?= get_var('project_id'); ?>" type="text" placeholder="Enter Project ID" class="form-control">
-                                <?php endif; ?>
+                                    <input readonly name="project_id" value="<?= $project_id ?>" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="unit-d">
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         <div class="table_header">
-                            <h3>Task details</h3>
+                            <h3>Sub Task Details</h3>
                         </div>
                         <div class="table_section">
                             <table>
@@ -172,21 +172,16 @@
                                     <tr>
                                         <th>Sub Task ID</th>
                                         <th>Sub Task Name</th>
-                                        <th>Duration in days</th>
-                                        <th></th>
+                                        <th>Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php if ($row) : ?>
                                         <?php foreach ($row as $row) : ?>
                                             <tr>
-                                                <td><?= $row->id ?></td>
-                                                <td><?= $row->sub_task_name ?></td>
-                                                <td><?= $row->duration_in_days ?></td>
-                                                <td>
-                                                    <!-- <a onclick="link(this)" value="<?= ROOT ?>/pmtask"><i class="fa-solid fa-eye"></i></a> -->
-                                                    <a href="<?= ROOT ?>/Pmtask/taskDetails/<?= $row->id ?>/"><i class="fa-solid fa-eye" style=" color:#E5863D"></i></a>
-                                                </td>
+                                                <td><input readonly class="subtask_id" value="<?= $row->id ?>" type="text" name="subtask_id[]"></td>
+                                                <td><input readonly value="<?= $row->sub_task_name ?>" type="text" ></td>
+                                                <td><?= $row->sub_task_details ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else : ?>

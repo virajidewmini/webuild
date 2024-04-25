@@ -269,7 +269,6 @@ body{
                             }
                             ?>
                         <?php endif; ?>
-                        <pre><?=print_r($_POST) ?></pre>
                         <br>
                         <br>
                     </form>
@@ -285,8 +284,6 @@ body{
                         <?php
                             }   
                         ?>
-
-                        <?php print_r($_POST) ?>
                     
                     
                 

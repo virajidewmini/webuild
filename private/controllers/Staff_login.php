@@ -24,7 +24,7 @@
                             $this->redirect('/supdashboard');
                         }
                         if (Auth::getRole() == 'Storekeeper'){
-                            $this->redirect('/storekeeperdashboard');
+                            $this->redirect('/storekeeperDashboard');
                         }
                         if (Auth::getRole() == 'Project Coordinator'){
                             $this->redirect('/coordinatordashboard');

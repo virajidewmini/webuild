@@ -27,26 +27,26 @@
             <?php if(Auth::getRole()== 'Project Coordinator'): ?>
               <ul class="side-menu top">
 
-                <li class="active">
+                <li data-url="<?=ROOT?>/coordinatordashboard" >
                   <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
                   
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/coordinatorrequests">
                   <a href="<?=ROOT?>/coordinatorrequests">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Project Requests</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/coordinatorprojects">
                   <a href="<?=ROOT?>/coordinatorprojects">
                     <i class="fa-solid fa-list-check"></i>
                     <span class="text">On Going Projects</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/coordinatorprojects">
                   <a href="#" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text" id="main_link">Complaints</span>
@@ -54,19 +54,19 @@
                   </a>
                   <span id="sub_link"></span>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/coordinatorviewmanagers">
                   <a href="<?=ROOT?>/coordinatorviewmanagers">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Project Managers</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/coordinatormaterialrequests">
                   <a href="<?=ROOT?>/coordinatormaterialrequests">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Material Requests</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/coordinatorviewsuppliers">
                   <a href="<?=ROOT?>/coordinatorviewsuppliers">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Suppliers</span>
@@ -184,7 +184,7 @@
               <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
                 <li class="active">
-                  <a href="<?=ROOT?>/storekeeperdashboard" class="nav-link" class="nav-link">
+                  <a href="#" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
@@ -687,6 +687,7 @@
                   </a>
                 </nav>
               <main>
+                
 
             <?php endif; ?>
           <?php endif; ?>
