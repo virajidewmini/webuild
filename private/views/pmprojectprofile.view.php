@@ -569,8 +569,8 @@
                                 <?php foreach ($row9 as $row) : ?>
                                     <tr>
                                         <td><?= $row->emp_id ?></td>
-                                        <td><?= $row->coworker->name ?></td>
-                                        <td><?= $row->coworker->role ?></td>
+                                        <td><?= $row->co->name ?></td>
+                                        <td><?= $row->co->role ?></td>
                                         <td><?= $row->task_id ?></td>
                                         <td><?= $row->task->task_name ?></td>
                                         <td><?= get_date($row->start_date) ?></td>
@@ -694,9 +694,11 @@
                                         <td><?= $row->sub_task_count ?></td>
                                         <td><?= $row->duration_in_days ?></td>
                                         <td>
-                                            <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
-                                                <button><i class="fa-solid fa-plus"></i></button>
-                                            </a>
+                                            <?php if (($rows19[0]->progress && $rows19[0]->progress > 80) || !($rows19)) : ?>
+                                                <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
+                                                    <button><i class="fa-solid fa-plus"></i></button>
+                                                </a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -712,48 +714,35 @@
                 <div class="table_header">
                     <h3>Sent request</h3>
                     <div>
-                        <a href="<?= ROOT ?>/Pmmaterial_r/p_thruogh_request/<?= $rows[0]->id ?>/<?= $rows[0]->project_request_id ?>/<?= $rows[0]->mdl->id ?>"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
+                        <a href="<?= ROOT ?>/Pmmaterial_r"><button style="background-color:#E5863D; color:white;" class="add___">Request</button></a>
                     </div>
                 </div>
                 <div class="table_section">
                     <table>
                         <thead>
                             <tr>
+                                <th>Project ID</th>
                                 <th>Request ID</th>
+                                <th>Level</th>
                                 <th>Date</th>
-                                <th>Action</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>RQT013</td>
-                                <td>11/05/2022</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>RQT013</td>
-                                <td>11/05/2022</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>RQT013</td>
-                                <td>11/05/2022</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>RQT013</td>
-                                <td>11/05/2022</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <?php if ($rows5) : ?>
+                            <?php foreach ($rows5 as $row) : ?>
+                                <tbody>
+                                    <tr>
+                                        <td><?= $row->project_id; ?></td>
+                                        <td><?= $row->request_id; ?></td>
+                                        <td><?= $row->level; ?></td>
+                                        <td><?= $row->r_date; ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php endforeach; ?>
+                        <?Php endif; ?>
                     </table>
                 </div>
             </div>
@@ -779,7 +768,7 @@
                                         <td><?= $row->id ?></td>
                                         <td><?= $row->req->level ?></td>
                                         <td>
-                                            <a href="<?= ROOT ?>/Pmmaterial_r/remaining_request/<?= $row->id ?>/<?= $row->request_id ?>/"><button style="background-color:#E5863D; color:#fff;" class="add___">Request</button></a>
+                                            <a href="<?= ROOT ?>/Pmmaterial_r/remaining_request/<?= $row->id ?>/<?= $row->request_id ?>/"><button style="background-color:#E5863D; color:white;" class="add___">Request</button></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -790,114 +779,64 @@
             </div>
             <div class="table">
                 <div class="table_header">
-                    <h3>To be recieved</h3>
+                    <h3>To Recieve</h3>
                 </div>
                 <div class="table_section">
                     <table>
                         <thead>
                             <tr>
+                                <th>Project ID</th>
                                 <th>Request ID</th>
-                                <th>ID</th>
-                                <th>Action</th>
+                                <th>Level</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>RQT013</td>
-                                <td>012</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>RQT010</td>
-                                <td>009</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>RQT009</td>
-                                <td>007</td>
-                                <td>
-                                    <button><i class="fa-solid fa-eye"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <?php if ($rows3) : ?>
+                            <?php foreach ($rows3 as $row) : ?>
+                                <tbody>
+                                    <tr>
+                                        <td><?= $row->project_id; ?></td>
+                                        <td><?= $row->request_id; ?></td>
+                                        <td><?= $row->level; ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                            <a href="<?= ROOT ?>/"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php endforeach; ?>
+                        <?Php endif; ?>
                     </table>
                 </div>
             </div>
             <div class="table">
                 <div class="table_header">
-                    <h3>Materials details</h3>
+                    <h3>Recieved</h3>
                 </div>
                 <div class="table_section">
                     <table>
                         <thead>
                             <tr>
-                                <th>Material ID</th>
-                                <th>Material name</th>
-                                <th>Mesure unit</th>
-                                <th>Available Quantity</th>
-                                <th>Used Quantity</th>
+                                <th>Project ID</th>
+                                <th>Request ID</th>
+                                <th>Level</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>MTL001</td>
-                                <td>Sand</td>
-                                <td>Cube</td>
-                                <td>06</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>MTL002</td>
-                                <td>6x9 Rock</td>
-                                <td>Cube</td>
-                                <td>03</td>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <td>MTL006</td>
-                                <td>Cement</td>
-                                <td>Num</td>
-                                <td>03</td>
-                                <td>6</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="table">
-                <div class="table_header">
-                    <h3>Items details</h3>
-                </div>
-                <div class="table_section">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Item ID</th>
-                                <th>Item name</th>
-                                <th>Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ITM025</td>
-                                <td>Concrete pump</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>ITM005</td>
-                                <td>Power drill</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>ITM010</td>
-                                <td>Wacker</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
+                        <?php if ($rows4) : ?>
+                            <?php foreach ($rows4 as $row) : ?>
+                                <tbody>
+                                    <tr>
+                                        <td><?= $row->project_id; ?></td>
+                                        <td><?= $row->request_id; ?></td>
+                                        <td><?= $row->level; ?></td>
+                                        <td>
+                                            <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php endforeach; ?>
+                        <?Php endif; ?>
                     </table>
                 </div>
             </div>
@@ -946,24 +885,24 @@
             </div>
         <?php endif; ?>
         <?php if ($rows18) : ?>
-        <div class="pro-id-details">
-            <div class="table">
-                <div class="title-id">
-                    <div class="p-title">
-                        <h2 class="ind-topic">Daily Progress Report</h2>
+            <div class="pro-id-details">
+                <div class="table">
+                    <div class="title-id">
+                        <div class="p-title">
+                            <h2 class="ind-topic">Daily Progress Report</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="table_section">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th style="width:400px;">General Note</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-  
+                    <div class="table_section">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th style="width:400px;">General Note</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
                                 <?php foreach ($rows18 as $row) : ?>
                                     <tr>
                                         <td><?= $row->date ?></td>
@@ -975,12 +914,12 @@
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
-                           
-                        </tbody>
-                    </table>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php endif; ?>
 
     </div>
