@@ -88,9 +88,18 @@ p {
                 <?php foreach ($rows as $row):  ?>
                     <div class="role">
                         <div class="role-border">
+                        <?php 
+                            $project=new Client();
+                            $status=$project->getStatus(Auth::getProjectId());
+                        ?>
                             <h2>Project ID: <?=$row->id?></h2>
                             <img src="<?=ROOT?>/img/project.png" alt="Designer Image">
-                            <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+
+                            <?php if($status[0]->status=='Pending'):?>
+                              <a href="<?= ROOT ?>/quotation"><button class="role-btn">Get Start</button></a>
+                            <?php else: ?>
+                              <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+                            <?php endif; ?> 
                         </div>
                     </div>
                 <?php endforeach;?>

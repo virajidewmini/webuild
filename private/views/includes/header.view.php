@@ -440,9 +440,9 @@
 
                 <ul class="side-menu">
                   <li>
-                    <a href="#">
-                      <i class="fas fa-cog"></i>
-                      <span class="text">Settings</span>
+                    <a href="<?=ROOT?>/supdashboard">
+                    <i class="fa fa-refresh"></i>
+                      <span class="text">Change Project</span>
                     </a>
                   </li>
                   <li>
@@ -475,10 +475,17 @@
                   </a>
                 </nav>
               <main>
-
+                
+              
             <?php elseif($_SESSION['role']=='Client'): ?>
+              <?php 
+                  $project=new Client();
+                  $status=$project->getStatus(Auth::getProjectId());
+              ?>
+
               <ul class="side-menu top">
                 <?php if(Auth::getProjectId() !== NULL ):?>
+                <?php if($status[0]->status!=='Pending'):?>
                 <li data-url="<?=ROOT?>/clientmaindashboard/<?= Auth::getProjectId() ?>"> 
                   <a href="<?=ROOT?>/clientmaindashboard/<?= Auth::getProjectId() ?>">
                     <i class="fas fa-border-all"></i>
@@ -486,43 +493,59 @@
                   </a>
                 </li>
                 <?php endif?>
+                <?php endif?>
+
+                
                 <li data-url="<?=ROOT?>/quotation">
                   <a href="<?=ROOT?>/quotation" class="nav-link">
                     <i class="fas fa-file"></i>
                     <span class="text">Quotation</span>
                   </a>
                 </li>
+             
+
+                <?php if($status[0]->status!=='Pending'):?>
                 <li data-url="<?=ROOT?>/installment">
                   <a href="<?=ROOT?>/installment" class="nav-link">
                     <i class="fas fa-chart-simple"></i>
                     <span class="text">Installment</span>
                   </a>
                 </li>
+                <?php endif?>
+
+                <?php if($status[0]->status!=='Pending'):?>
                 <li data-url="<?=ROOT?>/clienttask">
                   <a href="<?=ROOT?>/clienttask" class="nav-link">
                     <i class="fa-brands fa-paypal"></i>
                     <span class="text">Progress</span>
                   </a>
                 </li>
+                <?php endif?>
+
+                <?php if($status[0]->status!=='Pending'):?>
                 <li data-url="<?=ROOT?>/clientcomplaint">
                   <a href="<?=ROOT?>/clientcomplaint" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text">Complaint</span>
                   </a>
                 </li>
+                <?php endif?>
+
+                <?php if($status[0]->status!=='Pending'):?>
                 <li  data-url="<?=ROOT?>/rate">
                   <a href="<?=ROOT?>/rate" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text">Rate & Review</span>
                   </a>
                 </li>
+                <?php endif?>
                 <!-- settings and logout -->
 
                 <ul class="side-menu">
                   <li>
-                    <a href="#">
-                      <i class="fas fa-cog"></i>
-                      <span class="text">Settings</span>
+                    <a href="<?=ROOT?>/clientdashboard">
+                    <i class="fa fa-refresh"></i>
+                      <span class="text">Change Project</span>
                     </a>
                   </li>
                   <li>
