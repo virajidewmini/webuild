@@ -316,44 +316,44 @@
 
             <?php elseif(Auth::getRole()== 'Project Manager'): ?>
               <ul class="side-menu top">
-                <li class="active">
+                <li  data-url="<?=ROOT?>/Pmdashboard">
                   <a href="<?=ROOT?>/Pmdashboard" class="nav-link" class="nav-link">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/Pmmember">
                   <a href="<?=ROOT?>/Pmmember">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Members</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/Pmtask">
                   <a href="<?=ROOT?>/Pmtask">
                     <i class="fa-solid fa-list-check"></i>
                     <span class="text">Tasks</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/Pmmaterial">
                   <a href="<?=ROOT?>/Pmmaterial" class="nav-link">
                     <i class="fa-solid fa-cubes-stacked"></i>
                     <span class="text">Materials</span>
                   </a>
                 </li>
-                <li>
+                <li data-url="<?=ROOT?>/Pmdailyreports">
                   <a href="<?=ROOT?>/Pmdailyreports" class="nav-link">
                     <i class="fa-solid fa-chart-line"></i>
                     <span class="text">Daily Reports</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/Pmcomplaint">
+                  <a href="<?=ROOT?>/Pmcomplaint" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text">Complaints</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/Pmimage">
+                  <a href="<?=ROOT?>/Pmimage" class="nav-link">
                     <i class="fa-solid fa-images"></i>
                     <span class="text">Images</span>
                   </a>
@@ -396,6 +396,38 @@
                     <i class="fas fa-bell"></i>
                     <span class="num">28</span>
                   </a>
+
+                  <script>
+                  
+                  let liList=document.querySelectorAll(".side-menu.top>li")
+                  liList.forEach(li=>{
+                    let value=li.dataset.url;
+                    let url=document.URL
+                    if (url.includes(value)) {
+                      li.classList.add("active")
+                    }else{
+                      li.classList.remove("acive")
+                    }
+                  })
+
+
+                      document.addEventListener('DOMContentLoaded', function() {
+                          const bellIcon = document.getElementById('notificationBell');
+                          const dropdown = document.getElementById('notificationDropdown');
+
+                          bellIcon.addEventListener('click', function(event) {
+                              event.preventDefault();
+                              dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                          });
+
+                          // Close dropdown if clicked outside
+                          document.addEventListener('click', function(event) {
+                              if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                                  dropdown.style.display = 'none';
+                              }
+                          });
+                      });
+                  </script>
 
                   <a href="<?=ROOT?>/Staffprofile" class="profile">
                     <img src="<?=ROOT?>/img/profile.png" alt="" />
