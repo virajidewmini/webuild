@@ -85,18 +85,19 @@ p {
         
             <div class="role-container">
             <?php if(isset($rows) && !empty($rows)):?>
-                <?php foreach ($rows as $row):  ?>
+                <?php foreach ($rows as $row): ?>
                     <div class="role">
                         <div class="role-border">
                         <?php 
                             $project=new Client();
-                            $status=$project->getStatus(Auth::getProjectId());
+                            $status=$project->getStatus($row->id);
                         ?>
                             <h2>Project ID: <?=$row->id?></h2>
                             <img src="<?=ROOT?>/img/project.png" alt="Designer Image">
 
                             <?php if($status[0]->status=='Pending'):?>
                               <a href="<?= ROOT ?>/quotation"><button class="role-btn">Get Start</button></a>
+                              <?php $_SESSION['project_id']= $row->id ?>
                             <?php else: ?>
                               <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
                             <?php endif; ?> 

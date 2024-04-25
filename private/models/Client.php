@@ -31,5 +31,14 @@ class Client extends Model{
         return $this->query($query,$params);
     }
 
+    public function getProjectId(){
+
+        $query = "select id from projects where user_id = :user_id";
+		$params = [
+            'user_id' => Auth::id(),
+            
+        ];
+        return $this->query($query,$params);
+    }
 }
 ?>
