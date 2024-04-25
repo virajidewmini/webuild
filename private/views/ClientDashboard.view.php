@@ -96,8 +96,7 @@ p {
                             <img src="<?=ROOT?>/img/project.png" alt="Designer Image">
 
                             <?php if($status[0]->status=='Pending'):?>
-                              <a href="<?= ROOT ?>/quotation"><button class="role-btn">Get Start</button></a>
-                              <?php $_SESSION['project_id']= $row->id ?>
+                              <a href="<?= ROOT ?>/quotation/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
                             <?php else: ?>
                               <a href="<?= ROOT ?>/clientmaindashboard/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
                             <?php endif; ?> 

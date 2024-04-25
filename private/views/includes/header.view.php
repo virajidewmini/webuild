@@ -528,8 +528,8 @@
                 <?php endif?>
 
                 
-                <li data-url="<?=ROOT?>/quotation">
-                  <a href="<?=ROOT?>/quotation" class="nav-link">
+                <li data-url="<?=ROOT?>/quotation/<?= Auth::getProjectId() ?>">
+                  <a href="<?=ROOT?>/quotation/<?= Auth::getProjectId() ?>" class="nav-link">
                     <i class="fas fa-file"></i>
                     <span class="text">Quotation</span>
                   </a>
