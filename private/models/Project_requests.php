@@ -489,10 +489,10 @@ class Project_requests extends Model{
     
     }
 
-    public function LatestReq($p_id = null){
+    public function LatestReq($m_id = null){
 
-        $query="SELECT * FROM project_requests WHERE manager_id = :p_id AND status = 'Accepted' ORDER BY project_requests.date DESC";
-        $data['p_id'] = $p_id;
+        $query="SELECT * FROM project_requests WHERE manager_id = :m_id AND status = 'Accepted' ORDER BY project_requests.date DESC";
+        $data['m_id'] = $m_id;
         return $this->query($query,$data);
     }
    
