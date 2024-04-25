@@ -4,7 +4,8 @@ class AllocateCoworker extends Model{
     
     protected $afterSelect = [
         'get_coworker',
-        'get_task'
+        'get_task',
+        'get_co'
     ];
 
     public function getPhone($project_id,$task_id){
@@ -34,6 +35,20 @@ class AllocateCoworker extends Model{
             if (isset($row1->emp__id)) {
                 $result = $coworker->where('id', $row1->emp__id);
                 $data[$key]->coworker = is_array($result) ? $result[0] : false;
+            }
+        }
+
+        return $data;
+    }
+
+    public function get_co($data)
+    {
+
+        $coworker = new CoworkerModel();
+        foreach ($data as $key => $row1) {
+            if (isset($row1->emp_id)) {
+                $result = $coworker->where('id', $row1->emp_id);
+                $data[$key]->co = is_array($result) ? $result[0] : false;
             }
         }
 

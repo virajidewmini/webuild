@@ -29,7 +29,7 @@ class Pmdailyreports extends Controller{
         ]);
     }
 
-    public function viewDPR($id=null, $date=null){
+    public function viewDPR($id=null, $date=null, $project_id=null){
 
         $report= new ProgressReport();
         $data=$report->viewDPRDetail($id, $date);
@@ -39,7 +39,7 @@ class Pmdailyreports extends Controller{
         
         $challenge=$report->viewDPRChallengeDetail($id, $date);
 
-        $this->view('pmdailyreports',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge]);
+        $this->view('pmdailyreports',['rows'=> $data,'weatherDetail'=>$weather,'challengeDetail'=>$challenge, 'project_id'=>$project_id]);
     }
 
 }
