@@ -18,7 +18,7 @@
                         Auth::authenticate($row);
                         
                         if (Auth::getRole() == 'Project Manager'){
-                            $this->redirect('/pmdashboard');
+                            $this->redirect('/Pmdashboard');
                         }
                         if (Auth::getRole() == 'Storekeeper'){
                             $this->redirect('/storekeeperdashboard');
