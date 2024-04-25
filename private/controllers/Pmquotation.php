@@ -9,6 +9,7 @@ class Pmquotation extends Controller
         $project = new Projects();
         $project_request = new Project_requests();
         $model = new UploadModel();
+        $notification = new Notifications();
 
         $data14 = $project_request->where('id', $request_id);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -31,6 +32,9 @@ class Pmquotation extends Controller
 
                 $arr2['status'] = 'Done';
                 $project_request->update($request_id, $arr2);
+
+                $data = $notification->projectQuatationNotify();
+                $notification->insert($data);
 
                 $this->redirect('pmdashboard');
             }
