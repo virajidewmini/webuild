@@ -2,7 +2,7 @@
 
 class Maintains extends Model
 {
-    protected $table = "maintain";
+    protected $table = "material_requests_to_coordinator";
 
     
     // Other methods...
