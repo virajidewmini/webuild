@@ -216,7 +216,7 @@ use Respect\Validation\Validator as v;
 
                     
                 }else{
-                    $this->view('SubmitModel',['errors' => $errors]);
+                    $this->view('SubmitModel',['rows'=> $data1, 'rows_exterior'=>$data_exterior, 'rows_kitchen'=>$data_kitchen,'errors' => $errors]);
                 }
 
             }
