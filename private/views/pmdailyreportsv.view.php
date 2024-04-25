@@ -27,9 +27,7 @@
                             <option style="text-align:center;" value="" <?= get_select2('project_id', ''); ?>>Select ID</option>
                             <?php if ($rows) : ?>
                                 <?php foreach ($rows as $row) : ?>
-                                    <option style="text-align:center;" style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
-                                                                                                                                                echo "selected";
-                                                                                                                                            } ?>>
+                                    <option style="text-align:center;" style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {echo "selected";} ?>>
                                         <?= $row->id; ?>
                                     <?php endforeach; ?>
                                 <?php else : ?>
@@ -92,7 +90,7 @@
                             <td><?= $row->comment ?></td>
                             <td>
 
-                                <a href="<?= ROOT ?>/Pmdailyreports/viewDPR/<?= $row->project_id ?>/<?= $row->date ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
+                                <a href="<?= ROOT ?>/Pmdailyreports/viewDPR/<?= $row->project_id ?>/<?= $row->date ?>/<?= $row->projetc_id ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
 
                             </td>
                         </tr>

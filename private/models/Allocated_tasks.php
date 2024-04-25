@@ -87,4 +87,13 @@ class Allocated_tasks extends Model
         $data['mid'] = $mid;
         return $this->query($query, $data);
     }
+
+    public function AllowTask($p_id)
+    {
+
+        $query = "SELECT * FROM allocated_task WHERE project_id = :p_id AND (status = 'Ongoing' OR status = 'Complete') ORDER BY task_id DESC LIMIT 1";
+
+        $data['p_id'] = $p_id;
+        return $this->query($query, $data);
+    }
 }

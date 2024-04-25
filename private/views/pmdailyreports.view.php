@@ -6,8 +6,9 @@
 
 <?php endif; ?>
 
-<div class="report-container">
+<div class="report-container" id="dpr">
     <h2 style="color:#E5863D;">Weather Report</h2>
+    <input type="hidden" id="project_id" value="<?= $project_id ?>">
 
     <div class="report-section">
         <div class="report-section-header">Rain Hours</div>
@@ -143,12 +144,51 @@
     <br>
     <div class="table_header" style="align-items: center; background-color:none; border-radius: 10px;">
         <a href="<?= ROOT ?>/Pmdashboard">
-            <input class="in_a_c" style="border:none; color:#E5863D; background-color:white;"  type="button" value="Cancel">
+            <input class="in_a_c" style="border:none; color:#E5863D; background-color:white;" type="button" value="Cancel">
         </a>
-        <a href="<?= ROOT ?>/Pmdashboard">
+        <a href="">
             <input id="print" class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit" value="Download">
         </a>
     </div>
 
 </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<script>
+    var project_id = document.getElementById('project_id').value;
+
+
+
+    //download button
+    const options = {
+        // margin: 0.1,
+        // height: auto,
+        filename: '',
+        image: {
+            type: 'jpeg',
+            quality: 500
+        },
+        html2canvas: {
+            scale: 2
+        },
+        jsPDF: {
+            unit: 'in',
+            format: [20, 11],
+            orientation: 'portrait',
+            compress: true
+        }
+    }
+
+    $('#print').click(function(e) {
+        e.preventDefault();
+        const element = document.getElementById('dpr');
+        const name = 'Dailyreport';
+        var currentDate = new Date();
+        options.filename = name + '_' + currentDate + '_' + project_id + '.pdf';
+        html2pdf().from(element).set(options).save().then(() => {
+            window.location.reload();
+        });
+    });
+</script>
 <!-- <a href="<?= ROOT ?>/dailyprogressreport"> <button class="v_submit_button" type="button" style="margin-left:780px;">Ok</button></a> -->
