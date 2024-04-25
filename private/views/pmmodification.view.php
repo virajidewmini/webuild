@@ -101,6 +101,8 @@
         .in_a_c:active {
             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
         }
+        
+        /* style of bill */
 
         body {
             font-family: Arial, sans-serif;

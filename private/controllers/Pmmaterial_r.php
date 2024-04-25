@@ -15,6 +15,10 @@ class Pmmaterial_r extends Controller
         $projects = new Projects();
         $data = $projects->where2('status', 'Ongoing', 'manager_id', $pmid);
 
+        $data1 = array();
+        $data2 = array();
+        $data3 = array();
+
         if (isset($_GET['project_id'])) {
             $project_id = $_GET['project_id'];
             $data1 = $projects->where('id', $project_id);
@@ -33,6 +37,7 @@ class Pmmaterial_r extends Controller
 
         $errors = array();
 
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $material_request = new Material_requests();
             if ($material_request->validate($_POST)) {
@@ -44,7 +49,6 @@ class Pmmaterial_r extends Controller
 
             die;
         }
-
         $this->view('pmmaterial_r', [
             'rows' => $data,
             'rows1' => $data1,
@@ -115,13 +119,13 @@ class Pmmaterial_r extends Controller
         $errors = array();
 
         $material_request = new Material_requests();
-        
-        
+
+
         $data = $material_request->remaining_req($m_req);
-        
+
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            
+
             if ($material_request->validate($_POST)) {
                 $material_request->statusChange($id);
                 $material_request->insertMaterial($_POST);
