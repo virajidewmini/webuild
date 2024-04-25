@@ -1,5 +1,5 @@
 <?php
-
+    use Respect\Validation\Validator as v;
     class AllCoworkers extends Controller{
         
         public function index(){
@@ -11,7 +11,24 @@
 
         public function add(){
 
+            
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $errors = [];
+
+                $nameValidator = v::notEmpty()->stringType()->length(null, 30);
+
+                if (! $nameValidator->validate($_POST['name'])) {
+                    $errors['name'] = 'Name must be a string with maximum length 30 and can not empty';
+                }
+
+                if (! isset($_POST['role'])) {
+                    $errors['role'] = 'Please select role';
+                }
+
+                
+
                 if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] === UPLOAD_ERR_OK) {
                     $csvData = $this->readCsvFile($_FILES['csv_file']['tmp_name']);
     
@@ -19,8 +36,12 @@
                     $uploadModel->processCsv($csvData);
                     
                 } else{
-                    $model=new CoworkerModel();
-                    $model->insert($_POST);
+                    if (empty($errors)) {
+                        $model=new CoworkerModel();
+                        $model->insert($_POST);
+                    }else{
+                        $this->view('AddCoworker',['errors' => $errors]);
+                    }
                 }
                 $this->redirect('allcoworkers');
             }

@@ -3,8 +3,21 @@ class Project_Quotation extends Model
 {
     protected $table = "quotation";
 
+
+    public function getQuotation(){
+
+        $query = "select * from quotation where project_id= :project_id && user_id=:user_id";
+		$params = [
+            'user_id'=>Auth::id(),
+            'project_id'=>Auth::getProjectId()
+        ];
+        return $this->query($query,$params);
+    }
+
+    
     public function getTotalPrice($project_id)
     {
+
 
         $query = "select total_amount from quotation where project_id= :project_id";
         $params = [

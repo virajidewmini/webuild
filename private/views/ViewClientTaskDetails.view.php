@@ -69,7 +69,7 @@
                         <thead class="v_thead">
                             <tr>
                                 <th class="v_data"style="width:260px;">Task</th>
-                                <th class="v_data" style="width:900px;">Description</th>
+                                <th class="v_data" style="width:60%">Description</th>
                                 <th class="v_data">Status</th>
                             
                             </tr>

@@ -92,6 +92,34 @@ class Notifications extends Model{
         return $this->query($query,$param);
 
     }
+
+    public function getSupervisorUnresolveComplaint($user_id){
+        $query="select complaint.* from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id && complaint.status='Pending'";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+
+    public function getSupervisorUnresolveComplaintCount($user_id){
+        $query="select COUNT(complaint.id) as pendingComplaintCount from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id && complaint.status='Pending'";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+
+    public function getSupervisorresolveComplaintCount($user_id){
+        $query="select COUNT(complaint.id) as completeComplaintCount from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id && complaint.status='Complete'";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+
     public function updateQuotaionNotification($value){
         
 

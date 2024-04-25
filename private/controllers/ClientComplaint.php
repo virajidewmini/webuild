@@ -29,16 +29,16 @@
         public function add(){
             if(count($_POST) > 0){
 
-                $descriptionValidator = v::notEmpty()->stringType()->length(null, 20);
+                $descriptionValidator = v::notEmpty()->stringType()->length(null, 200);
         
                 $errors = [];
 
                 if (! isset($_POST['type'])) {
-                    $errors['type'] = 'Please select .....';
+                    $errors['type'] = 'Please select type';
                 }
         
                 if (! $descriptionValidator->validate($_POST['description'])) {
-                    $errors['email'] = 'Must be a valid email address';
+                    $errors['description'] = 'Description must be a string with maximum length 200 and can not empty';
                 }
     
                 if (empty($errors)) {
@@ -68,7 +68,7 @@
     
                       $this->redirect('clientcomplaint');
                 } else {
-                    // Form has errors, display them to the user
+                    
                     $this->view('AddClientComplaint', ['errors' => $errors]);
                 }
             }

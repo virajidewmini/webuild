@@ -33,6 +33,16 @@ class C_Complaint extends Model
     }
 
 
+    public function updateStatus($id){
+
+        $query = "update complaint set status='Complete' where id=:complaint_id";
+		$param=[
+            'complaint_id'=>$id,
+        ];
+        return $this->query($query,$param);
+    }
+
+
 
     //gaveesha
 
