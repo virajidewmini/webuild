@@ -4,7 +4,7 @@
         
         public function index($id){
 
-            //  $_SESSION['project_id'] = $id;
+              $_SESSION['project_id'] = $id;
 
             // var_dump(Auth::getProjectId());
 

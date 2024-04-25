@@ -1,17 +1,3 @@
-
-
-// let sideMenu = document.querySelectorAll(".nav-link");
-// sideMenu.forEach((item) => {
-//   let li = item.parentElement;
-
-//   item.addEventListener("click", () => {
-//     sideMenu.forEach((link) => {
-//       link.parentElement.classList.remove("active");
-//     });
-//     li.classList.add("active");
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function() {
   let sideMenu = document.querySelectorAll(".nav-link");
 
@@ -36,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
 
 let menuBar = document.querySelector(".menu-btn");
 let sideBar = document.querySelector(".sidebar");

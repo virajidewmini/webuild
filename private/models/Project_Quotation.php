@@ -4,12 +4,12 @@ class Project_Quotation extends Model
     protected $table = "quotation";
 
 
-    public function getQuotation(){
+    public function getQuotation($project_id){
 
         $query = "select * from quotation where project_id= :project_id && user_id=:user_id";
 		$params = [
             'user_id'=>Auth::id(),
-            'project_id'=>Auth::getProjectId()
+            'project_id'=>$project_id
         ];
         return $this->query($query,$params);
     }
