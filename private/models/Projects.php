@@ -320,7 +320,8 @@ class Projects extends Model
             WHERE project_id = :p_id
         ) AS table_1
         ON tasks.id = table_1.task_id 
-        WHERE table_1.task_id IS NULL";
+        WHERE table_1.task_id IS NULL
+        GROUP BY tasks.id";
         return $this->query($query, [
             'p_id' => $p_id,
         ]);

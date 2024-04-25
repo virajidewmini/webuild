@@ -38,6 +38,7 @@ class Pmmember_search extends Controller
             $this->redirect('login');
         }
         $project = new Projects();
+        $quotation = new Project_Quotation();
         $row = $project->where('id', $p_id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -46,7 +47,8 @@ class Pmmember_search extends Controller
                 $_POST['status'] = 'Ongoing';
                 $p_id = $_POST['id'];
                 $project->update($p_id, $_POST);
-
+                $arr1['status'] = 'Paid';
+                $quotation->update($q_id, $arr1);
 
                 $this->redirect('pmdashboard');
             }
