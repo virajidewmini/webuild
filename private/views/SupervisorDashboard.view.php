@@ -106,7 +106,11 @@ p {
                     </div>
                 <?php endforeach;?>
             <?php else: ?>
-                <h3>No Ongoing Project Yet</h3>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="<?= ROOT ?>/img/noProject.png" alt="" style="width: 300px; height: 300px;">
+                <h3>No Ongoing or Complete Project Yet</h3>
+                <p>Go Back <a href="<?=ROOT?>/home">Home</a></p>
+              </div>
             <?php endif; ?>    
                 
             </div>

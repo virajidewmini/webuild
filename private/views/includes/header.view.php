@@ -29,6 +29,7 @@
 
                 <li data-url="<?=ROOT?>/coordinatordashboard" >
                   <a href="<?=ROOT?>/coordinatordashboard" class="nav-link" class="nav-link">
+                  
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
@@ -151,17 +152,6 @@
                   </div>
 
                   <script>
-                  
-                  let liList=document.querySelectorAll(".side-menu.top>li")
-                  liList.forEach(li=>{
-                    let value=li.dataset.url;
-                    let url=document.URL
-                    if (url.includes(value)) {
-                      li.classList.add("active")
-                    }else{
-                      li.classList.remove("acive")
-                    }
-                  })
 
 
                       document.addEventListener('DOMContentLoaded', function() {
@@ -242,6 +232,73 @@
                       </button> -->
                     </div>
                   </form>
+                <?php
+                  $staff = new Staffs();
+                  $_SESSION['notifications']=$staff->getNotifications(Auth::getid());
+                  $_SESSION['notification_count']=$staff->getNotificationCount(Auth::getid())[0]->total;
+                  ?>
+                  <a href="#" class="notification" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="num"><?=($_SESSION['notification_count']);?></span>
+                  </a>
+                  <div class="notification-dropdown" id="notificationDropdown" style="display: none;
+                          position: absolute;
+                          top: calc(100% + 10px);
+                          right: 0;
+                          z-index: 1000;
+                          background: #fff;
+                          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                          border-radius: 8px;
+                          padding: 8px 0;
+                          min-width: 200px;
+                          max-height: 200px; /* Set max height for scroll */
+                          overflow-y: auto; /* Enable vertical scroll if content exceeds max height */">
+                      <ul class="notification-list" style="padding: 0;
+                                  margin: 0;
+                                  list-style-type: none;">
+      
+                        <?php if($_SESSION['notifications']):?>
+                          <?php foreach ($_SESSION['notifications'] as $row) :?>
+                            
+                            <li style="position: relative; padding: 8px 16px;">
+
+
+                            <?php if ($row->type == 'requestpm'):?>
+                              <a href="<?=ROOT?>/request/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <?php elseif ($row->type == 'quotationpm'):?>
+                              <a href="<?=ROOT?>/request/add/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <!-- <?php elseif ($row->type == 'quotation_pm_to_co'):?>
+                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a> -->
+                            <?php endif;?>
+
+                              <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
+                            </li>
+                          <?php endforeach;?>
+                        <?php else:?>
+                            <li>No notifications</li>
+                            <hr>
+                        <?php endif;?> 
+                      </ul>
+                  </div>
+
+                  <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                          const bellIcon = document.getElementById('notificationBell');
+                          const dropdown = document.getElementById('notificationDropdown');
+
+                          bellIcon.addEventListener('click', function(event) {
+                              event.preventDefault();
+                              dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                          });
+
+                          // Close dropdown if clicked outside
+                          document.addEventListener('click', function(event) {
+                              if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                                  dropdown.style.display = 'none';
+                              }
+                          });
+                      });
+                  </script>
 
                   <a href="#" class="notification">
                     <i class="fas fa-bell"></i>
@@ -331,6 +388,10 @@
                     </div>
                   </form>
 
+                  
+
+                  <!-- put notification here -->
+
                   <a href="#" class="notification">
                     <i class="fas fa-bell"></i>
                     <span class="num">28</span>
@@ -345,32 +406,32 @@
               <main>
             <?php elseif(Auth::getRole()== 'Supervisor'): ?>
               <ul class="side-menu top">
-                <li class="active">
-                  <a href="<?=ROOT?>/supmaindashboard/<?= Auth::getProjectId() ?>" class="nav-link">
+                <li data-url="<?=ROOT?>/supmaindashboard/<?= Auth::getProjectId() ?>">
+                  <a href="<?=ROOT?>/supmaindashboard/<?= Auth::getProjectId() ?>">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
                 </li>
-                <li>
-                  <a href="<?=ROOT?>/dailyprogressreport" class="nav-link">
+                <li data-url="<?=ROOT?>/dailyprogressreport">
+                  <a href="<?=ROOT?>/dailyprogressreport">
                     <i class="fas fa-file"></i>
                     <span class="text">Daily Progress Report</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/task">
+                  <a href="<?=ROOT?>/task" class="nav-link">
                     <i class="fas fa-chart-simple"></i>
                     <span class="text">Progress</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/allcoworkers">
+                  <a href="<?=ROOT?>/allcoworkers" class="nav-link">
                     <i class="fa-brands fa-paypal"></i>
                     <span class="text">Coworkers</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/supcomplaint">
+                  <a href="<?=ROOT?>/supcomplaint" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text">Complaint</span>
                   </a>
@@ -415,38 +476,44 @@
                 </nav>
               <main>
 
-            <?php elseif(Auth::getRole()== NULL): ?>
+            <?php elseif($_SESSION['role']=='Client'): ?>
               <ul class="side-menu top">
                 <?php if(Auth::getProjectId() !== NULL ):?>
-                <li class="active"> 
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/clientmaindashboard/<?= Auth::getProjectId() ?>"> 
+                  <a href="<?=ROOT?>/clientmaindashboard/<?= Auth::getProjectId() ?>">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard </span>
                   </a>
                 </li>
                 <?php endif?>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/quotation">
+                  <a href="<?=ROOT?>/quotation" class="nav-link">
                     <i class="fas fa-file"></i>
-                    <span class="text">Report</span>
+                    <span class="text">Quotation</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/installment">
+                  <a href="<?=ROOT?>/installment" class="nav-link">
                     <i class="fas fa-chart-simple"></i>
+                    <span class="text">Installment</span>
+                  </a>
+                </li>
+                <li data-url="<?=ROOT?>/clienttask">
+                  <a href="<?=ROOT?>/clienttask" class="nav-link">
+                    <i class="fa-brands fa-paypal"></i>
                     <span class="text">Progress</span>
                   </a>
                 </li>
-                <li>
-                  <a href="#" class="nav-link">
-                    <i class="fa-brands fa-paypal"></i>
-                    <span class="text">Payment</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/clientcomplaint">
+                  <a href="<?=ROOT?>/clientcomplaint" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text">Complaint</span>
+                  </a>
+                </li>
+                <li  data-url="<?=ROOT?>/rate">
+                  <a href="<?=ROOT?>/rate" class="nav-link">
+                    <i class="fas fa-comments"></i>
+                    <span class="text">Rate & Review</span>
                   </a>
                 </li>
                 <!-- settings and logout -->
@@ -691,3 +758,15 @@
 
             <?php endif; ?>
           <?php endif; ?>
+         <script>
+            let liList=document.querySelectorAll(".side-menu.top>li")
+                  liList.forEach(li=>{
+                    let value=li.dataset.url;
+                    let url=document.URL
+                    if (url.includes(value)) {
+                      li.classList.add("active")
+                    }else{
+                      li.classList.remove("acive")
+                    }
+                  })
+          </script>
