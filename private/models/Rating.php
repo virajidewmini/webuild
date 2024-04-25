@@ -13,13 +13,13 @@ class Rating extends Model{
 
         $query = "
         SELECT 
-            rate,
+            number_of_stars,
             COUNT(*) AS rating_count,
             ROUND((COUNT(*) / (SELECT COUNT(*) FROM rate)) * 100, 2) AS percentage_count
         FROM 
             rate 
         GROUP BY 
-            rate;";
+            number_of_stars;";
 
     return $this->query($query);
     }
@@ -28,11 +28,11 @@ class Rating extends Model{
         $query="SELECT ((1 * a) + (2 * b) + (3 * c) + (4 * d) + (5 * e)) / R AS overall_rating
         FROM (
             SELECT 
-                (SELECT COUNT(*) FROM rate WHERE rate = 1) AS a,
-                (SELECT COUNT(*) FROM rate WHERE rate = 2) AS b,
-                (SELECT COUNT(*) FROM rate WHERE rate = 3) AS c,
-                (SELECT COUNT(*) FROM rate WHERE rate = 4) AS d,
-                (SELECT COUNT(*) FROM rate WHERE rate = 5) AS e,
+                (SELECT COUNT(*) FROM rate WHERE number_of_stars = 1) AS a,
+                (SELECT COUNT(*) FROM rate WHERE number_of_stars = 2) AS b,
+                (SELECT COUNT(*) FROM rate WHERE number_of_stars = 3) AS c,
+                (SELECT COUNT(*) FROM rate WHERE number_of_stars = 4) AS d,
+                (SELECT COUNT(*) FROM rate WHERE number_of_stars = 5) AS e,
                 (SELECT COUNT(*) FROM rate) AS R
         ) AS ratings_summary;";
 

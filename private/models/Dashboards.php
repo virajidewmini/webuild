@@ -9,7 +9,7 @@ class Dashboards extends Model{
     }
 
     public function getTaskCount($model_id){
-        $query="SELECT COUNT(tasks.id) as total FROM `tasks` where module_id=:model_id";
+        $query="SELECT COUNT(tasks.id) as total FROM `tasks` where model_id=:model_id";
         $param=[
             'model_id'=>$model_id
         ];
