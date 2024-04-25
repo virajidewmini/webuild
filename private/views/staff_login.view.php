@@ -30,7 +30,7 @@
           <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="" name="password" value= "<?= get_var('password');?>" required>
+          <input type="password" name="password" value= "<?= get_var('password');?>" required>
           <span></span>
           <label>Password</label>
         </div>

@@ -80,6 +80,9 @@
                                         <label for="firstname">Status</label>
                                         <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->status;?>">
                                    </div>
+                                   <br>
+                                   </div>
+                              </fieldset>
                               
                               <?php endif;?>
                          

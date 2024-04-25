@@ -9,7 +9,8 @@
             }
             $project_requests=new Project_requests();
 
-            $data=$project_requests->findAllRequests();
+            $data['Pending']=$project_requests->findAllRequests();
+            $data['Accepted']=$project_requests->findAllAcceptedRequests();
 
             $this->view('coordinatorrequests',['rows'=>$data]);
         }
@@ -89,9 +90,9 @@
             }
             else{
                  //get attachments
-                $data['salary'] = $project_requests->getSalary($id)[0];
-                $data['landphoto'] = $project_requests->getLandPhoto($id)[0];
-                $data['blockplan'] = $project_requests->getBlockPlan($id)[0];
+                $data['salary'] = $project_requests->getSalary($data['common']->modification_id)[0];
+                $data['landphoto'] = $project_requests->getLandPhoto($data['common']->modification_id)[0];
+                $data['blockplan'] = $project_requests->getBlockPlan($data['common']->modification_id)[0];
 
                 if($data["common"]->status == 'Rejected'){
                     $data['reject_reason']=$project_requests->getRejectReason($id)[0];

@@ -521,6 +521,17 @@ class Project_requests extends Model{
         //return $this->query($query);
         return $this->query($query);
     }
+
+    public function findAllAcceptedRequests(){
+
+
+        $query="SELECT * FROM project_requests  
+       
+        WHERE project_requests.status = 'Accepted'"; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
     
     // findAllRequests in a given year for the analysis: rejected or not all states included
     public function findAllRequestsInYear($value){
