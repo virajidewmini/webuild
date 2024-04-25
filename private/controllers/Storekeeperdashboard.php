@@ -18,7 +18,17 @@
 
         $quotation = new QuotationSK();
         $data4 = $quotation->sentM_quptation_count();
-        $this->view('storekeeperdashboard', ['rows' => $data, 'rows1' => $data1, 'rows2' => $data2, 'rows3' => $data3, 'rows4' => $data4]);
+
+
+        $homerating=new Homerating();
+
+        $data6=$homerating->charcolumn1();
+        $data7=$homerating->charcolumn2();
+        $data8=$homerating->charcolumn3();
+        $data9=$homerating->charcolumn4();
+        $data10=$homerating->charcolumn5();
+
+        $this->view('storekeeperdashboard', ['rows' => $data, 'rows1' => $data1, 'rows2' => $data2, 'rows3' => $data3, 'rows4' => $data4,'rows6'=>$data6,'rows7'=>$data7,'rows8'=>$data8,'rows9'=>$data9,'rows10'=>$data10]);
     }
     }
 ?>
