@@ -178,16 +178,16 @@ class Projects extends Model
         return $this->query($query, $data);
     }
 
-    public function ongoingTask($id)
-    {
+    // public function ongoingTask($id)
+    // {
 
-        $query = "SELECT *
-        FROM allocated_task
-        WHERE (allocated_task.status = 'Ongoing' OR allocated_task.status = 'Done' OR allocated_task.status = 'Suspend') AND allocated_task.project_id = :id";
+    //     $query = "SELECT *
+    //     FROM allocated_task
+    //     WHERE project_id = :id";
 
-        $data['id'] = $id;
-        return $this->query($query, $data);
-    }
+    //     $data['id'] = $id;
+    //     return $this->query($query, $data);
+    // }
 
     public function completeTask($id)
     {
@@ -304,24 +304,27 @@ class Projects extends Model
         ]);
     }
 
+    //g
     public function get_allTasks_P($p_id){
             $query = "SELECT *, tasks.id as task_id FROM projects INNER JOIN tasks ON projects.model_id = tasks.model_id WHERE projects.id = :p_id";
             return $this->query($query, [
                 'p_id' => $p_id,
             ]);
     } 
+    //to get to do task
     public function get_allToDoTasks_P($p_id){
-        $query = "SELECT tasks.*
-        FROM projects 
-        INNER JOIN tasks ON projects.model_id = tasks.model_id
-        LEFT JOIN (
-            SELECT *
-            FROM allocated_task
-            WHERE project_id = :p_id
-        ) AS table_1
-        ON tasks.id = table_1.task_id 
-        WHERE table_1.task_id IS NULL
-        GROUP BY tasks.id";
+        // $query = "SELECT tasks.*
+        // FROM projects 
+        // INNER JOIN tasks ON projects.model_id = tasks.model_id
+        // LEFT JOIN (
+        //     SELECT *
+        //     FROM allocated_task
+        //     WHERE project_id = :p_id
+        // ) AS table_1
+        // ON tasks.id = table_1.task_id 
+        // WHERE table_1.task_id IS NULL
+        // GROUP BY tasks.id";
+        $query = "SELECT * FROM tasks WHERE id NOT IN (SELECT task_id FROM allocated_task WHERE project_id = :p_id)";
         return $this->query($query, [
             'p_id' => $p_id,
         ]);

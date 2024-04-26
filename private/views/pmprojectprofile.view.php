@@ -157,7 +157,7 @@
                 <h2 class="">Project ID :</h2>
             </div>
             <div class="p-title-detail">
-                <h2><?= $rows[0]->id ?></h2>
+                <h2><?= $project_id ?></h2>
             </div>
         </div>
 
@@ -231,7 +231,7 @@
                         </div>
                         <div class="column">
                             <label for="lastName">No. Of Floars :</label>
-                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->no_floar ?>">
+                            <input type="text" id="occupation" name="occupation" value="<?= $rows[0]->mdl->no_floor ?>">
                         </div>
                         <div class="column">
                             <label for="lastName">Description :</label>
@@ -605,11 +605,25 @@
                         <tbody>
                             <?php if ($rows1) : ?>
                                 <?php foreach ($rows1 as $row) : ?>
-                                    <tr>
-                                        <td><?= $row->task_id ?></td>
-                                        <td><?= $row->task->task_name ?></td>
-                                        <td><?= $row->status ?></td>
-                                    </tr>
+                                    <?php if ($row->status == 'Done') : ?>
+                                        <tr style="background-color:#1fd655;">
+                                            <td><?= $row->task_id ?></td>
+                                            <td><?= $row->task->task_name ?></td>
+                                            <td><?= $row->status ?></td>
+                                        </tr>
+                                    <?php elseif ($row->est_end_date < date('Y-m-d')) : ?>
+                                        <tr style="background-color:#ff0000;">
+                                            <td><?= $row->task_id ?></td>
+                                            <td><?= $row->task->task_name ?></td>
+                                            <td><?= $row->status ?></td>
+                                        </tr>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td><?= $row->task_id ?></td>
+                                            <td><?= $row->task->task_name ?></td>
+                                            <td><?= $row->status ?></td>
+                                        </tr>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </tbody>
@@ -635,34 +649,7 @@
                                     <tr>
                                         <td><?= $row->task_id ?></td>
                                         <td><?= $row->task->task_name ?></td>
-                                        <td><button id="task_accept" style="background-color:#E5863D; color:#fff;">Accept</button> <button id="task_reject" style="background-color:#f2eaea;">Reject</button></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="table">
-                <div class="table_header">
-                    <h3>Delegated Tasks</h3>
-                </div>
-                <div class="table_section">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Task ID</th>
-                                <th>Task Name</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if ($row8) : ?>
-                                <?php foreach ($row8 as $row) : ?>
-                                    <tr>
-                                        <td><?= $row->task_id ?></td>
-                                        <td><?= $row->task->task_name ?></td>
-                                        <td></td>
+                                        <td><a href="<?= ROOT ?>/Pmongoingproject/AcceptTask/<?= $project_id ?>/<?= $row->task_id ?>/"><button id="task_accept" style="background-color:#E5863D; color:#fff;">Accept</button></a> <a href="<?= ROOT ?>/Pmongoingproject/RejectTask/<?= $project_id ?>/<?= $row->task_id ?>/"><button id="" style="background-color:#f2eaea;">Reject</button></a></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>
@@ -686,7 +673,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($row7) : ?>
+                            <?php if ($row7) :?>
                                 <?php foreach ($row7 as $row) : ?>
                                     <tr>
                                         <td><?= $row->id ?></td>
@@ -694,10 +681,18 @@
                                         <td><?= $row->sub_task_count ?></td>
                                         <td><?= $row->duration_in_days ?></td>
                                         <td>
-                                            <?php if (($rows19[0]->progress && $rows19[0]->progress > 80) || !($rows19)) : ?>
-                                                <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
-                                                    <button><i class="fa-solid fa-plus"></i></button>
-                                                </a>
+                                            <?php if ($row5) : ?>
+                                                <?php if (($row7[0]->id == $row->id && $rows19[0]->progress > 80)) : ?>
+                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
+                                                        <button><i class="fa-solid fa-plus"></i></button>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <?php else : ?>
+                                                <?php if ($row7[0]->id == $row->id) : ?>
+                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
+                                                        <button><i class="fa-solid fa-plus"></i></button>
+                                                    </a>
+                                                <?php endif; ?>
                                             <?php endif; ?>
                                         </td>
                                     </tr>
@@ -947,14 +942,6 @@
         span.style.width = span.dataset.width;
         span.innerHTML = span.dataset.width;
     });
-    <?php if ($rows2) : ?>
-
-        task_accept.addEventListener('click', async (e) => {
-            e.preventDefault();
-            await fetch("<?= ROOT ?>/Pmongoingproject/acceptSupervisor/<?= $rows2[0]->id ?>")
-            window.location.reload();
-        });
-    <?php endif; ?>
 </script>
 
 
