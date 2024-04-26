@@ -36,7 +36,7 @@
                 </li>
                 <li data-url="<?=ROOT?>/coordinatorrequests">
                   <a href="<?=ROOT?>/coordinatorrequests">
-                    <i class="fa-solid fa-users"></i>
+                    <i class="fa-brands fa-r-project"></i>
                     <span class="text">Project Requests</span>
                   </a>
                 </li>
@@ -46,8 +46,8 @@
                     <span class="text">On Going Projects</span>
                   </a>
                 </li>
-                <li data-url="<?=ROOT?>/coordinatorprojects">
-                  <a href="#" class="nav-link">
+                <li data-url="<?=ROOT?>/coordinatorviewcomplaints">
+                  <a href="<?=ROOT?>/coordinatorviewcomplaints" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text" id="main_link">Complaints</span>
                     
@@ -62,13 +62,13 @@
                 </li>
                 <li data-url="<?=ROOT?>/coordinatormaterialrequests">
                   <a href="<?=ROOT?>/coordinatormaterialrequests">
-                    <i class="fa-solid fa-users"></i>
+                    <i class="fa-solid fa-m"></i>
                     <span class="text">Material Requests</span>
                   </a>
                 </li>
                 <li data-url="<?=ROOT?>/coordinatorviewsuppliers">
                   <a href="<?=ROOT?>/coordinatorviewsuppliers">
-                    <i class="fa-solid fa-users"></i>
+                    <i class="fa-brands fa-supple"></i>  
                     <span class="text">Suppliers</span>
                   </a>
                 </li>
@@ -76,12 +76,12 @@
                 <!-- settings and logout -->
 
                 <ul class="side-menu">
-                  <li>
+                  <!-- <li>
                     <a href="#">
                       <i class="fas fa-cog"></i>
                       <span class="text">Settings</span>
                     </a>
-                  </li>
+                  </li> -->
                   <li>
                     <a href="<?=ROOT?>/logout" class="logout">
                       <i class="fas fa-right-from-bracket"></i>

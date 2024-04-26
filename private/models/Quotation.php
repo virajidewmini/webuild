@@ -51,7 +51,41 @@ class Quotation extends Model
             'value' => $value,
         ]);
     }
+    
+    public function getProjectId($value){
+
+        $query = "SELECT id  FROM projects 
+        WHERE project_request_id = :value";
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
 
 
+    //check whether client has been notified of first installment or not
+    public function getFirstInstallmentStatus($value){
+
+        $query = "SELECT status FROM payments 
+        WHERE project_id = :value AND installement_number=1 ";
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+
+    
+    // public function changeQuotationStatustoDisplay($value){
+
+    //     $query = "UPDATE quotation SET quotation.status = ""
+    //     WHERE id = :value ";
+
+    //     return $this->query($query, [
+    //         'value' => $value,
+    //     ]);
+    // }
 }
+
 ?>

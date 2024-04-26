@@ -47,9 +47,21 @@ class Notifications extends Model{
 
 
     //for payments
-    public function setStateForPayment($value){
+    public function setNotifiedStateForPayment($value){
 
         $query="UPDATE payments set payments.status='Notified'       
+        WHERE payments.id = :value"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    //for warning 
+    public function setWarningStateForPayment($value){
+
+        $query="UPDATE payments set payments.status='Warning'       
         WHERE payments.id = :value"; 
         
         //return $this->query($query);
@@ -161,5 +173,19 @@ class Notifications extends Model{
     }
 
 
+    //get customerid for complaints in order to notify after handling
+    public function getCUstomerIDforNotifyHandledComplaints($value){
+        
+
+        $query="SELECT user_id FROM complaint
+        INNER JOIN projects ON projects.id=complaint.project_id
+
+        WHERE complaint.id = :value "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
 }
 ?>

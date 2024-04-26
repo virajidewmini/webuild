@@ -532,6 +532,19 @@ class Project_requests extends Model{
         //return $this->query($query);
         return $this->query($query);
     }
+
+    public function findAllDoneRequests(){
+
+
+        $query="SELECT project_requests.*, payments.status AS payment_status,payments.installement_number ,projects.id AS project_id FROM project_requests  
+        INNER JOIN projects ON projects.project_request_id=project_requests.id
+        LEFT JOIN payments ON payments.project_id=projects.id AND payments.installement_number=1
+       
+        WHERE project_requests.status = 'Done'"; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
     
     // findAllRequests in a given year for the analysis: rejected or not all states included
     public function findAllRequestsInYear($value){

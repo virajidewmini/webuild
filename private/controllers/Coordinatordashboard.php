@@ -46,7 +46,7 @@
 
             $notification->insert($row);
 
-            $notification->setStateForPayment($payment_id);
+            $notification->setNotifiedStateForPayment($payment_id);
 
             $this->redirect("coordinatordashboard");
                
@@ -69,7 +69,7 @@
 
             $notification->insert($row);
 
-            $notification->setStateForPayment($payment_id);
+            $notification->setWarningStateForPayment($payment_id);
 
             $this->redirect("coordinatordashboard");
                

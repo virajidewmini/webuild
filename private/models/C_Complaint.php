@@ -53,12 +53,13 @@ class C_Complaint extends Model
         $query = "SELECT * FROM (
                     SELECT *
                     FROM complaint   
-                    WHERE complaint.type='Quality of the photograph' AND complaint.status IN ('Pending','Notified')
+                    WHERE complaint.type='Quality and the number of the photograph' AND complaint.status IN ('Pending','Notified','Complete')
                     ORDER BY
                         CASE 
                             WHEN status='Pending' THEN 1
                             WHEN status='Notified' THEN 2
-                            ELSE 3
+                            WHEN status='Complete' THEN 3
+                            ELSE 4
                         END,
                     STR_TO_DATE(date, '%Y-%m-%d') -- Convert string date to MySQL date format
                 ) AS grouped_complaints
@@ -66,7 +67,8 @@ class C_Complaint extends Model
                         CASE 
                             WHEN status='Pending' THEN 1
                             WHEN status='Notified' THEN 2
-                            ELSE 3
+                            WHEN status='Complete' THEN 3
+                            ELSE 4
                         END,
                     STR_TO_DATE(date, '%Y-%m-%d'); -- Convert string date to MySQL date format
             
@@ -243,7 +245,7 @@ class C_Complaint extends Model
     public function getPastPhotographComplaints()
     {
 
-        $query = "SELECT * FROM complaint WHERE complaint.type='Quality of the photograph' AND complaint.status = 'Handled'
+        $query = "SELECT * FROM complaint WHERE complaint.type='Quality and the number of the photograph' AND complaint.status = 'Handled'
                 
                 ORDER BY
                     STR_TO_DATE(date, '%Y-%m-%d')DESC; -- Convert string date to MySQL date format

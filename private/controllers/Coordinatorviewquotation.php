@@ -13,6 +13,11 @@
 
             $quotation=new Quotation();
             $project_details=$quotation->getProjectDetails($msg_id)[0];
+
+            //change quotation to Display so the customer can view it
+            $UPDATEarray['status']="Dispaly";
+            $quotation->update($msg_id,$UPDATEarray);
+            //$quotation->changeQuotationStatustoDisplay($msg_id);
            
 
             $payments=new Payments();

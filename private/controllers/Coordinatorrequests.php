@@ -11,6 +11,12 @@
 
             $data['Pending']=$project_requests->findAllRequests();
             $data['Accepted']=$project_requests->findAllAcceptedRequests();
+            $data['Done']=$project_requests->findAllDoneRequests();
+           
+            // $quotation = new Quotation();
+            // $project_id=$quotation->getProjectId($id)[0]->id;
+            // $data['first_installement_status']=$quotation-> getFirstInstallmentStatu($project_id)[0];
+            // print_r($data['first_installement_status']);
 
             $this->view('coordinatorrequests',['rows'=>$data]);
         }
@@ -99,6 +105,10 @@
                     //print_r($data['reject_reason'] );
                 }
 
+                $quotation = new Quotation();
+                $project_id=$quotation->getProjectId($id)[0]->id;
+                //print_r($project_id);
+                $data['quotation']=$quotation->getQuotationName($project_id)[0];
                 
 
                 $this->view('coordinatorrequests.seemore',['rows'=>$data]);

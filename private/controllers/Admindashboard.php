@@ -42,7 +42,7 @@
             //getting all complaints   
 
             
-            $data["AllQP"]=$complaint->getComplaintCount('Quality of the photograph');
+            $data["AllQP"]=$complaint->getComplaintCount('Quality and the number of photograph');
             $data["AllCP"]=$complaint->getComplaintCount('Construction project delay ');
             $data["AllQW"]=$complaint->getComplaintCount('Quality of workmanship and materials');
             $data["AllPC"]=$complaint->getComplaintCount('Poor Communication');
