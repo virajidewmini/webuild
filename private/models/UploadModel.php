@@ -34,31 +34,17 @@ class UploadModel extends Model
 
         foreach ($files['tmp_name'] as $key => $tmp_name) {
             $originalFileName = $files['name'][$key];
-            $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+            // $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
 
             // Generate a unique name for the file
             // $newFileName = uniqid() . '_' . time() . '.' . 
-            $newFileName = $originalFileName . $fileExtension;
+            $newFileName = $originalFileName ;
             $targetFile = $uploadDir . $newFileName;
 
             // Move the file to the uploads directory
             if (move_uploaded_file($tmp_name, $targetFile)) {
                 $uploadedFiles[] = $newFileName;
             }
-        }
-
-        $tmp_name = $files['tmp_name'];
-        $originalFileName = $files['name'];
-        $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
-
-        // Generate a unique name for the file
-        $newFileName = $originalFileName . $fileExtension;
-        $targetFile = $uploadDir . $newFileName;
-
-
-        // Move the file to the uploads directory
-        if (move_uploaded_file($tmp_name, $targetFile)) {
-            $uploadedFiles[] = $newFileName;
         }
 
 

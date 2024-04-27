@@ -9,6 +9,7 @@ class Pmquotation extends Controller
         $project = new Projects();
         $project_request = new Project_requests();
         $model = new UploadModel();
+        $notification = new Notifications();
 
         $data14 = $project_request->where('id', $request_id);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,13 +24,17 @@ class Pmquotation extends Controller
                 $arr1['payment_package_id'] = $_POST['payment_package_id'];
                 $project->insert($arr1);
 
+                
+                $uploadedFiles = $model->uploadQuotation($_FILES['files']);
+                $quotation_data = $quotation->InsertQuotationData($_POST, $uploadedFiles);
 
-                $uploadedFiles = $model->uploadFiles($_FILES);
-                $quotation->InsertQuotationData($_POST, $uploadedFiles);
-
+                $quotation->insert($quotation_data);
 
                 $arr2['status'] = 'Done';
                 $project_request->update($request_id, $arr2);
+
+                $data = $notification->projectQuatationNotify();
+                $notification->insert($data);
 
                 $this->redirect('pmdashboard');
             }

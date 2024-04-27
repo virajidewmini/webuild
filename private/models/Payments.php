@@ -20,6 +20,19 @@ class Payments extends Model{
         return $this->query($query);
     }
 
+    public function getWarningPayments(){
+
+
+        $query="SELECT payments.* , projects.user_id
+        FROM payments INNER JOIN projects
+        ON payments.project_id = projects.id
+        WHERE payments.date <= DATE_ADD(CURDATE(), INTERVAL 1 WEEK)
+        AND payments.date >= CURDATE() AND payments.status='Unpaid' "; 
+
+       
+        return $this->query($query);
+    }
+
 
     public function get_user($data){
 

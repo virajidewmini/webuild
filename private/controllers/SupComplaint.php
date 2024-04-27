@@ -23,6 +23,7 @@
                     
                     $clientComplaint=new C_Complaint();
                     $clientComplaint->updateRemark($id,$_POST['remark']); 
+                    $clientComplaint->updateStatus($id);
                     $this->redirect('supcomplaint/viewComplaint/'.$id);
                 }
 

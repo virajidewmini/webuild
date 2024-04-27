@@ -22,7 +22,7 @@
   margin-bottom: 30px;
 }
 .card {
-  background-color: #fff;
+  background-color: #BDBDBD;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
@@ -105,39 +105,108 @@
 .timeline li:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); 
 }
+
+.tables{
+  display: flex;
+  gap: 20px; 
+  padding-bottom: 20px;
+  min-width: 0px;
+}
+.table-containers{
+  flex:1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table-bottom{
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: #fff;
+  margin-bottom: 30px;
+  min-width: auto;
+  
+}
+.reviewDiv{
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: #fff;
+  margin-bottom: 30px;
+  min-width: auto;
+}
+.reviews__heading {
+  font-size: 32px;
+  color: #323357;
+  font-family: "Muli";
+  font-weight: 700;
+  text-align: center;
+  margin: 28px 0;
+}
+
+.reviews__average-ratings {
+  margin-bottom: 63px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.average-ratings__stars {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  width: 347px;
+  height: 63px;
+  border-radius: 32px;
+  background-color: #f5f8ff;
+  margin-bottom: 8px;
+}
+
+.stars__average-rating-score {
+  font-size: 16px;
+  color: #323357;
+  font-family: "Muli";
+  font-weight: 400;
+  margin-left: auto;
+}
+
 </style>
 
 <body>
     <div class="container">
-        <h1>Admin Dashboard</h1>
+        <h1>Client Dashboard</h1>
+        
 
         <div class="data-cards">
             <div class="card">
-                <h2>Total Users</h2>
-                <p id="userCount">125</p> 
+                <h2>Total Tasks</h2>
+                <p  style="font-size: larger;"><?=$rows[0]->total?></p> 
             </div>
             <div class="card">
-                <h2>New Orders</h2>
-                <p id="orderCount">32</p> 
+                <h2>Complete Tasks</h2>
+                <p  style="font-size: larger;"><?=$complete[0]->completeCount?></p> 
             </div>
             <div class="card">
-                <h2>Total Users</h2>
-                <p id="userCount">125</p> 
+                <h2>Ongoing Tasks</h2>
+                <p  style="font-size: larger;"><?=$ongoing[0]->ongoingCount?></p> 
             </div>
             <div class="card">
-                <h2>New Orders</h2>
-                <p id="orderCount">32</p> 
+                <h2>Pending Tasks</h2>
+                <p  style="font-size: larger;"><?=$pending?></p> 
             </div>
-            </div>
+        </div>
 
         <div class="charts">
             <div class="chart-container">
-                <h2>Product Sales</h2> 
+                <h2>Progress</h2> 
                 <canvas id="pieChart" ></canvas>
             </div>
 
             <div class="chart-container">
-                <h2>Revenue Distribution</h2>
+                <h2>Payments</h2>
                 <canvas id="donutChart"></canvas>
             </div>
         </div>
@@ -149,46 +218,101 @@
 
             <div class="timeline">
                 <ul>
+                <?php foreach($payments as $payment): ?>
                     <li>
                         <div class="content-timeline">
                             <i class="icon fa-solid fa-credit-card"></i>
-                            <h3>Subscription Renewal</h3>
-                            <p>Amount: $49.99</p>
-                            <p>Date: 2023-12-22</p>
+                            <h3>Installment Number <?=$payment->installement_number?></h3>
+                            <p>Amount: <?=$payment->amount?></p>
+                            <p>Date: <?=$payment->date?></p>
                         </div>
                     </li>
-                    <li>
-                        <div class="content-timeline">
-                            <i class="icon fa-solid fa-money-bill"></i>
-                            <h3>Invoice Due</h3>
-                            <p>Amount: $125.00</p>
-                            <p>Date: 2023-12-28</p>
-                        </div>
-                    </li>
+                <?php endforeach?>
+                    
                     </ul>
             </div>
 
-        
-    </div>
+            </div>
+
+            <div class="tables">
+            <div class="table-containers">
+            <table class="table-bottom" >
+                <caption style="font-size: larger; font-weight: bold;">Unresolved Complaint</caption>
+                <thead>
+                    <tr>
+                        <th style="max">Type</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($complaints as $complaint): ?>
+                    <tr>
+                        <td><?=$complaint->type?></td>
+                        <td><?=$complaint->date?></td>
+                    </tr>
+                  <?php endforeach?>
+                    
+                </tbody>
+            </table>
+            </div>
+
+            <div class="table-containers">
+              <div class="reviewDiv">
+                 <h4 class="reviews__heading">Customer reviews</h4>
+
+                <div class="reviews__average-ratings">
+                  <div class="average-ratings__stars">
+                      <?php
+                          $overallRating = $averageRate[0]->overall_rating ;
+
+                          
+                          for ($i = 1; $i <= 5; $i++) {
+                              
+                              if ($i <= $overallRating) {
+                              echo ' <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2l2.356 7.236H21l-6.046 4.392 2.355 7.239L12 17.47l-6.308 4.397 2.355-7.239L3 9.236h6.644z" fill="#f1b41b"/>
+                                </svg>';
+                              } else {
+                                  echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M12 2l2.356 7.236H21l-6.046 4.392 2.355 7.239L12 17.47l-6.308 4.397 2.355-7.239L3 9.236h6.644z" fill="#BDBDBD"/>
+                              </svg>';
+                              }
+
+                              
+                          }
+                      ?>
+  
+         
+                  </div>
+                    <div class="average-ratings__total-customers">
+                      <?=$count[0]->count." Customer Ratings "?> 
+                    </div>
+                </div>
+            
+              </div>
+        </div>
+        </div>
+            
+    
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="scripts.js"></script>
+    <!-- <script src="scripts.js"></script> -->
 </body>
 
 <script>
     // Sample data (replace with your own data fetching logic)
 const userData = {
-  labels: ['Active', 'Inactive', 'New'],
+  labels: ['Complete', 'Not Complete'],
   datasets: [{
-      data: [50, 25, 25],
-      backgroundColor: ['#4CAF50', '#FF9800', '#2196F3'] 
+      data: [<?=$complete[0]->completeCount?>, <?=(int)$rows[0]->total-(int)$complete[0]->completeCount?>],
+      backgroundColor: ['#4CAF50', '#FF9800'] 
   }]
 };
 const revenueData = {
-  labels: ['Sales', 'Subscriptions', 'Other'],
+  labels: ['Paid', 'Not Paid'],
   datasets: [{
-      data: [60, 30, 10],
-      backgroundColor: ['#F44336', '#E91E63', '#9C27B0']
+      data: [<?=$paid[0]->paidAmount?>, <?=$unpaid[0]->notPaidAmount?>],
+      backgroundColor: ['#4CAF50', '#F44336']
   }]
 };
 
@@ -200,11 +324,11 @@ const donutChartConfig = {type: 'doughnut', data: revenueData };
 const complaintData = {
     labels: ['Resolved', 'Unresolved'],
     datasets: [{
-        label: 'Complaints',
-        data: [35, 15],
+        
+        data: [<?=$completeComplaint[0]->completeComplaintCount?>, <?=$pendingComplaint[0]->pendingComplaintCount?>],
         backgroundColor: [
-            '#4CAF50', // Green for resolved
-            '#FF9800'  // Orange for unresolved
+            '#4CAF50', 
+            '#FF9800'  
         ]
     }]
 };

@@ -47,7 +47,7 @@
     <?php if ($rows3) : ?>
         <div class="table">
             <div class="table_header">
-                <h3>To Start Project</h3>
+                <h2>To Start Project</h2>
             </div>
             <div class="table_section">
                 <table>
@@ -70,7 +70,7 @@
                                 <td><?= $row->user->firstname ?> <?= $row->user->lastname ?></td>
                                 <td><?= $row->mdl->name ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmmember_search/<?= $row->land->ul_district ?>/<?= $row->id ?>/<?= $row->quotation_id ?>/<?= $row->mdl->time_duraion_in_months ?>/">
+                                    <a href="<?= ROOT ?>/Pmmember_search/<?= $row->land->ul_district ?>/<?= $row->id ?>/<?= $row->quotation_id ?>/<?= $row->mdl->time_duration_in_months ?>/">
                                         <button class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit">Start</button>
                                     </a>
                                 </td>
@@ -84,7 +84,7 @@
     <?php if ($rows2) : ?>
         <div class="table">
             <div class="table_header">
-                <h3>Latest Request</h3>
+                <h2>Latest Request</h2>
             </div>
             <div class="table_section">
                 <table>
@@ -119,10 +119,55 @@
             </div>
         </div>
     <?php endif; ?>
+    <?php if ($rows5) : ?>
+    <div class="table">
+        <div class="table_header">
+            <h2>Complaints</h2>
+
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project ID</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+
+                        <?php foreach ($rows5 as $row) : ?>
+                            <tr>
+                                <td><?= $row->project_id ?></td>
+                                <td><?= $row->type ?></td>
+                                <td><?= $row->date ?></td>
+                                <td><?= $row->status ?></td>
+
+                                <td>
+                                    <a href="<?= ROOT ?>/Pmcomplaint/man_view_complaint/<?= $row->id ?>/*/"><button><i class="fa-solid fa-eye"></i></button></a>
+
+
+
+                                </td>
+
+                            </tr>
+
+                        <?php endforeach; ?>
+
+                    
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <?php endif; ?>
     <?php if ($rows) : ?>
         <div class="table">
             <div class="table_header">
-                <h1>Daily Progress Reports</h1>
+                <h2>Daily Progress Reports</h1>
             </div>
             <div class="table_section">
                 <table>
@@ -163,7 +208,7 @@
     <?php endif; ?>
     <div class="table">
         <div class="table_header">
-            <h3>On going task</h3>
+            <h2>On going task</h2>
         </div>
         <div class="table_section">
             <table>

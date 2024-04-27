@@ -2,10 +2,10 @@
 
     class ClientTask extends Controller{
         
-        public function index($id){
-            $_SESSION['project_id'] = $id;
+        public function index(){
+            // $_SESSION['project_id'] = $id;
         
-        
+        $id=Auth::getProjectId();
         $model=new AllocateTask();
        
         $data=$model->getTask($id);

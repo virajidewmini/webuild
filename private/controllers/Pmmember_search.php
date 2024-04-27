@@ -13,13 +13,14 @@ class Pmmember_search extends Controller
 
         $staff = new Staffs();
 
-        if (isset($district)) {
-            $data = $staff->ssup($district);
-        } elseif (isset($_GET['district'])) {
+        if (isset($_GET['district'])) {
             $district = $_GET['district'];
-            $data = $staff->ssup($district);
-        } else {
-            $data = $staff->supAll();
+            $data = $staff->findSupervisor($district);
+        } elseif (isset($district)) {
+            $data = $staff->findSupervisor($district);
+        } 
+        else {
+            $data = $staff->findAllSupervisor();
         }
 
         $this->view('pmmember_search', [
@@ -38,6 +39,7 @@ class Pmmember_search extends Controller
             $this->redirect('login');
         }
         $project = new Projects();
+        $quotation = new Project_Quotation();
         $row = $project->where('id', $p_id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -46,7 +48,8 @@ class Pmmember_search extends Controller
                 $_POST['status'] = 'Ongoing';
                 $p_id = $_POST['id'];
                 $project->update($p_id, $_POST);
-
+                $arr1['status'] = 'Paid';
+                $quotation->update($q_id, $arr1);
 
                 $this->redirect('pmdashboard');
             }

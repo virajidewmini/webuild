@@ -49,7 +49,7 @@
                 <p>Select files :</p>
             </div>
             <div class="e-id-d">
-                <input required type="file" name="files[]" id="files" accept="application/pdf/*">
+                <input required type="file" name="files[]" id="files" accept="application/pdf,image/*">
             </div>
         </div>
         <div class="sub">

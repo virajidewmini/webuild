@@ -59,7 +59,7 @@ class AllocateTask extends Model{
     }
 
     public function getDuration($id){
-        $query ="select duration from tasks where id= :id";
+        $query ="select duration_in_days from tasks where id= :id";
         $data['id'] = $id;
         return $this->query($query,$data);
     }

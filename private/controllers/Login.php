@@ -13,21 +13,17 @@
                 if($row=$user->where('email',$_POST['email'])){
                     $row = $row[0];
                     if(password_verify($_POST['password'],$row->password)){
+                        
+                        
+                        
                         Auth::authenticate($row);
-                        if (Auth::getRole() == 'Project Manager'){
-                            $this->redirect('/pmdashboard');
-                        }
-                        if (Auth::getRole() == 'Storekeeper'){
-                            $this->redirect('/storekeeperdashboard');
-                        }
-                        if (Auth::getRole() == 'Project Coordinator'){
-                            $this->redirect('/coordinatordashboard');
-                        }
-                        if (Auth::getRole() == 'Admin'){
-                            $this->redirect('/admindashboard');
+                        $_SESSION['role'] = 'Client';
+                        
+                        if ($_SESSION['role'] == 'Client'){
+                            $this->redirect('/clientdashboard');
                         }
                         
-                            $this->redirect('/home');
+                             $this->redirect('/home');
                         
                     }
                    

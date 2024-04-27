@@ -5,13 +5,14 @@
 
             
             $id=Auth::getId();
-
             $model=new Client();
             $data=$model->getProject($id);
+            $request=$model->getProjectRequest($id);
             
             
-            $this->view('ClientDashboard',['rows'=>$data]);
+            $this->view('ClientDashboard',['rows'=>$data, 'req'=>$request]);
         }
+
 
     }
 ?>

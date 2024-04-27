@@ -14,6 +14,7 @@ class Projects extends Model
         'get_task',
         'get_req',
         'get_land',
+        'get_payment',
     ];
 
     public $user_id;
@@ -107,6 +108,20 @@ class Projects extends Model
             }
         }
 
+        return $data;
+    }
+
+    public function get_payment($data){
+    
+        $payment = new Payment_packages();
+        foreach ($data as $key => $row1){
+            if(isset($row1->payment_package_id)){
+                $result = $payment->where('id',$row1->payment_package_id);
+                $data[$key]->payment = is_array($result) ? $result[0] : false ;
+            }
+    
+        }
+    
         return $data;
     }
 
@@ -288,4 +303,27 @@ class Projects extends Model
             'value' => $value,
         ]);
     }
+
+    public function get_allTasks_P($p_id){
+            $query = "SELECT *, tasks.id as task_id FROM projects INNER JOIN tasks ON projects.model_id = tasks.model_id WHERE projects.id = :p_id";
+            return $this->query($query, [
+                'p_id' => $p_id,
+            ]);
+    } 
+    public function get_allToDoTasks_P($p_id){
+        $query = "SELECT tasks.*
+        FROM projects 
+        INNER JOIN tasks ON projects.model_id = tasks.model_id
+        LEFT JOIN (
+            SELECT *
+            FROM allocated_task
+            WHERE project_id = :p_id
+        ) AS table_1
+        ON tasks.id = table_1.task_id 
+        WHERE table_1.task_id IS NULL
+        GROUP BY tasks.id";
+        return $this->query($query, [
+            'p_id' => $p_id,
+        ]);
+} 
 }
