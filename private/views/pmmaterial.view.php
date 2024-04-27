@@ -1,175 +1,186 @@
-<?php if(Auth::getRole()== 'Project Manager'): ?>
-<?php $this->view('includes/header')?>
-<style>
-body{
-    overflow: hidden;
-}
-</style>
+<?php if (Auth::getRole() == 'Project Manager') : ?>
+    <?php $this->view('includes/header') ?>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .unit-d {
+
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ._add_{
+            background-color: #E5863D;
+            color: white;
+        }
+    </style>
     <h2 style="margin-bottom: 20px">MATERIALS</h2>
-    <div class="table">
-        <div class="table_header">
-            <h3>To be recieved</h3>
-        </div>
-        <div class="table_section">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Request ID</th>
-                        <th>ID</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>RQT013</td>
-                        <td>012</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>RQT010</td>
-                        <td>009</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>RQT009</td>
-                        <td>007</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="table">
-        <div class="table_header">
-            <h3>Materials details</h3>
-        </div>
-        <div class="table_section">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Material ID</th>
-                        <th>Material name</th>
-                        <th>Mesure unit</th>
-                        <th>Available Quantity</th>
-                        <th>Used Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>MTL001</td>
-                        <td>Sand</td>
-                        <td>Cube</td>
-                        <td>06</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>MTL002</td>
-                        <td>6x9 Rock</td>
-                        <td>Cube</td>
-                        <td>03</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>MTL006</td>
-                        <td>Cement</td>
-                        <td>Num</td>
-                        <td>03</td>
-                        <td>6</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="table">
-        <div class="table_header">
-            <h3>Items details</h3>
-        </div>
-        <div class="table_section">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item ID</th>
-                        <th>Item name</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ITM025</td>
-                        <td>Concrete pump</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>ITM005</td>
-                        <td>Power drill</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>ITM010</td>
-                        <td>Wacker</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <?php $project_id = isset($_GET['project_id']) ? $_GET['project_id'] : ""; ?>
+    <form action="" method="GET">
+        <?php
+        if (isset($_GET['project_id'])) {
+        ?>
+            <div class="unit-d">
+                <div class="unit">
+                    <h3 style="margin-left:20px;">Project ID :</h3>
+                </div>
+                <div class="e-id-d">
+
+                    <select style="height:35px; width:100px; margin-left:20px; border-radius:10px;" name="project_id" class="" type="text">
+                        <option style="text-align:center;" value="" <?= get_select2('project_id', ''); ?>>Select ID</option>
+                        <?php if ($rows) : ?>
+                            <?php foreach ($rows as $row) : ?>
+                                <option style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
+                                                                                                                                            echo "selected";
+                                                                                                                                        } ?>>
+                                    <?= $row->id; ?>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <option style="text-align:center;" <?= get_select2('project_id', ''); ?> value="">No Project Found</option>
+                            <?php endif; ?>
+                    </select>
+                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Filter</button>
+                </div>
+
+            </div>
+        <?php
+        } else {
+        ?>
+            <div class="unit-d">
+                <div class="unit">
+                    <h3 style="margin-left:20px;">Project ID :</h3>
+                </div>
+                <div class="e-id-d">
+                    <select style="height:35px; width:100px; margin-left:20px; border-radius:10px;" name="project_id" class="" type="text">
+                        <option style="text-align:center;" value="<?= $project_id ?>" <?= get_select2('project_id', ''); ?>>Select ID</option>
+                        <?php if ($rows) : ?>
+                            <?php foreach ($rows as $row) : ?>
+                                <option  style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
+                                                                                                                                            echo "selected";
+                                                                                                                                        } ?>>
+                                    <?= $row->id; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <option style="text-align:center;" <?= get_select2('project_id', ''); ?> value="">No Project Found</option>
+                        <?php endif; ?>
+                    </select>
+                </div>
+
+                <div class="btnnext">
+                    <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Filter</button>
+                </div>
+            </div>
+
+        <?php
+        }
+        ?>
+    </form>
     <div class="table">
         <div class="table_header">
             <h3>Sent request</h3>
             <div>
-                <a href="<?=ROOT?>/Pmmaterial_r"><button class="add___">Request</button></a>
+                <a href="<?= ROOT ?>/Pmmaterial_r"><button class="add___">Request</button></a>
             </div>
         </div>
         <div class="table_section">
             <table>
                 <thead>
                     <tr>
+                        <th>Project ID</th>
                         <th>Request ID</th>
+                        <th>Level</th>
                         <th>Date</th>
-                        <th>Action</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <?php if($rows2): ?>
+                <?php foreach ($rows2 as $row) : ?>
+                    <tbody>
+                        <tr>
+                            <td><?= $row->project_id; ?></td>
+                            <td><?= $row->request_id; ?></td>
+                            <td><?= $row->level; ?></td>
+                            <td><?= $row->r_date; ?></td>
+                            <td>
+                                <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php endforeach; ?>
+                <?Php endif; ?>
+            </table>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table_header">
+            <h3>To Recieve</h3>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
                     <tr>
-                        <td>RQT013</td>
-                        <td>11/05/2022</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
+                        <th>Project ID</th>
+                        <th>Request ID</th>
+                        <th>Level</th>
+                        <th></th>
                     </tr>
+                </thead>
+                <?php if($rows3): ?>
+                <?php foreach ($rows3 as $row) : ?>
+                    <tbody>
+                        <tr>
+                            <td><?= $row->project_id; ?></td>
+                            <td><?= $row->request_id; ?></td>
+                            <td><?= $row->level; ?></td>
+                            <td>
+                                <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                <a href="<?= ROOT ?>/"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php endforeach; ?>
+                <?Php endif; ?>
+            </table>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table_header">
+            <h3>Recieved</h3>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
                     <tr>
-                        <td>RQT013</td>
-                        <td>11/05/2022</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
+                        <th>Project ID</th>
+                        <th>Request ID</th>
+                        <th>Level</th>
+                        <th></th>
                     </tr>
-                    <tr>
-                        <td>RQT013</td>
-                        <td>11/05/2022</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>RQT013</td>
-                        <td>11/05/2022</td>
-                        <td>
-                            <button><i class="fa-solid fa-eye"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
+                </thead>
+                <?php if($rows4): ?>
+                <?php foreach ($rows4 as $row) : ?>
+                    <tbody>
+                        <tr>
+                            <td><?= $row->project_id; ?></td>
+                            <td><?= $row->request_id; ?></td>
+                            <td><?= $row->level; ?></td>
+                            <td>
+                                <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php endforeach; ?>
+                <?Php endif; ?>
             </table>
         </div>
     </div>
 
-<?php $this->view('includes/footer'); ?>
-<?php else: ?>
+    <?php $this->view('includes/footer'); ?>
+<?php else : ?>
     <?php $this->view('404'); ?>
 <?php endif; ?>

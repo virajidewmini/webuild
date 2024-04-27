@@ -1,5 +1,5 @@
 <?php
-
+    use Respect\Validation\Validator as v;
     class AllCoworkers extends Controller{
         
         public function index(){
@@ -11,7 +11,39 @@
 
         public function add(){
 
+            
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $errors = [];
+
+                $nameValidator = v::notEmpty()->stringType()->length(null, 30);
+                $addressValidator = v::notEmpty()->regex('/^[a-zA-Z0-9,\s]+$/')->length(null, 100);
+                $phoneNumberValidator = v::regex('/^947\d{8}$/');
+
+
+                if (! $nameValidator->validate($_POST['name'])) {
+                    $errors['name'] = 'Name must be a string with maximum length 30 and can not empty';
+                }
+
+                if (! isset($_POST['role'])) {
+                    $errors['role'] = 'Please select role';
+                }
+
+                if (! isset($_POST['district'])|| empty($_POST['district']) || $_POST['district'] == 'Choose a District'){
+                    $errors['district'] = 'Please select district';
+                }
+
+                if (! $addressValidator->validate($_POST['address'])) {
+                    $errors['address'] = 'Address must be maximum length 100 and can not empty';
+                }
+
+                if (! $phoneNumberValidator->validate($_POST['phone_no'])) {
+                    $errors['phone_no'] = 'Phone Number must be in 947xxxxxxxx format and can not empty';
+                }
+
+                
+
                 if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] === UPLOAD_ERR_OK) {
                     $csvData = $this->readCsvFile($_FILES['csv_file']['tmp_name']);
     
@@ -19,8 +51,12 @@
                     $uploadModel->processCsv($csvData);
                     
                 } else{
-                    $model=new CoworkerModel();
-                    $model->insert($_POST);
+                    if (empty($errors)) {
+                        $model=new CoworkerModel();
+                        $model->insert($_POST);
+                    }else{
+                        $this->view('AddCoworker',['errors' => $errors]);
+                    }
                 }
                 $this->redirect('allcoworkers');
             }

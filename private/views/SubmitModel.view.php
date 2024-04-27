@@ -10,6 +10,10 @@ input:disabled:hover + .radio-tile {
 .input-container input:disabled {
   cursor: not-allowed; 
 }
+.errors{
+    padding-bottom: 20px;
+    color: red;
+  }
 </style>
 
 
@@ -19,6 +23,14 @@ input:disabled:hover + .radio-tile {
 </div>
     <div class="form_container">
         <form method="post" enctype="multipart/form-data">
+
+        <?php if (isset($errors)) : ?>
+            <div class="errors">
+                <?php foreach ($errors as $error) : ?>
+                    <p class="error"><?= $error ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
             
             <fieldset class="FormFieldset" >
             <legend class="Formlegend"> Personal Details</legend>
@@ -26,17 +38,17 @@ input:disabled:hover + .radio-tile {
                 
                 <div class="column">
                     <label for="occupation">Occupation</label>
-                    <input type="text" id="occupation" name="occupation">
+                    <input type="text" id="occupation" name="occupation" value= "<?= get_var('occupation');?>">
                 </div>
                 <div class="column">
                     <label for="lastName">Monthly Salary(LKR)</label>
                     
-                    <select id="type" name="salary" >
+                    <select id="type" name="salary">
                         <option value="" disabled selected>Select Your Monthly Salary</option>
-                        <option value="< 100 000">< 100 000</option>
-                        <option value="100 000-300 000">100 000-300 000</option>
-                        <option value="300 000-500 000">300 000-500 000</option>
-                        <option value="500 000 <">500 000 <</option>
+                        <option <?= get_select2('salary','< 100 000');?> value="< 100 000">< 100 000</option>
+                        <option <?= get_select2('salary','100 000-300 000');?> value="100 000-300 000">100 000-300 000</option>
+                        <option <?= get_select2('salary','300 000-500 000');?> value="300 000-500 000">300 000-500 000</option>
+                        <option <?= get_select2('salary','500 000 <');?> value="500 000 <">500 000 <</option>
                     </select>
 
                 </div>
@@ -45,7 +57,7 @@ input:disabled:hover + .radio-tile {
                     <label for="proof">Salary Proofing Document</label>
                     <p>Upload monthly salary sheet or any kind of your monthly income proof docuxment</p>
                     
-                    <input type="file" name="files[]" id="file" multiple accept="application/pdf,image/*">
+                    <input type="file" name="files[]" id="file" accept="application/pdf,image/*" required>
                 </div>
 
             </div>
@@ -74,34 +86,34 @@ input:disabled:hover + .radio-tile {
                 <div class="column">
                     <label for="district">District</label>
                     <select id="selectDistrict" name="district" onchange="updateTown()">
-                        <option>Choose a District</option>
+                        <option value="" disabled selected>Choose a District</option>
                     </select>
                 </div>
 
                 <div class="column">
                     <label for="town">Town</label>
                     <select id="selectTown" name="town">
-                        <option>Choose a Town</option>
+                        <option value="" disabled selected>Choose a Town</option>
                     </select>
                 </div>
                 
                 <div class="column">
                     <label for="Street">Street</label>
-                    <input type="text" id="street" name="street">
+                    <input type="text" id="street" name="street" value= "<?= get_var('street');?>">
                 </div>
 
                 <div class="column">
                     <label for="area">Land Area(Perch)</label>
-                    <input type="test" id="area" name="area">
+                    <input type="test" id="area" name="area" value= "<?= get_var('area');?>">
                 </div>
 
                 <div class="column">
                     <label for="plan">Land Photograph</label>
-                     <input type="file" name="files[]" id="file" multiple accept="image/*">
+                     <input type="file" name="files[]" id="file" accept="image/*" required>
                 </div>
                 <div class="column">
                     <label for="plan">Block Plan of the Land</label>
-                    <input type="file" name="files[]" id="file" multiple accept="application/pdf">
+                    <input type="file" name="files[]" id="file" accept="application/pdf" required>
                 </div>
             </div>
             </fieldset>
@@ -506,9 +518,9 @@ input:disabled:hover + .radio-tile {
                     <label for="landCondition">Payment Plan</label>
                         <select id="type" name="type" >
                             <option value="" disabled selected>Select Payment Plan</option>
-                            <option value="1">DuoEase Pay</option>
-                            <option value="2">TriEase Pay</option>
-                            <option value="3">PentaEase Pay</option>
+                            <option <?= get_select2('type','1');?> value="1">DuoEase Pay</option>
+                            <option <?= get_select2('type','2');?> value="2">TriEase Pay</option>
+                            <option <?= get_select2('type','3');?> value="3">PentaEase Pay</option>
                         </select>
                 </div>
                 

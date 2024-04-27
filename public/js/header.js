@@ -1,16 +1,28 @@
+document.addEventListener("DOMContentLoaded", function() {
+  let sideMenu = document.querySelectorAll(".nav-link");
 
+  sideMenu.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      
+      console.log("Clicked");
+      let li = item.closest("li");
+      
+      sideMenu.forEach((link) => {
+        link.closest("li").classList.remove("active");
+      });
+      
+      li.classList.add("active");
 
-let sideMenu = document.querySelectorAll(".nav-link");
-sideMenu.forEach((item) => {
-  let li = item.parentElement;
-
-  item.addEventListener("click", () => {
-    sideMenu.forEach((link) => {
-      link.parentElement.classList.remove("active");
+      // Perform navigation
+      let href = item.getAttribute("href");
+      if (href) {
+        window.location.href = href;
+      }
     });
-    li.classList.add("active");
   });
 });
+
 
 let menuBar = document.querySelector(".menu-btn");
 let sideBar = document.querySelector(".sidebar");
@@ -74,4 +86,3 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
-

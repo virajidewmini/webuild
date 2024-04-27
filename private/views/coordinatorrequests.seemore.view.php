@@ -1,5 +1,12 @@
 <?php if(Auth::getRole()== 'Project Coordinator'): ?>
 <?php $this->view('includes/header')?>
+<script>
+     function showForm() {
+    var formContainer = document.getElementById("formContainer");
+    formContainer.style.display = "block";
+}
+</script>
+
 
 <!-- <pre><?php print_r($rows["model_details"]);?></pre> -->
      <div  class="table_header" >
@@ -8,8 +15,76 @@
      </div>
      <div style="text-align:center;"><h1> Details of the Request </h1></div>
      <div style="text-align:center;"><h3>Request ID : <?= $rows["common"]->id;?> </h3></div>
+     <!-- <pre><?php print_r( $rows["common"]->user->id);?></pre> -->
      
      <div class="form_container">
+               <fieldset style="padding:10px;" class="FormFieldset" >
+                    
+            
+                    <div class="form-group">
+                        
+                               
+                              <?php if ($rows["common"]->status=='Modified'):?>
+                                   <div class="column">                   
+                                        <label for="firstname">Status</label>
+                                        <input type="text" id="occupation" name="occupation"value= "Pending">
+                                   </div>
+                              </div>
+                              <div style="display: flex; justify-content: center;" >
+                                        <a href="<?=ROOT?>/coordinatorrequests/accept/<?= $rows["common"]->id;?>">
+                                             <input type="button" value="Accept"class="save-button">
+                                        </a>
+                                        
+                                             <input type="button" value="Reject"class="cancel-button"  onclick="showForm()">
+                                                  
+                                        </div>
+                                             <br>
+                                             <div id="formContainer" style="display: none;" class="form_container">
+        
+                                             
+                                             
+                                                  <form action="<?=ROOT?>/coordinatorrequests/reject/<?= $rows["common"]->id;?>/<?= $rows["common"]->user->id?>"class="v_form" method="post">
+                                                  <!-- Your form fields go here -->
+                                                  
+                                                 <b> <label for="name">Select Reason:</label></b>
+                                                  <br>
+                                                  <br>
+                                                  <input type="checkbox" id="salary" name="reject_reason" value="False Monthly Salary Details">
+                                                  <label for="male">False Monthly Salary Details</label><br>
+                                                  <input type="checkbox" id="land" name="reject_reason" value="False Land Salary Details">
+                                                  <label for="female">False Land Salary Details</label><br>
+                                                  <br>
+                                                  
+                                                  <button style="background-color:#E5863D; color:white"  type="submit">Add Reason</button>
+                                                  </form>
+                              </div>
+    
+                                        
+                                  
+
+                                  
+                              <?php elseif ($rows["common"]->status=='Rejected'):?>
+                                   <div class="column">                   
+                                        <label for="firstname">Status</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->status;?>">
+                                   </div>
+                                   <div class="column">
+                                        <label for="lastName">Reason</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["reject_reason"]->reason;?>">
+                                   </div>
+                                   <br>
+                                   </div>
+                              </fieldset>
+                              <?php elseif ($rows["common"]->status=='Accepted'):?>
+                                   <div class="column">                   
+                                        <label for="firstname">Status</label>
+                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->status;?>">
+                                   </div>
+                              
+                              <?php endif;?>
+                         
+                    
+                 <br><br>
          
                <fieldset style="padding:10px;" class="FormFieldset" >
                     <legend class="Formlegend"> Customer Details</legend>
@@ -42,6 +117,13 @@
                               <label for="lastName">Email</label>
                               <input type="text" id="occupation" name="occupation" value= "<?= $rows["common"]->email;?>">
                          </div>
+                         <div class="column">
+                              <label for="locationLink">Salary Proofing Document</label>
+                              <a href="<?=ROOT?>/uploads/<?= $rows["salary"]->file_name;?>" >
+                              <button class="action-button">Salary Proofing Document</button>
+                              </a>
+                         </div>
+                         
                     
                     </div>
                </fieldset>
@@ -79,20 +161,18 @@
                                    <label for="occupation">Area (in perch)</label>
                                    <input type="text" id="contactnumber" name="contactnumber" value= "<?= $rows["customer"]->ul_area;?>">
                               </div>
-                              
-                              
-                             
+    
                               <div class="column">
                                    <label for="locationLink">Block Plan</label>
-                                   <a href="#" target="#">
+                                   <a href="<?=ROOT?>/uploads/<?= $rows["blockplan"]->file_name;?>" >
                                    <button class="action-button">Block Plan</button>
                                    </a>
                               </div>
                          
                               <div class="column">
-                                   <label for="locationLink">Image</label>
-                                   <a href="#" target="#">
-                                   <button class="action-button">Image</button>
+                                   <label for="locationLink">Land Photograph</label>
+                                   <a href="<?=ROOT?>/uploads/<?= $rows["landphoto"]->file_name;?>">
+                                   <button class="action-button">Land Photograph</button>
                                    </a>
                               </div>
                               
@@ -410,7 +490,7 @@
                                              <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
                                         </div>
                                         <div class="column">
-                                             <label for="lastName">Paint</label>
+                                             <label for="lastName">Payment Plan Name</label>
                                              <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
                                         </div>
                                         <div class="column">

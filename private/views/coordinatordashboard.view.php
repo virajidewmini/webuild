@@ -40,6 +40,60 @@
         </div>
     </div>
 
+
+
+    <!-- warning payments -->
+    <?php if($rows['payments']):?>
+
+        <div class="table">
+            <div class="table_header">
+                <div style="display: flex;" >
+                    <h3> Payments Warning Reminders on Projects </h3>
+                </div>
+                
+            </div>
+            <div class="table_section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>User Name</th>
+                            <th>Installment Number</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Notify User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($rows['payments'] as $row) :?>
+                        
+                            <tr>                       
+                                <td><?=$row->project_id?></td>
+                                <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
+                                <td><?=$row->installement_number?></td>  
+                                <td><?=$row->amount?></td>       
+                                <td><?=$row->date?></td> 
+                                <td>
+                                    <a href="<?=ROOT?>/coordinatordashboard/warningnotify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>">
+                                        <button><i class="fa-solid fa-bell" style="color: #e67f1e;"></i></button>
+                                    </a>
+                                </td>
+                            
+                            </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+    <?php else:?>
+        <h4>No Warning Payments are found</h4>
+        <!-- <div>
+            <a href="#">
+                <button class="add___">Add Staff</button>
+            </a>
+        </div> -->
+    <?php endif;?>
+
     
 
     <div class="table_header">
@@ -157,7 +211,7 @@
             </div>    
         </div>
     <?php else:?>
-        <h4>No requests are found</h4>
+        <h4>No Payment Notifications are found</h4>
         <!-- <div>
             <a href="#">
                 <button class="add___">Add Staff</button>

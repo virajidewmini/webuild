@@ -24,7 +24,7 @@
 
 
       <!-- error dispaly -->
-      <div style="color: #ff0000; /* Red color for error messages */font-size: 14px;">
+      <div style="color: #000; /* Red color for error messages */font-size: 14px;">
       <?php if(count($errors) >0):?>
         <strong>Errors:</strong>
       <?php foreach($errors as $error):?>

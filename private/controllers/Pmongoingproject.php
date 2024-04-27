@@ -21,13 +21,15 @@ class Pmongoingproject extends Controller
 			'rows' => $data,
 		]);
 	}
-	
+
 	public function projectdeatils($id = null, $req = null, $mid = null, $model = null)
 	{
 		// code... 
 		if (!Auth::logged_in()) {
 			$this->redirect('/login');
 		}
+
+		$pmi = Auth::getid();
 
 		$project = new Projects();
 		$data = $project->viewProjectDetail($id);
@@ -61,12 +63,25 @@ class Pmongoingproject extends Controller
 		$data11 = $allocated_task->where('project_id', $id);
 		$data12 = $allocated_task->totalProgress($id);
 		$data14 = $allocated_task->pendingTask($id);
+		$data19 = $allocated_task->AllowTask($id);
 
 		$allocated_co = new AllocateCoworker();
 		$data15 = $allocated_co->where('project_id', $id);
 
-		$project_material_quatation = new Project_material_quatation();
-		$data16 = $project_material_quatation->where2('project_id', $id, 'status', 'Remaining');
+		$material_requests = new Material_requests();
+		$quotations = new QuotationSK();
+		$data20 = $material_requests->getMaterialRequest($id);
+		$data21 = $quotations->getMaterialQ($id, 'Sent');
+		$data22 = $quotations->getMaterialQ($id, 'Received');
+
+
+		$complaint = new C_Complaint();
+		$data17 = $complaint->man_viewComplanit_noty($pmi, $id);
+
+		$report = new ProgressReport();
+		$data18 = $report->viewReport($pmi);
+
+
 
 		$this->view('pmprojectprofile', [
 			'rows' => $data,
@@ -87,7 +102,13 @@ class Pmongoingproject extends Controller
 			'row7' => $data13,
 			'row8' => $data14,
 			'row9' => $data15,
-			'row10' => $data16,
+			// 'row10' => $data16,
+			'rows17' => $data17,
+			'rows18' => $data18,
+			'rows19' => $data19,
+			'rows5' => $data20,
+            'rows3' => $data21,
+            'rows4' => $data22,
 		]);
 	}
 

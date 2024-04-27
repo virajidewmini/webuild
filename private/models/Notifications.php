@@ -92,6 +92,34 @@ class Notifications extends Model{
         return $this->query($query,$param);
 
     }
+
+    public function getSupervisorUnresolveComplaint($user_id){
+        $query="select complaint.* from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id && complaint.status='Pending'";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+
+    public function getSupervisorUnresolveComplaintCount($user_id){
+        $query="select COUNT(complaint.id) as pendingComplaintCount from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id && complaint.status='Pending'";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+
+    public function getSupervisorresolveComplaintCount($user_id){
+        $query="select COUNT(complaint.id) as completeComplaintCount from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id && complaint.status='Complete'";
+        $param=[
+            'user_id'=>$user_id
+        ];
+        return $this->query($query,$param);
+
+    }
+
     public function updateQuotaionNotification($value){
         
 
@@ -102,6 +130,34 @@ class Notifications extends Model{
         return $this->query($query, [
             'value' => $value,
         ]);
+    }
+
+    public function projectQuatationNotify()
+    {
+        $last_q_id = "";
+        $query = "SELECT * FROM quotation ORDER BY id DESC LIMIT 1";
+        $result = $this->query($query);
+
+        $last_p_id = $result[0]->id;
+        $data["quatation_id"] = $last_p_id;
+
+
+        // foreach data
+        $errors = 0;
+        $msg_id = $last_p_id;
+
+
+
+        $notification_data = [
+            'date' => date('Y-m-d'),
+            'staff_id' => 1,
+            'message' => 'Your project quotation has been submitted successfully',
+            'status' => 'Unseen',
+            'type' => 'quotation_pm_to_co',
+            'msg_id' => $msg_id,
+        ];
+
+        return $notification_data;
     }
 
 

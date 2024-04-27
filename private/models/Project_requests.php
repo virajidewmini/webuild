@@ -489,14 +489,143 @@ class Project_requests extends Model{
     
     }
 
-    public function LatestReq($p_id = null){
+    public function LatestReq($m_id = null){
 
-        $query="SELECT * FROM project_requests WHERE manager_id = :p_id AND status = 'Modified' ORDER BY project_requests.date DESC";
-        $data['p_id'] = $p_id;
+        $query="SELECT * FROM project_requests WHERE manager_id = :m_id AND status = 'Accepted' ORDER BY project_requests.date DESC";
+        $data['m_id'] = $m_id;
         return $this->query($query,$data);
     }
    
+    //get rejected requests
+    public function findAllRejectedRequests(){
 
+
+        $query="SELECT project_requests.*,rejected_project_requests.reason FROM project_requests  
+        INNER JOIN rejected_project_requests ON
+        project_requests.id = rejected_project_requests.project_request_id
+        
+        WHERE project_requests.status = 'Rejected' "; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
+
+    // findAllRequests that are not Rejected or Done
+    public function findAllRequests(){
+
+
+        $query="SELECT * FROM project_requests  
+       
+        WHERE project_requests.status = 'Modified' OR  project_requests.status = 'Unodified'"; 
+
+        //return $this->query($query);
+        return $this->query($query);
+    }
     
+    // findAllRequests in a given year for the analysis: rejected or not all states included
+    public function findAllRequestsInYear($value){
+
+
+        $query="SELECT * FROM project_requests   
+        WHERE YEAR(date) = :value "; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function findAllRequestsCountInYear($value){
+
+
+        $query="SELECT COUNT(*) AS total FROM project_requests   
+        WHERE YEAR(date) = :value "; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function findAllRejectedRequestsCountInYear($value){
+
+
+        $query="SELECT COUNT(*) AS total FROM project_requests   
+        WHERE YEAR(date) = :value AND status='Rejected'"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+    //get most selected model details
+    public function getMostSelectedModelID($value){
+
+        $query="SELECT model_id, COUNT(*) AS request_count
+        FROM project_requests
+        WHERE YEAR(date) = :value
+        GROUP BY model_id
+        ORDER BY request_count DESC
+        LIMIT 1";
+
+
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
+
+    //to get salary , land photograph and block plan 
+    public function getSalary($value){
+
+
+        $query="SELECT file_name FROM attachment
+       
+        WHERE reference_id = :value AND  attachment_type = 'SALARY'"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getLandPhoto($value){
+
+
+        $query="SELECT file_name FROM attachment
+       
+        WHERE reference_id = :value AND  attachment_type = 'LANDPHOTO'"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getBlockPlan($value){
+
+
+        $query="SELECT file_name FROM attachment
+       
+        WHERE reference_id = :value AND  attachment_type = 'LANDBLOCK'"; 
+
+        return $this->query($query, [
+            'value' => $value,
+        ]); 
+    }
     
+    public function getRejectReason($value){
+
+
+        $query="SELECT reason FROM rejected_project_requests      
+        WHERE project_request_id = :value "; 
+
+        return $this->query($query, [
+            'value' => $value,
+        ]); 
+    }
 }

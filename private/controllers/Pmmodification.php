@@ -59,7 +59,7 @@ class Pmmodification extends Controller
                 // $arr['status'] = 'Display';
                 // $arr['created_date'] = date("Y-m-d");
                 // $quotation->insert($arr);
-                $quotation->InsertQuotationData($_POST);
+                // $quotation->InsertQuotationData($_POST);
 
                 
             

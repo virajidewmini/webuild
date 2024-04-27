@@ -11,7 +11,7 @@ body{
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
-                    <h3> Project Requests  </h3>
+                    <h3> Pending Project Requests  </h3>
                 </div>
                 
             </div>
@@ -65,6 +65,13 @@ body{
             </a>
         </div> -->
     <?php endif;?>        
+
+
+    <div style="display: flex; justify-content: right;" >
+        <a href="<?=ROOT?>/coordinatorrequests/getALLRequests/<?php print_r(date('Y'));?>">                                        
+            <input type="button" value="View All Project Requests"class="cancel-button"  style="background-color:#E5863D; color:white">            
+        </a>
+    </div>
 
 <?php $this->view('includes/footer'); ?>
 <?php else: ?>

@@ -10,17 +10,35 @@ class Pmtask extends Controller
         if (!Auth::logged_in()) {
             $this->redirect('login');
         }
-        $success = "";
-
-        $task = new Tasks();
-        $data = $task->findAll();
+        $project_id = "";
+        $pmid = Auth::getId();
+        $data2 = array();
+        $projects = new Projects();
+        $data = $projects->where2('status', 'Ongoing', 'manager_id', $pmid);
 
         $allocated_task = new Allocated_tasks();
-        $data1 = $allocated_task->where('status', 'Ongoing');
+        if (isset($_GET['project_id'])) {
+            if ($_GET['project_id']) {
+                $project_id = $_GET['project_id'];
+                $data1 = $allocated_task->where2('status', 'Ongoing', 'project_id', $project_id);
+                $project_id = $_GET['project_id'];
+                $data2 = $projects->get_allToDoTasks_P($project_id);
+            }
+            else {
+                $data1 = $allocated_task->OngoingAllTask($pmid);
+                $data2 = array();
+            }
+        } 
+        else {
+            $data1 = $allocated_task->OngoingAllTask($pmid);
+            $data2 = array();
+        }
+        
 
         $this->view('pmtask', [
             'rows' => $data,
             'rows1' => $data1,
+            'rows2' => $data2,
         ]);
     }
 
@@ -33,35 +51,35 @@ class Pmtask extends Controller
         $errors = array();
         $success = "";
         $allocated_tasks = new Allocated_tasks();
+        $allocated_subtasks = new Allocated_subtasks();
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($allocated_tasks->validate($_POST)) {
 
-                $_POST['status'] = 'Pending';
-                $allocated_tasks->insert($_POST);
+                $arr['status'] = 'Pending';
+                $arr['project_id'] = $_POST['project_id'];
+                $arr['task_id'] = $_POST['task_id'];
+                $allocated_tasks->insert($arr);
+                $allocated_subtasks->insertSubtasks($_POST);
+
                 $success = array(
                     'message' => 'Task added successfully'
                 );
-                
-                $this->redirectWithParams('pmtask', $success);
-            }
-            else{
+
+                // $this->redirectWithParams('pmtask', $success);
+            } else {
                 $errors = $allocated_tasks->errors;
             }
         }
         $sub_task = new Sub_tasks();
         $row = $sub_task->where('task_id', $id);
 
-        if (isset($p_id)) {
-            $project = new Projects();
-            $row1 = $project->where('id', $p_id);
-        }
 
 
         $this->view('pmtask_add', [
             'row' => $row,
-            'row1' => $row1,
+            'project_id' => $p_id,
             'errors' => $errors,
         ]);
     }

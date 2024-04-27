@@ -102,6 +102,8 @@
             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* style of bill */
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -212,936 +214,937 @@
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             <h2 style="margin-top: 20px;margin-bottom: 20px">MODIFICATION</h2>
                         </div>
-                        <?php if ($rowk) : ?>
-                            <div class="m-part" id="kitchen">
-                                <div class="m-part-top">
-                                    <h3 style="margin-left:20px;margin-top:20px">Kitchen</h3>
+                        <div style="display:none">
+                            <?php if ($rowk) : ?>
+                                <div class="m-part" id="kitchen">
+                                    <div class="m-part-top">
+                                        <h3 style="margin-left:20px;margin-top:20px;">Kitchen</h3>
+                                    </div>
+                                    <div class="unit-d">
+
+                                        <div class="defm">
+                                            <h4 style="text-align:center;">Default</h4>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->kitchenTile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square feet :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input style="width:150px;" readonly value="<?= $model[0]->kitchenTile->price_per_square_feet ?>" type="text" id="k-dtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="k-dpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modm">
+                                            <h4 style="text-align:center;">Modification</h4>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowk[0]->tile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowk[0]->tile->price_per_square_feet ?>" type="text" id="k-mtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowk[0]->paint->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowk[0]->paint->price_per_square_feet ?>" type="text" id="k-mpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="square-f">
+                                        <div style="margin-right:5%">
+                                            <h4>No. Square foot for</h4>
+                                        </div>
+                                        <div>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_tiling_kitchens ?>" type="text" key="kitchen" id="k-s_q_t">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Painting :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_painting_kitchens ?>" type="text" key="kitchen" id="k-s_q_p">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="unit-d bd" style="margin-top:30px; ">
+
+                                        <div>
+                                            <h4 style="text-align:center;">Default price</h4>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dktileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dkpaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+                                            <h4 style="text-align:center;">New price</h4>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mktileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mkpaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:40px">
                                 </div>
+                            <?php endif; ?>
+                            <?php if ($rowba) : ?>
+                                <div class="m-part" id="bathroom">
+                                    <div class="m-part-top">
+                                        <h3 style="margin-left:20px;margin-top:20px">Bathroom</h3>
+                                    </div>
+                                    <div class="unit-d">
+
+                                        <div class="defm">
+                                            <h4 style="text-align:center;">Default</h4>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->bathroomTile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square feet :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input style="width:150px;" readonly value="<?= $model[0]->bathroomTile->price_per_square_feet ?>" type="text" id="ba-dtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="ba-dpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modm">
+                                            <h4 style="text-align:center;">Modification</h4>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowba[0]->tile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowba[0]->tile->price_per_square_feet ?>" type="text" id="ba-mtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowba[0]->paint->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowba[0]->paint->price_per_square_feet ?>" type="text" id="ba-mpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="square-f">
+                                        <div style="margin-right:5%">
+                                            <h4>No. Square foot for</h4>
+                                        </div>
+                                        <div>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?>" type="text" key="kitchen" id="ba-s_q_t">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Painting :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_painting_bathrooms ?>" type="text" key="kitchen" id="ba-s_q_p">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="unit-d bd" style="margin-top:30px; ">
+
+                                        <div>
+                                            <h4 style="text-align:center;">Default price</h4>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dbatileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dbapaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+                                            <h4 style="text-align:center;">New price</h4>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mbatileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mbapaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:40px">
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($rowd) : ?>
+                                <div class="m-part" id="Dining">
+                                    <div class="m-part-top">
+                                        <h3 style="margin-left:20px;margin-top:20px">Dining</h3>
+                                    </div>
+                                    <div class="unit-d">
+
+                                        <div class="defm">
+                                            <h4 style="text-align:center;">Default</h4>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->diningTile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square feet :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input style="width:150px;" readonly value="<?= $model[0]->diningTile->price_per_square_feet ?>" type="text" id="d-dtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="d-dpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modm">
+                                            <h4 style="text-align:center;">Modification</h4>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowd[0]->tile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowd[0]->tile->price_per_square_feet ?>" type="text" id="d-mtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowd[0]->paint->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowd[0]->paint->price_per_square_feet ?>" type="text" id="d-mpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="square-f">
+                                        <div style="margin-right:5%">
+                                            <h4>No. Square foot for</h4>
+                                        </div>
+                                        <div>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_tiling_dining ?>" type="text" key="kitchen" id="d-s_q_t">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Painting :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_painting_dining ?>" type="text" key="kitchen" id="d-s_q_p">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="unit-d bd" style="margin-top:30px; ">
+
+                                        <div>
+                                            <h4 style="text-align:center;">Default price</h4>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="ddtileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="ddpaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+                                            <h4 style="text-align:center;">New price</h4>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mdtileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mdpaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:40px">
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($rowbe) : ?>
+                                <div class="m-part" id="living_room">
+                                    <div class="m-part-top">
+                                        <h3 style="margin-left:20px;margin-top:20px">Living Room</h3>
+                                    </div>
+                                    <div class="unit-d">
+
+                                        <div class="defm">
+                                            <h4 style="text-align:center;">Default</h4>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultTile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square feet :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="be-dtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="be-dpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modm">
+                                            <h4 style="text-align:center;">Modification</h4>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowbe[0]->tile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowbe[0]->tile->price_per_square_feet ?>" type="text" id="be-mtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowbe[0]->paint->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowbe[0]->paint->price_per_square_feet ?>" type="text" id="be-mpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="square-f">
+                                        <div style="margin-right:5%">
+                                            <h4>No. Square foot for</h4>
+                                        </div>
+                                        <div>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?>" type="text" key="kitchen" id="be-s_q_t">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Painting :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_painting_bedrooms ?>" type="text" key="kitchen" id="be-s_q_p">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="unit-d bd" style="margin-top:30px; ">
+
+                                        <div>
+                                            <h4 style="text-align:center;">Default price</h4>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dbetileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dbepaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+                                            <h4 style="text-align:center;">New price</h4>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mbetileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mbepaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:40px">
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($rowl) : ?>
+                                <div class="m-part" id="living_area">
+                                    <div class="m-part-top">
+                                        <h3 style="margin-left:20px;margin-top:20px">Living Area</h3>
+                                    </div>
+                                    <div class="unit-d">
+
+                                        <div class="defm">
+                                            <h4 style="text-align:center;">Default</h4>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultTile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square feet :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="l-dtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="l-dpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modm">
+                                            <h4 style="text-align:center;">Modification</h4>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowl[0]->tile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowl[0]->tile->price_per_square_feet ?>" type="text" id="l-mtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowl[0]->paint->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowl[0]->paint->price_per_square_feet ?>" type="text" id="l-mpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="square-f">
+                                        <div style="margin-right:5%">
+                                            <h4>No. Square foot for</h4>
+                                        </div>
+                                        <div>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_tiling_living_area ?>" type="text" key="kitchen" id="l-s_q_t">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Painting :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_painting_living_area ?>" type="text" key="kitchen" id="l-s_q_p">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="unit-d bd" style="margin-top:30px; ">
+
+                                        <div>
+                                            <h4 style="text-align:center;">Default price</h4>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dltileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="dlpaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+                                            <h4 style="text-align:center;">New price</h4>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mltileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mlpaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:40px">
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($rowe) : ?>
+                                <div class="m-part" id="exterior">
+                                    <div class="m-part-top">
+                                        <h3 style="margin-left:20px;margin-top:20px">Exterior</h3>
+                                    </div>
+                                    <div class="unit-d">
+
+                                        <div class="defm">
+                                            <h4 style="text-align:center;">Default</h4>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultTile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square feet :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="e-dtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="e-dpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modm">
+                                            <h4 style="text-align:center;">Modification</h4>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tile :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowe[0]->tile->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowe[0]->tile->price_per_square_feet ?>" type="text" id="e-mtprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Color :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input readonly value="<?= $rowe[0]->paint->name ?>" type="text">
+                                                </div>
+                                                <div class="unit">
+                                                    <p>Price per square foot :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" value="<?= $rowe[0]->paint->price_per_square_feet ?>" type="text" id="e-mpprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="square-f">
+                                        <div style="margin-right:5%">
+                                            <h4>No. Square foot for</h4>
+                                        </div>
+                                        <div>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_tiling_exterior ?>" type="text" key="kitchen" id="e-s_q_t">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>Painting :</p>
+                                                </div>
+                                                <div class="e-id-d">
+                                                    <input value="<?= $model[0]->number_of_s_feet_for_painting_exterior ?>" type="text" key="kitchen" id="e-s_q_p">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="unit-d bd" style="margin-top:30px; ">
+
+                                        <div>
+                                            <h4 style="text-align:center;">Default price</h4>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="detileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="depaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div>
+                                            <h4 style="text-align:center;">New price</h4>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Tiling :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="metileprice">
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($rowe[0]->paint_id) : ?>
+                                                <div class="unit">
+                                                    <p>For Painting :</p>
+                                                </div>
+                                                <div class="e-id-d" style="display:flex;align-items: center;">
+                                                    <p style="margin-left: 20px">Rs.</p>
+                                                    <input readonly style="width:150px;" type="text" id="mepaintprice">
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:40px">
+                                </div>
+                            <?php endif; ?>
+                            <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
+                                <h2 style="margin-top: 20px">Price Details</h2>
+                            </div>
+                            <div class="m-part">
                                 <div class="unit-d">
 
-                                    <div class="defm">
-                                        <h4 style="text-align:center;">Default</h4>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->kitchenTile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square feet :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input style="width:150px;" readonly value="<?= $model[0]->kitchenTile->price_per_square_feet ?>" type="text" id="k-dtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="k-dpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="modm">
-                                        <h4 style="text-align:center;">Modification</h4>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowk[0]->tile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowk[0]->tile->price_per_square_feet ?>" type="text" id="k-mtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowk[0]->paint->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowk[0]->paint->price_per_square_feet ?>" type="text" id="k-mpprice">
-                                            </div>
-                                        <?php endif; ?>
+                                    <div>
+                                        <div class="unit">
+                                            <h4>Different in price :</h4>
+                                        </div>
+                                        <div class="e-id-d" style="display:flex;align-items: center;">
+                                            <p style="margin-left: 20px">Rs.</p>
+                                            <input readonly style="width:150px;" value="0" type="text" id="dprice">
+                                        </div>
+                                        <div class="unit">
+                                            <h4>Old price :</h4>
+                                        </div>
+                                        <div class="e-id-d" style="display:flex;align-items: center;">
+                                            <p style="margin-left: 20px">Rs.</p>
+                                            <input readonly style="width:150px;" value="<?= $price ?>" type="text" id="oprice">
+                                        </div>
+                                        <div class="unit">
+                                            <h4>New price :</h4>
+                                        </div>
+                                        <div class="e-id-d" style="display:flex;align-items: center;">
+                                            <p style="margin-left: 20px">Rs.</p>
+                                            <input readonly style="width:150px;" value="<?= $price ?>" type="text" id="nprice" name="new_price">
+                                        </div>
+                                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
+                                            <h3 style="margin-top: 20px">According to payment plan</h3>
+                                        </div>
+                                        <div class="unit">
+                                            <h4>Interest Precentage :</h4>
+                                        </div>
+                                        <div class="e-id-d" style="display:flex;align-items: center;">
+                                            <p style="margin-left: 40px"></p>
+                                            <input readonly style="width:150px;" type="text" value="<?= $interest ?> %" id="interestp" name="interestp">
+                                        </div>
+                                        <div class="unit">
+                                            <h4>Interest :</h4>
+                                        </div>
+                                        <div class="e-id-d" style="display:flex;align-items: center;">
+                                            <p style="margin-left: 20px">Rs.</p>
+                                            <input readonly style="width:150px;" value="<?= ($interest*$price)/100 ?>" type="text" id="interest" name="interest">
+                                        </div>
+                                        <div class="unit">
+                                            <h4>Total price :</h4>
+                                        </div>
+                                        <div class="e-id-d" style="display:flex;align-items: center;">
+                                            <p style="margin-left: 20px">Rs.</p>
+                                            <input readonly style="width:150px;" value="<?= (($interest*$price)/100)+$price ?>" type="text" id="totalprice" name="totalprice">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="square-f">
-                                    <div style="margin-right:5%">
-                                        <h4>No. Square foot for</h4>
-                                    </div>
-                                    <div>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_tiling_kitchens ?>" type="text" key="kitchen" id="k-s_q_t">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Painting :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_painting_kitchens ?>" type="text" key="kitchen" id="k-s_q_p">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="unit-d bd" style="margin-top:30px; ">
-
-                                    <div>
-                                        <h4 style="text-align:center;">Default price</h4>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dktileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dkpaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div>
-                                        <h4 style="text-align:center;">New price</h4>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mktileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mkpaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <hr style="margin-top:40px">
                             </div>
-                        <?php endif; ?>
-                        <?php if ($rowba) : ?>
-                            <div class="m-part" id="bathroom">
-                                <div class="m-part-top">
-                                    <h3 style="margin-left:20px;margin-top:20px">Bathroom</h3>
-                                </div>
-                                <div class="unit-d">
-
-                                    <div class="defm">
-                                        <h4 style="text-align:center;">Default</h4>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->bathroomTile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square feet :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input style="width:150px;" readonly value="<?= $model[0]->bathroomTile->price_per_square_feet ?>" type="text" id="ba-dtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="ba-dpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="modm">
-                                        <h4 style="text-align:center;">Modification</h4>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowba[0]->tile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowba[0]->tile->price_per_square_feet ?>" type="text" id="ba-mtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowba[0]->paint->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowba[0]->paint->price_per_square_feet ?>" type="text" id="ba-mpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="square-f">
-                                    <div style="margin-right:5%">
-                                        <h4>No. Square foot for</h4>
-                                    </div>
-                                    <div>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?>" type="text" key="kitchen" id="ba-s_q_t">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Painting :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_painting_bathrooms ?>" type="text" key="kitchen" id="ba-s_q_p">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="unit-d bd" style="margin-top:30px; ">
-
-                                    <div>
-                                        <h4 style="text-align:center;">Default price</h4>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dbatileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dbapaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div>
-                                        <h4 style="text-align:center;">New price</h4>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mbatileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mbapaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <hr style="margin-top:40px">
-                            </div>
-                        <?php endif; ?>
-                        <?php if ($rowd) : ?>
-                            <div class="m-part" id="Dining">
-                                <div class="m-part-top">
-                                    <h3 style="margin-left:20px;margin-top:20px">Dining</h3>
-                                </div>
-                                <div class="unit-d">
-
-                                    <div class="defm">
-                                        <h4 style="text-align:center;">Default</h4>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->diningTile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square feet :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input style="width:150px;" readonly value="<?= $model[0]->diningTile->price_per_square_feet ?>" type="text" id="d-dtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="d-dpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="modm">
-                                        <h4 style="text-align:center;">Modification</h4>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowd[0]->tile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowd[0]->tile->price_per_square_feet ?>" type="text" id="d-mtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowd[0]->paint->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowd[0]->paint->price_per_square_feet ?>" type="text" id="d-mpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="square-f">
-                                    <div style="margin-right:5%">
-                                        <h4>No. Square foot for</h4>
-                                    </div>
-                                    <div>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_tiling_dining ?>" type="text" key="kitchen" id="d-s_q_t">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Painting :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_painting_dining ?>" type="text" key="kitchen" id="d-s_q_p">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="unit-d bd" style="margin-top:30px; ">
-
-                                    <div>
-                                        <h4 style="text-align:center;">Default price</h4>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="ddtileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="ddpaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div>
-                                        <h4 style="text-align:center;">New price</h4>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mdtileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mdpaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <hr style="margin-top:40px">
-                            </div>
-                        <?php endif; ?>
-                        <?php if ($rowbe) : ?>
-                            <div class="m-part" id="living_room">
-                                <div class="m-part-top">
-                                    <h3 style="margin-left:20px;margin-top:20px">Living Room</h3>
-                                </div>
-                                <div class="unit-d">
-
-                                    <div class="defm">
-                                        <h4 style="text-align:center;">Default</h4>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultTile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square feet :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="be-dtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="be-dpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="modm">
-                                        <h4 style="text-align:center;">Modification</h4>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowbe[0]->tile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowbe[0]->tile->price_per_square_feet ?>" type="text" id="be-mtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowbe[0]->paint->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowbe[0]->paint->price_per_square_feet ?>" type="text" id="be-mpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="square-f">
-                                    <div style="margin-right:5%">
-                                        <h4>No. Square foot for</h4>
-                                    </div>
-                                    <div>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?>" type="text" key="kitchen" id="be-s_q_t">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Painting :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_painting_bedrooms ?>" type="text" key="kitchen" id="be-s_q_p">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="unit-d bd" style="margin-top:30px; ">
-
-                                    <div>
-                                        <h4 style="text-align:center;">Default price</h4>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dbetileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dbepaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div>
-                                        <h4 style="text-align:center;">New price</h4>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mbetileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mbepaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <hr style="margin-top:40px">
-                            </div>
-                        <?php endif; ?>
-                        <?php if ($rowl) : ?>
-                            <div class="m-part" id="living_area">
-                                <div class="m-part-top">
-                                    <h3 style="margin-left:20px;margin-top:20px">Living Area</h3>
-                                </div>
-                                <div class="unit-d">
-
-                                    <div class="defm">
-                                        <h4 style="text-align:center;">Default</h4>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultTile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square feet :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="l-dtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="l-dpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="modm">
-                                        <h4 style="text-align:center;">Modification</h4>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowl[0]->tile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowl[0]->tile->price_per_square_feet ?>" type="text" id="l-mtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowl[0]->paint->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowl[0]->paint->price_per_square_feet ?>" type="text" id="l-mpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="square-f">
-                                    <div style="margin-right:5%">
-                                        <h4>No. Square foot for</h4>
-                                    </div>
-                                    <div>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_tiling_living_area ?>" type="text" key="kitchen" id="l-s_q_t">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Painting :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_painting_living_area ?>" type="text" key="kitchen" id="l-s_q_p">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="unit-d bd" style="margin-top:30px; ">
-
-                                    <div>
-                                        <h4 style="text-align:center;">Default price</h4>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dltileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="dlpaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div>
-                                        <h4 style="text-align:center;">New price</h4>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mltileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mlpaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <hr style="margin-top:40px">
-                            </div>
-                        <?php endif; ?>
-                        <?php if ($rowe) : ?>
-                            <div class="m-part" id="exterior">
-                                <div class="m-part-top">
-                                    <h3 style="margin-left:20px;margin-top:20px">Exterior</h3>
-                                </div>
-                                <div class="unit-d">
-
-                                    <div class="defm">
-                                        <h4 style="text-align:center;">Default</h4>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultTile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square feet :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="e-dtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $model[0]->defaultColor->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="e-dpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="modm">
-                                        <h4 style="text-align:center;">Modification</h4>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tile :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowe[0]->tile->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowe[0]->tile->price_per_square_feet ?>" type="text" id="e-mtprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Color :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input readonly value="<?= $rowe[0]->paint->name ?>" type="text">
-                                            </div>
-                                            <div class="unit">
-                                                <p>Price per square foot :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" value="<?= $rowe[0]->paint->price_per_square_feet ?>" type="text" id="e-mpprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="square-f">
-                                    <div style="margin-right:5%">
-                                        <h4>No. Square foot for</h4>
-                                    </div>
-                                    <div>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_tiling_exterior ?>" type="text" key="kitchen" id="e-s_q_t">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>Painting :</p>
-                                            </div>
-                                            <div class="e-id-d">
-                                                <input value="<?= $model[0]->number_of_s_feet_for_painting_exterior ?>" type="text" key="kitchen" id="e-s_q_p">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <div class="unit-d bd" style="margin-top:30px; ">
-
-                                    <div>
-                                        <h4 style="text-align:center;">Default price</h4>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="detileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="depaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div>
-                                        <h4 style="text-align:center;">New price</h4>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <div class="unit">
-                                                <p>For Tiling :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="metileprice">
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ($rowe[0]->paint_id) : ?>
-                                            <div class="unit">
-                                                <p>For Painting :</p>
-                                            </div>
-                                            <div class="e-id-d" style="display:flex;align-items: center;">
-                                                <p style="margin-left: 20px">Rs.</p>
-                                                <input readonly style="width:150px;" type="text" id="mepaintprice">
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                                <hr style="margin-top:40px">
-                            </div>
-                        <?php endif; ?>
-                        <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                            <h2 style="margin-top: 20px">Price Details</h2>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                         </div>
-                        <div class="m-part">
-                            <!-- <?php print_r($_POST) ?> -->
-                            <div class="unit-d">
-
-                                <div>
-                                    <div class="unit">
-                                        <h4>Different in price :</h4>
-                                    </div>
-                                    <div class="e-id-d" style="display:flex;align-items: center;">
-                                        <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" type="text" id="dprice">
-                                    </div>
-                                    <div class="unit">
-                                        <h4>Old price :</h4>
-                                    </div>
-                                    <div class="e-id-d" style="display:flex;align-items: center;">
-                                        <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" value="<?= $price ?>" type="text" id="oprice">
-                                    </div>
-                                    <div class="unit">
-                                        <h4>New price :</h4>
-                                    </div>
-                                    <div class="e-id-d" style="display:flex;align-items: center;">
-                                        <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" type="text" id="nprice" name="new_price">
-                                    </div>
-                                    <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
-                                        <h3 style="margin-top: 20px">According to payment plan</h3>
-                                    </div>
-                                    <div class="unit">
-                                        <h4>Interest Precentage :</h4>
-                                    </div>
-                                    <div class="e-id-d" style="display:flex;align-items: center;">
-                                        <p style="margin-left: 40px"></p>
-                                        <input readonly style="width:150px;" type="text" value="<?= $interest ?> %" id="interestp" name="interestp">
-                                    </div>
-                                    <div class="unit">
-                                        <h4>Interest :</h4>
-                                    </div>
-                                    <div class="e-id-d" style="display:flex;align-items: center;">
-                                        <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" type="text" id="interest" name="interest">
-                                    </div>
-                                    <div class="unit">
-                                        <h4>Total price :</h4>
-                                    </div>
-                                    <div class="e-id-d" style="display:flex;align-items: center;">
-                                        <p style="margin-left: 20px">Rs.</p>
-                                        <input readonly style="width:150px;" type="text" id="totalprice" name="totalprice">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
                         <div id="pdf">
                             <div class="header">
                                 <h1>WEBUILD</h1>
@@ -1172,65 +1175,77 @@
                                             <th>Default Price</th>
                                             <th>New Price</th>
                                         </tr>
-                                        <?php if ($rowk[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Kitchen</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowk[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_kitchens ?></td>
-                                                <td id="kit_p_d_price"></td>
-                                                <td id="kit_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowk) : ?>
+                                            <?php if ($rowk[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Kitchen</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowk[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_kitchens ?></td>
+                                                    <td id="kit_p_d_price"></td>
+                                                    <td id="kit_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowba[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Bathroom</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowba[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_bathrooms ?></td>
-                                                <td id="bath_p_d_price"></td>
-                                                <td id="bath_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowba) : ?>
+                                            <?php if ($rowba[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Bathroom</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowba[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_bathrooms ?></td>
+                                                    <td id="bath_p_d_price"></td>
+                                                    <td id="bath_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowd[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Dining</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowd[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_dining ?></td>
-                                                <td id="din_p_d_price"></td>
-                                                <td id="din_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowd) : ?>
+                                            <?php if ($rowd[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Dining</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowd[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_dining ?></td>
+                                                    <td id="din_p_d_price"></td>
+                                                    <td id="din_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Bedroom</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowbe[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_bedrooms ?></td>
-                                                <td id="bed_p_d_price"></td>
-                                                <td id="bed_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowbe) : ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Bedroom</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowbe[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_bedrooms ?></td>
+                                                    <td id="bed_p_d_price"></td>
+                                                    <td id="bed_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowl[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Living Area</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowl[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_living_area ?></td>
-                                                <td id="liv_p_d_price"></td>
-                                                <td id="liv_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowl) : ?>
+                                            <?php if ($rowl[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Living Area</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowl[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_living_area ?></td>
+                                                    <td id="liv_p_d_price"></td>
+                                                    <td id="liv_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowbe[0]->paint_id) : ?>
-                                            <tr>
-                                                <td>Exterior</td>
-                                                <td><?= $model[0]->defaultColor->name ?></td>
-                                                <td><?= $rowbe[0]->paint->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_painting_exterior ?></td>
-                                                <td id="ext_p_d_price"></td>
-                                                <td id="ext_p_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowbe) : ?>
+                                            <?php if ($rowbe[0]->paint_id) : ?>
+                                                <tr>
+                                                    <td>Exterior</td>
+                                                    <td><?= $model[0]->defaultColor->name ?></td>
+                                                    <td><?= $rowbe[0]->paint->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_painting_exterior ?></td>
+                                                    <td id="ext_p_d_price"></td>
+                                                    <td id="ext_p_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </table>
                                 </div>
@@ -1245,65 +1260,77 @@
                                             <th>Default Price</th>
                                             <th>New Price</th>
                                         </tr>
-                                        <?php if ($rowk[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Kitchen</td>
-                                                <td><?= $model[0]->kitchenTile->name ?></td>
-                                                <td><?= $rowk[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_kitchens ?></td>
-                                                <td id="kit_t_d_price"></td>
-                                                <td id="kit_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowk) : ?>
+                                            <?php if ($rowk[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Kitchen</td>
+                                                    <td><?= $model[0]->kitchenTile->name ?></td>
+                                                    <td><?= $rowk[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_kitchens ?></td>
+                                                    <td id="kit_t_d_price"></td>
+                                                    <td id="kit_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowba[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Bathroom</td>
-                                                <td><?= $model[0]->bathroomTile->name ?></td>
-                                                <td><?= $rowba[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?></td>
-                                                <td id="bath_t_d_price"></td>
-                                                <td id="bath_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowba) : ?>
+                                            <?php if ($rowba[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Bathroom</td>
+                                                    <td><?= $model[0]->bathroomTile->name ?></td>
+                                                    <td><?= $rowba[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?></td>
+                                                    <td id="bath_t_d_price"></td>
+                                                    <td id="bath_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowd[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Dining</td>
-                                                <td><?= $model[0]->diningTile->name ?></td>
-                                                <td><?= $rowd[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_dining ?></td>
-                                                <td id="din_t_d_price"></td>
-                                                <td id="din_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowd) : ?>
+                                            <?php if ($rowd[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Dining</td>
+                                                    <td><?= $model[0]->diningTile->name ?></td>
+                                                    <td><?= $rowd[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_dining ?></td>
+                                                    <td id="din_t_d_price"></td>
+                                                    <td id="din_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowbe[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Bedroom</td>
-                                                <td><?= $model[0]->defaultTile->name ?></td>
-                                                <td><?= $rowbe[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?></td>
-                                                <td id="bed_t_d_price"></td>
-                                                <td id="bed_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowbe) : ?>
+                                            <?php if ($rowbe[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Bedroom</td>
+                                                    <td><?= $model[0]->defaultTile->name ?></td>
+                                                    <td><?= $rowbe[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?></td>
+                                                    <td id="bed_t_d_price"></td>
+                                                    <td id="bed_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowl[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Living Area</td>
-                                                <td><?= $model[0]->defaultTile->name ?></td>
-                                                <td><?= $rowl[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_living_area ?></td>
-                                                <td id="liv_t_d_price"></td>
-                                                <td id="liv_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowl) : ?>
+                                            <?php if ($rowl[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Living Area</td>
+                                                    <td><?= $model[0]->defaultTile->name ?></td>
+                                                    <td><?= $rowl[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_living_area ?></td>
+                                                    <td id="liv_t_d_price"></td>
+                                                    <td id="liv_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                        <?php if ($rowe[0]->tile_id) : ?>
-                                            <tr>
-                                                <td>Exterior</td>
-                                                <td><?= $model[0]->defaultTile->name ?></td>
-                                                <td><?= $rowe[0]->tile->name ?></td>
-                                                <td><?= $model[0]->number_of_s_feet_for_tiling_exterior ?></td>
-                                                <td id="ext_t_d_price"></td>
-                                                <td id="ext_t_m_price"></td>
-                                            </tr>
+                                        <?php if ($rowe) : ?>
+                                            <?php if ($rowe[0]->tile_id) : ?>
+                                                <tr>
+                                                    <td>Exterior</td>
+                                                    <td><?= $model[0]->defaultTile->name ?></td>
+                                                    <td><?= $rowe[0]->tile->name ?></td>
+                                                    <td><?= $model[0]->number_of_s_feet_for_tiling_exterior ?></td>
+                                                    <td id="ext_t_d_price"></td>
+                                                    <td id="ext_t_m_price"></td>
+                                                </tr>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     </table>
                                 </div>
@@ -1315,9 +1342,9 @@
                                 </div>
                                 <div class="totals">
                                     <h2>Totals</h2>
-                                    <p><strong>Subtotal : </strong>RS. <strong id="new_price"></strong></p>
-                                    <p><strong>Interest : </strong>RS. <strong id="inter"></strong></p>
-                                    <p><strong>Total : </strong>RS. <strong id="t_tal"></strong></h5>
+                                    <p><strong>Subtotal : </strong>RS. <strong id="new_price"><?= $price ?></strong></p>
+                                    <p><strong>Interest : </strong>RS. <strong id="inter"><?= (($interest*$price)/100) ?></strong></p>
+                                    <p><strong>Total : </strong>RS. <strong id="t_tal"><?= (($interest*$price)/100)+$price ?></strong></h5>
                                     </p>
                                 </div>
                             </div>
@@ -1384,25 +1411,50 @@
             </div>
         </div>
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.min.js"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.debug.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+        <script>
+            var request_id = parseInt(document.getElementById('request_id').value);
+                var tol = parseInt(document.getElementById('totalprice').value);
 
 
 
+                //download button
+                const options = {
+                    // margin: 0.1,
+                    // height: auto,
+                    filename: '',
+                    image: {
+                        type: 'jpeg',
+                        quality: 500
+                    },
+                    html2canvas: {
+                        scale: 2
+                    },
+                    jsPDF: {
+                        unit: 'in',
+                        format: [14, 11],
+                        orientation: 'portrait',
+                        compress: true
+                    }
+                }
+
+                $('#print').click(function(e) {
+                    e.preventDefault();
+                    const element = document.getElementById('pdf');
+                    const name = 'quotation';
+                    var currentDate = new Date();
+                    options.filename = name + '_' + currentDate + '_' + request_id + '.pdf';
+                    html2pdf().from(element).set(options).save().then(() => {
+
+                        window.location.href = 'http://localhost/webuild/public/Pmquotation/' + request_id + '/' + tol + '/';
 
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
+                    });
+                });
+        </script>
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
         <script>
             function calculate() {
                 // Get the values from input elements
@@ -1517,8 +1569,6 @@
 
                 var dtileprice = parseFloat(dktileprice + dbatileprice + ddtileprice + dbetileprice + dltileprice + detileprice);
 
-
-
                 var dpaintprice = parseFloat(dkpaintprice + dbapaintprice + ddpaintprice + dbepaintprice + dlpaintprice + depaintprice);
 
                 var mpaintprice = parseFloat(mkpaintprice + mbapaintprice + mdpaintprice + mbepaintprice + mlpaintprice + mepaintprice);
@@ -1527,6 +1577,9 @@
 
                 var differentprice = parseFloat(mpaintprice + mtileprice - dtileprice - dpaintprice);
                 form.querySelector("#dprice").value = differentprice;
+
+
+
 
                 var oldprice = parseFloat(document.getElementById('oprice').value);
 
@@ -1540,7 +1593,7 @@
 
                 form.querySelector("#interest").value = interest;
 
-                var totalprice = parseFloat(newprice + interest);
+                var totalprice = parseInt(newprice + interest);
                 form.querySelector("#totalprice").value = totalprice;
 
 
@@ -1618,7 +1671,7 @@
 
 
 
-
+                //download button
                 const options = {
                     // margin: 0.1,
                     // height: auto,
@@ -1637,15 +1690,6 @@
                         compress: true
                     }
                 }
-
-                // $('#print').click(function(e) {
-                //     e.preventDefault();
-                //     const element = document.getElementById('pdf');
-                //     const name = 'pramuka';
-                //     options.filename = name + '.pdf';
-                //     html2pdf().from(element).set(options).save();
-                //     window.location.href = 'http://localhost/webuild/public/pmdashboard';
-                // });
 
                 $('#print').click(function(e) {
                     e.preventDefault();
@@ -1714,4 +1758,3 @@
 
     <?php endif; ?>
 <?php endif; ?>
-<?php $this->view('includes/footer') ?>

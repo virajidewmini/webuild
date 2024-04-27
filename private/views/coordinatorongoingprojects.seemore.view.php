@@ -76,7 +76,7 @@
 
                               </div>
                               <div class="column">
-                                   <label for="occupation">Area (in perch)</label>
+                                   <label for="occupation">Area (In perch)</label>
                                    <input type="text" id="contactnumber" name="contactnumber" value= "<?= $rows["customer"]->ul_area;?>">
                               </div>
                               
@@ -90,7 +90,7 @@
                               </div>
                          
                               <div class="column">
-                                   <label for="locationLink">Image</label>
+                                   <label for="locationLink">Photograph</label>
                                    <a href="#" target="#">
                                    <button class="action-button">Image</button>
                                    </a>
@@ -438,7 +438,7 @@
                                             <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
                                     </div>
                                     <div class="column">
-                                            <label for="lastName">Paint</label>
+                                            <label for="lastName">Payment Plan Name</label>
                                             <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
                                     </div>
                                     <div class="column">

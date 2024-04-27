@@ -1,42 +1,59 @@
-<?php 
-class Project_Quotation extends Model{
+<?php
+class Project_Quotation extends Model
+{
     protected $table = "quotation";
 
-    public function getTotalPrice($project_id){
 
-        $query = "select total_amount from quotation where project_id= :project_id";
+    public function getQuotation($project_id){
+
+        $query = "select * from quotation where project_id= :project_id && user_id=:user_id";
 		$params = [
-            'project_id'=>$project_id
-        ];
-        return $this->query($query,$params);
-    }
-
-    public function getPaymentDetail($project_id){
-
-        $query = "select id,date,amount from payments where project_id= :project_id && installement_number=1";
-		$params = [
+            'user_id'=>Auth::id(),
             'project_id'=>$project_id
         ];
         return $this->query($query,$params);
     }
 
     
+    public function getTotalPrice($project_id)
+    {
+
+
+        $query = "select total_amount from quotation where project_id= :project_id";
+        $params = [
+            'project_id' => $project_id
+        ];
+        return $this->query($query, $params);
+    }
+
+    public function getPaymentDetail($project_id)
+    {
+
+        $query = "select id,date,amount from payments where project_id= :project_id && installement_number=1";
+        $params = [
+            'project_id' => $project_id
+        ];
+        return $this->query($query, $params);
+    }
+
+
 
     // public function createproject($r_id, $q_id){
 
     //     $query = "SELECT * $table1.$column1 AS alias1, $table2.$column2 AS alias2, $table2.$columnToSelect AS $columnAlias 
     //     FROM $table1 
     //     INNER JOIN $table2 ON $table1.$column1 = $table2.$column2";
-	// 	$data['id'] = $id;
+    // 	$data['id'] = $id;
     //     return $this->query($query,$data);
     // }
 
-    public function validate($DATA){
+    public function validate($DATA)
+    {
         $this->errors = array();
-        if(count($this->errors) == 0){
+        if (count($this->errors) == 0) {
             return true;
         }
-    
+
         return false;
     }
 
@@ -60,43 +77,24 @@ class Project_Quotation extends Model{
         $last_p_id = $result[0]->id;
         $data["project_id"] = $last_p_id;
 
-        $columns = "user_id, project_id, quotation, total_amount, created_date, status";
 
         // foreach data
         $errors = 0;
-            $user_id = $data["user_id"];
-            $project_id = $data["project_id"];
-            $total_amount = $data['totalprice'];
-            $status = 'Pending';
-            $created_date = date("Y-m-d");
-            $quotation = $uploadedFiles;
+        $user_id = $data["user_id"];
+        $project_id = $data["project_id"];
+        $total_amount = $data['totalprice'];
 
 
-            $db_data = [
-                "user_id" => $user_id,
-                "project_id" => $project_id,
-                "total_amount" => $total_amount,
-                "status" => $status,
-                "created_date" => $created_date,
-                "quotation" => $quotation,
+
+            $quotation_data= [
+                'user_id' => $user_id ,
+                'quotation' => $uploadedFiles[0],
+                'project_id'=> $project_id,
+                'total_amount'=> $total_amount,
+                'created_date'=> date('Y-m-d'),
+                'status'=> 'Pending'
             ];
 
-            $query = "insert into quotation ($columns) values (:user_id, :project_id, :quotation, :total_amount, :created_date, :status)";
-            // echo $query;
-            $result = $this->query($query, $db_data);
-            if (!$result) {
-                $errors++;
-            }
-
-        if ($errors == 0)
-            return true;
-
-        return false;
+        return $quotation_data;
     }
-
-
-    
 }
-
-
-?>
