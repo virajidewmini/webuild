@@ -70,7 +70,7 @@ class Notifications extends Model{
         ]);
     }
 
-
+    
 
     public function updateProjectRequestNotification($value){
         

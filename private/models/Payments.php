@@ -33,6 +33,23 @@ class Payments extends Model{
         return $this->query($query);
     }
 
+    //get projects or requests which should be terminated due to  not paying    
+    public function getOverduePayments($value){
+
+        $query="SELECT payments.*,project_request_id FROM payments 
+        LEFT JOIN projects ON payments.project_id=projects.id
+        where payments.date <  :value AND payments.status='Unpaid'
+        
+
+        GROUP BY payments.project_id"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+
 
     public function get_user($data){
 

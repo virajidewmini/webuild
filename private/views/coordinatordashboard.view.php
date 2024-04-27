@@ -42,6 +42,60 @@
 
 
 
+    <!-- Terminate project requests or projects -->
+    <?php if($rows['terminate']):?>
+<!-- <pre><?php print_r($rows['terminate']);?></pre> -->
+        <div class="table">
+            <div class="table_header">
+                <div style="display: flex;" >
+                    <h3> To TERMINATE </h3>
+                </div>
+                
+            </div>
+            <div class="table_section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Project / Project Request</th>
+                            <th>Installment Number</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Notify User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($rows['terminate'] as $row) :?>
+                        
+                            <tr>                       
+                                <td><?php if($row->installement_number == 1):?><?=$row->project_request_id?><?php elseif($row->installement_number >1):?><?=$row->project_id?><?php endif;?></td>
+                                <td><?php if($row->installement_number == 1):?>Proect Request<?php elseif($row->installement_number >1):?>Project<?php endif;?></td>
+                                <!-- <td><?=$row->user->firstname?> <?=$row->user->lastname?></td> -->
+                                <td><?=$row->installement_number?></td>  
+                                <td><?=$row->amount?></td>       
+                                <td><?=$row->date?></td> 
+                                <td>
+                                    <a href="<?=ROOT?>/coordinatordashboard/Terminationnotify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>">
+                                        <button><i class="fa-solid fa-bell" style="color: #e67f1e;"></i></button>
+                                    </a>
+                                </td>
+                            
+                            </tr>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+        <?php else:?>
+        <h4>Nothing to TERMINATE</h4>
+        <!-- <div>
+            <a href="#">
+                <button class="add___">Add Staff</button>
+            </a>
+        </div> -->
+        <?php endif;?>
+
+
     <!-- warning payments -->
     <?php if($rows['payments']):?>
 

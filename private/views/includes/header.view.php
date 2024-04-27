@@ -24,6 +24,7 @@
             <span class="text">Webuild</span>
           </a>
           <?php if(Auth::logged_in()): ?>
+            <main>
             <?php if(Auth::getRole()== 'Project Coordinator'): ?>
               <ul class="side-menu top">
 
@@ -40,14 +41,16 @@
                     <span class="text">Project Requests</span>
                   </a>
                 </li>
+                
                 <li data-url="<?=ROOT?>/coordinatorprojects">
                   <a href="<?=ROOT?>/coordinatorprojects">
                     <i class="fa-solid fa-list-check"></i>
                     <span class="text">On Going Projects</span>
                   </a>
                 </li>
+                 
                 <li data-url="<?=ROOT?>/coordinatorviewcomplaints">
-                  <a href="<?=ROOT?>/coordinatorviewcomplaints" class="nav-link">
+                  <a href="<?=ROOT?>/coordinatorviewcomplaints" >
                     <i class="fas fa-comments"></i>
                     <span class="text" id="main_link">Complaints</span>
                     
@@ -72,6 +75,12 @@
                     <span class="text">Suppliers</span>
                   </a>
                 </li>
+                <li data-url="<?=ROOT?>/coordinatorrequests/rejectedrequests">
+                  <a href="<?=ROOT?>/coordinatorrequests/rejectedrequests" class="nav-link">
+                    <i class="fa-solid fa-thumbs-down"></i>
+                    <span class="text">Rejected Project Projects</span>
+                  </a>
+                </li> 
                 
                 <!-- settings and logout -->
 
@@ -178,6 +187,8 @@
                     <?=Auth::getFirstname()?>
                   </a>
                 </nav>
+              
+              <!-- second role -->
               <main>
 
 
@@ -232,73 +243,7 @@
                       </button> -->
                     </div>
                   </form>
-                <?php
-                  $staff = new Staffs();
-                  $_SESSION['notifications']=$staff->getNotifications(Auth::getid());
-                  $_SESSION['notification_count']=$staff->getNotificationCount(Auth::getid())[0]->total;
-                  ?>
-                  <a href="#" class="notification" id="notificationBell">
-                    <i class="fas fa-bell"></i>
-                    <span class="num"><?=($_SESSION['notification_count']);?></span>
-                  </a>
-                  <div class="notification-dropdown" id="notificationDropdown" style="display: none;
-                          position: absolute;
-                          top: calc(100% + 10px);
-                          right: 0;
-                          z-index: 1000;
-                          background: #fff;
-                          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                          border-radius: 8px;
-                          padding: 8px 0;
-                          min-width: 200px;
-                          max-height: 200px; /* Set max height for scroll */
-                          overflow-y: auto; /* Enable vertical scroll if content exceeds max height */">
-                      <ul class="notification-list" style="padding: 0;
-                                  margin: 0;
-                                  list-style-type: none;">
-      
-                        <?php if($_SESSION['notifications']):?>
-                          <?php foreach ($_SESSION['notifications'] as $row) :?>
-                            
-                            <li style="position: relative; padding: 8px 16px;">
-
-
-                            <?php if ($row->type == 'requestpm'):?>
-                              <a href="<?=ROOT?>/request/<?=$row->msg_id?>"><?=$row->message?></a>
-                            <?php elseif ($row->type == 'quotationpm'):?>
-                              <a href="<?=ROOT?>/request/add/<?=$row->msg_id?>"><?=$row->message?></a>
-                            <!-- <?php elseif ($row->type == 'quotation_pm_to_co'):?>
-                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a> -->
-                            <?php endif;?>
-
-                              <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
-                            </li>
-                          <?php endforeach;?>
-                        <?php else:?>
-                            <li>No notifications</li>
-                            <hr>
-                        <?php endif;?> 
-                      </ul>
-                  </div>
-
-                  <script>
-                      document.addEventListener('DOMContentLoaded', function() {
-                          const bellIcon = document.getElementById('notificationBell');
-                          const dropdown = document.getElementById('notificationDropdown');
-
-                          bellIcon.addEventListener('click', function(event) {
-                              event.preventDefault();
-                              dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                          });
-
-                          // Close dropdown if clicked outside
-                          document.addEventListener('click', function(event) {
-                              if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
-                                  dropdown.style.display = 'none';
-                              }
-                          });
-                      });
-                  </script>
+                
 
                   <a href="#" class="notification">
                     <i class="fas fa-bell"></i>
@@ -313,6 +258,148 @@
                 </nav>
               <main>
 
+
+
+
+
+                <!-- third role -->
+              <main>
+              <?php elseif (Auth::getRole() == 'Admin') : ?>
+                <ul class="side-menu top">
+                  <li class="active">
+                    <a href="<?= ROOT ?>/admindashboard" class="nav-link">
+                      <i class="fas fa-border-all"></i>
+                      <span class="text">Dashboard</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= ROOT ?>/user" class="nav-link">
+                      <i class="fa-solid fa-users"></i>
+                      <span class="text">Users</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="<?= ROOT ?>/staff" class="nav-link">
+                      <i class="fa-solid fa-users-between-lines"></i>
+                      <span class="text">Staff</span>
+                    </a>
+                  </li>
+
+
+
+
+                  <!-- settings and logout -->
+
+                  <ul class="side-menu">
+                    <li>
+                      <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span class="text">Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="<?= ROOT ?>/logout" class="logout">
+                        <i class="fas fa-right-from-bracket"></i>
+                        <span class="text">Logout</span>
+                      </a>
+                    </li>
+                  </ul>
+            </section>
+
+            <section class="content">
+              <nav>
+                <i class="fas fa-bars menu-btn"></i>
+                <form action="#">
+                  <div class="form-input">
+                    <!-- <input type="search" placeholder="search..." />
+                                <button class="search-btn">
+                                  <i class="fas fa-search search-icon"></i>
+                                </button> -->
+                  </div>
+                </form>
+
+                <?php
+
+                  $staff = new Staffs();
+                  $_SESSION['notifications'] = $staff->getNotifications(Auth::getid());
+                  $_SESSION['notification_count'] = $staff->getNotificationCount(Auth::getid())[0]->total;
+                ?>
+                <a href="#" class="notification" id="notificationBell">
+                  <i class="fas fa-bell"></i>
+                  <span class="num"><?= ($_SESSION['notification_count']); ?></span>
+                </a>
+                <div class="notification-dropdown" id="notificationDropdown" style="display: none;
+                                    position: absolute;
+                                    top: calc(100% + 10px);
+                                    right: 0;
+                                    z-index: 1000;
+                                    background: #fff;
+                                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                                    border-radius: 8px;
+                                    padding: 8px 0;
+                                    min-width: 200px;
+                                    max-height: 200px; /* Set max height for scroll */
+                                    overflow-y: auto; /* Enable vertical scroll if content exceeds max height */">
+                  <ul class="notification-list" style="padding: 0;
+                                            margin: 0;
+                                            list-style-type: none;">
+
+                    <?php if ($_SESSION['notifications']) : ?>
+                      <?php foreach ($_SESSION['notifications'] as $row) : ?>
+
+                        <li style="position: relative; padding: 8px 16px;">
+                          <span style="padding-right: 10px;"><?= $row->message ?></span>
+                          <button>
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+                          <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
+                        </li>
+                      <?php endforeach; ?>
+                    <?php else : ?>
+                      <li>No notifications</li>
+                      <hr>
+                    <?php endif; ?>
+                  </ul>
+                </div>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
+                    const bellIcon = document.getElementById('notificationBell');
+                    const dropdown = document.getElementById('notificationDropdown');
+
+                    bellIcon.addEventListener('click', function(event) {
+                      event.preventDefault();
+                      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    });
+
+                    // Close dropdown if clicked outside
+                    document.addEventListener('click', function(event) {
+                      if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.style.display = 'none';
+                      }
+                    });
+                  });
+                </script>
+
+                <a href="<?= ROOT ?>/Staffprofile" class="profile">
+                  <img src="<?= ROOT ?>/img/profile.png" alt="" />
+                  <!-- USER -->
+                  <?= Auth::getFirstname() ?>
+                </a>
+              </nav>
+              <main>
+
+
+
+
+
+
+
+
+
+            <!-- fourt role -->
+            <main>
 
             <?php elseif(Auth::getRole()== 'Project Manager'): ?>
               <ul class="side-menu top">
@@ -506,7 +593,10 @@
                     <?=Auth::getFirstname()?>
                   </a>
                 </nav>
-              <main>
+              
+              
+              <!--fourth role  -->
+            <main>
                 
               
             <?php elseif($_SESSION['role']=='Client'): ?>
@@ -609,132 +699,17 @@
         <?= Auth::getFirstname() ?>
       </a>
     </nav>
-    <main>
-    <?php elseif (Auth::getRole() == 'Admin') : ?>
-      <ul class="side-menu top">
-        <li class="active">
-          <a href="<?= ROOT ?>/admindashboard" class="nav-link">
-            <i class="fas fa-border-all"></i>
-            <span class="text">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="<?= ROOT ?>/user" class="nav-link">
-            <i class="fa-solid fa-users"></i>
-            <span class="text">Users</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="<?= ROOT ?>/staff" class="nav-link">
-            <i class="fa-solid fa-users-between-lines"></i>
-            <span class="text">Staff</span>
-          </a>
-        </li>
+    
 
 
 
 
-        <!-- settings and logout -->
 
-        <ul class="side-menu">
-          <li>
-            <a href="#">
-              <i class="fas fa-cog"></i>
-              <span class="text">Settings</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?= ROOT ?>/logout" class="logout">
-              <i class="fas fa-right-from-bracket"></i>
-              <span class="text">Logout</span>
-            </a>
-          </li>
-        </ul>
-  </section>
 
-  <section class="content">
-    <nav>
-      <i class="fas fa-bars menu-btn"></i>
-      <form action="#">
-        <div class="form-input">
-          <!-- <input type="search" placeholder="search..." />
-                      <button class="search-btn">
-                        <i class="fas fa-search search-icon"></i>
-                      </button> -->
-        </div>
-      </form>
 
-      <?php
 
-        $staff = new Staffs();
-        $_SESSION['notifications'] = $staff->getNotifications(Auth::getid());
-        $_SESSION['notification_count'] = $staff->getNotificationCount(Auth::getid())[0]->total;
-      ?>
-      <a href="#" class="notification" id="notificationBell">
-        <i class="fas fa-bell"></i>
-        <span class="num"><?= ($_SESSION['notification_count']); ?></span>
-      </a>
-      <div class="notification-dropdown" id="notificationDropdown" style="display: none;
-                          position: absolute;
-                          top: calc(100% + 10px);
-                          right: 0;
-                          z-index: 1000;
-                          background: #fff;
-                          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                          border-radius: 8px;
-                          padding: 8px 0;
-                          min-width: 200px;
-                          max-height: 200px; /* Set max height for scroll */
-                          overflow-y: auto; /* Enable vertical scroll if content exceeds max height */">
-        <ul class="notification-list" style="padding: 0;
-                                  margin: 0;
-                                  list-style-type: none;">
 
-          <?php if ($_SESSION['notifications']) : ?>
-            <?php foreach ($_SESSION['notifications'] as $row) : ?>
-
-              <li style="position: relative; padding: 8px 16px;">
-                <span style="padding-right: 10px;"><?= $row->message ?></span>
-                <button>
-                  <i class="fa-solid fa-eye"></i>
-                </button>
-                <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
-              </li>
-            <?php endforeach; ?>
-          <?php else : ?>
-            <li>No notifications</li>
-            <hr>
-          <?php endif; ?>
-        </ul>
-      </div>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const bellIcon = document.getElementById('notificationBell');
-          const dropdown = document.getElementById('notificationDropdown');
-
-          bellIcon.addEventListener('click', function(event) {
-            event.preventDefault();
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-          });
-
-          // Close dropdown if clicked outside
-          document.addEventListener('click', function(event) {
-            if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
-              dropdown.style.display = 'none';
-            }
-          });
-        });
-      </script>
-
-      <a href="<?= ROOT ?>/Staffprofile" class="profile">
-        <img src="<?= ROOT ?>/img/profile.png" alt="" />
-        <!-- USER -->
-        <?= Auth::getFirstname() ?>
-      </a>
-    </nav>
-    <main>
+  
     <?php else : ?>
       <ul class="side-menu top">
         <li class="active">
@@ -813,6 +788,11 @@
 
             <?php endif; ?>
           <?php endif; ?>
+
+
+
+
+
          <script>
             let liList=document.querySelectorAll(".side-menu.top>li")
                   liList.forEach(li=>{

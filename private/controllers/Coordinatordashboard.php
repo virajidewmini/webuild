@@ -24,8 +24,12 @@
             $data['payments']=$payments->getNearingPayments();
             //get payments which are 1 week due to send waenings
             $data['warning_payments']=$payments->getWarningPayments();
+            //get terminate projects or requests
+            $data['terminate']=$payments->getOverduePayments(date('Y-m-d'));
 
-            $this->view('coordinatordashboard',['rows'=>$data]);
+            //print_r($data['terminate']);
+
+           $this->view('coordinatordashboard',['rows'=>$data]);
         }
 
 
