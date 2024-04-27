@@ -1,30 +1,31 @@
-<?php 
-    class QuotationOrder extends Controller{
-        public function index(){
-            
-                //$db = new Database();
-                $quotationorder=new QuotationSK();
+<?php
+class QuotationOrder extends Controller
+{
+    public function index()
+    {
 
-                $data = $quotationorder->getquatation();
+        //$db = new Database();
+        $quotationorder = new QuotationSK();
 
-// Check if there is a search query
-$filter = isset($_GET['filter']) ? $_GET['filter'] : null;
+        $data = $quotationorder->getquatation();
 
-// If a filter is applied, filter the data by p_id
-if ($filter !== null) {
-    // Perform filtering based on p_id
-    $filteredData = array_filter($data, function($row) use ($filter) {
-        return stripos($row->p_id, $filter) !== false;
-    });
+        // Check if there is a search query
+        $filter = isset($_GET['filter']) ? $_GET['filter'] : null;
 
-    $data = $filteredData;
-}
+        // If a filter is applied, filter the data by p_id
+        if ($filter !== null) {
+            // Perform filtering based on p_id
+            $filteredData = array_filter($data, function ($row) use ($filter) {
+                return stripos($row->p_id, $filter) !== false;
+            });
 
-                $this->view('quatationSendAfter1',['rows'=> $data]);
-
+            $data = $filteredData;
         }
 
-        public function quotationviewDetails($id = null)
+        $this->view('quatationSendAfter1', ['rows' => $data]);
+    }
+
+    public function quotationviewDetails($id = null)
     {
         // Check if request ID is provided
         if ($id !== null) {
@@ -39,42 +40,39 @@ if ($filter !== null) {
         }
     }
 
- 
 
-        public function add(){
-            if(count($_POST) > 0){
-                $quotationorder=new QuotationSK();
-                $quotationorder->insert($_POST);
-                $this->redirect('quotationorder');
-            }
 
-            $this->view('storekeeperRequestQuotation');
+    public function add()
+    {
+        if (count($_POST) > 0) {
+            $quotationorder = new QuotationSK();
+            $quotationorder->insert($_POST);
+            $this->redirect('quotationorder');
         }
 
-
-        
-        public function delete($id=null){
-           
-            if(count($_POST) > 0){
-                $quotationorder=new QuotationSK();
-                $quotationorder->delete($id);
-                $this->redirect('quotationorder');
-
-            }
-            $this->view('storekeeperDeleteQuotation');
-        }
-        
-        public function update($id=null){
-           
-            if(count($_POST) > 0){
-                $quotationorder=new QuotationSK();
-                $quotationorder->update($id,$_POST);
-                $this->redirect('quotationorder');
-
-            }
-            $this->view('storekeeperUpdateQuotation');
-        }
-       
-        
+        $this->view('storekeeperRequestQuotation');
     }
-?>
+
+
+
+    public function delete($id = null)
+    {
+        if (count($_POST) > 0) {
+            $quotationorder = new QuotationSK();
+            $quotationorder->delete($id);
+            $this->redirect('quotationorder');
+        }
+        $this->view('storekeeperDeleteQuotation');
+    }
+
+    public function update($id = null)
+    {
+
+        if (count($_POST) > 0) {
+            $quotationorder = new QuotationSK();
+            $quotationorder->update($id, $_POST);
+            $this->redirect('quotationorder');
+        }
+        $this->view('storekeeperUpdateQuotation');
+    }
+}

@@ -25,5 +25,45 @@ class storeMaterials extends Model
         return $this->query($query);
     }
 
+    // to get other materials
+    public function geMaterialsdetails() {
+        $query = "SELECT *
+        FROM materials
+        WHERE type='other'
+        ORDER BY 
+            CASE 
+                WHEN status = 'LOW' THEN 1
+                WHEN status = 'NORMAL' THEN 2
+                WHEN status = 'NOTIFIED' THEN 3
+            END";
+        return $this->query($query);
+    }
+
+    public function getTilesdetails() {
+        $query = "SELECT *
+        FROM materials
+        WHERE type='tile'
+        ORDER BY 
+            CASE 
+                WHEN status = 'LOW' THEN 1
+                WHEN status = 'NORMAL' THEN 2
+                WHEN status = 'NOTIFIED' THEN 3
+            END";
+        return $this->query($query);
+    }
+
+    public function getPaintsdetails() {
+        $query = "SELECT *
+        FROM materials
+        WHERE type='paint'
+        ORDER BY 
+            CASE 
+                WHEN status = 'LOW' THEN 1
+                WHEN status = 'NORMAL' THEN 2
+                WHEN status = 'NOTIFIED' THEN 3
+            END";
+        return $this->query($query);
+    }
+
 }
 ?>

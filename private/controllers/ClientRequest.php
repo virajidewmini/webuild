@@ -5,8 +5,12 @@
         public function index($id){
             $model=new Client();
 
-          
             $data=$model->where("id",$id);
+
+            $model_id=$data[0]->model_id;
+
+            $module=new Models();
+            $model_name=$module->where("id",$model_id);
           
 
             $user=new UserData();
@@ -71,7 +75,7 @@
   
             $package=new Payment_packages();
             $pack=$package->where("id",$plan_id);
-            $this->view('ViewProjectRequest',['pack'=>$pack,'land'=>$user_land,'userData'=>$userData,
+            $this->view('ViewProjectRequest',['id'=>$id,'model'=>$model_name,'pack'=>$pack,'land'=>$user_land,'userData'=>$userData,
                 'living'=>$livingModification,'livingPaints'=>$livingPaint,
                 'dining'=>$diningModification,'diningPaints'=>$diningPaint,
                 'kitchen'=>$kitchenModification,'kitchenPaints'=>$kitchenPaint,

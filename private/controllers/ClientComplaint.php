@@ -65,8 +65,23 @@
     
                         
                     }
-    
-                      $this->redirect('clientcomplaint');
+
+                    $user=new Staffs();
+                    $coordinator=$user->where("role","Project Coordinator");
+
+                    $notification=new Notifications();
+                    $complaintNotification=[
+                        'date'=>date('Y-m-d'),
+                        'staff_id'=>$coordinator[0]->id,
+                        'message'=>"Client complaint on project id " .Auth::getProjectId(). " for " . $_POST['type'],
+                        'status'=>"Unseen",
+                        'type'=>'complaint',
+                        'msg_id'=>$complaint_id,
+                    ];
+
+                    $notification->insert($complaintNotification);
+                    $this->redirect('clientcomplaint');
+
                 } else {
                     
                     $this->view('AddClientComplaint', ['errors' => $errors]);
