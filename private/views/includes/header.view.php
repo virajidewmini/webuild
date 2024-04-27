@@ -183,22 +183,29 @@
 
               <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
-                <li class="active">
-                  <a href="#" class="nav-link" class="nav-link">
+
+                <li data-url="<?=ROOT?>/storekeeperDashboard" >
+                  <a href="<?=ROOT?>/storekeeperDashboard" class="nav-link">
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
                 </li>
-                <li>
-                  <a href="<?=ROOT?>/request">
+                <li data-url="<?=ROOT?>/request/">
+                  <a href="<?=ROOT?>/request/">
                     <i class="fa-solid fa-users"></i>
                     <span class="text">Requests</span>
                   </a>
                 </li>
-                <li>
-                  <a href="<?=ROOT?>/maintain">
+                <li data-url="<?=ROOT?>/maintain/">
+                  <a href="<?=ROOT?>/maintain/">
                     <i class="fa-solid fa-list-check"></i>
                     <span class="text">Store Materials</span>
+                  </a>
+                </li>
+                <li data-url="<?=ROOT?>/maintainrequests/">
+                  <a href="<?=ROOT?>/maintainrequests/">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="text">Requests from Coordinator</span>
                   </a>
                 </li>
                
@@ -399,7 +406,9 @@
 
                   <script>
                   
-                  let liList=document.querySelectorAll(".side-menu.top>li")
+
+                  liList=document.querySelectorAll(".side-menu.top>li")
+
                   liList.forEach(li=>{
                     let value=li.dataset.url;
                     let url=document.URL
