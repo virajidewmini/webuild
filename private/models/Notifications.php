@@ -104,6 +104,7 @@ class Notifications extends Model{
         ]);
     }
 
+    
 
 }
 ?>
