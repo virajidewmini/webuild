@@ -16,7 +16,7 @@
                         <th>Material Or Equipment ID</th>
                         <th>Material Or Equipment Name</th>
                         <th>Material Or Equipment Code</th>
-                        <th>Remain Quantity</th>
+                        <!-- <th>Remain Quantity</th> -->
                         <th>Requested Quntity</th>
                         <th>Action</th>
                     </tr>
@@ -26,11 +26,12 @@
 
                         <?php foreach ($rows as $row) : ?>
                             <?php if ($row->status == 'Recieved') : ?>
-                                <tr style="background-color:#1fd655;">
+                                <tr style="background-color:#2ecc71
+;">
                                     <td><?= $row->id ?></td>
                                     <td><?= $row->material_name ?></td>
                                     <td><?= $row->material_code ?></td>
-                                    <td><?= $row->remain_quantity ?></td>
+                                    <!-- <td><?= $row->remain_quantity ?></td> -->
                                     <td><?= $row->requested_quantity ?></td>
                                     <td>
                                     </td>
@@ -40,7 +41,7 @@
                                     <td><?= $row->id ?></td>
                                     <td><?= $row->material_name ?></td>
                                     <td><?= $row->material_code ?></td>
-                                    <td><?= $row->remain_quantity ?></td>
+                                    <!-- <td><?= $row->remain_quantity ?></td> -->
                                     <td><?= $row->requested_quantity ?></td>
                                     <td>
                                         <a href="<?= ROOT ?>/maintainrequests/update/<?= $row->id ?>/"><button><i class="fa-regular fa-pen-to-square"></i></button>
