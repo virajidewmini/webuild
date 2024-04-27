@@ -51,12 +51,22 @@
                     <option <?= get_select2('role','Equipment Operator');?> value="Equipment Operator">Equipment Operator</option>
                     <option <?= get_select2('role','other');?> value="other">Other</option>
             </select>
-            </div>
+            </div> <?= (get_var('h3') === 'None') ? 'checked' : ''; ?>
 
             <div class="column">
                 <label class="v_label" id="district">District</label>
                 <select id="selectDistrict" name="district" class="v_form-control">
                         <option>Choose a District</option>
+                        <?php 
+                            $options = ['Colombo', 'Kandy', 'Galle', 'Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kegalle', 'Kilinochchi', 'Kurunegala', 'Mannar', 'Matale', 'Matara', 'Moneragala', 'Mullativu', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya'];
+                            foreach ($options as $option) {
+                                echo '<option value="' . $option . '"';
+                                if (get_var('district') === $option) {
+                                    echo ' selected';
+                                }
+                                echo '>' . $option . '</option>';
+                            }
+                        ?>
                 </select>
             </div>
             <label class="v_label" id="address">Address</label>

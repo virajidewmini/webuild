@@ -187,11 +187,11 @@ progress {
             <?php for ($i = 5; $i >= 1; $i--): ?>
               <?php $found = false; ?>
               <?php foreach ($rate as $row): ?>
-                <?php if ($row->rate == $i): ?>
+                <?php if ($row->number_of_stars == $i): ?>
                   <div class="reviews__breakdown">
                     <div class="reviews-breakdown__wrapper">
                       <div class="reviews__single-star-average">
-                        <div class="single-star-average__amount"><?= $row->rate ?> star</div>
+                        <div class="single-star-average__amount"><?= $row->number_of_stars ?> star</div>
                         <div class="single-star-average__progress-bar">
                           <progress class="progress-bar__data" max="100" value="<?= $row->percentage_count ?>"></progress>
                         </div>
@@ -250,7 +250,7 @@ progress {
             $filledStarColor = '#ffc107'; 
             $emptyStarColor = '#ced4da';  
             for ($i = 1; $i <= 5; $i++) {
-                if ($i <= $row->rate) {
+                if ($i <= $row->number_of_stars) {
                     echo '<i class="fas fa-star" style="color: ' . $filledStarColor . '"></i>';
                 } else {
                     echo '<i class="far fa-star" style="color: ' . $emptyStarColor . '"></i>';

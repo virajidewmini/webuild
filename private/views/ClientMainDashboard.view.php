@@ -245,13 +245,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($complaints as $complaint): ?>
-                    <tr>
-                        <td><?=$complaint->type?></td>
-                        <td><?=$complaint->date?></td>
-                    </tr>
-                  <?php endforeach?>
-                    
+                <?php if(isset($complaints)&&empty($complaints)):?>
+                    <h3>No Unresolve Complaint</h3>
+                <?php else:?>
+                    <?php foreach($complaints as $complaint): ?>
+                        <tr>
+                            <td><?=$complaint->type?></td>
+                            <td><?=$complaint->date?></td>
+                        </tr>
+                      <?php endforeach?>
+                <?php endif?>   
                 </tbody>
             </table>
             </div>

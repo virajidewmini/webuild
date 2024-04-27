@@ -235,7 +235,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php if(isset($complaint)&&empty($complaint)):?>
+                <?php if(isset($complaints)&&empty($complaints)): ?>
                     <h3>No Unresolve Complaint</h3>
                 <?php else:?>
                 
