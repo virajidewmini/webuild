@@ -24,8 +24,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if(isset($others)): ?>
-                    <?php foreach ($others as $row):?>
+                <?php if(isset($rows)): ?>
+                    <?php foreach ($rows as $row):?>
                         <?php if($row->status=='LOW'):?>
                         <tr style="background-color: #FF6347;"  data-material-name="<?=$row->material_name?>" 
                             data-material-code="<?=$row->material_code?>" 
