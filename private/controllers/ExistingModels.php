@@ -33,4 +33,20 @@ public function gallery5(){
       
   $this->view('homegallery5');
 }
+public function gallery6(){
+      
+  $this->view('homegallery6');
+}
+public function gallery7(){
+    
+$this->view('homegallery7');
+}
+public function gallery8(){
+    
+$this->view('homegallery8');
+}
+public function gallery9(){
+    
+$this->view('homegallery9');
+}
 }

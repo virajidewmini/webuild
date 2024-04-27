@@ -23,6 +23,9 @@ class Request extends Controller
 
             $data = $filteredData;
         }
+
+       
+
         $this->view('storekeeperrequest', ['rows' => $data]);
     }
 
@@ -69,4 +72,6 @@ class Request extends Controller
         // Pass the data to the second view
         $this->view('storekeeperRequestQuotation', ['rows' => $data, 'r_id' => $id, 'district' => $district, 'errors' => $errors]);
     }
+
+    
 }

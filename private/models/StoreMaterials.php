@@ -24,8 +24,9 @@ class storeMaterials extends Model
         WHERE status = 'LOW'";
         return $this->query($query);
     }
-     // to get other materials
-     public function geMaterialsdetails() {
+
+    // to get other materials
+    public function geMaterialsdetails() {
         $query = "SELECT *
         FROM materials
         WHERE type='other'
