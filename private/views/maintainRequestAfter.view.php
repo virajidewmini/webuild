@@ -18,7 +18,7 @@
                         <th>Material Or Equipment Code</th>
                         <th>Remain Quantity</th>
                         <th>Requested Quntity</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

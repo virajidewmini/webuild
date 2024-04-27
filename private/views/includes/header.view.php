@@ -405,7 +405,7 @@
 
                   <script>
                   
-                  let liList=document.querySelectorAll(".side-menu.top>li")
+                   liList=document.querySelectorAll(".side-menu.top>li")
                   liList.forEach(li=>{
                     let value=li.dataset.url;
                     let url=document.URL
