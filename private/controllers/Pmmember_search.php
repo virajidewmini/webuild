@@ -13,13 +13,14 @@ class Pmmember_search extends Controller
 
         $staff = new Staffs();
 
-        if (isset($district)) {
-            $data = $staff->ssup($district);
-        } elseif (isset($_GET['district'])) {
+        if (isset($_GET['district'])) {
             $district = $_GET['district'];
-            $data = $staff->ssup($district);
-        } else {
-            $data = $staff->supAll();
+            $data = $staff->findSupervisor($district);
+        } elseif (isset($district)) {
+            $data = $staff->findSupervisor($district);
+        } 
+        else {
+            $data = $staff->findAllSupervisor();
         }
 
         $this->view('pmmember_search', [

@@ -70,7 +70,7 @@
                                 <td><?= $row->user->firstname ?> <?= $row->user->lastname ?></td>
                                 <td><?= $row->mdl->name ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmmember_search/<?= $row->land->ul_district ?>/<?= $row->id ?>/<?= $row->quotation_id ?>/<?= $row->mdl->time_duraion_in_months ?>/">
+                                    <a href="<?= ROOT ?>/Pmmember_search/<?= $row->land->ul_district ?>/<?= $row->id ?>/<?= $row->quotation_id ?>/<?= $row->mdl->time_duration_in_months ?>/">
                                         <button class="in_a_c" style="border:none; background-color:#E5863D; color:white" type="submit">Start</button>
                                     </a>
                                 </td>

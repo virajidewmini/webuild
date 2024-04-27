@@ -2,6 +2,7 @@
 <?php 
 $this->view('includes/header');
 $materialName = $_GET['material_name'] ?? '';
+$materialName = trim($materialName);
 $materialCode = $_GET['material_code'] ?? '';
 $remainQuantity = $_GET['remain_quantity'] ?? '';
 ?>

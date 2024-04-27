@@ -45,7 +45,7 @@ body{
     } ?>
     <div class="top1">
         <select name="district" class="form-control" type="text" placeholder="--Select District--">
-            <option <?= get_select2('district','');?> value="">--Select District--</option >
+            <option style="item-align:center;" <?= get_select2('district','');?> value="">Select District</option >
             <option <?= get_select2('district','ampara');?> value="ampara" <?php if($district == 'ampara') {echo "selected" ;} ?>>Ampara</option>
             <option <?= get_select2('district','anuradhapura');?> value="anuradhapura" <?php if($district == 'anuradhapura') {echo "selected" ;} ?>>Anuradhapura</option>
             <option <?= get_select2('district','badulla');?>value="badulla" <?php if($district == 'badulla') {echo "selected" ;} ?>>Badulla</option>
@@ -79,14 +79,11 @@ body{
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
                         <th>District</th>
-                        <th>Experience</th>
-                        <th>Currently working project count</th>
-                        <th>Number of projects completed in last month</th>
-                        <th>Number of done projects</th>
-                        <th>Action</th>
+                        <th>No. of Projects Currently Working On</th>
+                        <th>No. of Projects Completed in the Past Two Months</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,13 +91,10 @@ body{
                     <?php foreach ($rows1 as $row):?>
                     <tr>
                         <td><?= $row->id?></td>
-                        <td><?= $row->firstname?></td>
-                        <td><?= $row->lastname?></td>
+                        <td><?= $row->firstname?> <?= $row->lastname?></td>
                         <td><?= $row->district ?></td>
-                        <td><?= $row->experience?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?= $row->current_working_projects_count ?></td>
+                        <td><?=$row->worked_project_count?></td>
                         <td>
                                 <a href="<?=ROOT?>/Pmmember_search/view_sup/<?=$row->id?>/">
                                 <button><i class="fa-solid fa-eye"></i></button>

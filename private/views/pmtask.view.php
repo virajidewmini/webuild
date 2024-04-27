@@ -95,7 +95,7 @@
                     <div class="e-id-d">
 
                         <select style="height:35px; width:100px; margin-left:20px; border-radius:10px;" name="project_id" class="" type="text">
-                            <option value="" <?= get_select2('project_id', ''); ?>>--Select ID--</option>
+                            <option style="text-align:center;" value="" <?= get_select2('project_id', ''); ?>>Select ID</option>
                             <?php if ($rows) : ?>
                                 <?php foreach ($rows as $row) : ?>
                                     <option style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
@@ -104,7 +104,7 @@
                                         <?= $row->id; ?>
                                     <?php endforeach; ?>
                                 <?php else : ?>
-                                    <option <?= get_select2('project_id', ''); ?> value="">No Project Found</option>
+                                    <option style="text-align:center;" <?= get_select2('project_id', ''); ?> value="">No Project Found</option>
                                 <?php endif; ?>
                         </select>
                         <button style="background-color:#E5863D; color:white; margin-left: 20px;" class="" type="submit">Filter</button>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="e-id-d">
                         <select style="height:35px; width:100px; margin-left:20px; border-radius:10px;" name="project_id" class="" type="text">
-                            <option value="<?= $project_id ?>" <?= get_select2('project_id', ''); ?>>--Select ID--</option>
+                            <option style="text-align:center;" value="<?= $project_id ?>" <?= get_select2('project_id', ''); ?>>Select ID</option>
                             <?php if ($rows) : ?>
                                 <?php foreach ($rows as $row) : ?>
                                     <option style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
@@ -130,7 +130,7 @@
                                     </option>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                <option <?= get_select2('project_id', ''); ?> value="">No Project Found</option>
+                                <option style="text-align:center;" <?= get_select2('project_id', ''); ?> value="">No Project Found</option>
                             <?php endif; ?>
                         </select>
                     </div>
