@@ -6,7 +6,9 @@
 
 <div class="total-card" style="margin-bottom: 30px;">
     <?php if(isset($rows)): ?>
-        <div class="total-amount">RS. <?=$rows[0]->total_amount?><br></div> 
+        <?php if($rows[0]->status === "Display"): ?>
+            <div class="total-amount">RS. <?=$rows[0]->total_amount?><br></div> 
+        <?php endif; ?>   
     <?php endif; ?>
         <p class="card_label">Total Amount</p>
     </div>

@@ -88,19 +88,17 @@ p {
                 <?php foreach ($rows as $row):  ?>
                     <div class="role">
                         <div class="role-border">
-                            <h2>Project ID: <?=$row->id?></h2>
+                            <h2>Project Request ID: <?=$row->id?></h2>
                             <img src="<?=ROOT?>/img/project.png" alt="Designer Image">
-                            <a href="<?= ROOT ?>/clientrequest/<?=$row->id?>"><button class="role-btn">Get Start</button></a>
+                            <a href="<?= ROOT ?>/clientrequest/<?=$row->id?>"><button class="role-btn">Get Start</button></a> 
                         </div>
                     </div>
                 <?php endforeach;?>
+                
             <?php else: ?>
                 <h3>No Ongoing Project Yet</h3>
             <?php endif; ?> 
-
-            
-
             </div>
-
+            <p>Go Back <a href="<?=ROOT?>/home">Home</a></p>
     </div>
     

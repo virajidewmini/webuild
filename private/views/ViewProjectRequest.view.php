@@ -3,20 +3,32 @@
 
 
 <div  class="table_header" >
-        <h1 style="margin-left: 40%;"> Project Request </h1>
+        <h1 style="margin-left: 40%;"> Project Request : <?=$id?></h1>
 </div>
     <div class="form_container">
         <form method="post" enctype="multipart/form-data">
 
-       
-            
+            <fieldset class="FormFieldset" >
+            <legend class="Formlegend"> Model Details</legend>
+            <div class="form-group">
+                
+                <div class="column">
+                    <label for="model">Model Name</label>
+                    <input type="text" id="model" name="model" value="<?=$model[0]->name?>" readonly>
+                </div>
+                
+            </div>
+            </fieldset>
+
+            <br><br>
+
             <fieldset class="FormFieldset" >
             <legend class="Formlegend"> Personal Details</legend>
             <div class="form-group">
                 
                 <div class="column">
                     <label for="occupation">Occupation</label>
-                    <input type="text" id="occupation" name="occupation" value=<?=$userData[0]->occupation?> readonly>
+                    <input type="text" id="occupation" name="occupation" value="<?=$userData[0]->occupation?>" readonly>
                 </div>
                 <div class="column">
                     <label for="lastName">Monthly Salary(LKR)</label>
@@ -47,22 +59,22 @@
 
                 <div class="column">
                     <label for="district">District</label>
-                    <input type="text" id="district" name="district" value=<?= $land[0]->ul_district?> readonly>
+                    <input type="text" id="district" name="district" value="<?= $land[0]->ul_district?>" readonly>
                 </div>
 
                 <div class="column">
                     <label for="town">Town</label>
-                    <input type="text" id="town" name="town" value=<?= $land[0]->ul_town?> readonly>
+                    <input type="text" id="town" name="town" value="<?= $land[0]->ul_town?>" readonly>
                 </div>
                 
                 <div class="column">
                     <label for="Street">Street</label>
-                    <input type="text" id="street" name="street" value=<?= $land[0]->ul_street?> readonly>
+                    <input type="text" id="street" name="street" value="<?= $land[0]->ul_street?>" readonly>
                 </div>
 
                 <div class="column">
                     <label for="area">Land Area(Perch)</label>
-                    <input type="test" id="area" name="area" value=<?= $land[0]->ul_area?> readonly>
+                    <input type="test" id="area" name="area" value="<?= $land[0]->ul_area?>" readonly>
                 </div>
 
                 <div class="column">
@@ -451,7 +463,7 @@
                 
                 <div class="column">
                     <label for="landCondition">Payment Plan</label>
-                    <input type="text" id="type" name="type" value=<?= $pack[0]->name?> readonly>
+                    <input type="text" id="type" name="type" value="<?= $pack[0]->name?>" readonly>
                 </div>
                 
                 
