@@ -406,13 +406,11 @@
 
                   <script>
                   
-<<<<<<< HEAD
+
                   let liList=document.querySelectorAll(".side-menu.top>li")
-=======
 
-                  liList=document.querySelectorAll(".side-menu.top>li")
 
->>>>>>> 2a47b4fee7d39923bab676136109397307d35ef6
+
                   liList.forEach(li=>{
                     let value=li.dataset.url;
                     let url=document.URL
