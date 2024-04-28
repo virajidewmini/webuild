@@ -42,8 +42,11 @@
 
         //     $this->view('storekeeperSendRequests',['rows'=> $data]);
         // }
+
+
         public function add($material_id=null){
             $Material=new StoreMaterials();
+            $error = ''; // Initialize error message
         
             if(count($_POST) > 0){
                 // Check if requested_quantity is not empty and greater than 0
@@ -56,10 +59,8 @@
                     $Material->update($id,$arr);
                     $this->redirect('maintainrequests');
                 } else {
-                    // Handle validation error, e.g., redirect back with an error message
-                    // For example:
-                    // $error = "Requested quantity must be a positive number.";
-                    // $this->view('storekeeperSendRequests', ['error' => $error, 'rows' => $data]);
+                    // Set validation error message
+                    $error = "You Entered wrong quantity!";
                 }
             }
         
@@ -67,8 +68,13 @@
             $Material=new StoreMaterials();
             $data = $Material->where('id',$material_id);
         
-            $this->view('storekeeperSendRequests',['rows'=> $data]);
+            // Pass error message to the view along with other data
+            $this->view('storekeeperSendRequests', [
+                'rows'=> $data,
+                'error' => $error // Include error message in the data passed to the view
+            ]);
         }
+        
         
         
         public function delete($id=null){
