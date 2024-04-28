@@ -575,7 +575,7 @@
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
                                             <td>
-                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->remark ?>/">
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
                                                 </a>
                                             </td>
@@ -586,7 +586,7 @@
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
                                             <td>
-                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->remark ?>/">
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
                                                 </a>
                                                 <a href="<?= ROOT ?>/Pmtask/notifiedSUP/<?= $row->task_id ?>/<?= $rows[0]->id ?>/">
@@ -600,7 +600,7 @@
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
                                             <td>
-                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->remark ?>/">
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
                                                 </a>
                                             </td>
