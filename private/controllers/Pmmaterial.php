@@ -72,4 +72,12 @@ class Pmmaterial extends Controller
         //         'row'=>$row,
         //     ]);
     }
+    public function materialReceived($id = null)
+    {
+            if(!Auth::logged_in()){
+                $this->redirect('staff_login');
+            }
+            $q_table = new QuotationSK();
+            $q_table->materialReceived($id);
+    }
 }

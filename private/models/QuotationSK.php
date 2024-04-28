@@ -197,18 +197,24 @@ class QuotationSK extends Model
         return $this->query($query);
     }
 
-    public function getAllMaterialQ($mid,$status)
+    public function getAllMaterialQ($mid, $status)
     {
         $query = "SELECT material_requests.* FROM material_quatation_detail INNER JOIN material_requests ON material_quatation_detail.request_id = material_requests.request_id INNER JOIN projects ON material_requests.project_id = projects.id WHERE projects.manager_id = :mid  AND material_quatation_detail.status = :status GROUP BY material_quatation_detail.quotation_id";
         $data['mid'] = $mid;
         $data['status'] = $status;
         return $this->query($query, $data);
     }
-    public function getMaterialQ($p_id,$status)
+    public function getMaterialQ($p_id, $status)
     {
         $query = "SELECT material_requests.*, material_quatation_detail.quotation_id FROM material_quatation_detail INNER JOIN material_requests ON material_quatation_detail.request_id = material_requests.request_id WHERE material_requests.project_id = :p_id AND material_quatation_detail.status = :status GROUP BY material_quatation_detail.quotation_id";
         $data['p_id'] = $p_id;
         $data['status'] = $status;
+        return $this->query($query, $data);
+    }
+    public function materialReceived($id = null)
+    {
+        $query = "UPDATE `material_quatation_detail` SET `status`='Received' WHERE `request_id` = :id";
+        $data['id'] = $id;
         return $this->query($query, $data);
     }
 }

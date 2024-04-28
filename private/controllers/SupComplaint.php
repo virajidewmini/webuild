@@ -19,12 +19,34 @@
                 $complaint_attachment= new Attachment();
                 $attachment= $complaint_attachment->where('reference_id',$id);
 
+                
                 if(count($_POST) > 0){
                     
                     $clientComplaint=new C_Complaint();
                     $clientComplaint->updateRemark($id,$_POST['remark']); 
                     $clientComplaint->updateStatus($id);
+
+                    $user=new Staffs();
+                    $coordinator=$user->where("role","Project Coordinator");
+
+                    $notification=new Notifications();
+                    $notifyData=[
+                        'date'=>date('Y-m-d'),
+                        'staff_id'=>$coordinator[0]->id,
+                        'message'=>"Solve the client complaint on project id " .Auth::getProjectId() ,
+                        'status'=>"Unseen",
+                        'type'=>'complaint_sup',
+                        'msg_id'=>$id,
+                    ];
+                    $notification->insert($notifyData);
+
+
+
                     $this->redirect('supcomplaint/viewComplaint/'.$id);
+                }else{
+                    $notification = new Notifications();
+                    $notification->updateComplaintNotification($id);
+
                 }
 
                 $this->view('ViewComplaintHandle',['rows'=> $data,'attachment'=>$attachment]);
