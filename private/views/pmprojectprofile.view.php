@@ -385,72 +385,35 @@
 
                     <div class="form-group">
                         <br>
-                        <?php if ($row3[0]->land_type == 'user') : ?>
+                        <?php if ($row3) : ?>
                             <div class="column">
                                 <label for="firstname">ID :</label>
-                                <input type="text" name="customer_name" value="<?= $row3[0]->land_u->id ?>">
+                                <input type="text" name="customer_name" value="<?= $row3[0]->land->id ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Street :</label>
-                                <input type="text" value="<?= $row3[0]->land_u->street ?>">
+                                <input type="text" value="<?= $row3[0]->land->ul_street ?>">
                             </div>
                             <div class="column">
                                 <label for="occupation">Town :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->town ?>">
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->ul_town ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">District :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->ul_district ?>">
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->ul_district ?>">
 
                             </div>
                             <div class="column">
                                 <label for="occupation">Block Plan :</label>
-                                <input type="text" id="contactnumber" name="contactnumber" value="<?= $row3[0]->land_u->block_plan ?>">
+                                <input type="text" id="contactnumber" name="contactnumber" value="<?= $row3[0]->land->ul_block_plan ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Area in perch :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->area ?>">
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->ul_area ?>">
                             </div>
                             <div class="column">
                                 <label for="lastName">Image :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land_u->image ?>">
-                            </div>
-                        <?php else : ?>
-                            <div class="column">
-                                <label for="lastName">ID :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->id ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Name :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->name ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Lane :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->lane ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Town :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->town ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">District :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->district ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Area in perch :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->area_in_perch ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Image :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->block_plan ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Block plan :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->town ?>">
-                            </div>
-                            <div class="column">
-                                <label for="lastName">Road map :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->road_map ?>">
+                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->image ?>">
                             </div>
                         <?php endif; ?>
                     </div>
@@ -600,28 +563,47 @@
                                 <th>Task ID</th>
                                 <th>Task Name</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if ($rows1) : ?>
                                 <?php foreach ($rows1 as $row) : ?>
                                     <?php if ($row->status == 'Done') : ?>
-                                        <tr style="background-color:#1fd655;">
+                                        <tr style="background-color:#2ecc71;">
                                             <td><?= $row->task_id ?></td>
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
+                                            <td>
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->remark ?>/">
+                                                    <button><i class="fa-solid fa-eye"></i></button>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php elseif ($row->est_end_date < date('Y-m-d')) : ?>
-                                        <tr style="background-color:#ff0000;">
+                                        <tr style="background-color:#e74c3c;">
                                             <td><?= $row->task_id ?></td>
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
+                                            <td>
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->remark ?>/">
+                                                    <button><i class="fa-solid fa-eye"></i></button>
+                                                </a>
+                                                <a href="<?= ROOT ?>/Pmtask/notifiedSUP/<?= $row->task_id ?>/<?= $rows[0]->id ?>/">
+                                                    <button><i class="fa-solid fa-bell"></i></button>
+                                                </a>
+                                            </td>
                                         </tr>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <tr>
                                             <td><?= $row->task_id ?></td>
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
+                                            <td>
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->remark ?>/">
+                                                    <button><i class="fa-solid fa-eye"></i></button>
+                                                </a>
+                                            </td>
                                         </tr>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
@@ -673,7 +655,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($row7) :?>
+                            <?php if ($row7) : ?>
                                 <?php foreach ($row7 as $row) : ?>
                                     <tr>
                                         <td><?= $row->id ?></td>
@@ -682,14 +664,14 @@
                                         <td><?= $row->duration_in_days ?></td>
                                         <td>
                                             <?php if ($row5) : ?>
-                                                <?php if (($row7[0]->id == $row->id && $rows19[0]->progress > 80)) : ?>
-                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
+                                                <?php if (($row7[0]->id == $row->id && $rows19[0]->progress > 80) && (!($rows19[0]->status == 'Pending' || $rows19[0]->status == 'Suspend'))) : ?>
+                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
                                                         <button><i class="fa-solid fa-plus"></i></button>
                                                     </a>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                                 <?php if ($row7[0]->id == $row->id) : ?>
-                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/">
+                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
                                                         <button><i class="fa-solid fa-plus"></i></button>
                                                     </a>
                                                 <?php endif; ?>
@@ -760,10 +742,10 @@
                                 <?php foreach ($row10 as $row) : ?>
                                     <tr>
                                         <td><?= $row->request_id ?></td>
-                                        <td><?= $row->id ?></td>
-                                        <td><?= $row->req->level ?></td>
+                                        <td><?= $row->quotation_id ?></td>
+                                        <td><?= $row->level ?></td>
                                         <td>
-                                            <a href="<?= ROOT ?>/Pmmaterial_r/remaining_request/<?= $row->id ?>/<?= $row->request_id ?>/"><button style="background-color:#E5863D; color:white;" class="add___">Request</button></a>
+                                            <a href="<?= ROOT ?>/Pmmaterial_r/remaining_request/<?= $row->request_id ?>/"><button style="background-color:#E5863D; color:white;" class="add___">Request</button></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -795,7 +777,7 @@
                                         <td><?= $row->level; ?></td>
                                         <td>
                                             <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
-                                            <a href="<?= ROOT ?>/"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
+                                            <a href="<?= ROOT ?>//Pmmaterial/materialReceived/<?= $row->request_id; ?>"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
                                         </td>
                                     </tr>
                                 </tbody>

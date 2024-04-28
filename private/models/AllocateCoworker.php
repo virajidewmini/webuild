@@ -68,5 +68,23 @@ class AllocateCoworker extends Model{
 
         return $data;
     }
+
+    // get all corworkers relevant to a projects
+    public function getAllcorworkers($manager_id){
+        $query = "SELECT allocate_coworker.* FROM projects INNER JOIN allocate_coworker ON projects.id = allocate_coworker.project_id WHERE projects.manager_id = :manager_id AND projects.status = 'Ongoing' ORDER BY allocate_coworker.task_id DESC";
+        $params = [
+            'manager_id' => $manager_id
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function getAllcorworkers_P($project_id){
+        $query = "SELECT allocate_coworker.* FROM projects INNER JOIN allocate_coworker ON projects.id = allocate_coworker.project_id WHERE projects.id = :project_id ORDER BY allocate_coworker.task_id DESC";
+        $params = [
+            'project_id' => $project_id
+        ];
+        return $this->query($query,$params);
+    }
+
 }
 ?>

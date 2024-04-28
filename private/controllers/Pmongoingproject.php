@@ -73,6 +73,7 @@ class Pmongoingproject extends Controller
 		$data20 = $material_requests->getMaterialRequest($id);
 		$data21 = $quotations->getMaterialQ($id, 'Sent');
 		$data22 = $quotations->getMaterialQ($id, 'Received');
+		$data16 = $material_requests->remaining_req($id);
 
 
 		$complaint = new C_Complaint();
@@ -101,7 +102,7 @@ class Pmongoingproject extends Controller
 			'row6' => $data12,
 			'row7' => $data13,
 			'row9' => $data15,
-			// 'row10' => $data16,
+			'row10' => $data16,
 			'rows17' => $data17,
 			'rows18' => $data18,
 			'rows19' => $data19,

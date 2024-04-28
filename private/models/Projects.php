@@ -37,8 +37,8 @@ class Projects extends Model
         $staff = new Staffs();
         foreach ($data as $key => $row2) {
             if (isset($row2->supervisor_id)) {
-            $result = $staff->where('id', $row2->supervisor_id);
-            $data[$key]->staff = is_array($result) ? $result[0] : false;
+                $result = $staff->where('id', $row2->supervisor_id);
+                $data[$key]->staff = is_array($result) ? $result[0] : false;
             }
         }
 
@@ -111,17 +111,17 @@ class Projects extends Model
         return $data;
     }
 
-    public function get_payment($data){
-    
+    public function get_payment($data)
+    {
+
         $payment = new Payment_packages();
-        foreach ($data as $key => $row1){
-            if(isset($row1->payment_package_id)){
-                $result = $payment->where('id',$row1->payment_package_id);
-                $data[$key]->payment = is_array($result) ? $result[0] : false ;
+        foreach ($data as $key => $row1) {
+            if (isset($row1->payment_package_id)) {
+                $result = $payment->where('id', $row1->payment_package_id);
+                $data[$key]->payment = is_array($result) ? $result[0] : false;
             }
-    
         }
-    
+
         return $data;
     }
 
@@ -201,16 +201,17 @@ class Projects extends Model
     }
 
 
-    public function toStart($mid){
+    public function toStart($mid)
+    {
 
         $query = "SELECT projects.*, quotation.id AS quotation_id
         FROM projects
         JOIN quotation ON projects.id = quotation.project_id
         JOIN payments ON projects.id = payments.project_id
         WHERE projects.manager_id = :mid AND payments.status = 'Paid' AND projects.status = 'Pending' AND payments.installement_number = 1";
-		$data['mid'] = $mid;
-        return $this->query($query,$data);
- }
+        $data['mid'] = $mid;
+        return $this->query($query, $data);
+    }
 
 
     //for coordinator dashboard
@@ -221,9 +222,8 @@ class Projects extends Model
         FROM projects
         WHERE status = 'ongoing' ";
 
-        
-        return $this->query($query);
 
+        return $this->query($query);
     }
 
 
@@ -274,17 +274,17 @@ class Projects extends Model
         p.id; -- Finally, order by project ID for consistency
     ";
 
-        
-        return $this->query($query);
 
+        return $this->query($query);
     }
 
-    
-    public function get_project_request_id($value){
+
+    public function get_project_request_id($value)
+    {
 
 
-        $query="SELECT projects.project_request_id FROM projects 
-        WHERE projects.id = :value"; 
+        $query = "SELECT projects.project_request_id FROM projects 
+        WHERE projects.id = :value";
 
         //return $this->query($query);
         return $this->query($query, [
@@ -292,11 +292,12 @@ class Projects extends Model
         ]);
     }
 
-    public function getsupervisordetails($value){
+    public function getsupervisordetails($value)
+    {
 
 
-        $query="SELECT supervisor_id FROM projects 
-        WHERE id = :value"; 
+        $query = "SELECT supervisor_id FROM projects 
+        WHERE id = :value";
 
         //return $this->query($query);
         return $this->query($query, [
@@ -305,14 +306,16 @@ class Projects extends Model
     }
 
     //g
-    public function get_allTasks_P($p_id){
-            $query = "SELECT *, tasks.id as task_id FROM projects INNER JOIN tasks ON projects.model_id = tasks.model_id WHERE projects.id = :p_id";
-            return $this->query($query, [
-                'p_id' => $p_id,
-            ]);
-    } 
+    public function get_allTasks_P($p_id)
+    {
+        $query = "SELECT *, tasks.id as task_id FROM projects INNER JOIN tasks ON projects.model_id = tasks.model_id WHERE projects.id = :p_id";
+        return $this->query($query, [
+            'p_id' => $p_id,
+        ]);
+    }
     //to get to do task
-    public function get_allToDoTasks_P($p_id){
+    public function get_allToDoTasks_P($p_id)
+    {
         // $query = "SELECT tasks.*
         // FROM projects 
         // INNER JOIN tasks ON projects.model_id = tasks.model_id
@@ -328,5 +331,5 @@ class Projects extends Model
         return $this->query($query, [
             'p_id' => $p_id,
         ]);
-} 
+    }
 }

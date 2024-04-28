@@ -203,6 +203,18 @@
         </div>
     </div>
 <?php endif; ?>
+<script>
+        addEventListener('DOMContentLoaded', function() {
+            var popupContainer = document.querySelector('.popup-container');
+            var closeButton = popupContainer.querySelector('.btn-close');
+
+            // Close the popup when the close button is clicked
+            closeButton.addEventListener('click', function() {
+                popupContainer.style.display = 'none';
+                document.querySelector('.popup-overlay').style.display = 'none';
+            });
+        });
+    </script>
  
 
 <?php $this->view('includes/footer'); ?>
