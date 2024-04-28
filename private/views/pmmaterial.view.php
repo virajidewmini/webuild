@@ -109,7 +109,7 @@
                                 <td><?= $row->level; ?></td>
                                 <td><?= $row->r_date; ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                    <a href="<?= ROOT ?>/Pmmaterial/materialRequest_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
                                 </td>
                             </tr>
                         </tbody>

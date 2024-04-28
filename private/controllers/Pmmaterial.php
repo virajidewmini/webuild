@@ -43,34 +43,19 @@ class Pmmaterial extends Controller
         ]);
     }
 
-    public function request_view($id = null)
+    public function materialRequest_view($request_id = null)
     {
-        // code...
-        //     if(!Auth::logged_in()){
-        //         $this->redirect('login');
-        //     }
-        //     $project = new Projects();
+            if(!Auth::logged_in()){
+                $this->redirect('login');
+            }
+            $material_req= new Material_requests();
+
+            $row = $material_req->getReqDetails($request_id);
 
 
-        //    if( $_SERVER['REQUEST_METHOD'] =='POST'){
-        //     if($project->validate($_POST)){
-
-        //         $id1 = $_POST['id'];
-        //         $arr['supervisor_id']=$_POST['supervisor_id'];
-        //         $arr['date']=$_POST['date'];
-        //         $arr['final_date']=$_POST['final_date'];
-        //         $arr['action'] = 'ongoing';
-        //         $project->update($id1,$arr);
-        //         $this->redirect('pmmember');
-        //     }
-        //     }
-        //     $staff=new Staffs();
-        //     $row = $staff->where('id',$id);
-
-
-        //     $this->view('pmmember_add',[
-        //         'row'=>$row,
-        //     ]);
+            $this->view('pmmaterial_r_details',[
+                'rows'=>$row,
+            ]);
     }
     public function materialReceived($id = null)
     {
