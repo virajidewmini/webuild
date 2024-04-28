@@ -210,14 +210,18 @@
                                         <?php if($rows["kitchen_modification_details"]):?>
                                              
                                              <div class="form-group">
+                                                  <?php if($rows["kitchen_modification_details"][0]->tile_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
                                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["kitchen_modification_details"][0]->tile->name;?>">
                                                   </div>
+                                                  <?php endif;?>
+                                                  <?php if($rows["kitchen_modification_details"][0]->paint_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
                                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["kitchen_modification_details"][0]->paint->name;?>">
                                                   </div>
+                                                  <?php endif;?>
                                    
                                              </div>
                                              
@@ -236,14 +240,18 @@
                                         <?php if($rows["dining_modification_details"]):?>
                                              
                                              <div class="form-group">
+                                                  <?php if($rows["dining_modification_details"][0]->tile_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
                                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["dining_modification_details"][0]->tile->name;?>">
                                                   </div>
+                                                  <?php endif;?>
+                                                  <?php if($rows["dining_modification_details"][0]->paint_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
                                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["dining_modification_details"][0]->paint->name;?>">
                                                   </div>
+                                                  <?php endif;?>
                                    
                                              </div>
                                              
@@ -262,14 +270,18 @@
                                         <?php if($rows["living_modification_details"]):?>
                                              
                                              <div class="form-group">
+                                                  <?php if($rows["living_modification_details"][0]->tile_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
                                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["living_modification_details"][0]->tile->name;?>">
                                                   </div>
+                                                  <?php endif;?>
+                                                  <?php if($rows["living_modification_details"][0]->paint_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
                                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["living_modification_details"][0]->paint->name;?>">
                                                   </div>
+                                                  <?php endif;?>
                                    
                                              </div>
                                              
@@ -286,16 +298,21 @@
                                    <legend class="Formlegend"> Bathroom Modification Details</legend>
                                    <br>
                                         <?php if($rows["bathroom_modification_details"]):?>
+                                             <!-- <pre><?php print_r($rows["bathroom_modification_details"][0]->tile_id)?></pre> -->
                                              
                                              <div class="form-group">
+                                                  <?php if($rows["bathroom_modification_details"][0]->tile_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
                                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["bathroom_modification_details"][0]->tile->name;?>">
                                                   </div>
+                                                  <?php endif;?>
+                                                  <?php if($rows["bathroom_modification_details"][0]->paint_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
                                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["bathroom_modification_details"][0]->paint->name;?>">
                                                   </div>
+                                                  <?php endif;?>
                                    
                                              </div>
                                              
@@ -314,14 +331,18 @@
                                         <?php if($rows["exterior_modification_details"]):?>
                                              
                                              <div class="form-group">
+                                                  <?php if($rows["exterior_modification_details"][0]->tile_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
                                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["exterior_modification_details"][0]->tile->name;?>">
                                                   </div>
+                                                  <?php endif;?>
+                                                  <?php if($rows["exterior_modification_details"][0]->paint_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
                                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["exterior_modification_details"][0]->paint->name;?>">
                                                   </div>
+                                                  <?php endif;?>
                                    
                                              </div>
                                              
@@ -341,15 +362,18 @@
                                         <?php if($rows["bedroom_modification_details"]):?>
                                              
                                              <div class="form-group">
+                                                  <?php if($rows["bedroom_modification_details"][0]->tile_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
                                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["bedroom_modification_details"][0]->tile->name;?>">
                                                   </div>
+                                                  <?php endif;?>
+                                                  <?php if($rows["bedroom_modification_details"][0]->paint_id):?>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
                                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["bedroom_modification_details"][0]->paint->name;?>">
                                                   </div>
-                                   
+                                                  <?php endif;?>
                                              </div>
                                              
                                              

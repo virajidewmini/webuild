@@ -139,7 +139,7 @@
 
 
                 //updating complaint status
-                $notification->setState($_POST['id']);
+                $notification->setState($complaint_id);
                 //print_r($complaint_id);
                 $this->redirect("coordinatorviewcomplaints/seemore/$complaint_id");
                

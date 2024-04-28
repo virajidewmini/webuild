@@ -151,7 +151,7 @@ body{
                     <tbody>
                         <?php foreach ($rows['Done'] as $row) :?>
                         
-                            <tr <?php if(($row->payment_status)=="Warning"):?> style="background-color:#e74c3c"<?php elseif(($row->payment_status)=="Notified"):?> style="background-color:#e5863d"<?php elseif(($row->payment_status)=="Unpaid"):?> style="background-color:#e74c3c"<?php elseif(($row->payment_status)=="Paid"):?> style="background-color:#3d9ce5;"<?php elseif(($row->payment_status)=="Unpaid"):?> style="background-color:#e74c3c"<?php elseif(($row->payment_status)=="Unpaid"):?> style="background-color:#3498db"<?php else:?> style="background-color:" <?php endif;?>>                       
+                            <tr <?php if(($row->payment_status)=="Warning"):?> style="background-color:#ff0000"<?php elseif(($row->payment_status)=="Notified"):?> style="background-color:#3498db"<?php elseif(($row->payment_status)=="Unpaid"):?> style="background-color:"<?php elseif(($row->payment_status)=="Paid"):?> style="background-color:#2ecc71;"<?php else:?> style="background-color:#e5863d" <?php endif;?>>                       
                                 <td><?=$row->id?></td>
                                 <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
                                 <td><?=$row->model->name?></td>  

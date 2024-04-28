@@ -105,11 +105,12 @@
                     //print_r($data['reject_reason'] );
                 }
 
-                $quotation = new Quotation();
-                $project_id=$quotation->getProjectId($id)[0]->id;
-                //print_r($project_id);
-                $data['quotation']=$quotation->getQuotationName($project_id)[0];
-                
+                if($data['common']->status=='Done'){
+                    $quotation = new Quotation();
+                    $project_id=$quotation->getProjectId($id)[0]->id;
+                    //print_r($project_id);
+                    $data['quotation']=$quotation->getQuotationName($project_id)[0];
+                }
 
                 $this->view('coordinatorrequests.seemore',['rows'=>$data]);
             }
@@ -211,12 +212,12 @@
 
 
             //insert the reason for rejection
-            $preject_reason=new Rejected_Project_Requests();
+            $reject_reason=new Rejected_Project_Requests();
             
             $row['project_request_id'] = $request_id;
             $row['reason'] = $_POST['reject_reason'];
 
-            $preject_reason->insert($row);
+            $reject_reason->insert($row);
             
 
 

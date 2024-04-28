@@ -70,6 +70,18 @@ class Notifications extends Model{
         ]);
     }
 
+    //for terminate
+    public function setTerminateStateForPayment($value){
+
+        $query="UPDATE payments set payments.status='Terminated'       
+        WHERE payments.project_id = :value"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
     
 
     public function updateProjectRequestNotification($value){

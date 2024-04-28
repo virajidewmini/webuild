@@ -53,7 +53,7 @@
                 
             </div>
             <div class="table_section">
-                <table>
+                <table>         
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -61,21 +61,21 @@
                             <th>Installment Number</th>
                             <th>Amount</th>
                             <th>Date</th>
-                            <th>Notify User</th>
+                            <th>Notify User & Treminate the Project</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($rows['terminate'] as $row) :?>
                         
-                            <tr>                       
-                                <td><?php if($row->installement_number == 1):?><?=$row->project_request_id?><?php elseif($row->installement_number >1):?><?=$row->project_id?><?php endif;?></td>
-                                <td><?php if($row->installement_number == 1):?>Proect Request<?php elseif($row->installement_number >1):?>Project<?php endif;?></td>
-                                <!-- <td><?=$row->user->firstname?> <?=$row->user->lastname?></td> -->
-                                <td><?=$row->installement_number?></td>  
-                                <td><?=$row->amount?></td>       
-                                <td><?=$row->date?></td> 
+                            <tr style="background-color: #ff0000;">                       
+                                <td style="color: white;"><?php if($row->installement_number == 1):?><?=$row->project_request_id?><?php elseif($row->installement_number >1):?><?=$row->project_id?><?php endif;?></td>
+                                <td style="color: white;"><?php if($row->installement_number == 1):?>Proect Request<?php elseif($row->installement_number >1):?>Project<?php endif;?></td>
+                                <!-- <td style="color: white;"><?=$row->user->firstname?> <?=$row->user->lastname?></td> -->
+                                <td style="color: white;"><?=$row->installement_number?></td>  
+                                <td style="color: white;"><?=$row->amount?></td>       
+                                <td style="color: white;"><?=$row->date?></td> 
                                 <td>
-                                    <a href="<?=ROOT?>/coordinatordashboard/Terminationnotify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>">
+                                    <a href="<?=ROOT?>/coordinatordashboard/terminationnotify/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->id?>/<?=$row->project_id?>/<?=$row->project_request_id?>/<?=$row->user_id?>">
                                         <button><i class="fa-solid fa-bell" style="color: #e67f1e;"></i></button>
                                     </a>
                                 </td>
@@ -87,7 +87,9 @@
             </div>    
         </div>
         <?php else:?>
+        <br>
         <h4>Nothing to TERMINATE</h4>
+        <br>
         <!-- <div>
             <a href="#">
                 <button class="add___">Add Staff</button>
@@ -128,7 +130,7 @@
                                 <td><?=$row->amount?></td>       
                                 <td><?=$row->date?></td> 
                                 <td>
-                                    <a href="<?=ROOT?>/coordinatordashboard/warningnotify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>">
+                                    <a href="<?=ROOT?>/coordinatordashboard/warningnotify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>/<?=$row->project_id?>/<?=$row->project_request_id?>">
                                         <button><i class="fa-solid fa-bell" style="color: #e67f1e;"></i></button>
                                     </a>
                                 </td>
@@ -140,7 +142,9 @@
             </div>    
         </div>
     <?php else:?>
+        <br>
         <h4>No Warning Payments are found</h4>
+        <br>
         <!-- <div>
             <a href="#">
                 <button class="add___">Add Staff</button>
@@ -253,7 +257,7 @@
                                 <td><?=$row->amount?></td>       
                                 <td><?=$row->date?></td> 
                                 <td>
-                                    <a href="<?=ROOT?>/coordinatordashboard/notify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>">
+                                    <a href="<?=ROOT?>/coordinatordashboard/notify/<?=$row->user_id?>/<?=$row->amount?>/<?=$row->installement_number?>/<?=$row->date?>/<?=$row->id?>/<?=$row->project_id?>/<?=$row->project_request_id?>">
                                         <button><i class="fa-solid fa-bell" style="color: #e67f1e;"></i></button>
                                     </a>
                                 </td>
@@ -265,7 +269,9 @@
             </div>    
         </div>
     <?php else:?>
+        <br>
         <h4>No Payment Notifications are found</h4>
+        <br>
         <!-- <div>
             <a href="#">
                 <button class="add___">Add Staff</button>

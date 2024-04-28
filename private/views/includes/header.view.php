@@ -38,6 +38,13 @@
                     <span class="text">Project Requests</span>
                   </a>
                 </li>
+                
+                <li data-url="<?=ROOT?>/coordinatorviewquotation/viewallecentquotations">
+                  <a href="<?=ROOT?>/coordinatorviewquotation/viewallecentquotations">
+                    <i class="fa-solid fa-file"></i>
+                    <span class="text">Recent Quotations</span>
+                  </a>
+                </li>
                 <li data-url="<?=ROOT?>/coordinatorprojects">
                   <a href="<?=ROOT?>/coordinatorprojects">
                     <i class="fa-solid fa-list-check"></i>

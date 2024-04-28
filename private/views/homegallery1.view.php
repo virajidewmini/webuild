@@ -46,7 +46,9 @@
         <!-- <a class="btn" href=ExistingModels  style="margin-top: -30rem; margin-left:-10rem; font-size:small;">Models</a> -->
         
           <div class="content">
-            <h3>Serene Retreat Cottages</h3>
+            <h3>
+              
+            <?php print_r($_SESSION['model_id']);?>Serene Retreat Cottages</h3>
             <p>Escape to Serene Retreat Cottages, where modern comfort meets natural beauty. Discover cozy 2-bedroom homes nestled amidst lush surroundings, offering peaceful sanctuaries for rest and relaxation.</p>
            
           </div>
@@ -232,7 +234,7 @@
 </section>
 
     
-<a class="btn" href=#  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; ;margin-left:100rem; margin-bottom:2rem;">Move to Model</a>
+<a class="btn" href="<?=ROOT?>/submitModel"  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; ;margin-left:100rem; margin-bottom:2rem;">Move to Model</a>
 <section class="logo-container" style="background-color: black;">
   <div class="swiper logo-slider" >
     <div class="swiper-wrapper">

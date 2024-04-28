@@ -14,6 +14,8 @@ class ExistingModels extends Controller
     }
 
     public function gallery1(){
+
+      $_SESSION['model_id']=1;
       
       $this->view('homegallery1');
   }

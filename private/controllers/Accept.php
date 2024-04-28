@@ -5,6 +5,10 @@
         
         public function index($id){
 
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
             $quotation=new Project_Quotation();
             $data=$quotation->getTotalPrice($id);
 

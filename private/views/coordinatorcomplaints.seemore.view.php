@@ -143,11 +143,11 @@
                     
                     <?php if($row[0]->type=="Quality and the number of the photograph"   ||  $row[0]->type=="Quality of workmanship and materials" ):?>
                         <div style="display: flex; justify-content:center; margin-left: 461px" >                        
-                            <input readonly type="submit" value="Notify Supervisor"class="cancel-button">                         
+                            <input  type="submit" value="Notify Supervisor"class="cancel-button">                         
                         </div>
                     <?php elseif($row[0]->type=="Construction project delay "):?>
                         <div style="display: flex; justify-content:center; margin-left: 461px" >                        
-                            <input readonly type="submit" value="Notify Manager"class="cancel-button">                         
+                            <input  type="submit" value="Notify Manager"class="cancel-button">                         
                         </div>                   
                     <?php endif;?>
                     
