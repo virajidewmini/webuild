@@ -957,13 +957,49 @@
                     </ul>
                 </div>
 
+                <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                          const bellIcon = document.getElementById('notificationBell');
+                          const dropdown = document.getElementById('notificationDropdown');
+
+                          bellIcon.addEventListener('click', function(event) {
+                              event.preventDefault();
+                              dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                          });
+
+                          // Close dropdown if clicked outside
+                          document.addEventListener('click', function(event) {
+                              if (!bellIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                                  dropdown.style.display = 'none';
+                              }
+                          });
+                      });
+
+
+
+
+                      let liList=document.querySelectorAll(".side-menu.top>li")
+
+
+
+                      liList.forEach(li=>{
+                        let value=li.dataset.url;
+                        let url=document.URL
+                        if (url.includes(value)) {
+                          li.classList.add("active")
+                        }else{
+                          li.classList.remove("acive")
+                        }
+                      })
+                  </script>
+
                 <a href="<?= ROOT ?>/Staffprofile" class="profile">
         <img src="<?= ROOT ?>/img/profile.png" alt="" />
         <!-- USER -->
         <?= Auth::getFirstname() ?>
       </a>
     </nav>
-
+<main>
 
 
 
