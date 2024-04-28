@@ -183,7 +183,6 @@
 
               <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
-
                 <li data-url="<?=ROOT?>/storekeeperDashboard" >
                   <a href="<?=ROOT?>/storekeeperDashboard" class="nav-link">
                     <i class="fas fa-border-all"></i>
@@ -406,11 +405,7 @@
 
                   <script>
                   
-
                   let liList=document.querySelectorAll(".side-menu.top>li")
-
-
-
                   liList.forEach(li=>{
                     let value=li.dataset.url;
                     let url=document.URL
@@ -825,7 +820,7 @@
             <?php endif; ?>
           <?php endif; ?>
          <script>
-            let liList=document.querySelectorAll(".side-menu.top>li")
+             liList=document.querySelectorAll(".side-menu.top>li")
                   liList.forEach(li=>{
                     let value=li.dataset.url;
                     let url=document.URL

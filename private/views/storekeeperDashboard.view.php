@@ -152,7 +152,7 @@
 
 <body style="display: flex;">
   <div class="container">
-    <h1>Storekeeper Dashboard</h1>
+    <h1 style="margin-left:30rem; font-size:xx-larger">Storekeeper Dashboard</h1>
 
     <div class="data-cards">
       <?php if ($rows1) : ?>
