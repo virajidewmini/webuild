@@ -132,6 +132,8 @@ class Notifications extends Model{
         ]);
     }
 
+
+
     public function projectQuatationNotify()
     {
         $last_q_id = "";

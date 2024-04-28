@@ -42,10 +42,10 @@
   
 
 
-    <a  href=Home>home</a>
+    <a  href=Home style="color: #E5863D;">home</a>
     <!-- <a  href="#lands">Lands</a>
     <a  href="#houses">houses</a> -->
-    <a  href="#projects">completed projects</a>
+    <a  href=home/completedProjects  style="color: #E5863D;">completed projects</a>
    
   
   </nav>
@@ -78,50 +78,12 @@
   
   </header>
 
-  <div class="contact-info">
 
-    <div id="close-contact-info" class="fas fa-times">
-
-    </div>
-
-    <div class="info">
-      <i class="fas fa-phone">
-        <h3>phone number</h3>
-        <p>+94-123-3449</p>
-        <p>+91-112-1233</p>
-
-      </i>
-    </div>
-    <div class="info">
-      <i class="fas fa-envelope">
-        <h3>email address</h3>
-        <p>webuildconstruction@gmail.com</p>
-        <p>webuildconcept@gmail.com</p>
-        
-      </i>
-    </div>
-    <div class="info">
-      <i class="fas fa-map-marker-alt">
-        <h3>office  address</h3>
-        <p>reid avenue , colombo- sri lanka</p>
-        <p></p>
-      </i>
-    </div>
-
-    <div class="share">
-      <a href="#" class="fab fa-facebook-f"></a>
-      <a href="#" class="fab fa-twitter"></a>
-      <a href="#" class="fab fa-instagram"></a>
-      <a href="#" class="fab fa-linkedin"></a>
-    </div>
-
-
-  </div>
   
   <!-- header section ends -->
 
  
-  <section class="home" id="home" style="background-color: #f2f2f2; padding: 20px; ">
+  <section class="home" id="home" style="background-color: #f2f2f2; padding: 20px; margin:3rem;">
   <div class="swiper home-slider" >
     <div class="swiper-wrapper">
       <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/pexels-pixasquare-com-1115804.jpg) no-repeat; width:100%; height:100%;">
@@ -137,14 +99,14 @@
                 <option value="1">1 Room</option>
                 <option value="2">2 Room</option>
                 <option value="3">3 Room</option>
-                <!-- Add more options as needed -->
+         
               </select>
               <label for="numFloors" style="margin-right: 10px;">Number of Floors:</label>
               <select id="numFloors" name="numFloors" style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
                 <option value="1">1 Floor</option>
                 <option value="2">2 Floor</option>
                 <option value="3">3 Floor</option>
-                <!-- Add more options as needed -->
+          
               </select>
               <button type="submit" style="padding: 8px 16px; background-color: #E5863D; color: white; border: none; border-radius: 5px; cursor: pointer;">Search</button>
             </form>
@@ -171,7 +133,7 @@
     <div class="slide">
       <div class="image">
       <a href=ExistingModels/gallery1>
-    <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/download (1).jpg" alt="">
+    <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/old-white-house-garden_1150-12900.jpg" alt="">
       </a>
       </div>
       <div class="content" style="margin-bottom: 5rem;">
@@ -184,7 +146,7 @@
     <div class=" slide">
     <div class="image">
     <a href="ExistingModels/gallery2">
-        <img src="<?=ROOT?>/img/Photos/forLandingPage/property-7.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/long-shot-woman-field_23-2149535199.jpg" alt="">
     </a>
 </div>
       <div class="content"style="margin-bottom: 5rem;">
@@ -195,7 +157,7 @@
     <div class=" slide">
     <div class="image">
     <a href="ExistingModels/gallery3">
-        <img src="<?=ROOT?>/img/Photos/forLandingPage/property-6.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge.jpg" alt="">
     </a>
 </div>
       <div class="content" style="margin-bottom: 5rem;">
@@ -207,7 +169,7 @@
     <div class=" slide">
     <div class="image">
     <a href="ExistingModels/gallery4">
-        <img src="<?=ROOT?>/img/Photos/forLandingPage/property-7.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/house-isolated-field.jpg" alt="">
     </a>
 </div>
 
@@ -219,12 +181,56 @@
     <div class=" slide">
     <div class="image">
     <a href="ExistingModels/gallery5">
-        <img src="<?=ROOT?>/img/Photos/forLandingPage/property-6.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/cameron-gallery-catherine-park_1398-2848.jpg" alt="">
     </a>
 </div>
 
       <div class="content"style="margin-bottom: 5rem;">
-        <h3>Skyline Villa: 3-Story, 6 Bedroom Penthouse</h3>
+        <h3>Skyline Villa: 2-Story, 6 Bedroom Haven</h3>
+      </div>
+    </div>
+    <div class=" slide">
+    <div class="image">
+    <a href="ExistingModels/gallery6">
+        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/courtyard-monastery-park_1268-15399.jpg" alt="">
+    </a>
+</div>
+
+      <div class="content"style="margin-bottom: 5rem;">
+        <h3>Skyline Villa: 3-Story, 4 Bedroom Residence</h3>
+      </div>
+    </div>
+    <div class=" slide">
+    <div class="image">
+    <a href="ExistingModels/gallery7">
+        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/house-isolated-field.jpg" alt="">
+    </a>
+</div>
+
+      <div class="content"style="margin-bottom: 5rem;">
+        <h3>Skyline Villa: 3-Story, 5 Bedroom Haven</h3>
+      </div>
+    </div>
+    <div class=" slide">
+    <div class="image">
+    <a href="ExistingModels/gallery8">
+        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/beautiful-wooden-house-with-big-windows_23-2149343704.jpg" alt="">
+    </a>
+</div>
+
+      <div class="content"style="margin-bottom: 5rem;">
+        <h3>Skyline Villa: 3-Story, 7 Bedroom Penthouse</h3>
+      </div>
+    </div>
+    <div class=" slide">
+    <div class="image">
+    <a href="ExistingModels/gallery9">
+        <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/beautiful-shot-big-farmhouse-clear-blue-sky_181624-15996.jpg" alt="">
+    </a>
+</div>
+
+      <div class="content"style="margin-bottom: 5rem;">
+        <h3>Skyline Villa: 3-Story, 8 Bedroom Residence</h3>
       </div>
     </div>
 

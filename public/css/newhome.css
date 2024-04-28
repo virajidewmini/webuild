@@ -565,9 +565,9 @@ section{
     .box{
       cursor: initial;
 
-      &:hover .image img{
+      /* &:hover .image img{
         transform: scale(1.1);
-      }
+      } */
 
       .image{
         height: 40rem;
@@ -577,7 +577,6 @@ section{
           height: 100%;
           width: 100%;
           object-fit: cover;
-          transition: .2s linear;
         }
       }
       .content{
@@ -728,7 +727,7 @@ section{
 
     form{
       flex:  1 1 41rem;
-      background: var(--white);
+      background: var(--black);
       padding: 2rem;
 
       h3{
@@ -741,7 +740,7 @@ section{
         padding: 1.5rem 0;
         border-bottom: var(--border);
         font-size: 1.6rem;
-        color: var(--light-bg);
+        color:  black;
 
         &:focus{
           border-color: var(--yellow);

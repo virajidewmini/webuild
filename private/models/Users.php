@@ -254,7 +254,29 @@ class Users extends Model{
         ]);
 
     }
+
+    public function getNotificationCountByClient($value){
+
+        $query="SELECT COUNT(*) AS total FROM notifications WHERE customer_id = :value AND status ='Unseen'";
+
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    public function getNotificationsByClient($value){
+
+
+        $query="SELECT * FROM notifications WHERE customer_id = :value AND status ='Unseen' ";
+
+
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
     
 }
+
 ?>
 

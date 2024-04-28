@@ -126,6 +126,22 @@
                     $reportData->setTable('challenge');
                     $reportData->insert($challenge);
 
+                    $user=new Projects();
+                    $pm=$user->where("id",Auth::getProjectId());
+
+
+                    $notification=new Notifications();
+                    $dprNotification=[
+                        'date'=>date('Y-m-d'),
+                        'staff_id'=>$pm[0]->manager_id,
+                        'message'=>"Add Daily Progress Report on project id " .Auth::getProjectId(),
+                        'status'=>"Unseen",
+                        'type'=>'adddpr',
+                        'msg_id'=>Auth::getProjectId(),
+                    ];
+
+                    $notification->insert($dprNotification);
+
                     $this->redirect('dailyprogressreport');
 
                 }else{

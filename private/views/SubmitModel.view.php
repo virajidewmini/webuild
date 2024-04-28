@@ -22,7 +22,7 @@ input:disabled:hover + .radio-tile {
         <h1 style="margin-left: 35%;">  Express Your Home Makeover Vision !</h1>
 </div>
     <div class="form_container">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="requestForm">
 
         <?php if (isset($errors)) : ?>
             <div class="errors">
@@ -87,6 +87,16 @@ input:disabled:hover + .radio-tile {
                     <label for="district">District</label>
                     <select id="selectDistrict" name="district" onchange="updateTown()">
                         <option value="" disabled selected>Choose a District</option>
+                        <?php 
+                            $options = ['Colombo', 'Kandy', 'Galle', 'Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kegalle', 'Kilinochchi', 'Kurunegala', 'Mannar', 'Matale', 'Matara', 'Moneragala', 'Mullativu', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya'];
+                            foreach ($options as $option) {
+                                echo '<option value="' . $option . '"';
+                                if (get_var('district') === $option) {
+                                    echo ' selected';
+                                }
+                                echo '>' . $option . '</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
@@ -527,6 +537,18 @@ input:disabled:hover + .radio-tile {
                 
                 
             </div>
+            </fieldset>
+            
+            <br><br>
+
+            <fieldset class="FormFieldset" >
+                <legend class="Formlegend">Term & Conditions</legend>
+
+                <div class="column">
+                    
+                    <input type="checkbox" id="agree" name="agreeTerm" required>
+                    <label for="agreeTerm">I agree to the <a href="<?=ROOT?>/pdf/TermsAndConditions.pdf" target="_blank" style="color: blue;"> terms and conditions </a></label>
+                </div>
             </fieldset>  
 
             <button class="add___" style="width: 50%; font-size: medium; height: 40px; margin-top: 25px;" type="submit">Submit</button>
@@ -550,9 +572,16 @@ input:disabled:hover + .radio-tile {
   }
 
 }
-document.getElementById('viewPaymentPlans').addEventListener('click', function(event) {
+    document.getElementById('viewPaymentPlans').addEventListener('click', function(event) {
         event.preventDefault(); 
         window.open('<?= ROOT ?>/price', '_blank');
+    });
+
+    document.getElementById("requestForm").addEventListener("submit", function(event) {
+        if (!document.getElementById("agreeTerm").checked) {
+            event.preventDefault(); // Prevent form submission
+            alert("Please agree to the terms and conditions.");
+        }
     });
 </script>
 
