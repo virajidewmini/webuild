@@ -33,13 +33,34 @@
  
   <!-- header section starts -->
 
-<header class="header"  style="width: -2px;">
+<header class="header"  style="height:-2px;">
 
-  <a href="#" class="logo" style="font-size: x-large;"> <i class="fas fa-university" style="color: #E5863D;"></i> WeBuild</span> </a>
+<style>
+  
  
-  <nav class="navbar" style="font-size:medium;">
+    .header .navbar a {
+    color: #E5863D; /* Set default color */
+    font-size: 1.2rem;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
 
-    <!-- <a  href=Home/houses>Houses</a> -->
+.header .navbar a:hover {
+    color: black; /* Change color on hover */
+}
+
+.header .navbar a:active {
+    color: black; /* Change color on click */
+}
+
+  </style>
+
+</style>
+
+  <a href="#" class="logo" style="font-size: x-large;"> <i class="fas fa-university" style="color: #E5863D;"></i><span style="color: #000000; font-weight:600;"> WeBuild</span> </a>
+ 
+  <nav class="navbar" style="font-size:medium; ">
+
     <a  href=ExistingModels style="color: #E5863D; ">Existing models </a>
     <a  href="#about" style="color: #E5863D;">About</a>
     <a  href="#services" style="color: #E5863D;">Services</a>
@@ -48,13 +69,10 @@
     <a  href="#contact" style="color: #E5863D;">Contact </a>
     
     <script>
-    // Get all links
     var links = document.querySelectorAll('a');
 
-    // Add click event listener to each link
     links.forEach(function(link) {
         link.addEventListener('click', function() {
-            // Change color to black
             this.style.color = 'black';
         });
     });
@@ -64,27 +82,9 @@
   </nav>
   <div class="icons">
     <a class="btn" href=#  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; justify-content:end;border-radius:1rem;">Login</a>
-    <a href="#"><div id="login-btn" class="fas fa-user" style="font-size: x-large;" ></div> </a>
+    <a href="#"><div id="login-btn" class="fas fa-user" style="font-size: x-large; color:#000000;" ></div> </a>
   </div>
-  
-<!-- <form action="" class="search-form">
-  <input type="search" name="" placeholder="search here..." id="search-box">
-  <label for="search-box" class="fas fa-search"></label>
-</form> -->
 
-<!-- <form action="" class="login-form">
-  <h3>Login form</h3>
-  <input type="email" placeholder="enter your email" class="box" name="" id="">
-  <input type="password" placeholder="enter your password" class="box">
-  <div class="flex">
-    <input type="checkbox" name="" id="remember-me">
-    <label for="remember-me">remember-me</label>
-    <a href="#GAVEESHA">forgot password</a>
-  </div>
-  <input type="submit" value="login now" class="btn">
-  <p>don't have an account <a href="#"> create one!</a></p>
-</form>
-   -->
   </header>
 
   
@@ -138,22 +138,29 @@
     <div class="swiper-wrapper">
       <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva2.png) no-repeat;padding-bottom:3rem;height: 2px;">
         <div class="content">
-          <h3  style="font-size: 4rem;">we provide best service</h3>
-          <p style="margin-bottom:35px; font-size: 1.2rem;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
+          <h3  style="font-size: 4rem;">we provide the best service</h3>
+          <p style="margin-bottom:35px; font-size: 1.2rem;text-align:justify;">Enter a realm where dreams materialize, 
+          as steel meets sky and concrete pulses with vitality. Amidst the symphony of 
+          construction, we forge tomorrow's groundwork. Embark on our journey, where each 
+          raised beam symbolizes progress and endless potential.</p>
           
         </div>
       </section>
       <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva1.png) no-repeat;padding-bottom:3rem;height: 2px;">
         <div class="content">
-          <h3  style="font-size: 4rem;">we provide best service</h3>
-          <p style="margin-bottom:35px;  font-size: 1.2rem;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
+          <h3  style="font-size: 4rem;">we work with friendly staff</h3>
+          <p style="margin-bottom:35px;  font-size: 1.2rem; text-align:justify;">Our exceptional staff comprises talented individuals 
+          dedicated to excellence. With their expertise and passion, they bring projects to life, embodying our
+           commitment to quality and innovation. Join our team and experience the difference firsthan</p>
           
         </div>
       </section>
-      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva3.png) no-repeat;padding-bottom:3rem;height: 2px;">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva4.png) no-repeat;padding-bottom:3rem;height: 2px;">
         <div class="content">
-          <h3  style="font-size: 4rem;">we provide best service</h3>
-          <p style="margin-bottom:35px;  font-size: 1.2rem;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
+          <h3  style="font-size: 4rem;">we provide fashionated pre existing models</h3>
+          <p style="margin-bottom:35px;  font-size: 1.2rem; text-align:justify;">Discover our curated selection of fashion-forward
+           pre-existing models. From timeless classics to contemporary designs, our collection offers a range 
+          of stylish options to suit every taste. Explore our inventory and find the perfect model to elevate your project.</p>
           
         </div>
       </section>
@@ -183,21 +190,22 @@
 
     <!-- about section starts -->
 
-    <section class="about" id="about"  style="margin-top: -4rem;">
+    <section class="about" id="about" style="margin-top: -4rem;">
 
+    
       <h1 class="heading">About Us</h1>
 
       <div class="row">
 
         <div class="video">
-          <img src="<?=ROOT?>/img/Photos/forLandingPage/istockphoto-538575738-612x612.jpg" alt="">
+          <img src="<?=ROOT?>/img/Photos/bathroom/architects-wearing-helmets-plans.jpg" alt="">
         </div>
 
         <div class="content">
-          <h3>We will provide you the best work which you dreamt for!</h3>
-          <p>Everyone aspires to own a great piece of property. We, at Prime Lands, made it our aim to make 
-            this dream a reality. Assume you wish to buy land to build a house for you and your family. Prime
-             Lands provide you with a selection of the most excellent land alternatives in the country, as well 
+          <h3 style="font-size: 2rem;">We will provide you the best work which you dreamt for!</h3>
+          <p style="font-size: 1.2rem;text-align:justify;">Everyone aspires to own a great piece of property. We, at webuild, made it our aim to make 
+            this dream a reality. Assume you wish to buy land to build a house for you and your family. webuild
+             provide you with a selection of the most excellent land alternatives in the country, as well 
              as a variety of support services, such as legal and financial assistance, to help you realize your
               property dreams. In Sri Lanka's highly competitive real estate market, Prime Lands acquired over 
               300,000 customers, sufficient proof of Prime Lands' capacity and leadership in the real estate industry. </p>
@@ -206,34 +214,35 @@
 
       </div>
 
-      <div class="box-container" style="display: flex;justify-content:center;gap:3rem;">
+      <div class="box-container" style="display: flex;justify-content:center;gap:3rem; margin-top:5rem; ">
 
-        <div class="box">
-          <h3>10+</h3>
-          <p>years of experience</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">3+</h3>
+          <p style="font-size: 1.2rem;">years of experience</p>
         </div>
 
-        <div class="box">
-          <h3>150+</h3>
-          <p>project completed</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">15+</h3>
+          <p style="font-size: 1.2rem;">project completed</p>
         </div>
 
-        <div class="box">
-          <h3>300+</h3>
-          <p>satiesfied clients</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">10+</h3>
+          <p style="font-size: 1.2rem;">satisfied clients</p>
         </div>
 
-        <div class="box">
-          <h3>200+</h3>
-          <p>active workers</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">250+</h3>
+          <p style="font-size: 1.2rem;">active workers</p>
         </div>
       </div>
-    </section>
+</section>
+
 
    
     <section class="services" id="services">
   
-        <h1 class="heading">our services</h1>
+        <h1 class="heading">Our Services</h1>
   
         <div class="box-container" style="display:flex">
   
@@ -278,7 +287,7 @@
 
 <!-- completed project section starts  -->
 
-<section class="projects" id="projects">
+<section class="projects" id="projects"  style="background-color:#CCCCCC;">
 
 <style>
   .projects{
@@ -342,7 +351,7 @@
   }
 }
 </style>
-  <h1 class="heading">Trending Models</h1>
+  <h1 class="heading" style="color: black;">Trending Models</h1>
 
   <div class="box-container" style="display: flex;gap:2rem;">
     <a href= ExistingModels/gallery1/ class="box">
@@ -388,7 +397,7 @@
       </div>
     </a>
 
-    <a href=ExistingModels/gallery4 class="box">
+    <!-- <a href=ExistingModels/gallery4 class="box">
       <div class="image">
         <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/house-isolated-field.jpg" alt="">
       </div>
@@ -410,9 +419,9 @@
           <h3>Skyline Villa: 3-Story, 6 Bedroom Penthouse</h3>
         </div>
       </div>
-    </a>
+    </a> -->
   </div>
-  <a class="btn" href=ExistingModels  style="background-color: #E5863D; margin-left:85rem; justify-content:end">Models</a>
+  <a class="btn" href=ExistingModels  style="background-color: #E5863D; margin-left:79rem; justify-content:end">Models</a>
 </section>
 
 <!-- completed project section ends  -->
@@ -493,46 +502,46 @@
 
 <section class="pricing" id="pricing">
 
-  <h1 class="heading"> Our Pricing</h1>
+  <h1 class="heading">Payment Packages</h1>
 
-  <div class="box-container" style="display: flex;justify-content:center;" >
+  <div class="box-container" style="display: flex;justify-content:center;height:45rem;" >
 
-    <div class="box" style="padding:8rem;">
+    <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-home"></i>
-      <h3>TriEase Pay</h3>
+      <h3 style="font-size: 2rem; font-weight:600;">TriEase Pay</h3>
       <!-- <div class="price"><span>Rs</span>250<span>/no</span></div> -->
       <div class="list">
-        <p>30% Initial payment</p>
-        <p>35% of 2nd Installment</p>
-        <p>35% of 3rd Installment</p>
-        <p>5% Interest</p>
+        <p style="font-size: 1.2rem;">30% Initial payment</p>
+        <p style="font-size: 1.2rem;">35% of 2nd Installment</p>
+        <p style="font-size: 1.2rem;">35% of 3rd Installment</p>
+        <p style="font-size: 1.2rem;">5% Interest</p>
       </div>
       <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box" style="padding:8rem;">
+    <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-building"></i>
-      <h3>DuoEase Plan</h3>
+      <h3 style="font-size: 2rem; font-weight:600;">DuoEase Plan</h3>
       <!-- <div class="price"><span>Rs</span>650<span>/no</span></div> -->
       <div class="list">
-        <p>40% Initial payment</p>
-        <p>60% of 2nd Installment</p>
-        <p>No Interest</p>
+        <p style="font-size: 1.2rem;">40% Initial payment</p>
+        <p style="font-size: 1.2rem;">60% of 2nd Installment</p>
+        <p style="font-size: 1.2rem;">No Interest</p>
       </div>
       <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box" style="padding:8rem;">
+    <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-city"></i>
-      <h3>ultimate plan</h3>
+      <h3 style="font-size: 2rem; font-weight:600;">ultimate plan</h3>
       <!-- <div class="price"><span>Rs</span>1250<span>/no</span></div> -->
       <div class="list">
-        <p>20% Initial payment</p>
-        <p>20% of 2nd Installment</p>
-        <p>20% of 3rd Installment</p>
-        <p>20% of 4rd Installment</p>
-        <p>20% of 5rd Installment</p>
-        <p>10% Interest</p>
+        <p style="font-size: 1.2rem;">20% Initial payment</p>
+        <p style="font-size: 1.2rem;">20% of 2nd Installment</p>
+        <p style="font-size: 1.2rem;">20% of 3rd Installment</p>
+        <p style="font-size: 1.2rem;">20% of 4rd Installment</p>
+        <p style="font-size: 1.2rem;">20% of 5rd Installment</p>
+        <p style="font-size: 1.2rem;">10% Interest</p>
       </div>
       <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
@@ -547,24 +556,23 @@
 
 <!-- contact section starts  -->
 
-<section class="contact" id="contact">
+<section class="contact" id="contact" style="background-color:#CCCCCC; height:40rem;">
 
-<h1 class="heading">Contact Us</h1>
+<h1 class="heading" style="color: #000000;">Contact Us</h1>
 
 <div class="row">
  
   <iframe  class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.902976812423!2d79.86115290000001!
 3d6.9022055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2s
 University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4v1708289637822!5m2!1sen!2slk"
-  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  style="height: 25rem;"  ></iframe>
 
-  <form action=ContactUsHome/add method="post" class="conatct-us">
-    <h3>get in touch</h3>
-    <input type="text" placeholder="name" class="box" style="color: black; padding-left:2rem;" >
-    <input type="email" placeholder="email" class="box"style="color: black;  padding-left:2rem;">
-    <input type="number" placeholder="phone" class="box" style="color: black;  padding-left:2rem;">
-    <textarea name="message" placeholder="message"  class="box"  id="" cols="30" rows="10" style="color: black; padding-left:2rem;"></textarea>
-    <input type="submit" value="send message" class="btn" style="background-color: #E5863D;">
+  <form action=ContactUsHome/add method="post" class="conatct-us"style="height: 25rem; background-color:#CCCCCC; margin-left:3rem;margin-top:3rem;"  >
+  <h3  style="font-size:x-large;">info</h3>
+      <i class="fas fa-phone" style="font-size: medium;"></i><span style="font-size: medium;"><span><span> </span>    </span>+94 112 699827 </span> <br>
+      <i class="fas fa-envelope" style="font-size: medium;" ></i><span style="font-size: medium;"><span><span> </span>    </span>info@webuild.lk</span> <br>
+      <i class="fas fa-map" style="font-size: medium;"></i><span style="font-size: medium;"><span><span> </span>    </span>No.7, Koswatte Road,Rajagiriya</span> 
+    <!-- <input type="submit" value="send message" class="btn" style="background-color: #E5863D;"> -->
   </form>
 
 
@@ -575,80 +583,11 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <!-- contact section ends  -->
 
-<!-- blogs section starts  -->
-
-<!-- <section class="blogs" id="blogs">
-
-  <h1 class="heading"> our blogs </h1>
-
-  <div class=" swiper blog-slider">
-
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/download (1).jpg" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/1535965.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/269947.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/270072.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/buildings_24914.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- blogs section ends  -->
 
 
 <!-- client logo section starts  -->
 
-<section class="logo-container">
+<section class="logo-container"  style="background-color:#000000;">
   <div class="swiper logo-slider" >
     <div class="swiper-wrapper">
       <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/lankatiles.jpg" alt=""></div>
@@ -718,8 +657,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <section class="footer">
 
-  <div class="links">
-    <!-- <a class="btn" href="#home.php">Lands</a> -->
+  <!-- <div class="links">
     <a class="btn" href=ExistingModels>Existing Models</a>
     <a class="btn" href="#about">About</a>
     <a class="btn" href="#services">Services</a>
@@ -727,9 +665,9 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
     <a class="btn" href="#pricing">Pricing</a>
     <a class="btn" href="#contact">Contact Us</a>
 
-  </div>
+  </div> -->
 
-  <div class="credit">credited by <span>webuild construction</span> | all rights reserved!</div>
+  <div class="credit" style="margin: -2rem; font-size:medium;">credited by <span>WeBuild</span> | all rights reserved!</div>
 
 
 </section>
