@@ -11,7 +11,7 @@
             
             $material_requests=new Material_requests();
 
-            $data=$material_requests->findAll();
+            $data=$material_requests->findAllMaterialRequests();
 
             $this->view('coordinatorviewmaterialrequests',['rows'=>$data]);
         }
@@ -26,8 +26,9 @@
             $material_requests=new Material_requests();
 
             $data['common']=$material_requests->where('id',$id)[0];
-            $data['supplier']=$material_requests->getSupplierDetails($data['common']->material->material_name)[0];
-
+            //print_r($data['common']->material_name);
+            $data['supplier']=$material_requests->getSupplierDetails($data['common']->material_name)[0];
+            //print_r($data['supplier']);
             $this->view('coordinatorviewmaterialrequests.seemore',['rows'=>$data]);
         }
 
