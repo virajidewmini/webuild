@@ -33,15 +33,26 @@
 
 <header class="header">
 
-  <a href="#" class="logo">We <span>Build</span> </a>
-  
-  
-  <nav class="navbar">
-  
 
   
+  <style>
+     .header .navbar a {
+    color: #E5863D; /* Set default color */
+    font-size: 1.2rem;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
 
+.header .navbar a:hover {
+    color: black; /* Change color on hover */
+}
 
+.header .navbar a:active {
+    color: black; /* Change color on click */
+}
+  </style>
+  <nav class="navbar" style="margin-left:35rem;">
+  
     <a  href=Home style="color: #E5863D;">home</a>
     <!-- <a  href="#lands">Lands</a>
     <a  href="#houses">houses</a> -->
@@ -49,33 +60,8 @@
    
   
   </nav>
-  <div class="icons">
-    <div id="menu-btn" class="fas fa-bars"></div>
-    <div id="info-btn" class="fas fa-info-circle"></div>
-    <div id="search-btn" class="fas fa-search"></div>
-    <div id="login-btn" class="fas fa-user"></div>
-    
-    <!-- <div id="menu-btn" class="fas fa-info-circle"></div> -->
-  </div>
-  
-<form action="" class="search-form">
-  <input type="search" name="" placeholder="search here..." id="search-box">
-  <label for="search-box" class="fas fa-search"></label>
-</form>
+ 
 
-<form action="" class="login-form">
-  <h3>Login form</h3>
-  <input type="email" placeholder="enter your email" class="box" name="" id="">
-  <input type="password" placeholder="enter your password" class="box">
-  <div class="flex">
-    <input type="checkbox" name="" id="remember-me">
-    <label for="remember-me">remember-me</label>
-    <a href="#GAVEESHA">forgot password</a>
-  </div>
-  <input type="submit" value="login now" class="btn">
-  <p>don't have an account <a href="#"> create one!</a></p>
-</form>
-  
   </header>
 
 
@@ -87,7 +73,7 @@
   <div class="swiper home-slider" >
     <div class="swiper-wrapper">
       <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/pexels-pixasquare-com-1115804.jpg) no-repeat; width:100%; height:100%;">
-        <div class="content">
+        <div class="content" style="font-size: medium;">
           <h3>Existing Models</h3>
           <p>Welcome to our diverse range of homes, each meticulously designed to suit every lifestyle. From the intimate charm of our 2-bedroom model to the grandeur of our 6-bedroom masterpiece, experience unparalleled comfort, style, and functionality tailored to your needs. Step into luxury, step into your dream home.</p>
           <!-- Form for filtering -->

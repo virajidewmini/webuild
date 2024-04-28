@@ -4,6 +4,7 @@
         <h1>Send Requests</h1>
     </div>
     <div class="form_container">
+    
         <form method="post" class="v_form">
             <?php if($rows): ?>
             <label class="v_label" id="">Material Or Equipment ID</label>
@@ -18,8 +19,10 @@
             <input type="text" name="requested_quantity" id="Requested_Quantity" class="v_form-control" style="height: 50px;" required>
             <input style="display:none" name="status" value="Pending"  >
 
-            <?php print_r($_POST); ?>
-
+            <!-- <?php print_r($_POST); ?> -->
+            <?php if(!empty($error)): ?>
+                  <p class="error-message"  style="color: red;padding:1rem;"><?= $error ?></p>
+             <?php endif; ?>
             <button class="v_submit_button" type="submit">Submit</button>
             <!-- <button class="v_submit_button" type="submit">Submit</button> -->
             <?php endif; ?>

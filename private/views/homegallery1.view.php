@@ -42,13 +42,11 @@
 
       <div class="swiper-wrapper">
         
-        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/pexels-maria-orlova-4916281.jpg)no-repeat; width:100%; height:100%;">
+        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/bathroom/canva12.jpg)no-repeat; width:100%; height:100%;">
         <!-- <a class="btn" href=ExistingModels  style="margin-top: -30rem; margin-left:-10rem; font-size:small;">Models</a> -->
         
-          <div class="content">
-            <h3>
-              
-            <?php print_r($_SESSION['model_id']);?>Serene Retreat Cottages</h3>
+          <div class="content" style="font-size:large; margin-left:50rem;">
+            <h3>Serene Retreat Cottages</h3>
             <p>Escape to Serene Retreat Cottages, where modern comfort meets natural beauty. Discover cozy 2-bedroom homes nestled amidst lush surroundings, offering peaceful sanctuaries for rest and relaxation.</p>
            
           </div>
@@ -66,9 +64,26 @@
 
   <!-- header section starts -->
 
-<header class="header">
+  <header class="header">
+  <style>
+    .header .existing1 .navbar a {
+    color: #E5863D; /* Set default color */
+    font-size: 1.2rem;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.header .existing1 .navbar a:hover {
+    color: black; /* Change color on hover */
+}
+
+.header .existing1 .navbar a:active {
+    color: black; /* Change color on click */
+}
+
+  </style>
   <div class="existing1">
-       <nav class="navbar">   
+       <nav class="navbar" >   
            <a  href="#Gallery">Gallery</a>
            <a  href=#floorplan>Floor Plans </a>
            <a  href="#blockplan">Block Plan</a>

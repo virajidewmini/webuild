@@ -3,6 +3,11 @@ class Allocated_subtasks extends Model
 {
     protected $table = "allocated_subtask";
 
+    protected $afterSelect = [
+        'get_subtask',
+
+    ];
+
 
 
     public function validate($DATA)
@@ -43,5 +48,19 @@ class Allocated_subtasks extends Model
         }
 
         return $errors === 0;
+    }
+
+    public function get_subtask($data)
+    {
+
+        $subtask = new Sub_tasks();
+        foreach ($data as $key => $row1) {
+            if (isset($row1->subtask_id)) {
+                $result = $subtask->where('id', $row1->subtask_id);
+                $data[$key]->subtask = is_array($result) ? $result[0] : false;
+            }
+        }
+
+        return $data;
     }
 }

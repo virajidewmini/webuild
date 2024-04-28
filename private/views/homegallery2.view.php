@@ -42,10 +42,9 @@
 
       <div class="swiper-wrapper">
         
-        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/pexels-maria-orlova-4916281.jpg)no-repeat; width:100%; height:100%;">
-        <!-- <a href=home  class="btn"   style="margin-top: -30rem; margin-left:-10rem; font-size:small;">HOME</a> -->
-        <a class="btn" href=home style="margin-top: -30rem; margin-left:-10rem; font-size:small;">About Us</a>
-          <div class="content">
+        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/bathroom/canva13.jpg)no-repeat; width:100%; height:100%;">
+       
+          <div class="content" style="font-size:large; margin-left:10rem;">
             <h3>Serene Retreat Cottages</h3>
             <p>Escape to Serene Retreat Cottages, where modern comfort meets natural beauty. Discover cozy 2-bedroom homes nestled amidst lush surroundings, offering peaceful sanctuaries for rest and relaxation.</p>
            
@@ -63,17 +62,32 @@
     <!-- home section ends  -->
 
   <!-- header section starts -->
+  <header class="header">
+  <style>
+    .header .existing1 .navbar a {
+    color: #E5863D; /* Set default color */
+    font-size: 1.2rem;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
 
-<header class="header">
+.header .existing1 .navbar a:hover {
+    color: black; /* Change color on hover */
+}
+
+.header .existing1 .navbar a:active {
+    color: black; /* Change color on click */
+}
+
+  </style>
   <div class="existing1">
-       <nav class="navbar">   
+       <nav class="navbar" >   
            <a  href="#Gallery">Gallery</a>
            <a  href=#floorplan>Floor Plans </a>
            <a  href="#blockplan">Block Plan</a>
       </nav>
    </div>
 </header>
-
 
 
 <!-- header section ends -->
@@ -181,7 +195,7 @@
     <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/bedrooms/br1.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
         
         </section>
-        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/kitchen/k5.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
+        <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/kitchen/k5q.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
           
         </section>
         <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/bathroom/logo_make_11_06_2023_272.jpg) no-repeat;padding-bottom:3rem;height: 2px;  object-fit:cover;">
