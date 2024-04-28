@@ -11,7 +11,7 @@
 
 /* body */
 body{
-    background:#73cbc7;
+    background:linear-gradient(to right, #E5863D, #ffffff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,8 @@ body{
 /*Login Style*/
 .login{
     float:right;
-    background-color: #fafafa;
+    background-image:linear-gradient(to left, #E5863D, #ffffff);
+    /* background-color: #fafafa; */
     width: 50%;
     height: 100%;
     border-radius: 10px 0 0 10px;
@@ -108,7 +109,8 @@ input[type="checkbox"]{
 .btn:hover{
     width:97%;
     font-size: 22px;
-    background-color: #02514C;
+    background-color: #fff;
+    color: #E5863D;
     font-weight: 500;
 }
 
@@ -154,7 +156,8 @@ h4:before, h4:after {
 /*Register Style*/
 .register{
     float: left;
-    background-image:linear-gradient(to right, #E5863D, #ffffff);
+    background-color: #fafafa;
+    /* background-image:linear-gradient(to left, #E5863D, #ffffff); */
     height: 100%;
     width: 50%; 
 	color:#050505;
@@ -197,8 +200,8 @@ h4:before, h4:after {
 }
 
 .register button:hover{
-    color: black;
-    background-color: #fff;
+    color: rgb(255, 255, 255);
+    background-color: #E5863D;
     cursor: pointer;
     border: none;
     transform: scale(1.1);

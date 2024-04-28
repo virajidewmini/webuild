@@ -87,7 +87,7 @@
             </div>  
         </form>
         <div class="register">
-            <img src="<?=ROOT; ?>/img/webuildlogo.jpeg">
+            <img src="<?=ROOT; ?>/img/webuildlogo.png">
                 <h3>WELCOME TO</h3>
                 <h2>WEBUILD</h2>
                 <p>Here we are introducing a web-based platform for Making

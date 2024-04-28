@@ -27,7 +27,7 @@
 
 
         <div class="register">
-            <img src="<?php echo URLROOT; ?>/assets/images/customer/logo.png">
+        <img src="<?=ROOT; ?>/img/webuildlogo.png">
             <!-- <i class="fas fa-user-plus fa-5x"></i> -->
             <h3>WELCOME TO</h3>
             <h2>Read Spot</h2>
