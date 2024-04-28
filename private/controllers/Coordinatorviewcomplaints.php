@@ -128,7 +128,7 @@
                 
                 $staff_id= $notification->getStaffID($_POST['project_id'],$_POST['type']);
 
-                if($_POST['type']=="Quality of photograph"|| $_POST['type']=="Quality of workmanship and materials" ){
+                if($_POST['type']=="Quality and the number of the photograph"|| $_POST['type']=="Quality of workmanship and materials" ){
                     $row['staff_id'] = $staff_id[0]->supervisor_id;
                 }
                 if($_POST['type']=="Construction project delay "){

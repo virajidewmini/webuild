@@ -11,7 +11,7 @@
             
             $material_requests=new Material_requests();
 
-            $data=$material_requests->findAll();
+            $data=$material_requests->findAllMaterialRequests();
 
             $this->view('coordinatorviewmaterialrequests',['rows'=>$data]);
         }
