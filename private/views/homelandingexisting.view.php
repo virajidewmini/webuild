@@ -92,7 +92,7 @@
           <p>Welcome to our diverse range of homes, each meticulously designed to suit every lifestyle. From the intimate charm of our 2-bedroom model to the grandeur of our 6-bedroom masterpiece, experience unparalleled comfort, style, and functionality tailored to your needs. Step into luxury, step into your dream home.</p>
           <!-- Form for filtering -->
           <div class="filtermodel" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <form id="filterForm" style="display: flex; align-items: center; justify-content: center;">
+            <form id="filterForm" style="display: flex; align-items: center; justify-content: center;" method="<?=ROOT?>/ExistingModels">
             <h3>Find Your Dream Place</h3>
               <label for="numRooms" style="margin-right: 10px;">Number of Rooms:</label>
               <select id="numRooms" name="numRooms" style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
@@ -130,7 +130,7 @@
 
   <div class="-wrapper">
 
-    <div class="slide">
+    <!-- <div class="slide">
       <div class="image">
       <a href=ExistingModels/gallery1>
     <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/old-white-house-garden_1150-12900.jpg" alt="">
@@ -139,9 +139,8 @@
       <div class="content" style="margin-bottom: 5rem;">
         <h3>"Cozy Haven: 1-Story, 2 Bedroom Retreat</h3>
         
-        <!-- <a href="#" class="btn">read more</a> -->
-      </div>
-    </div>
+        
+    </div> -->
 
     <div class=" slide">
     <div class="image">

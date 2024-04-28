@@ -928,10 +928,21 @@
                   <span class="num"><?=($_SESSION['notification_count']);?></span>
                 </a>
 
-                <div class="notification-dropdown" id="notificationDropdown">
-                    <ul class="notification-list" style="padding: 0;
-                                margin: 0;
-                                list-style-type: none;">
+                <div class="notification-dropdown" id="notificationDropdown" style="display: none;
+                          position: absolute;
+                          top: calc(100% + 10px);
+                          right: 0;
+                          z-index: 1000;
+                          background: #fff;
+                          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                          border-radius: 8px;
+                          padding: 8px 0;
+                          min-width: 200px;
+                          max-height: 200px; /* Set max height for scroll */
+                          overflow-y: auto; /* Enable vertical scroll if content exceeds max height */">
+                      <ul class="notification-list" style="padding: 0;
+                                  margin: 0;
+                                  list-style-type: none;">
 
                       <?php if($_SESSION['notifications']):?>
                         <?php foreach ($_SESSION['notifications'] as $row) :?>
