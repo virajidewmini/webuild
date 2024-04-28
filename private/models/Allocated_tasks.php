@@ -68,21 +68,11 @@ class Allocated_tasks extends Model
         return $data;
     }
 
-    public function pendingTask($id)
-    {
-
-        $query = "SELECT *
-        FROM allocated_task
-        WHERE allocated_task.status = 'Pending' AND allocated_task.project_id = :id";
-
-        $data['id'] = $id;
-        return $this->query($query, $data);
-    }
-
+    //get ongoing all tasks of a manager
     public function OngoingAllTask($mid)
     {
 
-        $query = "SELECT allocated_task.* FROM allocated_task INNER JOIN projects ON allocated_task.project_id = projects.id WHERE projects.manager_id = :mid";
+        $query = "SELECT allocated_task.* FROM allocated_task INNER JOIN projects ON allocated_task.project_id = projects.id WHERE projects.manager_id = :mid AND allocated_task.status = 'Ongoing' ORDER BY allocated_task.est_start_date ASC";
 
         $data['mid'] = $mid;
         return $this->query($query, $data);
@@ -91,9 +81,30 @@ class Allocated_tasks extends Model
     public function AllowTask($p_id)
     {
 
-        $query = "SELECT * FROM allocated_task WHERE project_id = :p_id AND (status = 'Ongoing' OR status = 'Complete') ORDER BY task_id DESC LIMIT 1";
+        // $query = "SELECT * FROM allocated_task WHERE project_id = :p_id AND (status = 'Ongoing' OR status = 'Complete' OR 'Done') ORDER BY task_id DESC LIMIT 1";
+        $query = "SELECT * FROM allocated_task WHERE project_id = :p_id ORDER BY task_id DESC LIMIT 1";
 
         $data['p_id'] = $p_id;
+        return $this->query($query, $data);
+    }
+
+    public function PMAcceptTask($p_id, $t_id)
+    {
+
+        $query = "UPDATE `allocated_task` SET `status`='Done' WHERE project_id = :p_id AND task_id = :t_id";
+
+        $data['p_id'] = $p_id;
+        $data['t_id'] = $t_id;
+        return $this->query($query, $data);
+    }
+
+    public function PMRejectTask($p_id, $t_id)
+    {
+
+        $query = "UPDATE `allocated_task` SET `status`='Pending' WHERE project_id = :p_id AND task_id = :t_id";
+
+        $data['p_id'] = $p_id;
+        $data['t_id'] = $t_id;
         return $this->query($query, $data);
     }
 }

@@ -4,7 +4,7 @@
 class Pmmaterial_r extends Controller
 {
 
-    public function index()
+    public function index($project_id = null)
     {
 
         if (!Auth::logged_in()) {
@@ -13,21 +13,19 @@ class Pmmaterial_r extends Controller
         $pmid = Auth::getId();
 
         $projects = new Projects();
-        $data = $projects->where2('status', 'Ongoing', 'manager_id', $pmid);
-
-        $data1 = array();
-        $data2 = array();
-        $data3 = array();
-
-        if (isset($_GET['project_id'])) {
-            $project_id = $_GET['project_id'];
-            $data1 = $projects->where('id', $project_id);
-        }
+        $data = $projects->where('id',$project_id);
 
         $task = new Tasks();
+        $data1 = array();
+        $data2 =  $data2 = $task->toReqlevel($project_id);
+        $data3 = array();
+
+
+
+        
         if (isset($_GET['model_id'])) {
             $model = $_GET['model_id'];
-            $data2 = $task->levelwhere('level', 'model_id', $model);
+           
         }
         $Task_materials_equipment = new Task_materials_equipment();
         if (isset($_GET['level'])) {
@@ -54,61 +52,13 @@ class Pmmaterial_r extends Controller
             'rows1' => $data1,
             'rows2' => $data2,
             'rows3' => $data3,
+            'project_id' => $project_id,
             'errors' => $errors,
         ]);
     }
 
-    public function p_thruogh_request($id = null, $req = null, $model = null)
-    {
-        if (!Auth::logged_in()) {
-            $this->redirect('staff_login');
-        }
 
-        $pmid = Auth::getId();
-
-        $projects = new Projects();
-
-        $projects = new Projects();
-        $data = $projects->where('id', $id);
-
-        $project_request = new Project_requests();
-        $data1 = $project_request->where('id', $req);
-
-        $task = new Tasks();
-        $data2 = $task->levelwhere('level', 'model_id', $model);
-
-        $Task_materials_equipment = new Task_materials_equipment();
-
-        if (isset($_GET['level'])) {
-            $level = $_GET['level'];
-            $data3 = $Task_materials_equipment->dmaterial($model, $level);
-        }
-
-        $errors = array();
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $material_request = new Material_requests();
-            if ($material_request->validate($_POST)) {
-                $material_request->insertMaterial($_POST);
-                $this->redirect('Pmongoingproject/projectdeatils/1/1/apple123/1/1');
-            } else {
-                $errors = $material_request->errors;
-            }
-
-            die;
-        }
-
-
-        $this->view('pmmaterial_r_t_p', [
-            'rows' => $data,
-            'rows1' => $data1,
-            'rows2' => $data2,
-            'rows3' => $data3,
-            'errors' => $errors,
-        ]);
-    }
-
-    public function remaining_request($id = null, $m_req = null)
+    public function remaining_request($r_id = null)
     {
         if (!Auth::logged_in()) {
             $this->redirect('staff_login');
@@ -121,15 +71,15 @@ class Pmmaterial_r extends Controller
         $material_request = new Material_requests();
 
 
-        $data = $material_request->remaining_req($m_req);
+        $data = $material_request->remaining_req_details($r_id);
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($material_request->validate($_POST)) {
-                $material_request->statusChange($id);
+                $material_request->statusChange($r_id);
                 $material_request->insertMaterial($_POST);
-                $this->redirect('Pmongoingproject/projectdeatils/1/1/apple123/1/1');
+                echo '<script>window.history.go(-2);</script>';
             } else {
                 $errors = $material_request->errors;
             }
@@ -138,7 +88,7 @@ class Pmmaterial_r extends Controller
         }
 
 
-        $this->view('pmmaterial_r_t_p', [
+        $this->view('pmremaining_r', [
             'rows' => $data,
             'errors' => $errors,
         ]);

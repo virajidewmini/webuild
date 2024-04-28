@@ -124,8 +124,8 @@
                             <?php if ($rows) : ?>
                                 <?php foreach ($rows as $row) : ?>
                                     <option style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
-                                                                                                                        echo "selected";
-                                                                                                                    } ?>>
+                                                                                                                                                echo "selected";
+                                                                                                                                            } ?>>
                                         <?= $row->id; ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -164,9 +164,20 @@
                                 <td><?= $row->sub_task_count ?></td>
                                 <td><?= $row->duration_in_days ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $project_id ?>">
+                                    <?php if ($rows3) : ?>
+                                        <?php if (($rows2[0]->id == $row->id && $rows3[0]->progress > 80) && (!($rows3[0]->status == 'Pending' || $rows3[0]->status == 'Suspend'))) : ?>
+                                            <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
+                                                <button><i class="fa-solid fa-plus"></i></button>
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php else : ?>
+                                        <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
+                                            <button><i class="fa-solid fa-plus"></i></button>
+                                        </a>
+                                    <?php endif; ?>
+                                    <!-- <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $project_id ?>">
                                         <button><i class="fa-solid fa-plus"></i></button>
-                                    </a>
+                                    </a> -->
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -197,7 +208,11 @@
                             <td><?= $row->task_id ?></td>
                             <td><?= $row->task->task_name ?></td>
                             <td><?= $row->est_start_date ?></td>
-                            <td></td>
+                            <td>
+                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $row->project_id ?>/<?= $row->feedback ?>/">
+                                    <button><i class="fa-solid fa-eye"></i></button>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

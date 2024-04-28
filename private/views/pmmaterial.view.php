@@ -13,7 +13,8 @@
             margin-left: auto;
             margin-right: auto;
         }
-        ._add_{
+
+        ._add_ {
             background-color: #E5863D;
             color: white;
         }
@@ -59,7 +60,7 @@
                         <option style="text-align:center;" value="<?= $project_id ?>" <?= get_select2('project_id', ''); ?>>Select ID</option>
                         <?php if ($rows) : ?>
                             <?php foreach ($rows as $row) : ?>
-                                <option  style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
+                                <option style="text-align:center;" <?= get_select2('project_id', $row->id); ?> value="<?= $row->id; ?>" <?php if ($project_id == $row->id) {
                                                                                                                                             echo "selected";
                                                                                                                                         } ?>>
                                     <?= $row->id; ?>
@@ -75,7 +76,6 @@
                     <button style="background-color:#E5863D; color:white; margin-left: 20px;" type="submit">Filter</button>
                 </div>
             </div>
-
         <?php
         }
         ?>
@@ -83,9 +83,11 @@
     <div class="table">
         <div class="table_header">
             <h3>Sent request</h3>
-            <div>
-                <a href="<?= ROOT ?>/Pmmaterial_r"><button class="add___">Request</button></a>
-            </div>
+            <?php if ($project_id) : ?>
+                <div>
+                    <a href="<?= ROOT ?>/Pmmaterial_r/<?= $project_id ?>/"><button class="add___">Request</button></a>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="table_section">
             <table>
@@ -98,20 +100,20 @@
                         <th></th>
                     </tr>
                 </thead>
-                <?php if($rows2): ?>
-                <?php foreach ($rows2 as $row) : ?>
-                    <tbody>
-                        <tr>
-                            <td><?= $row->project_id; ?></td>
-                            <td><?= $row->request_id; ?></td>
-                            <td><?= $row->level; ?></td>
-                            <td><?= $row->r_date; ?></td>
-                            <td>
-                                <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                <?php endforeach; ?>
+                <?php if ($rows2) : ?>
+                    <?php foreach ($rows2 as $row) : ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $row->project_id; ?></td>
+                                <td><?= $row->request_id; ?></td>
+                                <td><?= $row->level; ?></td>
+                                <td><?= $row->r_date; ?></td>
+                                <td>
+                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    <?php endforeach; ?>
                 <?Php endif; ?>
             </table>
         </div>
@@ -130,20 +132,20 @@
                         <th></th>
                     </tr>
                 </thead>
-                <?php if($rows3): ?>
-                <?php foreach ($rows3 as $row) : ?>
-                    <tbody>
-                        <tr>
-                            <td><?= $row->project_id; ?></td>
-                            <td><?= $row->request_id; ?></td>
-                            <td><?= $row->level; ?></td>
-                            <td>
-                                <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
-                                <a href="<?= ROOT ?>/"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                <?php endforeach; ?>
+                <?php if ($rows3) : ?>
+                    <?php foreach ($rows3 as $row) : ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $row->project_id; ?></td>
+                                <td><?= $row->request_id; ?></td>
+                                <td><?= $row->level; ?></td>
+                                <td>
+                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                    <a href="<?= ROOT ?>/"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    <?php endforeach; ?>
                 <?Php endif; ?>
             </table>
         </div>
@@ -162,19 +164,19 @@
                         <th></th>
                     </tr>
                 </thead>
-                <?php if($rows4): ?>
-                <?php foreach ($rows4 as $row) : ?>
-                    <tbody>
-                        <tr>
-                            <td><?= $row->project_id; ?></td>
-                            <td><?= $row->request_id; ?></td>
-                            <td><?= $row->level; ?></td>
-                            <td>
-                                <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                <?php endforeach; ?>
+                <?php if ($rows4) : ?>
+                    <?php foreach ($rows4 as $row) : ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $row->project_id; ?></td>
+                                <td><?= $row->request_id; ?></td>
+                                <td><?= $row->level; ?></td>
+                                <td>
+                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    <?php endforeach; ?>
                 <?Php endif; ?>
             </table>
         </div>

@@ -29,14 +29,13 @@ class Tasks extends Model{
     
     }
 
-    public function levelwhere($col,$column, $value){
+    public function toReqlevel($project_id){
 
-        $column = addslashes($column);
-        $col = addslashes($col);
-        $query= "select distinct $col from tasks where $column =:value";
+
+        $query= "SELECT * FROM ( SELECT projects.id AS project_id, tasks.level AS task_level FROM projects INNER JOIN tasks ON projects.model_id = tasks.model_id WHERE projects.id = :project_id GROUP BY tasks.level ) AS p WHERE p.task_level NOT IN ( SELECT mr.level FROM ( SELECT level FROM material_requests WHERE project_id = :project_id GROUP BY level ) AS mr )";
 
         return $this->query($query,[
-            'value'=>$value
+            'project_id'=>$project_id
         ]);;
     }
     

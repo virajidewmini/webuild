@@ -21,17 +21,19 @@ class Pmtask extends Controller
             if ($_GET['project_id']) {
                 $project_id = $_GET['project_id'];
                 $data1 = $allocated_task->where2('status', 'Ongoing', 'project_id', $project_id);
-                $project_id = $_GET['project_id'];
                 $data2 = $projects->get_allToDoTasks_P($project_id);
+                $data3 = $allocated_task->AllowTask($project_id);
             }
             else {
                 $data1 = $allocated_task->OngoingAllTask($pmid);
                 $data2 = array();
+                $data3 = array();
             }
         } 
         else {
             $data1 = $allocated_task->OngoingAllTask($pmid);
             $data2 = array();
+            $data3 = array();
         }
         
 
@@ -39,35 +41,38 @@ class Pmtask extends Controller
             'rows' => $data,
             'rows1' => $data1,
             'rows2' => $data2,
+            'rows3' => $data3,
         ]);
     }
 
-    public function add($id = null, $p_id = null)
+    public function add($id = null, $p_id = null, $days = null)
     {
         // code...
         if (!Auth::logged_in()) {
             $this->redirect('login');
         }
         $errors = array();
-        $success = "";
+        // $success = "";
         $allocated_tasks = new Allocated_tasks();
         $allocated_subtasks = new Allocated_subtasks();
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($allocated_tasks->validate($_POST)) {
-
                 $arr['status'] = 'Pending';
                 $arr['project_id'] = $_POST['project_id'];
                 $arr['task_id'] = $_POST['task_id'];
+                $arr['est_start_date'] = date('Y-m-d');
+                $arr['est_end_date'] = date("Y-m-d", strtotime(" +$days days"));
                 $allocated_tasks->insert($arr);
                 $allocated_subtasks->insertSubtasks($_POST);
 
-                $success = array(
-                    'message' => 'Task added successfully'
-                );
+                // $success = array(
+                //     'message' => 'Task added successfully'
+                // );
 
                 // $this->redirectWithParams('pmtask', $success);
+                echo '<script>window.history.go(-2);</script>';
             } else {
                 $errors = $allocated_tasks->errors;
             }
@@ -97,6 +102,22 @@ class Pmtask extends Controller
 
         $this->view('pmtaskdetails', [
             'row' => $row,
+        ]);
+    }
+
+    public function allocateTaskDetails($task_id = null, $project_id = null, $remark = null)
+    {
+        // code...
+        if (!Auth::logged_in()) {
+            $this->redirect('login');
+        }
+        $allocated_subtasks = new Allocated_subtasks();
+        $data = $allocated_subtasks->where2('task_id', $task_id, 'project_id', $project_id);
+        $this->view('pmsubtask', [
+            'rows' => $data,
+            'project_id' => $project_id,
+            'task_id' => $task_id,
+            'remark' => $remark,
         ]);
     }
 }
