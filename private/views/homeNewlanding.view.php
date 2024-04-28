@@ -63,8 +63,8 @@
   
   </nav>
   <div class="icons">
-    <a class="btn" href=#  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; justify-content:end;border-radius:1rem;">Login</a>
-    <a href="#"><div id="login-btn" class="fas fa-user" style="font-size: x-large;" ></div> </a>
+    <a class="btn" href="<?=ROOT?>/login"  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; justify-content:end;border-radius:1rem;">Login</a>
+    <a href="<?=ROOT?>/staff_login"><div id="login-btn" class="fas fa-user" style="font-size: x-large;" ></div> </a>
   </div>
   
 <!-- <form action="" class="search-form">
