@@ -251,7 +251,7 @@
 </section>
 
     
-<a class="btn" href=#  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; ;margin-left:100rem; margin-bottom:2rem;">Move to Model</a>
+<a class="btn" href="<?=ROOT?>/submitModel"  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; ;margin-left:100rem; margin-bottom:2rem;">Move to Model</a>
 <section class="logo-container" style="background-color: black;">
   <div class="swiper logo-slider" >
     <div class="swiper-wrapper">

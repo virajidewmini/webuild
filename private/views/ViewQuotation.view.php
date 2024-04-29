@@ -41,7 +41,7 @@
                         
                         <td>
                             
-                            <?php if($status === "Unpaid" && $row->status === "Display"):  ?>
+                            <?php if(($status === "Unpaid" || $status === "Notified") && $row->status === "Display"):  ?>
                                 <a href="<?=ROOT?>/accept/<?=$row->project_id?>"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
                                 <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
                             <?php endif; ?> 

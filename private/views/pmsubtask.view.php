@@ -90,7 +90,7 @@
                         <tr>
                             <th>Sub Task ID</th>
                             <th>Sub Task Name</th>
-                            <th style="width:800px;">Details</th>
+                            <th style="width:400px;">Details</th>
                             <th>Status</th>
                             <th>Remark from Supervisor</th>
                         </tr>

@@ -6,7 +6,6 @@ class Auto extends Model
     {
 
         $results = [];
-        var_dump($estimate);
         foreach ($estimate as $item) {
             $role = $item->role;
             $count = (int)$item->count;
@@ -37,9 +36,7 @@ class Auto extends Model
             ];
             $result = $this->query($query, $params);
             $results[] = $result;
-            var_dump($count);
         }
-        var_dump($results);
         
 
         return $results;
