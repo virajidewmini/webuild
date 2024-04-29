@@ -57,6 +57,39 @@ class Pmmaterial extends Controller
                 'rows'=>$row,
             ]);
     }
+    public function materialReceive_view($quotation_id = null, $project_id = null, $level = null )
+    {
+            if(!Auth::logged_in()){
+                $this->redirect('login');
+            }
+            $material_quo= new QuotationSK();
+
+            $row = $material_quo->getReceiveReqDetails($quotation_id);
+
+
+            $this->view('pmmaterial_q_details',[
+                'rows'=>$row,
+                'project_id'=>$project_id,
+                'level'=>$level,
+            ]);
+    }
+
+    public function materialReceived_view($quotation_id = null, $project_id = null, $level = null )
+    {
+            if(!Auth::logged_in()){
+                $this->redirect('login');
+            }
+            $material_quo= new QuotationSK();
+
+            $row = $material_quo->getReceiveReqDetails($quotation_id);
+
+
+            $this->view('pmmaterial_received_details',[
+                'rows'=>$row,
+                'project_id'=>$project_id,
+                'level'=>$level,
+            ]);
+    }
     public function materialReceived($id = null)
     {
             if(!Auth::logged_in()){
@@ -64,5 +97,7 @@ class Pmmaterial extends Controller
             }
             $q_table = new QuotationSK();
             $q_table->materialReceived($id);
+
+            echo '<script>window.history.go(-1);</script>';
     }
 }

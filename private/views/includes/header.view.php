@@ -418,7 +418,7 @@
 
                   <a href="#" class="notification">
                     <i class="fas fa-bell"></i>
-                    <span class="num">28</span>
+                    <span class="num"><?=($_SESSION['notification_count']);?></span>
                   </a>
 
                   <script>

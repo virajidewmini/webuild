@@ -106,7 +106,6 @@
 
 
     </form>
-<?php print_r($_POST) ?>
 </div>
 
 <?php $this->view('includes/footer'); ?>

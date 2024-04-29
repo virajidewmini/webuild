@@ -108,7 +108,7 @@
             <div class="pro-id-details" >
                 <div class="title-id" style="display:flex; justify-content:center;">
                     <div class="p-title" style="width:600px;">
-                        <h2>Materials and Equipment Reaquest Details</h2>
+                        <h2>Materials and Equipment Details From the Store</h2>
                     </div>
                 </div>
                 <div class="unit-d">
@@ -116,7 +116,7 @@
                         <h4>Project ID :</h4>
                     </div>
                     <div class="e-id-d">
-                        <h4><?= $rows[0]->project_id ?></h4>
+                        <h4><?= $project_id ?></h4>
                     </div>
                 </div>
                 <div class="unit-d">
@@ -129,10 +129,18 @@
                 </div>
                 <div class="unit-d">
                     <div class="unit">
+                        <h4>Quotation ID :</h4>
+                    </div>
+                    <div class="e-id-d">
+                        <h4 ><?= $rows[0]->quotation_id ?></h4>
+                    </div>
+                </div>
+                <div class="unit-d">
+                    <div class="unit">
                         <h4>Level :</h4>
                     </div>
                     <div class="e-id-d">
-                        <h4 ><?= $rows[0]->level ?></h4>
+                        <h4 ><?= $level ?></h4>
                     </div>
 
                 </div>
@@ -160,17 +168,19 @@
                                         <th>Material or Equipment ID</th>
                                         <th>Material or Equipment Name</th>
                                         <th>Measure Unit</th>
-                                        <th>Requested Quantity</th>
+                                        <th>Quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($rows as $row) : ?>
+                                        <?php if($row->send_total_quantity): ?>
                                         <tr>
                                             <td><?= $row->material_or_item_id ?></td>
                                             <td><?= $row->material_or_item_name ?></td>
                                             <td><?= $row->mesure_unit ?></td>
-                                            <td><?= $row->quantity ?></td>
+                                            <td><?= $row->send_total_quantity ?></td>
                                         </tr>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
 
                                 </tbody>

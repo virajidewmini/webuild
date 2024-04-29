@@ -172,5 +172,7 @@ class Material_requests extends Model
         $data['r_id'] = $r_id;
         return $this->query($query, $data);
     }
+
+    
 }
 ?>

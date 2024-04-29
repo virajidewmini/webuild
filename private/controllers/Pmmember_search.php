@@ -40,6 +40,7 @@ class Pmmember_search extends Controller
         }
         $project = new Projects();
         $quotation = new Project_Quotation();
+        $notification = new Notifications();
         $row = $project->where('id', $p_id);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,8 +51,12 @@ class Pmmember_search extends Controller
                 $project->update($p_id, $_POST);
                 $arr1['status'] = 'Paid';
                 $quotation->update($q_id, $arr1);
+                $notify1 = $notification->addSuperevisor($uid);
+                $notify2 = $notification->startProject($p_id);
+                $notification->insert($notify1);
+                $notification->insert($notify2);
 
-                $this->redirect('pmdashboard');
+                $this->redirect('Pmongoingproject/Ongoing');
             }
         }
 
