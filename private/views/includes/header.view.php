@@ -209,8 +209,12 @@
 
               <?php elseif(Auth::getRole()== 'Storekeeper'): ?>
               <ul class="side-menu top">
+
+                
+
                 <li data-url="<?=ROOT?>/storekeeperDashboard">
                   <a href="<?=ROOT?>/storekeeperDashboard" class="nav-link" class="nav-link">
+                    
                     <i class="fas fa-border-all"></i>
                     <span class="text">Dashboard</span>
                   </a>
@@ -457,6 +461,7 @@
                       <ul class="notification-list" style="padding: 0;
                                   margin: 0;
                                   list-style-type: none;">
+
 
                         <?php if($_SESSION['notifications']):?>
                           <?php foreach ($_SESSION['notifications'] as $row) :?>
@@ -1115,8 +1120,10 @@
                     <span class="num">28</span>
                   </a>
 
+
                   <script>
                       document.addEventListener('DOMContentLoaded', function() {
+
                           const bellIcon = document.getElementById('notificationBell');
                           const dropdown = document.getElementById('notificationDropdown');
 

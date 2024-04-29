@@ -155,7 +155,7 @@
           
         </div>
       </section>
-      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva4.png) no-repeat;padding-bottom:3rem;height: 2px;">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/bathroom/miss1.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
         <div class="content">
           <h3  style="font-size: 4rem;">we provide fashionated pre existing models</h3>
           <p style="margin-bottom:35px;  font-size: 1.2rem; text-align:justify;">Discover our curated selection of fashion-forward
@@ -421,7 +421,7 @@
       </div>
     </a> -->
   </div>
-  <a class="btn" href=ExistingModels  style="background-color: #E5863D; margin-left:79rem; justify-content:end">Models</a>
+  <a class="btn" href=ExistingModels  style="background-color: #E5863D; margin-left:79%; justify-content:end">Models</a>
 </section>
 
 <!-- completed project section ends  -->
@@ -504,7 +504,7 @@
 
   <h1 class="heading">Payment Packages</h1>
 
-  <div class="box-container" style="display: flex;justify-content:center;height:45rem;" >
+  <div class="box-container" style="display: flex;justify-content:center;height:45%;" >
 
     <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-home"></i>
@@ -556,7 +556,7 @@
 
 <!-- contact section starts  -->
 
-<section class="contact" id="contact" style="background-color:#CCCCCC; height:40rem;">
+<section class="contact" id="contact" style="background-color:#CCCCCC; height:40%;">
 
 <h1 class="heading" style="color: #000000;">Contact Us</h1>
 
@@ -657,17 +657,9 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <section class="footer">
 
-  <!-- <div class="links">
-    <a class="btn" href=ExistingModels>Existing Models</a>
-    <a class="btn" href="#about">About</a>
-    <a class="btn" href="#services">Services</a>
-    <a class="btn" href=Home/completedProjects>Completed Projects</a>
-    <a class="btn" href="#pricing">Pricing</a>
-    <a class="btn" href="#contact">Contact Us</a>
+  
 
-  </div> -->
-
-  <div class="credit" style="margin: -2rem; font-size:medium;">credited by <span>WeBuild</span> | all rights reserved!</div>
+  <div class="credit" style="margin: -2%; font-size:medium;">credited by <span>WeBuild</span> | all rights reserved!</div>
 
 
 </section>
