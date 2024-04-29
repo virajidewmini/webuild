@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 
 <div style="margin-left: 600px;" class="table_header" >
@@ -40,9 +41,10 @@
                         
                         <td>
                             
+                            <?php if($status === "Unpaid" && $row->status === "Display"):  ?>
                                 <a href="<?=ROOT?>/accept/<?=$row->project_id?>"><button class="accept-button" style="background-color: #4CAF50; ">Accept</button></a>
                                 <a href="<?=ROOT?>/quotation/reject"><button class="reject-button" style="background-color: #f44336;">Reject</button></a> 
-                 
+                            <?php endif; ?> 
                         </td>
                         <?php endif; ?> 
                     </tr>
@@ -57,3 +59,6 @@
 
 <?php $this->view('includes/footer'); ?>
 
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

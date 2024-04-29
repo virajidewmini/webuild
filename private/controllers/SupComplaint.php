@@ -3,7 +3,9 @@
 
         public function index(){
             
-                
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }    
                 $Complaint=new Notifications();
                 $user_id=Auth::id();
                 
@@ -13,6 +15,9 @@
         }
 
         public function viewComplaint($id=null){
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
             
                 $clientComplaint=new C_Complaint();
 			    $data= $clientComplaint->viewComplanitDetail($id);

@@ -212,7 +212,7 @@
                     <div style="font-size: 60px"><?= $rows["AllComp"]; ?></div>
                 </div>
 
-                <div class="role">Quality of the photograph: <?= $rows["AllQP"][0]->total ?></div>
+                <div class="role">Quality and the number of the photograph: <?= $rows["AllQP"][0]->total ?></div>
                 <hr>
                 <div class="role">Construction project delay: <?= $rows["AllCP"][0]->total ?></div>
                 <hr>

@@ -36,7 +36,7 @@ class Material_requests extends Model
 
 
         $query = "SELECT * FROM suppliers        
-        WHERE suppliers.material = :value";
+        WHERE material = :value";
 
         return $this->query($query, [
             'value' => $value,

@@ -47,7 +47,7 @@ class Notifications extends Model{
 
 
     //for payments
-    public function setStateForPayment($value){
+    public function setNotifiedStateForPayment($value){
 
         $query="UPDATE payments set payments.status='Notified'       
         WHERE payments.id = :value"; 
@@ -58,7 +58,31 @@ class Notifications extends Model{
         ]);
     }
 
+    //for warning 
+    public function setWarningStateForPayment($value){
 
+        $query="UPDATE payments set payments.status='Warning'       
+        WHERE payments.id = :value"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    //for terminate
+    public function setTerminateStateForPayment($value){
+
+        $query="UPDATE payments set payments.status='Terminated'       
+        WHERE payments.project_id = :value"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
+    
 
     public function updateProjectRequestNotification($value){
         
@@ -81,6 +105,30 @@ class Notifications extends Model{
         //return $this->query($query);
         return $this->query($query, [
             'value' => $value,
+        ]);
+    }
+
+    public function updateInstallmentNotification($id){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :id AND notifications.type='installment_reminder' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'id' => $id,
+        ]);
+    }
+
+    public function updateRejectRequestNotification($id){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :id AND notifications.type='pr_reject_co' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'id' => $id,
         ]);
     }
 
@@ -163,5 +211,19 @@ class Notifications extends Model{
     }
 
 
+    //get customerid for complaints in order to notify after handling
+    public function getCUstomerIDforNotifyHandledComplaints($value){
+        
+
+        $query="SELECT user_id FROM complaint
+        INNER JOIN projects ON projects.id=complaint.project_id
+
+        WHERE complaint.id = :value "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
 }
 ?>

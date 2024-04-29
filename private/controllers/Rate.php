@@ -3,6 +3,11 @@
     class Rate extends Controller{
         
         public function index(){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+            
             $ratings= new Rating();
             if (count($_POST) >0) {
 

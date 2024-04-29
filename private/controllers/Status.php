@@ -3,9 +3,17 @@
     class Status extends Controller{
         
         public function index(){
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $this->view('UpdateStatus');
         }
         public function UpdateState($id){
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+            
             $model=new SubTask();
 
             $project_id=Auth::getProjectId();

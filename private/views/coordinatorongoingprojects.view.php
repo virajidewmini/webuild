@@ -82,12 +82,12 @@ body{
                             <?php elseif(!isset($row->payment_date)):?>
                                 
                                 <!-- <tr style="background-color: #e5863d;">  -->
-                                <tr>
+                                <tr style="background-color:#3498db">
                                     
-                                    <td><?=$row->project_id?></td>
-                                    <td><?=$row->user->firstname?> <?=$row->user->firstname?></td>
-                                    <td>All Paid</td>
-                                    <td><?=$row->staff_m->firstname?> <?=$row->staff_m->firstname?></td>
+                                    <td style="color: white;"><?=$row->project_id?></td>
+                                    <td style="color: white;"><?=$row->user->firstname?> <?=$row->user->firstname?></td>
+                                    <td style="color: white;">All Paid</td>
+                                    <td style="color: white;"><?=$row->staff_m->firstname?> <?=$row->staff_m->firstname?></td>
                                     <!-- <td><?=$row->staff->firstname?> <?=$row->staff->firstname?></td>   -->
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorprojects/seemore/<?=$row->project_id?>">
@@ -111,7 +111,7 @@ body{
             </div>    
         </div>
     <?php else:?>
-        <h4>No Material Requesrts from Strore keeper.</h4>
+        <h4>No Payments to Display.</h4>
         <br><br>
     <?php endif;?> 
 

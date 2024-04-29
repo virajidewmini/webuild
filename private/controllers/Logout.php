@@ -7,7 +7,7 @@
 
 
             Auth::logout();
-            $this->redirect('/login');
+            $this->redirect('/home');
 
         }
 

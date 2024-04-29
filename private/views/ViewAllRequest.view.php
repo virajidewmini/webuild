@@ -1,4 +1,4 @@
-
+<?php if ($_SESSION['role'] == 'Client') : ?>
 
 <style>
    .container {
@@ -101,4 +101,6 @@ p {
             </div>
             <p>Go Back <a href="<?=ROOT?>/home">Home</a></p>
     </div>
-    
+    <?php else : ?>
+      <?php $this->view('404'); ?>
+    <?php endif; ?>

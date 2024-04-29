@@ -20,7 +20,14 @@
                         $_SESSION['role'] = 'Client';
                         
                         if ($_SESSION['role'] == 'Client'){
-                            $this->redirect('/clientdashboard');
+
+                            if($_SESSION['model_id']==NULL){
+                                $this->redirect('/clientdashboard');
+                            }
+                            else{
+                                $this->redirect('/submitModel');
+                            }
+                            
                         }
                         
                              $this->redirect('/home');

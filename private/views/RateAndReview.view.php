@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 
 <style>
@@ -301,4 +302,6 @@ progress {
     </div>
   </div>
 
- 
+  <?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 
 <style>body {
@@ -360,3 +361,7 @@ window.onload = function() {
 
 
 </script>
+
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

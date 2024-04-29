@@ -20,7 +20,7 @@
                          </div>
                          <div class="column">
                               <label for="lastName">Requested Material</label>
-                              <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->material->material_name;?>">
+                              <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->material_name;?>">
                          </div>
                          <div class="column">
                               <label for="occupation">Requested Quantity</label>
