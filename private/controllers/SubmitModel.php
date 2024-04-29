@@ -233,12 +233,12 @@ use Respect\Validation\Validator as v;
                         'staff_id'=>$coordinator[0]->id,
                         'message'=>"New Project Request Submitted",
                         'status'=>"Unseen",
-                        'type'=>'request',
+                        'type'=>'project request',
                         'msg_id'=>$modification_id,
                     ];
 
                     $notification->insert($requestNotification);
-
+                    $this->redirect('clientdashboard');
                     
                 }else{
                     $this->view('SubmitModel',['rows'=> $data1, 'rows_exterior'=>$data_exterior, 'rows_kitchen'=>$data_kitchen,'errors' => $errors]);

@@ -301,7 +301,7 @@
 
 
                             <?php if ($row->type == 'requestpm'):?>
-                              <a href="<?=ROOT?>/Request/<?=$row->msg_id?>"><?=$row->message?></a>
+                              <a href="<?=ROOT?>/Request"><?=$row->message?></a>
                             <!-- <?php elseif ($row->type == 'project request'):?>
                               <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php elseif ($row->type == 'quotation_pm_to_co'):?>
