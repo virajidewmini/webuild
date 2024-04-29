@@ -1,4 +1,4 @@
-
+<?php if($_SESSION['role']== 'Client'): ?>
 <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
 
 <style>
@@ -586,6 +586,9 @@ input:disabled:hover + .radio-tile {
 </script>
 
     <?php $this->view('includes/footer'); ?>
+    <?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
 
    
 
