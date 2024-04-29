@@ -18,7 +18,7 @@
             /* border: 1px solid #c41212; */
         }
 
-        .container {
+        .container1 {
             padding: 1rem;
             display: grid;
             grid-template-columns: repeat(8, 1fr);
@@ -184,7 +184,7 @@
         }
     </style>
 
-    <div class="container">
+    <div class="container1">
 
         <div class="item item-1" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
