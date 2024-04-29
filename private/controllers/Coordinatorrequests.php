@@ -33,7 +33,9 @@
             $notification->updateProjectRequestNotification($id);
 
             $project_requests = new Project_requests();
+            // print_r($id."this is ");
             $data['common'] = $project_requests->requests($id)[0];
+            // print_r($data['common'] );
             
             if(!empty($data['common']->manager_id)){
 
@@ -69,8 +71,9 @@
                $data['model_details']=$model->modeldetails($id)[0];
 
             }
-
-
+// print_r("blah1");
+            // print_r($data['common']->modification_id);
+            // print_r("blah2");
             $data['customer'] = $project_requests->customer($data['common']->modification_id)[0];
             $data['managers']= $project_requests->find_managers_in_district($data['customer']->ul_district);
             

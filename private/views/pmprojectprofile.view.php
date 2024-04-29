@@ -575,7 +575,7 @@
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
                                             <td>
-                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->feedback ?>/">
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $project_id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
                                                 </a>
                                             </td>
@@ -586,7 +586,7 @@
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
                                             <td>
-                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->feedback ?>/">
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $project_id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
                                                 </a>
                                                 <a href="<?= ROOT ?>/Pmtask/warnSupervisor/<?= $row->id ?>/">
@@ -600,7 +600,7 @@
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
                                             <td>
-                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $rows[0]->id ?>/<?= $row->feedback ?>/">
+                                                <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $project_id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
                                                 </a>
                                             </td>
@@ -665,13 +665,13 @@
                                         <td>
                                             <?php if ($row5) : ?>
                                                 <?php if (($row7[0]->id == $row->id && $rows19[0]->progress > 80) && (!($rows19[0]->status == 'Pending' || $rows19[0]->status == 'Suspend'))) : ?>
-                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
+                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $project_id ?>/<?= $row->duration_in_days ?>/">
                                                         <button><i class="fa-solid fa-plus"></i></button>
                                                     </a>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                                 <?php if ($row7[0]->id == $row->id) : ?>
-                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
+                                                    <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $project_id ?>/<?= $row->duration_in_days ?>/">
                                                         <button><i class="fa-solid fa-plus"></i></button>
                                                     </a>
                                                 <?php endif; ?>
@@ -691,7 +691,7 @@
                 <div class="table_header">
                     <h3>Sent request</h3>
                     <div>
-                        <a href="<?= ROOT ?>/Pmmaterial_r/<?= $rows[0]->id ?>/"><button style="background-color:#E5863D; color:white;" class="add___">Request</button></a>
+                        <a href="<?= ROOT ?>/Pmmaterial_r/<?= $project_id ?>/"><button style="background-color:#E5863D; color:white;" class="add___">Request</button></a>
                     </div>
                 </div>
                 <div class="table_section">

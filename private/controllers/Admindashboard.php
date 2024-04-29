@@ -70,26 +70,25 @@
 
             //$projects=new Projects();
 
-            $data['FOG'] = $requests->getprojectsInMonth("ongoing","first");
-            $data['SOG'] = $requests->getprojectsInMonth("ongoing","second");
-            $data['TOG'] = $requests->getprojectsInMonth("ongoing","third");    
-            $data['EOG'] = $requests->getprojectsInMonth("ongoing","fourth");
+            $data['FOG'] = $requests->getprojectsInMonth("Ongoing","first");
+            $data['SOG'] = $requests->getprojectsInMonth("Ongoing","second");
+            $data['TOG'] = $requests->getprojectsInMonth("Ongoing","third");    
+            $data['EOG'] = $requests->getprojectsInMonth("Ongoing","fourth");
 
-            $data['FRE'] = $requests->getprojectsInMonth("rejected","first");
-            $data['SRE'] = $requests->getprojectsInMonth("rejected","second");
-            $data['TRE'] = $requests->getprojectsInMonth("rejected","third");    
-            $data['ERE'] = $requests->getprojectsInMonth("rejected","fourth");
+            $data['FRE'] = $requests->getprojectsInMonth("Cancelled","first");
+            $data['SRE'] = $requests->getprojectsInMonth("Cancelled","second");
+            $data['TRE'] = $requests->getprojectsInMonth("Cancelled","third");    
+            $data['ERE'] = $requests->getprojectsInMonth("Cancelled","fourth");
 
-            $data['FFI'] = $requests->getprojectsInMonth("finished","first");
-            $data['SFI'] = $requests->getprojectsInMonth("finished","second");
-            $data['TFI'] = $requests->getprojectsInMonth("finished","third");    
-            $data['EFI'] = $requests->getprojectsInMonth("finished","fourth");
+            $data['FFI'] = $requests->getprojectsInMonth("Completed","first");
+            $data['SFI'] = $requests->getprojectsInMonth("Completed","second");
+            $data['TFI'] = $requests->getprojectsInMonth("Completed","third");    
+            $data['EFI'] = $requests->getprojectsInMonth("Completed","fourth");
 
 
 
             $this->view('admindashboard',['rows'=>$data]);
         }
-
 
 
         

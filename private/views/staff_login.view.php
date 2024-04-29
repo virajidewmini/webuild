@@ -12,7 +12,7 @@
       
       <form method="post">
 
-      <h1>Login</h1>
+      <h1>Staff Login</h1>
         
       <!-- error dispaly -->
       <?php if(count($errors) >0):?>
@@ -34,7 +34,7 @@
           <span></span>
           <label>Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
+        <div class="pass"><a class="pass" href="Forgetpassword">Forgot Password?</a></div>
         <input type="submit" value="Login" style="margin-bottom: 30px ">
         
       </form>

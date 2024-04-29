@@ -166,6 +166,23 @@ class Material_requests extends Model
         return $this->query($query, $data);
     }
 
+
+    //to get all requests after ordering
+    
+    public function findAllMaterialRequests(){
+
+        $query = "SELECT * FROM material_requests_to_coordinator        
+        ORDER BY
+            CASE 
+                WHEN status='Pending' THEN 1
+                WHEN status='Emailed' THEN 2
+                WHEN status='Recieved' THEN 3
+                ELSE 4
+            END
+                        ";
+
+        return $this->query($query);
+    }
     public function getReqDetails($r_id)
     {
         $query = "SELECT * FROM material_requests WHERE request_id = :r_id ";

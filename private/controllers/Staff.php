@@ -29,12 +29,17 @@
 
                 $staff=new Staffs();
 
-                if($staff->validate($_POST)){
+                if($staff->validate3($_POST)){
 
                     $_POST['joineddate'] = date("Y-m-d H:i:s");
+                    $_POST['password']=$_POST['nic'];
+                    $email=$_POST['email'];
+                    // $name=$_POST['firstname'];
+                    // print_r($name);
                     $staff->insert($_POST);
+                    // print_r($_POST['email']);
 
-                    $this->redirect('staff');
+                    $this->redirect("Staff/emailstaff/$email");
 
                 }else{
 
@@ -103,5 +108,26 @@
                 'row'=>$row,
                 'errors'=>$errors,
             ]);
+        }
+
+
+        public function emailstaff($email){
+           
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+            
+            //print_r($email);
+            // $data["supplier"]=$supplier;
+            $data["email"]=$email;
+            // $data["name"]=$name;
+
+            $data["subject"]="Login Paasword Information";
+            $data["message"]="Use your NIC number as the password. And once loggedin change it.";
+            // $data["reqID"]=$reqID;
+
+            
+          //$this->view('coordinatorviewmaterialrequests.emailsupplier');
+            $this->view('adminemailstaff',['rows'=>$data]);
         }
     }

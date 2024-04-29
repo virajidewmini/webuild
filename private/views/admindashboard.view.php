@@ -18,7 +18,7 @@
             /* border: 1px solid #c41212; */
         }
 
-        .container {
+        .container1 {
             padding: 1rem;
             display: grid;
             grid-template-columns: repeat(8, 1fr);
@@ -184,7 +184,7 @@
         }
     </style>
 
-    <div class="container">
+    <div class="container1">
 
         <div class="item item-1" style="display: flex;width: fit-content;padding: 0;">
             <!-- Employees -->
@@ -317,7 +317,8 @@
                     datasets: [{
                         label: "Project Requests Recieved In Each Month",
                         fill: true,
-                        borderColor: "black",
+                        borderColor: "#7B1FA2",
+                        backgroundColor: "#7B1FA2",
                         data: [<?= $rows["JANPR"][0]->total ?>, <?= $rows["FEBPR"][0]->total ?>, <?= $rows["MARPR"][0]->total ?>, <?= $rows["APRPR"][0]->total ?>, <?= $rows["MAYPR"][0]->total ?>, <?= $rows["JUNPR"][0]->total ?>, <?= $rows["JULPR"][0]->total ?>, <?= $rows["AUGPR"][0]->total ?>, <?= $rows["SEPPR"][0]->total ?>, <?= $rows["OCTPR"][0]->total ?>, <?= $rows["NOVPR"][0]->total ?>, <?= $rows["DECPR"][0]->total ?>],
                     }]
                 };
@@ -331,7 +332,7 @@
                             font: {
                                 size: 24, // Increase font size for the title
                                 weight: 'bold', // Make title bold
-                                color: "black"
+                                color: "light blue"
                             }
                         }
                     },
@@ -375,24 +376,24 @@
                     labels: ['January-March', 'April-June', 'July-September', 'October-December'],
                     datasets: [{
                             label: 'Ongoing Projects',
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(255, 82, 82, 1)',
+                            borderColor: 'rgba(255, 82, 82, 1)',
                             borderWidth: 1,
                             data: [<?= $rows["FOG"][0]->total ?>, <?= $rows["SOG"][0]->total ?>, <?= $rows["TOG"][0]->total ?>, <?= $rows["EOG"][0]->total ?>],
                         },
                         {
-                            label: 'Rejected Projects',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
+                            label: 'Cancelled Projects',
+                            backgroundColor: 'rgba(194, 24, 91, 1)',
+                            borderColor: 'rgba(194, 24, 91, 1)',
                             borderWidth: 1,
                             data: [<?= $rows["FRE"][0]->total ?>, <?= $rows["SRE"][0]->total ?>, <?= $rows["TRE"][0]->total ?>, <?= $rows["ERE"][0]->total ?>],
                         },
                         {
-                            label: 'Finished Projects',
-                            backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                            borderColor: 'rgba(255, 206, 86, 1)',
+                            label: 'Completed Projects',
+                            backgroundColor: 'rgba(233, 30, 99, 1)',
+                            borderColor: 'rgba(233, 30, 99, 1)',
                             borderWidth: 1,
-                            data: [<?= $rows["FRE"][0]->total ?>, <?= $rows["SRE"][0]->total ?>, <?= $rows["TRE"][0]->total ?>, <?= $rows["ERE"][0]->total ?>],
+                            data: [<?= $rows["FFI"][0]->total ?>, <?= $rows["SFI"][0]->total ?>, <?= $rows["TFI"][0]->total ?>, <?= $rows["EFI"][0]->total ?>],
                         }
                     ]
                 };

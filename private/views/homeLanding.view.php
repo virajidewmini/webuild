@@ -30,7 +30,7 @@
   <a href="./completed.php">Completed Projects</a>
   <a href="./about.php">About Us</a>
   <a href="./contact.php">Contact Us</a>
-  <a href="#" class="btn-main">Login</a>
+  <a href="<?=ROOT?>/login" class="btn-main">Login</a>
   <a href="#" class="btn-main">Sign Up</a>
 
 </nav>

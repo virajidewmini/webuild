@@ -111,5 +111,41 @@
                       
         }
 
+        public function ongoing(){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+            $projects=new Projects();
+
+            $data=$projects->OngoingProjects();
+
+            $this->view('coordinatorviewongoingprojects',['rows'=>$data]);
+        }
+
+        public function completed(){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+            $projects=new Projects();
+
+            $data=$projects->CompletedProjects();
+
+            $this->view('coordinatorviewongoingprojects',['rows'=>$data]);
+        }
+
+        public function cancelled(){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+            $projects=new Projects();
+
+            $data=$projects->CancelledProjects();
+
+            $this->view('coordinatorviewongoingprojects',['rows'=>$data]);
+        }
+
     }
 ?>

@@ -84,7 +84,7 @@
     <?php if ($rows2) : ?>
         <div class="table">
             <div class="table_header">
-                <h2>Latest Request</h2>
+                <h2>Recent Request</h2>
             </div>
             <div class="table_section">
                 <table>

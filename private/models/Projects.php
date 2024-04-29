@@ -332,4 +332,32 @@ class Projects extends Model
             'p_id' => $p_id,
         ]);
     }
+
+    
+    public function OngoingProjects(){
+
+        $query = "SELECT * FROM Projects
+        
+        WHERE projects.status = 'Ongoing' ";
+
+        return $this->query($query);
+    }
+
+    public function CompletedProjects(){
+
+        $query = "SELECT * FROM Projects
+        
+        WHERE projects.status = 'Complete' ";
+
+        return $this->query($query);
+    }
+
+    public function CancelledProjects(){
+
+        $query = "SELECT * FROM Projects
+        
+        WHERE projects.status = 'Cancelled' ";
+
+        return $this->query($query);
+    }
 }

@@ -88,7 +88,7 @@
                          </div>
                          <div class="column">
                               <label for="locationLink">Salary Proofing Document</label>
-                              <a href="<?=ROOT?>/uploads/<?= $rows["salary"]->file_name;?>" >
+                              <a target="_blank" href="<?=ROOT?>/uploads/<?= $rows["salary"]->file_name;?>" >
                               <button class="action-button">Salary Proofing Document</button>
                               </a>
                          </div>
@@ -133,14 +133,14 @@
     
                               <div class="column">
                                    <label for="locationLink">Block Plan</label>
-                                   <a href="<?=ROOT?>/uploads/<?= $rows["blockplan"]->file_name;?>" >
+                                   <a target="_blank" href="<?=ROOT?>/uploads/<?= $rows["blockplan"]->file_name;?>" >
                                    <button class="action-button">Block Plan</button>
                                    </a>
                               </div>
                          
                               <div class="column">
                                    <label for="locationLink">Land Photograph</label>
-                                   <a href="<?=ROOT?>/uploads/<?= $rows["landphoto"]->file_name;?>">
+                                   <a target="_blank" href="<?=ROOT?>/uploads/<?= $rows["landphoto"]->file_name;?>">
                                    <button class="action-button">Land Photograph</button>
                                    </a>
                               </div>

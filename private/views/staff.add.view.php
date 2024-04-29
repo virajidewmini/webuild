@@ -52,7 +52,7 @@
             <input name="email" value="<?= get_var('email');?>" type="text" placeholder="Email" class="v_form-control">
         </div>
         <div class="form-group2">
-            <input name="password" value="<?= get_var('password');?>" type="text" placeholder="Password" class="v_form-control">
+            <!-- <input name="password" value="<?= get_var('password');?>" type="text" placeholder="Password" class="v_form-control" hidden> -->
         </div>
     </div>
 

@@ -56,7 +56,7 @@ class Project_requests extends Model{
 
         $query="SELECT * FROM project_requests 
         INNER JOIN user ON project_requests.user_id = user.id 
-        INNER JOIN user_data ON project_requests.user_id = user_data.user_id 
+        INNER JOIN user_data ON project_requests.modification_id = user_data.modification_id 
         
         WHERE project_requests.id = :value"; 
 
@@ -516,7 +516,7 @@ class Project_requests extends Model{
 
         $query="SELECT * FROM project_requests  
        
-        WHERE project_requests.status = 'Modified' OR  project_requests.status = 'Unodified'"; 
+        WHERE project_requests.status = 'Modified' OR  project_requests.status = 'Unmodified'"; 
 
         //return $this->query($query);
         return $this->query($query);
@@ -540,8 +540,14 @@ class Project_requests extends Model{
         INNER JOIN projects ON projects.project_request_id=project_requests.id
         LEFT JOIN payments ON payments.project_id=projects.id AND payments.installement_number=1
        
-        WHERE project_requests.status = 'Done'"; 
-
+        WHERE project_requests.status = 'Done'
+        
+        ORDER BY
+            CASE 
+                WHEN payment_status = 'Unpaid' THEN 1
+                WHEN payment_status = 'Notified' THEN 2
+                WHEN payment_status = 'Paid' THEN 3
+            END";
         //return $this->query($query);
         return $this->query($query);
     }

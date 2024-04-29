@@ -300,12 +300,12 @@
                             <li style="position: relative; padding: 8px 16px;">
 
 
-                            <?php if ($row->type == 'complaint'):?>
-                              <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
-                            <?php elseif ($row->type == 'project request'):?>
+                            <?php if ($row->type == 'requestpm'):?>
+                              <a href="<?=ROOT?>/Request"><?=$row->message?></a>
+                            <!-- <?php elseif ($row->type == 'project request'):?>
                               <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php elseif ($row->type == 'quotation_pm_to_co'):?>
-                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a>
+                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a> -->
                             <?php endif;?>
 
                               <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
@@ -390,23 +390,23 @@
                   </a>
                 </li>
                 <li data-url="<?=ROOT?>/Pmdailyreports">
-                  <a href="?=ROOT?>/Pmdailyreports" class="nav-link">
+                  <a href="<?=ROOT?>/Pmdailyreports" class="nav-link">
                     <i class="fa-solid fa-chart-line"></i>
                     <span class="text">Daily Reports</span>
                   </a>
                 </li>
                 <li data-url="<?=ROOT?>/Pmcomplaint">
-                  <a href="?=ROOT?>/Pmcomplaint" class="nav-link">
+                  <a href="<?=ROOT?>/Pmcomplaint" class="nav-link">
                     <i class="fas fa-comments"></i>
                     <span class="text">Complaints</span>
                   </a>
                 </li>
-                <li data-url="<?=ROOT?>/Pmimage">
+                <!-- <li data-url="<?=ROOT?>/Pmimage">
                   <a href="<?=ROOT?>/Pmimage" class="nav-link">
                     <i class="fa-solid fa-images"></i>
                     <span class="text">Images</span>
                   </a>
-                </li>
+                </li> -->
                 <!-- settings and logout -->
 
                 <ul class="side-menu">
