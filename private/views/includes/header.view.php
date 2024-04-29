@@ -296,12 +296,12 @@
                             <li style="position: relative; padding: 8px 16px;">
 
 
-                            <?php if ($row->type == 'complaint'):?>
-                              <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
-                            <?php elseif ($row->type == 'project request'):?>
+                            <?php if ($row->type == 'requestpm'):?>
+                              <a href="<?=ROOT?>/Request/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <!-- <?php elseif ($row->type == 'project request'):?>
                               <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php elseif ($row->type == 'quotation_pm_to_co'):?>
-                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a>
+                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a> -->
                             <?php endif;?>
 
                               <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">

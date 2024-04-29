@@ -81,8 +81,8 @@
   
   </nav>
   <div class="icons">
-    <a class="btn" href=#  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; justify-content:end;border-radius:1rem;">Login</a>
-    <a href="#"><div id="login-btn" class="fas fa-user" style="font-size: x-large; color:#000000;" ></div> </a>
+    <a class="btn" href="<?=ROOT?>/login" style="background-color: #E5863D; padding:1rem ;font-size: 1rem; justify-content:end;border-radius:1rem;">Login</a>
+    <a href="<?=ROOT?>/staff_login"><div id="login-btn" class="fas fa-user" style="font-size: x-large; color:#000000;" ></div> </a>
   </div>
 
   </header>
@@ -533,7 +533,7 @@
 
     <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-city"></i>
-      <h3 style="font-size: 2rem; font-weight:600;">ultimate plan</h3>
+      <h3 style="font-size: 2rem; font-weight:600;">Ultimate Plan</h3>
       <!-- <div class="price"><span>Rs</span>1250<span>/no</span></div> -->
       <div class="list">
         <p style="font-size: 1.2rem;">20% Initial payment</p>

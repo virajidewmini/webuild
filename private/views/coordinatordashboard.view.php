@@ -6,7 +6,7 @@
             <h3>Projects</h3>
         </div>
         <div class="project">
-            <a href="<?=ROOT?>/Pmongoingproject"
+            <a href="<?=ROOT?>/Coordinatorprojects/ongoing"
             style="text-decoration:none">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/on_pro.png');">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             </a>
-            <a href="<?=ROOT?>/Pmongoingproject">
+            <a href="<?=ROOT?>/Coordinatorprojects/completed">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cm_pro.png');">
                     <h1>Completed</h1>
@@ -27,10 +27,10 @@
                 </div>
             </div>
             </a>
-            <a href="<?=ROOT?>/Pmongoingproject">
+            <a href="<?=ROOT?>/Coordinatorprojects/cancelled">
             <div class="pro">
                 <div class="pro-body" style="background-image: url('<?=ROOT?>/img/cn_pro.png');">
-                    <h1>Canceled</h1>
+                    <h1>Cancelled</h1>
                 </div>
                 <div class="pro-bottom">
                     More<i class="fa-solid fa-arrow-right" style="padding-left: 4px;"></i>

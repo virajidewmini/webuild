@@ -7,7 +7,7 @@ body{
 </style>
 
     <?php if($rows['Pending']):?>
-        
+        <!-- <pre><?php print_r($rows['Pending']);?></pre> -->
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >

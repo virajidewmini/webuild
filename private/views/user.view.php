@@ -1,12 +1,10 @@
+<?php if(Auth::getRole()== 'Admin'): ?>
 <?php $this->view('includes/header')?>
 
 
-     <!-- <?php
-          //echo "<pre>";
-          //print_r($rows);
-     ?> -->
+     
 <style>
-     main{
+     /* main{
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
           gap: 1rem;
@@ -32,33 +30,59 @@
           justify-content: flex-start;
           flex-direction: column;
           margin: 2rem;
-     }
+     } */
 
 </style>
      <?php if($rows):?>
-          <?php foreach ($rows as $row) :?>
-               <div class="box">
-               <div style="max-width: 14rem; min-width:14rem;" class="image-wrapper">
+          <div class="table">
+            <div class="table_header">
+                <div style="display: flex;">
+                    <h3>  Customers </h3>
+                </div>
+                
+            </div>
+            <div class="table_section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                            <th>NIC</th>
+                            <th>Gender</th>
+                            <th>Contact Number</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($rows as $row) :?>
+                            
+                                <tr>                       
+                                    
+                                    <td><?=$row->id?></td>                                  
+                                    <td><?=$row->firstname?> <?=$row->lastname?></td>
+                                    <td><?=$row->nic?></td>
+                                    <td><?=$row->gender?></td>
+                                    <td><?=$row->contactnumber?></td>  
+                                    <td><?=$row->address?></td>
+                                    <td><?=$row->email?></td>  
+                                    
+                                </tr>
+                            
+                                
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+    <?php else:?>
+        <h4>No Users.</h4>
+        <br><br>
+    <?php endif;?> 
 
-                    <img style="width:50%" src="<?PHP echo ROOT;?>/img/profile.webp" alt="nlah">
-               </div>
-               <div class="user-overview">
-               <h5> <?=$row->firstname?> <?=$row->lastname?> </h5>
-               <p><?=$row->contactnumber?></p>
-               
-               <a href="<?=ROOT?>/userprofile">
-                    <input type="button" value="View Pofile"class="">
-               </a>
-               </div>
-               </div>
-          <?php endforeach;?>
-     <?php else:?>
-          <h4>No staff is found</h4>
-     <div>
-          <button class="add___">Add Users</button>
-     </div>
-<?php endif;?> 
 
-
-<?php $this->view('includes/footer'); ?>
+    <?php $this->view('includes/footer'); ?>
+<?php else: ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
 
