@@ -3,6 +3,10 @@
     class DailyProgressReport extends Controller{
         
         public function index(){
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $project_id=Auth::getProjectId();
             $report= new ProgressReport();
             $date=date("Y-m-d");
@@ -17,15 +21,19 @@
 
         public function add(){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             if (count($_POST) >0) {
 
 
                  //var_dump(($_POST));
                 $errors = [];
 
-                $descriptionValidator = v::notEmpty()->alnum(' ')->length(null, 100);
-                $challengeDescriptionValidator = v::notEmpty()->alnum(' ')->length(null, 150);
-                $faceDescriptionValidator = v::notEmpty()->alnum(' ')->length(null, 250);
+                $descriptionValidator = v::notEmpty()->stringType()->length(null, 100);
+                $challengeDescriptionValidator = v::notEmpty()->stringType()->length(null, 150);
+                $faceDescriptionValidator = v::notEmpty()->stringType()->length(null, 250);
 
                 $fields_to_check = ['h8', 'h9','h10', 'h11','h1','h2','h3','h4' ];
                 foreach ($fields_to_check as $field) {
@@ -155,6 +163,10 @@
 
         public function viewReport($id=null){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $project_id=Auth::getProjectId();
 
             $report= new ProgressReport();
@@ -169,6 +181,10 @@
         }
 
         public function updateReport($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
 
             $report=new ProgressReport();
             $project_id=Auth::getProjectId();
@@ -198,6 +214,10 @@
         }
 
         public function delete($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
            
             if(count($_POST) > 0){
                 // var_dump("Hii");

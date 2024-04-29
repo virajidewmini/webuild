@@ -1,4 +1,4 @@
-
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <?php $this->view('includes/header')?>
 
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css">
@@ -109,3 +109,7 @@
         });
     });
 </script>
+
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

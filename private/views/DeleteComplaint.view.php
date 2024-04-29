@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 <div class="form_container">
 <form method="post">
@@ -12,3 +13,7 @@
 			 </form>
 </div>
 <?php $this->view('includes/footer'); ?>
+
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

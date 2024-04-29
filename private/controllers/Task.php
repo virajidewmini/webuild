@@ -3,6 +3,10 @@
 class Task extends Controller{
     
     public function index(){
+
+        if (!Auth::logged_in()) {
+            $this->redirect('/staff_login');
+        }
         $id=Auth::getProjectId();
         
         $model=new AllocateTask();
@@ -14,6 +18,10 @@ class Task extends Controller{
     }
 
     public function edit($id=null){
+
+        if (!Auth::logged_in()) {
+            $this->redirect('/staff_login');
+        }
         
         // Need to get module id from session
        
@@ -41,6 +49,10 @@ class Task extends Controller{
     }
 
     public function addCoworker($id){
+
+        if (!Auth::logged_in()) {
+            $this->redirect('/staff_login');
+        }
         $project_id=Auth::getProjectId();
         $model=new AllocateTask();
         $data= $model->getMainTask($id);
@@ -73,6 +85,10 @@ class Task extends Controller{
     }
 
     public function addAutomatically($id){
+
+        if (!Auth::logged_in()) {
+            $this->redirect('/staff_login');
+        }
         
      
         $project_id=Auth::getProjectId();

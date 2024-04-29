@@ -4,10 +4,19 @@
         
         public function index(){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $this->view('UpdatePhotograph');
         }
 
         public function viewPhotograph($id){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $project_id=Auth::getProjectId();
             $model=new AllocateTask();
             $data=$model->getMainTask($id);
@@ -28,6 +37,10 @@
         }
 
         public function addPhoto($id){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
             
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -70,6 +83,10 @@
         }
 
         public function delete($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
            
             if(count($_POST) > 0){
                 $attachment=new Attachment();

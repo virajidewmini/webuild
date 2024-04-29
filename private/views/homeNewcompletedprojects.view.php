@@ -321,42 +321,7 @@
               <h3>Colombo</h3>
             </div>
           </div>
-          <!-- <div class="box">
-            <div class="image">
-              <img src="./Photos/Houses/2 Floor/741_house_1.jpg" alt="">
-            </div>
-            <div class="content">
-              <h3>Purch Your Houses</h3>
-              <p>jdnjndnnnn jmkkmk okmlkmmf kmmm</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="./Photos/Houses/2 Floor/741_house_1.jpg" alt="">
-            </div>
-            <div class="content">
-              <h3>Purch Your Houses</h3>
-              <p>jdnjndnnnn jmkkmk okmlkmmf kmmm</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="./Photos/Houses/2 Floor/741_house_1.jpg" alt="">
-            </div>
-            <div class="content">
-              <h3>Purch Your Houses</h3>
-              <p>jdnjndnnnn jmkkmk okmlkmmf kmmm</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="image">
-              <img src="./Photos/images5.jpeg" alt="">
-            </div>
-            <div class="content">
-              <h3>Purch Your Lands</h3>
-              <p>jdnjndnnnn jmkkmk okmlkmmf kmmm</p>
-            </div>
-          </div> -->
+         
         </div>
       
 
@@ -407,38 +372,6 @@
        </style>
       </div>
       
-
-
-
-
-<!-- footer section starts  -->
-
-<!-- <section class="footer">
-
-  <div class="links">
-    <a class="btn" href="#home.php">Lands</a>
-    <a class="btn" href="#houses.php">About Us</a>
-    <a class="btn" href="#about.php">House</a>
-    <a class="btn" href="#services.php">Completed Projects</a>
-    <a class="btn" href="#completed projects.php">About Us</a>
-    <a class="btn" href="#pricing">Pricing</a>
-    <a class="btn" href="#contact">Contact Us</a>
-    <a class="btn" href="#blogs">Blogs</a>
-
-  </div>
-
-  <div class="credit">credited by <span>webuild construction</span> | all rights reserved!</div>
-
-
-</section> -->
-
-
-<!-- footer section ends  -->
-
-
-
-
-
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>

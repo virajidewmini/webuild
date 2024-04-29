@@ -1,5 +1,5 @@
 
-
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <style>
     
     .container {
@@ -116,3 +116,7 @@ p {
             </div>
 
     </div>
+
+    <?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

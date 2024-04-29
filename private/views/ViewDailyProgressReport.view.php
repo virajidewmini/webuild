@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <?php $this->view('includes/header')?>
 
 <?php if(isset($rows)):?>
@@ -139,3 +140,7 @@
 
     </div>
     <a href="<?=ROOT?>/dailyprogressreport"> <button class="v_submit_button" type="button" style="margin-left:780px;">Ok</button></a>
+
+    <?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
