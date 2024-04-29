@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php if(isset($rows)): ?>
+                <?php if(isset($rows) && !empty($rows)): ?>
                 
                     <?php foreach ($rows as $row):?>
                          <tr>

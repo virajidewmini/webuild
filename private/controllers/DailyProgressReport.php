@@ -206,6 +206,8 @@
                 $report=new ProgressReport();
                 // var_dump($_POST);
                 $report->updateReportDetail($id,$project_id,$_POST["description"],$_POST['comment']);
+                $report->updateWeatherDetail($id,$project_id,$_POST['h8'],$_POST['h9'],$_POST['h10'],$_POST['h11'],$_POST['h1'],$_POST['h2'],$_POST['h3'],$_POST['h4'],$_POST['temp'],$_POST['overall']);
+                $report->updateChallengeDetail($id,$project_id,$_POST['nature'],$_POST['challenge_description'],$_POST['impact'],$_POST['root_case'],$_POST['face']);
 			    // $report->update($id,$_POST);
 
                   $this->redirect('dailyprogressreport');
