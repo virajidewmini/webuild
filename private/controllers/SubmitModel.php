@@ -226,6 +226,9 @@ use Respect\Validation\Validator as v;
                     $user=new Staffs();
                     $coordinator=$user->where("role","Project Coordinator");
 
+                    $request_id=new Project_requests();
+                    $getRequest=$request_id->where("modification_id",$modification_id);
+
 
                     $notification=new Notifications();
                     $requestNotification=[
@@ -234,7 +237,7 @@ use Respect\Validation\Validator as v;
                         'message'=>"New Project Request Submitted",
                         'status'=>"Unseen",
                         'type'=>'request',
-                        'msg_id'=>$modification_id,
+                        'msg_id'=>$getRequest[0]->id,
                     ];
 
                     $notification->insert($requestNotification);
