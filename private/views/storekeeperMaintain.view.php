@@ -1,7 +1,7 @@
 <!-- <?php if (Auth::getRole() == 'Storekeeper') : ?> -->
     <?php $this->view('includes/header') ?>
 
-<form method="GET" action="<?= ROOT ?>/maintain/index">
+    <form method="GET" action="<?= ROOT ?>/maintain/index">
     <input type="text" name="material_name" placeholder="Enter material name...">
     <button type="submit" class="filter-button">Filter</button>
 </form>
