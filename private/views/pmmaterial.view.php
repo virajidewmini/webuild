@@ -109,7 +109,7 @@
                                 <td><?= $row->level; ?></td>
                                 <td><?= $row->r_date; ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                    <a href="<?= ROOT ?>/Pmmaterial/materialRequest_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -128,6 +128,7 @@
                     <tr>
                         <th>Project ID</th>
                         <th>Request ID</th>
+                        <th>Quotation ID</th>
                         <th>Level</th>
                         <th></th>
                     </tr>
@@ -138,9 +139,10 @@
                             <tr>
                                 <td><?= $row->project_id; ?></td>
                                 <td><?= $row->request_id; ?></td>
+                                <td><?= $row->quotation_id; ?></td>
                                 <td><?= $row->level; ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                <a href="<?= ROOT ?>/Pmmaterial/materialReceive_view/<?= $row->quotation_id; ?>/<?= $row->project_id; ?>/<?= $row->level; ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
                                     <a href="<?= ROOT ?>/"><button style="background-color: #E5863D;" class="_add_">Recieved</button></a>
                                 </td>
                             </tr>
@@ -160,6 +162,7 @@
                     <tr>
                         <th>Project ID</th>
                         <th>Request ID</th>
+                        <th>Quotation ID</th>
                         <th>Level</th>
                         <th></th>
                     </tr>
@@ -170,9 +173,10 @@
                             <tr>
                                 <td><?= $row->project_id; ?></td>
                                 <td><?= $row->request_id; ?></td>
+                                <td><?= $row->quotation_id; ?></td>
                                 <td><?= $row->level; ?></td>
                                 <td>
-                                    <a href="<?= ROOT ?>/Pmmaterial/request_view/<?= $row->request_id; ?>"><button><i class="fa-solid fa-eye"></i></button></a>
+                                <a href="<?= ROOT ?>/Pmmaterial/materialReceived_view/<?= $row->quotation_id; ?>/<?= $row->project_id; ?>/<?= $row->level; ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
                                 </td>
                             </tr>
                         </tbody>

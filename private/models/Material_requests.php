@@ -183,5 +183,13 @@ class Material_requests extends Model
 
         return $this->query($query);
     }
+    public function getReqDetails($r_id)
+    {
+        $query = "SELECT * FROM material_requests WHERE request_id = :r_id ";
+        $data['r_id'] = $r_id;
+        return $this->query($query, $data);
+    }
+
+    
 }
 ?>
