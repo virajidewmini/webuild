@@ -17,7 +17,7 @@ body{
             } ?>
             
             <select name="complaint_type" class="" type="text" placeholder="Select Complaint Type" style="width: auto;padding: 8px;font-size: 16px;border: 1px solid #ccc; border-radius: 5px;outline: none; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); ">
-                <option <?= get_select2('complaint_type','Quality of the photograph');?> value="Quality of the photograph">Quality of the photograph</option >
+                <option <?= get_select2('complaint_type','Quality and the number of the photograph');?> value="Quality and the number of the photograph">Quality and the number of the photograph</option >
                 <option <?= get_select2('complaint_type','Construction project delay ');?> value="Construction project delay ">Construction project delay </option>
                 <option <?= get_select2('complaint_type','Other');?> value="Other">Other</option>
                 <option <?= get_select2('complaint_type','Poor Communication');?>value="Poor Communication">Poor Communication</option>
@@ -57,10 +57,22 @@ body{
                     <tbody>
                         <?php foreach ($rows["complaints"] as $row) :?>
                             <?php if($row->status=='Notified'):?>
-                                <tr style="background-color: #e5863d;">                       
+                                <tr style="background-color: #3498db;">                       
                                     <td style="color: white;"><?=$row->id?></td>
                                     <td style="color: white;"><?=$row->date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
+                                    <td>
+                                        <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
+                                            <button><i class="fa-solid fa-eye"></i></button>
+                                        </a>
+                                    </td> 
+                                    
+                                </tr>
+                            <?php elseif($row->status=='Complete'):?>
+                                <tr style="background-color: #e5863d;">                       
+                                    <td style="color: white;"><?=$row->id?></td>
+                                    <td style="color: white;"><?=$row->date?></td>
+                                    <td style="color: white;"><?=$row->status?>d</td>  
                                     <td>
                                         <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->id?>">
                                             <button><i class="fa-solid fa-eye"></i></button>
@@ -87,9 +99,16 @@ body{
             </div>    
         </div>
     <?php else:?>
-        <h4>No Complaints on Photograph's Quality.</h4>
+        <h4>No Pending Complaints on <?=$_POST['complaint_type'];?>.</h4>
         <br><br>
     <?php endif;?> 
+
+    <br><br>
+    <div style="display: flex; justify-content: center;" >
+        <a href="<?=ROOT?>/coordinatorviewcomplaints/past">                                        
+            <input type="button" value="View Handled Complaints"class="cancel-button"  style="background-color:#E5863D; color:white">            
+        </a>
+    </div>
     
     
 

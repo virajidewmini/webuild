@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <?php $this->view('includes/header')?> 
 
 <div  class="table_header" >
@@ -154,3 +155,6 @@
 </div>
 </div>
 
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

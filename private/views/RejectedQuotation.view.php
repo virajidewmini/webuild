@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 
 <div style="margin-left: 400px;" class="table_header" >
@@ -111,3 +112,6 @@
     </div>
 
 <?php $this->view('includes/footer'); ?>
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

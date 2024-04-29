@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <?php $this->view('includes/header')?> 
 
 <style>
@@ -211,3 +212,7 @@
 </div>
 
 <script src="<?=ROOT?>/js/DailyProgressReport.js"></script>
+
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

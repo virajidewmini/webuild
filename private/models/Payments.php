@@ -10,7 +10,7 @@ class Payments extends Model{
     public function getNearingPayments(){
 
 
-        $query="SELECT payments.* , projects.user_id
+        $query="SELECT payments.* , projects.user_id,projects.project_request_id
         FROM payments INNER JOIN projects
         ON payments.project_id = projects.id
         WHERE payments.date <= DATE_ADD(CURDATE(), INTERVAL 2 WEEK)
@@ -23,15 +23,32 @@ class Payments extends Model{
     public function getWarningPayments(){
 
 
-        $query="SELECT payments.* , projects.user_id
+        $query="SELECT payments.* , projects.user_id,projects.project_request_id
         FROM payments INNER JOIN projects
         ON payments.project_id = projects.id
         WHERE payments.date <= DATE_ADD(CURDATE(), INTERVAL 1 WEEK)
-        AND payments.date >= CURDATE() AND payments.status='Unpaid' "; 
+        AND payments.date >= CURDATE() AND payments.status='Notified' "; 
 
        
         return $this->query($query);
     }
+
+    //get projects or requests which should be terminated due to  not paying    
+    public function getOverduePayments($value){
+
+        $query="SELECT payments.*,projects.project_request_id,projects.user_id FROM payments 
+        LEFT JOIN projects ON payments.project_id=projects.id
+        where payments.date <  :value AND payments.status='Warning'
+        
+
+        GROUP BY payments.project_id"; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
 
 
     public function get_user($data){

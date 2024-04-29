@@ -112,7 +112,20 @@ class Models extends Model{
     }
    
 
-    
+    //this is for the home page model selection
+    public function selectModelsAccordingly($no_room,$no_floor){
+
+
+        $query="SELECT * FROM model
+
+        WHERE model.no_room = :no_room AND model.no_floor = :no_floor"; 
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'no_floor' => $no_floor,
+            'no_room' => $no_room,
+        ]);
+    }
     
 
     

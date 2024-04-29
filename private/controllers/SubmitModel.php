@@ -5,6 +5,12 @@ use Respect\Validation\Validator as v;
     class SubmitModel extends Controller{
         
         public function index(){
+
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+
             $paintView=new Paint();
             $data1=$paintView->where("type","INTERIOR");
             $data_kitchen=$paintView->where("type","KIT&BATH");
@@ -53,16 +59,19 @@ use Respect\Validation\Validator as v;
                 
     
 
-                if (empty($errors)) {       
+                if (empty($errors)) {    
+                    
+                    $modification_id = uniqid();
+
                     $model = new UploadModel();
                     $userData = [
                         'user_id'=>Auth::id(),
                         'occupation' => $_POST['occupation'],
-                        'salary' => $_POST['salary']
-                        
+                        'salary' => $_POST['salary'],
+                        'modification_id'=>$modification_id,
                     ];
 
-                    $modification_id = uniqid();
+                    
         
                     $landData = [
                         'ul_street' => $_POST['street'],
@@ -166,7 +175,7 @@ use Respect\Validation\Validator as v;
 
                     $request=[
                         'user_id'=>Auth::id(),
-                        'model_id'=>1,
+                        'model_id'=>$_SESSION['model_id'],
                         'modification_id'=>$modification_id,
                         'payment_plan_id'=>(int)$_POST['type'],
                         'date'=>date('Y-m-d'),
@@ -213,6 +222,22 @@ use Respect\Validation\Validator as v;
         
                     $data->insert($userData);
                     $lands->insert($landData);
+
+                    $user=new Staffs();
+                    $coordinator=$user->where("role","Project Coordinator");
+
+
+                    $notification=new Notifications();
+                    $requestNotification=[
+                        'date'=>date('Y-m-d'),
+                        'staff_id'=>$coordinator[0]->id,
+                        'message'=>"New Project Request Submitted",
+                        'status'=>"Unseen",
+                        'type'=>'request',
+                        'msg_id'=>$modification_id,
+                    ];
+
+                    $notification->insert($requestNotification);
 
                     
                 }else{
