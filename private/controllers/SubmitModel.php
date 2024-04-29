@@ -53,16 +53,19 @@ use Respect\Validation\Validator as v;
                 
     
 
-                if (empty($errors)) {       
+                if (empty($errors)) {    
+                    
+                    $modification_id = uniqid();
+
                     $model = new UploadModel();
                     $userData = [
                         'user_id'=>Auth::id(),
                         'occupation' => $_POST['occupation'],
-                        'salary' => $_POST['salary']
-                        
+                        'salary' => $_POST['salary'],
+                        'modification_id'=>$modification_id,
                     ];
 
-                    $modification_id = uniqid();
+                    
         
                     $landData = [
                         'ul_street' => $_POST['street'],
@@ -213,6 +216,22 @@ use Respect\Validation\Validator as v;
         
                     $data->insert($userData);
                     $lands->insert($landData);
+
+                    $user=new Staffs();
+                    $coordinator=$user->where("role","Project Coordinator");
+
+
+                    $notification=new Notifications();
+                    $requestNotification=[
+                        'date'=>date('Y-m-d'),
+                        'staff_id'=>$coordinator[0]->id,
+                        'message'=>"New Project Request Submitted",
+                        'status'=>"Unseen",
+                        'type'=>'request',
+                        'msg_id'=>$modification_id,
+                    ];
+
+                    $notification->insert($requestNotification);
 
                     
                 }else{

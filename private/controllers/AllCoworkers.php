@@ -3,6 +3,10 @@
     class AllCoworkers extends Controller{
         
         public function index(){
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $worker=new CoworkerModel();
             $data=$worker->findAll();
 
@@ -10,7 +14,9 @@
         }
 
         public function add(){
-
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
             
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -65,6 +71,10 @@
 
         public function editCoworker($id=null){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $model=new CoworkerModel();
             $data=$model->where('id',$id);
             if($data){
@@ -85,6 +95,10 @@
 
         
         private function readCsvFile($filePath) {
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
             // Read CSV file and return data as an array
             $csvData = [];
             if (($handle = fopen($filePath, 'r')) !== false) {
@@ -103,6 +117,10 @@
         }
    
         public function delete($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
            
             if(count($_POST) > 0){
                 $coworker=new CoworkerModel();

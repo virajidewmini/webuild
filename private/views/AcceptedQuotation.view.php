@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 
 <script src="https://cdn.jsdelivr.net/npm/js-md5@0.8.3/src/md5.min.js"></script>
@@ -85,3 +86,7 @@
     
 
 <?php $this->view('includes/footer'); ?>
+
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

@@ -1,3 +1,4 @@
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <?php $this->view('includes/header')?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -7,6 +8,14 @@
         canvas {
             display: block;
             margin: 0 auto;
+            height: 300px;
+            width: 300px;
+        }
+        .pieChart{
+            display: block;
+            margin: 0 auto;
+            height: 300px;
+            width: 300px;
         }
 </style>
 
@@ -14,7 +23,7 @@
         <h1>  Tasks</h1>
 </div>
 
-<canvas id="myPieChart" width="300" height="300"></canvas>
+<canvas id="myPieChart" class="pieChart" width="300" height="300"></canvas>
 <br><br><br>
 
 
@@ -111,3 +120,7 @@
 </html>
 
 <?php $this->view('includes/footer'); ?>
+
+<?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

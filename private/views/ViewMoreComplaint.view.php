@@ -1,3 +1,4 @@
+<?php if ($_SESSION['role'] == 'Client') : ?>
 <?php $this->view('includes/header')?>
 
 <h2>Complaint Details</h2>
@@ -40,11 +41,13 @@
         <table id="attachmentTable">
         <?php if($attachment): ?>
             
-            <?php foreach ($attachment as $row): ?>
+           
             <tr>
                 <th>Attachment</th>
             </tr>
+            <?php foreach ($attachment as $row): ?>
             <tr>
+           
                 <td><a href="<?=ROOT?>/uploads/<?=$row->file_name?>"  target="_blank" style="color: blue;"><?=$row->file_name?></a></td>
                 
                 <?php endforeach;?>
@@ -59,3 +62,6 @@
         <a href="<?=ROOT?>/clientcomplaint"> <button class="v_submit_button" type="button" style="margin-left: 830px;">Ok</button></a>
         </div>
     
+        <?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>

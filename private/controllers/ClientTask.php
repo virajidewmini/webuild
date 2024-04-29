@@ -3,19 +3,25 @@
     class ClientTask extends Controller{
         
         public function index(){
-            // $_SESSION['project_id'] = $id;
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
         
-        $id=Auth::getProjectId();
-        $model=new AllocateTask();
-       
-        $data=$model->getTask($id);
-        $avg=$model->getAverageProgress();
+            $id=Auth::getProjectId();
+            $model=new AllocateTask();
+        
+            $data=$model->getTask($id);
+            $avg=$model->getAverageProgress();
        
             $this->view('viewTaskProgress',["rows"=>$data,"avg"=>$avg]);
         }
 
         public function viewProgress($id){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+            
             $model=new AllocateTask();
             $data=$model->getMainTask($id);
             $sub_task=$model->getSubTaskDetails($id);

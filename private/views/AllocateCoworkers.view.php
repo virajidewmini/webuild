@@ -1,4 +1,4 @@
-
+<?php if(Auth::getRole()== 'Supervisor'): ?>
 <?php $this->view('includes/header')?>
 <div style="margin-left: 400px;" class="table_header" >
         <h1>Allocate Coworkers</h1>
@@ -124,4 +124,8 @@
             </div>
 
         <?php $this->view('includes/footer'); ?>
+
+        <?php else : ?>
+    <?php $this->view('404'); ?>
+<?php endif; ?>
 

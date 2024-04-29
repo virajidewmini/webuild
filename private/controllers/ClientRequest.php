@@ -3,6 +3,14 @@
     class ClientRequest extends Controller{
         
         public function index($id){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+            
+            $notification = new Notifications();
+            $notification->updateRejectRequestNotification($id);
+
             $model=new Client();
 
             $data=$model->where("id",$id);
@@ -11,16 +19,15 @@
 
             $module=new Models();
             $model_name=$module->where("id",$model_id);
-          
-
-            $user=new UserData();
-            $userData=$user->where("user_id",Auth::id());
 
 
             $modification_id=$data[0]->modification_id;
             $land=new User_land();
             $user_land=$land->where("modification_id",$modification_id);
             $plan_id=$data[0]->payment_plan_id;
+
+            $user=new UserData();
+            $userData=$user->where("modification_id",$modification_id);
 
             $living=new Living();
             $dining=new Dining();

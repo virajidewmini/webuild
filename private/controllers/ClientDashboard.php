@@ -3,6 +3,9 @@
         
         public function index(){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
             
             $id=Auth::getId();
             $model=new Client();
