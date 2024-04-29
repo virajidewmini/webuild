@@ -4,6 +4,10 @@
         
         public function index($id){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+
               $_SESSION['project_id'] = $id;
 
             // var_dump(Auth::getProjectId());

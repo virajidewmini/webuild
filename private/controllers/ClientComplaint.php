@@ -5,6 +5,10 @@
 
 
         public function index(){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
             
                 
                 $clientComplaint=new C_Complaint();
@@ -16,6 +20,10 @@
         }
 
         public function viewComplaint($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
             
                 $clientComplaint=new C_Complaint();
 			    $data= $clientComplaint->viewComplanitDetail($id);
@@ -27,6 +35,11 @@
         }
 
         public function add(){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+
             if(count($_POST) > 0){
 
                 $descriptionValidator = v::notEmpty()->stringType()->length(null, 200);
@@ -95,6 +108,10 @@
 
         
         public function delete($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
            
             if(count($_POST) > 0){
                 $clientComplaint=new C_Complaint();

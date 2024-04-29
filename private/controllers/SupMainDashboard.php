@@ -4,6 +4,10 @@
         
         public function index($id){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/staff_login');
+            }
+
             $_SESSION['project_id'] = $id;
 
             $model= new Dashboards();

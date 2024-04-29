@@ -5,15 +5,31 @@
         
         public function index($id){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+
             $quotation= new Project_Quotation();
             $data=$quotation->getQuotation($id);
             $_SESSION['project_id']=$id;
+
+            $payment= new Project_Quotation();
+            $detail=$payment->getPaymentDetail($id);
+            $status=$detail[0]->status;
+
+            var_dump($status);
+
             // var_dump("AUTH ID",Auth::id());
 
-            $this->view('ViewQuotation',["rows"=>$data]);
+            $this->view('ViewQuotation',["rows"=>$data,"status"=>$status]);
         }
 
         public function reject(){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+            
             if(count($_POST) > 0){
 
                 $reject= new Reject();
@@ -39,7 +55,18 @@
                 
 			    $reject->insert($reject_quotation);
 
-                $this->redirect('quotation');
+                $quotation=new Project_Quotation();
+                $quotation->rejectQuotation();
+
+                $project=new Projects();
+                $request=$project->where("id",Auth::getProjectId());
+                $request_id=$request[0]->project_request_id;
+
+                $quotation->rejectRequest($request_id);
+
+                $quotation->rejectProject();
+
+                $this->redirect('clientdashboard');
             }
 
             $this->view('RejectedQuotation');

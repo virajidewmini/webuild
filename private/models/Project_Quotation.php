@@ -29,13 +29,40 @@ class Project_Quotation extends Model
     public function getPaymentDetail($project_id)
     {
 
-        $query = "select id,date,amount from payments where project_id= :project_id && installement_number=1";
+        $query = "select id,date,amount,status from payments where project_id= :project_id && installement_number=1";
         $params = [
             'project_id' => $project_id
         ];
         return $this->query($query, $params);
     }
 
+    public function rejectQuotation(){
+
+        $query = "update quotation  set status='Reject' where project_id= :project_id && user_id=:user_id";
+		$params = [
+            'user_id'=>Auth::id(),
+            'project_id'=>Auth::getProjectId()
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function rejectRequest($request_id){
+
+        $query = "update project_requests set status='Reject' where id= :request_id ";
+		$params = [
+            'request_id'=>$request_id
+        ];
+        return $this->query($query,$params);
+    }
+
+    public function rejectProject(){
+
+        $query = "update projects set status='Reject' where id= :project_id";
+		$params = [
+            'project_id'=>Auth::getProjectId()
+        ];
+        return $this->query($query,$params);
+    }
 
 
     // public function createproject($r_id, $q_id){

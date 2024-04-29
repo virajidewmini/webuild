@@ -4,6 +4,10 @@
         
         public function index(){
 
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+
             $installment=new Payments();
             $project_id=Auth::getProjectId();   
             $data=$installment->getDetails($project_id);
@@ -13,11 +17,28 @@
             
 
             $detail=$quotation->getPaymentDetail(Auth::id());
+
+            $nextPay=0;
+
+            foreach($data as $paymetDetails):
+                if($paymetDetails->status==="Unpaid"):
+                    $nextPay=$paymetDetails->id;
+                    break;
+                endif;
+            endforeach;
+
+            $notification = new Notifications();
+            $notification->updateInstallmentNotification($nextPay);
             
             $this->view('ViewInstallment',['rows'=> $data,'user'=>$user_data,'details'=>$detail,]);
         }
 
         public function installmentPayment($id=null){
+
+            if (!Auth::logged_in()) {
+                $this->redirect('/login');
+            }
+            
             $pay=new payments();
             $quotation=new Project_Quotation();
             $data=$quotation->getTotalPrice(Auth::getProjectId());

@@ -619,11 +619,11 @@
 
 
                             <?php if ($row->type == 'complaint'):?>
-                              <a href="<?=ROOT?>/coordinatorviewcomplaints/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
-                            <?php elseif ($row->type == 'project request'):?>
-                              <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
-                            <?php elseif ($row->type == 'quotation_pm_to_co'):?>
-                              <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a>
+                              <a href="<?=ROOT?>/supcomplaint/viewComplaint/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <?php elseif ($row->type == 'installment_reminder'):?>
+                              <a href="<?=ROOT?>/installment"><?=$row->message?></a>
+                            <?php elseif ($row->type == 'pr_reject_co'):?>
+                              <a href="<?=ROOT?>/clientrequest/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php endif;?>
 
                               <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
@@ -953,9 +953,9 @@
                           <?php if ($row->type == 'complaint'):?>
                             <a href="<?=ROOT?>/supcomplaint/viewComplaint/<?=$row->msg_id?>"><?=$row->message?></a>
                           <?php elseif ($row->type == 'installment_reminder'):?>
-                            <a href="<?=ROOT?>/installment"><?=$row->message?></a>
+                              <a href="<?=ROOT?>/installment"><?=$row->message?></a>
                           <?php elseif ($row->type == 'pr_reject_co'):?>
-                            <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a>
+                              <a href="<?=ROOT?>/clientrequest/<?=$row->msg_id?>"><?=$row->message?></a>
                           <?php endif;?>
 
                             <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">

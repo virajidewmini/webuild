@@ -1,4 +1,4 @@
-
+<?php if ($_SESSION['role'] == 'Client') : ?>
 
 <style>
    .container {
@@ -121,4 +121,6 @@ p {
     </div>
 
     <?php $this->view('includes/footer'); ?>
-    
+    <?php else : ?>
+    <?php $this->view('404'); ?>
+    <?php endif; ?>

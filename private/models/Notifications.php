@@ -108,6 +108,30 @@ class Notifications extends Model{
         ]);
     }
 
+    public function updateInstallmentNotification($id){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :id AND notifications.type='installment_reminder' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'id' => $id,
+        ]);
+    }
+
+    public function updateRejectRequestNotification($id){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :id AND notifications.type='pr_reject_co' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'id' => $id,
+        ]);
+    }
+
     public function getSupervisorComplaint($user_id){
         $query="select complaint.* from complaint inner join notifications where notifications.msg_id=complaint.id && notifications.staff_id=:user_id";
         $param=[
