@@ -22,18 +22,17 @@ class Pmcomplaint extends Controller
 
         $complaint = new C_Complaint();
         $data = $complaint->where('id', $id);
+        $notification = new Notifications();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($complaint->validate($_POST)) {
 
-                $_POST['status'] = 'Handled';
+                $_POST['status'] = 'Complete';
                 $complaint->update($id, $_POST);
 
-                if ($star == '*') {
-                    $this->redirect('pmdashboard');
-                }else{
-                    $this->redirect('pmcomplaint');
-                }
+                $data = $notification->complainttocoo($id);
+                $notification->insert($data);
+                echo '<script>window.history.go(-1);</script>';
 
                 
             }

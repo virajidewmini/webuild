@@ -33,7 +33,7 @@ class Pmquotation extends Controller
                 $arr2['status'] = 'Done';
                 $project_request->update($request_id, $arr2);
 
-                $data = $notification->projectQuatationNotify();
+                $data = $notification->projectQuotationNotify();
                 $notification->insert($data);
 
                 $this->redirect('pmdashboard');

@@ -171,9 +171,11 @@
                                             </a>
                                         <?php endif; ?>
                                     <?php else : ?>
+                                        <?php if ($rows2[0]->id == $row->id ) : ?>
                                         <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $rows[0]->id ?>/<?= $row->duration_in_days ?>/">
                                             <button><i class="fa-solid fa-plus"></i></button>
                                         </a>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                     <!-- <a href="<?= ROOT ?>/Pmtask/add/<?= $row->id ?>/<?= $project_id ?>">
                                         <button><i class="fa-solid fa-plus"></i></button>

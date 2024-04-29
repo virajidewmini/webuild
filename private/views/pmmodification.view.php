@@ -204,6 +204,26 @@
             }
         }
     </style>
+    <script>
+        var ktileprice = 0;
+        var kpaintprice = 0;
+        var btileprice = 0;
+        var bpaintprice = 0;
+        var dtileprice = 0;
+        var dpaintprice = 0;
+        var betileprice = 0;
+        var bepaintprice = 0;
+        var ltileprice = 0;
+        var lpaintprice = 0;
+        var dltileprice = 0;
+        var dlpaintprice = 0;
+        var mltileprice = 0;
+        var mlpaintprice = 0;
+        var detileprice = 0;
+        var depaintprice = 0;
+        var metileprice = 0;
+        var mepaintprice = 0;
+    </script>
     <?php if (true) : ?>
         <div style="display:flex; flex-direction: row; justify-content: center; padding: 0 0 40px 0; ">
 
@@ -214,7 +234,7 @@
                         <div class="title-id" style="display:flex; justify-content:center;flex-direction:column; padding-top:5px;">
                             <h2 style="margin-top: 20px;margin-bottom: 20px">MODIFICATION</h2>
                         </div>
-                        <div style="display:none">
+                        <div style="">
                             <?php if ($rowk) : ?>
                                 <div class="m-part" id="kitchen">
                                     <div class="m-part-top">
@@ -238,6 +258,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input style="width:150px;" readonly value="<?= $model[0]->kitchenTile->price_per_square_feet ?>" type="text" id="k-dtprice">
                                                 </div>
+                                                <script>
+                                                    var k_dtprice = parseFloat(document.getElementById('k-dtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowk[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -253,6 +276,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="k-dpprice">
                                                 </div>
+                                                <script>
+                                                    var k_dpprice = parseFloat(document.getElementById('k-dpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div class="modm">
@@ -271,6 +297,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowk[0]->tile->price_per_square_feet ?>" type="text" id="k-mtprice">
                                                 </div>
+                                                <script>
+                                                    var k_mtprice = parseFloat(document.getElementById('k-mtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowk[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -286,6 +315,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowk[0]->paint->price_per_square_feet ?>" type="text" id="k-mpprice">
                                                 </div>
+                                                <script>
+                                                    var k_mpprice = parseFloat(document.getElementById('k-mpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -301,6 +333,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_tiling_kitchens ?>" type="text" key="kitchen" id="k-s_q_t">
                                                 </div>
+                                                <script>
+                                                    var k_s_q_t = parseFloat(document.getElementById('k-s_q_t').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowk[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -309,6 +344,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_painting_kitchens ?>" type="text" key="kitchen" id="k-s_q_p">
                                                 </div>
+                                                <script>
+                                                    var k_s_q_p = parseFloat(document.getElementById('k-s_q_p').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -324,6 +362,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dktileprice">
                                                 </div>
+                                                <script>
+                                                    var dktileprice = k_dtprice * k_s_q_t;
+                                                    form.querySelector("#dktileprice").value = dktileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowk[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -333,6 +375,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dkpaintprice">
                                                 </div>
+                                                <script>
+                                                    var dkpaintprice = k_dpprice * k_s_q_p;
+                                                    form.querySelector("#dkpaintprice").value = dkpaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div>
@@ -345,6 +391,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mktileprice">
                                                 </div>
+                                                <script>
+                                                    var mktileprice = k_mtprice * k_s_q_t;
+                                                    form.querySelector("#mktileprice").value = mktileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowk[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -354,6 +404,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mkpaintprice">
                                                 </div>
+                                                <script>
+                                                    var mkpaintprice = k_mpprice * k_s_q_p;
+                                                    form.querySelector("#mkpaintprice").value = mkpaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -382,7 +436,13 @@
                                                 <div class="e-id-d" style="display:flex;align-items: center;">
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input style="width:150px;" readonly value="<?= $model[0]->bathroomTile->price_per_square_feet ?>" type="text" id="ba-dtprice">
+                                                    <script>
+                                                        var ba_dtprice = parseFloat(document.getElementById('ba-dtprice').value) || 0;
+                                                    </script>
                                                 </div>
+                                                <script>
+                                                    var ba_dtprice = parseFloat(document.getElementById('ba-dtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowba[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -398,6 +458,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="ba-dpprice">
                                                 </div>
+                                                <script>
+                                                    var ba_dpprice = parseFloat(document.getElementById('ba-dpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div class="modm">
@@ -416,6 +479,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowba[0]->tile->price_per_square_feet ?>" type="text" id="ba-mtprice">
                                                 </div>
+                                                <script>
+                                                    var ba_mtprice = parseFloat(document.getElementById('ba-mtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowba[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -431,6 +497,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowba[0]->paint->price_per_square_feet ?>" type="text" id="ba-mpprice">
                                                 </div>
+                                                <script>
+                                                    var ba_mpprice = parseFloat(document.getElementById('ba-mpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -446,6 +515,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_tiling_bathrooms ?>" type="text" key="kitchen" id="ba-s_q_t">
                                                 </div>
+                                                <script>
+                                                    var ba_s_q_t = parseFloat(document.getElementById('ba-s_q_t').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowba[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -454,6 +526,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_painting_bathrooms ?>" type="text" key="kitchen" id="ba-s_q_p">
                                                 </div>
+                                                <script>
+                                                    var ba_s_q_p = parseFloat(document.getElementById('ba-s_q_p').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -469,6 +544,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dbatileprice">
                                                 </div>
+                                                <script>
+                                                    var dbatileprice = ba_dtprice * ba_s_q_t;
+                                                    form.querySelector("#dbatileprice").value = dbatileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowba[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -478,6 +557,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dbapaintprice">
                                                 </div>
+                                                <script>
+                                                    var dbapaintprice = ba_dpprice * ba_s_q_p;
+                                                    form.querySelector("#dbapaintprice").value = dbapaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div>
@@ -490,6 +573,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mbatileprice">
                                                 </div>
+                                                <script>
+                                                    var mbatileprice = ba_mtprice * ba_s_q_t;
+                                                    form.querySelector("#mbatileprice").value = mbatileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowba[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -499,6 +586,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mbapaintprice">
                                                 </div>
+                                                <script>
+                                                    var mbapaintprice = ba_mpprice * ba_s_q_p;
+                                                    form.querySelector("#mbapaintprice").value = mbapaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -528,6 +619,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input style="width:150px;" readonly value="<?= $model[0]->diningTile->price_per_square_feet ?>" type="text" id="d-dtprice">
                                                 </div>
+                                                <script>
+                                                    var d_dtprice = parseFloat(document.getElementById('d-dtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowd[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -543,6 +637,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="d-dpprice">
                                                 </div>
+                                                <script>
+                                                    var d_dpprice = parseFloat(document.getElementById('d-dpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div class="modm">
@@ -561,6 +658,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowd[0]->tile->price_per_square_feet ?>" type="text" id="d-mtprice">
                                                 </div>
+                                                <script>
+                                                    var d_mtprice = parseFloat(document.getElementById('d-mtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowd[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -576,6 +676,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowd[0]->paint->price_per_square_feet ?>" type="text" id="d-mpprice">
                                                 </div>
+                                                <script>
+                                                    var d_mpprice = parseFloat(document.getElementById('d-mpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -591,6 +694,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_tiling_dining ?>" type="text" key="kitchen" id="d-s_q_t">
                                                 </div>
+                                                <script>
+                                                    var d_s_q_t = parseFloat(document.getElementById('d-s_q_t').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowd[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -599,6 +705,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_painting_dining ?>" type="text" key="kitchen" id="d-s_q_p">
                                                 </div>
+                                                <script>
+                                                    var d_s_q_p = parseFloat(document.getElementById('d-s_q_p').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -614,6 +723,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="ddtileprice">
                                                 </div>
+                                                <script>
+                                                    var ddtileprice = d_dtprice * d_s_q_t;
+                                                    form.querySelector("#ddtileprice").value = ddtileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowd[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -623,6 +736,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="ddpaintprice">
                                                 </div>
+                                                <script>
+                                                    var ddpaintprice = d_dpprice * d_s_q_p;
+                                                    form.querySelector("#ddpaintprice").value = ddpaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div>
@@ -635,6 +752,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mdtileprice">
                                                 </div>
+                                                <script>
+                                                    var mdtileprice = d_mtprice * d_s_q_t;
+                                                    form.querySelector("#mdtileprice").value = mdtileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowd[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -644,6 +765,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mdpaintprice">
                                                 </div>
+                                                <script>
+                                                    var mdpaintprice = d_mpprice * d_s_q_p;
+                                                    form.querySelector("#mdpaintprice").value = mdpaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -673,6 +798,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="be-dtprice">
                                                 </div>
+                                                <script>
+                                                    var be_dtprice = parseFloat(document.getElementById('be-dtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowbe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -688,6 +816,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="be-dpprice">
                                                 </div>
+                                                <script>
+                                                    var be_dpprice = parseFloat(document.getElementById('be-dpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div class="modm">
@@ -706,6 +837,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowbe[0]->tile->price_per_square_feet ?>" type="text" id="be-mtprice">
                                                 </div>
+                                                <script>
+                                                    var be_mtprice = parseFloat(document.getElementById('be-mtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowbe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -721,6 +855,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowbe[0]->paint->price_per_square_feet ?>" type="text" id="be-mpprice">
                                                 </div>
+                                                <script>
+                                                    var be_mpprice = parseFloat(document.getElementById('be-mpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -736,6 +873,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_tiling_bedrooms ?>" type="text" key="kitchen" id="be-s_q_t">
                                                 </div>
+                                                <script>
+                                                    var be_s_q_t = parseFloat(document.getElementById('be-s_q_t').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowbe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -744,6 +884,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_painting_bedrooms ?>" type="text" key="kitchen" id="be-s_q_p">
                                                 </div>
+                                                <script>
+                                                    var be_s_q_p = parseFloat(document.getElementById('be-s_q_p').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -759,6 +902,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dbetileprice">
                                                 </div>
+                                                <script>
+                                                    var dbetileprice = be_dtprice * be_s_q_t;
+                                                    form.querySelector("#dbetileprice").value = dbetileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowbe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -768,6 +915,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dbepaintprice">
                                                 </div>
+                                                <script>
+                                                    var dbepaintprice = be_dpprice * be_s_q_p;
+                                                    form.querySelector("#dbepaintprice").value = dbepaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div>
@@ -780,6 +931,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mbetileprice">
                                                 </div>
+                                                <script>
+                                                    var mbetileprice = be_mtprice * be_s_q_t;
+                                                    form.querySelector("#mbetileprice").value = mbetileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowbe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -789,6 +944,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mbepaintprice">
                                                 </div>
+                                                <script>
+                                                    var mbepaintprice = be_mpprice * be_s_q_p;
+                                                    form.querySelector("#mbepaintprice").value = mbepaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -818,6 +977,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="l-dtprice">
                                                 </div>
+                                                <script>
+                                                    var l_dtprice = parseFloat(document.getElementById('l-dtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowl[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -833,6 +995,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="l-dpprice">
                                                 </div>
+                                                <script>
+                                                    var l_dpprice = parseFloat(document.getElementById('l-dpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div class="modm">
@@ -851,6 +1016,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowl[0]->tile->price_per_square_feet ?>" type="text" id="l-mtprice">
                                                 </div>
+                                                <script>
+                                                    var l_mtprice = parseFloat(document.getElementById('l-mtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowl[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -866,6 +1034,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowl[0]->paint->price_per_square_feet ?>" type="text" id="l-mpprice">
                                                 </div>
+                                                <script>
+                                                    var l_mpprice = parseFloat(document.getElementById('l-mpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -881,6 +1052,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_tiling_living_area ?>" type="text" key="kitchen" id="l-s_q_t">
                                                 </div>
+                                                <script>
+                                                    var l_s_q_t = parseFloat(document.getElementById('l-s_q_t').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowl[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -889,6 +1063,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_painting_living_area ?>" type="text" key="kitchen" id="l-s_q_p">
                                                 </div>
+                                                <script>
+                                                    var l_s_q_p = parseFloat(document.getElementById('l-s_q_p').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -904,6 +1081,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dltileprice">
                                                 </div>
+                                                <script>
+                                                    var dltileprice = l_dtprice * l_s_q_t;
+                                                    form.querySelector("#dltileprice").value = dltileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowl[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -913,6 +1094,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="dlpaintprice">
                                                 </div>
+                                                <script>
+                                                    var dlpaintprice = l_dpprice * l_s_q_p;
+                                                    form.querySelector("#dlpaintprice").value = dlpaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div>
@@ -925,6 +1110,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mltileprice">
                                                 </div>
+                                                <script>
+                                                    var mltileprice = l_mtprice * l_s_q_t;
+                                                    form.querySelector("#mltileprice").value = mltileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowl[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -934,6 +1123,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mlpaintprice">
                                                 </div>
+                                                <script>
+                                                    var mlpaintprice = l_mpprice * l_s_q_p;
+                                                    form.querySelector("#mlpaintprice").value = mlpaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -963,6 +1156,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input style="width:150px;" readonly value="<?= $model[0]->defaultTile->price_per_square_feet ?>" type="text" id="e-dtprice">
                                                 </div>
+                                                <script>
+                                                    var e_dtprice = parseFloat(document.getElementById('e-dtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -978,6 +1174,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $model[0]->defaultColor->price_per_square_feet ?>" type="text" id="e-dpprice">
                                                 </div>
+                                                <script>
+                                                    var e_dpprice = parseFloat(document.getElementById('e-dpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div class="modm">
@@ -996,6 +1195,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowe[0]->tile->price_per_square_feet ?>" type="text" id="e-mtprice">
                                                 </div>
+                                                <script>
+                                                    var e_mtprice = parseFloat(document.getElementById('e-mtprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -1011,6 +1213,9 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" value="<?= $rowe[0]->paint->price_per_square_feet ?>" type="text" id="e-mpprice">
                                                 </div>
+                                                <script>
+                                                    var e_mpprice = parseFloat(document.getElementById('e-mpprice').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -1026,6 +1231,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_tiling_exterior ?>" type="text" key="kitchen" id="e-s_q_t">
                                                 </div>
+                                                <script>
+                                                    var e_s_q_t = parseFloat(document.getElementById('e-s_q_t').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -1034,6 +1242,9 @@
                                                 <div class="e-id-d">
                                                     <input value="<?= $model[0]->number_of_s_feet_for_painting_exterior ?>" type="text" key="kitchen" id="e-s_q_p">
                                                 </div>
+                                                <script>
+                                                    var e_s_q_p = parseFloat(document.getElementById('e-s_q_p').value) || 0;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -1049,6 +1260,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="detileprice">
                                                 </div>
+                                                <script>
+                                                    var detileprice = e_dtprice * e_s_q_t;
+                                                    form.querySelector("#detileprice").value = detileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -1058,6 +1273,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="depaintprice">
                                                 </div>
+                                                <script>
+                                                    var depaintprice = e_dpprice * e_s_q_p;
+                                                    form.querySelector("#depaintprice").value = depaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                         <div>
@@ -1070,6 +1289,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="metileprice">
                                                 </div>
+                                                <script>
+                                                    var metileprice = e_mtprice * e_s_q_t;
+                                                    form.querySelector("#metileprice").value = metileprice;
+                                                </script>
                                             <?php endif; ?>
                                             <?php if ($rowe[0]->paint_id) : ?>
                                                 <div class="unit">
@@ -1079,6 +1302,10 @@
                                                     <p style="margin-left: 20px">Rs.</p>
                                                     <input readonly style="width:150px;" type="text" id="mepaintprice">
                                                 </div>
+                                                <script>
+                                                    var mepaintprice = e_mpprice * e_s_q_p;
+                                                    form.querySelector("#mepaintprice").value = mepaintprice;
+                                                </script>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -1099,6 +1326,11 @@
                                             <p style="margin-left: 20px">Rs.</p>
                                             <input readonly style="width:150px;" value="0" type="text" id="dprice">
                                         </div>
+                                        <script>
+                                            var dprice = ((ktileprice || 0) + (kpaintprice || 0) + (btileprice || 0) + (bpaintprice || 0) + (dtileprice || 0) + (dpaintprice || 0) + (betileprice || 0) + (bepaintprice || 0) + (ltileprice || 0) + (lpaintprice || 0) + (dltileprice || 0) + (dlpaintprice || 0) + (mltileprice || 0) + (mlpaintprice || 0) + (detileprice || 0) + (depaintprice || 0)) - ((ktileprice || 0) + (kpaintprice || 0) + (btileprice || 0) + (bpaintprice || 0) + (mtileprice || 0) + (mpaintprice || 0) + (betileprice || 0) + (bepaintprice || 0) + (ltileprice || 0) + (lpaintprice || 0) + (mltileprice || 0) + (mlpaintprice || 0) + (detileprice || 0) + (depaintprice || 0) + (metileprice || 0) + (mepaintprice || 0));
+
+                                            form.querySelector("#dprice").value = dprice;
+                                        </script>
                                         <div class="unit">
                                             <h4>Old price :</h4>
                                         </div>
@@ -1128,14 +1360,14 @@
                                         </div>
                                         <div class="e-id-d" style="display:flex;align-items: center;">
                                             <p style="margin-left: 20px">Rs.</p>
-                                            <input readonly style="width:150px;" value="<?= ($interest*$price)/100 ?>" type="text" id="interest" name="interest">
+                                            <input readonly style="width:150px;" value="<?= ($interest * $price) / 100 ?>" type="text" id="interest" name="interest">
                                         </div>
                                         <div class="unit">
                                             <h4>Total price :</h4>
                                         </div>
                                         <div class="e-id-d" style="display:flex;align-items: center;">
                                             <p style="margin-left: 20px">Rs.</p>
-                                            <input readonly style="width:150px;" value="<?= (($interest*$price)/100)+$price ?>" type="text" id="totalprice" name="totalprice">
+                                            <input readonly style="width:150px;" value="<?= (($interest * $price) / 100) + $price ?>" type="text" id="totalprice" name="totalprice">
                                         </div>
                                     </div>
                                 </div>
@@ -1343,8 +1575,8 @@
                                 <div class="totals">
                                     <h2>Totals</h2>
                                     <p><strong>Subtotal : </strong>RS. <strong id="new_price"><?= $price ?></strong></p>
-                                    <p><strong>Interest : </strong>RS. <strong id="inter"><?= (($interest*$price)/100) ?></strong></p>
-                                    <p><strong>Total : </strong>RS. <strong id="t_tal"><?= (($interest*$price)/100)+$price ?></strong></h5>
+                                    <p><strong>Interest : </strong>RS. <strong id="inter"><?= (($interest * $price) / 100) ?></strong></p>
+                                    <p><strong>Total : </strong>RS. <strong id="t_tal"><?= (($interest * $price) / 100) + $price ?></strong></h5>
                                     </p>
                                 </div>
                             </div>
@@ -1415,55 +1647,55 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
         <script>
             var request_id = parseInt(document.getElementById('request_id').value);
-                var tol = parseInt(document.getElementById('totalprice').value);
+            var tol = parseInt(document.getElementById('totalprice').value);
 
 
 
-                //download button
-                const options = {
-                    // margin: 0.1,
-                    // height: auto,
-                    filename: '',
-                    image: {
-                        type: 'jpeg',
-                        quality: 500
-                    },
-                    html2canvas: {
-                        scale: 2
-                    },
-                    jsPDF: {
-                        unit: 'in',
-                        format: [14, 11],
-                        orientation: 'portrait',
-                        compress: true
-                    }
+            //download button
+            const options = {
+                // margin: 0.1,
+                // height: auto,
+                filename: '',
+                image: {
+                    type: 'jpeg',
+                    quality: 500
+                },
+                html2canvas: {
+                    scale: 2
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: [14, 11],
+                    orientation: 'portrait',
+                    compress: true
                 }
+            }
 
-                $('#print').click(function(e) {
-                    e.preventDefault();
-                    const element = document.getElementById('pdf');
-                    const name = 'quotation';
-                    var currentDate = new Date();
-                    options.filename = name + '_' + currentDate + '_' + request_id + '.pdf';
-                    html2pdf().from(element).set(options).save().then(() => {
+            $('#print').click(function(e) {
+                e.preventDefault();
+                const element = document.getElementById('pdf');
+                const name = 'quotation';
+                var currentDate = new Date();
+                options.filename = name + '_' + currentDate + '_' + request_id + '.pdf';
+                html2pdf().from(element).set(options).save().then(() => {
 
-                        window.location.href = 'http://localhost/webuild/public/Pmquotation/' + request_id + '/' + tol + '/';
+                    window.location.href = 'http://localhost/webuild/public/Pmquotation/' + request_id + '/' + tol + '/';
 
 
 
-                    });
                 });
+            });
         </script>
 
         <script>
             function calculate() {
                 // Get the values from input elements
-                var k_dtprice = parseFloat(document.getElementById('k-dtprice').value);
-                var k_dpprice = parseFloat(document.getElementById('k-dpprice').value);
-                var k_mtprice = parseFloat(document.getElementById('k-mtprice').value);
-                var k_mpprice = parseFloat(document.getElementById('k-mpprice').value);
-                var k_s_q_t = parseFloat(document.getElementById('k-s_q_t').value);
-                var k_s_q_p = parseFloat(document.getElementById('k-s_q_p').value);
+                var k_dtprice = parseFloat(document.getElementById('k-dtprice').value) || 0;
+                var k_dpprice = parseFloat(document.getElementById('k-dpprice').value) || 0;
+                var k_mtprice = parseFloat(document.getElementById('k-mtprice').value) || 0;
+                var k_mpprice = parseFloat(document.getElementById('k-mpprice').value) || 0;
+                var k_s_q_t = parseFloat(document.getElementById('k-s_q_t').value) || 0;
+                var k_s_q_p = parseFloat(document.getElementById('k-s_q_p').value) || 0;
 
 
                 var dktileprice = k_dtprice * k_s_q_t;
@@ -1476,12 +1708,12 @@
                 var mkpaintprice = k_mpprice * k_s_q_p;
                 form.querySelector("#mkpaintprice").value = mkpaintprice;
 
-                var ba_dtprice = parseFloat(document.getElementById('ba-dtprice').value);
-                var ba_dpprice = parseFloat(document.getElementById('ba-dpprice').value);
-                var ba_mtprice = parseFloat(document.getElementById('ba-mtprice').value);
-                var ba_mpprice = parseFloat(document.getElementById('ba-mpprice').value);
-                var ba_s_q_t = parseFloat(document.getElementById('ba-s_q_t').value);
-                var ba_s_q_p = parseFloat(document.getElementById('ba-s_q_p').value);
+                var ba_dtprice = parseFloat(document.getElementById('ba-dtprice').value) || 0;
+                var ba_dpprice = parseFloat(document.getElementById('ba-dpprice').value) || 0;
+                var ba_mtprice = parseFloat(document.getElementById('ba-mtprice').value) || 0;
+                var ba_mpprice = parseFloat(document.getElementById('ba-mpprice').value) || 0;
+                var ba_s_q_t = parseFloat(document.getElementById('ba-s_q_t').value) || 0;
+                var ba_s_q_p = parseFloat(document.getElementById('ba-s_q_p').value) || 0;
 
 
                 var dbatileprice = ba_dtprice * ba_s_q_t;
@@ -1494,12 +1726,12 @@
                 var mbapaintprice = ba_mpprice * ba_s_q_p;
                 form.querySelector("#mbapaintprice").value = mbapaintprice;
 
-                var d_dtprice = parseFloat(document.getElementById('d-dtprice').value);
-                var d_dpprice = parseFloat(document.getElementById('d-dpprice').value);
-                var d_mtprice = parseFloat(document.getElementById('d-mtprice').value);
-                var d_mpprice = parseFloat(document.getElementById('d-mpprice').value);
-                var d_s_q_t = parseFloat(document.getElementById('d-s_q_t').value);
-                var d_s_q_p = parseFloat(document.getElementById('d-s_q_p').value);
+                var d_dtprice = parseFloat(document.getElementById('d-dtprice').value) || 0;
+                var d_dpprice = parseFloat(document.getElementById('d-dpprice').value) || 0;
+                var d_mtprice = parseFloat(document.getElementById('d-mtprice').value) || 0;
+                var d_mpprice = parseFloat(document.getElementById('d-mpprice').value) || 0;
+                var d_s_q_t = parseFloat(document.getElementById('d-s_q_t').value) || 0;
+                var d_s_q_p = parseFloat(document.getElementById('d-s_q_p').value) || 0;
 
 
                 var ddtileprice = d_dtprice * d_s_q_t;
@@ -1512,12 +1744,12 @@
                 var mdpaintprice = d_mpprice * d_s_q_p;
                 form.querySelector("#mdpaintprice").value = mdpaintprice;
 
-                var be_dtprice = parseFloat(document.getElementById('be-dtprice').value);
-                var be_dpprice = parseFloat(document.getElementById('be-dpprice').value);
-                var be_mtprice = parseFloat(document.getElementById('be-mtprice').value);
-                var be_mpprice = parseFloat(document.getElementById('be-mpprice').value);
-                var be_s_q_t = parseFloat(document.getElementById('be-s_q_t').value);
-                var be_s_q_p = parseFloat(document.getElementById('be-s_q_p').value);
+                var be_dtprice = parseFloat(document.getElementById('be-dtprice').value) || 0;
+                var be_dpprice = parseFloat(document.getElementById('be-dpprice').value) || 0;
+                var be_mtprice = parseFloat(document.getElementById('be-mtprice').value) || 0;
+                var be_mpprice = parseFloat(document.getElementById('be-mpprice').value) || 0;
+                var be_s_q_t = parseFloat(document.getElementById('be-s_q_t').value) || 0;
+                var be_s_q_p = parseFloat(document.getElementById('be-s_q_p').value) || 0;
 
 
                 var dbetileprice = be_dtprice * be_s_q_t;
@@ -1530,12 +1762,12 @@
                 var mbepaintprice = be_mpprice * be_s_q_p;
                 form.querySelector("#mbepaintprice").value = mbepaintprice;
 
-                var l_dtprice = parseFloat(document.getElementById('l-dtprice').value);
-                var l_dpprice = parseFloat(document.getElementById('l-dpprice').value);
-                var l_mtprice = parseFloat(document.getElementById('l-mtprice').value);
-                var l_mpprice = parseFloat(document.getElementById('l-mpprice').value);
-                var l_s_q_t = parseFloat(document.getElementById('l-s_q_t').value);
-                var l_s_q_p = parseFloat(document.getElementById('l-s_q_p').value);
+                var l_dtprice = parseFloat(document.getElementById('l-dtprice').value) || 0;
+                var l_dpprice = parseFloat(document.getElementById('l-dpprice').value) || 0;
+                var l_mtprice = parseFloat(document.getElementById('l-mtprice').value) || 0;
+                var l_mpprice = parseFloat(document.getElementById('l-mpprice').value) || 0;
+                var l_s_q_t = parseFloat(document.getElementById('l-s_q_t').value) || 0;
+                var l_s_q_p = parseFloat(document.getElementById('l-s_q_p').value) || 0;
 
 
                 var dltileprice = l_dtprice * l_s_q_t;
@@ -1549,12 +1781,12 @@
                 form.querySelector("#mlpaintprice").value = mlpaintprice;
 
 
-                var e_dtprice = parseFloat(document.getElementById('e-dtprice').value);
-                var e_dpprice = parseFloat(document.getElementById('e-dpprice').value);
-                var e_mtprice = parseFloat(document.getElementById('e-mtprice').value);
-                var e_mpprice = parseFloat(document.getElementById('e-mpprice').value);
-                var e_s_q_t = parseFloat(document.getElementById('e-s_q_t').value);
-                var e_s_q_p = parseFloat(document.getElementById('e-s_q_p').value);
+                var e_dtprice = parseFloat(document.getElementById('e-dtprice').value) || 0;
+                var e_dpprice = parseFloat(document.getElementById('e-dpprice').value) || 0;
+                var e_mtprice = parseFloat(document.getElementById('e-mtprice').value) || 0;
+                var e_mpprice = parseFloat(document.getElementById('e-mpprice').value) || 0;
+                var e_s_q_t = parseFloat(document.getElementById('e-s_q_t').value) || 0;
+                var e_s_q_p = parseFloat(document.getElementById('e-s_q_p').value) || 0;
 
 
                 var detileprice = e_dtprice * e_s_q_t;

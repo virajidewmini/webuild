@@ -34,7 +34,7 @@
         .p-title {
             min-width: 200px;
             width: 20%;
-            margin: 10px 0 0 20px;
+            margin: 10px 0 0 0;
         }
 
         .p-title-detail {
@@ -68,7 +68,7 @@
             border: 1px solid black;
             border-radius: 7px;
             padding: 10px 10px 10px 20px;
-            margin-left: 10px;
+            margin-left: 0;
             width: 300px;
             height: 100px;
         }
@@ -108,7 +108,7 @@
                 <form action="" method="post" id="form">
                     <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                         <div class="p-title">
-                            <h3 style="width:400px">Remaining Material Reaquests</h3>
+                            <h2 style="width:400px; margin-right:500px;">Remaining Material Reaquests</h2>
                         </div>
                     </div>
 
@@ -160,7 +160,6 @@
                                         <?php endif; ?>
                                     </tbody>
                                 </table>
-                                <pre><?= print_r($_POST) ?></pre>
                             </div>
                         </div>
                     <?php endif; ?>

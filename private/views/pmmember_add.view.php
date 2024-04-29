@@ -159,7 +159,6 @@
 
                         </div>
                     </fieldset>
-                    <?php print_r($_POST) ?>
                     <div class="table_header" style="align-items: center; background-color:white">
                         <a href="<?= ROOT ?>/pmmember_search">
                             <input class="in_a_c" style="border:none; color:#E5863D" type="button" value="Cancel">

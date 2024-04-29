@@ -69,18 +69,18 @@
         <h2 style="margin-bottom: 20px">SUB TASKS</h2>
         <div class="unit-d">
             <div class="unit">
-                <p>Project ID :</p>
+                <h4>Project ID :</h4>
             </div>
             <div class="e-id-d">
-                <input readonly name="project_id" value="<?= $project_id ?>" type="text" class="form-control">
+                <h4 style="margin-left:20px"><?= $project_id ?></h4>
             </div>
         </div>
         <div class="unit-d">
             <div class="unit">
-                <p>Task ID :</p>
+                <h4>Task ID :</h4>
             </div>
             <div class="e-id-d">
-                <input readonly name="task_id" value="<?= $task_id ?>" type="text" class="form-control" style="margin-left:27px;">
+            <h4 style="margin-left:20px"><?= $task_id ?></h4>
             </div>
         </div>
         <div class="table_section">
@@ -90,7 +90,7 @@
                         <tr>
                             <th>Sub Task ID</th>
                             <th>Sub Task Name</th>
-                            <th>Details</th>
+                            <th style="width:800px;">Details</th>
                             <th>Status</th>
                             <th>Remark from Supervisor</th>
                         </tr>

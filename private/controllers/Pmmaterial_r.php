@@ -15,6 +15,8 @@ class Pmmaterial_r extends Controller
         $projects = new Projects();
         $data = $projects->where('id',$project_id);
 
+        $notification = new Notifications();
+
         $task = new Tasks();
         $data1 = array();
         $data2 =  $data2 = $task->toReqlevel($project_id);
@@ -40,6 +42,8 @@ class Pmmaterial_r extends Controller
             $material_request = new Material_requests();
             if ($material_request->validate($_POST)) {
                 $material_request->insertMaterial($_POST);
+                $notfy = $notification->materialRequest();
+                $notification->insert($notfy);
                 $this->redirect('Pmmaterial');
             } else {
                 $errors = $material_request->errors;
@@ -69,6 +73,7 @@ class Pmmaterial_r extends Controller
         $errors = array();
 
         $material_request = new Material_requests();
+        $notification = new Notifications();
 
 
         $data = $material_request->remaining_req_details($r_id);
@@ -79,6 +84,9 @@ class Pmmaterial_r extends Controller
             if ($material_request->validate($_POST)) {
                 $material_request->statusChange($r_id);
                 $material_request->insertMaterial($_POST);
+                $notfy = $notification->materialRequest();
+                $notification->insert($notfy);
+
                 echo '<script>window.history.go(-2);</script>';
             } else {
                 $errors = $material_request->errors;

@@ -43,34 +43,52 @@ class Pmmaterial extends Controller
         ]);
     }
 
-    public function request_view($id = null)
+    public function materialRequest_view($request_id = null)
     {
-        // code...
-        //     if(!Auth::logged_in()){
-        //         $this->redirect('login');
-        //     }
-        //     $project = new Projects();
+            if(!Auth::logged_in()){
+                $this->redirect('login');
+            }
+            $material_req= new Material_requests();
+
+            $row = $material_req->getReqDetails($request_id);
 
 
-        //    if( $_SERVER['REQUEST_METHOD'] =='POST'){
-        //     if($project->validate($_POST)){
+            $this->view('pmmaterial_r_details',[
+                'rows'=>$row,
+            ]);
+    }
+    public function materialReceive_view($quotation_id = null, $project_id = null, $level = null )
+    {
+            if(!Auth::logged_in()){
+                $this->redirect('login');
+            }
+            $material_quo= new QuotationSK();
 
-        //         $id1 = $_POST['id'];
-        //         $arr['supervisor_id']=$_POST['supervisor_id'];
-        //         $arr['date']=$_POST['date'];
-        //         $arr['final_date']=$_POST['final_date'];
-        //         $arr['action'] = 'ongoing';
-        //         $project->update($id1,$arr);
-        //         $this->redirect('pmmember');
-        //     }
-        //     }
-        //     $staff=new Staffs();
-        //     $row = $staff->where('id',$id);
+            $row = $material_quo->getReceiveReqDetails($quotation_id);
 
 
-        //     $this->view('pmmember_add',[
-        //         'row'=>$row,
-        //     ]);
+            $this->view('pmmaterial_q_details',[
+                'rows'=>$row,
+                'project_id'=>$project_id,
+                'level'=>$level,
+            ]);
+    }
+
+    public function materialReceived_view($quotation_id = null, $project_id = null, $level = null )
+    {
+            if(!Auth::logged_in()){
+                $this->redirect('login');
+            }
+            $material_quo= new QuotationSK();
+
+            $row = $material_quo->getReceiveReqDetails($quotation_id);
+
+
+            $this->view('pmmaterial_received_details',[
+                'rows'=>$row,
+                'project_id'=>$project_id,
+                'level'=>$level,
+            ]);
     }
     public function materialReceived($id = null)
     {
@@ -79,5 +97,7 @@ class Pmmaterial extends Controller
             }
             $q_table = new QuotationSK();
             $q_table->materialReceived($id);
+
+            echo '<script>window.history.go(-1);</script>';
     }
 }

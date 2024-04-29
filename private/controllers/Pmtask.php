@@ -55,6 +55,7 @@ class Pmtask extends Controller
         // $success = "";
         $allocated_tasks = new Allocated_tasks();
         $allocated_subtasks = new Allocated_subtasks();
+        $notification = new Notifications();
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -66,6 +67,8 @@ class Pmtask extends Controller
                 $arr['est_end_date'] = date("Y-m-d", strtotime(" +$days days"));
                 $allocated_tasks->insert($arr);
                 $allocated_subtasks->insertSubtasks($_POST);
+                $notify = $notification->addTask($p_id);
+                $notification->insert($notify);
 
                 // $success = array(
                 //     'message' => 'Task added successfully'
@@ -119,5 +122,17 @@ class Pmtask extends Controller
             'task_id' => $task_id,
             'remark' => $remark,
         ]);
+    }
+
+    public function warnSupervisor($id = null)
+    {
+        // code...
+        if (!Auth::logged_in()) {
+            $this->redirect('login');
+        }
+        $notification = new Notifications();
+        $data = $notification->warningTask($id);
+        $notification->insert($data);
+        echo '<script>window.history.go(-1);</script>';
     }
 }

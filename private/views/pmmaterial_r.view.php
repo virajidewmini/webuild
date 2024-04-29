@@ -110,7 +110,7 @@
                 <form action="" method="GET" id="form">
                     <div class="title-id" style="display:flex; justify-content:center; padding-top:5px;">
                         <div class="p-title">
-                            <h3>Material Reaquests</h3>
+                            <h2>Material Reaquests</h2>
                         </div>
                     </div>
                     <div class="unit-d">
@@ -202,7 +202,7 @@
                         <div class="table">
 
                             <div class="table_header">
-                                <h3>Materials and Equipment</h3>
+                                <h3>Materials and Equipments</h3>
                             </div>
                             <div class="table_section">
                                 <table>
