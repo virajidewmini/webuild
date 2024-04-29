@@ -1,5 +1,13 @@
 <?php if ($_SESSION['role'] == 'Client') : ?>
+  <head>
 
+  <link rel="stylesheet" href="<?=ROOT?>/css/header.css" />
+    <link rel="stylesheet" href="<?=ROOT?>/css/style.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 <style>
    .container {
   display: flex;
@@ -73,6 +81,10 @@ p {
   color: #f0f0f0;
 }
 
+.logoutClass{
+  margin-left: 90%;
+  margin-top: 5%;
+}
 
 
 
@@ -80,8 +92,19 @@ p {
 </style>
 
 
+
 <div class="container">
+<div class="logoutClass">
+
+<a href="<?=ROOT?>/logout" class="logout">
+    <i class="fas fa-right-from-bracket" style="color: red;"></i>
+        <span class="text" style="color: red;" >Logout</span>
+</a>
+</div>
+
         <h1>Select Your Project</h1>
+
+        
         
             <div class="role-container">
             <?php if(isset($rows) && !empty($rows)):?>
