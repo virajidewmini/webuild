@@ -382,18 +382,18 @@
                             data: [<?= $rows["FOG"][0]->total ?>, <?= $rows["SOG"][0]->total ?>, <?= $rows["TOG"][0]->total ?>, <?= $rows["EOG"][0]->total ?>],
                         },
                         {
-                            label: 'Rejected Projects',
+                            label: 'Cancelled Projects',
                             backgroundColor: 'rgba(194, 24, 91, 1)',
                             borderColor: 'rgba(194, 24, 91, 1)',
                             borderWidth: 1,
                             data: [<?= $rows["FRE"][0]->total ?>, <?= $rows["SRE"][0]->total ?>, <?= $rows["TRE"][0]->total ?>, <?= $rows["ERE"][0]->total ?>],
                         },
                         {
-                            label: 'Finished Projects',
+                            label: 'Completed Projects',
                             backgroundColor: 'rgba(233, 30, 99, 1)',
                             borderColor: 'rgba(233, 30, 99, 1)',
                             borderWidth: 1,
-                            data: [<?= $rows["FRE"][0]->total ?>, <?= $rows["SRE"][0]->total ?>, <?= $rows["TRE"][0]->total ?>, <?= $rows["ERE"][0]->total ?>],
+                            data: [<?= $rows["FFI"][0]->total ?>, <?= $rows["SFI"][0]->total ?>, <?= $rows["TFI"][0]->total ?>, <?= $rows["EFI"][0]->total ?>],
                         }
                     ]
                 };

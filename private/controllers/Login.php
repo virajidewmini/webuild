@@ -21,11 +21,12 @@
                         
                         if ($_SESSION['role'] == 'Client'){
 
-                            if($_SESSION['model_id']==NULL){
-                                $this->redirect('/clientdashboard');
+                            if($_SESSION['model_id']){
+                                $this->redirect('/submitModel');
                             }
                             else{
-                                $this->redirect('/submitModel');
+                                
+                                $this->redirect('/clientdashboard');
                             }
                             
                         }
