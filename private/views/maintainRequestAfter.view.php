@@ -13,9 +13,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Material Or Equipment ID</th>
-                        <th>Material Or Equipment Name</th>
-                        <th>Material Or Equipment Code</th>
+                        <th>Material  ID</th>
+                        <th>Material  Name</th>
+                        <th>Material Code</th>
                         <!-- <th>Remain Quantity</th> -->
                         <th>Requested Quntity</th>
                         <th>Action</th>
