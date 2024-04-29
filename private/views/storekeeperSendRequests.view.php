@@ -7,11 +7,11 @@
     
         <form method="post" class="v_form">
             <?php if($rows): ?>
-            <label class="v_label" id="">Material Or Equipment ID</label>
+            <label class="v_label" id="">Material ID</label>
             <input type="text" name="material_id" id="material_id" class="v_form-control" style="height: 50px;" value="<?= $rows[0]->id ?>" readonly>
             <label class="v_label" id="">Material Or Equipment</label>
             <input type="text" name="material_name" id="Material_Name" class="v_form-control" style="height: 50px;" value="<?= $rows[0]->material_name ?>" readonly>
-            <label for="description">Material Or Equipment Code</label>
+            <label for="description">Material Code</label>
             <input type="text" name="material_code" id="Material_Code" class="v_form-control" style="height: 50px;" value="<?= $rows[0]->material_code ?>" readonly>
             <label class="v_label" id="">Remain Quantity</label>
             <input type="text" name="remain_quantity" id="Remain_Quantity" class="v_form-control" style="height: 50px;" value="<?= $rows[0]->remain_quantity ?>" readonly>
