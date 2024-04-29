@@ -115,6 +115,21 @@ class ProgressReport extends Model{
         return $this->query($query,$params);
     }
 
+    public function updateChallengeDetail($id,$project_id,$challenge,$description,$impact,$root_case,$face_it){
+
+        $query = "update challenge set challenge=:challenge, description=:description, impact=:impact, root_case=:root_case, face_it=:face_it where date = :id && project_id= :project_id";
+		$params = [
+            'id' => $id,
+            'project_id' => $project_id,
+            'description'=>$description,
+            'challenge'=>$challenge,
+            'impact'=>$impact,
+            'root_case'=>$root_case,
+            'face_it'=>$face_it,
+        ];
+        return $this->query($query,$params);
+    }
+
     public function viewWeatherDetail($id,$project_id){
 
         $query = "select * from weather_report where date = :id && project_id= :project_id";
@@ -125,13 +140,22 @@ class ProgressReport extends Model{
         return $this->query($query,$params);
     }
 
-    public function updateWeatherDetail($id,$project_id){
+    public function updateWeatherDetail($id,$project_id,$h8,$h9, $h10,$h11,$h1,$h2,$h3,$h4,$temparature,$overall){
 
         $query = "update weather_report set hour_8=:h8,hour_9=:h9,hour_10=:h10,hour_11=:h11,hour_1=:h1,hour_2=:h2,hour_3=:h3,hour_4=:h4,temperature=:temp,Overall=:Overall where date = :id && project_id= :project_id";
 		$params = [
             'id' => $id,
             'project_id' => $project_id,
-            'h8'
+            'h8'=>$h8,
+            'h9'=>$h9,
+            'h10'=>$h10,
+            'h11'=>$h11,
+            'h1'=>$h1,
+            'h2'=>$h2,
+            'h3'=>$h3,
+            'h4'=>$h4,
+            'temp'=>$temparature,
+            'Overall'=>$overall
         ];
         return $this->query($query,$params);
     }
