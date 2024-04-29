@@ -234,7 +234,7 @@ use Respect\Validation\Validator as v;
                     $requestNotification=[
                         'date'=>date('Y-m-d'),
                         'staff_id'=>$coordinator[0]->id,
-                        'message'=>"New Project Request Submitted",
+                        'message'=>"New Project Request Submitted, ID " . $getRequest[0]->id,
                         'status'=>"Unseen",
                         'type'=>'project request',
                         'msg_id'=>$modification_id,
