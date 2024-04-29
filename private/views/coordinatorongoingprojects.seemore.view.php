@@ -19,28 +19,28 @@
                          
                          <div class="column">                   
                               <label for="firstname">First Name</label>
-                              <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->firstname;?>">
+                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->firstname;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Last Name</label>
-                              <input type="text" id="occupation" name="occupation"value= "<?= $rows["common"]->lastname;?>">
+                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->lastname;?>">
                          </div>
                          <div class="column">
                               <label for="occupation">Occupation</label>
-                              <input type="text" id="occupation" name="occupation" value= "<?= $rows["common"]->occupation;?>">
+                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->occupation;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Monthly Salary(LKR)</label>
-                              <input type="text" id="occupation" name="occupation" value= "<?= $rows["common"]->salary;?>">
+                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->salary;?>">
 
                          </div>
                          <div class="column">
                               <label for="occupation">Contact Number</label>
-                              <input type="text" id="contactnumber" name="contactnumber" value= "<?= $rows["common"]->contactnumber;?>">
+                              <input type="text" readonly id="contactnumber" name="contactnumber" value= "<?= $rows["common"]->contactnumber;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Email</label>
-                              <input type="text" id="occupation" name="occupation" value= "<?= $rows["common"]->email;?>">
+                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->email;?>">
                          </div>
                     
                     </div>
@@ -59,25 +59,25 @@
                               
                               <div class="column">                   
                                    <label for="firstname">Land ID</label>
-                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["customer"]->id;?>">
+                                   <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["customer"]->id;?>">
                               </div>
                               
                               <div class="column">
                                    <label for="lastName">Street</label>
-                                   <input type="text" id="occupation" name="occupation"value= "<?= $rows["customer"]->ul_street;?>">
+                                   <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["customer"]->ul_street;?>">
                               </div>
                               <div class="column">
                                    <label for="occupation">Town</label>
-                                   <input type="text" id="occupation" name="occupation" value= "<?= $rows["customer"]->ul_town;?>">
+                                   <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["customer"]->ul_town;?>">
                               </div>
                               <div class="column">
                                    <label for="lastName">District</label>
-                                   <input type="text" id="occupation" name="occupation" value= "<?= $rows["customer"]->ul_district;?>">
+                                   <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["customer"]->ul_district;?>">
 
                               </div>
                               <div class="column">
                                    <label for="occupation">Area (In perch)</label>
-                                   <input type="text" id="contactnumber" name="contactnumber" value= "<?= $rows["customer"]->ul_area;?>">
+                                   <input type="text" readonly id="contactnumber" name="contactnumber" value= "<?= $rows["customer"]->ul_area;?>">
                               </div>
                               
                               
@@ -121,19 +121,19 @@
                          
                                    <div class="column">                   
                                         <label for="firstname">First Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->firstname;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["manager_details"]->firstname;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Last Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->lastname;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["manager_details"]->lastname;?>">
                                    </div>                                  
                                    <div class="column">
                                         <label for="lastName">Email</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["manager_details"]->email;?>">
+                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["manager_details"]->email;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Contact Number</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["manager_details"]->contactnumber;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["manager_details"]->contactnumber;?>">
                                    </div>
                     
                               </div>
@@ -151,19 +151,19 @@
                          
                                    <div class="column">                   
                                         <label for="firstname">First Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->firstname;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->firstname;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Last Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->lastname;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->lastname;?>">
                                    </div>                                  
                                    <div class="column">
                                         <label for="lastName">Email</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["supervisor_details"]->staff->email;?>">
+                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["supervisor_details"]->staff->email;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Contact Number</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->contactnumber;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["supervisor_details"]->staff->contactnumber;?>">
                                    </div>
                     
                               </div>
@@ -191,11 +191,11 @@
                                              <div class="form-group">
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
-                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["kitchen_modification_details"][0]->tile->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["kitchen_modification_details"][0]->tile->name;?>">
                                                   </div>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
-                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["kitchen_modification_details"][0]->paint->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["kitchen_modification_details"][0]->paint->name;?>">
                                                   </div>
                                    
                                              </div>
@@ -217,11 +217,11 @@
                                              <div class="form-group">
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
-                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["dining_modification_details"][0]->tile->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["dining_modification_details"][0]->tile->name;?>">
                                                   </div>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
-                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["dining_modification_details"][0]->paint->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["dining_modification_details"][0]->paint->name;?>">
                                                   </div>
                                    
                                              </div>
@@ -243,11 +243,11 @@
                                              <div class="form-group">
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
-                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["living_modification_details"][0]->tile->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["living_modification_details"][0]->tile->name;?>">
                                                   </div>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
-                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["living_modification_details"][0]->paint->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["living_modification_details"][0]->paint->name;?>">
                                                   </div>
                                    
                                              </div>
@@ -269,11 +269,11 @@
                                              <div class="form-group">
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
-                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["bathroom_modification_details"][0]->tile->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["bathroom_modification_details"][0]->tile->name;?>">
                                                   </div>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
-                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["bathroom_modification_details"][0]->paint->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["bathroom_modification_details"][0]->paint->name;?>">
                                                   </div>
                                    
                                              </div>
@@ -295,11 +295,11 @@
                                              <div class="form-group">
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
-                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["exterior_modification_details"][0]->tile->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["exterior_modification_details"][0]->tile->name;?>">
                                                   </div>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
-                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["exterior_modification_details"][0]->paint->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["exterior_modification_details"][0]->paint->name;?>">
                                                   </div>
                                    
                                              </div>
@@ -321,11 +321,11 @@
                                              <div class="form-group">
                                                   <div class="column">
                                                        <label for="lastName">Tile</label>
-                                                       <input type="text" id="occupation" name="occupation" value= "<?= $rows["bedroom_modification_details"][0]->tile->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["bedroom_modification_details"][0]->tile->name;?>">
                                                   </div>
                                                   <div class="column">
                                                        <label for="lastName">Paint</label>
-                                                       <input type="text" id="occupation" name="occupation"value= "<?= $rows["bedroom_modification_details"][0]->paint->name;?>">
+                                                       <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["bedroom_modification_details"][0]->paint->name;?>">
                                                   </div>
                                    
                                              </div>
@@ -361,63 +361,63 @@
                          
                                    <div class="column">                   
                                         <label for="firstname">Model ID</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->id;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->id;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Model Name</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->name;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->name;?>">
                                    </div>                                  
                                    <div class="column">
                                         <label for="lastName">Number of Rooms</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->no_room;?>">
+                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["model_details"]->no_room;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Number of Kitchens</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->no_kitchen;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->no_kitchen;?>">
                                    </div>
                                    <div class="column">                   
                                         <label for="firstname">flow_plan </label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->flow_plan;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->flow_plan;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Number of Floors</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->no_floor;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->no_floor;?>">
                                    </div>                                  
                                    <div class="column">
                                         <label for="lastName">Kitchen Tile</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->kitchenTile->name;?>">
+                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["model_details"]->kitchenTile->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Dining Tile</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->diningTile->name;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->diningTile->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Bathroom Tile</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->bathroomTile->name;?>">
+                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["model_details"]->bathroomTile->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Default Tile</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->defaultTile->name;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->defaultTile->name;?>">
                                    </div>
                                    <div class="column">                   
                                         <label for="firstname">Default Colour</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->defaultColor->name;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->defaultColor->name;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">Description</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->description;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->description;?>">
                                    </div>                                  
                                    <div class="column">
                                         <label for="lastName">time_duration_in_months</label>
-                                        <input type="text" id="occupation" name="occupation" value= "<?= $rows["model_details"]->time_duration_in_months;?>">
+                                        <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["model_details"]->time_duration_in_months;?>">
                                    </div>
                                    <div class="column">
                                         <label for="lastName">minimum_area</label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->minimum_area;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->minimum_area;?>">
                                    </div>
                                    <div class="column">                   
                                         <label for="firstname">parking_space </label>
-                                        <input type="text" id="occupation" name="occupation"value= "<?= $rows["model_details"]->parking_space;?>">
+                                        <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["model_details"]->parking_space;?>">
                                    </div>
                     
                               </div>
@@ -435,19 +435,19 @@
                                 <div class="form-group">
                                     <div class="column">
                                             <label for="lastName">Payment Plan ID</label>
-                                            <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
+                                            <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->id;?>">
                                     </div>
                                     <div class="column">
                                             <label for="lastName">Payment Plan Name</label>
-                                            <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
+                                            <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->name;?>">
                                     </div>
                                     <div class="column">
                                             <label for="lastName">Installment Count</label>
-                                            <input type="text" id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->installement_count;?>">
+                                            <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["payment_plan"][0]->installement_count;?>">
                                     </div>
                                     <div class="column">
                                             <label for="lastName">Interest(In Percentage)</label>
-                                            <input type="text" id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->interest;?>%">
+                                            <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["payment_plan"][0]->interest;?>%">
                                     </div>
                         
                                 </div>

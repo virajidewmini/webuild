@@ -7,6 +7,7 @@ body{
 </style>
 
     <?php if($rows):?>
+        
         <div class="table">
             <div class="table_header">
                 <div style="display: flex;" >
@@ -33,7 +34,8 @@ body{
                                 <tr style="background-color: #3d9ce5;">                       
                                     
                                     <td style="color: white;"><?=$row->id?></td>
-                                    <td style="color: white;"><?=$row->material->material_name?></td>
+                                                                      
+                                    <td style="color: white;"><?=$row->material_name?></td>
                                     <td style="color: white;"><?=$row->requested_quantity?></td>
                                     <td style="color: white;"><?=$row->requested_date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  
@@ -47,7 +49,7 @@ body{
                             <?php elseif($row->status=='Pending'):?>
                                 <tr>                       
                                     <td><?=$row->id?></td>
-                                    <td><?=$row->material->material_name?></td>
+                                    <td><?=$row->material_name?></td>
                                     <td><?=$row->requested_quantity?></td>
                                     <td><?=$row->requested_date?></td>
                                     <td><?=$row->status?></td>  
@@ -63,7 +65,7 @@ body{
                                 <!-- <tr>  -->
                                     
                                     <td style="color: white;" ><?=$row->id?></td>
-                                    <td style="color: white;" ><?=$row->material->material_name?></td>
+                                    <td style="color: white;" ><?=$row->material_name?></td>
                                     <td style="color: white;" ><?=$row->requested_quantity?></td>
                                     <td style="color: white;" ><?=$row->requested_date?></td>
                                     <td style="color: white;"><?=$row->status?></td>  

@@ -24,34 +24,6 @@
         }
            
 
-        public function add($material_id=null){
-            $Material=new StoreMaterials();
-        
-            if(count($_POST) > 0){
-                // Check if requested_quantity is not empty and greater than 0
-                if(isset($_POST['requested_quantity']) && $_POST['requested_quantity'] > 0){
-                    $maintainrequests=new Maintains();
-                    $_POST['requested_date']=date('Y-m-d');
-                    $maintainrequests->insert($_POST);
-                    $id= $_POST['material_id'];
-                    $arr['status']='NOTIFIED';
-                    $Material->update($id,$arr);
-                    $this->redirect('maintainrequests');
-                } else {
-                    // Handle validation error, e.g., redirect back with an error message
-                    // For example:
-                    // $error = "Requested quantity must be a positive number.";
-                    // $this->view('storekeeperSendRequests', ['error' => $error, 'rows' => $data]);
-                }
-            }
-        
-            // Fetch data for view
-            $Material=new StoreMaterials();
-            $data = $Material->where('id',$material_id);
-        
-            $this->view('storekeeperSendRequests',['rows'=> $data]);
-        }
-
 
 
         // public function add($material_id=null){
@@ -70,6 +42,40 @@
 
         //     $this->view('storekeeperSendRequests',['rows'=> $data]);
         // }
+
+
+        public function add($material_id=null){
+            $Material=new StoreMaterials();
+            $error = ''; // Initialize error message
+        
+            if(count($_POST) > 0){
+                // Check if requested_quantity is not empty and greater than 0
+                if(isset($_POST['requested_quantity']) && $_POST['requested_quantity'] > 0){
+                    $maintainrequests=new Maintains();
+                    $_POST['requested_date']=date('Y-m-d');
+                    $maintainrequests->insert($_POST);
+                    $id= $_POST['material_id'];
+                    $arr['status']='NOTIFIED';
+                    $Material->update($id,$arr);
+                    $this->redirect('maintainrequests');
+                } else {
+                    // Set validation error message
+                    $error = "You Entered wrong quantity!";
+                }
+            }
+        
+            // Fetch data for view
+            $Material=new StoreMaterials();
+            $data = $Material->where('id',$material_id);
+        
+            // Pass error message to the view along with other data
+            $this->view('storekeeperSendRequests', [
+                'rows'=> $data,
+                'error' => $error // Include error message in the data passed to the view
+            ]);
+        }
+        
+        
         
         public function delete($id=null){
            

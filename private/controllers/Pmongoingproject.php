@@ -34,7 +34,8 @@ class Pmongoingproject extends Controller
 		$project = new Projects();
 		$data = $project->viewProjectDetail($id);
 
-		$data1 = $project->ongoingTask($id);
+		$allocated_task = new Allocated_tasks();
+		$data1 = $allocated_task->where('project_id',$id);
 		$data2 = $project->completeTask($id);
 
 		$kitchen = new Kitchen();
@@ -59,10 +60,9 @@ class Pmongoingproject extends Controller
 		$data10 = $task->taskCount($model);
 		$data13 = $task->toDoTask($id);
 
-		$allocated_task = new Allocated_tasks();
+		
 		$data11 = $allocated_task->where('project_id', $id);
 		$data12 = $allocated_task->totalProgress($id);
-		$data14 = $allocated_task->pendingTask($id);
 		$data19 = $allocated_task->AllowTask($id);
 
 		$allocated_co = new AllocateCoworker();
@@ -73,6 +73,7 @@ class Pmongoingproject extends Controller
 		$data20 = $material_requests->getMaterialRequest($id);
 		$data21 = $quotations->getMaterialQ($id, 'Sent');
 		$data22 = $quotations->getMaterialQ($id, 'Received');
+		$data16 = $material_requests->remaining_req($id);
 
 
 		$complaint = new C_Complaint();
@@ -100,26 +101,31 @@ class Pmongoingproject extends Controller
 			'row5' => $data11,
 			'row6' => $data12,
 			'row7' => $data13,
-			'row8' => $data14,
 			'row9' => $data15,
-			// 'row10' => $data16,
+			'row10' => $data16,
 			'rows17' => $data17,
 			'rows18' => $data18,
 			'rows19' => $data19,
 			'rows5' => $data20,
-            'rows3' => $data21,
-            'rows4' => $data22,
+			'rows3' => $data21,
+			'rows4' => $data22,
+			'project_id' => $id,
 		]);
 	}
 
-	public function acceptTask($id)
+	//accept complete task
+	public function AcceptTask($p_id, $t_id)
 	{
-		if (!Auth::logged_in()) {
-			$this->redirect('/login');
-		}
 
 		$allocated_task = new Allocated_tasks();
-		$arr['status'] = 'Done';
-		$allocated_task->update($id, $arr);
+		$allocated_task->PMAcceptTask($p_id, $t_id);
+		echo '<script>window.history.back();</script>';
+	}
+	public function RejectTask($p_id, $t_id)
+	{
+
+		$allocated_task = new Allocated_tasks();
+		$allocated_task->PMRejectTask($p_id, $t_id);
+		echo '<script>window.history.back();</script>';
 	}
 }

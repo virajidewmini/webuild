@@ -9,7 +9,14 @@
             }
             $project_requests=new Project_requests();
 
-            $data=$project_requests->findAllRequests();
+            $data['Pending']=$project_requests->findAllRequests();
+            $data['Accepted']=$project_requests->findAllAcceptedRequests();
+            $data['Done']=$project_requests->findAllDoneRequests();
+           
+            // $quotation = new Quotation();
+            // $project_id=$quotation->getProjectId($id)[0]->id;
+            // $data['first_installement_status']=$quotation-> getFirstInstallmentStatu($project_id)[0];
+            // print_r($data['first_installement_status']);
 
             $this->view('coordinatorrequests',['rows'=>$data]);
         }
@@ -89,16 +96,21 @@
             }
             else{
                  //get attachments
-                $data['salary'] = $project_requests->getSalary($id)[0];
-                $data['landphoto'] = $project_requests->getLandPhoto($id)[0];
-                $data['blockplan'] = $project_requests->getBlockPlan($id)[0];
+                $data['salary'] = $project_requests->getSalary($data['common']->modification_id)[0];
+                $data['landphoto'] = $project_requests->getLandPhoto($data['common']->modification_id)[0];
+                $data['blockplan'] = $project_requests->getBlockPlan($data['common']->modification_id)[0];
 
                 if($data["common"]->status == 'Rejected'){
                     $data['reject_reason']=$project_requests->getRejectReason($id)[0];
                     //print_r($data['reject_reason'] );
                 }
 
-                
+                if($data['common']->status=='Done'){
+                    $quotation = new Quotation();
+                    $project_id=$quotation->getProjectId($id)[0]->id;
+                    //print_r($project_id);
+                    $data['quotation']=$quotation->getQuotationName($project_id)[0];
+                }
 
                 $this->view('coordinatorrequests.seemore',['rows'=>$data]);
             }
@@ -200,12 +212,12 @@
 
 
             //insert the reason for rejection
-            $preject_reason=new Rejected_Project_Requests();
+            $reject_reason=new Rejected_Project_Requests();
             
             $row['project_request_id'] = $request_id;
             $row['reason'] = $_POST['reject_reason'];
 
-            $preject_reason->insert($row);
+            $reject_reason->insert($row);
             
 
 

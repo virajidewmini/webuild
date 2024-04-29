@@ -8,7 +8,9 @@
    <!-- fontawesome cdn link  -->
 
 
-  
+   <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  
@@ -31,124 +33,156 @@
  
   <!-- header section starts -->
 
-<header class="header">
+<header class="header"  style="height:-2px;">
 
-  <a href="#" class="logo">We <span>Build</span> </a>
+<style>
   
-  
-  <nav class="navbar">
+ 
+    .header .navbar a {
+    color: #E5863D; /* Set default color */
+    font-size: 1.2rem;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
 
-    <a  href=Home/houses>Houses</a>
-    <a  href=ExistingModels>existing models </a>
-    <a  href="#about">about</a>
-    <a  href="#services">services</a>
-    <a  href=Home/completedProjects>completed projects</a>
-    <a  href="#pricing">pricing</a>
-    <a  href="#contact">contact </a>
-    <a  href=Home/staff>Staff</a>
-  
+.header .navbar a:hover {
+    color: black; /* Change color on hover */
+}
+
+.header .navbar a:active {
+    color: black; /* Change color on click */
+}
+
+  </style>
+
+</style>
+
+  <a href="#" class="logo" style="font-size: x-large;"> <i class="fas fa-university" style="color: #E5863D;"></i><span style="color: #000000; font-weight:600;"> WeBuild</span> </a>
+ 
+  <nav class="navbar" style="font-size:medium; ">
+
+    <a  href=ExistingModels style="color: #E5863D; ">Existing models </a>
+    <a  href="#about" style="color: #E5863D;">About</a>
+    <a  href="#services" style="color: #E5863D;">Services</a>
+    <a  href=Home/completedProjects style="color: #E5863D;">Completed projects</a>
+    <a  href="#pricing" style="color: #E5863D;">Pricing</a>
+    <a  href="#contact" style="color: #E5863D;">Contact </a>
     
+    <script>
+    var links = document.querySelectorAll('a');
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function() {
+            this.style.color = 'black';
+        });
+    });
+</script>
+
+  
   </nav>
   <div class="icons">
-    <div id="menu-btn" class="fas fa-bars">
-    <script>
-      let navbar =document.querySelector('.header .navbar');
-      
-document.querySelector('#menu-btn').onclick = () =>{
-  navbar.classList.toggle('active');
-  searchForm.classList.remove(' active');
-  loginForm.classList.remove(' active');
-};
-    </script>
-    </div>
-    <div id="info-btn" class="fas fa-info-circle"></div>
-    <div id="search-btn" class="fas fa-search"></div>
-    <div id="login-btn" class="fas fa-user"></div>
-    
-    <!-- <div id="menu-btn" class="fas fa-info-circle"></div> -->
+    <a class="btn" href=#  style="background-color: #E5863D; padding:1rem ;font-size: 1rem; justify-content:end;border-radius:1rem;">Login</a>
+    <a href="#"><div id="login-btn" class="fas fa-user" style="font-size: x-large; color:#000000;" ></div> </a>
   </div>
-  
-<form action="" class="search-form">
-  <input type="search" name="" placeholder="search here..." id="search-box">
-  <label for="search-box" class="fas fa-search"></label>
-</form>
 
-<form action="" class="login-form">
-  <h3>Login form</h3>
-  <input type="email" placeholder="enter your email" class="box" name="" id="">
-  <input type="password" placeholder="enter your password" class="box">
-  <div class="flex">
-    <input type="checkbox" name="" id="remember-me">
-    <label for="remember-me">remember-me</label>
-    <a href="#GAVEESHA">forgot password</a>
-  </div>
-  <input type="submit" value="login now" class="btn">
-  <p>don't have an account <a href="#"> create one!</a></p>
-</form>
-  
   </header>
 
-  <div class="contact-info">
-
-    <div id="close-contact-info" class="fas fa-times">
-
-    </div>
-
-    <div class="info">
-      <i class="fas fa-phone">
-        <h3>phone number</h3>
-        <p>+94-123-3449</p>
-        <p>+91-112-1233</p>
-
-      </i>
-    </div>
-    <div class="info">
-      <i class="fas fa-envelope">
-        <h3>email address</h3>
-        <p>webuildconstruction@gmail.com</p>
-        <p>webuildconcept@gmail.com</p>
-        
-      </i>
-    </div>
-    <div class="info">
-      <i class="fas fa-map-marker-alt">
-        <h3>office  address</h3>
-        <p>reid avenue , colombo- sri lanka</p>
-        <p></p>
-      </i>
-    </div>
-
-    <div class="share">
-      <a href="#" class="fab fa-facebook-f"></a>
-      <a href="#" class="fab fa-twitter"></a>
-      <a href="#" class="fab fa-instagram"></a>
-      <a href="#" class="fab fa-linkedin"></a>
-    </div>
-
-
-  </div>
+  
   
   <!-- header section ends -->
 
- 
+  <!-- home section starts  -->
+  
 
   
   <section class="home" id="home" style="padding-bottom:4.8rem;">
+  <style>
+    .home{
+      padding: 0;
+
+      .slide{
+        min-height: 38rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-size: cover !important;
+        background-position: center !important;
+
+        &::before{
+          content: '';
+          position: absolute;
+          top: 0; left: 0;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(90deg, var(--white),transparent);
+        }
+        .content{
+          width: 50rem;
+          position: relative;
+
+          h3{
+            @include font-size: (6rem);
+            text-transform: uppercase;
+          }
+          p{
+            @include graphText(1.4rem);
+            line-height: 1.5rem;
+            padding: 1rem 0;
+          }
+        }
+      }
+    }
+  </style>
+
   <div class="swiper home-slider">
     <div class="swiper-wrapper">
-      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/istockphoto-1457606026-612x612.jpg) no-repeat;padding-bottom:3rem;height: 2px;">
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva2.png) no-repeat;padding-bottom:3rem;height: 2px;">
         <div class="content">
-          <h3>we provide best service</h3>
-          <p style="margin-bottom:35px;">Step onto the grounds where dreams take shape, as steel meets sky and concrete breathes life. Here, amidst the rhythmic symphony of hammers and drills, we craft the foundations of tomorrow. Join us on this journey of creation, where every beam raised is a testament to progress and possibilit</p>
+          <h3  style="font-size: 4rem;">we provide the best service</h3>
+          <p style="margin-bottom:35px; font-size: 1.2rem;text-align:justify;">Enter a realm where dreams materialize, 
+          as steel meets sky and concrete pulses with vitality. Amidst the symphony of 
+          construction, we forge tomorrow's groundwork. Embark on our journey, where each 
+          raised beam symbolizes progress and endless potential.</p>
+          
+        </div>
+      </section>
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva1.png) no-repeat;padding-bottom:3rem;height: 2px;">
+        <div class="content">
+          <h3  style="font-size: 4rem;">we work with friendly staff</h3>
+          <p style="margin-bottom:35px;  font-size: 1.2rem; text-align:justify;">Our exceptional staff comprises talented individuals 
+          dedicated to excellence. With their expertise and passion, they bring projects to life, embodying our
+           commitment to quality and innovation. Join our team and experience the difference firsthan</p>
+          
+        </div>
+      </section>
+      <section class="swiper-slide slide" style="background: url(<?=ROOT?>/img/Photos/forLandingPage/canva4.png) no-repeat;padding-bottom:3rem;height: 2px;">
+        <div class="content">
+          <h3  style="font-size: 4rem;">we provide fashionated pre existing models</h3>
+          <p style="margin-bottom:35px;  font-size: 1.2rem; text-align:justify;">Discover our curated selection of fashion-forward
+           pre-existing models. From timeless classics to contemporary designs, our collection offers a range 
+          of stylish options to suit every taste. Explore our inventory and find the perfect model to elevate your project.</p>
           
         </div>
       </section>
       
+      
     </div>
 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next" style="height: 4.5rem;width:6.7rem;"></div>
+    <div class="swiper-button-prev" style="height: 4.5rem;width:6.7rem;"></div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".home-slider", {
+      loop:true,
+      grabCursor:true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
 </section>
 
 
@@ -156,21 +190,22 @@ document.querySelector('#menu-btn').onclick = () =>{
 
     <!-- about section starts -->
 
-    <section class="about" id="about">
+    <section class="about" id="about" style="margin-top: -4rem;">
 
-      <h1 class="heading">about us</h1>
+    
+      <h1 class="heading">About Us</h1>
 
       <div class="row">
 
         <div class="video">
-          <img src="<?=ROOT?>/img/Photos/forLandingPage/istockphoto-538575738-612x612.jpg" alt="">
+          <img src="<?=ROOT?>/img/Photos/bathroom/architects-wearing-helmets-plans.jpg" alt="">
         </div>
 
         <div class="content">
-          <h3>We will provide you the best work which you dreamt for!</h3>
-          <p>Everyone aspires to own a great piece of property. We, at Prime Lands, made it our aim to make 
-            this dream a reality. Assume you wish to buy land to build a house for you and your family. Prime
-             Lands provide you with a selection of the most excellent land alternatives in the country, as well 
+          <h3 style="font-size: 2rem;">We will provide you the best work which you dreamt for!</h3>
+          <p style="font-size: 1.2rem;text-align:justify;">Everyone aspires to own a great piece of property. We, at webuild, made it our aim to make 
+            this dream a reality. Assume you wish to buy land to build a house for you and your family. webuild
+             provide you with a selection of the most excellent land alternatives in the country, as well 
              as a variety of support services, such as legal and financial assistance, to help you realize your
               property dreams. In Sri Lanka's highly competitive real estate market, Prime Lands acquired over 
               300,000 customers, sufficient proof of Prime Lands' capacity and leadership in the real estate industry. </p>
@@ -179,39 +214,40 @@ document.querySelector('#menu-btn').onclick = () =>{
 
       </div>
 
-      <div class="box-container" style="display: flex;justify-content:center;gap:3rem;">
+      <div class="box-container" style="display: flex;justify-content:center;gap:3rem; margin-top:5rem; ">
 
-        <div class="box">
-          <h3>10+</h3>
-          <p>years of experience</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">3+</h3>
+          <p style="font-size: 1.2rem;">years of experience</p>
         </div>
 
-        <div class="box">
-          <h3>150+</h3>
-          <p>project completed</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">15+</h3>
+          <p style="font-size: 1.2rem;">project completed</p>
         </div>
 
-        <div class="box">
-          <h3>300+</h3>
-          <p>satiesfied clients</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">10+</h3>
+          <p style="font-size: 1.2rem;">satisfied clients</p>
         </div>
 
-        <div class="box">
-          <h3>200+</h3>
-          <p>active workers</p>
+        <div class="box" style="background-color: #F5D7B6; padding: 2rem; border-radius: 10px; text-align: center; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#CCCCCC'" onmouseout="this.style.backgroundColor='#F5D7B6'">
+          <h3 style="font-size: 2rem;">250+</h3>
+          <p style="font-size: 1.2rem;">active workers</p>
         </div>
       </div>
-    </section>
+</section>
+
 
    
     <section class="services" id="services">
   
-        <h1 class="heading">our services</h1>
+        <h1 class="heading">Our Services</h1>
   
         <div class="box-container" style="display:flex">
   
           <div class="box">
-            <img src="<?=ROOT?>/img/Photos/forLandingPage/construction.jpg" alt="">
+            <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/4174814.png" alt="" >
             <h3>building construction</h3>
             <p> Crafting dreams into concrete reality. Our expert
                team transforms blueprints into breathtaking structures,
@@ -219,7 +255,7 @@ document.querySelector('#menu-btn').onclick = () =>{
           </div>
   
           <div class="box">
-            <img src="<?=ROOT?>/img/Photos/forLandingPage/02d4c179-b590-4bd4-b18d-9882b95b8d46.jpg" alt="">
+            <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/5874513.png"   alt="" >
             <h3>construction consultant</h3>
             <p> Navigating the complexities of construction with finesse.
                Our consultants offer invaluable insights, strategic guidance,
@@ -227,11 +263,20 @@ document.querySelector('#menu-btn').onclick = () =>{
           </div>
   
           <div class="box">
-            <img src="<?=ROOT?>/img/Photos/forLandingPage/7608710.jpg" alt="">
+            <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/7181699.png" alt="">
             <h3>architecture design</h3>
             <p>Where imagination meets functionality. Our architects blend
                creativity with practicality to design spaces that inspire,
                 innovate, and elevate the human experience. Let's turn your vision into architectural marvels.</p>
+          </div>
+          <div class="box">
+            <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/6613266.png" alt="">
+            <h3>Existing  model </h3>
+            <p>Discover unparalleled customization with our model
+               modification service. We offer a curated selection of pre-existing models,
+                expertly tailored to your unique needs. Harness the power of cutting-edge AI 
+                while enjoying seamless integration and optimized performance. Elevate your 
+                business with precision, efficiency, and unparalleled innovation.</p>
           </div>
   
         </div>
@@ -242,30 +287,94 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 <!-- completed project section starts  -->
 
-<section class="projects" id="projects">
+<section class="projects" id="projects"  style="background-color:#CCCCCC;">
 
-  <h1 class="heading">our Existing Models</h1>
+<style>
+  .projects{
+  background: var(--black);
+  .heading{
+    color: var(--white);
+  }
+
+  .box-container{
+    @include grid(30rem);
+
+    .box{
+      cursor: initial;
+
+      /* &:hover .image img{
+        transform: scale(1.1);
+      } */
+
+      .image{
+        height: 40rem;
+        overflow: hidden;
+
+        img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          cursor: pointer;
+        }
+      }
+      .content{
+        display: flex;
+        background: var(--white);
+
+        .info{
+          padding: 1rem 2rem;
+
+          h2{
+            text-align:center;
+          }
+          h3{
+            @include titleText(1.7rem);
+            text-align:center;
+            color: black;
+          }
+
+          p{
+            @include graphText(1.5rem);
+          }
+        }
+
+        i{
+          width: 6rem;
+          font-size: 3rem;
+          background: var(--yellow);
+          cursor: pointer;
+          text-align: center;
+          line-height: 7.5rem;
+        }
+      }
+    }
+  }
+}
+</style>
+  <h1 class="heading" style="color: black;">Trending Models</h1>
 
   <div class="box-container" style="display: flex;gap:2rem;">
-    <a href="" class="box">
+    <a href= ExistingModels/gallery1/ class="box">
       <div class="image">
-        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/21080514083801.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/beautiful-wooden-house-with-big-windows_23-2149343704.jpg" alt="">
       </div>
       <div class="content">
         <div class="info">
-          <h3>Cozy Haven: 1-Story, 2 Bedroom Retreat</h3>
+          <h2 >Model 1</h2>
+          <h3 >Cozy Haven: 1-Story, 2 Bedroom Retreat</h3>
           <!-- <p>construction ,design</p> -->
         </div>
         <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
-    <a href="" class="box">
+    <a href=ExistingModels/gallery2 class="box">
       <div class="image">
-        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/00.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/courtyard-monastery-park_1268-15399.jpg" alt="">
       </div>
       <div class="content">
         <div class="info">
+        <h2 >Model 2</h2>
           <h3>Family Oasis: 1-Story, 3 Bedroom Haven</h3>
           <!-- <p>construction ,design</p> -->
         </div>
@@ -273,13 +382,14 @@ document.querySelector('#menu-btn').onclick = () =>{
       </div>
     </a>
 
-    <a href="" class="box">
+    <a href=ExistingModels/gallery3 class="box">
       <div class="image">
-        <img src="<?=ROOT?>/img/Photos/Houses/3 Floor/hq720.jpg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/houses-river-dikes-near-sleeuwijk_181624-8207.jpg" alt="">
       </div>
       
       <div class="content">
         <div class="info">
+        <h2 >Model 3</h2>
           <h3>Elevated Living: 2-Story, 3 Bedroom Sanctuary</h3>
           <!-- <p>construction ,design</p> -->
         </div>
@@ -287,137 +397,75 @@ document.querySelector('#menu-btn').onclick = () =>{
       </div>
     </a>
 
-    <a href="" class="box">
+    <!-- <a href=ExistingModels/gallery4 class="box">
       <div class="image">
-        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/pexels-photo-6782429.webp" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/house-isolated-field.jpg" alt="">
       </div>
       <div class="content">
         <div class="info">
+        <h2 >Model 4</h2>
           <h3>Grand Estate: 2-Story, 5 Bedroom Residence</h3>
-          <!-- <p>construction ,design</p> -->
         </div>
-        <!-- <i class="fas fa-plus"></i> -->
       </div>
     </a>
 
-    <a href="" class="box">
+    <a href=ExistingModels/gallery5 class="box">
       <div class="image">
-        <img src="<?=ROOT?>/img/Photos/Houses/2 Floor/images4.jpeg" alt="">
+        <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/old-white-house-garden_1150-12900.jpg" alt="">
       </div>
       <div class="content">
         <div class="info">
+        <h2 >Model 5</h2>
           <h3>Skyline Villa: 3-Story, 6 Bedroom Penthouse</h3>
-          <!-- <p>construction ,design</p> -->
         </div>
-        <!-- <i class="fas fa-plus"></i> -->
       </div>
-    </a>
+    </a> -->
   </div>
+  <a class="btn" href=ExistingModels  style="background-color: #E5863D; margin-left:79rem; justify-content:end">Models</a>
 </section>
 
 <!-- completed project section ends  -->
 
 <!-- reviews section starts  -->
 
-<section class="reviews">
+<section class="reviews"  >
 
-  <h1 class="heading">client reviews</h1>
+  <h1 class="heading">Client Ratings</h1>
 
-  <div class="swiper reviews-slider">
-    <div class="swiper-wrapper">
+  <div class="swiper reviews-slider" style="display: flex; justify-content:center;" >
+    <div class="swiper-wrapper" >
+      <div class="swiper-slide slide" style="display: flex; gap:3rem;">
+      <?php if(isset($rows)):?>
+    <?php foreach ($rows as $row):?>
+      <div class="r-new" style="display: grid;">
 
-      <div class="swiper-slide slide">
-        <p>nijijnn nnc ijij ijij jijj ijjijijqowiuq qpspqokq okkkwoiq ojojijoi oij jiui biu bnc</p>
-
+      
+        <p>
+        <?=$row->review?>
+        </p>
         <div class="user">
-          <img src="<?=ROOT?>/img/Photos/Reviews/RE1.jpg" alt="">
+        <!-- <img src="<?=ROOT?>/img/profile.jpg"> -->
           <div class="info">
-            <h3>john deo</h3>
+          <strong><?=$row->firstname." ". $row->lastname?></strong>
+            <span><?=$row->email?></span>
             <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
+            <?php 
+            
+            $filledStarColor = '#ffc107'; 
+            $emptyStarColor = '#ced4da';  
+            for ($i = 1; $i <= 5; $i++) {
+                if ($i <= $row->number_of_stars) {
+                    echo '<i class="fas fa-star" style="color: ' . $filledStarColor . '"></i>';
+                } else {
+                    echo '<i class="far fa-star" style="color: ' . $emptyStarColor . '"></i>';
+                }
+            }
+          ?>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <p>nijijnn nnc ijij ijij jijj ijjijijqowiuq qpspqokq okkkwoiq ojojijoi oij jiui biu bnc</p>
-
-        <div class="user">
-          <img src="<?=ROOT?>/img/Photos/Reviews/RE3.jpg" alt="">
-          <div class="info">
-            <h3>john deo</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </div>
-          </div>
         </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <p>nijijnn nnc ijij ijij jijj ijjijijqowiuq qpspqokq okkkwoiq ojojijoi oij jiui biu bnc</p>
-
-        <div class="user">
-          <img src="<?=ROOT?>/img/Photos/Reviews/RE3.jpg" alt="">
-          <div class="info">
-            <h3>john deo</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <p>nijijnn nnc ijij ijij jijj ijjijijqowiuq qpspqokq okkkwoiq ojojijoi oij jiui biu bnc</p>
-
-        <div class="user">
-          <img src="<?=ROOT?>/img/Photos/Reviews/RE4.jpg" alt="">
-          <div class="info">
-            <h3>john deo</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <p>nijijnn nnc ijij ijij jijj ijjijijqowiuq qpspqokq okkkwoiq ojojijoi oij jiui biu bnc</p>
-
-        <div class="user">
-          <img src="<?=ROOT?>/img/Photos/Reviews/RE5.jpg" alt="">
-          <div class="info">
-            <h3>john deo</h3>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
+        <script>
     var swiper = new Swiper(".reviews-slider",{
   loop:true,
   grabCursor:true,
@@ -435,6 +483,16 @@ document.querySelector('#menu-btn').onclick = () =>{
   },
 });
   </script>
+        <?php endforeach;?>
+
+<?php endif; ?> 
+
+      </div>
+    </div>
+  </div>
+        
+  
+  
 
 </section>
 
@@ -444,45 +502,46 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 <section class="pricing" id="pricing">
 
-  <h1 class="heading"> our pricing</h1>
+  <h1 class="heading">Payment Packages</h1>
 
-  <div class="box-container" style="display: flex;justify-content:center;" >
+  <div class="box-container" style="display: flex;justify-content:center;height:45rem;" >
 
-    <div class="box" style="padding:8rem;">
+    <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-home"></i>
-      <h3>basic plan</h3>
-      <div class="price"><span>Rs</span>250<span>/no</span></div>
+      <h3 style="font-size: 2rem; font-weight:600;">TriEase Pay</h3>
+      <!-- <div class="price"><span>Rs</span>250<span>/no</span></div> -->
       <div class="list">
-        <p>interior design</p>
-        <p>refurbishment</p>
-        <p>material supply</p>
-        <p>24/7 support</p>
+        <p style="font-size: 1.2rem;">30% Initial payment</p>
+        <p style="font-size: 1.2rem;">35% of 2nd Installment</p>
+        <p style="font-size: 1.2rem;">35% of 3rd Installment</p>
+        <p style="font-size: 1.2rem;">5% Interest</p>
       </div>
       <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box" style="padding:8rem;">
+    <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-building"></i>
-      <h3>premium plan</h3>
-      <div class="price"><span>Rs</span>650<span>/no</span></div>
+      <h3 style="font-size: 2rem; font-weight:600;">DuoEase Plan</h3>
+      <!-- <div class="price"><span>Rs</span>650<span>/no</span></div> -->
       <div class="list">
-        <p>interior design</p>
-        <p>refurbishment</p>
-        <p>material supply</p>
-        <p>24/7 support</p>
+        <p style="font-size: 1.2rem;">40% Initial payment</p>
+        <p style="font-size: 1.2rem;">60% of 2nd Installment</p>
+        <p style="font-size: 1.2rem;">No Interest</p>
       </div>
       <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
 
-    <div class="box" style="padding:8rem;">
+    <div class="box" style="padding:8rem;margin-top:-1rem;">
       <i class="fas fa-city"></i>
-      <h3>ultimate plan</h3>
-      <div class="price"><span>Rs</span>1250<span>/no</span></div>
+      <h3 style="font-size: 2rem; font-weight:600;">ultimate plan</h3>
+      <!-- <div class="price"><span>Rs</span>1250<span>/no</span></div> -->
       <div class="list">
-        <p>interior design</p>
-        <p>refurbishment</p>
-        <p>material supply</p>
-        <p>24/7 support</p>
+        <p style="font-size: 1.2rem;">20% Initial payment</p>
+        <p style="font-size: 1.2rem;">20% of 2nd Installment</p>
+        <p style="font-size: 1.2rem;">20% of 3rd Installment</p>
+        <p style="font-size: 1.2rem;">20% of 4rd Installment</p>
+        <p style="font-size: 1.2rem;">20% of 5rd Installment</p>
+        <p style="font-size: 1.2rem;">10% Interest</p>
       </div>
       <!-- <a href="#" class="btn">choose plan</a> -->
     </div>
@@ -497,24 +556,23 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 <!-- contact section starts  -->
 
-<section class="contact" id="contact">
+<section class="contact" id="contact" style="background-color:#CCCCCC; height:40rem;">
 
-<h1 class="heading">contact us</h1>
+<h1 class="heading" style="color: #000000;">Contact Us</h1>
 
 <div class="row">
  
   <iframe  class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.902976812423!2d79.86115290000001!
 3d6.9022055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2s
 University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4v1708289637822!5m2!1sen!2slk"
-  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  style="height: 25rem;"  ></iframe>
 
-  <form action=ContactUsHome/add method="post" class="conatct-us">
-    <h3>get in touch</h3>
-    <input type="text" placeholder="name" class="box">
-    <input type="email" placeholder="email" class="box">
-    <input type="number" placeholder="phone" class="box">
-    <textarea name="message" placeholder="message"  class="box"  id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="send message" class="btn">
+  <form action=ContactUsHome/add method="post" class="conatct-us"style="height: 25rem; background-color:#CCCCCC; margin-left:3rem;margin-top:3rem;"  >
+  <h3  style="font-size:x-large;">info</h3>
+      <i class="fas fa-phone" style="font-size: medium;"></i><span style="font-size: medium;"><span><span> </span>    </span>+94 112 699827 </span> <br>
+      <i class="fas fa-envelope" style="font-size: medium;" ></i><span style="font-size: medium;"><span><span> </span>    </span>info@webuild.lk</span> <br>
+      <i class="fas fa-map" style="font-size: medium;"></i><span style="font-size: medium;"><span><span> </span>    </span>No.7, Koswatte Road,Rajagiriya</span> 
+    <!-- <input type="submit" value="send message" class="btn" style="background-color: #E5863D;"> -->
   </form>
 
 
@@ -525,100 +583,20 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <!-- contact section ends  -->
 
-<!-- blogs section starts  -->
-
-<!-- <section class="blogs" id="blogs">
-
-  <h1 class="heading"> our blogs </h1>
-
-  <div class=" swiper blog-slider">
-
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/Houses/1 Floor/download (1).jpg" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/1535965.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/269947.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/270072.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide slide">
-        <div class="image">
-          <img src="<?=ROOT?>/img/Photos/blogs/buildings_24914.png" alt="">
-        </div>
-        <div class="content">
-          <h3>blog title goes here</h3>
-          <p>uhiu ojojo oij ooij ijijwihqduwiudiqwhdihqqqqqqqqqqqqqqqqqqooooooooooobaslaaaaaaaaajqqqqqqq</p>
-          <a href="#" class="btn">read more</a>
-        </div>
-      </div>
-
-      
-
-
-    </div>
-
-
-  </div>
-  
-
-
-</section> -->
-
-<!-- blogs section ends  -->
 
 
 <!-- client logo section starts  -->
 
-<section class="logo-container">
+<section class="logo-container"  style="background-color:#000000;">
   <div class="swiper logo-slider" >
     <div class="swiper-wrapper">
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/1535965.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/11990055.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/269947.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/270072.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/buildings_24914.png" alt=""></div>
-      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/blogs/bank_8690572.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/lankatiles.jpg" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/images.jpg" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/melva.jpg" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/download.jpg" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/alumex.png" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/bricks.avif" alt=""></div>
+      <div class="swiper-slide slide"><img src="<?=ROOT?>/img/Photos/forLandingPage/slon.png" alt=""></div>
     </div>
   </div>
   <style>
@@ -679,19 +657,17 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 <section class="footer">
 
-  <div class="links">
-    <!-- <a class="btn" href="#home.php">Lands</a> -->
-    <a class="btn" href="#houses.php">About Us</a>
-    <a class="btn" href="#about.php">House</a>
-    <a class="btn" href="#services.php">Completed Projects</a>
-    <a class="btn" href="#completed projects.php">About Us</a>
+  <!-- <div class="links">
+    <a class="btn" href=ExistingModels>Existing Models</a>
+    <a class="btn" href="#about">About</a>
+    <a class="btn" href="#services">Services</a>
+    <a class="btn" href=Home/completedProjects>Completed Projects</a>
     <a class="btn" href="#pricing">Pricing</a>
     <a class="btn" href="#contact">Contact Us</a>
-    <!-- <a class="btn" href="#blogs">Blogs</a> -->
 
-  </div>
+  </div> -->
 
-  <div class="credit">credited by <span>webuild construction</span> | all rights reserved!</div>
+  <div class="credit" style="margin: -2rem; font-size:medium;">credited by <span>WeBuild</span> | all rights reserved!</div>
 
 
 </section>
@@ -701,7 +677,7 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 
@@ -710,10 +686,10 @@ University%20of%20Colombo%20School%20of%20Computing%20(UCSC)!5e0!3m2!1sen!2slk!4
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
  <script src="<?=ROOT?>/js/newhome.js"></script>
-
+<!-- 
  <script>
   lightGallery(document.querySelector('.projects .box-container'));
- </script>
+ </script> -->
 
 </body>
 </html>

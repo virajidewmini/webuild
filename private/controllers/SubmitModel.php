@@ -5,6 +5,12 @@ use Respect\Validation\Validator as v;
     class SubmitModel extends Controller{
         
         public function index(){
+
+            if(!Auth::logged_in()){
+                $this->redirect('/login');
+            }
+
+
             $paintView=new Paint();
             $data1=$paintView->where("type","INTERIOR");
             $data_kitchen=$paintView->where("type","KIT&BATH");
@@ -169,7 +175,7 @@ use Respect\Validation\Validator as v;
 
                     $request=[
                         'user_id'=>Auth::id(),
-                        'model_id'=>1,
+                        'model_id'=>$_SESSION['model_id'],
                         'modification_id'=>$modification_id,
                         'payment_plan_id'=>(int)$_POST['type'],
                         'date'=>date('Y-m-d'),

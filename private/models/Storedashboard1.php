@@ -6,6 +6,7 @@ class Storedashboard1 extends Model
     protected $table10 = "maintain";
 
     
+    
     // Other methods...
 }
 ?>

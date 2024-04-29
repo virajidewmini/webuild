@@ -36,7 +36,7 @@ class Material_requests extends Model
 
 
         $query = "SELECT * FROM suppliers        
-        WHERE suppliers.material = :value";
+        WHERE material = :value";
 
         return $this->query($query, [
             'value' => $value,
@@ -120,14 +120,29 @@ class Material_requests extends Model
     }
 
 
-    public function remaining_req($value)
+    public function remaining_req($p_id)
     {
 
-        $query = "SELECT mr.request_id, mr.project_id, mr.level, mr.material_or_item_id, mr.material_or_item_name, mr.mesure_unit, (mr.quantity - mqd.send_total_quantity) AS remaining_quantity FROM project_material_quatation AS pmq JOIN material_requests AS mr ON pmq.request_id = mr.request_id JOIN material_quatation_detail AS mqd ON pmq.id = mqd.quatation_id AND mr.material_or_item_id = mqd.material_or_item_id WHERE pmq.status = 'Remaining' AND mr.request_id = :value";
+        $query = "SELECT material_requests.*, material_quatation_detail.quotation_id
+        FROM material_requests
+        INNER JOIN material_quatation_detail ON material_requests.request_id = material_quatation_detail.request_id
+        WHERE material_requests.status = 'Remain' AND material_requests.project_id = :p_id
+        GROUP BY material_requests.request_id";
 
 
         return $this->query($query, [
-            'value' => $value,
+            'p_id' => $p_id,
+        ]);
+    }
+
+    public function remaining_req_details($r_id)
+    {
+
+        $query = "SELECT material_requests.*, material_requests.quantity - material_quatation_detail.send_total_quantity AS remain_quantity FROM material_requests INNER JOIN material_quatation_detail ON material_requests.request_id = material_quatation_detail.request_id WHERE material_requests.status = 'Remain' AND material_requests.material_or_item_id = material_quatation_detail.material_or_item_id AND material_requests.request_id = :r_id GROUP BY material_requests.material_or_item_id";
+
+
+        return $this->query($query, [
+            'r_id' => $r_id,
         ]);
     }
 

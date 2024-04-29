@@ -13,6 +13,11 @@
 
             $quotation=new Quotation();
             $project_details=$quotation->getProjectDetails($msg_id)[0];
+
+            //change quotation to Display so the customer can view it
+            $UPDATEarray['status']="Display";
+            $quotation->update($msg_id,$UPDATEarray);
+            //$quotation->changeQuotationStatustoDisplay($msg_id);
            
 
             $payments=new Payments();
@@ -126,6 +131,17 @@
         }
 
 
+        public function viewallecentquotations(){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+            $quotation = new Quotation();
+
+            $data = $quotation->getAllPendingQuotations();
+            
+            $this->view("coordinatorviewquotations",['rows'=>$data]);
+        }
 
     }
 ?>

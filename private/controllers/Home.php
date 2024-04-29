@@ -4,22 +4,18 @@
     class Home extends Controller{
 
         public function index(){
-
-
-           
-
-
-           
-            $complaints=new C_Complaint();
-
-           $data=$complaints->findAll();
+         $homerating=new Homerating();
+           $data=$homerating->getrating();
             
+
+         
             
            $this->view('homeNewLanding',['rows'=> $data]);
             // $this->view('homeLanding',['rows'=> $data]);
 
 
         }
+
 
         public function houses(){
            $this->view('homepagehouses');
@@ -30,9 +26,11 @@
          public function completedProjects(){
             $this->view('homeNewcompletedprojects');
          }
-         public function staff(){
-            $this->view('homeNewStaff');
-         }
+         // public function staff(){
+         //    $this->view('homeNewStaff');
+         // }
+
+
 
     }
 ?>
