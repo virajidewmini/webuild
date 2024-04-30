@@ -253,127 +253,151 @@
                             <?php if ($rowba) : ?>
                                 <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
                                     <legend style="color:black;" class="Formlegend"><b>Bathroom</b></legend>
-                                    <div class="column">
-                                        <label for="firstname">Color Code :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowba[0]->paint->color ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Color Name :</label>
-                                        <input type="text" value="<?= $rowba[0]->paint->name ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="firstname">Tile ID :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowba[0]->tile->id ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Tile Name :</label>
-                                        <input type="text" value="<?= $rowba[0]->tile->name ?>">
-                                    </div>
+                                    <?php if ($rowba[0]->paint_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Color Code :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowba[0]->paint->color ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Color Name :</label>
+                                            <input type="text" value="<?= $rowba[0]->paint->name ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($rowba[0]->tile_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Tile ID :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowba[0]->tile->id ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Tile Name :</label>
+                                            <input type="text" value="<?= $rowba[0]->tile->name ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </fieldset>
                             <?php endif; ?>
                             <?php if ($rowl) : ?>
                                 <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
                                     <legend style="color:black;" class="Formlegend"><b>Living Room</b></legend>
-                                    <div class="column">
-                                        <label for="firstname">Color Code :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowl[0]->paint->color ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Color Name :</label>
-                                        <input type="text" value="<?= $rowl[0]->paint->name ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="firstname">Tile ID :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowl[0]->tile->id ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Tile Name :</label>
-                                        <input type="text" value="<?= $rowl[0]->tile->name ?>">
-                                    </div>
+                                    <?php if ($rowl[0]->paint_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Color Code :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowl[0]->paint->color ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Color Name :</label>
+                                            <input type="text" value="<?= $rowl[0]->paint->name ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($rowl[0]->tile_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Tile ID :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowl[0]->tile->id ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Tile Name :</label>
+                                            <input type="text" value="<?= $rowl[0]->tile->name ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </fieldset>
                             <?php endif; ?>
                             <?php if ($rowbe) : ?>
                                 <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
                                     <legend style="color:black;" class="Formlegend"><b>Bedroom</b></legend>
-                                    <div class="column">
-                                        <label for="firstname">Color Code :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowbe[0]->paint->color ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Color Name :</label>
-                                        <input type="text" value="<?= $rowbe[0]->paint->name ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="firstname">Tile ID :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowbe[0]->tile->id ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Tile Name :</label>
-                                        <input type="text" value="<?= $rowbe[0]->tile->name ?>">
-                                    </div>
+                                    <?php if ($rowbe[0]->paint_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Color Code :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowbe[0]->paint->color ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Color Name :</label>
+                                            <input type="text" value="<?= $rowbe[0]->paint->name ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($rowbe[0]->tile_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Tile ID :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowbe[0]->tile->id ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Tile Name :</label>
+                                            <input type="text" value="<?= $rowbe[0]->tile->name ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </fieldset>
                             <?php endif; ?>
                             <?php if ($rowd) : ?>
                                 <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
                                     <legend style="color:black;" class="Formlegend"><b>Dining</b></legend>
-                                    <div class="column">
-                                        <label for="firstname">Color Code :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowd[0]->paint->color ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Color Name :</label>
-                                        <input type="text" value="<?= $rowd[0]->paint->name ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="firstname">Tile ID :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowd[0]->tile->id ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Tile Name :</label>
-                                        <input type="text" value="<?= $rowd[0]->tile->name ?>">
-                                    </div>
+                                    <?php if ($rowd[0]->paint_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Color Code :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowd[0]->paint->color ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Color Name :</label>
+                                            <input type="text" value="<?= $rowd[0]->paint->name ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($rowd[0]->tile_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Tile ID :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowd[0]->tile->id ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Tile Name :</label>
+                                            <input type="text" value="<?= $rowd[0]->tile->name ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </fieldset>
                             <?php endif; ?>
                             <?php if ($rowe) : ?>
                                 <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
                                     <legend style="color:black;" class="Formlegend"><b>Exterior</b></legend>
-                                    <div class="column">
-                                        <label for="firstname">Color Code :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowe[0]->paint->color ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Color Name :</label>
-                                        <input type="text" value="<?= $rowe[0]->paint->name ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="firstname">Tile ID :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowe[0]->tile->id ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Tile Name :</label>
-                                        <input type="text" value="<?= $rowe[0]->tile->name ?>">
-                                    </div>
+                                    <?php if ($rowe[0]->paint_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Color Code :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowe[0]->paint->color ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Color Name :</label>
+                                            <input type="text" value="<?= $rowe[0]->paint->name ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($rowe[0]->tile_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Tile ID :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowe[0]->tile->id ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Tile Name :</label>
+                                            <input type="text" value="<?= $rowe[0]->tile->name ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </fieldset>
                             <?php endif; ?>
                             <?php if ($rowk) : ?>
                                 <fieldset style="margin:10px;padding:10px;" class="FormFieldset">
                                     <legend style="color:black;" class="Formlegend"><b>Kitchen</b></legend>
-                                    <div class="column">
-                                        <label for="firstname">Color Code :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowk[0]->paint->color ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Color Name :</label>
-                                        <input type="text" value="<?= $rowk[0]->paint->name ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="firstname">Tile ID :</label>
-                                        <input type="text" name="customer_name" value="<?= $rowk[0]->tile->id ?>">
-                                    </div>
-                                    <div class="column">
-                                        <label for="lastName">Tile Name :</label>
-                                        <input type="text" value="<?= $rowk[0]->tile->name ?>">
-                                    </div>
+                                    <?php if ($rowk[0]->paint_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Color Code :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowk[0]->paint->color ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Color Name :</label>
+                                            <input type="text" value="<?= $rowk[0]->paint->name ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($rowk[0]->tile_id) : ?>
+                                        <div class="column">
+                                            <label for="firstname">Tile ID :</label>
+                                            <input type="text" name="customer_name" value="<?= $rowk[0]->tile->id ?>">
+                                        </div>
+                                        <div class="column">
+                                            <label for="lastName">Tile Name :</label>
+                                            <input type="text" value="<?= $rowk[0]->tile->name ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </fieldset>
                             <?php endif; ?>
                         </div>
@@ -405,7 +429,9 @@
                             </div>
                             <div class="column">
                                 <label for="occupation">Block Plan :</label>
-                                <input type="text" id="contactnumber" name="contactnumber" value="<?= $row3[0]->land->ul_block_plan ?>">
+                                <a target="_blank" href="<?= ROOT ?>/uploads/<?= $blockplan[0]->file_name; ?>">
+                                    <button style="width:100px;">View</button>
+                                </a>
                             </div>
                             <div class="column">
                                 <label for="lastName">Area in perch :</label>
@@ -413,7 +439,9 @@
                             </div>
                             <div class="column">
                                 <label for="lastName">Image :</label>
-                                <input type="text" id="occupation" name="occupation" value="<?= $row3[0]->land->image ?>">
+                                <a target="_blank" href="<?= ROOT ?>/uploads/<?= $landphoto[0]->file_name; ?>">
+                                    <button style="width:100px;">View</button>
+                                </a>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -563,6 +591,8 @@
                                 <th>Task ID</th>
                                 <th>Task Name</th>
                                 <th>Status</th>
+                                <th>Start Date</th>
+                                <th>Estimate End Date</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -574,6 +604,8 @@
                                             <td><?= $row->task_id ?></td>
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
+                                            <td><?= $row->est_start_date ?></td>
+                                            <td><?= $row->est_end_date ?></td>
                                             <td>
                                                 <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $project_id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
@@ -585,6 +617,8 @@
                                             <td><?= $row->task_id ?></td>
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
+                                            <td><?= $row->est_start_date ?></td>
+                                            <td><?= $row->est_end_date ?></td>
                                             <td>
                                                 <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $project_id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
@@ -599,6 +633,8 @@
                                             <td><?= $row->task_id ?></td>
                                             <td><?= $row->task->task_name ?></td>
                                             <td><?= $row->status ?></td>
+                                            <td><?= $row->est_start_date ?></td>
+                                            <td><?= $row->est_end_date ?></td>
                                             <td>
                                                 <a href="<?= ROOT ?>/Pmtask/allocateTaskDetails/<?= $row->task_id ?>/<?= $project_id ?>/<?= $row->feedback ?>/">
                                                     <button><i class="fa-solid fa-eye"></i></button>
@@ -686,7 +722,7 @@
             </div>
         </div>
         <div class="pro-id-details">
-            <h2 style="margin:0 0 20px 20px">MATERIALS</h2>
+            <h2 class="ind-topic" style="margin:0 0 20px 20px">MATERIALS</h2>
             <div class="table">
                 <div class="table_header">
                     <h3>Sent request</h3>
@@ -812,7 +848,7 @@
                                         <td><?= $row->quotation_id; ?></td>
                                         <td><?= $row->level; ?></td>
                                         <td>
-                                        <a href="<?= ROOT ?>/Pmmaterial/materialReceived_view/<?= $row->quotation_id; ?>/<?= $row->project_id; ?>/<?= $row->level; ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
+                                            <a href="<?= ROOT ?>/Pmmaterial/materialReceived_view/<?= $row->quotation_id; ?>/<?= $row->project_id; ?>/<?= $row->level; ?>/"><button><i class="fa-solid fa-eye"></i></button></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -902,8 +938,22 @@
                 </div>
             </div>
         <?php endif; ?>
+        <?php if((int)(($row6[0]->total_progress) / ($row4[0]->task_count))==100): ?>
+        <div class="table_header" style="width:400px; background-color:#fff">
+
+            <h3 class="ind-topic">Is Project Completed?</h3>
+            <div>
+                <a href="<?= ROOT ?>/Pmongoingproject/completeProject/<?= $project_id ?>/"><button style="background-color:#E5863D; color:white;" class="add___">Yes</button></a>
+            </div>
+        </div>
+        <?php endif; ?>
 
     </div>
+
+</div>
+
+
+
 </div>
 <script>
     const task_accept = document.getElementById('task_accept');

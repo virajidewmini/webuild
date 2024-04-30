@@ -54,7 +54,9 @@ class Pmongoingproject extends Controller
 		$data8 = $exterior->where('modification_id', $mid);
 
 		$project_request = new Project_requests();
-		$data9 = $project_request->where('id', $req);
+		$data9 = $project->where('id', $id);
+		$blockplan = $project_request->getBlockPlan($mid);
+		$landphoto = $project_request->getLandPhoto($mid);
 
 		$task = new Tasks();
 		$data10 = $task->taskCount($model);
@@ -110,6 +112,8 @@ class Pmongoingproject extends Controller
 			'rows3' => $data21,
 			'rows4' => $data22,
 			'project_id' => $id,
+			'blockplan' => $blockplan,
+			'landphoto' => $landphoto,
 		]);
 	}
 
@@ -126,6 +130,17 @@ class Pmongoingproject extends Controller
 
 		$allocated_task = new Allocated_tasks();
 		$allocated_task->PMRejectTask($p_id, $t_id);
+		echo '<script>window.history.back();</script>';
+	}
+
+	public function completeProject($p_id = null)
+	{
+
+		$project = new Projects();
+		$project->completeTheProject($p_id);
+		$notification = new Notifications();
+		$msg = $notification->completeProjectnotify($p_id);
+		$notification->insert($msg);
 		echo '<script>window.history.back();</script>';
 	}
 }
