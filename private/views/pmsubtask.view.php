@@ -80,7 +80,7 @@
                 <h4>Task ID :</h4>
             </div>
             <div class="e-id-d">
-            <h4 style="margin-left:20px"><?= $task_id ?></h4>
+                <h4 style="margin-left:20px"><?= $task_id ?></h4>
             </div>
         </div>
         <div class="table_section">
@@ -114,7 +114,7 @@
                                     <td><?= $row->remark ?></td>
                                 </tr>
                             <?php else : ?>
-                                <tr >
+                                <tr>
                                     <td><?= $row->subtask_id ?></td>
                                     <td><?= $row->subtask->sub_task_name ?></td>
                                     <td><?= $row->subtask->sub_task_details ?></td>
@@ -132,22 +132,48 @@
             <div class="unit">
                 <h3>Evidence </h3>
             </div>
-            <div class="e-id-d">
+            
             </div>
         </div>
-        <?php if($remark) : ?>
-        <div class="unit-d">
-            <div class="unit">
-                <h3>Remark from Client :</h3>
+        <div id="gallery">
+            
+                <?php if ($photo) : ?>
+                    <div style="display:flex;">
+                    <?php foreach ($photo as $row) : ?>
+                        
+                        <a href="<?= ROOT ?>/uploads/<?= $row->file_name ?>">
+                            <img style="width:400px; height:auto;" src="<?= ROOT ?>/uploads/<?= $row->file_name ?>" alt="Image ">
+                        </a>
+                        
+                    <?php endforeach; ?>
+                    </div>
+                <?php else : ?>
+                    <p>No Photograph evidence</p>
+                <?php endif; ?>
+        <?php if ($remark) : ?>
+            <div class="unit-d">
+                <div class="unit">
+                    <h3>Remark from Client :</h3>
+                </div>
+                <div class="e-id-d">
+                    <h4><?= $remark ?></h4>
+                </div>
             </div>
-            <div class="e-id-d">
-                <h4><?= $remark ?></h4>
-            </div>
-        </div>
         <?php endif; ?>
-        
-    </div>
 
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lg-thumbnail@1.10.0/dist/lg-thumbnail.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lightGallery(document.getElementById('gallery'), {
+                mode: 'lg-fade',
+                download: false,
+                thumbnail: true
+            });
+        });
+    </script>
 
     <?php $this->view('includes/footer'); ?>
 <?php else : ?>

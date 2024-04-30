@@ -23,19 +23,17 @@ class Pmtask extends Controller
                 $data1 = $allocated_task->where2('status', 'Ongoing', 'project_id', $project_id);
                 $data2 = $projects->get_allToDoTasks_P($project_id);
                 $data3 = $allocated_task->AllowTask($project_id);
-            }
-            else {
+            } else {
                 $data1 = $allocated_task->OngoingAllTask($pmid);
                 $data2 = array();
                 $data3 = array();
             }
-        } 
-        else {
+        } else {
             $data1 = $allocated_task->OngoingAllTask($pmid);
             $data2 = array();
             $data3 = array();
         }
-        
+
 
         $this->view('pmtask', [
             'rows' => $data,
@@ -116,11 +114,24 @@ class Pmtask extends Controller
         }
         $allocated_subtasks = new Allocated_subtasks();
         $data = $allocated_subtasks->where2('task_id', $task_id, 'project_id', $project_id);
+
+        $model = new Photograph();
+        $reference_id = $model->getReferenceId($project_id, $task_id);
+        $fileName = null;
+
+        if (!empty($reference_id)) {
+
+            $photo = new Attachment();
+            $fileName = $photo->where("reference_id", $reference_id[0]->reference_id);
+        }
+
+
         $this->view('pmsubtask', [
             'rows' => $data,
             'project_id' => $project_id,
             'task_id' => $task_id,
             'remark' => $remark,
+            'photo' => $fileName,
         ]);
     }
 

@@ -1,14 +1,18 @@
-<?php if (Auth::getRole() == 'Admin' || Auth::getRole() == 'Project Coordinator' || Auth::getRole() == 'Project Manager') : ?>
+<?php if (Auth::getRole() == 'Admin' || Auth::getRole() == 'Project Coordinator' || Auth::getRole() == 'Project Manager' || Auth::getRole() == 'Supervisor' || Auth::getRole() == 'Storekeeper') : ?>
     <?php $this->view('includes/header') ?>
 
     <div class="profile_area" style="margin-top:100px;">
-        <div class="profile_row" >
+        <div class="profile_row">
             <div class="profile_col-4" style="display: grid; place-content: center; justify-items: center;">
-                <img src="<?= ROOT ?>/img/profile.jpg" alt="User Image" class="profile_img" style="width: 200px;">
+                    <?php if (Auth::getGender() == 'female') { ?>
+                        <img src="<?= ROOT ?>/img/profilefemale.png" alt="User Image" class="profile_img" style="width: 200px;">
+                    <?php } else { ?>
+                        <img src="<?= ROOT ?>/img/profilemale.png" alt="User Image" class="profile_img" style="width: 200px;">
+                    <?php } ?>
                 <h2 style="text-align:center; margin-top:10px;"><?= Auth::getFirstname() ?> <?= Auth::getLastname() ?></h2>
             </div>
             <div class="profile_col-8">
-                <table class="profile_table" >
+                <table class="profile_table">
                     <tr>
                         <th style="display:felx; text-align:left;">User ID:</th>
                         <td style="display:felx; text-align:left;"><?= Auth::getId() ?></td>
