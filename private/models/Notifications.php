@@ -369,5 +369,23 @@ class Notifications extends Model{
             'value' => $value,
         ]);
     }
+
+    public function completeProjectnotify($project_id)
+    {
+
+
+
+
+        $notification_data = [
+            'date' => date('Y-m-d'),
+            'staff_id' => 1,
+            'message' => 'The Project, by '.$project_id.' has been completed',
+            'status' => 'Unseen',
+            'type' => 'startproject',
+            'msg_id' => $project_id,
+        ];
+
+        return $notification_data;
+    }
 }
 ?>

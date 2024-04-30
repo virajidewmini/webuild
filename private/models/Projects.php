@@ -360,4 +360,14 @@ class Projects extends Model
 
         return $this->query($query);
     }
+
+    public function completeTheProject($id){
+
+        $query = "UPDATE Projects
+        SET status = 'Completed'
+        WHERE id = :id";
+        $data['id'] = $id;
+
+        return $this->query($query, $data);
+    }
 }
