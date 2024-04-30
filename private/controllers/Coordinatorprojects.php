@@ -47,6 +47,12 @@
             if(!Auth::logged_in()){
                 $this->redirect('/staff_login');
             }
+
+            //to change the notification status as seen
+            $notification = new Notifications();
+            $notification->updateProjectStartNotification($project_id);
+
+
             
             //here I've used the same body within project_rquest see more controller.
             //So I have to take the project_request id from the project table which is relavent to that project
@@ -56,6 +62,13 @@
 
             $project_requests = new Project_requests();
             $data['common'] = $project_requests->requests($id['jj']->project_request_id)[0];
+
+
+
+            //since I use request functions here for status I get the projectrequest status onnly
+            $data['status']=$projects->getStatus($project_id)[0];
+
+
             
             if(!empty($data['common']->manager_id)){
 
@@ -145,6 +158,32 @@
             $data=$projects->CancelledProjects();
 
             $this->view('coordinatorviewongoingprojects',['rows'=>$data]);
+        }
+
+        
+        
+        public function notifyend($project_id=null,$user_id=null){
+            if(!Auth::logged_in()){
+                $this->redirect('/staff_login');
+            }
+
+            $notification = new Notifications();
+
+            $row['date'] = date("Y-m-d H:i:s");
+            $row['message'] = "We have compeleted your Project , ID : ". $project_id ." Hope You had a great experience. Good Luck ! ";
+            $row['customer_id'] = $user_id;
+            $row['type']="projectend";
+            $row['status']="Unseen";
+            $row['msg_id']=$project_id;
+
+            $notification->insert($row);
+
+            $projects = new Projects();
+            $req['status'] = "Notified";
+            
+            $projects->update($project_id,$req);
+
+            //$this->redirect('coordinatorprojects/completed');
         }
 
     }

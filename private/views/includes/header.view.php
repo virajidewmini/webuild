@@ -150,6 +150,8 @@
                               <a href="<?=ROOT?>/coordinatorrequests/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php elseif ($row->type == 'quotation_pm_to_co'):?>
                               <a href="<?=ROOT?>/coordinatorviewquotation/<?=$row->msg_id?>"><?=$row->message?></a>
+                            <?php elseif ($row->type == 'startproject'):?>
+                              <a href="<?=ROOT?>/coordinatorprojects/seemore/<?=$row->msg_id?>"><?=$row->message?></a>
                             <?php endif;?>
 
                               <hr style="margin: 4px 0; border: none; border-top: 1px solid #ccc;">
@@ -312,13 +314,30 @@
                             </li>
                           <?php endforeach;?>
                         <?php else:?>
-                            <li>" " &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp No Notifications</li>
+                            <li> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp No Notifications</li>
                             <hr>
                         <?php endif;?> 
                       </ul>
                   </div>
 
                   <script>
+                    let liList=document.querySelectorAll(".side-menu.top>li")
+
+
+
+                    liList.forEach(li=>{
+                      let value=li.dataset.url;
+                      let url=document.URL
+                      if (url.includes(value)) {
+                        li.classList.add("active")
+                      }else{
+                        li.classList.remove("acive")
+                      }
+                    })
+
+
+
+
                       document.addEventListener('DOMContentLoaded', function() {
                           const bellIcon = document.getElementById('notificationBell');
                           const dropdown = document.getElementById('notificationDropdown');
@@ -339,19 +358,7 @@
 
 
 
-                      let liList=document.querySelectorAll(".side-menu.top>li")
-
-
-
-                      liList.forEach(li=>{
-                        let value=li.dataset.url;
-                        let url=document.URL
-                        if (url.includes(value)) {
-                          li.classList.add("active")
-                        }else{
-                          li.classList.remove("acive")
-                        }
-                      })
+                      
                   </script>
                  
                   <a href="<?=ROOT?>/Staffprofile" class="profile">

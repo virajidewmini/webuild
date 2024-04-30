@@ -12,7 +12,7 @@
       
       <form method="post">
 
-      <h1>Staff Login</h1>
+      <h1>Login</h1>
         
       <!-- error dispaly -->
       <?php if(count($errors) >0):?>

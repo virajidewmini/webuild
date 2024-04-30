@@ -96,6 +96,18 @@ class Notifications extends Model{
         ]);
     }
 
+    public function updateProjectStartNotification($value){
+        
+
+        $query="UPDATE notifications set notifications.status='Seen'       
+        WHERE notifications.msg_id = :value AND notifications.type='startproject' "; 
+        
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
+    }
+
     public function updateComplaintNotification($value){
         
 

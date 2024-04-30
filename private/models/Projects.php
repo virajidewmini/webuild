@@ -347,7 +347,7 @@ class Projects extends Model
 
         $query = "SELECT * FROM Projects
         
-        WHERE projects.status = 'Complete' ";
+        WHERE projects.status = 'Completed' OR projects.status = 'Notified' ";
 
         return $this->query($query);
     }
@@ -359,5 +359,18 @@ class Projects extends Model
         WHERE projects.status = 'Cancelled' ";
 
         return $this->query($query);
+    }
+
+    
+    public function getStatus($value){
+
+        $query = "SELECT projects.status FROM Projects
+        
+        WHERE projects.id = :value ";
+
+        //return $this->query($query);
+        return $this->query($query, [
+            'value' => $value,
+        ]);
     }
 }

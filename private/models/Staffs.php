@@ -512,7 +512,7 @@ class Staffs extends Model{
         $query="SELECT staff.id, staff.district, staff.firstname, staff.lastname, staff.project_count, 
         COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Ongoing' AND projects.supervisor_id = staff.id), 0) 
             AS current_working_projects_count, 
-        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' AND projects.supervisor_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
+        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' OR projects.status = 'Notified' AND projects.supervisor_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
             AS worked_project_count 
         FROM staff WHERE staff.district = :value
         AND staff.role = 'Supervisor' ORDER BY staff.project_count ASC";
@@ -527,7 +527,7 @@ class Staffs extends Model{
         $query="SELECT staff.id, staff.district, staff.firstname, staff.lastname, staff.project_count, 
         COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Ongoing' AND projects.supervisor_id = staff.id), 0) 
             AS current_working_projects_count, 
-        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' AND projects.supervisor_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
+        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' OR projects.status='Notified' projects.supervisor_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
             AS worked_project_count 
         FROM staff WHERE staff.role = 'Supervisor' ORDER BY staff.project_count ASC";
 

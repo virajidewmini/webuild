@@ -71,6 +71,18 @@ class Request extends Controller
         $requestSecondModel = new Requests();
         $data = $requestSecondModel->toQuotation($id);
 
+
+        $notification = new Notifications();
+        $row1['date'] = date("Y-m-d H:i:s");
+        $row1['message'] = "Material Request ID : " . $id . " is now HANDLED. We are extremely sorry for the inconvenience caused.";
+        $row1['staff_id'] = 1;
+        $row1['type']="quotation_pm_to_co";
+        $row1['status']="Unseen";
+        $row1['msg_id']=$id;
+
+        $notification->insert($row1);
+        
+
         // Pass the data to the second view
         $this->view('storekeeperRequestQuotation', ['rows' => $data, 'r_id' => $id, 'district' => $district, 'errors' => $errors]);
     }

@@ -1,7 +1,7 @@
 <?php if(Auth::getRole()== 'Project Coordinator'): ?>
 <?php $this->view('includes/header')?>
 
-<!-- <pre><?php print_r($rows["model_details"]);?></pre> -->
+<!-- <pre><?php print_r($rows["common"]);?></pre> -->
      <div  class="table_header" >
           
           
@@ -10,20 +10,58 @@
      <div style="text-align:center;"><h3>Project ID : <?= $rows["common"]->id;?> </h3></div>
      
      <div class="form_container">
+               <fieldset style="padding:10px;" class="FormFieldset" >
+               
+                    <div class="form-group">
+                      <br>  
+                               
+                         <?php if ($rows["status"]->status=='Completed'):?>
+                              <div class="column">                   
+                                   <label for="firstname">Status</label>
+                                   <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["status"]->status;?>">
+                              </div>
+                              
+                         </div>
+                    </fieldset><div style="display: flex; justify-content: right;" >
+                              <a href="<?=ROOT?>/coordinatorprojects/notifyend/<?= $rows["common"]->id;?>/<?= $rows["common"]->user->id;?>">
+                                   <input type="button" value="Notify Customer"class="save-button">
+                              </a></div>
+                         <?php elseif ($rows["status"]->status=='Notified'):?>
+                              <div class="column">                   
+                                   <label for="firstname">Status</label>
+                                   <input type="text" readonly id="occupation" name="occupation"value= "Completed">
+                              </div>  
+                         </div>
+               </fieldset>
+                                  
+                         <?php else:?>
+                              <div class="column">                   
+                                   <label for="firstname">Status</label>
+                                   <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["status"]->status;?>">
+                              </div>
+                         </div>
+               </fieldset>
+                         <?php endif;?>
+
+                    
+
+
+               <br><br>
          
                <fieldset class="FormFieldset" >
                     <legend class="Formlegend"> Customer Details</legend>
             
                     <div class="form-group">
                          <br>
+
                          
                          <div class="column">                   
                               <label for="firstname">First Name</label>
-                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->firstname;?>">
+                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->user->firstname;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Last Name</label>
-                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->lastname;?>">
+                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->user->lastname;?>">
                          </div>
                          <div class="column">
                               <label for="occupation">Occupation</label>
@@ -36,11 +74,11 @@
                          </div>
                          <div class="column">
                               <label for="occupation">Contact Number</label>
-                              <input type="text" readonly id="contactnumber" name="contactnumber" value= "<?= $rows["common"]->contactnumber;?>">
+                              <input type="text" readonly id="contactnumber" name="contactnumber" value= "<?= $rows["common"]->user->contactnumber;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Email</label>
-                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->email;?>">
+                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->user->email;?>">
                          </div>
                     
                     </div>

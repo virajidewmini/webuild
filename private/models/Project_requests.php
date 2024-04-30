@@ -54,8 +54,8 @@ class Project_requests extends Model{
     public function requests($value){
 
 
-        $query="SELECT * FROM project_requests 
-        INNER JOIN user ON project_requests.user_id = user.id 
+        $query="SELECT project_requests.*,user_data.occupation,user_data .salary FROM project_requests 
+        -- INNER JOIN user ON project_requests.user_id = user.id 
         INNER JOIN user_data ON project_requests.modification_id = user_data.modification_id 
         
         WHERE project_requests.id = :value"; 
@@ -134,7 +134,7 @@ class Project_requests extends Model{
         $query="SELECT staff.id, staff.district, staff.firstname, staff.lastname, staff.project_count, 
         COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Ongoing' AND projects.manager_id = staff.id), 0) 
             AS current_working_projects_count, 
-        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' AND projects.manager_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
+        COALESCE((SELECT COUNT(*) FROM projects WHERE projects.status = 'Completed' OR projects.status='Notified' AND projects.manager_id = staff.id AND projects.date >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH)), 0) 
             AS worked_project_count 
         FROM staff WHERE staff.district = :value
         AND staff.role = 'Project Manager' ORDER BY staff.project_count ASC;";

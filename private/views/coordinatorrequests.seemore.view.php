@@ -63,11 +63,11 @@
                          
                          <div class="column">                   
                               <label for="firstname">First Name</label>
-                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->firstname;?>">
+                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->user->firstname;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Last Name</label>
-                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->lastname;?>">
+                              <input type="text" readonly id="occupation" name="occupation"value= "<?= $rows["common"]->user->lastname;?>">
                          </div>
                          <div class="column">
                               <label for="occupation">Occupation</label>
@@ -80,11 +80,11 @@
                          </div>
                          <div class="column">
                               <label for="occupation">Contact Number</label>
-                              <input type="text" readonly id="contactnumber" name="contactnumber" value= "<?= $rows["common"]->contactnumber;?>">
+                              <input type="text" readonly id="contactnumber" name="contactnumber" value= "<?= $rows["common"]->user->contactnumber;?>">
                          </div>
                          <div class="column">
                               <label for="lastName">Email</label>
-                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->email;?>">
+                              <input type="text" readonly id="occupation" name="occupation" value= "<?= $rows["common"]->user->email;?>">
                          </div>
                          <div class="column">
                               <label for="locationLink">Salary Proofing Document</label>
